@@ -1,0 +1,300 @@
+{
+  "kind": "non_normative_resource_samples",
+  "runs": [
+    {
+      "id": "create-model-dim1",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.11980179999954998,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08742679993156344,
+          "peak_pagefile_bytes": 2187264,
+          "peak_working_set_bytes": 9687040,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "fit-hermite-dim1",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14006889995653182,
+      "peak_private_bytes": 73728,
+      "peak_working_set_bytes": 28672,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10800499992910773,
+          "peak_pagefile_bytes": 3043328,
+          "peak_working_set_bytes": 12156928,
+          "private_bytes": 73728,
+          "thread_count": 4,
+          "working_set_bytes": 28672
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "evaluate-value-gradient-dim1",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12332689994946122,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.0903168999357149,
+          "peak_pagefile_bytes": 2879488,
+          "peak_working_set_bytes": 11079680,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "extract-model-dim1",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12984619999770075,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09389169991482049,
+          "peak_pagefile_bytes": 2207744,
+          "peak_working_set_bytes": 9596928,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "show-model-dim1",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12398479995317757,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08805709995795041,
+          "peak_pagefile_bytes": 2199552,
+          "peak_working_set_bytes": 9650176,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "create-model-dim2",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.11933559994213283,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08623829996213317,
+          "peak_pagefile_bytes": 2211840,
+          "peak_working_set_bytes": 9736192,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "fit-hermite-dim2",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.2230868999613449,
+      "peak_private_bytes": 1941504,
+      "peak_working_set_bytes": 5378048,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.0938678999664262,
+          "peak_pagefile_bytes": 1941504,
+          "peak_working_set_bytes": 5378048,
+          "private_bytes": 1941504,
+          "thread_count": 4,
+          "working_set_bytes": 5378048
+        },
+        {
+          "elapsed_seconds": 0.1845067999092862,
+          "peak_pagefile_bytes": 3727360,
+          "peak_working_set_bytes": 12550144,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "evaluate-value-gradient-dim2",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12958439998328686,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09306770004332066,
+          "peak_pagefile_bytes": 2879488,
+          "peak_working_set_bytes": 11157504,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "extract-model-dim2",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14213090005796403,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10187570005655289,
+          "peak_pagefile_bytes": 2203648,
+          "peak_working_set_bytes": 9629696,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "show-model-dim2",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12215229996945709,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.0910874999826774,
+          "peak_pagefile_bytes": 2195456,
+          "peak_working_set_bytes": 9687040,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "create-model-dim3",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12960200000088662,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09294910007156432,
+          "peak_pagefile_bytes": 2174976,
+          "peak_working_set_bytes": 9711616,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "fit-hermite-dim3",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13570320000872016,
+      "peak_private_bytes": 3727360,
+      "peak_working_set_bytes": 11755520,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09180599998217076,
+          "peak_pagefile_bytes": 3727360,
+          "peak_working_set_bytes": 11755520,
+          "private_bytes": 3727360,
+          "thread_count": 4,
+          "working_set_bytes": 11755520
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "evaluate-value-gradient-dim3",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13447279995307326,
+      "peak_private_bytes": 2859008,
+      "peak_working_set_bytes": 11161600,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09589469991624355,
+          "peak_pagefile_bytes": 2899968,
+          "peak_working_set_bytes": 11161600,
+          "private_bytes": 2859008,
+          "thread_count": 4,
+          "working_set_bytes": 11161600
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "extract-model-dim3",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12341070000547916,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09032610000576824,
+          "peak_pagefile_bytes": 2174976,
+          "peak_working_set_bytes": 9588736,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "show-model-dim3",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.10914370010141283,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.0758782000048086,
+          "peak_pagefile_bytes": 2179072,
+          "peak_working_set_bytes": 9662464,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    }
+  ],
+  "scenario_id": "cli-fit-evaluate",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,6612 @@
+{
+  "artifacts": [
+    {
+      "dimension": 1,
+      "family": "bh2",
+      "fitted": null,
+      "path": "dim1/bh2.model",
+      "role": "model",
+      "sha256": "430d6c252f5e3f51b41b0d7b111af35d2b95cff9a8d1f28c22648778d8789551",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "bh2",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/bh2.interpolant",
+      "role": "interpolant",
+      "sha256": "133b1ee667749b54dfc41743d7f7b39cc9f440d94b025aef30fbb84f67d0c65d",
+      "size": 232
+    },
+    {
+      "dimension": 1,
+      "family": "bh3",
+      "fitted": null,
+      "path": "dim1/bh3.model",
+      "role": "model",
+      "sha256": "cb5f0070bd6fff90ca2750a88d22c580898538e7bbe2adb046f35a323cc54afa",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "bh3",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/bh3.interpolant",
+      "role": "interpolant",
+      "sha256": "6e80c54f527d91847eb75496a673d3297ebf95dd0e81ba3a834fa1549dfed8d6",
+      "size": 224
+    },
+    {
+      "dimension": 1,
+      "family": "th2",
+      "fitted": null,
+      "path": "dim1/th2.model",
+      "role": "model",
+      "sha256": "38347fd9d0f98897775c5857e07ebd8c9f99c7eb4040ac63f479de56733973a8",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "th2",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/th2.interpolant",
+      "role": "interpolant",
+      "sha256": "1756d072f04e41c4ca998ef0f1dc0470506607528e98309c517b903af53d60d1",
+      "size": 240
+    },
+    {
+      "dimension": 1,
+      "family": "th3",
+      "fitted": null,
+      "path": "dim1/th3.model",
+      "role": "model",
+      "sha256": "9ecd810589363ddc88a73f0bba986e09acc065311f971e67278e51698b22b893",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "th3",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/th3.interpolant",
+      "role": "interpolant",
+      "sha256": "07a5157ad16c7f3e848668ccd36f986ce81a3df7ecfc9616572e7c19c89ce5f1",
+      "size": 232
+    },
+    {
+      "dimension": 1,
+      "family": "cub",
+      "fitted": null,
+      "path": "dim1/cub.model",
+      "role": "model",
+      "sha256": "3a9a5fa1f8f93f3baa6adc002361a6b1537f6a8c0e81b33361aab95283972263",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "cub",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/cub.interpolant",
+      "role": "interpolant",
+      "sha256": "27dad02ba65e0b5fc285a7bda827d8f8189b2d7e8252d2b7a67669d39ca4fc1c",
+      "size": 216
+    },
+    {
+      "dimension": 1,
+      "family": "exp",
+      "fitted": null,
+      "path": "dim1/exp.model",
+      "role": "model",
+      "sha256": "ce9251e38b3a70a5b7943592f15a358c6fd44a92a028a2f91f15ca85bb921fd2",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "exp",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/exp.interpolant",
+      "role": "interpolant",
+      "sha256": "de41d95221d03fbd781d5c4e511dcf2ca67ecb4598ea201398625a62d91c49d5",
+      "size": 216
+    },
+    {
+      "dimension": 1,
+      "family": "gau",
+      "fitted": null,
+      "path": "dim1/gau.model",
+      "role": "model",
+      "sha256": "3b509e3c0f3a0c90a670d81f785d40da59036747e5ca789f62699d18abeaf413",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "gau",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/gau.interpolant",
+      "role": "interpolant",
+      "sha256": "431962a3f40baadcc08b0f13235a68f58d6b4a57943c6e065046b8c15eecda98",
+      "size": 216
+    },
+    {
+      "dimension": 1,
+      "family": "gc3",
+      "fitted": null,
+      "path": "dim1/gc3.model",
+      "role": "model",
+      "sha256": "e7c4ce5d635ed9fbfefa0d7c2ad1f0b1528e8e948e27f6656715ed331c7b8645",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "gc3",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/gc3.interpolant",
+      "role": "interpolant",
+      "sha256": "d022d5b747caee104f299668326e2933462c14cb072a1e6fc5cfbc0bfea9c8d9",
+      "size": 216
+    },
+    {
+      "dimension": 1,
+      "family": "gc5",
+      "fitted": null,
+      "path": "dim1/gc5.model",
+      "role": "model",
+      "sha256": "8f6ceaefc47c31ec619c5de60c197a0a4a58030ff7e87b1c5415e0b993c8d24d",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "gc5",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/gc5.interpolant",
+      "role": "interpolant",
+      "sha256": "17add1c0e9f6539490feadc89ef7e81ce9ace61b9e8067d4996955649eb35243",
+      "size": 216
+    },
+    {
+      "dimension": 1,
+      "family": "gc7",
+      "fitted": null,
+      "path": "dim1/gc7.model",
+      "role": "model",
+      "sha256": "2d971b15995a1e0d8c31c4f8feb301d8db01bda8396e2373a159c39cf6f7bdaf",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "gc7",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/gc7.interpolant",
+      "role": "interpolant",
+      "sha256": "45096c1bbf725cb2c63d2eb7ef453f441728b99dbbba9ef05ef7db4ea54ec44b",
+      "size": 216
+    },
+    {
+      "dimension": 1,
+      "family": "gc9",
+      "fitted": null,
+      "path": "dim1/gc9.model",
+      "role": "model",
+      "sha256": "e810e59d610c8e91486f48d62632dea22cd8f70c7ffbd74fc0579132711f061d",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "gc9",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/gc9.interpolant",
+      "role": "interpolant",
+      "sha256": "e48cb82a8d6fd89301b381d202460005748e876e79e2df08659fac7c0fa5245a",
+      "size": 216
+    },
+    {
+      "dimension": 1,
+      "family": "sph",
+      "fitted": null,
+      "path": "dim1/sph.model",
+      "role": "model",
+      "sha256": "59e1cf7e7413f749bd328ae6e6d6da5c220e3190c507d6b1949bdac77dec93e7",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "sph",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/sph.interpolant",
+      "role": "interpolant",
+      "sha256": "d9ba44436dbab84b700890ccd32e8203f97670b10d60550d8e0d101c412e4539",
+      "size": 216
+    },
+    {
+      "dimension": 1,
+      "family": "sp3",
+      "fitted": null,
+      "path": "dim1/sp3.model",
+      "role": "model",
+      "sha256": "4df47b6292fe31d9e5c6bf6849504141dd4b0e690c112208d429a9a1f1dad45d",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "sp3",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/sp3.interpolant",
+      "role": "interpolant",
+      "sha256": "990ed4580da1f100afdbfed229afec960204db9c060df895dfb79b58859fdcf5",
+      "size": 216
+    },
+    {
+      "dimension": 1,
+      "family": "sp5",
+      "fitted": null,
+      "path": "dim1/sp5.model",
+      "role": "model",
+      "sha256": "757ab02422fed439bef2e79a98a09712ccdffc351a88995b4ae6ca80e794ab38",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "sp5",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/sp5.interpolant",
+      "role": "interpolant",
+      "sha256": "69e88edcbab53e159922394533996721fd8a1a69441a7c015a3de6f7b7973e0c",
+      "size": 216
+    },
+    {
+      "dimension": 1,
+      "family": "sp7",
+      "fitted": null,
+      "path": "dim1/sp7.model",
+      "role": "model",
+      "sha256": "3bef375b22276e97fc55f1a2855fbd41585ead4262fc2ab0e272c7e973fdff59",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "sp7",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/sp7.interpolant",
+      "role": "interpolant",
+      "sha256": "4d559a0cfaffbc220ed443a28d843de0387d082bec7990abf730fd95fa5b6486",
+      "size": 216
+    },
+    {
+      "dimension": 1,
+      "family": "sp9",
+      "fitted": null,
+      "path": "dim1/sp9.model",
+      "role": "model",
+      "sha256": "3dc8b5c6312927cb8991eae1d4da08fbb54ccfe85af535723fb1a614817bfbf1",
+      "size": 63
+    },
+    {
+      "dimension": 1,
+      "family": "sp9",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/sp9.interpolant",
+      "role": "interpolant",
+      "sha256": "aa27625d3b6e37f1a715fec485d940d6f295b2e68da0603a3c5f1f8c30b62752",
+      "size": 216
+    },
+    {
+      "dimension": 1,
+      "family": "composite:gau+exp",
+      "fitted": null,
+      "path": "dim1/composite.model",
+      "role": "model",
+      "sha256": "458136a4397075bc5f41eb52649ecfde677ae3e189d002e99d98a0eba182e7e8",
+      "size": 106
+    },
+    {
+      "dimension": 1,
+      "family": "composite:gau+exp",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim1/composite.interpolant",
+      "role": "interpolant",
+      "sha256": "3f27007eb69609d7deaecf996e26c09306f9383e5c9ffd3f5a7dc7505fa4ed5f",
+      "size": 267
+    },
+    {
+      "dimension": 1,
+      "family": "th3",
+      "fitted": true,
+      "observation_layout": "mixed_value_full_gradient",
+      "path": "dim1/th3-hermite.interpolant",
+      "role": "interpolant",
+      "sha256": "8970e55840ffbc44c87b5b34d454a87a80809f6b7d218f70d79835c4d49ca264",
+      "size": 264
+    },
+    {
+      "dimension": 1,
+      "import_scope": "differential_only_not_accepted_for_import",
+      "path": "dim1/variogram.differential-only",
+      "role": "variogram_set",
+      "sha256": "b90686ef27d6fd8bf01c5c6ac4ece9e1289ee77f553f73563a50c97d26dde459",
+      "size": 112
+    },
+    {
+      "dimension": 2,
+      "family": "bh2",
+      "fitted": null,
+      "path": "dim2/bh2.model",
+      "role": "model",
+      "sha256": "2edd4e85e2c74ba7cbbfdf61239138b4a7a2f33423940f6fc739c5f8533706d8",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "bh2",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/bh2.interpolant",
+      "role": "interpolant",
+      "sha256": "69fa3dc5ae75a429f28743721e449fc5b82c588ac0e7496aa3346588b2f06663",
+      "size": 384
+    },
+    {
+      "dimension": 2,
+      "family": "bh3",
+      "fitted": null,
+      "path": "dim2/bh3.model",
+      "role": "model",
+      "sha256": "6f7a10c09b44eadc1c24ec9959a97be4129e5913d0d63b8e98abbb2a29a9bc4c",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "bh3",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/bh3.interpolant",
+      "role": "interpolant",
+      "sha256": "9ac84ab406390005432ab664678c03de3353104bf46ec0e720639982351ec348",
+      "size": 368
+    },
+    {
+      "dimension": 2,
+      "family": "th2",
+      "fitted": null,
+      "path": "dim2/th2.model",
+      "role": "model",
+      "sha256": "90500e8b96b9103aafff40ae81fb8de3ccccd44eb9709b95779e540e4b2c8327",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "th2",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/th2.interpolant",
+      "role": "interpolant",
+      "sha256": "51805c91342cc244aba57ad05458e4da64158511670f4bf2e5bd3b2882cc699a",
+      "size": 408
+    },
+    {
+      "dimension": 2,
+      "family": "th3",
+      "fitted": null,
+      "path": "dim2/th3.model",
+      "role": "model",
+      "sha256": "2bfd83f988418dfbc1675b8f9230bb41ff431182fd2977c6cd2229d3a78688c7",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "th3",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/th3.interpolant",
+      "role": "interpolant",
+      "sha256": "2a5ae289b73cf76823f0ead954844ffee8f00537bb24d9b37b3ff3d9a47e9b0a",
+      "size": 384
+    },
+    {
+      "dimension": 2,
+      "family": "cub",
+      "fitted": null,
+      "path": "dim2/cub.model",
+      "role": "model",
+      "sha256": "ab1ad83e6511a83624789f4b80a5ed8f06e2487845b0c645e30571b9325692c4",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "cub",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/cub.interpolant",
+      "role": "interpolant",
+      "sha256": "fa9e843ca0a8f9b2d2595673ff7123b3f2523c7fc18bca959a148ff0f3a486df",
+      "size": 360
+    },
+    {
+      "dimension": 2,
+      "family": "exp",
+      "fitted": null,
+      "path": "dim2/exp.model",
+      "role": "model",
+      "sha256": "ae76238fcec305d49042867f239fb6c2cb81dd72d76ab3facace746ef2b2458c",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "exp",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/exp.interpolant",
+      "role": "interpolant",
+      "sha256": "fca3db8a3455f525d4e72aea39b5baaa647440f5291127430c518c4e8903d4ff",
+      "size": 360
+    },
+    {
+      "dimension": 2,
+      "family": "gau",
+      "fitted": null,
+      "path": "dim2/gau.model",
+      "role": "model",
+      "sha256": "bd64ac6140333b4f8882e20863bda86e7aefa06ac034ce7579abbe961b135a74",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "gau",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/gau.interpolant",
+      "role": "interpolant",
+      "sha256": "b8635f5871a4e1eec991d7d6d3ba65683e47eb5de1bacf71786d03dc3b518fad",
+      "size": 360
+    },
+    {
+      "dimension": 2,
+      "family": "gc3",
+      "fitted": null,
+      "path": "dim2/gc3.model",
+      "role": "model",
+      "sha256": "63f58de76ff2c1497dd73910b2c58c7795be127938b96431ffbe93fb4a3d1a76",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "gc3",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/gc3.interpolant",
+      "role": "interpolant",
+      "sha256": "a9dbff0af1804ce0477db9f9f592210355d1de9e702d9a3a755bc2844de6f714",
+      "size": 360
+    },
+    {
+      "dimension": 2,
+      "family": "gc5",
+      "fitted": null,
+      "path": "dim2/gc5.model",
+      "role": "model",
+      "sha256": "7d6553006f744250fe871cbb90eeb097b2daab3ed403ff08968710cd94533317",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "gc5",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/gc5.interpolant",
+      "role": "interpolant",
+      "sha256": "da307324794e6c02fbc12aa96807318233bd8d15bdb84ebbfd6fe93121074835",
+      "size": 360
+    },
+    {
+      "dimension": 2,
+      "family": "gc7",
+      "fitted": null,
+      "path": "dim2/gc7.model",
+      "role": "model",
+      "sha256": "e5e00230f3adf9183eb43497a559730cb14b6594b45585a5ff9fda800083bd26",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "gc7",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/gc7.interpolant",
+      "role": "interpolant",
+      "sha256": "e39c4393baf2e8a903bd0c6738898fb04dcb524fbc119c36593df39ddf310762",
+      "size": 360
+    },
+    {
+      "dimension": 2,
+      "family": "gc9",
+      "fitted": null,
+      "path": "dim2/gc9.model",
+      "role": "model",
+      "sha256": "81b448d3f6bd008279c6969aabf5a7414be7e3630615672a7ed3f9d246880564",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "gc9",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/gc9.interpolant",
+      "role": "interpolant",
+      "sha256": "17ade7978557b5e7a44f4ed4fd805045c5febb4664d4f32ebc2b7a0cac0f9850",
+      "size": 360
+    },
+    {
+      "dimension": 2,
+      "family": "sph",
+      "fitted": null,
+      "path": "dim2/sph.model",
+      "role": "model",
+      "sha256": "33e8f6b0275bcd8acc4150ca62b062b6c62f19fb6eaeed4c3b0b8481796dbbf5",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "sph",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/sph.interpolant",
+      "role": "interpolant",
+      "sha256": "0b05f9bd831f9986ac5c0aeef4b629cca6cdc5c7763ee8a45ea39bd5e80909e2",
+      "size": 360
+    },
+    {
+      "dimension": 2,
+      "family": "sp3",
+      "fitted": null,
+      "path": "dim2/sp3.model",
+      "role": "model",
+      "sha256": "0bb3c865928f3f009eb41edaf115a352f3ef5466755a52c43a65d8fc77eb27de",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "sp3",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/sp3.interpolant",
+      "role": "interpolant",
+      "sha256": "195f3e5ab8f5e84a9f0a5cb647f065f968a6e3cb74d9d6fc599b32899e98a6a1",
+      "size": 360
+    },
+    {
+      "dimension": 2,
+      "family": "sp5",
+      "fitted": null,
+      "path": "dim2/sp5.model",
+      "role": "model",
+      "sha256": "f789e1165c7b97ae7e2d21b63413e06b116576ac2bf3f782caf4c26380636677",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "sp5",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/sp5.interpolant",
+      "role": "interpolant",
+      "sha256": "eef76c930e89f1e03ccebc4ad95be808c62c3d12839706927dbd23975ccaca8b",
+      "size": 360
+    },
+    {
+      "dimension": 2,
+      "family": "sp7",
+      "fitted": null,
+      "path": "dim2/sp7.model",
+      "role": "model",
+      "sha256": "4f4c3025502f3ab229b5e491300c56ddf47b595d33c517adb643f1ba43e7271e",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "sp7",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/sp7.interpolant",
+      "role": "interpolant",
+      "sha256": "65599412bfe61f2c9919690711fd971a351a5905a8d80a96403f9f23470e7d91",
+      "size": 360
+    },
+    {
+      "dimension": 2,
+      "family": "sp9",
+      "fitted": null,
+      "path": "dim2/sp9.model",
+      "role": "model",
+      "sha256": "03a0ff030410e308f650d954d689896948c28d9d6d9c6c22f714836f957d7aed",
+      "size": 87
+    },
+    {
+      "dimension": 2,
+      "family": "sp9",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/sp9.interpolant",
+      "role": "interpolant",
+      "sha256": "06c8b6a5bd9c9c6aeb53c7c2c875eb6a585594432e3a6f10e1dcb3d9a982464b",
+      "size": 360
+    },
+    {
+      "dimension": 2,
+      "family": "composite:gau+exp",
+      "fitted": null,
+      "path": "dim2/composite.model",
+      "role": "model",
+      "sha256": "9753d51c03ef0aaea86b9799c9daf02391d8ecac04c09049160a121dc7c13e5d",
+      "size": 154
+    },
+    {
+      "dimension": 2,
+      "family": "composite:gau+exp",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim2/composite.interpolant",
+      "role": "interpolant",
+      "sha256": "77c927650cd2f664d337d94663ba3a8c446d4c7a08498c12b8c8bc7ad20af30f",
+      "size": 435
+    },
+    {
+      "dimension": 2,
+      "family": "th3",
+      "fitted": true,
+      "observation_layout": "mixed_value_full_gradient",
+      "path": "dim2/th3-hermite.interpolant",
+      "role": "interpolant",
+      "sha256": "a4f0865835d3e950c96faf03469ac336026b47a0b39e0001c2ee35553af2e858",
+      "size": 448
+    },
+    {
+      "dimension": 2,
+      "import_scope": "differential_only_not_accepted_for_import",
+      "path": "dim2/variogram.differential-only",
+      "role": "variogram_set",
+      "sha256": "1d513745b45c11f1b0b5644e31eb311116ed6d9222fe86b97d8920086f322ca8",
+      "size": 264
+    },
+    {
+      "dimension": 3,
+      "family": "bh2",
+      "fitted": null,
+      "path": "dim3/bh2.model",
+      "role": "model",
+      "sha256": "221e6ef495ae50b7db4d402bbd7a55aa1fe19cbff5c55eae30b45cf09d511480",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "bh2",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/bh2.interpolant",
+      "role": "interpolant",
+      "sha256": "b7b26c8bb8496b96ad3f8797570668fad6e8c2374c99f599799579a9a12987cf",
+      "size": 712
+    },
+    {
+      "dimension": 3,
+      "family": "bh3",
+      "fitted": null,
+      "path": "dim3/bh3.model",
+      "role": "model",
+      "sha256": "3ba28717f6f14be60a69bad83c28bb825c46b86688d230e28649e704dfd1682f",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "bh3",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/bh3.interpolant",
+      "role": "interpolant",
+      "sha256": "3aa17d9ba2a5bc4b1d383731bdcb6fdafbb6175ac272128634ea9dbfe643909c",
+      "size": 688
+    },
+    {
+      "dimension": 3,
+      "family": "th2",
+      "fitted": null,
+      "path": "dim3/th2.model",
+      "role": "model",
+      "sha256": "bd3461b5ba4b0d3f86bcb0db4a49f5d982d3cc018133d1495ba2d5b5ee2cdc1a",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "th2",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/th2.interpolant",
+      "role": "interpolant",
+      "sha256": "816426fb05700ce13a161f6860f2edc82dd6147703f5fc323599f1f9bac415e2",
+      "size": 760
+    },
+    {
+      "dimension": 3,
+      "family": "th3",
+      "fitted": null,
+      "path": "dim3/th3.model",
+      "role": "model",
+      "sha256": "9990763503a195d4d46913dc5611164d66ef48dcd96f72353dfd3b13886c2fcf",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "th3",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/th3.interpolant",
+      "role": "interpolant",
+      "sha256": "2340005be525f6241d92e7612c8894dd06ce23400d7c3bcfad59d706fdd01e0c",
+      "size": 712
+    },
+    {
+      "dimension": 3,
+      "family": "cub",
+      "fitted": null,
+      "path": "dim3/cub.model",
+      "role": "model",
+      "sha256": "b81147ddd73cc84f333c751f02c5c095dca42bb2e1c69dbd9f0ef40f04940bce",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "cub",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/cub.interpolant",
+      "role": "interpolant",
+      "sha256": "f8ef72f299dc9dcd3643310d759b8db0faa2b40c118bf581cf31586120edc5b6",
+      "size": 680
+    },
+    {
+      "dimension": 3,
+      "family": "exp",
+      "fitted": null,
+      "path": "dim3/exp.model",
+      "role": "model",
+      "sha256": "cd25b29e829e51cc61774bc2caeb5a4af344d90ade3c1da5b1fedd38216ca783",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "exp",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/exp.interpolant",
+      "role": "interpolant",
+      "sha256": "7fd70975c42471dcc263abbd30f5dbf272cc2a82d34d605b2a005e91f977dea5",
+      "size": 680
+    },
+    {
+      "dimension": 3,
+      "family": "gau",
+      "fitted": null,
+      "path": "dim3/gau.model",
+      "role": "model",
+      "sha256": "83be5bcb8de6d3d881d70426dcafa76fbf9119e2b35bb6fef1fc9c9af1df4f31",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "gau",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/gau.interpolant",
+      "role": "interpolant",
+      "sha256": "d47883e525cf1b21cd2ec364c6f9bc97c5722f7d866e8ac826ccc0330258bdfb",
+      "size": 680
+    },
+    {
+      "dimension": 3,
+      "family": "gc3",
+      "fitted": null,
+      "path": "dim3/gc3.model",
+      "role": "model",
+      "sha256": "2595d116c4f932c75a2cbe603611e2cca5bf5f1b20c84dbb58c415b3f128cdc0",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "gc3",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/gc3.interpolant",
+      "role": "interpolant",
+      "sha256": "f009bd43cf153c51cee38e638fe48f020685c9752b43c1575c97d1e51c50c38c",
+      "size": 680
+    },
+    {
+      "dimension": 3,
+      "family": "gc5",
+      "fitted": null,
+      "path": "dim3/gc5.model",
+      "role": "model",
+      "sha256": "a69c26c28a4078fa63f38e147b7265ffa07078b43e3dd60f81342b87280aa01e",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "gc5",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/gc5.interpolant",
+      "role": "interpolant",
+      "sha256": "ad1234867fb39e7c4c9f37b1cf3408661ac22e08e792b9732f4b2d8d297af60a",
+      "size": 680
+    },
+    {
+      "dimension": 3,
+      "family": "gc7",
+      "fitted": null,
+      "path": "dim3/gc7.model",
+      "role": "model",
+      "sha256": "6451e102203807dde99bf569242b1e361d9efba7d010c3eba9c37bc552b7c7dd",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "gc7",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/gc7.interpolant",
+      "role": "interpolant",
+      "sha256": "9ff72a6248ac7e7fb5fb988f5a2a2cafce30e2e2e4c263f6bbbfb66fe3b3c237",
+      "size": 680
+    },
+    {
+      "dimension": 3,
+      "family": "gc9",
+      "fitted": null,
+      "path": "dim3/gc9.model",
+      "role": "model",
+      "sha256": "a95a0d3c12c19a57879a5233103aa716bbecbdadaa058cc26228c8084117f6f3",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "gc9",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/gc9.interpolant",
+      "role": "interpolant",
+      "sha256": "0ab41d5ab7d6c485d8c0a407f2f7a54709fbb48f016fd4c7a985137320f6d0a3",
+      "size": 680
+    },
+    {
+      "dimension": 3,
+      "family": "sph",
+      "fitted": null,
+      "path": "dim3/sph.model",
+      "role": "model",
+      "sha256": "166cd2996a6b79bd6edc919cab1b62181ce15b4dd7057e7dd05c257e70e32a04",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "sph",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/sph.interpolant",
+      "role": "interpolant",
+      "sha256": "b03b8d2322f9d6fcc9c0d0618904cec189fd8a2c46b435ad9b753fe61e4152d6",
+      "size": 680
+    },
+    {
+      "dimension": 3,
+      "family": "sp3",
+      "fitted": null,
+      "path": "dim3/sp3.model",
+      "role": "model",
+      "sha256": "a08e29152b248605a7d0d197f6de70136b99815048cba4b0068ee9c865d2a848",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "sp3",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/sp3.interpolant",
+      "role": "interpolant",
+      "sha256": "32555c455b6c881469cb1bdfbc535cdae859bf233671430c74e78e7baa7a3919",
+      "size": 680
+    },
+    {
+      "dimension": 3,
+      "family": "sp5",
+      "fitted": null,
+      "path": "dim3/sp5.model",
+      "role": "model",
+      "sha256": "8652197903f2976549c727bfe8696d77bd9f57752154602841ed60c7d05a609a",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "sp5",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/sp5.interpolant",
+      "role": "interpolant",
+      "sha256": "d23b99acde4e7336187a263495b06f52e83da6807776b9096d0fcb8498b88494",
+      "size": 680
+    },
+    {
+      "dimension": 3,
+      "family": "sp7",
+      "fitted": null,
+      "path": "dim3/sp7.model",
+      "role": "model",
+      "sha256": "61328b84e76ec32d78f9f5822158a9c11fc597b197b961325b29bd32bf54d11f",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "sp7",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/sp7.interpolant",
+      "role": "interpolant",
+      "sha256": "45bf590978bd613e042f3a46572e31fbbd4198dd2bdbe3f1e8b2b46d4987243f",
+      "size": 680
+    },
+    {
+      "dimension": 3,
+      "family": "sp9",
+      "fitted": null,
+      "path": "dim3/sp9.model",
+      "role": "model",
+      "sha256": "828f8253d4a4b798ab653ff0c43f2bb5cb9f7f010e5a00de2b32fdb37cfd83f7",
+      "size": 127
+    },
+    {
+      "dimension": 3,
+      "family": "sp9",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/sp9.interpolant",
+      "role": "interpolant",
+      "sha256": "917c201820d58d103d0a3d1bbc69cd013d4a07f1b58f4a06de2659e0a0a4b60a",
+      "size": 680
+    },
+    {
+      "dimension": 3,
+      "family": "composite:gau+exp",
+      "fitted": null,
+      "path": "dim3/composite.model",
+      "role": "model",
+      "sha256": "d01823183437ce1587c6cafd4fca670a4ff13cae51e8e8eb8569a1d294c9bc61",
+      "size": 234
+    },
+    {
+      "dimension": 3,
+      "family": "composite:gau+exp",
+      "fitted": true,
+      "observation_layout": "values_only",
+      "path": "dim3/composite.interpolant",
+      "role": "interpolant",
+      "sha256": "a348a7f9b9d613301ced040eb793c623051aeb0cb2ef42b5aa4908b7a8a8a2b5",
+      "size": 795
+    },
+    {
+      "dimension": 3,
+      "family": "th3",
+      "fitted": true,
+      "observation_layout": "mixed_value_full_gradient",
+      "path": "dim3/th3-hermite.interpolant",
+      "role": "interpolant",
+      "sha256": "be3d238af5545ac6369cd77ac35e56c476e4d406c546224c1c6c204d73b243a6",
+      "size": 808
+    },
+    {
+      "dimension": 3,
+      "import_scope": "differential_only_not_accepted_for_import",
+      "path": "dim3/variogram.differential-only",
+      "role": "variogram_set",
+      "sha256": "74dec0fca8a0714c2104fd561651ef1c4b665185411997d2073cd493ab519824",
+      "size": 296
+    },
+    {
+      "hazard": "truncated",
+      "path": "corruptions/model-empty.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "truncated",
+      "path": "corruptions/model-truncated-1.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+      "size": 1,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "truncated",
+      "path": "corruptions/model-truncated-half.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "1c80d80f55698cfe376dbf5f9406a9ddd85afd879058280d4fb60926db1857c2",
+      "size": 31,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "truncated",
+      "path": "corruptions/model-truncated-last.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "c686e8f30f38206f3f0ad7a8442287cebf6220aab1b56602c06885497a4d1965",
+      "size": 62,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "trailing_bytes",
+      "path": "corruptions/model-trailing.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "35db351cfd622fcf4f6e0d709df49953d5383e69f5ecdc992bef776ae5ae6770",
+      "size": 80,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "unbounded_allocation_request",
+      "path": "corruptions/model-huge-rbf-count.bin",
+      "replay_policy": "do_not_load_without_process_memory_and_timeout_limits",
+      "role": "malformed_legacy_artifact",
+      "sha256": "a9765c4805658a968e5abdccd437e25907681a1cff6375e363239c53b125fcd4",
+      "size": 8,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "nonfinite_model_state",
+      "path": "corruptions/model-nonfinite-nugget.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "1a0477a0da43257b5f309356413e6b2504e619d3dcbf2d8f6a6ecf6e2f1494a1",
+      "size": 63,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "invalid_model_state",
+      "path": "corruptions/model-negative-nugget.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "b5fa41e1b17d8e1db0a622b691716d00f7935452abf1ab549abf00eb4120caff",
+      "size": 63,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "truncated",
+      "path": "corruptions/interpolant-truncated-last.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "7847fbd157d9f78d4dd94721d9ddbcecc474e80f9b494602fd35b4c972adf796",
+      "size": 215,
+      "source": "dim1/gau.interpolant"
+    },
+    {
+      "hazard": "trailing_bytes",
+      "path": "corruptions/interpolant-trailing.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "9ef509471851c089ef884e7025e369c52150d367a71abea80f0734af5627f6a3",
+      "size": 233,
+      "source": "dim1/gau.interpolant"
+    }
+  ],
+  "authority": "canonical",
+  "corruption_cases": [
+    {
+      "hazard": "truncated",
+      "path": "corruptions/model-empty.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "truncated",
+      "path": "corruptions/model-truncated-1.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+      "size": 1,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "truncated",
+      "path": "corruptions/model-truncated-half.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "1c80d80f55698cfe376dbf5f9406a9ddd85afd879058280d4fb60926db1857c2",
+      "size": 31,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "truncated",
+      "path": "corruptions/model-truncated-last.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "c686e8f30f38206f3f0ad7a8442287cebf6220aab1b56602c06885497a4d1965",
+      "size": 62,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "trailing_bytes",
+      "path": "corruptions/model-trailing.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "35db351cfd622fcf4f6e0d709df49953d5383e69f5ecdc992bef776ae5ae6770",
+      "size": 80,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "unbounded_allocation_request",
+      "path": "corruptions/model-huge-rbf-count.bin",
+      "replay_policy": "do_not_load_without_process_memory_and_timeout_limits",
+      "role": "malformed_legacy_artifact",
+      "sha256": "a9765c4805658a968e5abdccd437e25907681a1cff6375e363239c53b125fcd4",
+      "size": 8,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "nonfinite_model_state",
+      "path": "corruptions/model-nonfinite-nugget.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "1a0477a0da43257b5f309356413e6b2504e619d3dcbf2d8f6a6ecf6e2f1494a1",
+      "size": 63,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "invalid_model_state",
+      "path": "corruptions/model-negative-nugget.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "b5fa41e1b17d8e1db0a622b691716d00f7935452abf1ab549abf00eb4120caff",
+      "size": 63,
+      "source": "dim1/gau.model"
+    },
+    {
+      "hazard": "truncated",
+      "path": "corruptions/interpolant-truncated-last.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "7847fbd157d9f78d4dd94721d9ddbcecc474e80f9b494602fd35b4c972adf796",
+      "size": 215,
+      "source": "dim1/gau.interpolant"
+    },
+    {
+      "hazard": "trailing_bytes",
+      "path": "corruptions/interpolant-trailing.bin",
+      "replay_policy": "bounded_subprocess_only",
+      "role": "malformed_legacy_artifact",
+      "sha256": "9ef509471851c089ef884e7025e369c52150d367a71abea80f0734af5627f6a3",
+      "size": 233,
+      "source": "dim1/gau.interpolant"
+    }
+  ],
+  "coverage": {
+    "dimensions": [
+      1,
+      2,
+      3
+    ],
+    "families": [
+      "bh2",
+      "bh3",
+      "th2",
+      "th3",
+      "cub",
+      "exp",
+      "gau",
+      "gc3",
+      "gc5",
+      "gc7",
+      "gc9",
+      "sph",
+      "sp3",
+      "sp5",
+      "sp7",
+      "sp9"
+    ],
+    "interpolant_variants": [
+      "values_only",
+      "mixed_value_full_gradient"
+    ],
+    "model_variants": [
+      "per_family",
+      "composite",
+      "nugget",
+      "anisotropy"
+    ],
+    "variogram_import_scope": "differential_only"
+  },
+  "generated_at": "2026-07-26T10:00:00.778696+00:00",
+  "id": "polatory-4a30beb-windows-x86_64-legacy-matrix",
+  "known_gap": "Unfitted Interpolant artifacts are not constructible through the frozen CLI; the downstream import-boundary decision must decide whether to add a source-linked diagnostic writer.",
+  "platform_layout": {
+    "architecture": "x86_64",
+    "bool_bytes": 1,
+    "byte_order": "little",
+    "double": {
+      "bytes": 8,
+      "format": "IEEE-754 binary64"
+    },
+    "eigen_index_bytes": 8,
+    "format_properties": [
+      "no magic",
+      "no version",
+      "implicit object kind",
+      "implicit dimension",
+      "no checksum",
+      "no length limit",
+      "trailing bytes unchecked"
+    ],
+    "matrix_storage": "Eigen dynamic row-major raw storage",
+    "os": "windows",
+    "size_t_bytes": 8
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9",
+    "size": 13902848
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "bh2",
+        "1",
+        "0.25",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/bh2.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10890879994258285,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-bh2",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-bh2.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-bh2.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/bh2.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/bh2.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11696350004058331,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-bh2",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-bh2.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-bh2.stdout.bin",
+        "sha256": "5a74c5236928b98401caeadd086494c231ec964b19407cbc8f2c9dec4d59986e",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "bh3",
+        "1",
+        "0.25",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/bh3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10154559998773038,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-bh3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-bh3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-bh3.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/bh3.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/bh3.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10613870003726333,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-bh3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-bh3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-bh3.stdout.bin",
+        "sha256": "5a74c5236928b98401caeadd086494c231ec964b19407cbc8f2c9dec4d59986e",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "th2",
+        "1",
+        "0.25",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/th2.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.09135320002678782,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-th2",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-th2.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-th2.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/th2.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/th2.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10925929993391037,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-th2",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-th2.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-th2.stdout.bin",
+        "sha256": "6f770646bf28a66197da706621d329f022dcdb3f666f57065d40b7b46638d6ee",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "th3",
+        "1",
+        "0.25",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/th3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.09507139993365854,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-th3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-th3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-th3.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/th3.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/th3.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1443299000384286,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-th3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-th3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-th3.stdout.bin",
+        "sha256": "0bd6e5a4a10a18c844c98af54ae284ddfd12060e5ad7a8dad319fbfbcb4d7c6b",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "cub",
+        "1",
+        "5",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/cub.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.09677079995162785,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-cub",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-cub.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-cub.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/cub.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/cub.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10042969998903573,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-cub",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-cub.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-cub.stdout.bin",
+        "sha256": "1995abc8b37eda4ac4c9abeecbedeaf0867eae51556c45a79814b099b5196471",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "exp",
+        "1",
+        "5",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/exp.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.08436970005277544,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-exp",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-exp.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-exp.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/exp.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/exp.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10529580002184957,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-exp",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-exp.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-exp.stdout.bin",
+        "sha256": "6f770646bf28a66197da706621d329f022dcdb3f666f57065d40b7b46638d6ee",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "gau",
+        "1",
+        "5",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/gau.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.0965062000323087,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-gau",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-gau.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-gau.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/gau.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/gau.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1035173999844119,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-gau",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-gau.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-gau.stdout.bin",
+        "sha256": "bf074380dff5354230e707f0d137cf89e8cd8550837212ee1abbabc13b6a3ed7",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "gc3",
+        "1",
+        "5",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/gc3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.09869919996708632,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-gc3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-gc3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-gc3.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/gc3.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/gc3.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.13978559989482164,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-gc3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-gc3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-gc3.stdout.bin",
+        "sha256": "e54a5d8c40f33e39a87506999f0659f257009c5ef40f11f0899798d52b09b0d7",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "gc5",
+        "1",
+        "5",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/gc5.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.12207959999796003,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-gc5",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-gc5.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-gc5.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/gc5.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/gc5.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.12642420001793653,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-gc5",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-gc5.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-gc5.stdout.bin",
+        "sha256": "cd2ed0a048475afb82441002fee4bb18b011186b600d022ccfcb0c0c6f3aab88",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "gc7",
+        "1",
+        "5",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/gc7.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10465840005781502,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-gc7",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-gc7.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-gc7.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/gc7.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/gc7.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1617782999528572,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-gc7",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-gc7.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-gc7.stdout.bin",
+        "sha256": "5aab12782c1f0785304c12d7fa3b981a749b694753f72a7429297f367506d60e",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "gc9",
+        "1",
+        "5",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/gc9.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11357840010896325,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-gc9",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-gc9.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-gc9.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/gc9.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/gc9.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.14404140005353838,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-gc9",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-gc9.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-gc9.stdout.bin",
+        "sha256": "f23bd8ebed34327492617e566f4b5d759e92e959c744cff24cc00f41b4fcffd1",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "sph",
+        "1",
+        "5",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/sph.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.14239699998870492,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-sph",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-sph.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-sph.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/sph.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/sph.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.16743859997950494,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-sph",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-sph.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-sph.stdout.bin",
+        "sha256": "6f770646bf28a66197da706621d329f022dcdb3f666f57065d40b7b46638d6ee",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "sp3",
+        "1",
+        "5",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/sp3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.13041809992864728,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-sp3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-sp3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-sp3.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/sp3.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/sp3.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.15021320001687855,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-sp3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-sp3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-sp3.stdout.bin",
+        "sha256": "6f770646bf28a66197da706621d329f022dcdb3f666f57065d40b7b46638d6ee",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "sp5",
+        "1",
+        "5",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/sp5.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10544279997702688,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-sp5",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-sp5.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-sp5.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/sp5.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/sp5.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.12349979998543859,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-sp5",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-sp5.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-sp5.stdout.bin",
+        "sha256": "cd2ed0a048475afb82441002fee4bb18b011186b600d022ccfcb0c0c6f3aab88",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "sp7",
+        "1",
+        "5",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/sp7.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11773639998864383,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-sp7",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-sp7.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-sp7.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/sp7.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/sp7.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.12375270004849881,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-sp7",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-sp7.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-sp7.stdout.bin",
+        "sha256": "e54a5d8c40f33e39a87506999f0659f257009c5ef40f11f0899798d52b09b0d7",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "sp9",
+        "1",
+        "5",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim1/sp9.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.09712609997950494,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-sp9",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-sp9.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-sp9.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/sp9.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/sp9.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11453419993631542,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-sp9",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-sp9.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-sp9.stdout.bin",
+        "sha256": "e54a5d8c40f33e39a87506999f0659f257009c5ef40f11f0899798d52b09b0d7",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "gau",
+        "1",
+        "5",
+        "aniso",
+        "1.5",
+        "exp",
+        "0.5",
+        "2",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.125",
+        "--deg",
+        "0",
+        "--out",
+        "${WORK}/dim1/composite.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.09738749999087304,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim1-composite",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim1-composite.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim1-composite.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1/composite.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/composite.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1383387999376282,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-composite",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-composite.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-composite.stdout.bin",
+        "sha256": "6f770646bf28a66197da706621d329f022dcdb3f666f57065d40b7b46638d6ee",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--grad-in",
+        "${REPO}/oracle/fixtures/source/gradients-1d.csv",
+        "--dim",
+        "1",
+        "--rbf",
+        "th3",
+        "1",
+        "0.25",
+        "aniso",
+        "1.5",
+        "--deg",
+        "1",
+        "--tol",
+        "1e-8",
+        "--grad-tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1/th3-hermite.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.12771300005260855,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim1-th3-hermite",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim1-th3-hermite.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim1-th3-hermite.stdout.bin",
+        "sha256": "1d1b961aedc0a777b31dc067ba00b70caa6a19049beb65739dd8f3ca6d181c9a",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "variogram",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--lag-dist",
+        "0.5",
+        "--num-lags",
+        "4",
+        "--out",
+        "${WORK}/dim1/variogram.differential-only"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10703209997154772,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-variogram-dim1-differential-only",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-variogram-dim1-differential-only.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-variogram-dim1-differential-only.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "bh2",
+        "1",
+        "0.25",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/bh2.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.22777080000378191,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-bh2",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-bh2.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-bh2.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/bh2.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/bh2.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1617244000080973,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-bh2",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-bh2.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-bh2.stdout.bin",
+        "sha256": "da6e94784a0dfdaa90432c699d55e1c2139ee537da8cff33e31d4ec022d12933",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "bh3",
+        "1",
+        "0.25",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/bh3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1432312000542879,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-bh3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-bh3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-bh3.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/bh3.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/bh3.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.15442089992575347,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-bh3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-bh3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-bh3.stdout.bin",
+        "sha256": "9321c8f7fd83c6717ecc0b61f834786a2aecb18c2b92c78e1a92620fb9abc537",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "th2",
+        "1",
+        "0.25",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/th2.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.21480760001577437,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-th2",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-th2.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-th2.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/th2.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/th2.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11681800009682775,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-th2",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-th2.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-th2.stdout.bin",
+        "sha256": "da6e94784a0dfdaa90432c699d55e1c2139ee537da8cff33e31d4ec022d12933",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "th3",
+        "1",
+        "0.25",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/th3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10860709997359663,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-th3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-th3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-th3.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/th3.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/th3.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.12444210005924106,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-th3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-th3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-th3.stdout.bin",
+        "sha256": "9321c8f7fd83c6717ecc0b61f834786a2aecb18c2b92c78e1a92620fb9abc537",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "cub",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/cub.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.09842659998685122,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-cub",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-cub.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-cub.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/cub.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/cub.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.12133940006606281,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-cub",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-cub.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-cub.stdout.bin",
+        "sha256": "1675fa6414f1a868a3af17e0fe48ed1325c663cdfde36c61554cb40c44c4bdda",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "exp",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/exp.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11257560004014522,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-exp",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-exp.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-exp.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/exp.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/exp.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1337239999556914,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-exp",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-exp.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-exp.stdout.bin",
+        "sha256": "9321c8f7fd83c6717ecc0b61f834786a2aecb18c2b92c78e1a92620fb9abc537",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "gau",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/gau.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11589190002996475,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-gau",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-gau.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-gau.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/gau.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/gau.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.22315279999747872,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-gau",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-gau.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-gau.stdout.bin",
+        "sha256": "cee4551acb747a5093fb5ed86328bbde14406725e6dad025af6d54ad4b028943",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "gc3",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/gc3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11517310002818704,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-gc3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-gc3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-gc3.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/gc3.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/gc3.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.12625329999718815,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-gc3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-gc3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-gc3.stdout.bin",
+        "sha256": "9321c8f7fd83c6717ecc0b61f834786a2aecb18c2b92c78e1a92620fb9abc537",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "gc5",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/gc5.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10023340000770986,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-gc5",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-gc5.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-gc5.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/gc5.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/gc5.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.14523380005266517,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-gc5",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-gc5.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-gc5.stdout.bin",
+        "sha256": "c6eea71c201007e991401c11b508651ff75fd0041fdbed86856167aa62bda830",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "gc7",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/gc7.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.09081950003746897,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-gc7",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-gc7.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-gc7.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/gc7.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/gc7.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.12606649997178465,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-gc7",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-gc7.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-gc7.stdout.bin",
+        "sha256": "6ff053bc73501ee00b05c020bc024b7182b580e89576204ded303b996ef1b76d",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "gc9",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/gc9.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.24059549998492002,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-gc9",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-gc9.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-gc9.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/gc9.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/gc9.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11308100004680455,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-gc9",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-gc9.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-gc9.stdout.bin",
+        "sha256": "c6eea71c201007e991401c11b508651ff75fd0041fdbed86856167aa62bda830",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "sph",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/sph.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11226299998816103,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-sph",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-sph.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-sph.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/sph.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/sph.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11858370003756136,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-sph",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-sph.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-sph.stdout.bin",
+        "sha256": "da6e94784a0dfdaa90432c699d55e1c2139ee537da8cff33e31d4ec022d12933",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "sp3",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/sp3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.23426169995218515,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-sp3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-sp3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-sp3.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/sp3.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/sp3.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.15167819999624044,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-sp3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-sp3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-sp3.stdout.bin",
+        "sha256": "da6e94784a0dfdaa90432c699d55e1c2139ee537da8cff33e31d4ec022d12933",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "sp5",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/sp5.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.14475219999440014,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-sp5",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-sp5.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-sp5.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/sp5.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/sp5.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.16690169996581972,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-sp5",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-sp5.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-sp5.stdout.bin",
+        "sha256": "da6e94784a0dfdaa90432c699d55e1c2139ee537da8cff33e31d4ec022d12933",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "sp7",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/sp7.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.12707759998738766,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-sp7",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-sp7.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-sp7.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/sp7.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/sp7.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.14724369999021292,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-sp7",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-sp7.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-sp7.stdout.bin",
+        "sha256": "a6ecba797b36d9c98b8583bb7fe0cb39079aa519f6ac5d15dd31e9d94f7abbcc",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "sp9",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim2/sp9.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11715860001277179,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-sp9",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-sp9.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-sp9.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/sp9.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/sp9.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.2605101000517607,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-sp9",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-sp9.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-sp9.stdout.bin",
+        "sha256": "da6e94784a0dfdaa90432c699d55e1c2139ee537da8cff33e31d4ec022d12933",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "gau",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "exp",
+        "0.5",
+        "2",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.125",
+        "--deg",
+        "0",
+        "--out",
+        "${WORK}/dim2/composite.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.13109220005571842,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim2-composite",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim2-composite.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim2-composite.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2/composite.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/composite.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.132463299902156,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-composite",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-composite.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-composite.stdout.bin",
+        "sha256": "da6e94784a0dfdaa90432c699d55e1c2139ee537da8cff33e31d4ec022d12933",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--grad-in",
+        "${REPO}/oracle/fixtures/source/gradients-2d.csv",
+        "--dim",
+        "2",
+        "--rbf",
+        "th3",
+        "1",
+        "0.25",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--deg",
+        "1",
+        "--tol",
+        "1e-8",
+        "--grad-tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2/th3-hermite.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11659269989468157,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim2-th3-hermite",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim2-th3-hermite.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim2-th3-hermite.stdout.bin",
+        "sha256": "58270ab27cd2e56a95ce3e90453331f756fb8779f1d5c9bf024e85dc2b099ae2",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "variogram",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--lag-dist",
+        "0.5",
+        "--num-lags",
+        "4",
+        "--aniso",
+        "--out",
+        "${WORK}/dim2/variogram.differential-only"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.13219949998892844,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-variogram-dim2-differential-only",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-variogram-dim2-differential-only.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-variogram-dim2-differential-only.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "bh2",
+        "1",
+        "0.25",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/bh2.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.13343399995937943,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-bh2",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-bh2.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-bh2.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/bh2.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/bh2.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.13975990004837513,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-bh2",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-bh2.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-bh2.stdout.bin",
+        "sha256": "e2b459f64c1886215b0bd326045220799e3f54df5ffb7997bde033b0ee4bc393",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "bh3",
+        "1",
+        "0.25",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/bh3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.15395940002053976,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-bh3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-bh3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-bh3.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/bh3.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/bh3.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.35342179995495826,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-bh3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-bh3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-bh3.stdout.bin",
+        "sha256": "49acec2955ef743ac2f4151d458c60879d4edeb457a0b78a69cfda83487e48b2",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "th2",
+        "1",
+        "0.25",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/th2.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.13314680010080338,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-th2",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-th2.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-th2.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/th2.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/th2.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.27698089997284114,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-th2",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-th2.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-th2.stdout.bin",
+        "sha256": "49acec2955ef743ac2f4151d458c60879d4edeb457a0b78a69cfda83487e48b2",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "th3",
+        "1",
+        "0.25",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/th3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1553549999371171,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-th3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-th3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-th3.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/th3.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/th3.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.251802199985832,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-th3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-th3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-th3.stdout.bin",
+        "sha256": "49acec2955ef743ac2f4151d458c60879d4edeb457a0b78a69cfda83487e48b2",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "cub",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/cub.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11698649998288602,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-cub",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-cub.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-cub.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/cub.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/cub.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.13133330002892762,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-cub",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-cub.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-cub.stdout.bin",
+        "sha256": "8e412e9dd213e5126d6d2c83ee69e1c31b4cb39978355abe18c21a8609313129",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "exp",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/exp.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10843750007916242,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-exp",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-exp.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-exp.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/exp.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/exp.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.13067030010279268,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-exp",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-exp.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-exp.stdout.bin",
+        "sha256": "eff77286ae75408c08b7f659820a8dcc1ce5a84944c2f8f7a7fd2698fc815a77",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "gau",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/gau.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1292511000065133,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-gau",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-gau.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-gau.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/gau.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/gau.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.14689460000954568,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-gau",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-gau.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-gau.stdout.bin",
+        "sha256": "4d2d1355c54185280fb8de7fa545fd0ec1287338a0f08c47701c0e6645375888",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "gc3",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/gc3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10687689995393157,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-gc3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-gc3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-gc3.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/gc3.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/gc3.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1320065000327304,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-gc3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-gc3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-gc3.stdout.bin",
+        "sha256": "8e0b978fb5b0133bb7bb8c2630fa73a723ec3e2da1d7b9967c34542ad7f11fb3",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "gc5",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/gc5.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11755810002796352,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-gc5",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-gc5.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-gc5.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/gc5.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/gc5.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1315412000985816,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-gc5",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-gc5.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-gc5.stdout.bin",
+        "sha256": "8e0b978fb5b0133bb7bb8c2630fa73a723ec3e2da1d7b9967c34542ad7f11fb3",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "gc7",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/gc7.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10922340000979602,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-gc7",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-gc7.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-gc7.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/gc7.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/gc7.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.12113529990892857,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-gc7",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-gc7.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-gc7.stdout.bin",
+        "sha256": "8e412e9dd213e5126d6d2c83ee69e1c31b4cb39978355abe18c21a8609313129",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "gc9",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/gc9.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.12229729990940541,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-gc9",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-gc9.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-gc9.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/gc9.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/gc9.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1279045999981463,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-gc9",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-gc9.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-gc9.stdout.bin",
+        "sha256": "8e412e9dd213e5126d6d2c83ee69e1c31b4cb39978355abe18c21a8609313129",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "sph",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/sph.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10629050002899021,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-sph",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-sph.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-sph.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/sph.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/sph.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.22000919992569834,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-sph",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-sph.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-sph.stdout.bin",
+        "sha256": "8e0b978fb5b0133bb7bb8c2630fa73a723ec3e2da1d7b9967c34542ad7f11fb3",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "sp3",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/sp3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10154089995194227,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-sp3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-sp3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-sp3.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/sp3.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/sp3.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.2435691999271512,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-sp3",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-sp3.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-sp3.stdout.bin",
+        "sha256": "8e0b978fb5b0133bb7bb8c2630fa73a723ec3e2da1d7b9967c34542ad7f11fb3",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "sp5",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/sp5.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.14191369991749525,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-sp5",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-sp5.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-sp5.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/sp5.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/sp5.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.2499371999874711,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-sp5",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-sp5.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-sp5.stdout.bin",
+        "sha256": "e9eab584bc277534a2018f02da144d3a1dda2531568c33e09ffb915a6f8aad44",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "sp7",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/sp7.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.11115960008464754,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-sp7",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-sp7.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-sp7.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/sp7.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/sp7.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.14445140003226697,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-sp7",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-sp7.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-sp7.stdout.bin",
+        "sha256": "8e412e9dd213e5126d6d2c83ee69e1c31b4cb39978355abe18c21a8609313129",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "sp9",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--out",
+        "${WORK}/dim3/sp9.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.10222789994440973,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-sp9",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-sp9.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-sp9.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/sp9.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/sp9.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.24395629996433854,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-sp9",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-sp9.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-sp9.stdout.bin",
+        "sha256": "49acec2955ef743ac2f4151d458c60879d4edeb457a0b78a69cfda83487e48b2",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "gau",
+        "1",
+        "5",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "exp",
+        "0.5",
+        "2",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.125",
+        "--deg",
+        "0",
+        "--out",
+        "${WORK}/dim3/composite.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1396344000240788,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-model-dim3-composite",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-model-dim3-composite.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-model-dim3-composite.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3/composite.model",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/composite.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.1713125000242144,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-composite",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-composite.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-composite.stdout.bin",
+        "sha256": "8e412e9dd213e5126d6d2c83ee69e1c31b4cb39978355abe18c21a8609313129",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--grad-in",
+        "${REPO}/oracle/fixtures/source/gradients-3d.csv",
+        "--dim",
+        "3",
+        "--rbf",
+        "th3",
+        "1",
+        "0.25",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--deg",
+        "1",
+        "--tol",
+        "1e-8",
+        "--grad-tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3/th3-hermite.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.14005569997243583,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-interpolant-dim3-th3-hermite",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-interpolant-dim3-th3-hermite.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-interpolant-dim3-th3-hermite.stdout.bin",
+        "sha256": "c8228792e0750d94365e0ed1b2a1a17bd34d67296d4b9b5e30b365a444ead0d9",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "variogram",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d-quadratic.csv",
+        "--dim",
+        "3",
+        "--lag-dist",
+        "0.5",
+        "--num-lags",
+        "4",
+        "--aniso",
+        "--out",
+        "${WORK}/dim3/variogram.differential-only"
+      ],
+      "configured_threads": 1,
+      "cwd": "${SCRATCH}",
+      "effective_threads": null,
+      "elapsed_seconds_diagnostic": 0.12867909995839,
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${SCRATCH}",
+        "TMP": "${SCRATCH}"
+      },
+      "exit_code": 0,
+      "id": "legacy-variogram-dim3-differential-only",
+      "seed": null,
+      "seed_policy": "No seed is exposed by this CLI operation.",
+      "stderr": {
+        "path": "generation-logs/legacy-variogram-dim3-differential-only.stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "path": "generation-logs/legacy-variogram-dim3-differential-only.stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 60.0
+    }
+  ],
+  "schema_version": "1.0.0"
+}

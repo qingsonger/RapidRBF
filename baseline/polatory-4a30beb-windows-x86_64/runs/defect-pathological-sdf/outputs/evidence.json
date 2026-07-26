@@ -1,0 +1,77 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "adjudication": "pending",
+    "candidate_defect": "pathological_sdf_adjustment",
+    "role": "research_only"
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "normals-to-sdf",
+        "--in",
+        "${REPO}/oracle/fixtures/source/pathological-sdf-duplicates.csv",
+        "--offset",
+        "0.5",
+        "--ratio",
+        "1",
+        "--out",
+        "${WORK}/pathological-sdf.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "duplicate-normal-points",
+      "outputs": [
+        {
+          "path": "${WORK}/pathological-sdf.csv",
+          "present": false,
+          "role": "research_only_logical_table"
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGludmFsaWQgdmVjdG9yIHN1YnNjcmlwdA0K",
+        "encoding": "base64",
+        "sha256": "83a9eb59cc876453f80411c34ce9acf9bb784c6812bfcb12ddfaa35c4e489ac1",
+        "size": 33
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 10
+    }
+  ],
+  "scenario_id": "defect-pathological-sdf",
+  "schema_version": "1.0.0"
+}

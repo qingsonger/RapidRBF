@@ -1,0 +1,137 @@
+{
+  "argv": [
+    "${PYTHON}",
+    "${REPO}/tools/polatory_oracle/workflows.py",
+    "python-build",
+    "--repo-root",
+    "${REPO}",
+    "--polatory-root",
+    "${POLATORY_ROOT}",
+    "--work",
+    "${WORK}"
+  ],
+  "authority": "instrumented",
+  "configured_argv": [
+    "${PYTHON}",
+    "${REPO}/tools/polatory_oracle/workflows.py",
+    "python-build",
+    "--repo-root",
+    "${REPO}",
+    "--polatory-root",
+    "${POLATORY_ROOT}",
+    "--work",
+    "${WORK}"
+  ],
+  "configured_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "configured_threads": {
+    "MKL_NUM_THREADS": 1,
+    "OMP_NUM_THREADS": 1,
+    "OMP_THREAD_LIMIT": 1
+  },
+  "configured_working_directory": ".",
+  "covers": [],
+  "effective_threads": 4,
+  "environment": {
+    "COMSPEC": "C:\\Windows\\system32\\cmd.exe",
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "NUMBER_OF_PROCESSORS": "16",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "PATH": "C:\\Users\\qingsonger\\.codex\\tmp\\arg0\\codex-arg0RUB8Ac;C:\\Users\\qingsonger\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\Git\\cmd;C:\\dev\\vcpkg\u200b\u200b;C:\\Program Files\\CMake\\bin;C:\\dev\\ninja-win;C:\\Program Files\\GDAL;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Program Files\\MiKTeX\\miktex\\bin\\x64\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\FME\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\GitHub CLI\\;C:\\Users\\qingsonger\\AppData\\Roaming\\uv\\python\\cpython-3.13.5-windows-x86_64-none;C:\\Users\\qingsonger\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin;C:\\Users\\qingsonger\\.cargo\\bin;C:\\Users\\qingsonger\\.local\\bin;C:\\Users\\qingsonger\\AppData\\Local\\Microsoft\\WindowsApps;C:\\dev\\vcpkg;C:\\Users\\qingsonger\\AppData\\Roaming\\npm;C:\\Users\\qingsonger\\.dotnet\\tools;C:\\Users\\qingsonger\\AppData\\Local\\Programs\\Windsurf\\bin;C:\\Users\\qingsonger\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback;C:\\Users\\qingsonger\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd;C:\\Users\\qingsonger\\AppData\\Local\\OpenAI\\Codex\\bin\\3e42d49ad3e35a50;C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.721.4979.0_x64__2p2nqsd0c76g0\\app\\resources",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "9a03",
+    "SYSTEMDRIVE": "C:",
+    "SYSTEMROOT": "C:\\Windows",
+    "TEMP": "${WORK}",
+    "TMP": "${WORK}",
+    "TMPDIR": "${WORK}",
+    "WINDIR": "C:\\Windows"
+  },
+  "exit_code": 0,
+  "expected": {
+    "exit_code": 0,
+    "terminal_status": "exited"
+  },
+  "id": "python-build",
+  "legacy_layout": null,
+  "metrics": {
+    "path": "metrics.json",
+    "sha256": "80cf803ad78489dd8b1d017f89f080b143b5a7175e89844da9f81399d3b850a6",
+    "size": 470
+  },
+  "non_normative_fields": [
+    "wall time",
+    "working-set and private-byte samples",
+    "thread scheduling",
+    "exact solver or optimizer trajectory",
+    "exact text formatting unless a downstream contract selects a semantic field"
+  ],
+  "normative_fields": [
+    "scenario structure",
+    "terminal status and exit category",
+    "raw evidence bytes selected by the downstream operation contract"
+  ],
+  "outputs": [
+    {
+      "capture_path": "outputs/evidence.json",
+      "path": "evidence.json",
+      "present": true,
+      "replay_compare": true,
+      "required": true,
+      "sha256": "00ee82b51dd03638186e7861ba8a459f10f58ef90fa36ef47d73f248603452c2",
+      "size": 1003
+    },
+    {
+      "capture_path": "outputs/resources.json",
+      "path": "resources.json",
+      "present": true,
+      "replay_compare": false,
+      "required": true,
+      "sha256": "cafe783bec841e09ef4ce105be6d26b73471c04a17e6f01b8fa5e633e01e89a4",
+      "size": 123
+    }
+  ],
+  "process_samples": {
+    "path": "process-samples.jsonl",
+    "sha256": "32d10bb9bf45b77f9537961dbda9d0c58e8276d3c34e291a3ec7daca37cfe4a1",
+    "size": 1120
+  },
+  "relates_to": [
+    "migration.python"
+  ],
+  "replay_compare": true,
+  "role": "research_only",
+  "schema_version": "1.0.0",
+  "seed": null,
+  "seed_policy": "No random seed is exposed by the selected operations.",
+  "started_at": "2026-07-26T11:05:06.547865+00:00",
+  "stderr": {
+    "path": "stderr.txt",
+    "replay_compare": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  "stdout": {
+    "path": "stdout.txt",
+    "replay_compare": true,
+    "sha256": "174e45f57677ef8d819c18945f08ca8aa43c6b7d99356d8609ba8d55b4688f28",
+    "size": 49
+  },
+  "surface": "python_build_reproduction",
+  "terminal_status": "exited",
+  "timeout_seconds": 120.0,
+  "working_directory": "${WORK}"
+}

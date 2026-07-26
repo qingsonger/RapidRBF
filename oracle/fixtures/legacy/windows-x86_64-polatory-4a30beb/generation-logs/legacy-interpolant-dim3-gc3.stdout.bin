@@ -1,0 +1,5 @@
+   level       n_domains        n_points   n_grad_points
+       0               1              15               0
+    iter        residual   grad_residual
+       0    6.200000e+00    0.000000e+00
+       1    8.881784e-16    0.000000e+00

@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0.0",
+  "source_issue": "https://github.com/qingsonger/RapidRBF/issues/5",
+  "interpretation": "Only required items may be covered by accepted_surface scenarios. Research and provenance scenarios preserve evidence but never establish compatibility truth.",
+  "items": [
+    {
+      "id": "stable.dimensions",
+      "classification": "required_stable_capability",
+      "description": "Observable interpolation behavior in dimensions 1, 2, and 3.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cpp-probe",
+        "cli-fit-evaluate",
+        "legacy-matrix"
+      ]
+    },
+    {
+      "id": "stable.rbf-family-semantics",
+      "classification": "required_stable_capability",
+      "description": "All 16 RBF families, parameter order, mathematical branches, origin values, and support boundaries on valid inputs.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cpp-probe",
+        "legacy-matrix"
+      ]
+    },
+    {
+      "id": "stable.model-polynomial-nugget",
+      "classification": "required_stable_capability",
+      "description": "Composite Model, CPD, polynomial degree and monomial order, parameter order, and nugget semantics on valid inputs.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cpp-probe",
+        "cli-fit-evaluate",
+        "legacy-matrix"
+      ]
+    },
+    {
+      "id": "stable.anisotropy-derivatives",
+      "classification": "required_stable_capability",
+      "description": "General finite positive-determinant anisotropy and valid value, gradient, gradient-transpose, and Hessian chain rules.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cpp-probe"
+      ]
+    },
+    {
+      "id": "stable.hermite-layout",
+      "classification": "required_stable_capability",
+      "description": "Hermite block signs and scalar-first, point-major gradient, polynomial-last vector layout for supported models.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cpp-probe",
+        "cli-fit-evaluate"
+      ]
+    },
+    {
+      "id": "stable.fit-modes",
+      "classification": "required_stable_capability",
+      "description": "Ordinary, incremental, and inequality fitting with accepted constraint meanings; warm-start identity is not added here.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "fit-modes"
+      ]
+    },
+    {
+      "id": "stable.evaluation",
+      "classification": "required_stable_capability",
+      "description": "Value and full-gradient evaluation with observable output shape and raw numerical observations.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cpp-probe",
+        "cli-fit-evaluate"
+      ]
+    },
+    {
+      "id": "stable.kriging-variogram",
+      "classification": "required_stable_capability",
+      "description": "Variogram, model fitting, cross-validation, detrending, weight schemes, and normal-score workflows on representative valid inputs.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cli-kriging"
+      ]
+    },
+    {
+      "id": "stable.point-cloud-sdf",
+      "classification": "required_stable_capability",
+      "description": "Distance filtering, normal estimation and orientation, and signed-distance-data generation on representative valid inputs.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cli-point-cloud"
+      ]
+    },
+    {
+      "id": "stable.geometry",
+      "classification": "required_stable_capability",
+      "description": "2.5D and 3D isosurface workflows, logical OBJ content, bbox, seed, snap, and isovalue behavior.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cli-geometry"
+      ]
+    },
+    {
+      "id": "stable.numerical-convergence-outcomes",
+      "classification": "required_stable_capability",
+      "description": "Raw output values, externally reported residual observations, terminal states, and error categories needed for later operation-specific contracts.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cli-fit-evaluate",
+        "fit-modes"
+      ]
+    },
+    {
+      "id": "stable.million-scale-gate-prerequisites",
+      "classification": "required_stable_capability",
+      "description": "Content identities and generator provenance for the 1k, 10k, 100k, and 1M workload ladder plus a lower-rung executable anchor. This freezes prerequisites and does not claim that the future million-scale release gate passes.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "scale-input-ladder"
+      ]
+    },
+    {
+      "id": "migration.rust-interface",
+      "classification": "required_migration_surface",
+      "description": "Idiomatic stable Rust capability surface.",
+      "oracle_applicability": "not_applicable",
+      "reason": "Polatory has no Rust interface. The frozen surface-neutral fixtures feed the downstream Rust interface decision.",
+      "downstream_issue": "https://github.com/qingsonger/RapidRBF/issues/19"
+    },
+    {
+      "id": "migration.python",
+      "classification": "required_migration_surface",
+      "description": "Source-bound inventory of the accepted Python workflows and logical array shapes required under the rapidrbf package migration; runtime buildability and execution are established downstream.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "python-interface-inventory"
+      ]
+    },
+    {
+      "id": "migration.cli",
+      "classification": "required_migration_surface",
+      "description": "All 14 CLI workflows, command and option meanings, defaults, conflicts, logical table and OBJ shapes, and exit categories.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cli-command-contracts",
+        "cli-fit-evaluate",
+        "cli-kriging",
+        "cli-point-cloud",
+        "cli-geometry"
+      ]
+    },
+    {
+      "id": "migration.portable-artifact",
+      "classification": "required_migration_surface",
+      "description": "Versioned RapidRBF portable artifact.",
+      "oracle_applicability": "not_applicable",
+      "reason": "Polatory has no portable artifact. This oracle freezes legacy-to-logical-field evidence only.",
+      "downstream_issue": "https://github.com/qingsonger/RapidRBF/issues/24"
+    },
+    {
+      "id": "change.invalid-unsafe-inputs",
+      "classification": "intentional_compatibility_change",
+      "description": "RapidRBF must provide deterministic checked handling for undefined, invalid, malformed, non-finite, or unsafe inputs.",
+      "oracle_applicability": "must_not_compare",
+      "reason": "Polatory crashes, unbounded allocation, undefined behavior, and incidental NaN or Inf are diagnostic evidence only and are never candidate truth. Research scenarios relate to this item without covering it."
+    },
+    {
+      "id": "extension.reproducibility-controls",
+      "classification": "intentional_extension",
+      "description": "Build identity, explicit seeds, configured and effective thread counts, and relevant runtime configuration.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "build-identity",
+        "scale-input-ladder"
+      ]
+    },
+    {
+      "id": "legacy.model-interpolant",
+      "classification": "migration_only_input",
+      "description": "Frozen valid native Model and Interpolant artifacts for the observed Windows x86_64 layout.",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "legacy-matrix"
+      ]
+    },
+    {
+      "id": "internal.backend-identities",
+      "classification": "internal_implementation_detail",
+      "description": "Dependency identities, solver trajectories, coefficient vectors, partitions, caches, reductions, sampling, optimizer paths, and thread scheduling.",
+      "oracle_applicability": "must_not_compare",
+      "reason": "Recorded for provenance and diagnostics only; the accepted manifest promises no compatibility for these implementation details."
+    },
+    {
+      "id": "exclusion.noncontractual-observations",
+      "classification": "explicit_exclusion",
+      "description": "C++ source or ABI, cross-platform bitwise identity, exact coefficients or iteration histories, polatory-named replacement artifacts, legacy writes, VariogramSet import, exact text or padding, exact mesh numbering, and exact tessellation.",
+      "oracle_applicability": "must_not_compare",
+      "reason": "Raw bytes remain evidence, but downstream acceptance must compare only the semantic fields selected by later contracts."
+    }
+  ]
+}

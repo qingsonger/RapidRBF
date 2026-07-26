@@ -1,0 +1,83 @@
+{
+  "kind": "non_normative_resource_samples",
+  "runs": [
+    {
+      "id": "version-cmake",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1257413000566885,
+      "peak_private_bytes": 6025216,
+      "peak_working_set_bytes": 15761408,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08996170002501458,
+          "peak_pagefile_bytes": 6303744,
+          "peak_working_set_bytes": 16375808,
+          "private_bytes": 6025216,
+          "thread_count": 4,
+          "working_set_bytes": 15761408
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "version-ninja",
+      "maximum_observed_thread_count": 1,
+      "monotonic_wall_seconds": 0.08166989998426288,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.04950189997907728,
+          "peak_pagefile_bytes": 577536,
+          "peak_working_set_bytes": 4677632,
+          "private_bytes": 77824,
+          "thread_count": 1,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "version-python",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.07083930005319417,
+      "peak_private_bytes": 73728,
+      "peak_working_set_bytes": 28672,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.03564699995331466,
+          "peak_pagefile_bytes": 1990656,
+          "peak_working_set_bytes": 6152192,
+          "private_bytes": 73728,
+          "thread_count": 4,
+          "working_set_bytes": 28672
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "version-clang_cl",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1120869000442326,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.07995970000047237,
+          "peak_pagefile_bytes": 9900032,
+          "peak_working_set_bytes": 19959808,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    }
+  ],
+  "scenario_id": "build-identity",
+  "schema_version": "1.0.0"
+}

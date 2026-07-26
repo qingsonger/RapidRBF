@@ -1,0 +1,110 @@
+{
+  "kind": "non_normative_resource_samples",
+  "runs": [
+    {
+      "id": "fit-surface-25d-field",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14353949995711446,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.1009792999830097,
+          "peak_pagefile_bytes": 3063808,
+          "peak_working_set_bytes": 12423168,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "surface-25d",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1514529000269249,
+      "peak_private_bytes": 3231744,
+      "peak_working_set_bytes": 11067392,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10364440002012998,
+          "peak_pagefile_bytes": 3518464,
+          "peak_working_set_bytes": 11325440,
+          "private_bytes": 3231744,
+          "thread_count": 4,
+          "working_set_bytes": 11067392
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "geometry-normals-to-sdf",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.22449799999594688,
+      "peak_private_bytes": 2007040,
+      "peak_working_set_bytes": 5820416,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09051530004944652,
+          "peak_pagefile_bytes": 1642496,
+          "peak_working_set_bytes": 5074944,
+          "private_bytes": 1617920,
+          "thread_count": 4,
+          "working_set_bytes": 5074944
+        },
+        {
+          "elapsed_seconds": 0.17452290002256632,
+          "peak_pagefile_bytes": 2007040,
+          "peak_working_set_bytes": 5820416,
+          "private_bytes": 2007040,
+          "thread_count": 4,
+          "working_set_bytes": 5820416
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "fit-isosurface-field",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1304666999494657,
+      "peak_private_bytes": 3702784,
+      "peak_working_set_bytes": 11751424,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09157379996031523,
+          "peak_pagefile_bytes": 3702784,
+          "peak_working_set_bytes": 11751424,
+          "private_bytes": 3702784,
+          "thread_count": 4,
+          "working_set_bytes": 11751424
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "isosurface-seeded-snapped",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14954800007399172,
+      "peak_private_bytes": 2228224,
+      "peak_working_set_bytes": 9621504,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10163440008182079,
+          "peak_pagefile_bytes": 2228224,
+          "peak_working_set_bytes": 9621504,
+          "private_bytes": 2228224,
+          "thread_count": 4,
+          "working_set_bytes": 9621504
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    }
+  ],
+  "scenario_id": "cli-geometry",
+  "schema_version": "1.0.0"
+}

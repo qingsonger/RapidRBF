@@ -1,0 +1,26 @@
+{
+  "kind": "non_normative_resource_samples",
+  "runs": [
+    {
+      "id": "instrumented-source-probe",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.09680149995256215,
+      "peak_private_bytes": 679936,
+      "peak_working_set_bytes": 4993024,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.05158039997331798,
+          "peak_pagefile_bytes": 679936,
+          "peak_working_set_bytes": 4993024,
+          "private_bytes": 679936,
+          "thread_count": 4,
+          "working_set_bytes": 4993024
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    }
+  ],
+  "scenario_id": "cpp-probe",
+  "schema_version": "1.0.0"
+}

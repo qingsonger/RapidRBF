@@ -1,0 +1,53 @@
+{
+  "kind": "non_normative_resource_samples",
+  "runs": [
+    {
+      "id": "normal-score-singleton",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15507600002456456,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11223049997352064,
+          "peak_pagefile_bytes": 2236416,
+          "peak_working_set_bytes": 10199040,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "normal-score-empty",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.24482879997231066,
+      "peak_private_bytes": 2019328,
+      "peak_working_set_bytes": 5537792,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10399129998404533,
+          "peak_pagefile_bytes": 2019328,
+          "peak_working_set_bytes": 5537792,
+          "private_bytes": 2019328,
+          "thread_count": 4,
+          "working_set_bytes": 5537792
+        },
+        {
+          "elapsed_seconds": 0.20413720002397895,
+          "peak_pagefile_bytes": 2174976,
+          "peak_working_set_bytes": 9711616,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    }
+  ],
+  "scenario_id": "defect-normal-score-small-inputs",
+  "schema_version": "1.0.0"
+}

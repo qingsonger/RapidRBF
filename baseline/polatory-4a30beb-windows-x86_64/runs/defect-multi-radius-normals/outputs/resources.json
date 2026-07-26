@@ -1,0 +1,34 @@
+{
+  "kind": "non_normative_resource_samples",
+  "runs": [
+    {
+      "id": "multi-radius-underpopulation",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.23650509992148727,
+      "peak_private_bytes": 1986560,
+      "peak_working_set_bytes": 5525504,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10435609996784478,
+          "peak_pagefile_bytes": 1986560,
+          "peak_working_set_bytes": 5525504,
+          "private_bytes": 1986560,
+          "thread_count": 4,
+          "working_set_bytes": 5525504
+        },
+        {
+          "elapsed_seconds": 0.2021992999361828,
+          "peak_pagefile_bytes": 2244608,
+          "peak_working_set_bytes": 10346496,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    }
+  ],
+  "scenario_id": "defect-multi-radius-normals",
+  "schema_version": "1.0.0"
+}

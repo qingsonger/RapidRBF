@@ -1,0 +1,665 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "variogram_set_import_scope": "differential_only_not_migration_input",
+    "weight_schemes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "variogram",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--lag-dist",
+        "0.5",
+        "--num-lags",
+        "4",
+        "--out",
+        "${WORK}/variogram-1d.bin"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "variogram-1d",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAAAAAAAAAOA/AAAAAAAA8D8AAAAAAAD4PwMAAAAAAAAAVVVVVVVV2T8AAAAAAADyPwAAAAAAAPs/AwAAAAAAAAAGAAAAAAAAAAUAAAAAAAAABAAAAAAAAAAAAAAAAADwPw==",
+          "encoding": "base64",
+          "path": "${WORK}/variogram-1d.bin",
+          "present": true,
+          "role": "differential_only_variogram_set",
+          "sha256": "b90686ef27d6fd8bf01c5c6ac4ece9e1289ee77f553f73563a50c97d26dde459",
+          "size": 112
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-variogram",
+        "--in",
+        "${WORK}/variogram-1d.bin",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "show-variogram-1d",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgIGlkICAgICBhemltdXRoICAgZWxldmF0aW9uICAgbnVtX3BhaXJzDQogICAgIDAgICAgIDI3MC4wMDAgICAgICAgMC4wMDAgICAgICAgICAgMTUNCg==",
+        "encoding": "base64",
+        "sha256": "2966286235c106997ece2a2bb5adc96f1dd8f3cb872bac7b99f0b6d3d21cd6b0",
+        "size": 88
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit-model-to-variogram",
+        "--in",
+        "${WORK}/variogram-1d.bin",
+        "--dim",
+        "1",
+        "--rbf",
+        "exp",
+        "1",
+        "5",
+        "--weights",
+        "0",
+        "--num-trials",
+        "1",
+        "--out",
+        "${WORK}/variogram-model-w0.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "fit-model-to-variogram-weight-0",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAGV4cAIAAAAAAAAAkwTv8G9jEEBor6ztu40iQAAAAAAAAPA//////wAAAAAAAAAA",
+          "encoding": "base64",
+          "path": "${WORK}/variogram-model-w0.model",
+          "present": true,
+          "role": "legacy_model_intermediate",
+          "sha256": "c05633155f0b5436d1bd54df478e9d56186f9c1d11538663dc3eaa416c0036b0",
+          "size": 63
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAwMDANCiAgICAgICAgIGV4cCAgICAgIDQuMDk3MSAgICAgIDkuMjc2OA0KDQo=",
+        "encoding": "base64",
+        "sha256": "4eed3bffe9004b71726f254c3eb7112da159b2b7c74c0702192b53bfe00a542e",
+        "size": 104
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit-model-to-variogram",
+        "--in",
+        "${WORK}/variogram-1d.bin",
+        "--dim",
+        "1",
+        "--rbf",
+        "exp",
+        "1",
+        "5",
+        "--weights",
+        "1",
+        "--num-trials",
+        "1",
+        "--out",
+        "${WORK}/variogram-model-w1.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "fit-model-to-variogram-weight-1",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAGV4cAIAAAAAAAAAgpAmm+HsAUDPKEMzZREWQAAAAAAAAPA//////wAAAAAAAAAA",
+          "encoding": "base64",
+          "path": "${WORK}/variogram-model-w1.model",
+          "present": true,
+          "role": "legacy_model_intermediate",
+          "sha256": "3edd3350ea6be106f94fba02e8dc666283700ddddf60199c99c7bbf057ec36e5",
+          "size": 63
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAwMDANCiAgICAgICAgIGV4cCAgICAgIDIuMjQwNyAgICAgIDUuNTE3MA0KDQo=",
+        "encoding": "base64",
+        "sha256": "43982790c7a9ba32c81ef2c625037ed3b3d8376907d16b920ce9896869797bfb",
+        "size": 104
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit-model-to-variogram",
+        "--in",
+        "${WORK}/variogram-1d.bin",
+        "--dim",
+        "1",
+        "--rbf",
+        "exp",
+        "1",
+        "5",
+        "--weights",
+        "2",
+        "--num-trials",
+        "1",
+        "--out",
+        "${WORK}/variogram-model-w2.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "fit-model-to-variogram-weight-2",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAGV4cAIAAAAAAAAAneP5aFKQ/T/t3d7cU7gHQAAAAAAAAPA//////wAAAAAAAAAA",
+          "encoding": "base64",
+          "path": "${WORK}/variogram-model-w2.model",
+          "present": true,
+          "role": "legacy_model_intermediate",
+          "sha256": "da69e62282e2f9d99e975d353f0500fe0def8031c68d7e72991d9db343b00c28",
+          "size": 63
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAwMDANCiAgICAgICAgIGV4cCAgICAgIDEuODQ3NyAgICAgIDIuOTY1MA0KDQo=",
+        "encoding": "base64",
+        "sha256": "d63b3fcc4192a12f3e8a9505db7bd5ae98ab15e7560e42d714792f3c89943278",
+        "size": 104
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit-model-to-variogram",
+        "--in",
+        "${WORK}/variogram-1d.bin",
+        "--dim",
+        "1",
+        "--rbf",
+        "exp",
+        "1",
+        "5",
+        "--weights",
+        "3",
+        "--num-trials",
+        "1",
+        "--out",
+        "${WORK}/variogram-model-w3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "fit-model-to-variogram-weight-3",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAGV4cAIAAAAAAAAAIqp3z35mEEA4OovhdT0iQAAAAAAAAPA//////wAAAAAAAAAA",
+          "encoding": "base64",
+          "path": "${WORK}/variogram-model-w3.model",
+          "present": true,
+          "role": "legacy_model_intermediate",
+          "sha256": "91ce7dc086d09c636ea7d33aab05e06c38de03dcdd6d2052e4905dd625f2a93b",
+          "size": 63
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAwMDANCiAgICAgICAgIGV4cCAgICAgIDQuMTAwMSAgICAgIDkuMTIwMA0KDQo=",
+        "encoding": "base64",
+        "sha256": "e93542025fa31ca594a1b726ee09c1f4739b66f945f319fe1f1f4db7653bf663",
+        "size": 104
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit-model-to-variogram",
+        "--in",
+        "${WORK}/variogram-1d.bin",
+        "--dim",
+        "1",
+        "--rbf",
+        "exp",
+        "1",
+        "5",
+        "--weights",
+        "4",
+        "--num-trials",
+        "1",
+        "--out",
+        "${WORK}/variogram-model-w4.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "fit-model-to-variogram-weight-4",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAGV4cAIAAAAAAAAAKX1R7fW9D0CBV6A61mUkQAAAAAAAAPA//////wAAAAAAAAAA",
+          "encoding": "base64",
+          "path": "${WORK}/variogram-model-w4.model",
+          "present": true,
+          "role": "legacy_model_intermediate",
+          "sha256": "2295c93547edfe085d9f3696b1b53bceab86e34adc25fd6693267617235127ce",
+          "size": 63
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAwMDANCiAgICAgICAgIGV4cCAgICAgIDMuOTY3OCAgICAgMTAuMTk4OQ0KDQo=",
+        "encoding": "base64",
+        "sha256": "ffbc2c0b35b40d6bf560b818e2ffac58fef2bcb0ae8adb7fefbf50916bd2050e",
+        "size": 104
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit-model-to-variogram",
+        "--in",
+        "${WORK}/variogram-1d.bin",
+        "--dim",
+        "1",
+        "--rbf",
+        "exp",
+        "1",
+        "5",
+        "--weights",
+        "5",
+        "--num-trials",
+        "1",
+        "--out",
+        "${WORK}/variogram-model-w5.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "fit-model-to-variogram-weight-5",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAGV4cAIAAAAAAAAA2gw+KrUCBECg082zWO0UQAAAAAAAAPA//////wAAAAAAAAAA",
+          "encoding": "base64",
+          "path": "${WORK}/variogram-model-w5.model",
+          "present": true,
+          "role": "legacy_model_intermediate",
+          "sha256": "b9aaada5353d45d37e4e49d1d751ed13619886958b9a9d9a3e4632bc83f1967b",
+          "size": 63
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAwMDANCiAgICAgICAgIGV4cCAgICAgIDIuNTAxMyAgICAgIDUuMjMxOA0KDQo=",
+        "encoding": "base64",
+        "sha256": "f9d4cb3ef211fc69757586a1a3e8fe922578071656d8ac3051b18c80d6234e7b",
+        "size": 104
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "cross-validate",
+        "--in",
+        "${REPO}/oracle/fixtures/source/cross-validation-1d.csv",
+        "--dim",
+        "1",
+        "--rbf",
+        "exp",
+        "1",
+        "5",
+        "--deg",
+        "1",
+        "--tol",
+        "1e-6",
+        "--out",
+        "${WORK}/cross-validation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "cross-validate",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuNSAyLjUgMCAxMCAxLjIwMjI5MjYwODQ4MDUxOTkNCi0xIDEuNSAxIDExIDEuNzY2NDAyNDkyNzU4OTQ5NA0KLTAuNSAxIDAgMTIgMS4yNjM3MDI1NzcwMjc0ODQxDQowIDEgMSAxMyAxLjMwOTc3NDU4MDg1ODcwMTENCjAuNSAxLjUgMCAxNCAxLjc2MzcwMjU3NzAyNzQ4NDENCjEgMi41IDEgMTUgMi43NjY0MDI0OTI3NTg5NDg2DQoxLjUgNCAwIDE2IDIuNzAyMjkyNjA4NDgwNTE5Nw0K",
+          "encoding": "base64",
+          "path": "${WORK}/cross-validation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "fdfe699e572d0d52c7b9747a927171437e9035f8bfe4547e70332933f710424d",
+          "size": 222
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgbGV2ZWwgICAgICAgbl9kb21haW5zICAgICAgICBuX3BvaW50cyAgIG5fZ3JhZF9wb2ludHMNCiAgICAgICAwICAgICAgICAgICAgICAgMSAgICAgICAgICAgICAgIDMgICAgICAgICAgICAgICAwDQogICAgaXRlciAgICAgICAgcmVzaWR1YWwgICBncmFkX3Jlc2lkdWFsDQogICAgICAgMCAgICAyLjUwMDAwMGUrMDAgICAgMC4wMDAwMDBlKzAwDQogICAgICAgMSAgICA4Ljg4MTc4NGUtMTYgICAgMC4wMDAwMDBlKzAwDQogICBsZXZlbCAgICAgICBuX2RvbWFpbnMgICAgICAgIG5fcG9pbnRzICAgbl9ncmFkX3BvaW50cw0KICAgICAgIDAgICAgICAgICAgICAgICAxICAgICAgICAgICAgICAgNCAgICAgICAgICAgICAgIDANCiAgICBpdGVyICAgICAgICByZXNpZHVhbCAgIGdyYWRfcmVzaWR1YWwNCiAgICAgICAwICAgIDQuMDAwMDAwZSswMCAgICAwLjAwMDAwMGUrMDANCiAgICAgICAxICAgIDguODgxNzg0ZS0xNiAgICAwLjAwMDAwMGUrMDANCg==",
+        "encoding": "base64",
+        "sha256": "7e182c796df1008159a3efa48be6475501261c1b5f543398ff246bf581665882",
+        "size": 484
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "variogram",
+        "--in",
+        "${REPO}/oracle/fixtures/source/normal-score-ties.csv",
+        "--dim",
+        "1",
+        "--normal-score",
+        "--lag-dist",
+        "1",
+        "--num-lags",
+        "4",
+        "--out",
+        "${WORK}/normal-score-ties.variogram"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "normal-score-ties",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAAAAAAAAAPA/AAAAAAAAAEAAAAAAAAAIQAMAAAAAAAAAQN3VuQffwT8b5YMkC9/bP3OTMZhu3Ow/AwAAAAAAAAAEAAAAAAAAAAMAAAAAAAAAAgAAAAAAAAAAAAAAAADwPw==",
+          "encoding": "base64",
+          "path": "${WORK}/normal-score-ties.variogram",
+          "present": true,
+          "role": "differential_only_variogram_set",
+          "sha256": "94ff4e078258f86c68239a74d326236376f070db130141fab21fe0a73dd416e1",
+          "size": 112
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "variogram",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--dim",
+        "2",
+        "--detrend",
+        "1",
+        "--aniso",
+        "--lag-dist",
+        "0.5",
+        "--num-lags",
+        "4",
+        "--out",
+        "${WORK}/variogram-2d-aniso.bin"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "variogram-2d-detrended-anisotropic",
+      "outputs": [
+        {
+          "bytes_base64": "BAAAAAAAAAABAAAAAAAAAAAAAAAAAPA/AQAAAAAAAAD7//////+fPwEAAAAAAAAABgAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAQAAAAAAAADNO39mnqD2PwEAAAAAAAAA/P//////nz8BAAAAAAAAAAQAAAAAAAAAzTt/Zp6g5j/NO39mnqDmPwEAAAAAAAAAAAAAAAAA8D8BAAAAAAAAAFVVVVVVVUU5AQAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8BAAAAAAAAAM07f2aeoPY/AQAAAAAAAAD4//////+fPwEAAAAAAAAABAAAAAAAAADNO39mnqDmv807f2aeoOY/",
+          "encoding": "base64",
+          "path": "${WORK}/variogram-2d-aniso.bin",
+          "present": true,
+          "role": "differential_only_variogram_set",
+          "sha256": "076c3f933b94524e649beb5c22b1e8b5c3e57b9d0b58e90c027fd0d93248ef22",
+          "size": 264
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "scenario_id": "cli-kriging",
+  "schema_version": "1.0.0"
+}

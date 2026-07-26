@@ -1,0 +1,64 @@
+{
+  "kind": "non_normative_resource_samples",
+  "runs": [
+    {
+      "id": "ordinary-fit",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1417027999414131,
+      "peak_private_bytes": 2981888,
+      "peak_working_set_bytes": 12263424,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09986399998888373,
+          "peak_pagefile_bytes": 3072000,
+          "peak_working_set_bytes": 12263424,
+          "private_bytes": 2981888,
+          "thread_count": 4,
+          "working_set_bytes": 12263424
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "incremental-fit",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15092899999581277,
+      "peak_private_bytes": 2260992,
+      "peak_working_set_bytes": 9695232,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09717760002240539,
+          "peak_pagefile_bytes": 2260992,
+          "peak_working_set_bytes": 9695232,
+          "private_bytes": 2260992,
+          "thread_count": 4,
+          "working_set_bytes": 9695232
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "inequality-fit",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13348099996801466,
+      "peak_private_bytes": 3104768,
+      "peak_working_set_bytes": 11595776,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09191449999343604,
+          "peak_pagefile_bytes": 3104768,
+          "peak_working_set_bytes": 11595776,
+          "private_bytes": 3104768,
+          "thread_count": 4,
+          "working_set_bytes": 11595776
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    }
+  ],
+  "scenario_id": "fit-modes",
+  "schema_version": "1.0.0"
+}

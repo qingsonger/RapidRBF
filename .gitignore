@@ -1,0 +1,6 @@
+/tools/polatory_oracle/probe/build/
+/oracle/staging/
+/oracle/fixtures/legacy/.*.staging-*/
+/baseline/staging/
+**/__pycache__/
+*.pyc

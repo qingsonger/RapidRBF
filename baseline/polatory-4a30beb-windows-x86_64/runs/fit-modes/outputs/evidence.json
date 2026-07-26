@@ -1,0 +1,212 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "accepted_modes": [
+      "ordinary",
+      "incremental",
+      "inequality"
+    ],
+    "warm_start": "not_claimed_as_required_stable_capability"
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--rbf",
+        "th3",
+        "1",
+        "0.25",
+        "--deg",
+        "1",
+        "--tol",
+        "1e-8",
+        "--out",
+        "${WORK}/ordinary.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "ordinary-fit",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAHRoMwIAAAAAAAAAAAAAAAAA8D8AAAAAAADQPwAAAAAAAPA/AQAAAAAAAAAAAAAAAQcAAAAAAAAAAAAAAAAA+L8AAAAAAADwvwAAAAAAAOC/AAAAAAAAAAAAAAAAAADgPwAAAAAAAPA/AAAAAAAA+D8AAAAAAAAAAAAAAAAAAPi/AAAAAAAA+D8JAAAAAAAAABE04Givwd0/4F7M+oyu5L+2CJtq5sLQP038iXfvncS/BgmbaubC0D8KX8z6jK7kvy004Givwd0/6seubx4w7r8VAAAAAADgPw==",
+          "encoding": "base64",
+          "path": "${WORK}/ordinary.interpolant",
+          "present": true,
+          "role": "legacy_interpolant_intermediate",
+          "sha256": "5c7f80a8715c5949c6de156afe23ea0972e79d549bad54a8a170a8584f6cb2da",
+          "size": 232
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgbGV2ZWwgICAgICAgbl9kb21haW5zICAgICAgICBuX3BvaW50cyAgIG5fZ3JhZF9wb2ludHMNCiAgICAgICAwICAgICAgICAgICAgICAgMSAgICAgICAgICAgICAgIDcgICAgICAgICAgICAgICAwDQogICAgaXRlciAgICAgICAgcmVzaWR1YWwgICBncmFkX3Jlc2lkdWFsDQogICAgICAgMCAgICA0LjAwMDAwMGUrMDAgICAgMC4wMDAwMDBlKzAwDQogICAgICAgMSAgICA0LjQ0MDg5MmUtMTUgICAgMC4wMDAwMDBlKzAwDQo=",
+        "encoding": "base64",
+        "sha256": "6b4324eaf86d38ed27fde8c836d9398ddb6fde0ac9ec08f0132e3396f8538dee",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--dim",
+        "1",
+        "--rbf",
+        "th3",
+        "1",
+        "0.25",
+        "--deg",
+        "1",
+        "--tol",
+        "1e-8",
+        "--reduce",
+        "--out",
+        "${WORK}/incremental.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "incremental-fit",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAHRoMwIAAAAAAAAAAAAAAAAA8D8AAAAAAADQPwAAAAAAAPA/AQAAAAAAAAAAAAAAAQcAAAAAAAAAAAAAAAAA+D8AAAAAAAD4vwAAAAAAAAAAAAAAAAAA8L8AAAAAAADwPwAAAAAAAOC/AAAAAAAA4D8AAAAAAAAAAAAAAAAAAPi/AAAAAAAA+D8JAAAAAAAAADw04Givwd0/LjTgaK/B3T8k/Il3753EvwFfzPqMruS/GV/M+oyu5L/VCJtq5sLQPwkJm2rmwtA/Asiubx4w7r/0///////fPw==",
+          "encoding": "base64",
+          "path": "${WORK}/incremental.interpolant",
+          "present": true,
+          "role": "legacy_interpolant_intermediate",
+          "sha256": "04db3d4dca668dc5e49aa8d028dd62d9b7a0cc49a14529af6bc4c2f461d3436e",
+          "size": 232
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "TnVtYmVyIG9mIFJCRiBjZW50ZXJzOiAwIC8gNw0KTnVtYmVyIG9mIHBvaW50cyB0byBmaXQ6IDcNCk51bWJlciBvZiBSQkYgY2VudGVyczogMiAvIDcNCiAgIGxldmVsICAgICAgIG5fZG9tYWlucyAgICAgICAgbl9wb2ludHMgICBuX2dyYWRfcG9pbnRzDQogICAgICAgMCAgICAgICAgICAgICAgIDEgICAgICAgICAgICAgICAyICAgICAgICAgICAgICAgMA0KICAgIGl0ZXIgICAgICAgIHJlc2lkdWFsICAgZ3JhZF9yZXNpZHVhbA0KICAgICAgIDAgICAgNC4wMDAwMDBlKzAwICAgIDAuMDAwMDAwZSswMA0KICAgICAgIDEgICAgOC44ODE3ODRlLTE2ICAgIDAuMDAwMDAwZSswMA0KTnVtYmVyIG9mIHBvaW50cyB0byBmaXQ6IDUNCk51bWJlciBvZiBSQkYgY2VudGVyczogMyAvIDcNCiAgIGxldmVsICAgICAgIG5fZG9tYWlucyAgICAgICAgbl9wb2ludHMgICBuX2dyYWRfcG9pbnRzDQogICAgICAgMCAgICAgICAgICAgICAgIDEgICAgICAgICAgICAgICAzICAgICAgICAgICAgICAgMA0KICAgIGl0ZXIgICAgICAgIHJlc2lkdWFsICAgZ3JhZF9yZXNpZHVhbA0KICAgICAgIDAgICAgMi4yNTAwMDBlKzAwICAgIDAuMDAwMDAwZSswMA0KICAgICAgIDEgICAgOC44ODE3ODRlLTE2ICAgIDAuMDAwMDAwZSswMA0KTnVtYmVyIG9mIHBvaW50cyB0byBmaXQ6IDQNCk51bWJlciBvZiBSQkYgY2VudGVyczogMyAvIDcNCiAgIGxldmVsICAgICAgIG5fZG9tYWlucyAgICAgICAgbl9wb2ludHMgICBuX2dyYWRfcG9pbnRzDQogICAgICAgMCAgICAgICAgICAgICAgIDEgICAgICAgICAgICAgICAzICAgICAgICAgICAgICAgMA0KICAgIGl0ZXIgICAgICAgIHJlc2lkdWFsICAgZ3JhZF9yZXNpZHVhbA0KICAgICAgIDAgICAgOC44ODE3ODRlLTE2ICAgIDAuMDAwMDAwZSswMA0KTnVtYmVyIG9mIHBvaW50cyB0byBmaXQ6IDQNCk51bWJlciBvZiBSQkYgY2VudGVyczogNyAvIDcNCiAgIGxldmVsICAgICAgIG5fZG9tYWlucyAgICAgICAgbl9wb2ludHMgICBuX2dyYWRfcG9pbnRzDQogICAgICAgMCAgICAgICAgICAgICAgIDEgICAgICAgICAgICAgICA3ICAgICAgICAgICAgICAgMA0KICAgIGl0ZXIgICAgICAgIHJlc2lkdWFsICAgZ3JhZF9yZXNpZHVhbA0KICAgICAgIDAgICAgMS42MDgzMDVlLTAxICAgIDAuMDAwMDAwZSswMA0KICAgICAgIDEgICAgMS43NzYzNTdlLTE1ICAgIDAuMDAwMDAwZSswMA0K",
+        "encoding": "base64",
+        "sha256": "6584ae22acf1281e191ea18808cf8c177ae60e8774c6db47385fede3281554a4",
+        "size": 1188
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/inequality-simple-1d.csv",
+        "--dim",
+        "1",
+        "--rbf",
+        "gau",
+        "1",
+        "5",
+        "--deg",
+        "1",
+        "--tol",
+        "1e-8",
+        "--ineq",
+        "--out",
+        "${WORK}/inequality.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "inequality-fit",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAGdhdQIAAAAAAAAAAAAAAAAA8D8AAAAAAAAUQAAAAAAAAPA/AQAAAAAAAAAAAAAAAQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAABBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAPA/",
+          "encoding": "base64",
+          "path": "${WORK}/inequality.interpolant",
+          "present": true,
+          "role": "legacy_interpolant_intermediate",
+          "sha256": "fe8de3b4e66a00c48b62940ba93db9a61a13a0ca48f170ec6b169c9c34ca3b0d",
+          "size": 168
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "QWN0aXZlIGxvd2VyIGJvdW5kczogMCAvIDINCkFjdGl2ZSB1cHBlciBib3VuZHM6IDAgLyAyDQogICBsZXZlbCAgICAgICBuX2RvbWFpbnMgICAgICAgIG5fcG9pbnRzICAgbl9ncmFkX3BvaW50cw0KICAgICAgIDAgICAgICAgICAgICAgICAxICAgICAgICAgICAgICAgMyAgICAgICAgICAgICAgIDANCiAgICBpdGVyICAgICAgICByZXNpZHVhbCAgIGdyYWRfcmVzaWR1YWwNCiAgICAgICAwICAgIDQuMDAwMDAwZSswMCAgICAwLjAwMDAwMGUrMDANCiAgICAgICAxICAgIDguODgxNzg0ZS0xNiAgICAwLjAwMDAwMGUrMDANCg==",
+        "encoding": "base64",
+        "sha256": "4bffacf2ad8344ef8306c8b29aaad9a00e693e8abfbdc18f67815714bbff7e4d",
+        "size": 298
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "scenario_id": "fit-modes",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,421 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "role": "research_only_not_candidate_truth",
+    "skipped_unbounded_cases": [
+      {
+        "path": "corruptions/model-huge-rbf-count.bin",
+        "reason": "bounded safety policy",
+        "sha256": "a9765c4805658a968e5abdccd437e25907681a1cff6375e363239c53b125fcd4",
+        "size": 8
+      }
+    ]
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/corruptions/model-empty.bin",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "corruption-model-empty",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAwMDANCg==",
+        "encoding": "base64",
+        "sha256": "b108e39fdaf99d0d6543fb07b1112751a6e1eff7b0b2c762f465d0f2b345d15c",
+        "size": 64
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 10
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/corruptions/model-truncated-1.bin",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "corruption-model-truncated-1",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IHVua25vd24gUkJGIG5hbWU6ICcnDQo=",
+        "encoding": "base64",
+        "sha256": "d47161ae6b81d5d91f9464b441f625e2da0f469e6417192c724f37af320a36f6",
+        "size": 29
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 10
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/corruptions/model-truncated-half.bin",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "corruption-model-truncated-half",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAwMDANCiAgICAgICAgIGdhdSAgICAgIDAuMDAwMCAgICAgICAgLW5hbg0K",
+        "encoding": "base64",
+        "sha256": "6f4981879e16ad86b603a2b8ca471d2530b1322d842803e1284a72f368aeb05d",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 10
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/corruptions/model-truncated-last.bin",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "corruption-model-truncated-last",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAwMDANCiAgICAgICAgIGdhdSAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "3de830f1d8dc9c25a3a5a20528595f64f03f6c255696d73ae7d5eac4fa14df30",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 10
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/corruptions/model-trailing.bin",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "corruption-model-trailing",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdhdSAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "189c6fc68cf6db0f048f231648aa4815799d9a502ecbfaf8f6d273c37aa60b0d",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 10
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/corruptions/model-nonfinite-nugget.bin",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "corruption-model-nonfinite-nugget",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAgICBuYW4NCiAgICAgICAgIGdhdSAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "551c8809792b09c8d7c259f82b87f27a79bbbf57917b8b6adfb50205ad7d3072",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 10
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/corruptions/model-negative-nugget.bin",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "corruption-model-negative-nugget",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgIC0xLjAwMDANCiAgICAgICAgIGdhdSAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "f14811d4e2d7cc4af9e89433be982837386918658ea907a390cce546d63435bc",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 10
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/corruptions/interpolant-truncated-last.bin",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--out",
+        "${WORK}/interpolant-truncated-last.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "corruption-interpolant-truncated-last",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMC4wMDU1NDYwMzQzMTkyMzUyODINCi0wLjc1IC0yLjY3ODMwODQ2MTU2NjY3MQ0KLTAuMjUgLTUuODk1NDQ4MTY5NzM2NDAyDQowLjI1IC05LjAxOTU3MzkxNjI5NzYxMw0KMC43NSAtMTEuMjU1OTkyMDE0MjMzMg0KMS4yNSAtMTEuOTQ0MDcxNjAxMDg3MDE4DQo=",
+          "encoding": "base64",
+          "path": "${WORK}/interpolant-truncated-last.csv",
+          "present": true,
+          "role": "incidental_invalid_input_output",
+          "sha256": "f6dcdba4948ae3e7607b4e4e7a9000940511496678631255dac89907e28dd68c",
+          "size": 155
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 10
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/corruptions/interpolant-trailing.bin",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--out",
+        "${WORK}/interpolant-trailing.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "corruption-interpolant-trailing",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMi4wMTQxNDE3OTE0MjU4MjM1DQotMC43NSAxLjI2NjYzOTg0MDc4Mzc4OA0KLTAuMjUgMC44NzQxMTAxODgwNjE0OTQzDQowLjI1IDEuMTMwMDQxODUzODI4OTU0NQ0KMC43NSAyLjAzOTY0MzgzMzIzNDE1NTMNCjEuMjUgMy4yNzMyNzI2OTc2NzkzMzE2DQo=",
+          "encoding": "base64",
+          "path": "${WORK}/interpolant-trailing.csv",
+          "present": true,
+          "role": "incidental_invalid_input_output",
+          "sha256": "83df15823962cb3b595ebfea4a4ba52ce79066be76c8dff129838da29fd1fae7",
+          "size": 152
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 10
+    }
+  ],
+  "scenario_id": "legacy-corruption",
+  "schema_version": "1.0.0"
+}

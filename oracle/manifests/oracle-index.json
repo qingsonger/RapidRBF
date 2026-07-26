@@ -1,0 +1,1598 @@
+{
+  "compatibility_items": [
+    {
+      "classification": "required_stable_capability",
+      "description": "Observable interpolation behavior in dimensions 1, 2, and 3.",
+      "id": "stable.dimensions",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cpp-probe",
+        "cli-fit-evaluate",
+        "legacy-matrix"
+      ]
+    },
+    {
+      "classification": "required_stable_capability",
+      "description": "All 16 RBF families, parameter order, mathematical branches, origin values, and support boundaries on valid inputs.",
+      "id": "stable.rbf-family-semantics",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cpp-probe",
+        "legacy-matrix"
+      ]
+    },
+    {
+      "classification": "required_stable_capability",
+      "description": "Composite Model, CPD, polynomial degree and monomial order, parameter order, and nugget semantics on valid inputs.",
+      "id": "stable.model-polynomial-nugget",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cpp-probe",
+        "cli-fit-evaluate",
+        "legacy-matrix"
+      ]
+    },
+    {
+      "classification": "required_stable_capability",
+      "description": "General finite positive-determinant anisotropy and valid value, gradient, gradient-transpose, and Hessian chain rules.",
+      "id": "stable.anisotropy-derivatives",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cpp-probe"
+      ]
+    },
+    {
+      "classification": "required_stable_capability",
+      "description": "Hermite block signs and scalar-first, point-major gradient, polynomial-last vector layout for supported models.",
+      "id": "stable.hermite-layout",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cpp-probe",
+        "cli-fit-evaluate"
+      ]
+    },
+    {
+      "classification": "required_stable_capability",
+      "description": "Ordinary, incremental, and inequality fitting with accepted constraint meanings; warm-start identity is not added here.",
+      "id": "stable.fit-modes",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "fit-modes"
+      ]
+    },
+    {
+      "classification": "required_stable_capability",
+      "description": "Value and full-gradient evaluation with observable output shape and raw numerical observations.",
+      "id": "stable.evaluation",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cpp-probe",
+        "cli-fit-evaluate"
+      ]
+    },
+    {
+      "classification": "required_stable_capability",
+      "description": "Variogram, model fitting, cross-validation, detrending, weight schemes, and normal-score workflows on representative valid inputs.",
+      "id": "stable.kriging-variogram",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cli-kriging"
+      ]
+    },
+    {
+      "classification": "required_stable_capability",
+      "description": "Distance filtering, normal estimation and orientation, and signed-distance-data generation on representative valid inputs.",
+      "id": "stable.point-cloud-sdf",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cli-point-cloud"
+      ]
+    },
+    {
+      "classification": "required_stable_capability",
+      "description": "2.5D and 3D isosurface workflows, logical OBJ content, bbox, seed, snap, and isovalue behavior.",
+      "id": "stable.geometry",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cli-geometry"
+      ]
+    },
+    {
+      "classification": "required_stable_capability",
+      "description": "Raw output values, externally reported residual observations, terminal states, and error categories needed for later operation-specific contracts.",
+      "id": "stable.numerical-convergence-outcomes",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cli-fit-evaluate",
+        "fit-modes"
+      ]
+    },
+    {
+      "classification": "required_stable_capability",
+      "description": "Content identities and generator provenance for the 1k, 10k, 100k, and 1M workload ladder plus a lower-rung executable anchor. This freezes prerequisites and does not claim that the future million-scale release gate passes.",
+      "id": "stable.million-scale-gate-prerequisites",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "scale-input-ladder"
+      ]
+    },
+    {
+      "classification": "required_migration_surface",
+      "description": "Idiomatic stable Rust capability surface.",
+      "downstream_issue": "https://github.com/qingsonger/RapidRBF/issues/19",
+      "id": "migration.rust-interface",
+      "oracle_applicability": "not_applicable",
+      "reason": "Polatory has no Rust interface. The frozen surface-neutral fixtures feed the downstream Rust interface decision."
+    },
+    {
+      "classification": "required_migration_surface",
+      "description": "Source-bound inventory of the accepted Python workflows and logical array shapes required under the rapidrbf package migration; runtime buildability and execution are established downstream.",
+      "id": "migration.python",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "python-interface-inventory"
+      ]
+    },
+    {
+      "classification": "required_migration_surface",
+      "description": "All 14 CLI workflows, command and option meanings, defaults, conflicts, logical table and OBJ shapes, and exit categories.",
+      "id": "migration.cli",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "cli-command-contracts",
+        "cli-fit-evaluate",
+        "cli-kriging",
+        "cli-point-cloud",
+        "cli-geometry"
+      ]
+    },
+    {
+      "classification": "required_migration_surface",
+      "description": "Versioned RapidRBF portable artifact.",
+      "downstream_issue": "https://github.com/qingsonger/RapidRBF/issues/24",
+      "id": "migration.portable-artifact",
+      "oracle_applicability": "not_applicable",
+      "reason": "Polatory has no portable artifact. This oracle freezes legacy-to-logical-field evidence only."
+    },
+    {
+      "classification": "intentional_compatibility_change",
+      "description": "RapidRBF must provide deterministic checked handling for undefined, invalid, malformed, non-finite, or unsafe inputs.",
+      "id": "change.invalid-unsafe-inputs",
+      "oracle_applicability": "must_not_compare",
+      "reason": "Polatory crashes, unbounded allocation, undefined behavior, and incidental NaN or Inf are diagnostic evidence only and are never candidate truth. Research scenarios relate to this item without covering it."
+    },
+    {
+      "classification": "intentional_extension",
+      "description": "Build identity, explicit seeds, configured and effective thread counts, and relevant runtime configuration.",
+      "id": "extension.reproducibility-controls",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "build-identity",
+        "scale-input-ladder"
+      ]
+    },
+    {
+      "classification": "migration_only_input",
+      "description": "Frozen valid native Model and Interpolant artifacts for the observed Windows x86_64 layout.",
+      "id": "legacy.model-interpolant",
+      "oracle_applicability": "required",
+      "scenario_ids": [
+        "legacy-matrix"
+      ]
+    },
+    {
+      "classification": "internal_implementation_detail",
+      "description": "Dependency identities, solver trajectories, coefficient vectors, partitions, caches, reductions, sampling, optimizer paths, and thread scheduling.",
+      "id": "internal.backend-identities",
+      "oracle_applicability": "must_not_compare",
+      "reason": "Recorded for provenance and diagnostics only; the accepted manifest promises no compatibility for these implementation details."
+    },
+    {
+      "classification": "explicit_exclusion",
+      "description": "C++ source or ABI, cross-platform bitwise identity, exact coefficients or iteration histories, polatory-named replacement artifacts, legacy writes, VariogramSet import, exact text or padding, exact mesh numbering, and exact tessellation.",
+      "id": "exclusion.noncontractual-observations",
+      "oracle_applicability": "must_not_compare",
+      "reason": "Raw bytes remain evidence, but downstream acceptance must compare only the semantic fields selected by later contracts."
+    }
+  ],
+  "compatibility_manifest_issue": "https://github.com/qingsonger/RapidRBF/issues/5",
+  "id": "polatory-4a30beb-windows-x86_64-behavior-oracle",
+  "interpretation": {
+    "accepted_surface": "May cover required manifest items through its declared selector or accepted inventory; the role does not promote every captured byte to compatibility truth.",
+    "numeric_tolerance_applied": false,
+    "provenance_only": "Preserves build or test context and can never satisfy required compatibility coverage.",
+    "research_only": "Preserves suspected defects or unsafe legacy observations and can never satisfy required compatibility coverage.",
+    "role_enforcement_scope": "Scenario roles and covers/relates_to mappings govern coverage authority. Full-stream replay is an evidence-integrity and drift check; downstream contracts select accepted semantic fields."
+  },
+  "polatory": {
+    "binary_distribution": "not_redistributed",
+    "cli_sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9",
+    "commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+    "repository": "https://github.com/polatory/polatory.git"
+  },
+  "scenarios": [
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "build-identity",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "covers": [
+        "extension.reproducibility-controls"
+      ],
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "build-identity",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "role": "accepted_surface",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "build_environment",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "cpp-probe",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}",
+        "--probe",
+        "${PROBE}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "covers": [
+        "stable.dimensions",
+        "stable.rbf-family-semantics",
+        "stable.model-polynomial-nugget",
+        "stable.anisotropy-derivatives",
+        "stable.hermite-layout",
+        "stable.evaluation"
+      ],
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "cpp-probe",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [
+        "The probe output labels itself diagnostic evidence.",
+        "Only the machine-readable valid-input selector in evidence.json feeds accepted-surface decisions; replay of the complete stream detects evidence drift but does not promote diagnostic bytes to compatibility truth."
+      ],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "role": "accepted_surface",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "instrumented_cpp_diagnostic",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "cli-command-contracts",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "covers": [
+        "migration.cli"
+      ],
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "cli-command-contracts",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "role": "accepted_surface",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "public_cli",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "cli-fit-evaluate",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "covers": [
+        "stable.dimensions",
+        "stable.model-polynomial-nugget",
+        "stable.hermite-layout",
+        "stable.evaluation",
+        "stable.numerical-convergence-outcomes",
+        "migration.cli"
+      ],
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "cli-fit-evaluate",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "role": "accepted_surface",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "public_cli",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "fit-modes",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "covers": [
+        "stable.fit-modes",
+        "stable.numerical-convergence-outcomes"
+      ],
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "fit-modes",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "role": "accepted_surface",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "public_cli",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "cli-kriging",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "covers": [
+        "stable.kriging-variogram",
+        "migration.cli"
+      ],
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "cli-kriging",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "role": "accepted_surface",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "public_cli",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "cli-point-cloud",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "covers": [
+        "stable.point-cloud-sdf",
+        "migration.cli"
+      ],
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "cli-point-cloud",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "role": "accepted_surface",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "public_cli",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "cli-geometry",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "covers": [
+        "stable.geometry",
+        "migration.cli"
+      ],
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "cli-geometry",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "role": "accepted_surface",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "public_cli",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "scale-input-ladder",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "covers": [
+        "stable.million-scale-gate-prerequisites",
+        "extension.reproducibility-controls"
+      ],
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "scale-input-ladder",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [
+        "This scenario freezes the workload ladder and a 1k executable anchor.",
+        "It does not claim that the deferred million-scale fit/evaluation release gate passes."
+      ],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "role": "accepted_surface",
+      "seed": {
+        "prediction_points": 1,
+        "training_points": 0
+      },
+      "seed_policy": "The frozen upstream generator receives literal seeds 0 and 1; content hashes, not seed identity alone, define each corpus.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "benchmark_workload",
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "legacy-matrix",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "covers": [
+        "stable.dimensions",
+        "stable.rbf-family-semantics",
+        "stable.model-polynomial-nugget",
+        "legacy.model-interpolant"
+      ],
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "legacy-matrix",
+      "legacy_layout": {
+        "architecture": "x86_64",
+        "byte_order": "little",
+        "eigen_index_bytes": 8,
+        "matrix_storage": "Eigen dynamic row-major raw storage",
+        "os": "windows",
+        "size_t_bytes": 8
+      },
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [
+        "Only valid Model and Interpolant artifacts are migration inputs.",
+        "VariogramSet files are differential-only evidence and RapidRBF never writes the native format."
+      ],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "role": "accepted_surface",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "legacy_artifact",
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "python-interface-inventory",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "covers": [
+        "migration.python"
+      ],
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "python-interface-inventory",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [
+        "This accepted item is the source-bound workflow and logical array-shape prerequisite, not an executable Python-extension behavior oracle or exact signature/import-name contract.",
+        "Runtime buildability and workflow execution remain unestablished; build failures are held in a separate research-only scenario."
+      ],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "role": "accepted_surface",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "python_source_inventory",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "unit-smoke",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "unit-smoke",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [
+        "A selected source-suite smoke run is retained as provenance; it does not establish a RapidRBF acceptance threshold."
+      ],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "relates_to": [
+        "stable.numerical-convergence-outcomes",
+        "internal.backend-identities"
+      ],
+      "role": "provenance_only",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "upstream_unit_tests",
+      "timeout_seconds": 360
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "legacy-corruption",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "legacy-corruption",
+      "legacy_layout": {
+        "architecture": "x86_64",
+        "byte_order": "little",
+        "eigen_index_bytes": 8,
+        "matrix_storage": "Eigen dynamic row-major raw storage",
+        "os": "windows",
+        "size_t_bytes": 8
+      },
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [
+        "Malformed artifacts are bounded diagnostic inputs, not accepted Polatory behavior.",
+        "The unbounded-allocation case is hashed but never loaded."
+      ],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "relates_to": [
+        "legacy.model-interpolant",
+        "change.invalid-unsafe-inputs"
+      ],
+      "role": "research_only",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "legacy_artifact",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "defect-inequality-active-set",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "defect-inequality-active-set",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [
+        "Suspected defect on valid input; reproduction does not adjudicate compatibility."
+      ],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "relates_to": [
+        "stable.fit-modes",
+        "change.invalid-unsafe-inputs"
+      ],
+      "role": "research_only",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "public_cli",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "defect-zero-rhs",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "defect-zero-rhs",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [
+        "The suspected internal NaN basis is not exposed by the observed public early-return outcome."
+      ],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "relates_to": [
+        "stable.numerical-convergence-outcomes",
+        "change.invalid-unsafe-inputs"
+      ],
+      "role": "research_only",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "public_cli",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "defect-normal-score-small-inputs",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "defect-normal-score-small-inputs",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "relates_to": [
+        "stable.kriging-variogram",
+        "change.invalid-unsafe-inputs"
+      ],
+      "role": "research_only",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "public_cli",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "defect-multi-radius-normals",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "defect-multi-radius-normals",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "relates_to": [
+        "stable.point-cloud-sdf",
+        "change.invalid-unsafe-inputs"
+      ],
+      "role": "research_only",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "public_cli",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "defect-pathological-sdf",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "canonical",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "defect-pathological-sdf",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "relates_to": [
+        "stable.point-cloud-sdf",
+        "change.invalid-unsafe-inputs"
+      ],
+      "role": "research_only",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "public_cli",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "${PYTHON}",
+        "${REPO}/tools/polatory_oracle/workflows.py",
+        "python-build",
+        "--repo-root",
+        "${REPO}",
+        "--polatory-root",
+        "${POLATORY_ROOT}",
+        "--work",
+        "${WORK}"
+      ],
+      "authority": "instrumented",
+      "configured_threads": {
+        "MKL_NUM_THREADS": 1,
+        "OMP_NUM_THREADS": 1,
+        "OMP_THREAD_LIMIT": 1
+      },
+      "coverage_authority": "scenario_role_and_manifest_mapping",
+      "cwd": ".",
+      "env": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "expected": {
+        "exit_code": 0,
+        "terminal_status": "exited"
+      },
+      "id": "python-build",
+      "non_normative_fields": [
+        "wall time",
+        "working-set and private-byte samples",
+        "thread scheduling",
+        "exact solver or optimizer trajectory",
+        "exact text formatting unless a downstream contract selects a semantic field"
+      ],
+      "normative_fields": [
+        "scenario structure",
+        "terminal status and exit category",
+        "raw evidence bytes selected by the downstream operation contract"
+      ],
+      "notes": [
+        "The frozen build failures are environment-specific diagnostic observations and do not cover the accepted Python migration surface.",
+        "The static SdfDataGenerator mismatch was not reached dynamically."
+      ],
+      "outputs": [
+        {
+          "path": "evidence.json",
+          "replay_compare": true,
+          "required": true
+        },
+        {
+          "path": "resources.json",
+          "replay_compare": false,
+          "required": true
+        }
+      ],
+      "relates_to": [
+        "migration.python"
+      ],
+      "role": "research_only",
+      "seed": null,
+      "seed_policy": "No random seed is exposed by the selected operations.",
+      "stderr_replay_compare": true,
+      "stdout_replay_compare": true,
+      "surface": "python_build_reproduction",
+      "timeout_seconds": 120
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_issue": "https://github.com/qingsonger/RapidRBF/issues/6"
+}

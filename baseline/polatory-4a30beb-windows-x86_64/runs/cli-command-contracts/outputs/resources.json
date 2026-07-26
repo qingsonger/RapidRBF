@@ -1,0 +1,330 @@
+{
+  "kind": "non_normative_resource_samples",
+  "runs": [
+    {
+      "id": "global-help",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.16456489998381585,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11158719996456057,
+          "peak_pagefile_bytes": 2203648,
+          "peak_working_set_bytes": 9334784,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-create-model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12575959996320307,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09061049995943904,
+          "peak_pagefile_bytes": 2187264,
+          "peak_working_set_bytes": 9367552,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-fit",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.11720630002673715,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08238060004077852,
+          "peak_pagefile_bytes": 2191360,
+          "peak_working_set_bytes": 9388032,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-evaluate",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.11608349997550249,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08375019999220967,
+          "peak_pagefile_bytes": 2195456,
+          "peak_working_set_bytes": 9367552,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-extract-model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.11700969992671162,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08097579993773252,
+          "peak_pagefile_bytes": 2183168,
+          "peak_working_set_bytes": 9347072,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-show-model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.11579469998832792,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08425180008634925,
+          "peak_pagefile_bytes": 2203648,
+          "peak_working_set_bytes": 9388032,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-variogram",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.11834529996849597,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08727670006919652,
+          "peak_pagefile_bytes": 2174976,
+          "peak_working_set_bytes": 9375744,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-show-variogram",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12895199994090945,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09545659995637834,
+          "peak_pagefile_bytes": 2199552,
+          "peak_working_set_bytes": 9388032,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-fit-model-to-variogram",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.11708720005117357,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08481370005756617,
+          "peak_pagefile_bytes": 2195456,
+          "peak_working_set_bytes": 9392128,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-cross-validate",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.11572000000160187,
+      "peak_private_bytes": 73728,
+      "peak_working_set_bytes": 28672,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08364510000683367,
+          "peak_pagefile_bytes": 2162688,
+          "peak_working_set_bytes": 9342976,
+          "private_bytes": 73728,
+          "thread_count": 4,
+          "working_set_bytes": 28672
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-estimate-normals",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.11783000000286847,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.0828029999975115,
+          "peak_pagefile_bytes": 2199552,
+          "peak_working_set_bytes": 9396224,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-normals-to-sdf",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1203953999793157,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08596159995067865,
+          "peak_pagefile_bytes": 2170880,
+          "peak_working_set_bytes": 9371648,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-surface-25d",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12378529994748533,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08745490002911538,
+          "peak_pagefile_bytes": 2191360,
+          "peak_working_set_bytes": 9388032,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-isosurface",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12545190006494522,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09508460003416985,
+          "peak_pagefile_bytes": 2183168,
+          "peak_working_set_bytes": 9379840,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "help-unique",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.11524399998597801,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08280350000131875,
+          "peak_pagefile_bytes": 2195456,
+          "peak_working_set_bytes": 9383936,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "partial-number-parsing",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14562189998105168,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11434710002504289,
+          "peak_pagefile_bytes": 2248704,
+          "peak_working_set_bytes": 10211328,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "mutually-exclusive-normal-search",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12198840000201017,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08973789995070547,
+          "peak_pagefile_bytes": 2195456,
+          "peak_working_set_bytes": 9543680,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    }
+  ],
+  "scenario_id": "cli-command-contracts",
+  "schema_version": "1.0.0"
+}

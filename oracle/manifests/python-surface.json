@@ -1,0 +1,2312 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_id": "python-surface",
+  "title": "Frozen Polatory Python workflow and logical array surface",
+  "classification": "required_migration_surface",
+  "compatibility_item_id": "migration.python",
+  "purpose": "Provide a machine-readable inventory of the Python workflows, logical array shapes, inputs, outputs, and stable error-category domains that must be represented by the RapidRBF Python migration.",
+  "frozen_upstream": {
+    "repository": "https://github.com/polatory/polatory.git",
+    "commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+    "source_files": [
+      {
+        "path": "python/CMakeLists.txt",
+        "role": "python_extension_build_definition",
+        "size_bytes": 306,
+        "sha256": "8905a30712a6c11ea46d05940170d46cd3c4ee7ed8f13334a5a328aa667737f1"
+      },
+      {
+        "path": "python/python_binding.cpp",
+        "role": "binding_surface_definition",
+        "size_bytes": 15679,
+        "sha256": "4c35b65579e02a68e2d5bfb452d702af871c59ea6ca04b9ba8ad950d6577db40"
+      },
+      {
+        "path": "python/src/polatory/__init__.py",
+        "role": "legacy_root_import_surface",
+        "size_bytes": 63,
+        "sha256": "ceb2537228400598d26e6b0f8ed73517f0dabf630f79e7022e50bc2a666de809"
+      },
+      {
+        "path": "python/src/polatory/one/__init__.py",
+        "role": "legacy_dimension_1_import_surface",
+        "size_bytes": 60,
+        "sha256": "8116f1ed6200f91142f86f1a87c427f93b959377252ef0bc1d0936cc8ac41748"
+      },
+      {
+        "path": "python/src/polatory/two/__init__.py",
+        "role": "legacy_dimension_2_import_surface",
+        "size_bytes": 60,
+        "sha256": "5be51d2af5311c69f78fbafadaa03bf0581f032da6a65ca87d1be2fb4826182b"
+      },
+      {
+        "path": "python/src/polatory/three/__init__.py",
+        "role": "legacy_dimension_3_import_surface",
+        "size_bytes": 64,
+        "sha256": "a61e71d83f7bd0a2d274b2f07561777a6f17192c63b81d955c1af94b41bd3d60"
+      },
+      {
+        "path": "python/tests/test.py",
+        "role": "legacy_import_smoke_test",
+        "size_bytes": 108,
+        "sha256": "2bd3acd16d4afc2a0bb0c2a7257bf50a4b7f94d8be0d4f5aae584115fa442709"
+      },
+      {
+        "path": "setup.py",
+        "role": "legacy_python_package_build_metadata",
+        "size_bytes": 4154,
+        "sha256": "a8bce8b0c9ca8019b4419901f4751bea6919fc0229a664a8f99b74f218ca1e79"
+      },
+      {
+        "path": "setup.cfg",
+        "role": "legacy_python_package_metadata",
+        "size_bytes": 341,
+        "sha256": "d2678326f09af35abb71bf137a3c559a66e6b1110af0446300286bc07abfe080"
+      },
+      {
+        "path": "pyproject.toml",
+        "role": "legacy_python_build_system_metadata",
+        "size_bytes": 93,
+        "sha256": "827a84fb7ffdc2cc933367acd595188201e4067be2f73271332092ffefa3d12c"
+      }
+    ]
+  },
+  "decision_basis": {
+    "issue": "https://github.com/qingsonger/RapidRBF/issues/5",
+    "resolution_role": "accepted_compatibility_policy",
+    "accepted_requirement": "Python workflow and array-shape coverage under the rapidrbf package migration",
+    "related_manifest": "oracle/manifests/compatibility-items.json"
+  },
+  "contract": {
+    "target_package": "rapidrbf",
+    "legacy_source_package": "polatory",
+    "accepted_contract_level": [
+      "workflow_capability",
+      "logical_array_rank",
+      "logical_array_axis_order",
+      "logical_input_output_relationship",
+      "dimension_availability",
+      "stable_error_category"
+    ],
+    "explicit_non_promises": [
+      "polatory_import_name_drop_in_compatibility",
+      "legacy_submodule_name_identity",
+      "exact_python_signature_identity",
+      "exact_class_or_method_name_identity",
+      "positional_vs_keyword_argument_identity",
+      "default_argument_identity_unless_separately_accepted",
+      "exact_python_exception_type",
+      "exact_exception_message",
+      "numpy_memory_layout_or_contiguity",
+      "zero_copy_behavior",
+      "implicit_dtype_coercion",
+      "legacy_artifact_emission",
+      "exact_mesh_vertex_numbering_or_tessellation"
+    ],
+    "source_names_are": "provenance_only",
+    "target_api_design_rule": "A documented and mechanically checkable RapidRBF path must cover each accepted workflow and logical shape; it need not reproduce the frozen import names or call signatures.",
+    "target_stability_horizon": "1.x"
+  },
+  "evidence_limits": {
+    "binding_source_inspected": true,
+    "frozen_python_test_scope": "import_only",
+    "frozen_python_test_imports": [
+      "polatory",
+      "polatory.one",
+      "polatory.two",
+      "polatory.three"
+    ],
+    "frozen_python_test_proves_runtime_workflows": false,
+    "array_semantics_basis": "C++ binding types and accepted compatibility resolution",
+    "runtime_build_or_execution_outcomes_are_contractual": false
+  },
+  "dimension_scope": [
+    1,
+    2,
+    3
+  ],
+  "source_surface": {
+    "observed_modules": [
+      {
+        "source_import": "polatory.one",
+        "dimension": 1,
+        "status": "source_evidence_only"
+      },
+      {
+        "source_import": "polatory.two",
+        "dimension": 2,
+        "status": "source_evidence_only"
+      },
+      {
+        "source_import": "polatory.three",
+        "dimension": 3,
+        "status": "source_evidence_only"
+      }
+    ],
+    "dimension_scoped_symbols": [
+      "Bbox",
+      "Rbf",
+      "Biharmonic2D",
+      "Biharmonic3D",
+      "CovCubic",
+      "CovExponential",
+      "CovGaussian",
+      "CovGeneralizedCauchy3",
+      "CovGeneralizedCauchy5",
+      "CovGeneralizedCauchy7",
+      "CovGeneralizedCauchy9",
+      "CovSpherical",
+      "CovSpheroidal3",
+      "CovSpheroidal5",
+      "CovSpheroidal7",
+      "CovSpheroidal9",
+      "Triharmonic2D",
+      "Triharmonic3D",
+      "Model",
+      "Interpolant",
+      "DistanceFilter",
+      "Variogram",
+      "VariogramCalculator",
+      "VariogramFitting",
+      "VariogramSet",
+      "cross_validate",
+      "detrend"
+    ],
+    "three_dimensional_or_global_symbols": [
+      "NormalEstimator",
+      "SdfDataGenerator",
+      "_FieldFunction",
+      "RbfFieldFunction",
+      "RbfFieldFunction25D",
+      "Isosurface",
+      "Mesh",
+      "NormalScoreTransformation",
+      "WeightFunction",
+      "__version__"
+    ],
+    "symbol_identity_is_contractual": false
+  },
+  "shape_language": {
+    "interpretation": "logical",
+    "axis_order": "row_major_points",
+    "symbols": {
+      "dim": "spatial dimension; one of 1, 2, or 3",
+      "n": "input point or value row count",
+      "m": "evaluation point row count",
+      "g": "gradient-constraint or gradient-evaluation point row count",
+      "k": "selected index count",
+      "d": "variogram direction count",
+      "b": "bin count for one variogram",
+      "p": "parameter count",
+      "r": "neighborhood-candidate count",
+      "s": "seed point count",
+      "q": "snap point count",
+      "v": "mesh vertex count",
+      "f": "mesh face count",
+      "w": "interpolant weight count"
+    },
+    "dtype_vocabulary": {
+      "real64": "IEEE-754 binary64 logical values",
+      "int32": "signed 32-bit integer logical values",
+      "signed_integer": "signed integer values with target storage width not fixed by this manifest",
+      "bool": "boolean",
+      "utf8": "Unicode text"
+    },
+    "storage_guarantees": "none"
+  },
+  "array_shapes": [
+    {
+      "id": "points_dim",
+      "dtype": "real64",
+      "shape": [
+        "n",
+        "dim"
+      ],
+      "meaning": "point coordinates; one point per row"
+    },
+    {
+      "id": "evaluation_points_dim",
+      "dtype": "real64",
+      "shape": [
+        "m",
+        "dim"
+      ],
+      "meaning": "value-evaluation point coordinates"
+    },
+    {
+      "id": "gradient_points_dim",
+      "dtype": "real64",
+      "shape": [
+        "g",
+        "dim"
+      ],
+      "meaning": "full-gradient constraint or evaluation point coordinates"
+    },
+    {
+      "id": "vector_dim",
+      "dtype": "real64",
+      "shape": [
+        "dim"
+      ],
+      "meaning": "one logical spatial vector"
+    },
+    {
+      "id": "bbox_bounds_dim",
+      "dtype": "real64",
+      "shape": [
+        "dim"
+      ],
+      "meaning": "logical minimum or maximum bound"
+    },
+    {
+      "id": "anisotropy_dim",
+      "dtype": "real64",
+      "shape": [
+        "dim",
+        "dim"
+      ],
+      "meaning": "anisotropy transform"
+    },
+    {
+      "id": "values_n",
+      "dtype": "real64",
+      "shape": [
+        "n"
+      ],
+      "meaning": "one scalar value per point"
+    },
+    {
+      "id": "parameters_p",
+      "dtype": "real64",
+      "shape": [
+        "p"
+      ],
+      "meaning": "ordered RBF or model parameter vector"
+    },
+    {
+      "id": "hermite_values",
+      "dtype": "real64",
+      "shape": [
+        "n + dim * g"
+      ],
+      "meaning": "scalar constraints first, followed by full-gradient components in point-major order"
+    },
+    {
+      "id": "value_predictions_m",
+      "dtype": "real64",
+      "shape": [
+        "m"
+      ],
+      "meaning": "one scalar prediction per value-evaluation point"
+    },
+    {
+      "id": "mixed_predictions",
+      "dtype": "real64",
+      "shape": [
+        "m + dim * g"
+      ],
+      "meaning": "scalar predictions first, followed by full-gradient predictions in point-major order"
+    },
+    {
+      "id": "centers_dim",
+      "dtype": "real64",
+      "shape": [
+        "n_selected",
+        "dim"
+      ],
+      "meaning": "selected scalar centers"
+    },
+    {
+      "id": "gradient_centers_dim",
+      "dtype": "real64",
+      "shape": [
+        "g_selected",
+        "dim"
+      ],
+      "meaning": "selected full-gradient centers"
+    },
+    {
+      "id": "interpolant_weights",
+      "dtype": "real64",
+      "shape": [
+        "w"
+      ],
+      "constraint": "w = n_selected + dim * g_selected + polynomial_basis_size",
+      "meaning": "scalar-center weights, point-major gradient-center weights, then polynomial weights"
+    },
+    {
+      "id": "selected_indices_k",
+      "dtype": "signed_integer",
+      "shape": [
+        "k"
+      ],
+      "meaning": "indices retained by distance filtering"
+    },
+    {
+      "id": "set_ids_n",
+      "dtype": "int32",
+      "shape": [
+        "n"
+      ],
+      "meaning": "cross-validation set identifier per row"
+    },
+    {
+      "id": "directions_dim",
+      "dtype": "real64",
+      "shape": [
+        "d",
+        "dim"
+      ],
+      "meaning": "direction vectors for variogram calculation"
+    },
+    {
+      "id": "variogram_bin_distance",
+      "dtype": "real64",
+      "shape": [
+        "b"
+      ],
+      "meaning": "lag distance for each variogram bin"
+    },
+    {
+      "id": "variogram_bin_gamma",
+      "dtype": "real64",
+      "shape": [
+        "b"
+      ],
+      "meaning": "semivariance for each variogram bin"
+    },
+    {
+      "id": "variogram_bin_pair_count",
+      "dtype": "signed_integer",
+      "shape": [
+        "b"
+      ],
+      "meaning": "pair count for each variogram bin"
+    },
+    {
+      "id": "neighborhood_counts_n",
+      "dtype": "signed_integer",
+      "shape": [
+        "n"
+      ],
+      "meaning": "per-point nearest-neighbor counts"
+    },
+    {
+      "id": "neighborhood_radii_n",
+      "dtype": "real64",
+      "shape": [
+        "n"
+      ],
+      "meaning": "per-point neighborhood radii"
+    },
+    {
+      "id": "normals_3",
+      "dtype": "real64",
+      "shape": [
+        "n",
+        3
+      ],
+      "meaning": "one normal vector per point"
+    },
+    {
+      "id": "plane_factors_n",
+      "dtype": "real64",
+      "shape": [
+        "n"
+      ],
+      "meaning": "one estimated planarity factor per point"
+    },
+    {
+      "id": "sdf_points_3",
+      "dtype": "real64",
+      "shape": [
+        "m",
+        3
+      ],
+      "meaning": "generated signed-distance sample coordinates"
+    },
+    {
+      "id": "sdf_values_m",
+      "dtype": "real64",
+      "shape": [
+        "m"
+      ],
+      "meaning": "one generated signed-distance value per generated sample"
+    },
+    {
+      "id": "normal_score_values_n",
+      "dtype": "real64",
+      "shape": [
+        "n"
+      ],
+      "meaning": "one scalar normal-score value per input scalar"
+    },
+    {
+      "id": "seed_points_3",
+      "dtype": "real64",
+      "shape": [
+        "s",
+        3
+      ],
+      "meaning": "isosurface seed coordinates"
+    },
+    {
+      "id": "snap_points_3",
+      "dtype": "real64",
+      "shape": [
+        "q",
+        3
+      ],
+      "meaning": "points that generated geometry should snap toward"
+    },
+    {
+      "id": "snap_tolerances_q",
+      "dtype": "real64",
+      "shape_alternatives": [
+        [
+          0
+        ],
+        [
+          "q"
+        ]
+      ],
+      "meaning": "no per-point tolerances or one relative tolerance per snap point"
+    },
+    {
+      "id": "mesh_vertices_3",
+      "dtype": "real64",
+      "shape": [
+        "v",
+        3
+      ],
+      "meaning": "mesh vertex coordinates"
+    },
+    {
+      "id": "mesh_faces_3",
+      "dtype": "signed_integer",
+      "shape": [
+        "f",
+        3
+      ],
+      "meaning": "triangular mesh vertex indices"
+    }
+  ],
+  "layout_rules": [
+    {
+      "id": "points_are_rows",
+      "applies_to": [
+        "points_dim",
+        "evaluation_points_dim",
+        "gradient_points_dim",
+        "normals_3",
+        "sdf_points_3",
+        "seed_points_3",
+        "snap_points_3",
+        "mesh_vertices_3"
+      ],
+      "rule": "Each row represents one logical point or vector."
+    },
+    {
+      "id": "hermite_scalar_first",
+      "applies_to": [
+        "hermite_values",
+        "mixed_predictions"
+      ],
+      "rule": "All scalar blocks precede all full-gradient blocks."
+    },
+    {
+      "id": "gradient_point_major",
+      "applies_to": [
+        "hermite_values",
+        "mixed_predictions",
+        "interpolant_weights"
+      ],
+      "rule": "Within a full-gradient block, all dim components for one point are contiguous before the next point."
+    },
+    {
+      "id": "model_parameter_order",
+      "applies_to": [
+        "parameters_p"
+      ],
+      "rule": "For a Model parameter vector, nugget is first and component RBF parameters follow in model component order."
+    }
+  ],
+  "kernel_families": [
+    {
+      "id": "biharmonic_2d",
+      "source_name": "Biharmonic2D"
+    },
+    {
+      "id": "biharmonic_3d",
+      "source_name": "Biharmonic3D"
+    },
+    {
+      "id": "cov_cubic",
+      "source_name": "CovCubic"
+    },
+    {
+      "id": "cov_exponential",
+      "source_name": "CovExponential"
+    },
+    {
+      "id": "cov_gaussian",
+      "source_name": "CovGaussian"
+    },
+    {
+      "id": "cov_generalized_cauchy_3",
+      "source_name": "CovGeneralizedCauchy3"
+    },
+    {
+      "id": "cov_generalized_cauchy_5",
+      "source_name": "CovGeneralizedCauchy5"
+    },
+    {
+      "id": "cov_generalized_cauchy_7",
+      "source_name": "CovGeneralizedCauchy7"
+    },
+    {
+      "id": "cov_generalized_cauchy_9",
+      "source_name": "CovGeneralizedCauchy9"
+    },
+    {
+      "id": "cov_spherical",
+      "source_name": "CovSpherical"
+    },
+    {
+      "id": "cov_spheroidal_3",
+      "source_name": "CovSpheroidal3"
+    },
+    {
+      "id": "cov_spheroidal_5",
+      "source_name": "CovSpheroidal5"
+    },
+    {
+      "id": "cov_spheroidal_7",
+      "source_name": "CovSpheroidal7"
+    },
+    {
+      "id": "cov_spheroidal_9",
+      "source_name": "CovSpheroidal9"
+    },
+    {
+      "id": "triharmonic_2d",
+      "source_name": "Triharmonic2D"
+    },
+    {
+      "id": "triharmonic_3d",
+      "source_name": "Triharmonic3D"
+    }
+  ],
+  "error_categories": [
+    {
+      "id": "shape_mismatch",
+      "stability": "category_only",
+      "trigger_domain": "An array has the wrong rank, fixed axis width, row count, or paired-array length."
+    },
+    {
+      "id": "invalid_dimension",
+      "stability": "category_only",
+      "trigger_domain": "A workflow is requested outside dimensions 1, 2, and 3 or mixes incompatible dimensions."
+    },
+    {
+      "id": "invalid_parameter",
+      "stability": "category_only",
+      "trigger_domain": "A finite scalar, count, degree, tolerance, accuracy, radius, distance, resolution, or parameter vector violates its semantic domain."
+    },
+    {
+      "id": "non_finite_input",
+      "stability": "category_only",
+      "trigger_domain": "NaN or infinity is supplied where the selected workflow does not define it as data."
+    },
+    {
+      "id": "invalid_bounds",
+      "stability": "category_only",
+      "trigger_domain": "Bounds are contradictory, incomplete at the logical constraint level, or incompatible with the selected operation."
+    },
+    {
+      "id": "invalid_state",
+      "stability": "category_only",
+      "trigger_domain": "A stateful result is read or used before the prerequisite calculation, fit, transform, or generation."
+    },
+    {
+      "id": "unsupported_configuration",
+      "stability": "category_only",
+      "trigger_domain": "The selected kernel, derivative mode, dimension, model combination, or field configuration does not support the workflow."
+    },
+    {
+      "id": "insufficient_constraints",
+      "stability": "category_only",
+      "trigger_domain": "There are too few independent observations or constraints for the requested model and polynomial space."
+    },
+    {
+      "id": "incompatible_initial_state",
+      "stability": "category_only",
+      "trigger_domain": "A warm-start or incremental state is incompatible with the model, dimension, or constraint layout."
+    },
+    {
+      "id": "convergence_failure",
+      "stability": "category_only",
+      "trigger_domain": "A numerical workflow terminates without satisfying its accepted convergence condition."
+    },
+    {
+      "id": "iteration_limit",
+      "stability": "category_only",
+      "trigger_domain": "A numerical workflow reaches its configured iteration limit."
+    },
+    {
+      "id": "degenerate_geometry",
+      "stability": "category_only",
+      "trigger_domain": "Input geometry is empty, singular, locally insufficient, or otherwise cannot define the requested geometric result."
+    },
+    {
+      "id": "io_failure",
+      "stability": "category_only",
+      "trigger_domain": "A requested artifact or geometry file cannot be read or written."
+    },
+    {
+      "id": "malformed_legacy_artifact",
+      "stability": "category_only",
+      "trigger_domain": "A migration-only Model or Interpolant artifact is truncated, corrupt, incompatible, or unsupported."
+    }
+  ],
+  "error_mapping_policy": {
+    "stable_field": "error_categories[].id",
+    "python_exception_class": "not_promised",
+    "message_text": "not_promised",
+    "traceback_shape": "not_promised",
+    "checked_handling_required": true
+  },
+  "workflows": [
+    {
+      "id": "bbox_from_points",
+      "family": "geometry_primitives",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "Bbox",
+        "Bbox.from_points"
+      ],
+      "inputs": [
+        {
+          "name": "points",
+          "kind": "array",
+          "shape_ref": "points_dim",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "is_empty",
+          "kind": "scalar",
+          "dtype": "bool"
+        },
+        {
+          "name": "minimum",
+          "kind": "array",
+          "shape_ref": "bbox_bounds_dim"
+        },
+        {
+          "name": "maximum",
+          "kind": "array",
+          "shape_ref": "bbox_bounds_dim"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_dimension",
+        "non_finite_input"
+      ]
+    },
+    {
+      "id": "rbf_evaluate_derivatives",
+      "family": "rbf",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "kernel_family_refs": "all",
+      "source_observed_symbols": [
+        "Rbf.evaluate",
+        "Rbf.evaluate_gradient",
+        "Rbf.evaluate_hessian"
+      ],
+      "inputs": [
+        {
+          "name": "kernel_parameters",
+          "kind": "array",
+          "shape_ref": "parameters_p",
+          "required": true
+        },
+        {
+          "name": "anisotropy",
+          "kind": "array",
+          "shape_ref": "anisotropy_dim",
+          "required": false,
+          "logical_default": "identity"
+        },
+        {
+          "name": "difference",
+          "kind": "array",
+          "shape_ref": "vector_dim",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "kind": "scalar",
+          "dtype": "real64"
+        },
+        {
+          "name": "gradient",
+          "kind": "array",
+          "shape_ref": "vector_dim"
+        },
+        {
+          "name": "hessian",
+          "kind": "array",
+          "shape_ref": "anisotropy_dim"
+        },
+        {
+          "name": "metadata",
+          "kind": "record",
+          "fields": [
+            "cpd_order",
+            "is_covariance_function",
+            "parameter_count"
+          ]
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_dimension",
+        "invalid_parameter",
+        "non_finite_input",
+        "unsupported_configuration"
+      ]
+    },
+    {
+      "id": "model_compose",
+      "family": "model",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "Model"
+      ],
+      "inputs": [
+        {
+          "name": "rbf_components",
+          "kind": "ordered_collection",
+          "item_kind": "rbf",
+          "minimum_count": 1,
+          "required": true
+        },
+        {
+          "name": "polynomial_degree",
+          "kind": "scalar",
+          "dtype": "signed_integer",
+          "required": false,
+          "semantic_default": "minimum degree required by the selected component set"
+        },
+        {
+          "name": "nugget",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": false
+        },
+        {
+          "name": "parameters",
+          "kind": "array",
+          "shape_ref": "parameters_p",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "kind": "state"
+        },
+        {
+          "name": "metadata",
+          "kind": "record",
+          "fields": [
+            "cpd_order",
+            "description",
+            "parameter_count",
+            "polynomial_basis_size",
+            "polynomial_degree",
+            "ordered_rbf_components"
+          ]
+        }
+      ],
+      "error_categories": [
+        "invalid_dimension",
+        "invalid_parameter",
+        "non_finite_input",
+        "unsupported_configuration"
+      ]
+    },
+    {
+      "id": "interpolant_fit_values",
+      "family": "interpolation",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "Interpolant.fit"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "points",
+          "kind": "array",
+          "shape_ref": "points_dim",
+          "required": true
+        },
+        {
+          "name": "values",
+          "kind": "array",
+          "shape_ref": "values_n",
+          "required": true
+        },
+        {
+          "name": "tolerance",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": true
+        },
+        {
+          "name": "max_iterations",
+          "kind": "scalar",
+          "dtype": "signed_integer",
+          "required": false
+        },
+        {
+          "name": "accuracy",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": false
+        },
+        {
+          "name": "initial_interpolant",
+          "kind": "state",
+          "required": false,
+          "role": "warm_start"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "interpolant",
+          "kind": "state"
+        },
+        {
+          "name": "bbox",
+          "kind": "record"
+        },
+        {
+          "name": "centers",
+          "kind": "array",
+          "shape_ref": "centers_dim"
+        },
+        {
+          "name": "gradient_centers",
+          "kind": "array",
+          "shape_ref": "gradient_centers_dim",
+          "constraint": "g_selected = 0"
+        },
+        {
+          "name": "weights",
+          "kind": "array",
+          "shape_ref": "interpolant_weights"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_dimension",
+        "invalid_parameter",
+        "non_finite_input",
+        "insufficient_constraints",
+        "incompatible_initial_state",
+        "unsupported_configuration",
+        "convergence_failure",
+        "iteration_limit"
+      ]
+    },
+    {
+      "id": "interpolant_fit_hermite",
+      "family": "interpolation",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "Interpolant.fit"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "value_points",
+          "kind": "array",
+          "shape_ref": "points_dim",
+          "required": true
+        },
+        {
+          "name": "gradient_points",
+          "kind": "array",
+          "shape_ref": "gradient_points_dim",
+          "required": true
+        },
+        {
+          "name": "constraints",
+          "kind": "array",
+          "shape_ref": "hermite_values",
+          "required": true
+        },
+        {
+          "name": "value_tolerance",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": true
+        },
+        {
+          "name": "gradient_tolerance",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": true
+        },
+        {
+          "name": "max_iterations",
+          "kind": "scalar",
+          "dtype": "signed_integer",
+          "required": false
+        },
+        {
+          "name": "value_accuracy",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": false
+        },
+        {
+          "name": "gradient_accuracy",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": false
+        },
+        {
+          "name": "initial_interpolant",
+          "kind": "state",
+          "required": false,
+          "role": "warm_start"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "interpolant",
+          "kind": "state"
+        },
+        {
+          "name": "centers",
+          "kind": "array",
+          "shape_ref": "centers_dim"
+        },
+        {
+          "name": "gradient_centers",
+          "kind": "array",
+          "shape_ref": "gradient_centers_dim"
+        },
+        {
+          "name": "weights",
+          "kind": "array",
+          "shape_ref": "interpolant_weights"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_dimension",
+        "invalid_parameter",
+        "non_finite_input",
+        "insufficient_constraints",
+        "incompatible_initial_state",
+        "unsupported_configuration",
+        "convergence_failure",
+        "iteration_limit"
+      ]
+    },
+    {
+      "id": "interpolant_fit_incremental",
+      "family": "interpolation",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "Interpolant.fit_incrementally"
+      ],
+      "modes": [
+        "value_only",
+        "hermite"
+      ],
+      "inputs": [
+        {
+          "name": "existing_interpolant",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "value_points",
+          "kind": "array",
+          "shape_ref": "points_dim",
+          "required": true
+        },
+        {
+          "name": "gradient_points",
+          "kind": "array",
+          "shape_ref": "gradient_points_dim",
+          "required": false
+        },
+        {
+          "name": "constraints",
+          "kind": "array",
+          "shape_alternatives": [
+            "values_n",
+            "hermite_values"
+          ],
+          "required": true
+        },
+        {
+          "name": "tolerances_and_accuracy",
+          "kind": "record",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "updated_interpolant",
+          "kind": "state"
+        },
+        {
+          "name": "centers",
+          "kind": "array",
+          "shape_ref": "centers_dim"
+        },
+        {
+          "name": "gradient_centers",
+          "kind": "array",
+          "shape_ref": "gradient_centers_dim"
+        },
+        {
+          "name": "weights",
+          "kind": "array",
+          "shape_ref": "interpolant_weights"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_state",
+        "invalid_parameter",
+        "non_finite_input",
+        "insufficient_constraints",
+        "incompatible_initial_state",
+        "unsupported_configuration",
+        "convergence_failure",
+        "iteration_limit"
+      ]
+    },
+    {
+      "id": "interpolant_fit_inequality",
+      "family": "interpolation",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "Interpolant.fit_inequality"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "points",
+          "kind": "array",
+          "shape_ref": "points_dim",
+          "required": true
+        },
+        {
+          "name": "equality_values",
+          "kind": "logical_optional_values",
+          "backing_shape_ref": "values_n",
+          "required": true
+        },
+        {
+          "name": "lower_bounds",
+          "kind": "logical_optional_values",
+          "backing_shape_ref": "values_n",
+          "required": true
+        },
+        {
+          "name": "upper_bounds",
+          "kind": "logical_optional_values",
+          "backing_shape_ref": "values_n",
+          "required": true
+        },
+        {
+          "name": "tolerance",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": true
+        },
+        {
+          "name": "initial_interpolant",
+          "kind": "state",
+          "required": false,
+          "role": "warm_start"
+        }
+      ],
+      "input_relationships": [
+        "All four point-aligned inputs have row count n.",
+        "Each point carries an accepted equality, lower-bound, upper-bound, or combined logical constraint.",
+        "The target representation for absent logical constraints is intentionally not fixed by this manifest."
+      ],
+      "outputs": [
+        {
+          "name": "interpolant",
+          "kind": "state"
+        },
+        {
+          "name": "centers",
+          "kind": "array",
+          "shape_ref": "centers_dim"
+        },
+        {
+          "name": "weights",
+          "kind": "array",
+          "shape_ref": "interpolant_weights"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_bounds",
+        "invalid_parameter",
+        "non_finite_input",
+        "insufficient_constraints",
+        "incompatible_initial_state",
+        "unsupported_configuration",
+        "convergence_failure",
+        "iteration_limit"
+      ]
+    },
+    {
+      "id": "interpolant_evaluate_values",
+      "family": "interpolation",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "Interpolant.evaluate"
+      ],
+      "inputs": [
+        {
+          "name": "interpolant",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "points",
+          "kind": "array",
+          "shape_ref": "evaluation_points_dim",
+          "required": true
+        },
+        {
+          "name": "accuracy",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "predictions",
+          "kind": "array",
+          "shape_ref": "value_predictions_m"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_dimension",
+        "invalid_parameter",
+        "non_finite_input",
+        "invalid_state"
+      ]
+    },
+    {
+      "id": "interpolant_evaluate_values_and_gradients",
+      "family": "interpolation",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "Interpolant.evaluate"
+      ],
+      "inputs": [
+        {
+          "name": "interpolant",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "value_points",
+          "kind": "array",
+          "shape_ref": "evaluation_points_dim",
+          "required": true
+        },
+        {
+          "name": "gradient_points",
+          "kind": "array",
+          "shape_ref": "gradient_points_dim",
+          "required": true
+        },
+        {
+          "name": "value_accuracy",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": false
+        },
+        {
+          "name": "gradient_accuracy",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "predictions",
+          "kind": "array",
+          "shape_ref": "mixed_predictions"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_dimension",
+        "invalid_parameter",
+        "non_finite_input",
+        "invalid_state",
+        "unsupported_configuration"
+      ]
+    },
+    {
+      "id": "distance_filter",
+      "family": "point_cloud",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "DistanceFilter",
+        "DistanceFilter.filter",
+        "DistanceFilter.filtered_indices"
+      ],
+      "inputs": [
+        {
+          "name": "points",
+          "kind": "array",
+          "shape_ref": "points_dim",
+          "required": true
+        },
+        {
+          "name": "distance",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "filtered_indices",
+          "kind": "array",
+          "shape_ref": "selected_indices_k"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_parameter",
+        "non_finite_input",
+        "invalid_state"
+      ]
+    },
+    {
+      "id": "variogram_calculate",
+      "family": "kriging",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "VariogramCalculator.calculate",
+        "Variogram",
+        "VariogramSet"
+      ],
+      "inputs": [
+        {
+          "name": "lag_distance",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": true
+        },
+        {
+          "name": "lag_count",
+          "kind": "scalar",
+          "dtype": "signed_integer",
+          "required": true
+        },
+        {
+          "name": "directions",
+          "kind": "array",
+          "shape_ref": "directions_dim",
+          "required": false
+        },
+        {
+          "name": "angle_tolerance",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": false
+        },
+        {
+          "name": "lag_tolerance",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": false
+        },
+        {
+          "name": "points",
+          "kind": "array",
+          "shape_ref": "points_dim",
+          "required": true
+        },
+        {
+          "name": "values",
+          "kind": "array",
+          "shape_ref": "values_n",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "variograms",
+          "kind": "ordered_collection",
+          "item_fields": [
+            {
+              "name": "direction",
+              "shape_ref": "vector_dim"
+            },
+            {
+              "name": "bin_distance",
+              "shape_ref": "variogram_bin_distance"
+            },
+            {
+              "name": "bin_gamma",
+              "shape_ref": "variogram_bin_gamma"
+            },
+            {
+              "name": "bin_pair_count",
+              "shape_ref": "variogram_bin_pair_count"
+            }
+          ]
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_dimension",
+        "invalid_parameter",
+        "non_finite_input",
+        "degenerate_geometry"
+      ]
+    },
+    {
+      "id": "variogram_fit_model",
+      "family": "kriging",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "VariogramFitting",
+        "WeightFunction"
+      ],
+      "inputs": [
+        {
+          "name": "variogram_set",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "model",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "weight_scheme",
+          "kind": "configuration",
+          "required": false,
+          "source_observed_modes": [
+            "NUM_PAIRS",
+            "NUM_PAIRS_OVER_DISTANCE_SQUARED",
+            "NUM_PAIRS_OVER_MODEL_GAMMA_SQUARED",
+            "ONE",
+            "ONE_OVER_DISTANCE_SQUARED",
+            "ONE_OVER_MODEL_GAMMA_SQUARED",
+            "EXPONENTIAL_WEIGHT_CONFIGURATION"
+          ]
+        },
+        {
+          "name": "fit_anisotropy",
+          "kind": "scalar",
+          "dtype": "bool",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "fitted_model",
+          "kind": "state"
+        },
+        {
+          "name": "final_cost",
+          "kind": "scalar",
+          "dtype": "real64"
+        },
+        {
+          "name": "brief_report",
+          "kind": "scalar",
+          "dtype": "utf8",
+          "exact_text_contractual": false
+        },
+        {
+          "name": "full_report",
+          "kind": "scalar",
+          "dtype": "utf8",
+          "exact_text_contractual": false
+        }
+      ],
+      "error_categories": [
+        "invalid_dimension",
+        "invalid_parameter",
+        "non_finite_input",
+        "invalid_state",
+        "unsupported_configuration",
+        "insufficient_constraints",
+        "convergence_failure",
+        "iteration_limit"
+      ]
+    },
+    {
+      "id": "variogram_back_transform",
+      "family": "kriging",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "Variogram.back_transform",
+        "VariogramSet.back_transform"
+      ],
+      "inputs": [
+        {
+          "name": "variogram_or_set",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "transformation",
+          "kind": "state",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "updated_variogram_or_set",
+          "kind": "state",
+          "array_shape_invariants": [
+            "variogram_bin_distance",
+            "variogram_bin_gamma",
+            "variogram_bin_pair_count"
+          ]
+        }
+      ],
+      "error_categories": [
+        "invalid_state",
+        "invalid_parameter",
+        "non_finite_input"
+      ]
+    },
+    {
+      "id": "cross_validate",
+      "family": "kriging",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "cross_validate"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "points",
+          "kind": "array",
+          "shape_ref": "points_dim",
+          "required": true
+        },
+        {
+          "name": "values",
+          "kind": "array",
+          "shape_ref": "values_n",
+          "required": true
+        },
+        {
+          "name": "set_ids",
+          "kind": "array",
+          "shape_ref": "set_ids_n",
+          "required": true
+        },
+        {
+          "name": "tolerance",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": true
+        },
+        {
+          "name": "max_iterations",
+          "kind": "scalar",
+          "dtype": "signed_integer",
+          "required": false
+        },
+        {
+          "name": "accuracy",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "predictions",
+          "kind": "array",
+          "shape_ref": "values_n"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_parameter",
+        "non_finite_input",
+        "insufficient_constraints",
+        "unsupported_configuration",
+        "convergence_failure",
+        "iteration_limit"
+      ]
+    },
+    {
+      "id": "detrend",
+      "family": "kriging",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "detrend"
+      ],
+      "inputs": [
+        {
+          "name": "points",
+          "kind": "array",
+          "shape_ref": "points_dim",
+          "required": true
+        },
+        {
+          "name": "values",
+          "kind": "array",
+          "shape_ref": "values_n",
+          "required": true
+        },
+        {
+          "name": "polynomial_degree",
+          "kind": "scalar",
+          "dtype": "signed_integer",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "residuals",
+          "kind": "array",
+          "shape_ref": "values_n"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_parameter",
+        "non_finite_input",
+        "insufficient_constraints"
+      ]
+    },
+    {
+      "id": "normal_estimate",
+      "family": "point_cloud",
+      "dimensions": [
+        3
+      ],
+      "source_observed_symbols": [
+        "NormalEstimator.estimate_with_knn",
+        "NormalEstimator.estimate_with_radius"
+      ],
+      "input_modes": [
+        {
+          "id": "uniform_knn",
+          "input": {
+            "name": "neighbor_count",
+            "kind": "scalar",
+            "dtype": "signed_integer"
+          }
+        },
+        {
+          "id": "per_point_knn",
+          "input": {
+            "name": "neighbor_counts",
+            "kind": "array",
+            "shape_ref": "neighborhood_counts_n"
+          }
+        },
+        {
+          "id": "uniform_radius",
+          "input": {
+            "name": "radius",
+            "kind": "scalar",
+            "dtype": "real64"
+          }
+        },
+        {
+          "id": "per_point_radius",
+          "input": {
+            "name": "radii",
+            "kind": "array",
+            "shape_ref": "neighborhood_radii_n"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "name": "points",
+          "kind": "array",
+          "shape_ref": "points_dim",
+          "shape_constraint": "dim = 3",
+          "required": true
+        },
+        {
+          "name": "neighborhood",
+          "kind": "one_of_input_modes",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "normals",
+          "kind": "array",
+          "shape_ref": "normals_3"
+        },
+        {
+          "name": "plane_factors",
+          "kind": "array",
+          "shape_ref": "plane_factors_n"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_dimension",
+        "invalid_parameter",
+        "non_finite_input",
+        "degenerate_geometry"
+      ]
+    },
+    {
+      "id": "normal_filter_by_plane_factor",
+      "family": "point_cloud",
+      "dimensions": [
+        3
+      ],
+      "source_observed_symbols": [
+        "NormalEstimator.filter_by_plane_factor"
+      ],
+      "inputs": [
+        {
+          "name": "estimated_normals_state",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "threshold",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "filtered_normal_state",
+          "kind": "state",
+          "logical_fields": [
+            "points",
+            "normals",
+            "plane_factors"
+          ]
+        }
+      ],
+      "error_categories": [
+        "invalid_state",
+        "invalid_parameter",
+        "non_finite_input"
+      ]
+    },
+    {
+      "id": "normal_orient",
+      "family": "point_cloud",
+      "dimensions": [
+        3
+      ],
+      "source_observed_symbols": [
+        "NormalEstimator.orient_toward_direction",
+        "NormalEstimator.orient_toward_point",
+        "NormalEstimator.orient_closed_surface"
+      ],
+      "input_modes": [
+        {
+          "id": "toward_direction",
+          "array_shape_ref": "vector_dim",
+          "shape_constraint": "dim = 3"
+        },
+        {
+          "id": "toward_point",
+          "array_shape_ref": "vector_dim",
+          "shape_constraint": "dim = 3"
+        },
+        {
+          "id": "closed_surface",
+          "scalar_dtype": "signed_integer",
+          "scalar_meaning": "neighbor count"
+        }
+      ],
+      "inputs": [
+        {
+          "name": "estimated_normals_state",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "orientation_mode",
+          "kind": "one_of_input_modes",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "oriented_normals",
+          "kind": "array",
+          "shape_ref": "normals_3"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_state",
+        "invalid_parameter",
+        "non_finite_input",
+        "degenerate_geometry"
+      ]
+    },
+    {
+      "id": "sdf_generate",
+      "family": "point_cloud",
+      "dimensions": [
+        3
+      ],
+      "source_observed_symbols": [
+        "SdfDataGenerator"
+      ],
+      "call_signature_status": "intentionally_unspecified_pending_adjudication",
+      "inputs": [
+        {
+          "name": "points",
+          "kind": "array",
+          "shape_ref": "points_dim",
+          "shape_constraint": "dim = 3",
+          "required": true
+        },
+        {
+          "name": "normals",
+          "kind": "array",
+          "shape_ref": "normals_3",
+          "required": true
+        },
+        {
+          "name": "distance_or_offset_policy",
+          "kind": "configuration",
+          "required": true,
+          "exact_fields": "not_accepted_by_this_manifest"
+        },
+        {
+          "name": "anisotropy",
+          "kind": "array",
+          "shape_ref": "anisotropy_dim",
+          "shape_constraint": "dim = 3",
+          "required": false,
+          "logical_default": "identity"
+        }
+      ],
+      "input_relationships": [
+        "points and normals have the same row count n",
+        "each generated SDF value corresponds to the generated SDF point at the same row"
+      ],
+      "outputs": [
+        {
+          "name": "sdf_points",
+          "kind": "array",
+          "shape_ref": "sdf_points_3"
+        },
+        {
+          "name": "sdf_values",
+          "kind": "array",
+          "shape_ref": "sdf_values_m"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_parameter",
+        "non_finite_input",
+        "degenerate_geometry",
+        "unsupported_configuration"
+      ]
+    },
+    {
+      "id": "normal_score_transform",
+      "family": "kriging",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "NormalScoreTransformation.transform"
+      ],
+      "inputs": [
+        {
+          "name": "values",
+          "kind": "array",
+          "shape_ref": "values_n",
+          "required": true
+        },
+        {
+          "name": "order",
+          "kind": "scalar",
+          "dtype": "signed_integer",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "normal_scores",
+          "kind": "array",
+          "shape_ref": "normal_score_values_n"
+        },
+        {
+          "name": "transformation",
+          "kind": "state"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_parameter",
+        "non_finite_input",
+        "degenerate_geometry"
+      ]
+    },
+    {
+      "id": "normal_score_back_transform",
+      "family": "kriging",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "NormalScoreTransformation.back_transform"
+      ],
+      "inputs": [
+        {
+          "name": "transformation",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "normal_scores",
+          "kind": "array",
+          "shape": [
+            "m"
+          ],
+          "dtype": "real64",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "kind": "array",
+          "shape": [
+            "m"
+          ],
+          "dtype": "real64"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_state",
+        "non_finite_input"
+      ]
+    },
+    {
+      "id": "isosurface_generate",
+      "family": "geometry",
+      "dimensions": [
+        3,
+        "2.5D"
+      ],
+      "source_observed_symbols": [
+        "RbfFieldFunction",
+        "RbfFieldFunction25D",
+        "Isosurface.generate",
+        "Isosurface.generate_from_seed_points",
+        "Mesh"
+      ],
+      "inputs": [
+        {
+          "name": "bbox",
+          "kind": "record",
+          "logical_fields": [
+            {
+              "name": "minimum",
+              "shape": [
+                3
+              ]
+            },
+            {
+              "name": "maximum",
+              "shape": [
+                3
+              ]
+            }
+          ],
+          "required": true
+        },
+        {
+          "name": "resolution",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": true
+        },
+        {
+          "name": "anisotropy",
+          "kind": "array",
+          "shape": [
+            3,
+            3
+          ],
+          "dtype": "real64",
+          "required": false,
+          "logical_default": "identity"
+        },
+        {
+          "name": "field",
+          "kind": "state",
+          "source_state_alternatives": [
+            "3D interpolant field",
+            "2D interpolant interpreted as 2.5D field"
+          ],
+          "required": true
+        },
+        {
+          "name": "isovalue",
+          "kind": "scalar",
+          "dtype": "real64",
+          "required": false
+        },
+        {
+          "name": "refine",
+          "kind": "scalar",
+          "dtype": "bool",
+          "required": false
+        },
+        {
+          "name": "seed_points",
+          "kind": "array",
+          "shape_ref": "seed_points_3",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "vertices",
+          "kind": "array",
+          "shape_ref": "mesh_vertices_3"
+        },
+        {
+          "name": "faces",
+          "kind": "array",
+          "shape_ref": "mesh_faces_3"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_parameter",
+        "non_finite_input",
+        "invalid_state",
+        "degenerate_geometry",
+        "unsupported_configuration"
+      ]
+    },
+    {
+      "id": "isosurface_configure_snap_points",
+      "family": "geometry",
+      "dimensions": [
+        3,
+        "2.5D"
+      ],
+      "source_observed_symbols": [
+        "Isosurface.set_snap_points"
+      ],
+      "inputs": [
+        {
+          "name": "snap_points",
+          "kind": "array",
+          "shape_ref": "snap_points_3",
+          "required": true
+        },
+        {
+          "name": "relative_tolerances",
+          "kind": "array",
+          "shape_ref": "snap_tolerances_q",
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "configured_isosurface_generator",
+          "kind": "state"
+        }
+      ],
+      "error_categories": [
+        "shape_mismatch",
+        "invalid_parameter",
+        "non_finite_input"
+      ]
+    },
+    {
+      "id": "mesh_export_obj",
+      "family": "geometry",
+      "dimensions": [
+        3,
+        "2.5D"
+      ],
+      "source_observed_symbols": [
+        "Mesh.export_obj"
+      ],
+      "inputs": [
+        {
+          "name": "mesh",
+          "kind": "state",
+          "required": true
+        },
+        {
+          "name": "destination",
+          "kind": "path",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "obj_artifact",
+          "kind": "file",
+          "semantic_contract": [
+            "vertex coordinates",
+            "triangle connectivity",
+            "valid logical OBJ content"
+          ],
+          "exact_text_or_numbering_contractual": false
+        }
+      ],
+      "error_categories": [
+        "invalid_state",
+        "io_failure"
+      ]
+    },
+    {
+      "id": "legacy_model_import",
+      "family": "migration",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "Model.load"
+      ],
+      "inputs": [
+        {
+          "name": "legacy_model_artifact",
+          "kind": "file",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "logical_model",
+          "kind": "state",
+          "fields": [
+            "ordered_rbf_components",
+            "rbf_parameters",
+            "anisotropy",
+            "polynomial_degree",
+            "nugget"
+          ]
+        }
+      ],
+      "migration_direction": "legacy_input_to_rapidrbf_only",
+      "error_categories": [
+        "io_failure",
+        "malformed_legacy_artifact",
+        "unsupported_configuration",
+        "non_finite_input"
+      ]
+    },
+    {
+      "id": "legacy_interpolant_import",
+      "family": "migration",
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "source_observed_symbols": [
+        "Interpolant.load"
+      ],
+      "inputs": [
+        {
+          "name": "legacy_interpolant_artifact",
+          "kind": "file",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "logical_interpolant",
+          "kind": "state",
+          "fields": [
+            "model",
+            "bbox",
+            "centers",
+            "gradient_centers",
+            "weights"
+          ]
+        }
+      ],
+      "migration_direction": "legacy_input_to_rapidrbf_only",
+      "error_categories": [
+        "io_failure",
+        "malformed_legacy_artifact",
+        "unsupported_configuration",
+        "non_finite_input"
+      ]
+    }
+  ],
+  "persistence_policy": {
+    "accepted_legacy_inputs": [
+      "Model",
+      "Interpolant"
+    ],
+    "accepted_legacy_outputs": [],
+    "source_observed_but_not_accepted_as_legacy_contract": [
+      "Model.save",
+      "Interpolant.save",
+      "VariogramSet.load",
+      "VariogramSet.save"
+    ],
+    "rapidrbf_portable_artifact": {
+      "required_by_resolution": true,
+      "defined_by_this_manifest": false,
+      "compatibility_item_id": "migration.portable-artifact",
+      "downstream_issue": "https://github.com/qingsonger/RapidRBF/issues/24"
+    }
+  },
+  "research_only_observations": [
+    {
+      "id": "current_python_build_outcome",
+      "accepted_truth": false,
+      "status": "not_adopted",
+      "reason": "A current local Python build success or failure is execution evidence, not an accepted workflow, signature, shape, or behavioral contract."
+    },
+    {
+      "id": "sdf_constructor_source_consistency",
+      "accepted_truth": false,
+      "status": "requires_frozen_reproducer_and_adjudication",
+      "reason": "A suspected discrepancy between the frozen binding declaration and an underlying SDF constructor must not select a RapidRBF call signature or distance policy without separate reproducible evidence and an acceptance decision.",
+      "contract_effect": "none"
+    },
+    {
+      "id": "suspected_valid_input_defects",
+      "accepted_truth": false,
+      "status": "requires_frozen_reproducer_and_adjudication",
+      "candidate_areas": [
+        "inequality_active_set",
+        "zero_right_hand_side",
+        "normal_score_small_inputs",
+        "multi_radius_normal_estimation",
+        "pathological_sdf"
+      ],
+      "reason": "Observed or suspected behavior on valid inputs is neither a compatibility requirement nor an intentional difference until a frozen reproducer is captured and adjudicated.",
+      "contract_effect": "none"
+    }
+  ]
+}

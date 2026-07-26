@@ -1,0 +1,11 @@
+{"elapsed_seconds": 0.057363900006748736, "peak_pagefile_bytes": 10133504, "peak_working_set_bytes": 16957440, "private_bytes": 10125312, "thread_count": 4, "working_set_bytes": 16957440}
+{"elapsed_seconds": 0.15481239999644458, "peak_pagefile_bytes": 14422016, "peak_working_set_bytes": 24756224, "private_bytes": 14422016, "thread_count": 4, "working_set_bytes": 24756224}
+{"elapsed_seconds": 0.24874770001042634, "peak_pagefile_bytes": 14422016, "peak_working_set_bytes": 24756224, "private_bytes": 14422016, "thread_count": 4, "working_set_bytes": 24756224}
+{"elapsed_seconds": 0.3416515999706462, "peak_pagefile_bytes": 14422016, "peak_working_set_bytes": 24760320, "private_bytes": 14422016, "thread_count": 4, "working_set_bytes": 24760320}
+{"elapsed_seconds": 0.43595579999964684, "peak_pagefile_bytes": 14422016, "peak_working_set_bytes": 24760320, "private_bytes": 14422016, "thread_count": 4, "working_set_bytes": 24760320}
+{"elapsed_seconds": 0.5338768999790773, "peak_pagefile_bytes": 15491072, "peak_working_set_bytes": 25833472, "private_bytes": 15474688, "thread_count": 4, "working_set_bytes": 25833472}
+{"elapsed_seconds": 0.654618600034155, "peak_pagefile_bytes": 16596992, "peak_working_set_bytes": 26886144, "private_bytes": 14442496, "thread_count": 4, "working_set_bytes": 24805376}
+{"elapsed_seconds": 0.7478961000451818, "peak_pagefile_bytes": 16596992, "peak_working_set_bytes": 26886144, "private_bytes": 14471168, "thread_count": 4, "working_set_bytes": 25059328}
+{"elapsed_seconds": 0.8573540999786928, "peak_pagefile_bytes": 16596992, "peak_working_set_bytes": 26886144, "private_bytes": 14471168, "thread_count": 4, "working_set_bytes": 25071616}
+{"elapsed_seconds": 0.9549540999578312, "peak_pagefile_bytes": 16596992, "peak_working_set_bytes": 26886144, "private_bytes": 14577664, "thread_count": 6, "working_set_bytes": 25145344}
+{"elapsed_seconds": 1.0453368000453338, "peak_pagefile_bytes": 16596992, "peak_working_set_bytes": 26886144, "private_bytes": 77824, "thread_count": 1, "working_set_bytes": 32768}

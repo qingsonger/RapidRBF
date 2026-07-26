@@ -1,0 +1,31 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "acceptance_kind": "source_bound_workflow_and_shape_prerequisite",
+    "manifest_path": "${REPO}/oracle/manifests/python-surface.json",
+    "manifest_sha256": "1321a78a87a913d46de658fe2bdb0e276f7e8faeb7e5b933d3ffb8c8bef2009b",
+    "manifest_size": 56940,
+    "role": "accepted_surface_inventory",
+    "runtime_buildability": "not_established_by_this_scenario",
+    "runtime_workflow_execution": "not_established_by_this_scenario",
+    "workflow_count": 26
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [],
+  "scenario_id": "python-interface-inventory",
+  "schema_version": "1.0.0"
+}

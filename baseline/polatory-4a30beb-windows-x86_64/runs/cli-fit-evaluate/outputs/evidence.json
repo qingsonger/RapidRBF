@@ -1,0 +1,843 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "constraint_layout": "mixed_value_full_gradient",
+    "dimensions": [
+      1,
+      2,
+      3
+    ],
+    "evaluation_layout": "coordinates_value_full_gradient"
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "1",
+        "--rbf",
+        "th3",
+        "1",
+        "0.25",
+        "aniso",
+        "1.5",
+        "--nug",
+        "0.01",
+        "--deg",
+        "1",
+        "--out",
+        "${WORK}/dim1.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "create-model-dim1",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAHRoMwIAAAAAAAAAAAAAAAAA8D8AAAAAAADQPwAAAAAAAPg/AQAAAHsUrkfheoQ/",
+          "encoding": "base64",
+          "path": "${WORK}/dim1.model",
+          "present": true,
+          "role": "legacy_model_intermediate",
+          "sha256": "9ecd810589363ddc88a73f0bba986e09acc065311f971e67278e51698b22b893",
+          "size": 63
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-1d.csv",
+        "--grad-in",
+        "${REPO}/oracle/fixtures/source/gradients-1d.csv",
+        "--dim",
+        "1",
+        "--model",
+        "${WORK}/dim1.model",
+        "--tol",
+        "1e-8",
+        "--grad-tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim1.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "fit-hermite-dim1",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAHRoMwIAAAAAAAAAAAAAAAAA8D8AAAAAAADQPwAAAAAAAPg/AQAAAHsUrkfheoQ/AQcAAAAAAAAAAAAAAAAA+L8AAAAAAADwvwAAAAAAAOC/AAAAAAAAAAAAAAAAAADgPwAAAAAAAPA/AAAAAAAA+D8CAAAAAAAAAAAAAAAAAOi/AAAAAAAA6D8AAAAAAAD4vwAAAAAAAPg/CwAAAAAAAACNtzBETdDAP1ZNL6qPi8q/sZqWTpnGtz/svGUKUkChv5Cclk6Zxrc/Lk4vqo+Lyr+UtzBETdDAP9e5A5L7bpC/grwDkvtukD9Sd31858Prv8b//////98/",
+          "encoding": "base64",
+          "path": "${WORK}/dim1.interpolant",
+          "present": true,
+          "role": "legacy_interpolant_intermediate",
+          "sha256": "d59e99e7bd27985a91bfac18a6b483f0c78fd1f058bbde6d838a53d5320a0593",
+          "size": 264
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgbGV2ZWwgICAgICAgbl9kb21haW5zICAgICAgICBuX3BvaW50cyAgIG5fZ3JhZF9wb2ludHMNCiAgICAgICAwICAgICAgICAgICAgICAgMSAgICAgICAgICAgICAgIDcgICAgICAgICAgICAgICAyDQogICAgaXRlciAgICAgICAgcmVzaWR1YWwgICBncmFkX3Jlc2lkdWFsDQogICAgICAgMCAgICA0LjAwMDAwMGUrMDAgICAgMi4wMDAwMDBlKzAwDQogICAgICAgMSAgICA1LjMyOTA3MWUtMTUgICAgMS4zMzIyNjhlLTE1DQo=",
+        "encoding": "base64",
+        "sha256": "f1c373046cf5faa572dd00b3dfcc105572510a8c3bba738c8f8f11cc69222350",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${WORK}/dim1.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "evaluate-value-gradient-dim1",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMS45NTkxMzU5MzE5ODM0OTY3IC0yLjA0Mzg3MzgwMTg5NTI3NA0KLTAuNzUgMS4xODE5MTgxODk2MDEwMjQ3IC0xLjAwMDAwMDAwMDAwMDAwMTMNCi0wLjI1IDAuOTM4ODI1NjI5ODI3ODQzOCAtMC4wMDI5MTk1ODY0MjgzMzYxMTg0DQowLjI1IDEuMTg4ODI1NjI5ODI3ODQzNyAxLjAwMjkxOTU4NjQyODMzNTENCjAuNzUgMS45MzE5MTgxODk2MDEwMjM0IDEuOTk5OTk5OTk5OTk5OTk5MQ0KMS4yNSAzLjIwOTEzNTkzMTk4MzQ5MyAzLjA0Mzg3MzgwMTg5NTI2ODUNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "4342032c4a4a90643ac800c70182e077c5d2cb92b41af6d0dd5e1e4dab61ef27",
+          "size": 271
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "extract-model",
+        "--in",
+        "${WORK}/dim1.interpolant",
+        "--dim",
+        "1",
+        "--out",
+        "${WORK}/dim1-extracted.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "extract-model-dim1",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAHRoMwIAAAAAAAAAAAAAAAAA8D8AAAAAAADQPwAAAAAAAPg/AQAAAHsUrkfheoQ/",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-extracted.model",
+          "present": true,
+          "role": "legacy_model_intermediate",
+          "sha256": "9ecd810589363ddc88a73f0bba986e09acc065311f971e67278e51698b22b893",
+          "size": 63
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${WORK}/dim1-extracted.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "show-model-dim1",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "2",
+        "--rbf",
+        "th3",
+        "1",
+        "0.25",
+        "aniso",
+        "1",
+        "0.25",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--deg",
+        "1",
+        "--out",
+        "${WORK}/dim2.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "create-model-dim2",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAHRoMwIAAAAAAAAAAAAAAAAA8D8AAAAAAADQPwAAAAAAAPA/AAAAAAAA0D8AAAAAAAAAAAAAAAAAAPA/AQAAAHsUrkfheoQ/",
+          "encoding": "base64",
+          "path": "${WORK}/dim2.model",
+          "present": true,
+          "role": "legacy_model_intermediate",
+          "sha256": "2bfd83f988418dfbc1675b8f9230bb41ff431182fd2977c6cd2229d3a78688c7",
+          "size": 87
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-2d.csv",
+        "--grad-in",
+        "${REPO}/oracle/fixtures/source/gradients-2d.csv",
+        "--dim",
+        "2",
+        "--model",
+        "${WORK}/dim2.model",
+        "--tol",
+        "1e-8",
+        "--grad-tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim2.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "fit-hermite-dim2",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAHRoMwIAAAAAAAAAAAAAAAAA8D8AAAAAAADQPwAAAAAAAPA/AAAAAAAA0D8AAAAAAAAAAAAAAAAAAPA/AQAAAHsUrkfheoQ/AQkAAAAAAAAAAAAAAAAA8L8AAAAAAADwvwAAAAAAAAAAAAAAAAAA8L8AAAAAAADwPwAAAAAAAPC/AAAAAAAA8L8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8L8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AgAAAAAAAAAAAAAAAADgvwAAAAAAAOC/AAAAAAAA4D8AAAAAAADgPwAAAAAAAPC/AAAAAAAA8L8AAAAAAADwPwAAAAAAAPA/EAAAAAAAAAAVMmRcKHqgP50lIlbUtLy/nqFmZIOYpj+NCvf0xtyuP/ol+xKUC6m/Rgr39Mbcrj+AoWZkg5imP1klIlbUtLy/4TFkXCh6oD+FvsBL90mhPwM3WUI9ppK/K77AS/dJob+bNllCPaaSP8UrFm7XPec/AAAAAAAA8D8AAAAAAAAAQA==",
+          "encoding": "base64",
+          "path": "${WORK}/dim2.interpolant",
+          "present": true,
+          "role": "legacy_interpolant_intermediate",
+          "sha256": "5e8afd7b11b47a86fffae65532df554dbe91f369245d67e169f02d988fc78bd0",
+          "size": 448
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgbGV2ZWwgICAgICAgbl9kb21haW5zICAgICAgICBuX3BvaW50cyAgIG5fZ3JhZF9wb2ludHMNCiAgICAgICAwICAgICAgICAgICAgICAgMSAgICAgICAgICAgICAgIDkgICAgICAgICAgICAgICAyDQogICAgaXRlciAgICAgICAgcmVzaWR1YWwgICBncmFkX3Jlc2lkdWFsDQogICAgICAgMCAgICA0LjI1MDAwMGUrMDAgICAgMi4wMDAwMDBlKzAwDQogICAgICAgMSAgICA4Ljg4MTc4NGUtMTYgICAgNi42NjEzMzhlLTE2DQo=",
+        "encoding": "base64",
+        "sha256": "4580939e52896a4723864c9bce30cdb6ae44be12a4dafd2c6104982338b7f27d",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${WORK}/dim2.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "evaluate-value-gradient-dim2",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMTA1Mzg2NzAwMjEzNzEyMjcgMC42NDIzMzk2ODIyMjk0MTMxIDIuMDE5OTA1Njc0NzAzMzkxNA0KLTAuMjUgMC43NSAyLjI2NzcxOTUxMzE1NTcxIDAuODUwMjI3NzI5ODg2NTMyMiAxLjk5MzU3ODU1MDg2MTI0NDcNCjAuMjUgLTAuNzUgLTAuMjMyMjgwNDg2ODQ0MjkwNDIgMS4xNDk3NzIyNzAxMTM0NjkgMi4wMDY0MjE0NDkxMzg3NTYNCjAuNzUgMC4yNSAyLjM5NDYxMzI5OTc4NjI4OSAxLjM1NzY2MDMxNzc3MDU4ODIgMS45ODAwOTQzMjUyOTY2MDkNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "32c0f7c8b5af15b79dac2aeb1741b6e71aa75500ef8af45300cccc796a3ac91e",
+          "size": 274
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "extract-model",
+        "--in",
+        "${WORK}/dim2.interpolant",
+        "--dim",
+        "2",
+        "--out",
+        "${WORK}/dim2-extracted.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "extract-model-dim2",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAHRoMwIAAAAAAAAAAAAAAAAA8D8AAAAAAADQPwAAAAAAAPA/AAAAAAAA0D8AAAAAAAAAAAAAAAAAAPA/AQAAAHsUrkfheoQ/",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-extracted.model",
+          "present": true,
+          "role": "legacy_model_intermediate",
+          "sha256": "2bfd83f988418dfbc1675b8f9230bb41ff431182fd2977c6cd2229d3a78688c7",
+          "size": 87
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${WORK}/dim2-extracted.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "show-model-dim2",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--dim",
+        "3",
+        "--rbf",
+        "th3",
+        "1",
+        "0.25",
+        "aniso",
+        "1",
+        "0.2",
+        "0",
+        "0",
+        "1",
+        "0.1",
+        "0",
+        "0",
+        "1",
+        "--nug",
+        "0.01",
+        "--deg",
+        "1",
+        "--out",
+        "${WORK}/dim3.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "create-model-dim3",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAHRoMwIAAAAAAAAAAAAAAAAA8D8AAAAAAADQPwAAAAAAAPA/mpmZmZmZyT8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D+amZmZmZm5PwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwEAAAB7FK5H4XqEPw==",
+          "encoding": "base64",
+          "path": "${WORK}/dim3.model",
+          "present": true,
+          "role": "legacy_model_intermediate",
+          "sha256": "9990763503a195d4d46913dc5611164d66ef48dcd96f72353dfd3b13886c2fcf",
+          "size": 127
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--in",
+        "${REPO}/oracle/fixtures/source/values-3d.csv",
+        "--grad-in",
+        "${REPO}/oracle/fixtures/source/gradients-3d.csv",
+        "--dim",
+        "3",
+        "--model",
+        "${WORK}/dim3.model",
+        "--tol",
+        "1e-8",
+        "--grad-tol",
+        "1e-8",
+        "--out",
+        "${WORK}/dim3.interpolant"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "fit-hermite-dim3",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAHRoMwIAAAAAAAAAAAAAAAAA8D8AAAAAAADQPwAAAAAAAPA/mpmZmZmZyT8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D+amZmZmZm5PwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwEAAAB7FK5H4XqEPwEJAAAAAAAAAAAAAAAAAPC/AAAAAAAA8L8AAAAAAADwvwAAAAAAAPC/AAAAAAAA8L8AAAAAAADwPwAAAAAAAPC/AAAAAAAA8D8AAAAAAADwvwAAAAAAAPC/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8L8AAAAAAADwvwAAAAAAAPA/AAAAAAAA8L8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwvwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA4L8AAAAAAADgvwAAAAAAAOC/AAAAAAAA4D8AAAAAAADgPwAAAAAAAOA/AAAAAAAA8L8AAAAAAADwvwAAAAAAAPC/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/EwAAAAAAAADJlelnd5dXvO0i3vK05pm8IuFSVJIiYDxT/h1afaSNPHmLQANKA5m8PgSA39LdjjwSQzuqzW2kPNSQVHUI9Xu8Me+6Y7qAi7xZIRqrJWGFvBXCMcFqR6e8qsXlpsX8dzzlKNc/ASOYvF0/mtRQjaS8wyPZXZMNijz9///////vPwEAAAAAAPA/AQAAAAAAAEADAAAAAADgvw==",
+          "encoding": "base64",
+          "path": "${WORK}/dim3.interpolant",
+          "present": true,
+          "role": "legacy_interpolant_intermediate",
+          "sha256": "650df6fa1fb3c85deb6992e6061b27ef8b69f350fff579b6f69d59dc88b49ea0",
+          "size": 616
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgbGV2ZWwgICAgICAgbl9kb21haW5zICAgICAgICBuX3BvaW50cyAgIG5fZ3JhZF9wb2ludHMNCiAgICAgICAwICAgICAgICAgICAgICAgMSAgICAgICAgICAgICAgIDkgICAgICAgICAgICAgICAyDQogICAgaXRlciAgICAgICAgcmVzaWR1YWwgICBncmFkX3Jlc2lkdWFsDQogICAgICAgMCAgICA0LjUwMDAwMGUrMDAgICAgMi4wMDAwMDBlKzAwDQogICAgICAgMSAgICA0LjQ0MDg5MmUtMTYgICAgMi4yMjA0NDZlLTE2DQo=",
+        "encoding": "base64",
+        "sha256": "711ea4d586301c92cb667504714d9a6991ea0bab043cd69ddd4e1e009a5af118",
+        "size": 242
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${WORK}/dim3.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "evaluate-value-gradient-dim3",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjUwMDAwMDAwMDAwMDAwMDMgMS4wMDAwMDAwMDAwMDAwMDAyIDIgLTAuNDk5OTk5OTk5OTk5OTk5OQ0KLTAuMjUgMC43NSAtMC41IDIuNSAxLjAwMDAwMDAwMDAwMDAwMDIgMi4wMDAwMDAwMDAwMDAwMDA0IC0wLjUwMDAwMDAwMDAwMDAwMDINCjAuMjUgLTAuNzUgMC41IC0wLjUwMDAwMDAwMDAwMDAwMDEgMS4wMDAwMDAwMDAwMDAwMDAyIDIgLTAuNDk5OTk5OTk5OTk5OTk5Nw0KMC43NSAwLjI1IC0wLjUgMi41IDEuMDAwMDAwMDAwMDAwMDAwNCAyLjAwMDAwMDAwMDAwMDAwMDQgLTAuNTAwMDAwMDAwMDAwMDAwMg0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "7d4b37a153db2857a575e41f83e1df15d7912d9360e3a3fe8a7e342437fd6095",
+          "size": 312
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "extract-model",
+        "--in",
+        "${WORK}/dim3.interpolant",
+        "--dim",
+        "3",
+        "--out",
+        "${WORK}/dim3-extracted.model"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "extract-model-dim3",
+      "outputs": [
+        {
+          "bytes_base64": "AQAAAAAAAAADAAAAAAAAAHRoMwIAAAAAAAAAAAAAAAAA8D8AAAAAAADQPwAAAAAAAPA/mpmZmZmZyT8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D+amZmZmZm5PwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwEAAAB7FK5H4XqEPw==",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-extracted.model",
+          "present": true,
+          "role": "legacy_model_intermediate",
+          "sha256": "9990763503a195d4d46913dc5611164d66ef48dcd96f72353dfd3b13886c2fcf",
+          "size": 127
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${WORK}/dim3-extracted.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "show-model-dim3",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "scenario_id": "cli-fit-evaluate",
+  "schema_version": "1.0.0"
+}

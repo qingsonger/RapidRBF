@@ -1,0 +1,193 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "normal_orientation": "toward_direction_positive_z",
+    "random_selection": "disabled_by_ratio_1",
+    "sdf_ratio": 1.0
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "unique",
+        "--in",
+        "${REPO}/oracle/fixtures/source/unique-2d.csv",
+        "--dim",
+        "2",
+        "--dist",
+        "1e-6",
+        "--out",
+        "${WORK}/unique.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "unique-distance-filter",
+      "outputs": [
+        {
+          "bytes_base64": "MCAwIDEwDQoxIDEgMTMNCjEuMDAwMSAxIDE0DQotMSAtMSAxNQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/unique.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "4d4d3b00e6cadb7b5603645f10ef2ca80c86eb6b79eae0181a8617906df6b409",
+          "size": 39
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "estimate-normals",
+        "--in",
+        "${REPO}/oracle/fixtures/source/point-cloud-plane.csv",
+        "--k",
+        "4",
+        "--threshold",
+        "1",
+        "--direction",
+        "0",
+        "0",
+        "1",
+        "--out",
+        "${WORK}/normals.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "estimate-normals-knn",
+      "outputs": [
+        {
+          "bytes_base64": "LTEgLTEgMCAwIDAgMQ0KMCAtMSAwIDAgMCAxDQoxIC0xIDAgMCAwIDENCi0xIDAgMCAwIDAgMQ0KMCAwIDAgMCAwIDENCjEgMCAwIDAgMCAxDQotMSAxIDAgMCAwIDENCjAgMSAwIDAgMCAxDQoxIDEgMCAwIDAgMQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/normals.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "2f2a0488c3bd2a27d64c6515ade3c42da6165dcc2596567c251edd155cdb9450",
+          "size": 123
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "normals-to-sdf",
+        "--in",
+        "${WORK}/normals.csv",
+        "--offset",
+        "0.25",
+        "--ratio",
+        "1",
+        "--out",
+        "${WORK}/sdf.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "normals-to-sdf",
+      "outputs": [
+        {
+          "bytes_base64": "LTEgLTEgMCAwDQowIC0xIDAgMA0KMSAtMSAwIDANCi0xIDAgMCAwDQowIDAgMCAwDQoxIDAgMCAwDQotMSAxIDAgMA0KMCAxIDAgMA0KMSAxIDAgMA0KLTEgLTEgLTAuMjUgLTAuMjUNCjAgLTEgLTAuMjUgLTAuMjUNCjEgLTEgLTAuMjUgLTAuMjUNCi0xIDAgLTAuMjUgLTAuMjUNCjAgMCAtMC4yNSAtMC4yNQ0KMSAwIC0wLjI1IC0wLjI1DQotMSAxIC0wLjI1IC0wLjI1DQowIDEgLTAuMjUgLTAuMjUNCjEgMSAtMC4yNSAtMC4yNQ0KLTEgLTEgMC4yNSAwLjI1DQowIC0xIDAuMjUgMC4yNQ0KMSAtMSAwLjI1IDAuMjUNCi0xIDAgMC4yNSAwLjI1DQowIDAgMC4yNSAwLjI1DQoxIDAgMC4yNSAwLjI1DQotMSAxIDAuMjUgMC4yNQ0KMCAxIDAuMjUgMC4yNQ0KMSAxIDAuMjUgMC4yNQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/sdf.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "102d50e6a55ca802e48316c710c1426ffac548923990eec2a8c7c11876276018",
+          "size": 387
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "scenario_id": "cli-point-cloud",
+  "schema_version": "1.0.0"
+}

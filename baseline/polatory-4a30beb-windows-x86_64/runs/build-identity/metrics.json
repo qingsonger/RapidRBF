@@ -1,0 +1,16 @@
+{
+  "configured_threads": {
+    "MKL_NUM_THREADS": 1,
+    "OMP_NUM_THREADS": 1,
+    "OMP_THREAD_LIMIT": 1
+  },
+  "maximum_observed_thread_count": 9,
+  "monotonic_wall_seconds": 1.5014473999617621,
+  "peak_private_bytes": 17256448,
+  "peak_working_set_bytes": 31059968,
+  "platform_peak_pagefile_bytes": 18161664,
+  "platform_peak_working_set_bytes": 31092736,
+  "resource_scope": "direct_process_only",
+  "sampling_interval_seconds": 0.05,
+  "schema_version": "1.0.0"
+}

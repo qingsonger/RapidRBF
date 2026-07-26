@@ -1,0 +1,86 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "adjudication": "pending",
+    "candidate_defect": "multi_radius_underpopulation",
+    "role": "research_only"
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "estimate-normals",
+        "--in",
+        "${REPO}/oracle/fixtures/source/multi-radius-underpopulation.csv",
+        "--radius",
+        "0.25",
+        "2",
+        "--threshold",
+        "1",
+        "--direction",
+        "0",
+        "0",
+        "1",
+        "--out",
+        "${WORK}/multi-radius.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "multi-radius-underpopulation",
+      "outputs": [
+        {
+          "bytes_base64": "MCAwIDAgLTcuNjc2NTAxMjYwNzc0MzI0ZS0xNyAyLjMyNDI1NzU2NDc4MTQwNTNlLTE3IDENCjEgMCAwIDAgMCAxDQowIDEgMCAwIDAgMQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/multi-radius.csv",
+          "present": true,
+          "role": "research_only_logical_table",
+          "sha256": "22980411ce1b2f45a48f1624b982acfa7826c1bdfe90e44d4b5e6a72054d5555",
+          "size": 81
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "scenario_id": "defect-multi-radius-normals",
+  "schema_version": "1.0.0"
+}

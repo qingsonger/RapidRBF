@@ -1,0 +1,186 @@
+{
+  "kind": "non_normative_resource_samples",
+  "runs": [
+    {
+      "id": "corruption-model-empty",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.16697270004078746,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.1185039000120014,
+          "peak_pagefile_bytes": 2215936,
+          "peak_working_set_bytes": 9662464,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "corruption-model-truncated-1",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14712280000094324,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10355429991614074,
+          "peak_pagefile_bytes": 2174976,
+          "peak_working_set_bytes": 9629696,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "corruption-model-truncated-half",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1491625999333337,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11203049996402115,
+          "peak_pagefile_bytes": 2203648,
+          "peak_working_set_bytes": 9682944,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "corruption-model-truncated-last",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1338301000650972,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09314060001634061,
+          "peak_pagefile_bytes": 2183168,
+          "peak_working_set_bytes": 9687040,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "corruption-model-trailing",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12959599995519966,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09380189992953092,
+          "peak_pagefile_bytes": 2166784,
+          "peak_working_set_bytes": 9666560,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "corruption-model-nonfinite-nugget",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.24110740004107356,
+      "peak_private_bytes": 2007040,
+      "peak_working_set_bytes": 5541888,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.1005083000054583,
+          "peak_pagefile_bytes": 2007040,
+          "peak_working_set_bytes": 5541888,
+          "private_bytes": 2007040,
+          "thread_count": 4,
+          "working_set_bytes": 5541888
+        },
+        {
+          "elapsed_seconds": 0.2002728000516072,
+          "peak_pagefile_bytes": 2183168,
+          "peak_working_set_bytes": 9682944,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "corruption-model-negative-nugget",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1300331000238657,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09481410006992519,
+          "peak_pagefile_bytes": 2195456,
+          "peak_working_set_bytes": 9691136,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "corruption-interpolant-truncated-last",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13595880009233952,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.0961161000886932,
+          "peak_pagefile_bytes": 2252800,
+          "peak_working_set_bytes": 10235904,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "corruption-interpolant-trailing",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15092739998362958,
+      "peak_private_bytes": 2224128,
+      "peak_working_set_bytes": 9404416,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10480400000233203,
+          "peak_pagefile_bytes": 2224128,
+          "peak_working_set_bytes": 9404416,
+          "private_bytes": 2224128,
+          "thread_count": 4,
+          "working_set_bytes": 9404416
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    }
+  ],
+  "scenario_id": "legacy-corruption",
+  "schema_version": "1.0.0"
+}

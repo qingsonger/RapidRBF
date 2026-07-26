@@ -1,0 +1,26 @@
+{
+  "kind": "non_normative_resource_samples",
+  "runs": [
+    {
+      "id": "duplicate-normal-points",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14739230007398874,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10912510007619858,
+          "peak_pagefile_bytes": 2281472,
+          "peak_working_set_bytes": 10375168,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    }
+  ],
+  "scenario_id": "defect-pathological-sdf",
+  "schema_version": "1.0.0"
+}

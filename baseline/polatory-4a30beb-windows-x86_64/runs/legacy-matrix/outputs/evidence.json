@@ -1,0 +1,5097 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "artifact_count": 105,
+    "checksums_sha256": "6399dd2e288cd76074f6f83aa885d3b4e7d3ec353c5237e60dbdb9bf71da41e8",
+    "coverage": {
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "families": [
+        "bh2",
+        "bh3",
+        "th2",
+        "th3",
+        "cub",
+        "exp",
+        "gau",
+        "gc3",
+        "gc5",
+        "gc7",
+        "gc9",
+        "sph",
+        "sp3",
+        "sp5",
+        "sp7",
+        "sp9"
+      ],
+      "interpolant_variants": [
+        "values_only",
+        "mixed_value_full_gradient"
+      ],
+      "model_variants": [
+        "per_family",
+        "composite",
+        "nugget",
+        "anisotropy"
+      ],
+      "variogram_import_scope": "differential_only"
+    },
+    "file_count_excluding_checksum_manifest": 335,
+    "platform_layout": {
+      "architecture": "x86_64",
+      "bool_bytes": 1,
+      "byte_order": "little",
+      "double": {
+        "bytes": 8,
+        "format": "IEEE-754 binary64"
+      },
+      "eigen_index_bytes": 8,
+      "format_properties": [
+        "no magic",
+        "no version",
+        "implicit object kind",
+        "implicit dimension",
+        "no checksum",
+        "no length limit",
+        "trailing bytes unchecked"
+      ],
+      "matrix_storage": "Eigen dynamic row-major raw storage",
+      "os": "windows",
+      "size_t_bytes": 8
+    },
+    "total_bytes_excluding_checksum_manifest": 231305,
+    "variogram_set_role": "differential_only_not_import_input"
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/bh2.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "load-dim1-bh2.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/bh2.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-bh2.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-bh2.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMS45OTY1OTg0NDIxOTYzODA3IC0yLjEzMTgwNjUyMDI5Nzg0NDUNCi0wLjc1IDEuMTc3OTgzNjg1MTYyOTk0NiAtMC45NzA2NjAzODY0MTAzNTQ2DQotMC4yNSAwLjk0MDg1MzgwNzcwODk3NTYgLTAuMDA2ODE0NDI4NzAwMTg2MDA0DQowLjI1IDEuMTkwODUzODA3NzA4OTc1NiAxLjAwNjgxNDQyODcwMDE4Ng0KMC43NSAxLjkyNzk4MzY4NTE2Mjk5NDYgMS45NzA2NjAzODY0MTAzNTY3DQoxLjI1IDMuMjQ2NTk4NDQyMTk2MzgyMyAzLjEzMTgwNjUyMDI5Nzg0NzYNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-bh2.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "cbf2360553b9b0c252f068248f1faa9d356cc9c6d15a421f2881997402c1896c",
+          "size": 271
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/bh3.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "load-dim1-bh3.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/bh3.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-bh3.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-bh3.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMi4wMTk0MjMyNjQwOTUyNDQgLTIuMjA2NjA4MjkzODUwOTExMw0KLTAuNzUgMS4xOTYyNzM0MzUyMDk1OTYgLTAuOTcyNTYxMjMxMDg2MjExNQ0KLTAuMjUgMC45NTUwNjIyODI0OTc4NzMgLTAuMDAzODc5NjQyMzc5NzI0OTM0Ng0KMC4yNSAxLjIwNTQ1NjkxMjk3MzQ5MzYgMS4wMDQ4MDA4Njc2NDk5NDk2DQowLjc1IDEuOTQzNjk0NzM0OTM5NTE3MyAxLjk2MzY1OTE0NDQ3Mzk1OQ0KMS4yNSAzLjI5MDcwNTg3Mzc2Njk4NTQgMy4yNzQxNjMxODQxOTQ1MDU2DQo=",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-bh3.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "87f15c0d9aff412b5d78d5a07080d6bf3fd0d47d976b86c51dd1c7199a260448",
+          "size": 269
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/th2.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "load-dim1-th2.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/th2.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-th2.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-th2.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMS45Mzc1IC0yLjAwMDAwMDAwMDAwMDAwMDQNCi0wLjc1IDEuMTg3NTAwMDAwMDAwMDAwMiAtMS4wMDAwMDAwMDAwMDAwMDAyDQotMC4yNSAwLjkzNzUgMS45NDY0NjUzOTg3MTg5ODRlLTE3DQowLjI1IDEuMTg3NSAxLjAwMDAwMDAwMDAwMDAwMDINCjAuNzUgMS45Mzc1MDAwMDAwMDAwMDA0IDIuMDAwMDAwMDAwMDAwMDAwNA0KMS4yNSAzLjE4NzUwMDAwMDAwMDAwMDQgMi45OTk5OTk5OTk5OTk5OTk2DQo=",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-th2.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "46d35189ebda87849f58ed20acbba18d28fceb9c396699abbee1d4da3f09a60f",
+          "size": 236
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/th3.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "load-dim1-th3.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/th3.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-th3.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-th3.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMS45NTk1Mzk4ODQxMzg4NzkgLTIuMDQ0MjA4MDk1OTYxMDg5DQotMC43NSAxLjE4MTg2NDUwNDg2NTE4ODEgLTAuOTkxMDUxMjYwODY0OTU0DQotMC4yNSAwLjkzODYzNTg0MzEyMDMwODEgLTAuMDAyOTQ4ODgxNzcyMTMyMzcyMw0KMC4yNSAxLjE4ODYzNTg0MzEyMDMwOTUgMS4wMDI5NDg4ODE3NzIxMzU1DQowLjc1IDEuOTMxODY0NTA0ODY1MTg5MiAxLjk5MTA1MTI2MDg2NDk0OTMNCjEuMjUgMy4yMDk1Mzk4ODQxMzg4OCAzLjA0NDIwODA5NTk2MTA4OQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-th3.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "88c1cddac8925378ea7462ebce310c2a97a438abfb65ef50e3bcaeb10e0ad587",
+          "size": 267
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/cub.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-cub.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGN1YiAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "071e2f17463f2d1accebae1fea7f09f4a595cb61411a613c40e172b48b569577",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/cub.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-cub.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-cub.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMi4wMzEyODQ1MjU5NDk3OTUgLTEuOTM0NjI2NTk5NTc3Nzg5DQotMC43NSAxLjE5Mzc0MzM3NDY1NzU2NTkgLTEuMTE0MDg5NDM4NzI3MjM0OQ0KLTAuMjUgMC45MjE2MDgyMjY3Mzk1MjQ3IC0wLjAwMjkyOTMyOTI1MzkzNzg1MTMNCjAuMjUgMS4xNjk3NDQ4OTA5NTE3NDUgMC45OTg1MjgxOTcyNDIyNjkNCjAuNzUgMS45NDY2NDI4OTM2NTgwNTA0IDIuMTQ2ODEwMzI0Mjk3NjU0DQoxLjI1IDMuMzA4MzkwMDMwNzIxMzIzNCAyLjg5OTk0OTY1MzExODI5MzYNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-cub.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "b40608ee35b39a2b59bbb729d7c7f79b9c00bef533c3666b547e32d4255a7330",
+          "size": 268
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/exp.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-exp.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGV4cCAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "afd99c5bfd6e5940b08fcdd2f63cacaecc5cd8a9b404d88b961c9caa2af771fd",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/exp.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-exp.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-exp.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMS45Mzg4MjA4NjI3MDM3Mzk4IC0xLjkyOTAxOTk3NDYyMzY1OTQNCi0wLjc1IDEuMjIxNDA2NjU0NDYxMTg4OCAtMC45ODg4OTk2NjU1MDQzMDcxDQotMC4yNSAwLjk3ODI3MjIwMzAzMTQyMzcgNS40MDc2NzE2MDY1MDU0NmUtMDYNCjAuMjUgMS4yMjE1MzU5ODYyNDQ1MDAzIDAuOTg5NDE0ODc3ODY3NjU1Mw0KMC43NSAxLjk1MTE0Mjg2MzQ4MTM1OTIgMS45NzgwOTU2NzkwNzcwMDc3DQoxLjI1IDMuMTQ5NzIwODcwNjE4NTY3OCAyLjg5Njg0ODYyMzc2NjYyNw0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-exp.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "5d743cef46b773f552037de01136e1a1501ddc9368e9f27141528adb1de3f57a",
+          "size": 270
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/gau.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-gau.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdhdSAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "189c6fc68cf6db0f048f231648aa4815799d9a502ecbfaf8f6d273c37aa60b0d",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/gau.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-gau.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-gau.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMi4wMTQxNDE3OTE0MjU4MjM1IC0xLjU3MDIwODM2NTE3NzIwNjcNCi0wLjc1IDEuMjY2NjM5ODQwNzgzNzg4IC0xLjI3MjMxMjE4ODgwMzc0MQ0KLTAuMjUgMC44NzQxMTAxODgwNjE0OTQzIC0wLjE5NDMxMjE0MjE2NTQyNDM2DQowLjI1IDEuMTMwMDQxODUzODI4OTU0NSAxLjIyMTcwMzYxNTgwMDg1NTQNCjAuNzUgMi4wMzk2NDM4MzMyMzQxNTUzIDIuMzAyNDc3Mzc1NTg3MTI1NQ0KMS4yNSAzLjI3MzI3MjY5NzY3OTMzMTYgMi40NDM0NDc2OTM3MDg4OTINCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-gau.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "d72567c93b1856eebf648109c082434c26ebacb72aa648f92514d8775e849d50",
+          "size": 268
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/gc3.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-gc3.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdjMyAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "ae01aa7170a03353b0efe4c37779a2626beeb491242aa559b6d15e4616de9e67",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/gc3.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-gc3.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-gc3.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMi4wNDM4MDM0NDU0NTk2MTEgLTIuMDc1MTY0OTc3NjQ3Nzg0NQ0KLTAuNzUgMS4xNTgzMjE2NjcyMDg3OTM1IC0xLjA0NTMxNDY5MDMyODk4OTINCi0wLjI1IDAuOTQ0MDUzMjEwMDQ4NDU4OSAwLjA0NTQwNTQ1NDQ3MDA1NjYxNw0KMC4yNSAxLjE5OTU5NjU3NjY5OTM2NSAwLjk0NTUyNTg3NzUzNDEyODYNCjAuNzUgMS44OTIwNTQ2OTkxNzkyMTc1IDIuMDU5NjIzNTYxODQ4ODA4DQoxLjI1IDMuMzM4NTA3NjU2Njc5NjEzNyAzLjEwNTYyNjQ3ODM0NjYzMw0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-gc3.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "2e0cf306406e2339f960138b6188ac5fcf88baf319e067b61c7494a92d7a3fa5",
+          "size": 267
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/gc5.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-gc5.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdjNSAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "a03666a88ed441cf8377629cf2576a69b7923b3ecd9182fe1fcc6cd04b265a37",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/gc5.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-gc5.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-gc5.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMi4wMjAxMTI1MTkzMDM2NTQgLTEuODg1MTg0NTA1NjY1MzA1NA0KLTAuNzUgMS4xODI3NjI1NjE4NDc1MjQgLTEuMTYwMTM0MTE3NDcwNDg2DQotMC4yNSAwLjkzNjg5MzgzMjQ5ODk4OTcgMC4wODM5OTczMDM0NjE3ODg2OQ0KMC4yNSAxLjE3ODY4ODk5MjM3Njk0NCAwLjg4ODE0Njk0MzYyODIzNQ0KMC43NSAxLjkzMTE4NzAwMTI5MDI2NTIgMi4yMzM1MDgyODE3Nzc0MjIzDQoxLjI1IDMuMzAwNjU2ODA0OTY4NTMgMi44MjUzODg3NTY3OTUyNTUNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-gc5.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "440f6a98bae9020a0059203018d31c82f30b4709899382e732a5bf68135bd868",
+          "size": 262
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/gc7.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-gc7.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdjNyAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "da88f3a13795eab1e81be10ea99607f2fbc7e134a126941af6e9d8227a551e8c",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/gc7.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-gc7.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-gc7.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMi4wMTAzMTcwNjQ3MDMwNTE1IC0xLjgwODA4NzAwODM5MzA5NzYNCi0wLjc1IDEuMjA1NjY1MDYxNTc1MDEyOSAtMS4xNzA3MTMyNzM1NjcxODU1DQotMC4yNSAwLjkyNDgyODcxOTE3NTg1MTEgMC4wMDU1MTUzOTc2MzE1NTQyODYNCjAuMjUgMS4xNjMyMzMzMDU4MzQ3NzQ0IDAuOTY0MTg4OTA2MjUyODg3OQ0KMC43NSAxLjk1OTMyMDM0MjczNjA5OSAyLjI1OTE4MjU4NjMwNzQwMzUNCjEuMjUgMy4yODc5OTI0Mzg1NjE2NjEgMi43MjAxOTQ3NjMyMjg4ODQzDQo=",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-gc7.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "93340fecba84ec7d3696485260f277c9c6d387560555058c4aa122722e42d107",
+          "size": 269
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/gc9.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-gc9.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdjOSAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "f84e71bedd7dce0ead0f3f2bc1982abd220c39d07a6a0dc1d362d0f3a2df717a",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/gc9.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-gc9.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-gc9.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMi4wMDY2Njc0MTE5Nzg1MjggLTEuNzU1MjIxMjgwODg3MTAwNg0KLTAuNzUgMS4yMjE3MTk5MTA2NzQ2ODg4IC0xLjE4MTYxMjYyNzk5MTQ4NDUNCi0wLjI1IDAuOTE0NDMyOTY1ODM1NjIyMyAtMC4wNTIxMTI3MjUwNjgyMDkxOQ0KMC4yNSAxLjE1MzQwNjAyMzY0ODA2OTcgMS4wMjU3NzIxNDYxOTk3MjI1DQowLjc1IDEuOTc4MTAzMDUzNDk1MjQ0NiAyLjI2ODkxMDk4MTY0MTM4MjQNCjEuMjUgMy4yODIwOTU1NDcyNzE5MDcgMi42NTc2ODk5NTMzNDUxNTYNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-gc9.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "bc120e6a184531fa18667828c3bcca19304f5d67d3b48a9b3993bde7acd7e916",
+          "size": 268
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/sph.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-sph.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwaCAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "d699b30cb85009ee92b9bdb311bd5b692fa550ba297390d4e0dcc0837b6a3044",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/sph.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-sph.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-sph.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMS45NTY2Njg0NDIxNjg5MTc2IC0xLjkyMDMxOTQxNDYwMDc2NzYNCi0wLjc1IDEuMjI2MTg0NjM4OTczODUxNSAtMC45OTg3MDgyMTQ0ODQyODIzDQotMC4yNSAwLjk3Njk4NTE5ODgxMzEwNDEgMC4wMDExMDkwMzg2MjUzNzMxNDg4DQowLjI1IDEuMjI5MTI0OTk3MDc4NTIzOSAxLjAwMjYwMjIyMDY0NDI4NTMNCjAuNzUgMS45ODI1MTUxMTc3NzQwNzgzIDIuMDAxODQ2NTc5MTgxNzU3Nw0KMS4yNSAzLjIwODYxODU1MTM1NTU5NTQgMi44ODkyMDk3ODYzMDI3NjcNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-sph.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "e890c670eb92d9d13e66bcd9c1d86f93e1bf576060663da89b2778e9d16f616f",
+          "size": 271
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/sp3.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-sp3.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwMyAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "5cbe2966a4b06b383845e7c53505dc33208d5466312cae25e903048d01352067",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/sp3.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-sp3.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-sp3.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMS45ODQxMDkxNTA3MTQzOTg0IC0xLjkzNzc2OTg2MTI2OTIyMzgNCi0wLjc1IDEuMjIwOTQxMzYxNjk4MzI4NSAtMS4wNTYxMDY2MTUzMDk5MDM1DQotMC4yNSAwLjk0MDI3NDU2NTkwMzk5OTYgLTAuMDAwNDk2MzI5NjMzMjI2MjI1MQ0KMC4yNSAxLjE4MTc2NjUyNTYwNjUxIDAuOTg5ODYxOTYxODM1MzU3NQ0KMC43NSAxLjk2NjY2MDQ2MTUyMjQyMTIgMi4wNzgxMDk4ODIwMjI4NDM2DQoxLjI1IDMuMjI5NTk2MjI0NTI2MjI1IDIuOTAzNjk3NDkwNDI0ODEwMw0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-sp3.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "0c4315f426496637e0397ad7d3ff1a929ff34714207522dcb61ccbdfd6eef882",
+          "size": 270
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/sp5.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-sp5.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwNSAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "32a07fb2b6633a4ae69bbe70ed194def744608691ddbc92f5a5c3d12b83d6167",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/sp5.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-sp5.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-sp5.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMS45ODE1NjI3NjU0OTAxOTUzIC0xLjkyNjEwODkwNDM2MjQ1Nw0KLTAuNzUgMS4yMzg2NjY2NDA4NDA3OTM0IC0xLjAyMDQ4MDYzODMyMDE0MDYNCi0wLjI1IDAuOTQwMzE3OTgwMTI3NzAxMSAtMC4wMjk5MzkxNTc2MDgzOTc0MQ0KMC4yNSAxLjE5MDk2NzUzMzUyODQyNCAxLjAzMzgzNTE4ODkzMDY2OTQNCjAuNzUgMS45OTcyMjc3NjY1MDg1NTM2IDIuMDE4NDAyMjU5NDQxMDAzDQoxLjI1IDMuMjI3OTQ1NzQ5NjcyMzM1NCAyLjg5MDE5ODU3MDQ2NDUxMQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-sp5.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "f9ee0e867ae14e6133e1b7bd8c87a26ef2431d6adf2e46f64e8b2b8a9530c555",
+          "size": 267
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/sp7.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-sp7.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwNyAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "39e79c3214bbc4e0df0c9f4d087b42dd6d361f52c8ccaed394c48bc52cbd5ced",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/sp7.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-sp7.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-sp7.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMS45NzkyODAxMjkxNTM5ODc0IC0xLjkyNDk0NDQ3NTEwNjA5OA0KLTAuNzUgMS4yMzQ2NzA5MTAzMjgwMDIyIC0xLjAxNzQ5MDM0ODE4NTQwNzgNCi0wLjI1IDAuOTQ5MDkwMjczMDE0OTYyNSAtMC4wMjg3MjgyMDMzNDA1MDg1MzINCjAuMjUgMS4yMDQ0ODUzNzQxMTk3ODQgMS4wMzkwMzQ0NjcyODEyOTIxDQowLjc1IDEuOTk1MTI3NTYxNjA3NTk2IDIuMDEyNTcxOTUyNzQ5MzY4Ng0KMS4yNSAzLjIyNjAyNTMxMzE3NDcyMyAyLjg4NzE3OTQ2MDU5MzI4NQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-sp7.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "eeec7918f6459c329039f824939c18c4de0cd8861f5ca32b51940cc291a01e27",
+          "size": 267
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/sp9.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-sp9.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwOSAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0K",
+        "encoding": "base64",
+        "sha256": "f1d668ceaeffbd45d35c810d8a421cb916faebed2fc972a2c32fec4cc02549f2",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/sp9.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-sp9.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-sp9.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMS45NzY4MzAyNzMyNTU3MTMzIC0xLjkyNTM3NjU1MDg4NDQ2NzYNCi0wLjc1IDEuMjMxNTEwNTMyNzU2MTc4NCAtMS4wMTYxNDk1Nzk5MDg1Njg1DQotMC4yNSAwLjk1NjA2NTE3NTcxNzcxNTIgLTAuMDI0MzgxNzg5NDQ0MjAxNzc0DQowLjI1IDEuMjEzNTkyMTIyMjUzNzAzNiAxLjAzNzIzOTk1MDQ2MDA1NzENCjAuNzUgMS45OTI4MzMxMTMzNDI0NjQ2IDIuMDExMTExODU0OTU1Nzk2DQoxLjI1IDMuMjI0MDQ2NTk5NDc4OTE1IDIuODg2NTU0MjczOTk4ODk0NQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-sp9.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "8832a007dcad6366f1f0e0f8a7b63004b21fc7683fae674edefb5e167b1c99dc",
+          "size": 270
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/composite.model",
+        "--dim",
+        "1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-composite.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIFJhbmdlDQogICAgICAgICBudWcgICAgICAwLjEyNTANCiAgICAgICAgIGdhdSAgICAgIDEuMDAwMCAgICAgIDMuMzMzMw0KICAgICAgICAgZXhwICAgICAgMC41MDAwICAgICAgMS4zMzMzDQo=",
+        "encoding": "base64",
+        "sha256": "3d0f8172c9f7e4a858db65f92abb2d401f550f058f3bf544378a474648ed2962",
+        "size": 140
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/composite.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-composite.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-composite.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMS45NTY2MTA0MDk4NjM4NDI4IC0xLjY1NzMyMzU0OTk0MjQ3NzQNCi0wLjc1IDEuMzMyOTkzNTY2NzIzMzYxNyAtMC45MjEwOTk0NDQyMzQwNjEyDQotMC4yNSAxLjExNTI0MDUxMjYwNTgwNDUgMC4wMjAxMjI1NTcxNzYyODI2NA0KMC4yNSAxLjM2NzU1MTQzMjE4NTc0NDMgMC45ODE2NDcwNzYxOTQ3MjQyDQowLjc1IDIuMDcyMzk5NDAzNjgyNTIzIDEuODc0OTcxMjAxNTcyOTExMg0KMS4yNSAzLjExNzY3MjE1NjY2OTc3MyAyLjQ0ODA3MzQ2ODQyMTMwNjYNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-composite.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "9ddc626cd9f14e4a3578dd8846979c239278a12bf52385b7c14e14cf294739b0",
+          "size": 268
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim1/th3-hermite.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-1d.csv",
+        "--dim",
+        "1",
+        "--grads",
+        "--out",
+        "${WORK}/dim1-th3-hermite.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim1-th3-hermite.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTEuMjUgMS45NTY5NTY3Njc5MzkxNTI2IC0yLjA1MjUzNzk0ODE3Nzg1NzYNCi0wLjc1IDEuMTgxNDg0MTQ0MzExOTY1NSAtMS4wMDAwMDAwMDAwMDAwMDAyDQotMC4yNSAwLjkzOTY5MjMwNzU3MjkyMzMgLTAuMDA5MTc2MDM2ODE1ODc5OTE4DQowLjI1IDEuMTg5NjkyMzA3NTcyOTIzIDEuMDA5MTc2MDM2ODE1ODc4OQ0KMC43NSAxLjkzMTQ4NDE0NDMxMTk2NjggMi4wMDAwMDAwMDAwMDAwMDA0DQoxLjI1IDMuMjA2OTU2NzY3OTM5MTU2IDMuMDUyNTM3OTQ4MTc3ODY0Nw0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim1-th3-hermite.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "0278f3a2d52c1cac50546609728302f8d919a0aae92d877cb1bfb62bbbe9d4d6",
+          "size": 270
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/bh2.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "load-dim2-bh2.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/bh2.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-bh2.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-bh2.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMDg4OTc4ODQyODcyODQwMyAwLjY2MzM1NDI3NTc4NzQ5MzEgMi4wMTc3MDM2OTQ1NDc1MTg2DQotMC4yNSAwLjc1IDIuMjcxNTY2ODcyNjY5MjU0NiAwLjgxNTA1NjY0MTQzODEwMTQgMS45ODkyNzMwMDczMjU0Njg3DQowLjI1IC0wLjc1IC0wLjIyODQzMzEyNzMzMDc0NDcgMS4xODQ5NDMzNTg1NjE4OTc2IDIuMDEwNzI2OTkyNjc0NTMNCjAuNzUgMC4yNSAyLjQxMTAyMTE1NzEyNzE1OSAxLjMzNjY0NTcyNDIxMjUwNiAxLjk4MjI5NjMwNTQ1MjQ4MDMNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-bh2.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "8710a8df1e8fdd72a22b4c3d7311ea25671107af9ee0f919fe307878482a6984",
+          "size": 274
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/bh3.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "load-dim2-bh3.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/bh3.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-bh3.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-bh3.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMTUyMTYzMDgwMzI0MDY5NjcgMC42NDU1NjA5MDY5NDA3NzcgMi4yNDE0Mzg0NzUzNjUyODA1DQotMC4yNSAwLjc1IDIuMzQ1ODQwOTA2NDE1NDc3MyAwLjg1MDQ5MTE0ODAxNDYxMjYgMS44MDQ0NDEyMzg3ODE2MDIyDQowLjI1IC0wLjc1IC0wLjI3MjM3MzkwOTY1NjIxOTY2IDEuMjY0OTEwMTMxMjAyMTExOCAxLjg3MDcyNDAyMzMwNzg5NDMNCjAuNzUgMC4yNSAyLjUwMzYxNTUxMzY2Njk0NDUgMS4yMzYzOTk1NjA5OTMzOTU4IDIuMTk0MDM1MDkyMzU4NjM4NQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-bh3.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "d5fd4a2be01be59c78024388e8f00d4466342d30987115f974996b8d09264ff7",
+          "size": 279
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/th2.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "load-dim2-th2.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/th2.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-th2.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-th2.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMTA5Mzc0OTk5OTk5OTk5NjggMC42MjQ5OTk5OTk5OTk5OTk4IDEuOTk5OTk5OTk5OTk5OTk5Ng0KLTAuMjUgMC43NSAyLjI2NTYyNDk5OTk5OTk5OTYgMC44NzQ5OTk5OTk5OTk5OTk3IDEuOTk5OTk5OTk5OTk5OTk5Ng0KMC4yNSAtMC43NSAtMC4yMzQzNzQ5OTk5OTk5OTk1OCAxLjEyNDk5OTk5OTk5OTk5OTggMS45OTk5OTk5OTk5OTk5OTk2DQowLjc1IDAuMjUgMi4zOTA2MjQ5OTk5OTk5OTk2IDEuMzc0OTk5OTk5OTk5OTk5OCAxLjk5OTk5OTk5OTk5OTk5OTYNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-th2.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "025cdec937601814a24679bbf6dc8b5f90483f8c6af73bc4f4bf032cc23856f8",
+          "size": 280
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/th3.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "load-dim2-th3.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/th3.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-th3.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-th3.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMTAxNDE1ODY5MDM3NTI2MiAwLjYzOTczNjQzNjMxODU2MTEgMi4wMTI1MDc0MDI0MTE2Nzg1DQotMC4yNSAwLjc1IDIuMjY2MTkxOTU5NDA2NjU4IDAuODQ1MTk1NzcyNTkyNDk1OSAxLjk5ODU3MjU3MTA4NTU4MDINCjAuMjUgLTAuNzUgLTAuMjMzODA4MDQwNTkzMzQxOTMgMS4xNTQ4MDQyMjc0MDc1MDI4IDIuMDAxNDI3NDI4OTE0NDE5DQowLjc1IDAuMjUgMi4zOTg1ODQxMzA5NjI0NzMgMS4zNjAyNjM1NjM2ODE0Mzc3IDEuOTg3NDkyNTk3NTg4MzIxNQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-th3.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "3a326b74b695c5caecb0efdf7ab0883eecb18cf1701a70a0c8d2304137affe00",
+          "size": 276
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/cub.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-cub.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICAgICAgIE1pbm9yICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGN1YiAgICAgIDEuMDAwMCAgICAgIDUuNjYzOSAgICAgIDQuNDEzOSAgICAgNDEuNDM3NQ0K",
+        "encoding": "base64",
+        "sha256": "3f4795a44e58fc63ad5cd579249152d2225c1344b2b5d1d485d1f727f4fcd3b5",
+        "size": 150
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/cub.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-cub.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-cub.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMjA1Mjk2MTM2ODM1ODU1NjggMC42MzY0MDY1ODU4NDAxMDM4IDIuMzE5MDA4MDM1ODg4NjczNQ0KLTAuMjUgMC43NSAyLjM4ODA1NDMxMTc1NDU2OSAwLjkyMzE3NzAxMTc0MzI3MDcgMS43NTM5NDk1NTk0MTU2MjkNCjAuMjUgLTAuNzUgLTAuMjkzMDQ5NDc2MzE1MzE5NSAxLjI0ODYzNTI0NTE3MDA5NTcgMS44MTc2MzI1Njc4OTA2NjM1DQowLjc1IDAuMjUgMi41NjQzOTE5MTgyMjQ2MTM4IDEuMjU1NDgwODE5NjExMzk2MiAyLjM2MDg3MDg4MzA3NDExNDUNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-cub.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "052b769729d562e7b6a3c03a0d7e57d0b2307dbcef4344d5cb464f6c67ec8d4d",
+          "size": 277
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/exp.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-exp.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICAgICAgIE1pbm9yICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGV4cCAgICAgIDEuMDAwMCAgICAgIDUuNjYzOSAgICAgIDQuNDEzOSAgICAgNDEuNDM3NQ0K",
+        "encoding": "base64",
+        "sha256": "68d240207c55cd53e51ddb36f670fd223459d6ae32d3e16ed0513d00f6653ca9",
+        "size": 150
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/exp.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-exp.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-exp.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMTEzNTk3Nzc5OTM0MDA1NjYgMC42NTE2MTM5NDcxNTA4NCAyLjA5NzkyNTY3NjAwNjc1MzcNCi0wLjI1IDAuNzUgMi4zNDYzNjcxNjc3ODAzODc3IDEuMDI2OTMzMjM5NjYwNDYyNyAxLjU3NTEyNDg0NjA3NjI5NQ0KMC4yNSAtMC43NSAtMC4xOTUxMzU2MjIwOTg2MDg0NiAxLjMzMjI4NTM0MzMxODM0OTUgMS44MDIyNzA0MDM2MTQwNDI3DQowLjc1IDAuMjUgMi40OTgwOTI5MzM0ODA1NTYgMC45NjI4ODQ5MjY5NTIzMzY1IDEuOTg4MTM5Mzc4MDQ5OTE4OA0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-exp.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "a89774f7090d638452ec622b9919889adcd95ed8d418c68cf61eaf75403810fa",
+          "size": 276
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/gau.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-gau.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICAgICAgIE1pbm9yICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdhdSAgICAgIDEuMDAwMCAgICAgIDUuNjYzOSAgICAgIDQuNDEzOSAgICAgNDEuNDM3NQ0K",
+        "encoding": "base64",
+        "sha256": "c1613df51410f12ddd5d118c7f8f189fe5c82e1510f8665d6f0a0c25bed6c727",
+        "size": 150
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/gau.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-gau.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-gau.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMTkzNjc3ODE1MTg3NTI2NDcgMC42NDU4NjEwMzIzNjkwNTg2IDIuMTMwMDQyODkyMTUxNzQxDQotMC4yNSAwLjc1IDIuMzk3MDY2MjEzMDM5MDk2MyAxLjAzMTg3MTY5MDUwNzY0NDIgMS45MTgxNDQzMDYyMjg4MTI0DQowLjI1IC0wLjc1IC0wLjI4NjgwMjYyODIzNTQ5MzYzIDEuMjA1NjM3NzI5ODI1MzU2MiAxLjk0NjI1ODA0Mzg1MTk4NTkNCjAuNzUgMC4yNSAyLjUyODkyNzM5NDU0NzQxMyAxLjIxOTM3NTQ2NjQxMzkzNjIgMi4xMzg5Mjk0NzcwNjMNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-gau.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "1b81a7586883ed374de6939f3722bba72faaa66db7a39d2bf1b91d9b7323bec6",
+          "size": 274
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/gc3.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-gc3.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICAgICAgIE1pbm9yICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdjMyAgICAgIDEuMDAwMCAgICAgIDUuNjYzOSAgICAgIDQuNDEzOSAgICAgNDEuNDM3NQ0K",
+        "encoding": "base64",
+        "sha256": "a566aebbe7fdd4242ffc36cb6051b05709c266490cdd043af8792a30c383c91f",
+        "size": 150
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/gc3.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-gc3.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-gc3.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMjU0NDUxNDQ4Mzg5MjI2NCAwLjYzOTQ3MzI3OTk5NDc3NzQgMi41NTE1MDI2MzM2MTMwODQ0DQotMC4yNSAwLjc1IDIuNDEwMzgxNTk3NTUyNjc2MyAwLjg4MDA3MTcyMDk1ODc3MDEgMS41Nzk4NDY2Njc5NDM4MzYNCjAuMjUgLTAuNzUgLTAuMzIxMDU0NzA1MjY3ODY5NCAxLjMwOTU3OTQwOTgzODUzMTggMS42NTA0MzM3ODgxNzc0MDI1DQowLjc1IDAuMjUgMi42MzMxMzk1MTExMzQ4MTUzIDEuMjc4NDM0MjQwNDEzNDA0OCAyLjYyNzcwNjY3NzcwOTYzNzYNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-gc3.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "9b5ed65cb3360ef481bbed6fd1b43e628c738037c49d6d537c7e8187c6c41b6d",
+          "size": 277
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/gc5.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-gc5.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICAgICAgIE1pbm9yICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdjNSAgICAgIDEuMDAwMCAgICAgIDUuNjYzOSAgICAgIDQuNDEzOSAgICAgNDEuNDM3NQ0K",
+        "encoding": "base64",
+        "sha256": "3da5d2a3243498272a87cf6eca7c67c87ebf40af6717b7379de10a635b3d3051",
+        "size": 150
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/gc5.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-gc5.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-gc5.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMjIzNjAwNzExNDY3NTQwMjQgMC42MjAyMjQyNTUwNDY1MzMyIDIuMzc3NDA5MTE0NTQ4MzY2NQ0KLTAuMjUgMC43NSAyLjM4NjEwODMwNTMwMzIzNSAwLjk0MjM4NTQyMjIyOTE2MDMgMS43MjE0MzM1MzY4MzYxNTEzDQowLjI1IC0wLjc1IC0wLjMwOTU1OTA1NDc1NzQ4IDEuMjU0ODYyMTg2MjQ1MDM1IDEuNzMyNjMxOTg4MTI1MzI1OA0KMC43NSAwLjI1IDIuNTY4MzUzOTQ4NjY3MjM4IDEuMjkzNzQ2ODA1MzYxNzk2OSAyLjQwNjg3MjA3ODQzMDgxMg0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-gc5.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "fcd67b3cf8df155d9e18673ffa6cd3dda437e36e6eb5c4d9587fcde56fa5b968",
+          "size": 273
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/gc7.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-gc7.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICAgICAgIE1pbm9yICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdjNyAgICAgIDEuMDAwMCAgICAgIDUuNjYzOSAgICAgIDQuNDEzOSAgICAgNDEuNDM3NQ0K",
+        "encoding": "base64",
+        "sha256": "5d2679f3e90a0d7d923d33bffcec2ba7fa6d198c5808d23ed57aad34daa61381",
+        "size": 150
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/gc7.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-gc7.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-gc7.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMjEwMjQwOTQzNDQwMjg0NzcgMC42MDgyMDIzMTc0MzY1MTk5IDIuMjkzNzQxMzM1NTIzMjI2DQotMC4yNSAwLjc1IDIuMzgyMzMzODY4OTg0MjQ4IDAuOTY5MjgyMTU2MTY3NzYwNSAxLjc4ODQ5MjkzMzY5OTk3Mg0KMC4yNSAtMC43NSAtMC4zMDU3NjU2Njk2MDY0NjQ1NiAxLjIzNDYyMTgzNzkzNjU1NTIgMS43Nzk5MDk2NTAzNTAyODI1DQowLjc1IDAuMjUgMi41NDgzODk3ODkyMTc5ODM2IDEuMjg1MDExNjg3MzQyMjc1NyAyLjMxODc2ODc0MzI1MTE5NDMNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-gc7.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "aca187b49595f7501c0314757e5bc3dd2993512d790de8e6f18fc6d21f451cdb",
+          "size": 277
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/gc9.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-gc9.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICAgICAgIE1pbm9yICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdjOSAgICAgIDEuMDAwMCAgICAgIDUuNjYzOSAgICAgIDQuNDEzOSAgICAgNDEuNDM3NQ0K",
+        "encoding": "base64",
+        "sha256": "ecc03828ba7cd283c949148b317fdf84cfa857be98f3e5df39b839271047131f",
+        "size": 150
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/gc9.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-gc9.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-gc9.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMjA0NTE5NTg3NDI2NDEyMyAwLjYwNTA5OTcwMzQwNjA3MyAyLjI1MDcxMzY3MDYxMjE1DQotMC4yNSAwLjc1IDIuMzgyNDE5MDg2ODUxMTc4MyAwLjk4MzczMzc2MTk5NzAzNyAxLjgyMjkyOTQwNDMwMTMwNzgNCjAuMjUgLTAuNzUgLTAuMzAzNTYzOTA2NTQ3Nzc4NjUgMS4yMjU4OTg0MzY0NjEwMzQgMS44MDk5NjA1OTE2NjY5MjAxDQowLjc1IDAuMjUgMi41NDAzNDc3NjI3MTc1OTI4IDEuMjc2MzA5Mzk2NzEzNTcxNyAyLjI3NDgzMjEzMDQ3NDU3MTYNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-gc9.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "45bc775ec570ef637e9efb02687517d0bba394f3be85b830a31bd71e7fff3de8",
+          "size": 274
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/sph.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-sph.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICAgICAgIE1pbm9yICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwaCAgICAgIDEuMDAwMCAgICAgIDUuNjYzOSAgICAgIDQuNDEzOSAgICAgNDEuNDM3NQ0K",
+        "encoding": "base64",
+        "sha256": "ad909b034f345ef68a784c7606159f39ceaca65dd0d4a70ddb6b28fba79a6e8e",
+        "size": 150
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/sph.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-sph.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-sph.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMTIwMzIxMjY0ODgyNjQxOTQgMC43MTM4NTYzODI4MTkwMTQ5IDIuMTYyMTkyNzYxNjgzMzUyDQotMC4yNSAwLjc1IDIuMzg3MTM2MDk4MDMzMzM3IDAuOTQ1MzgzMjQ0ODYyMDA4MyAxLjY2NDkzODY5NDI4ODM0NTMNCjAuMjUgLTAuNzUgLTAuMjA1Mzg0MTk2ODA4NjQ5ODMgMS4yODAzMjIxODkzODY2NzAzIDEuOTAwMDA4ODM4MzQ0MzEwMQ0KMC43NSAwLjI1IDIuNTM0Mjk5NTYzMjQzMDc5NiAxLjAzMDU4NTQ5NDEzNDk3NDEgMi4xMTg3MDMxOTU4MTIzNDE1DQo=",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-sph.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "1edd0413153aa6130d9e17ae355f3e8a4109405121b41a0f79220d1ba423e551",
+          "size": 278
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/sp3.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-sp3.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICAgICAgIE1pbm9yICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwMyAgICAgIDEuMDAwMCAgICAgIDUuNjYzOSAgICAgIDQuNDEzOSAgICAgNDEuNDM3NQ0K",
+        "encoding": "base64",
+        "sha256": "d1dbab1d64efa4c7cd23e298063d7aeaab61bd6f70262fb82cc92eac727b8cba",
+        "size": 150
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/sp3.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-sp3.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-sp3.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMTk0ODY3MjkyNDkzNzYwNTYgMC42MTM1OTIyNzc0NzA0NDkyIDIuMjk2ODkyNDc1OTk5Mjk2DQotMC4yNSAwLjc1IDIuNDA5NjMzODczNzg5NzY2MiAxLjAzNjUyNDQ2NDY0NzkzODMgMS41Mjg4MjAzMjc3NTY1OTI4DQowLjI1IC0wLjc1IC0wLjI2MzI5NTI2NzM1Mjc0NDQ0IDEuMzI1MjY0MDM3NDM2NTA2OCAxLjc0NzQ4NjQwNzQ0Nzg0Nw0KMC43NSAwLjI1IDIuNTg4NzAxODc3MzEwMzAyIDAuOTc4OTE4MTIwNTU5NzAxNSAyLjIzOTUxNzY4Mjg5NzQ3NDgNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-sp3.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "f9a15e095f03569160794bf74d70f94c2e1141db36fff427d5d063f8175f2499",
+          "size": 277
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/sp5.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-sp5.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICAgICAgIE1pbm9yICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwNSAgICAgIDEuMDAwMCAgICAgIDUuNjYzOSAgICAgIDQuNDEzOSAgICAgNDEuNDM3NQ0K",
+        "encoding": "base64",
+        "sha256": "0307f9538ded8cf7d56b85db5f142f89ffafdc577846348b2aa0ee9cf24ada5f",
+        "size": 150
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/sp5.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-sp5.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-sp5.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMTU3NzY4NTU5NjI1ODg0OTkgMC42NTA1MjAzOTI0ODU3MjA4IDIuMjA0NDI3MTA0OTAzNjINCi0wLjI1IDAuNzUgMi40MTgwMzc1NjYyMDkwMTggMC45OTMwMzgwMjI0ODUwMDgzIDEuNjI2ODYzNDY3MjE2ODgwNw0KMC4yNSAtMC43NSAtMC4yNDQ1MzU4NjY5MzgyOTQ1NyAxLjI5MzQ3NDUzMTIyNTk5ODggMS44NjE3OTEyOTQ0NDYxOTU0DQowLjc1IDAuMjUgMi41NjUxMjMxNDk4NzQ4Nzk0IDAuOTY5NzA4OTg4OTUwMjIyMyAyLjE1NjE3MzczMDA1NTk5DQo=",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-sp5.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "c882c76fda1010b36344033b49349b3f316312ee3d9b3789db72769f43ce499d",
+          "size": 275
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/sp7.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-sp7.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICAgICAgIE1pbm9yICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwNyAgICAgIDEuMDAwMCAgICAgIDUuNjYzOSAgICAgIDQuNDEzOSAgICAgNDEuNDM3NQ0K",
+        "encoding": "base64",
+        "sha256": "56aa7291a1bcf201abf58011d9287843c303d929ca41fb619181de96296256d4",
+        "size": 150
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/sp7.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-sp7.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-sp7.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMTQyMDMwODM3NTg0Njc4NiAwLjY4MTUyMjY3ODg2Mjk1ODEgMi4xODE2MTM5MDAzMzMyNg0KLTAuMjUgMC43NSAyLjQwOTI4ODgwNTE0MzM5ODcgMC45NTY5OTI5ODMzMTU5MTkzIDEuNjU5ODUzMjM4MzgxOTE2Nw0KMC4yNSAtMC43NSAtMC4yMjcyNDk3NDQzMDY2ODY0MyAxLjI3OTM0OTE2NzU1MTIzMTYgMS45MDM3OTM2MDU1OTg1MDAzDQowLjc1IDAuMjUgMi41NTQyNDMwNzYzNTg3OTQgMC45ODk0OTgzODM0ODQzMTMgMi4xMzg0MjQzOTk0NTUyMg0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-sp7.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "a266491164c6a49a0116f383bd48a2e5a3a47caa51943308f7a842d168c19f2e",
+          "size": 273
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/sp9.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-sp9.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICAgICAgIE1pbm9yICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwOSAgICAgIDEuMDAwMCAgICAgIDUuNjYzOSAgICAgIDQuNDEzOSAgICAgNDEuNDM3NQ0K",
+        "encoding": "base64",
+        "sha256": "383a81ad9e0bbb35642b4c5f28a4b5fd3409db3051e7ad0e143d88eeeca021e6",
+        "size": 150
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/sp9.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-sp9.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-sp9.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMTMzNzU0ODY3NDIxNDU0NCAwLjY5OTkzMDc2MjE2MzE3OTUgMi4xNzQwMDIyNzk0OTQwOTk2DQotMC4yNSAwLjc1IDIuNDAxOTA0NDk2NDI4MjE5IDAuOTQ0ODMyNDk3NTk4MzQ0NCAxLjY3NjA2NTk5NzI4NDQzOTYNCjAuMjUgLTAuNzUgLTAuMjE2Njk4ODM1MDM2NTMyNDggMS4yNzU1NjQ3NzQ4NjA0OTA0IDEuOTIzMDEyNzAxMDM1ODcNCjAuNzUgMC4yNSAyLjU0NzQ0NjY2MTc0MjgyNzUgMS4wMDQwNDY1NzkyNjk1NTEyIDIuMTI4OTA3NzEzMzMzODExNQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-sp9.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "a0b99efaf698db5385087d7a4f0e20adf260e107ad129df82bf781cc4ed80381",
+          "size": 276
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/composite.model",
+        "--dim",
+        "2"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-composite.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICAgICAgIE1pbm9yICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjEyNTANCiAgICAgICAgIGdhdSAgICAgIDEuMDAwMCAgICAgIDUuNjYzOSAgICAgIDQuNDEzOSAgICAgNDEuNDM3NQ0KICAgICAgICAgZXhwICAgICAgMC41MDAwICAgICAgMi4yNjU2ICAgICAgMS43NjU2ICAgICA0MS40Mzc1DQo=",
+        "encoding": "base64",
+        "sha256": "75f96c7d4d0502f92bc0851fd1bdbcca252ffbcb552bc73326ac006d4dc9d976",
+        "size": 212
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/composite.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-composite.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-composite.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMDQ0MjM4NDc1ODA3MzM1NTMgMC42Mzk3MTA3NDU4ODcxNTY2IDEuODUxNjY5MjA4NTI4OTcxDQotMC4yNSAwLjc1IDIuMjgwMjYxODkyOTM5MDM2IDAuOTc4Njg2NzA0MDYyNjI3NSAxLjY4MDM4MDAyNjUxNDk3ODQNCjAuMjUgLTAuNzUgLTAuMDk0MTM2MzcyMjU4MjQ4IDEuMjQ0NDA5NDMxMzc1ODY5IDEuNzQ2NzE1MjQ4MDU0NzQ3DQowLjc1IDAuMjUgMi4zOTg2MDYxOTUyODk2NTE2IDAuOTg2MjMxNjIyMDg0MTQ0OSAxLjgwOTY4MjU3NzU4MjcwMTcNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-composite.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "849fccaf318328ce502b823198edff4b981fc12a7155ec7549627d3134158b93",
+          "size": 274
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim2/th3-hermite.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-2d.csv",
+        "--dim",
+        "2",
+        "--grads",
+        "--out",
+        "${WORK}/dim2-th3-hermite.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim2-th3-hermite.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgLTAuMTA1NjE5NDI0MjIwNDg5MzEgMC42NDA2NTA3NzYzNjc3NDY5IDIuMDIwNzA2NzkyMDQ3ODIyNg0KLTAuMjUgMC43NSAyLjI2NzAyMTg2MDU3MzczIDAuODQ5NTczMDg5Mzg0NzI4NiAxLjk5MjM0ODEzMzA4ODQ3OQ0KMC4yNSAtMC43NSAtMC4yMzI5NzgxMzk0MjYyNzAxIDEuMTUwNDI2OTEwNjE1MjcyIDIuMDA3NjUxODY2OTExNTIxOA0KMC43NSAwLjI1IDIuMzk0MzgwNTc1Nzc5NTExIDEuMzU5MzQ5MjIzNjMyMjUzNSAxLjk3OTI5MzIwNzk1MjE3OA0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim2-th3-hermite.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "cb7883b9329b728739109985ca1fd3b38a395c1f416c30818bf40ae9d516b0ef",
+          "size": 273
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/bh2.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "load-dim3-bh2.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/bh2.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-bh2.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-bh2.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjAwNjAxOTIwMzc1MzQ1NzY1OCAwLjQ0ODIyNDk3MDExMTEzMzE2IDEuODExODM2OTU1NDQzODI1IDAuMDU5NDYzOTA5NjQ1MjUyMzMNCi0wLjI1IDAuNzUgLTAuNSAyLjc4NzE5NzQzNzYyOTM5MzUgMS4xMzc1MDQ3MzEwODMzNDc1IDIuNDM0MjYzNDU1OTUzNDM1NSAtMC43NjM1NjA1ODEyNDYwNTMzDQowLjI1IC0wLjc1IDAuNSAtMC4yMTI4MDI1NjIzNzA2MDQ5IDAuODYyNDk1MjY4OTE2NjUxIDEuNTY1NzM2NTQ0MDQ2NTYyMyAtMC4yMzY0Mzk0MTg3NTM5NDYwOA0KMC43NSAwLjI1IC0wLjUgMi45OTM5ODA3OTYyNDY1NDAzIDEuNTUxNzc1MDI5ODg4ODY1NyAyLjE4ODE2MzA0NDU1NjE3MyAtMS4wNTk0NjM5MDk2NDUyNTE0DQo=",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-bh2.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "07bbb208dfb397c04e026d5a53dc298c2c0d4b6b62307e984f355076947ff54f",
+          "size": 377
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/bh3.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "load-dim3-bh3.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/bh3.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-bh3.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-bh3.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjA4OTgzOTQwODA5NDIyNzc1IDAuNDkwNzk2MTIwNDEzNDAyMTUgMi4wMjI3NTU3MTAzNjkzMTIzIDAuMDY4MDU4NjM1MjUzMzY5NzUNCi0wLjI1IDAuNzUgLTAuNSAzLjExMTA5MDczODUxMjgzMDQgMS4zNjEwNzA0NjAyMjAzNDAzIDIuNTgwNDk5MDY4NzIwMzM4NCAtMC42NzA2OTk2NjQ5NTYwODY1DQowLjI1IC0wLjc1IDAuNSAtMC4yODEzMTUyMDAxOTE1MzkxIDEuMDI2NjYyOTAzMDI5Mjc5MyAxLjY5MDE2Njk5NTA3ODMyMDUgLTAuMTkyNTI1NDY2OTE4MTcyNTcNCjAuNzUgMC4yNSAtMC41IDMuMzMyOTY4OTEzNzY4MjAzNSAxLjUxOTkyNjI5MDIxMjI3OTQgMi40MTQzODc5ODgzMjk4Mzk0IC0wLjkzNTk0MTA2MDEyMzEzMjgNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-bh3.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "d15011b69d2c653b21655364efc22b65a7b8bf2d07f2cb8812438c51cf813ef8",
+          "size": 379
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/th2.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "load-dim3-th2.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/th2.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-th2.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-th2.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjE2NTYyNSAwLjQ5OTk5OTk5OTk5OTk5OTgzIDEuODQ5OTk5OTk5OTk5OTk5NCAwLjAxMjQ5OTk5OTk5OTk5OTk5Mg0KLTAuMjUgMC43NSAtMC41IDIuNjg0Mzc0OTk5OTk5OTk5MyAxLjA0OTk5OTk5OTk5OTk5OTQgMi4zNDk5OTk5OTk5OTk5OTk2IC0wLjczNzQ5OTk5OTk5OTk5OTQNCjAuMjUgLTAuNzUgMC41IC0wLjMxNTYyNTAwMDAwMDAwMDA0IDAuOTQ5OTk5OTk5OTk5OTk5NSAxLjY0OTk5OTk5OTk5OTk5OTIgLTAuMjYyNDk5OTk5OTk5OTk5OTYNCjAuNzUgMC4yNSAtMC41IDIuODM0Mzc0OTk5OTk5OTk4OCAxLjQ5OTk5OTk5OTk5OTk5OTMgMi4xNDk5OTk5OTk5OTk5OTk1IC0xLjAxMjQ5OTk5OTk5OTk5OTMNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-th2.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "667772bbb503d0c3c7360c0f6259841d5f2c494fc1ed2ba29089ea91c3e4f45f",
+          "size": 370
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/th3.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "load-dim3-th3.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGRlc2NyaXB0aW9uIGlzIG9ubHkgYXZhaWxhYmxlIGZvciBjb3ZhcmlhbmNlIG1vZGVscw0K",
+        "encoding": "base64",
+        "sha256": "ac06839513df5fce920410d9f628a5d7eabb124d914c706df230b0a62b28cc04",
+        "size": 60
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/th3.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-th3.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-th3.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjA5OTE2NDMxMjIzMDA2NDI4IDAuNDY0ODg1NDU4MzgzMjI4MzcgMS44MzMyOTI3ODc2OTM2MjAzIDAuMDUxMDA4MDY5MDc1OTM1NDcNCi0wLjI1IDAuNzUgLTAuNSAyLjcxOTU0MjYwNTM0MzAwMiAxLjA5MTQ5NDg3MjI1NzMwNDMgMi4zOTIwNDg1NzcwNDMzOTY2IC0wLjc1NjIwNjQ2NjY2MDU0NTkNCjAuMjUgLTAuNzUgMC41IC0wLjI4MDQ1NzM5NDY1Njk5NzA0IDAuOTA4NTA1MTI3NzQyNjk0NSAxLjYwNzk1MTQyMjk1NjYwMjUgLTAuMjQzNzkzNTMzMzM5NDUzNDINCjAuNzUgMC4yNSAtMC41IDIuOTAwODM1Njg3NzY5OTM0NiAxLjUzNTExNDU0MTYxNjc3MDQgMi4xNjY3MDcyMTIzMDYzNzc1IC0xLjA1MTAwODA2OTA3NTkzNDcNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-th3.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "30dec05cc87281cccda9f0e6e6e620a2481f68ad9dab75fabd64a260cae91c85",
+          "size": 379
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/cub.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-cub.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICBTZW1pLW1ham9yICAgICAgIE1pbm9yICAgICBEaXAgQXouICAgICAgICAgRGlwICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGN1YiAgICAgIDEuMDAwMCAgICAgIDUuNjAyMyAgICAgIDQuOTgwMSAgICAgIDQuNDgwMyAgICAgMzkuMTc0OSAgICAgNzEuNzc1NCAgICAgMTkuNDg4MQ0K",
+        "encoding": "base64",
+        "sha256": "d24f310cb0e2ff9ced70cfbe7851cfd6f0c64625fa0cd9c694a20bf9ec10fa44",
+        "size": 222
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/cub.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-cub.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-cub.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjUxODMzNDMwMDYyMjcyMzcgMC4zODUyNDE0NzA1OTM4MzU1IDIuMzYxOTMwNDQ2OTA2NTkzIDAuMjg4MDg2MzIxNDUwMjM4Ng0KLTAuMjUgMC43NSAtMC41IDMuNTI0MDg3OTMwNjYxMDg5IDEuODM2OTc5NTEwMDkxMjE3MiAzLjAyNTU0MjM2ODc5NzMwOTMgLTAuNjEzNzU4NTY1Nzg5NTQ3MQ0KMC4yNSAtMC43NSAwLjUgLTAuNzM1OTQyMTU5MDA2OTI1MyAxLjQ3OTEzNTcyMTEwNjE1OTggMi4wODg2MzA0Mzc4MDM3NTE3IC0wLjAyMTIyMjE1MzIxMzEwMzYxDQowLjc1IDAuMjUgLTAuNSAzLjgwMDg4NDEzODI0MTYzNiAxLjYzMDE5MDkxNjE2MjgwNyAyLjg0ODI0NzY2NDQ3ODk5ODcgLTAuODczNjQxNzAyMTcyNTUwMQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-cub.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "4da643566520e8a42ad2fefc47543750dc067ed3e1332448d2f846d314bfd7ec",
+          "size": 372
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/exp.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-exp.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICBTZW1pLW1ham9yICAgICAgIE1pbm9yICAgICBEaXAgQXouICAgICAgICAgRGlwICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGV4cCAgICAgIDEuMDAwMCAgICAgIDUuNjAyMyAgICAgIDQuOTgwMSAgICAgIDQuNDgwMyAgICAgMzkuMTc0OSAgICAgNzEuNzc1NCAgICAgMTkuNDg4MQ0K",
+        "encoding": "base64",
+        "sha256": "855016417a4445b9c57d2051c48d6d9c8e137617a39af256d0e984d270367b1c",
+        "size": 222
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/exp.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-exp.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-exp.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IDAuMTYwNzMxMzI3MzIzNDMxNDggMC41OTg1NjA4NjI0MzMxNjk3IDIuMDM0MTc3NTI4ODUzODAwNCAwLjAwMDIxNzcyNTU1NDM2MDY3MDQzDQotMC4yNSAwLjc1IC0wLjUgMy4zMTQwNTUxNjc5OTMxMDIzIDEuMzc5NjYwMzUxMjUzODM4MSAyLjI2NDAxMzkzMzEzNzc3NTggLTAuNDYyMTkyOTA0NTI1MTU4OA0KMC4yNSAtMC43NSAwLjUgMC4wMzU3OTc4OTk4MjkyMjE3NyAxLjAwODk5MjUzOTE3MjU4MyAxLjY0OTQ1MjI1OTg1MTc0NDMgLTAuMTc1NDMxMjU2NjMzOTAwMg0KMC43NSAwLjI1IC0wLjUgMy41NzUwNTA4NDQ4MDIyMjYgMS4zMTgxMjcyMDMyMjY1IDIuNDAyMjY0NjE0NDQ0NTY5IC0wLjY0MzkxMzAwMDg4NjgxNDQNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-exp.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "6347663775c7594397ded8cd5b07dc4a76e8545077fefd5cb79c7bc88752efa6",
+          "size": 373
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/gau.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-gau.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICBTZW1pLW1ham9yICAgICAgIE1pbm9yICAgICBEaXAgQXouICAgICAgICAgRGlwICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdhdSAgICAgIDEuMDAwMCAgICAgIDUuNjAyMyAgICAgIDQuOTgwMSAgICAgIDQuNDgwMyAgICAgMzkuMTc0OSAgICAgNzEuNzc1NCAgICAgMTkuNDg4MQ0K",
+        "encoding": "base64",
+        "sha256": "dc44bc20e71d490a85e9c99892c23395a913ab557843c4cd3e18009489cef9dc",
+        "size": 222
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/gau.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-gau.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-gau.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjQwNDY3NjY2MDMxODEyIDAuNDg1NTA4NTM3MjgyMTYwMTUgMi4yMDA4ODcxNTEzNjM1ODczIDAuMTY5MjU2MzQxMjY4NjY2NzMNCi0wLjI1IDAuNzUgLTAuNSAzLjIyNzAwOTY0NjQ1NDUwMyAxLjU0MTU1NTM2NjAwMDk0NyAyLjczODY5MzQ1MTAyMjIyOCAtMC42NTQ3NDY0OTc0MDY3NTIxDQowLjI1IC0wLjc1IDAuNSAtMC41ODUwNzA3NTI4NDI1NDM4IDEuMjkyNzc4NDQ0NjY3NzYzMyAyLjAwMjE1MzIxODgwNzc1MDQgLTAuMTQ1NTU5MDQ2NDk1NjMzMTINCjAuNzUgMC4yNSAtMC41IDMuNDQxNDg0MjQxMDYxNzYwOCAxLjUzMzg0NDI5NzYwODgyOTYgMi41NjkwMjI5NzEwMjQ5NDkzIC0wLjkzMTEyNTc0NDcxMzM1MzMNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-gau.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "69bc96d84f6f35dfd3c490377c140361f6d94a6e364352016fa253990b6592ce",
+          "size": 373
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/gc3.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-gc3.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICBTZW1pLW1ham9yICAgICAgIE1pbm9yICAgICBEaXAgQXouICAgICAgICAgRGlwICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdjMyAgICAgIDEuMDAwMCAgICAgIDUuNjAyMyAgICAgIDQuOTgwMSAgICAgIDQuNDgwMyAgICAgMzkuMTc0OSAgICAgNzEuNzc1NCAgICAgMTkuNDg4MQ0K",
+        "encoding": "base64",
+        "sha256": "dc46e17cd3597c1bb0c51a0722d95d42b1415201be684c56721a6255ea3a100b",
+        "size": 222
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/gc3.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-gc3.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-gc3.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjM3NDY1OTEzNjExNzMxNDgzIDAuMzI2OTUyNTcwNDkxMjM0MyAyLjM0NzgwNjY3MTMzMTA0NTcgMC4yOTM2MTc1MTA1ODIyMjk5Ng0KLTAuMjUgMC43NSAtMC41IDMuNTIzMDY4MTU2MzY4NDEzNiAxLjgwOTk2MzA3MDk1NzkzNjQgMy4wMzA3ODkyMjY0MTM0NyAtMC42MzEwMzk3MjMyOTE0NjAyDQowLjI1IC0wLjc1IDAuNSAtMC42NDIzNDY5MzY2MjA4MzA1IDEuMzM1NjQ2OTk2NTQ5NjgwMiAxLjg0NDA2NDM2MDAwOTU1OTQgMC4wMTI5MTMwMzA2MzQzMTY4NjkNCjAuNzUgMC4yNSAtMC41IDMuODU5NTE3NTc5MDQyOTgyIDEuNzc2MDUxMDY1Mzk2MjEgMi45Njg2NjA4MDAyMDM1ODkgLTAuOTI3MTI3MTE1NDU3ODg4OA0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-gc3.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "268a564bad07393dd4954ba38ca4bc4034be38a2b7d6a1e17736ce7486c001b2",
+          "size": 372
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/gc5.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-gc5.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICBTZW1pLW1ham9yICAgICAgIE1pbm9yICAgICBEaXAgQXouICAgICAgICAgRGlwICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdjNSAgICAgIDEuMDAwMCAgICAgIDUuNjAyMyAgICAgIDQuOTgwMSAgICAgIDQuNDgwMyAgICAgMzkuMTc0OSAgICAgNzEuNzc1NCAgICAgMTkuNDg4MQ0K",
+        "encoding": "base64",
+        "sha256": "222f16b431cd054e9b7fe4d5572fd3973e97f69486d278908a9529c328d8b43c",
+        "size": 222
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/gc5.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-gc5.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-gc5.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjQ5MDU0NzE2NzQ0NzQxNzggMC4zMTg0MDA4Nzc5NzcwNDM4NiAyLjMzMDEyNzI5ODc5ODE0NDUgMC4zMjgyNjY3Mzc1NjQyNDc0DQotMC4yNSAwLjc1IC0wLjUgMy40ODUyODQwMTc4Mzc3Mjg3IDEuODM0NjA0NTE2NjEzODM1NCAzLjA0MDkyODkzOTIzNTQwNSAtMC42Mjg3MDA4NzA4NDM2MzMNCjAuMjUgLTAuNzUgMC41IC0wLjc0OTkyMDkyODEzNzc0NDIgMS40MjQ1NjAxODE5NTUwODggMS45OTI3MDg3NjIwNzA3MTEgMC4wMDkxODIwNDgwMjExNzMxNzMNCjAuNzUgMC4yNSAtMC41IDMuNzcyNTk3MjY0NzkwMjM5IDEuNjY5NzQyMjQyMzI1NjMxIDIuODU4MzUxODMzOTE3MDY3IC0wLjkyNTY2NjIyMTEwMDk1NzkNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-gc5.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "0f051dd1103d8ba9d1c0aead669414802983b533456640abfb5fce8edb0a57ac",
+          "size": 370
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/gc7.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-gc7.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICBTZW1pLW1ham9yICAgICAgIE1pbm9yICAgICBEaXAgQXouICAgICAgICAgRGlwICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdjNyAgICAgIDEuMDAwMCAgICAgIDUuNjAyMyAgICAgIDQuOTgwMSAgICAgIDQuNDgwMyAgICAgMzkuMTc0OSAgICAgNzEuNzc1NCAgICAgMTkuNDg4MQ0K",
+        "encoding": "base64",
+        "sha256": "a91ef40c640ed4cba9c8219951c771990e826c884cc17fec72b894ffa2d1696f",
+        "size": 222
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/gc7.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-gc7.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-gc7.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjQ5NzE1MzIxNTgwNTk3OTI2IDAuMzUxMTExODYxMzQxNTQ1MDQgMi4zMDI2NjM4MzIwMzQ2NDE1IDAuMzA0OTM0NDM4NDg4ODQ3OA0KLTAuMjUgMC43NSAtMC41IDMuNDIzNzIwOTgwOTU1MDc1MyAxLjc3NzE1NzM0ODM2NDA2NjEgMi45ODIzNjE2MzE1MjQ3Nzc0IC0wLjYzNTc5ODk2MDQ3NTk4NTkNCjAuMjUgLTAuNzUgMC41IC0wLjczNjM1ODgzNDcyNjU0MjQgMS40MTM1NjE5NzQ0NTQ1NzM4IDIuMDE3NDE1NjQzMTQwMjggLTAuMDIwNTM5NTAxMzgwODc2NjgNCjAuNzUgMC4yNSAtMC41IDMuNjkwNTc1OTQ1ODMzMTI0IDEuNjI5MzMzODg2MDEzMTU4OCAyLjc4NjYyMzg3OTkyMzY3IC0wLjkyODI4Nzk5Mjk2MDE5OTUNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-gc7.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "36e17831f015b89bc67dd005334191513062a8afa816d92f66e0665d09d9c1cd",
+          "size": 373
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/gc9.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-gc9.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICBTZW1pLW1ham9yICAgICAgIE1pbm9yICAgICBEaXAgQXouICAgICAgICAgRGlwICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIGdjOSAgICAgIDEuMDAwMCAgICAgIDUuNjAyMyAgICAgIDQuOTgwMSAgICAgIDQuNDgwMyAgICAgMzkuMTc0OSAgICAgNzEuNzc1NCAgICAgMTkuNDg4MQ0K",
+        "encoding": "base64",
+        "sha256": "41cebf264c4ec584255cce6e69002d84df062363e6739c2b797ac04461f37059",
+        "size": 222
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/gc9.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-gc9.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-gc9.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjQ5MDU3Njk3MDE5MTIyNzI2IDAuMzc1MzU0MDM1NTIyNzY5MjUgMi4yODQxMTA4NTA0NDg0NzQgMC4yODM5ODI4MTY5OTI2ODI2DQotMC4yNSAwLjc1IC0wLjUgMy4zODMzMDA4MjM5MzkyODA2IDEuNzM0NDUyOTE1ODUyNzA0NCAyLjkzOTgzNTc0ODEzNDk1NyAtMC42NDA3MjkxMDY4ODkxOTM2DQowLjI1IC0wLjc1IDAuNSAtMC43MTY4Njk1NTQ3MDI1MzM5IDEuMzk3NjgzNTM5MzUwMjI3OCAyLjAyMjMxMjIxNzE4MDQ3MyAtMC4wNDI0MTQ1MDAzNjc0MjM0NQ0KMC43NSAwLjI1IC0wLjUgMy42MzkxNjYzMDYwNzc3MzUgMS42MDkyOTEyMzkzMjk2MSAyLjc0MzU3ODMzMjY0OTkxODYgLTAuOTMwMDgxODQzMDExMTk5OA0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-gc9.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "f2ea0e50f4ebf33b8c35bb61469654e6d0f7d4883f098fb4ad9cc560a1ae7902",
+          "size": 372
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/sph.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-sph.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICBTZW1pLW1ham9yICAgICAgIE1pbm9yICAgICBEaXAgQXouICAgICAgICAgRGlwICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwaCAgICAgIDEuMDAwMCAgICAgIDUuNjAyMyAgICAgIDQuOTgwMSAgICAgIDQuNDgwMyAgICAgMzkuMTc0OSAgICAgNzEuNzc1NCAgICAgMTkuNDg4MQ0K",
+        "encoding": "base64",
+        "sha256": "835154e99eba81d72de08f8ca002088f8795a41297486489da938dce1682fe0a",
+        "size": 222
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/sph.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-sph.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-sph.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IDAuMTI5MTMyNTE2OTQxMTM5NDcgMC42MDgyMTM3Nzc0ODE2MzE5IDIuMTE3MDMzODYxODQyMjY3IC0wLjAxNjcxMTUxOTk0MDc3ODYwMg0KLTAuMjUgMC43NSAtMC41IDMuNTAwOTc5MDMyNTgzNTk5IDEuNTEzMzI1NTQxMDE2NzgzMiAyLjUwODY0NDA5Njc3MDUyMzUgLTAuNTMxMjY1MzY3OTYyMjM3DQowLjI1IC0wLjc1IDAuNSAtMC4wNDUzMzczMTE1NzE0ODU2OCAxLjA5MTk0MjEzNDE2MDI4OTcgMS44NTQ5NTAyMDI3NTU2NzI2IC0wLjIxOTI0MTY2ODEwNzI1MjkzDQowLjc1IDAuMjUgLTAuNSAzLjc1MDg4MzExNjE1MzA3NTYgMS4zODUyMzE5ODg3NTY2NTc4IDIuNDg0MzE3ODYzNzQwMzY5IC0wLjcyMzI5Mzg5NTgzOTI5MzUNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-sph.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "fcb829cba271e139e057d175d35e8764965888c8574b6cb83eb49585092cde8b",
+          "size": 376
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/sp3.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-sp3.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICBTZW1pLW1ham9yICAgICAgIE1pbm9yICAgICBEaXAgQXouICAgICAgICAgRGlwICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwMyAgICAgIDEuMDAwMCAgICAgIDUuNjAyMyAgICAgIDQuOTgwMSAgICAgIDQuNDgwMyAgICAgMzkuMTc0OSAgICAgNzEuNzc1NCAgICAgMTkuNDg4MQ0K",
+        "encoding": "base64",
+        "sha256": "3a8960ef55162ba700409d508ad5fea12e7861450a654cfa60934962a2d003ce",
+        "size": 222
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/sp3.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-sp3.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-sp3.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjEzMjYwNDkwOTU3NDA4NDE2IDAuNDg5MzUwMTQyMTk3MzM3IDIuMjI5MzE2NDc4Mzg4NDA4NyAwLjE1MTU5NzQ2MDcxNzYzNjINCi0wLjI1IDAuNzUgLTAuNSAzLjQ3ODIxNzgwNzYzODkwNTQgMS42NzI0MjI0ODUzOTc4NjAyIDIuNjE4MTk4MzQxMjAzNDM0IC0wLjQ4Nzk4ODIwNzQxMzY4NjgNCjAuMjUgLTAuNzUgMC41IC0wLjMzMDE2OTc4MTE3NDQ0MTYgMS4yMjM1ODQzOTI0Njk1MzkzIDEuODMzOTgxMzcxMjYzMzM1NyAtMC4wODUzMzI3NzMwNzM0NTc5MQ0KMC43NSAwLjI1IC0wLjUgMy43NzUwMzg3MTAyODIyNzAyIDEuNDgzMjkxMDAyMjIzNzE0MiAyLjY4MjU3MDM2OTM1ODUzIC0wLjcyNjQxMjQ0OTM0MzIzNw0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-sp3.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "080c43fe852ad73a28daf163880c66ec56eff91fd382c2a4b3db2cf1006016f3",
+          "size": 372
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/sp5.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-sp5.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICBTZW1pLW1ham9yICAgICAgIE1pbm9yICAgICBEaXAgQXouICAgICAgICAgRGlwICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwNSAgICAgIDEuMDAwMCAgICAgIDUuNjAyMyAgICAgIDQuOTgwMSAgICAgIDQuNDgwMyAgICAgMzkuMTc0OSAgICAgNzEuNzc1NCAgICAgMTkuNDg4MQ0K",
+        "encoding": "base64",
+        "sha256": "2efac3bfcb9efbe8b7c4c26676d921d2c0294581a00f3f7d1693b3e5d4ad849b",
+        "size": 222
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/sp5.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-sp5.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-sp5.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjE0OTc2MDkyMzM4MDM3MzE3IDAuNTQzNTE4NzczMjIyMTI3OSAyLjI1MDYyOTEzNTYzMTQzNCAwLjEyMTY4OTM5MzE1OTAzMzE0DQotMC4yNSAwLjc1IC0wLjUgMy41NTg5Njk5MDI3MzQ2MjI0IDEuNjkzMjM4NDA4NjEyOTYxIDIuNjIyNDIwNTE5MTA2MjMzNSAtMC40OTI1NDExOTM1MjM0MjE0DQowLjI1IC0wLjc1IDAuNSAtMC4zMzQ5MTI0NzI1MDQ0MTQ1IDEuMjc5NTM5NjU0MzU4MjkxNSAxLjk3NzkxMTg0MzQ0NDU3MiAtMC4xMTk5MDQzOTQ4OTg1NjAwNA0KMC43NSAwLjI1IC0wLjUgMy44MDk5OTcxODM1NTkxMyAxLjM1NDkwMzE5MTIzOTIwMjIgMi42MjQwMzY0MjkyMDYxMjQyIC0wLjcwMjYwOTk0ODc4NTY5MzkNCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-sp5.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "d6c22baa01553e5a47b232e76054dc729f9e7a396ed4d9900ab4bcd5543de229",
+          "size": 373
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/sp7.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-sp7.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICBTZW1pLW1ham9yICAgICAgIE1pbm9yICAgICBEaXAgQXouICAgICAgICAgRGlwICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwNyAgICAgIDEuMDAwMCAgICAgIDUuNjAyMyAgICAgIDQuOTgwMSAgICAgIDQuNDgwMyAgICAgMzkuMTc0OSAgICAgNzEuNzc1NCAgICAgMTkuNDg4MQ0K",
+        "encoding": "base64",
+        "sha256": "1809835de50e90ae80f68a84b36ca8bd3143a3a94da5366369cd6da4a6e22b5b",
+        "size": 222
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/sp7.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-sp7.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-sp7.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjEwNjQ3NDE3MjUyOTQ1MzIxIDAuNTgwMDc2NDM3ODMxMDQ3NiAyLjIzMDIwNTAwNzc0NDE5NiAwLjA3OTI2MjgxMDA5MjgwNDQyDQotMC4yNSAwLjc1IC0wLjUgMy41NTM2MDQ2NzMxNDY2NTQgMS42Mzc1MTQ4Mjk0MjI2OSAyLjU3OTA3NjU5MzE5MTM1NTMgLTAuNTA5OTk4OTY2NTUyNTQyOA0KMC4yNSAtMC43NSAwLjUgLTAuMjc0MTY3OTIyMDg4NzQ0NSAxLjI0OTkxMzg3ODcyMzYwMzcgMS45ODA2OTA3MDk5NzA1OTg2IC0wLjE1MzgyMjE5ODc5ODk1MDk1DQowLjc1IDAuMjUgLTAuNSAzLjc5MzE3NjM2MzY1ODIxNSAxLjMzNzEyNTQ2OTE5MTc4NzMgMi41OTIxNTU4Njk1OTQyOTMgLTAuNzA3NTA1MDMzNjMwODExMQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-sp7.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "46c1b38b9cbd5ed8a82bb85a856aed6d667d2f2cdec9b1a6c588c7fda6e6c4a9",
+          "size": 372
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/sp9.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-sp9.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICBTZW1pLW1ham9yICAgICAgIE1pbm9yICAgICBEaXAgQXouICAgICAgICAgRGlwICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjAxMDANCiAgICAgICAgIHNwOSAgICAgIDEuMDAwMCAgICAgIDUuNjAyMyAgICAgIDQuOTgwMSAgICAgIDQuNDgwMyAgICAgMzkuMTc0OSAgICAgNzEuNzc1NCAgICAgMTkuNDg4MQ0K",
+        "encoding": "base64",
+        "sha256": "2830e9792dff6501b7c4e9c1554e1f8d39f860583f1ace46bfd217ececde34fb",
+        "size": 222
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/sp9.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-sp9.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-sp9.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjA3MTYyMDUzMjM0MTY4OTUgMC41OTk5OTk3NDQ2Mjk1ODc2IDIuMjEzNzI3NjUyNTc5MjE4NyAwLjA1MTI4NjcwOTc4NzM2NDMNCi0wLjI1IDAuNzUgLTAuNSAzLjU0MzI1NzIzODM2MjUzNjUgMS42MDM2MDcwMzc2NTMxODE3IDIuNTU0NTQyNTE2NDI2Mjg5IC0wLjUyMDEzMzQ4MTY3MDg0NjYNCjAuMjUgLTAuNzUgMC41IC0wLjIyOTY3ODExNTI5MjkxNiAxLjIyNTY2Njc2Nzc4NDcxNCAxLjk3MTQwNTQ1MzQ0NDc0OCAtMC4xNzU5MjcwMTkxMjc0MTAyDQowLjc1IDAuMjUgLTAuNSAzLjc3OTgxMzc1ODYwNDgxODQgMS4zMzk3MzIyNTEyMDgxODI4IDIuNTY5NzM3Njk3NDI2ODggLTAuNzA5MTQzMTc5MTU1MDY1NQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-sp9.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "531a6273aff90f175f10cbe00494b469b7bc82419a3971d7a823b71fd28016c9",
+          "size": 369
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/composite.model",
+        "--dim",
+        "3"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-composite.model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "ICAgICAgICBUeXBlICAgICAgIFBzaWxsICAgICAgIE1ham9yICBTZW1pLW1ham9yICAgICAgIE1pbm9yICAgICBEaXAgQXouICAgICAgICAgRGlwICAgIFJvdGF0aW9uDQogICAgICAgICBudWcgICAgICAwLjEyNTANCiAgICAgICAgIGdhdSAgICAgIDEuMDAwMCAgICAgIDUuNjAyMyAgICAgIDQuOTgwMSAgICAgIDQuNDgwMyAgICAgMzkuMTc0OSAgICAgNzEuNzc1NCAgICAgMTkuNDg4MQ0KICAgICAgICAgZXhwICAgICAgMC41MDAwICAgICAgMi4yNDA5ICAgICAgMS45OTIwICAgICAgMS43OTIxICAgICAzOS4xNzQ5ICAgICA3MS43NzU0ICAgICAxOS40ODgxDQo=",
+        "encoding": "base64",
+        "sha256": "c932481910628ccbe6a03efcbc9c13513b17b5b7148f0fcfca2dbe7995f061c9",
+        "size": 320
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/composite.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-composite.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-composite.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IDAuMDgxNDE5MjE5MTIzMjAwMzggMC42MTczODYzMjQ2MzU4MDAxIDIuMDAwMjYxNjA2MDk0OTg3NiAtMC4wMTUwNzQ3MjA0NDIxOTIwMDUNCi0wLjI1IDAuNzUgLTAuNSAzLjI0MzQ1MTY1MDk2NzQ2ODIgMS4zMTAwMTM5NDQwMzg1OTQzIDIuMjgxMzQ0MTgwNDA1NTU0MyAtMC41MDE2MzY5MjQzNzY4OTUNCjAuMjUgLTAuNzUgMC41IDAuMDA4NzIwNDIwNjY4Nzc0NzY0IDEuMDg1MjA2MjA2NDIzNzkyNiAxLjcwODAwMjQ2OTgxNTQzNDQgLTAuMTkzNTM1ODQ2NDE0MzgwNw0KMC43NSAwLjI1IC0wLjUgMy40Mjk5MDkxMDAyMzUwNDggMS4yNjQ1MDkyMDMyODk4NDI2IDIuMjYwMDc4ODkzNjYwMTY2IC0wLjY1Njg4ODk5Njg0ODc0NzINCg==",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-composite.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "a4c8fdf8d00976e272527948f06a1789efd67c596c5f3fac7e124dfd8350ac6d",
+          "size": 376
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--in",
+        "${REPO}/oracle/fixtures/legacy/windows-x86_64-polatory-4a30beb/dim3/th3-hermite.interpolant",
+        "--points",
+        "${REPO}/oracle/fixtures/source/evaluation-points-3d.csv",
+        "--dim",
+        "3",
+        "--grads",
+        "--out",
+        "${WORK}/dim3-th3-hermite.interpolant.evaluation.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "load-dim3-th3-hermite.interpolant",
+      "outputs": [
+        {
+          "bytes_base64": "LTAuNzUgLTAuMjUgMC41IC0wLjA5ODc0OTc2MTE4NDYzOTA3IDAuNDg5NTg1ODA3NDYyNDU0ODQgMS44Nzc5ODI3ODE5MTkyNiAwLjAzMzY5NTc2NDc0OTA1NjMzNA0KLTAuMjUgMC43NSAtMC41IDIuNzA0NzI0MDkxMzcwMjggMS4wNjU3NjQ3OTI4NDMzNjQ1IDIuMzM2OTMwNTU1NjcxNTY1IC0wLjc2NzQwMTU5MDY0Nzg1MTINCjAuMjUgLTAuNzUgMC41IC0wLjI5NTI3NTkwODYyOTcyMzIgMC45MzQyMzUyMDcxNTY2MzM4IDEuNjYzMDY5NDQ0MzI4NDM2MiAtMC4yMzI1OTg0MDkzNTIxNTA4MQ0KMC43NSAwLjI1IC0wLjUgMi45MDEyNTAyMzg4MTUzNjQ1IDEuNTEwNDE0MTkyNTM3NTQzOCAyLjEyMjAxNzIxODA4MDc0MTUgLTEuMDMzNjk1NzY0NzQ5MDU2MQ0K",
+          "encoding": "base64",
+          "path": "${WORK}/dim3-th3-hermite.interpolant.evaluation.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "6a3772a448652ee50d7fa56dc3c558cddfea775bd98eb30afb031447740f9066",
+          "size": 375
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "scenario_id": "legacy-matrix",
+  "schema_version": "1.0.0"
+}

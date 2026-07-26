@@ -1,0 +1,65 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "filter": "rbf_evaluator.trivial:rbf_operator.trivial:KrylovTest.gmres:variogram_calculator.serialization:normal_estimator.knn:sdf_data_generator.trivial:isosurface.generate_plane",
+    "role": "provenance_only_not_an_acceptance_threshold"
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [
+    {
+      "argv": [
+        "${POLATORY_TESTS}",
+        "--gtest_filter=rbf_evaluator.trivial:rbf_operator.trivial:KrylovTest.gmres:variogram_calculator.serialization:normal_estimator.knn:sdf_data_generator.trivial:isosurface.generate_plane",
+        "--gtest_color=no",
+        "--gtest_print_time=0",
+        "--gtest_random_seed=1"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "selected-upstream-unit-smoke",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "UnVubmluZyBtYWluKCkgZnJvbSBEOlxDT0RFXHBvbGF0b3J5XHZjcGtnXGJ1aWxkdHJlZXNcZ3Rlc3Rcc3JjXHYxLjE3LjAtMGM0NDllZmFmZi5jbGVhblxnb29nbGV0ZXN0XHNyY1xndGVzdF9tYWluLmNjDQpOb3RlOiBHb29nbGUgVGVzdCBmaWx0ZXIgPSByYmZfZXZhbHVhdG9yLnRyaXZpYWw6cmJmX29wZXJhdG9yLnRyaXZpYWw6S3J5bG92VGVzdC5nbXJlczp2YXJpb2dyYW1fY2FsY3VsYXRvci5zZXJpYWxpemF0aW9uOm5vcm1hbF9lc3RpbWF0b3Iua25uOnNkZl9kYXRhX2dlbmVyYXRvci50cml2aWFsOmlzb3N1cmZhY2UuZ2VuZXJhdGVfcGxhbmUNCls9PT09PT09PT09XSBSdW5uaW5nIDcgdGVzdHMgZnJvbSA3IHRlc3Qgc3VpdGVzLg0KWy0tLS0tLS0tLS1dIEdsb2JhbCB0ZXN0IGVudmlyb25tZW50IHNldC11cC4NClstLS0tLS0tLS0tXSAxIHRlc3QgZnJvbSByYmZfZXZhbHVhdG9yDQpbIFJVTiAgICAgIF0gcmJmX2V2YWx1YXRvci50cml2aWFsDQpbICAgICAgIE9LIF0gcmJmX2V2YWx1YXRvci50cml2aWFsDQpbLS0tLS0tLS0tLV0gMSB0ZXN0IGZyb20gcmJmX29wZXJhdG9yDQpbIFJVTiAgICAgIF0gcmJmX29wZXJhdG9yLnRyaXZpYWwNClsgICAgICAgT0sgXSByYmZfb3BlcmF0b3IudHJpdmlhbA0KWy0tLS0tLS0tLS1dIDEgdGVzdCBmcm9tIGlzb3N1cmZhY2UNClsgUlVOICAgICAgXSBpc29zdXJmYWNlLmdlbmVyYXRlX3BsYW5lDQpbICAgICAgIE9LIF0gaXNvc3VyZmFjZS5nZW5lcmF0ZV9wbGFuZQ0KWy0tLS0tLS0tLS1dIDEgdGVzdCBmcm9tIHZhcmlvZ3JhbV9jYWxjdWxhdG9yDQpbIFJVTiAgICAgIF0gdmFyaW9ncmFtX2NhbGN1bGF0b3Iuc2VyaWFsaXphdGlvbg0KWyAgICAgICBPSyBdIHZhcmlvZ3JhbV9jYWxjdWxhdG9yLnNlcmlhbGl6YXRpb24NClstLS0tLS0tLS0tXSAxIHRlc3QgZnJvbSBLcnlsb3ZUZXN0DQpbIFJVTiAgICAgIF0gS3J5bG92VGVzdC5nbXJlcw0KWyAgICAgICBPSyBdIEtyeWxvdlRlc3QuZ21yZXMNClstLS0tLS0tLS0tXSAxIHRlc3QgZnJvbSBub3JtYWxfZXN0aW1hdG9yDQpbIFJVTiAgICAgIF0gbm9ybWFsX2VzdGltYXRvci5rbm4NClsgICAgICAgT0sgXSBub3JtYWxfZXN0aW1hdG9yLmtubg0KWy0tLS0tLS0tLS1dIDEgdGVzdCBmcm9tIHNkZl9kYXRhX2dlbmVyYXRvcg0KWyBSVU4gICAgICBdIHNkZl9kYXRhX2dlbmVyYXRvci50cml2aWFsDQpbICAgICAgIE9LIF0gc2RmX2RhdGFfZ2VuZXJhdG9yLnRyaXZpYWwNClstLS0tLS0tLS0tXSBHbG9iYWwgdGVzdCBlbnZpcm9ubWVudCB0ZWFyLWRvd24NCls9PT09PT09PT09XSA3IHRlc3RzIGZyb20gNyB0ZXN0IHN1aXRlcyByYW4uDQpbICBQQVNTRUQgIF0gNyB0ZXN0cy4NCg==",
+        "encoding": "base64",
+        "sha256": "6cbc384baf3aac2cfd87a80047379c7f0dcc11625b8297d0098776cded9bd5c8",
+        "size": 1351
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 300
+    }
+  ],
+  "scenario_id": "unit-smoke",
+  "schema_version": "1.0.0"
+}

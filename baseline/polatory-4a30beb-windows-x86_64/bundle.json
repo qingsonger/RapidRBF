@@ -1,0 +1,126 @@
+{
+  "captured_at": "2026-07-26T11:05:07.170844+00:00",
+  "id": "polatory-4a30beb-windows-x86_64-behavior-oracle",
+  "index": {
+    "sha256": "c286961d49914fc1a0809468bf2aba4fcc77f22af939957cd23a553af59bf960",
+    "size": 49749,
+    "source": "oracle-index.json"
+  },
+  "runs": [
+    {
+      "id": "build-identity",
+      "path": "runs/build-identity/run.json",
+      "sha256": "acaef46f45605f797586e9d6560ab0cdf51cd9d94ea1304bea462362c881597d",
+      "size": 5284
+    },
+    {
+      "id": "cpp-probe",
+      "path": "runs/cpp-probe/run.json",
+      "sha256": "f7d708aa4ac292f6c9475c1e5c9d0f991032b90e6e8f2385be2e303dcc343b96",
+      "size": 5488
+    },
+    {
+      "id": "cli-command-contracts",
+      "path": "runs/cli-command-contracts/run.json",
+      "sha256": "31e70ef69063c52440ad6f70e0ef58f7638e8e544d24a70bc59e45c0c79f8873",
+      "size": 5278
+    },
+    {
+      "id": "cli-fit-evaluate",
+      "path": "runs/cli-fit-evaluate/run.json",
+      "sha256": "ce1fe755883acf2bd7b221b5b693432d629d5ffea3c7c64341c1fbd8555a7caf",
+      "size": 5424
+    },
+    {
+      "id": "fit-modes",
+      "path": "runs/fit-modes/run.json",
+      "sha256": "5e602a3965ba2ef357f797c97bdd14aac981a5da173a1ee152816341fa4fa873",
+      "size": 5288
+    },
+    {
+      "id": "cli-kriging",
+      "path": "runs/cli-kriging/run.json",
+      "sha256": "215b574bc60d3e6ba5607f93cff2b57fae3b4814e69d622fd281cb8a72c17767",
+      "size": 5279
+    },
+    {
+      "id": "cli-point-cloud",
+      "path": "runs/cli-point-cloud/run.json",
+      "sha256": "ff8bf5ee2649c2974de6dbfa9c30f40d2eb57b7df8c0c3f508d356e8a0b1a21f",
+      "size": 5288
+    },
+    {
+      "id": "cli-geometry",
+      "path": "runs/cli-geometry/run.json",
+      "sha256": "a2c62a32da0b7fbd362650cfd2fa3ccdbff484dd37659d67f8f8b9feaaca2249",
+      "size": 5273
+    },
+    {
+      "id": "scale-input-ladder",
+      "path": "runs/scale-input-ladder/run.json",
+      "sha256": "a38539dfc07caa51b8f0673171eac46f06d522202464d2ba7fda2490f764e30a",
+      "size": 5470
+    },
+    {
+      "id": "legacy-matrix",
+      "path": "runs/legacy-matrix/run.json",
+      "sha256": "19cfd3bb92de7304059d94f9c316d290f68662788f6e3bcef6319eda0ee8030e",
+      "size": 5561
+    },
+    {
+      "id": "python-interface-inventory",
+      "path": "runs/python-interface-inventory/run.json",
+      "sha256": "edd4155e43863993de7e092d779b47691974536066643cc481e0e8781ad4794b",
+      "size": 5306
+    },
+    {
+      "id": "unit-smoke",
+      "path": "runs/unit-smoke/run.json",
+      "sha256": "33b3b990a9245b6555f3654d64935ee68b90c23bf393c14637f8c856937848ea",
+      "size": 5312
+    },
+    {
+      "id": "legacy-corruption",
+      "path": "runs/legacy-corruption/run.json",
+      "sha256": "decf9ecfa0c14567b30a4bf616a4593ed6a400c05df83fedacb0e6680b9f58ac",
+      "size": 5505
+    },
+    {
+      "id": "defect-inequality-active-set",
+      "path": "runs/defect-inequality-active-set/run.json",
+      "sha256": "f10f979828b543ce9f334b70a5d465a0461fa68ff53c5b2171c4148bee6edd3a",
+      "size": 5334
+    },
+    {
+      "id": "defect-zero-rhs",
+      "path": "runs/defect-zero-rhs/run.json",
+      "sha256": "13422d14ba168de35aa676ef0b576b017520ad936ac3355e5c94ff112381f9b9",
+      "size": 5316
+    },
+    {
+      "id": "defect-normal-score-small-inputs",
+      "path": "runs/defect-normal-score-small-inputs/run.json",
+      "sha256": "cd18473bff2671018b7a99ba6fb789415da6ca1a60d208bb0443d2facb85653c",
+      "size": 5353
+    },
+    {
+      "id": "defect-multi-radius-normals",
+      "path": "runs/defect-multi-radius-normals/run.json",
+      "sha256": "ba3a33625e92cebc2a092afdbe27708fe967b52cb78ad3746c449ea6ba0ec477",
+      "size": 5336
+    },
+    {
+      "id": "defect-pathological-sdf",
+      "path": "runs/defect-pathological-sdf/run.json",
+      "sha256": "363be32b5b2ede26880e045d85d4066a4f0f022a019de5aa30f9a70c020bd43e",
+      "size": 5323
+    },
+    {
+      "id": "python-build",
+      "path": "runs/python-build/run.json",
+      "sha256": "43daa98b51e2c4e68c963c8507629f55c5bc160fb8fc996768730e2a83f14ecb",
+      "size": 5266
+    }
+  ],
+  "schema_version": "1.0.0"
+}

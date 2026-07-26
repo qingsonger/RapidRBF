@@ -1,0 +1,138 @@
+{
+  "argv": [
+    "${PYTHON}",
+    "${REPO}/tools/polatory_oracle/workflows.py",
+    "defect-normal-score-small-inputs",
+    "--repo-root",
+    "${REPO}",
+    "--polatory-root",
+    "${POLATORY_ROOT}",
+    "--work",
+    "${WORK}"
+  ],
+  "authority": "canonical",
+  "configured_argv": [
+    "${PYTHON}",
+    "${REPO}/tools/polatory_oracle/workflows.py",
+    "defect-normal-score-small-inputs",
+    "--repo-root",
+    "${REPO}",
+    "--polatory-root",
+    "${POLATORY_ROOT}",
+    "--work",
+    "${WORK}"
+  ],
+  "configured_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "configured_threads": {
+    "MKL_NUM_THREADS": 1,
+    "OMP_NUM_THREADS": 1,
+    "OMP_THREAD_LIMIT": 1
+  },
+  "configured_working_directory": ".",
+  "covers": [],
+  "effective_threads": 6,
+  "environment": {
+    "COMSPEC": "C:\\Windows\\system32\\cmd.exe",
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "NUMBER_OF_PROCESSORS": "16",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "PATH": "C:\\Users\\qingsonger\\.codex\\tmp\\arg0\\codex-arg0RUB8Ac;C:\\Users\\qingsonger\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\Git\\cmd;C:\\dev\\vcpkg\u200b\u200b;C:\\Program Files\\CMake\\bin;C:\\dev\\ninja-win;C:\\Program Files\\GDAL;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Program Files\\MiKTeX\\miktex\\bin\\x64\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\FME\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\GitHub CLI\\;C:\\Users\\qingsonger\\AppData\\Roaming\\uv\\python\\cpython-3.13.5-windows-x86_64-none;C:\\Users\\qingsonger\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin;C:\\Users\\qingsonger\\.cargo\\bin;C:\\Users\\qingsonger\\.local\\bin;C:\\Users\\qingsonger\\AppData\\Local\\Microsoft\\WindowsApps;C:\\dev\\vcpkg;C:\\Users\\qingsonger\\AppData\\Roaming\\npm;C:\\Users\\qingsonger\\.dotnet\\tools;C:\\Users\\qingsonger\\AppData\\Local\\Programs\\Windsurf\\bin;C:\\Users\\qingsonger\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback;C:\\Users\\qingsonger\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd;C:\\Users\\qingsonger\\AppData\\Local\\OpenAI\\Codex\\bin\\3e42d49ad3e35a50;C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.721.4979.0_x64__2p2nqsd0c76g0\\app\\resources",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "9a03",
+    "SYSTEMDRIVE": "C:",
+    "SYSTEMROOT": "C:\\Windows",
+    "TEMP": "${WORK}",
+    "TMP": "${WORK}",
+    "TMPDIR": "${WORK}",
+    "WINDIR": "C:\\Windows"
+  },
+  "exit_code": 0,
+  "expected": {
+    "exit_code": 0,
+    "terminal_status": "exited"
+  },
+  "id": "defect-normal-score-small-inputs",
+  "legacy_layout": null,
+  "metrics": {
+    "path": "metrics.json",
+    "sha256": "f96afee232ba003d1ca5595f3964ded0a1f2bf48e58c301579bb694120c041d0",
+    "size": 470
+  },
+  "non_normative_fields": [
+    "wall time",
+    "working-set and private-byte samples",
+    "thread scheduling",
+    "exact solver or optimizer trajectory",
+    "exact text formatting unless a downstream contract selects a semantic field"
+  ],
+  "normative_fields": [
+    "scenario structure",
+    "terminal status and exit category",
+    "raw evidence bytes selected by the downstream operation contract"
+  ],
+  "outputs": [
+    {
+      "capture_path": "outputs/evidence.json",
+      "path": "evidence.json",
+      "present": true,
+      "replay_compare": true,
+      "required": true,
+      "sha256": "7dbf6f13a6636b4ce0cd29b6d6a92f18ab33849ae050449c345f328eff552dd7",
+      "size": 3940
+    },
+    {
+      "capture_path": "outputs/resources.json",
+      "path": "resources.json",
+      "present": true,
+      "replay_compare": false,
+      "required": true,
+      "sha256": "b730b563ef9f8e860d994cff19534aaa9efd3a5b74a8f61dd8c62079ebe94559",
+      "size": 1604
+    }
+  ],
+  "process_samples": {
+    "path": "process-samples.jsonl",
+    "sha256": "25ec8beb414f20c6bb6082de79cb82cc6d1ea55e9eab2f97e2f5fb40ef155691",
+    "size": 2044
+  },
+  "relates_to": [
+    "stable.kriging-variogram",
+    "change.invalid-unsafe-inputs"
+  ],
+  "replay_compare": true,
+  "role": "research_only",
+  "schema_version": "1.0.0",
+  "seed": null,
+  "seed_policy": "No random seed is exposed by the selected operations.",
+  "started_at": "2026-07-26T11:05:03.762508+00:00",
+  "stderr": {
+    "path": "stderr.txt",
+    "replay_compare": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  "stdout": {
+    "path": "stdout.txt",
+    "replay_compare": true,
+    "sha256": "e86e562951a2a8f1145ef696e46fd7ef79408cb9cf5ce5c79d8d879352af8a8d",
+    "size": 69
+  },
+  "surface": "public_cli",
+  "terminal_status": "exited",
+  "timeout_seconds": 180.0,
+  "working_directory": "${WORK}"
+}

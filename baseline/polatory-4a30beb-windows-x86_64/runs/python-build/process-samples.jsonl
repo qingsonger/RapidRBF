@@ -1,0 +1,6 @@
+{"elapsed_seconds": 0.054826200008392334, "peak_pagefile_bytes": 10129408, "peak_working_set_bytes": 16945152, "private_bytes": 10121216, "thread_count": 4, "working_set_bytes": 16945152}
+{"elapsed_seconds": 0.14992780005559325, "peak_pagefile_bytes": 14499840, "peak_working_set_bytes": 24784896, "private_bytes": 14499840, "thread_count": 4, "working_set_bytes": 24784896}
+{"elapsed_seconds": 0.24348900001496077, "peak_pagefile_bytes": 14499840, "peak_working_set_bytes": 24784896, "private_bytes": 14499840, "thread_count": 4, "working_set_bytes": 24784896}
+{"elapsed_seconds": 0.3360897999955341, "peak_pagefile_bytes": 14499840, "peak_working_set_bytes": 24788992, "private_bytes": 14499840, "thread_count": 4, "working_set_bytes": 24788992}
+{"elapsed_seconds": 0.4322417000075802, "peak_pagefile_bytes": 14499840, "peak_working_set_bytes": 24788992, "private_bytes": 14499840, "thread_count": 4, "working_set_bytes": 24788992}
+{"elapsed_seconds": 0.5250615000259131, "peak_pagefile_bytes": 16658432, "peak_working_set_bytes": 26914816, "private_bytes": 15552512, "thread_count": 4, "working_set_bytes": 25862144}

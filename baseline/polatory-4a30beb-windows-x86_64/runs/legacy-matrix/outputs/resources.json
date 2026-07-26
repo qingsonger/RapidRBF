@@ -1,0 +1,2106 @@
+{
+  "kind": "non_normative_resource_samples",
+  "runs": [
+    {
+      "id": "load-dim1-bh2.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.16491050005424768,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11597469996195287,
+          "peak_pagefile_bytes": 2170880,
+          "peak_working_set_bytes": 9633792,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-bh2.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.17911039991304278,
+      "peak_private_bytes": 2211840,
+      "peak_working_set_bytes": 9404416,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.12280659994576126,
+          "peak_pagefile_bytes": 2211840,
+          "peak_working_set_bytes": 9404416,
+          "private_bytes": 2211840,
+          "thread_count": 4,
+          "working_set_bytes": 9404416
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-bh3.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.16028559999540448,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11648289998993278,
+          "peak_pagefile_bytes": 2183168,
+          "peak_working_set_bytes": 9654272,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-bh3.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.17278239992447197,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.1308626999380067,
+          "peak_pagefile_bytes": 2883584,
+          "peak_working_set_bytes": 11038720,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-th2.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15657980006653816,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11530349997337908,
+          "peak_pagefile_bytes": 2199552,
+          "peak_working_set_bytes": 9654272,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-th2.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.17622280004434288,
+      "peak_private_bytes": 540672,
+      "peak_working_set_bytes": 5873664,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.13101660006213933,
+          "peak_pagefile_bytes": 2875392,
+          "peak_working_set_bytes": 11055104,
+          "private_bytes": 540672,
+          "thread_count": 4,
+          "working_set_bytes": 5873664
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-th3.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.16993259999435395,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10221829998772591,
+          "peak_pagefile_bytes": 2199552,
+          "peak_working_set_bytes": 9670656,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-th3.interpolant",
+      "maximum_observed_thread_count": 1,
+      "monotonic_wall_seconds": 0.20380919997114688,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.13932429999113083,
+          "peak_pagefile_bytes": 2928640,
+          "peak_working_set_bytes": 11137024,
+          "private_bytes": 77824,
+          "thread_count": 1,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-cub.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.2088099999818951,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.12679239991120994,
+          "peak_pagefile_bytes": 2244608,
+          "peak_working_set_bytes": 9740288,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-cub.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.19447270000819117,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.12826390005648136,
+          "peak_pagefile_bytes": 2297856,
+          "peak_working_set_bytes": 10293248,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-exp.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.2990500000305474,
+      "peak_private_bytes": 2002944,
+      "peak_working_set_bytes": 5537792,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.1504619000479579,
+          "peak_pagefile_bytes": 2002944,
+          "peak_working_set_bytes": 5537792,
+          "private_bytes": 2002944,
+          "thread_count": 4,
+          "working_set_bytes": 5537792
+        },
+        {
+          "elapsed_seconds": 0.2537401000736281,
+          "peak_pagefile_bytes": 2179072,
+          "peak_working_set_bytes": 9646080,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-exp.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1810608000960201,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.13351720001082867,
+          "peak_pagefile_bytes": 2252800,
+          "peak_working_set_bytes": 10207232,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-gau.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.17224649991840124,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.12048519996460527,
+          "peak_pagefile_bytes": 2199552,
+          "peak_working_set_bytes": 9695232,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-gau.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.17766849999316037,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.12863440008368343,
+          "peak_pagefile_bytes": 2240512,
+          "peak_working_set_bytes": 10235904,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-gc3.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.16126449999865144,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11750439996831119,
+          "peak_pagefile_bytes": 2191360,
+          "peak_working_set_bytes": 9699328,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-gc3.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.3001099000684917,
+      "peak_private_bytes": 1904640,
+      "peak_working_set_bytes": 5345280,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.14696440007537603,
+          "peak_pagefile_bytes": 1904640,
+          "peak_working_set_bytes": 5345280,
+          "private_bytes": 1904640,
+          "thread_count": 4,
+          "working_set_bytes": 5345280
+        },
+        {
+          "elapsed_seconds": 0.25839900004211813,
+          "peak_pagefile_bytes": 2256896,
+          "peak_working_set_bytes": 10240000,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-gc5.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15429489989764988,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10886739997658879,
+          "peak_pagefile_bytes": 2174976,
+          "peak_working_set_bytes": 9678848,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-gc5.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14437350002117455,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10287930001504719,
+          "peak_pagefile_bytes": 2248704,
+          "peak_working_set_bytes": 10211328,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-gc7.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14429660001769662,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10438210004940629,
+          "peak_pagefile_bytes": 2158592,
+          "peak_working_set_bytes": 9670656,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-gc7.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1537960999412462,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.1077916999347508,
+          "peak_pagefile_bytes": 2252800,
+          "peak_working_set_bytes": 10207232,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-gc9.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15041240002028644,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10921410005539656,
+          "peak_pagefile_bytes": 2187264,
+          "peak_working_set_bytes": 9687040,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-gc9.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.2575799999758601,
+      "peak_private_bytes": 2015232,
+      "peak_working_set_bytes": 5373952,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11868049995973706,
+          "peak_pagefile_bytes": 2015232,
+          "peak_working_set_bytes": 5373952,
+          "private_bytes": 2015232,
+          "thread_count": 4,
+          "working_set_bytes": 5373952
+        },
+        {
+          "elapsed_seconds": 0.21639239997603,
+          "peak_pagefile_bytes": 2260992,
+          "peak_working_set_bytes": 10219520,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-sph.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.22398280003108084,
+      "peak_private_bytes": 1884160,
+      "peak_working_set_bytes": 5328896,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08669459994416684,
+          "peak_pagefile_bytes": 1884160,
+          "peak_working_set_bytes": 5328896,
+          "private_bytes": 1884160,
+          "thread_count": 4,
+          "working_set_bytes": 5328896
+        },
+        {
+          "elapsed_seconds": 0.18822210002690554,
+          "peak_pagefile_bytes": 2162688,
+          "peak_working_set_bytes": 9674752,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-sph.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13359270000364631,
+      "peak_private_bytes": 2240512,
+      "peak_working_set_bytes": 9453568,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08991770003922284,
+          "peak_pagefile_bytes": 2240512,
+          "peak_working_set_bytes": 9453568,
+          "private_bytes": 2240512,
+          "thread_count": 4,
+          "working_set_bytes": 9453568
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-sp3.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.21636949991807342,
+      "peak_private_bytes": 1990656,
+      "peak_working_set_bytes": 5525504,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08914699999149889,
+          "peak_pagefile_bytes": 1990656,
+          "peak_working_set_bytes": 5525504,
+          "private_bytes": 1990656,
+          "thread_count": 4,
+          "working_set_bytes": 5525504
+        },
+        {
+          "elapsed_seconds": 0.17767989996355027,
+          "peak_pagefile_bytes": 2162688,
+          "peak_working_set_bytes": 9666560,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-sp3.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14682160003576428,
+      "peak_private_bytes": 2289664,
+      "peak_working_set_bytes": 9687040,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10575510002672672,
+          "peak_pagefile_bytes": 2289664,
+          "peak_working_set_bytes": 9687040,
+          "private_bytes": 2289664,
+          "thread_count": 4,
+          "working_set_bytes": 9687040
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-sp5.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1269556999905035,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.0926954000024125,
+          "peak_pagefile_bytes": 2170880,
+          "peak_working_set_bytes": 9678848,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-sp5.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1384703000076115,
+      "peak_private_bytes": 2281472,
+      "peak_working_set_bytes": 9674752,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09668660000897944,
+          "peak_pagefile_bytes": 2281472,
+          "peak_working_set_bytes": 9674752,
+          "private_bytes": 2281472,
+          "thread_count": 4,
+          "working_set_bytes": 9674752
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-sp7.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12978820002172142,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09445309999864548,
+          "peak_pagefile_bytes": 2203648,
+          "peak_working_set_bytes": 9707520,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-sp7.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13462889997754246,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09884690004400909,
+          "peak_pagefile_bytes": 2277376,
+          "peak_working_set_bytes": 10395648,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-sp9.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.23234700004104525,
+      "peak_private_bytes": 2007040,
+      "peak_working_set_bytes": 5533696,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09673860005568713,
+          "peak_pagefile_bytes": 2007040,
+          "peak_working_set_bytes": 5533696,
+          "private_bytes": 2007040,
+          "thread_count": 4,
+          "working_set_bytes": 5533696
+        },
+        {
+          "elapsed_seconds": 0.1981528999749571,
+          "peak_pagefile_bytes": 2174976,
+          "peak_working_set_bytes": 9674752,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-sp9.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13133460003882647,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09319200005847961,
+          "peak_pagefile_bytes": 2289664,
+          "peak_working_set_bytes": 10420224,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-composite.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14179310004692525,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10406759998295456,
+          "peak_pagefile_bytes": 2183168,
+          "peak_working_set_bytes": 9678848,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-composite.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14539269998203963,
+      "peak_private_bytes": 2650112,
+      "peak_working_set_bytes": 10964992,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10546850005630404,
+          "peak_pagefile_bytes": 2883584,
+          "peak_working_set_bytes": 11075584,
+          "private_bytes": 2650112,
+          "thread_count": 4,
+          "working_set_bytes": 10964992
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim1-th3-hermite.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14252690004650503,
+      "peak_private_bytes": 2875392,
+      "peak_working_set_bytes": 10481664,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09971380000934005,
+          "peak_pagefile_bytes": 2875392,
+          "peak_working_set_bytes": 10481664,
+          "private_bytes": 2875392,
+          "thread_count": 4,
+          "working_set_bytes": 10481664
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-bh2.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1432558000087738,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10410400002729148,
+          "peak_pagefile_bytes": 2179072,
+          "peak_working_set_bytes": 9666560,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-bh2.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13944649999029934,
+      "peak_private_bytes": 73728,
+      "peak_working_set_bytes": 28672,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09774650004692376,
+          "peak_pagefile_bytes": 2928640,
+          "peak_working_set_bytes": 11141120,
+          "private_bytes": 73728,
+          "thread_count": 4,
+          "working_set_bytes": 28672
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-bh3.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15223190002143383,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10183699999470264,
+          "peak_pagefile_bytes": 2170880,
+          "peak_working_set_bytes": 9662464,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-bh3.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.16540569998323917,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.116389200091362,
+          "peak_pagefile_bytes": 2871296,
+          "peak_working_set_bytes": 11149312,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-th2.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15629319997970015,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11714989994652569,
+          "peak_pagefile_bytes": 2211840,
+          "peak_working_set_bytes": 9695232,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-th2.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14477149990852922,
+      "peak_private_bytes": 2887680,
+      "peak_working_set_bytes": 11173888,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10203149996232241,
+          "peak_pagefile_bytes": 2887680,
+          "peak_working_set_bytes": 11173888,
+          "private_bytes": 2887680,
+          "thread_count": 4,
+          "working_set_bytes": 11173888
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-th3.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14146259997505695,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10232469998300076,
+          "peak_pagefile_bytes": 2195456,
+          "peak_working_set_bytes": 9678848,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-th3.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1430883000139147,
+      "peak_private_bytes": 2248704,
+      "peak_working_set_bytes": 9703424,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09745600004680455,
+          "peak_pagefile_bytes": 2248704,
+          "peak_working_set_bytes": 9703424,
+          "private_bytes": 2248704,
+          "thread_count": 4,
+          "working_set_bytes": 9703424
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-cub.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13197939994279295,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09250849997624755,
+          "peak_pagefile_bytes": 2809856,
+          "peak_working_set_bytes": 10575872,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-cub.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13554380007553846,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.1010167000349611,
+          "peak_pagefile_bytes": 2289664,
+          "peak_working_set_bytes": 10334208,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-exp.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1414678000146523,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.1043311000103131,
+          "peak_pagefile_bytes": 2805760,
+          "peak_working_set_bytes": 10567680,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-exp.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13677350000943989,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09969409997574985,
+          "peak_pagefile_bytes": 2277376,
+          "peak_working_set_bytes": 10309632,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-gau.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13280449993908405,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.0954125999705866,
+          "peak_pagefile_bytes": 2826240,
+          "peak_working_set_bytes": 10592256,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-gau.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1478122000116855,
+      "peak_private_bytes": 2220032,
+      "peak_working_set_bytes": 9523200,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09976130002178252,
+          "peak_pagefile_bytes": 2220032,
+          "peak_working_set_bytes": 9523200,
+          "private_bytes": 2220032,
+          "thread_count": 4,
+          "working_set_bytes": 9523200
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-gc3.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.22666480008047074,
+      "peak_private_bytes": 2015232,
+      "peak_working_set_bytes": 5537792,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09031250001862645,
+          "peak_pagefile_bytes": 2015232,
+          "peak_working_set_bytes": 5537792,
+          "private_bytes": 2015232,
+          "thread_count": 4,
+          "working_set_bytes": 5537792
+        },
+        {
+          "elapsed_seconds": 0.19116480008233339,
+          "peak_pagefile_bytes": 2809856,
+          "peak_working_set_bytes": 10579968,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-gc3.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.23077350005041808,
+      "peak_private_bytes": 2011136,
+      "peak_working_set_bytes": 5541888,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10066740005277097,
+          "peak_pagefile_bytes": 2011136,
+          "peak_working_set_bytes": 5541888,
+          "private_bytes": 2011136,
+          "thread_count": 4,
+          "working_set_bytes": 5541888
+        },
+        {
+          "elapsed_seconds": 0.19537660002242774,
+          "peak_pagefile_bytes": 2248704,
+          "peak_working_set_bytes": 10297344,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-gc5.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14981889992486686,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10921919997781515,
+          "peak_pagefile_bytes": 2801664,
+          "peak_working_set_bytes": 10575872,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-gc5.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13175620010588318,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09546670003328472,
+          "peak_pagefile_bytes": 2256896,
+          "peak_working_set_bytes": 10297344,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-gc7.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12223690003156662,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08407839993014932,
+          "peak_pagefile_bytes": 2809856,
+          "peak_working_set_bytes": 10571776,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-gc7.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1355059000197798,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09701779996976256,
+          "peak_pagefile_bytes": 2293760,
+          "peak_working_set_bytes": 10350592,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-gc9.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12909229996148497,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.0936682999599725,
+          "peak_pagefile_bytes": 2813952,
+          "peak_working_set_bytes": 10584064,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-gc9.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13691510003991425,
+      "peak_private_bytes": 2244608,
+      "peak_working_set_bytes": 9547776,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09810259996447712,
+          "peak_pagefile_bytes": 2244608,
+          "peak_working_set_bytes": 9547776,
+          "private_bytes": 2244608,
+          "thread_count": 4,
+          "working_set_bytes": 9547776
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-sph.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12642850005067885,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09086880006361753,
+          "peak_pagefile_bytes": 2797568,
+          "peak_working_set_bytes": 10567680,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-sph.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1445561998989433,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10401149990502745,
+          "peak_pagefile_bytes": 2293760,
+          "peak_working_set_bytes": 10379264,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-sp3.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14333120000083,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10446519998367876,
+          "peak_pagefile_bytes": 2805760,
+          "peak_working_set_bytes": 10571776,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-sp3.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15088489989284426,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10993129992857575,
+          "peak_pagefile_bytes": 2326528,
+          "peak_working_set_bytes": 10506240,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-sp5.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1614758000941947,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10939130000770092,
+          "peak_pagefile_bytes": 2830336,
+          "peak_working_set_bytes": 10604544,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-sp5.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.165216299938038,
+      "peak_private_bytes": 73728,
+      "peak_working_set_bytes": 28672,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10981669998727739,
+          "peak_pagefile_bytes": 2265088,
+          "peak_working_set_bytes": 10526720,
+          "private_bytes": 73728,
+          "thread_count": 4,
+          "working_set_bytes": 28672
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-sp7.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15986979997251183,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10443319997284561,
+          "peak_pagefile_bytes": 2813952,
+          "peak_working_set_bytes": 10584064,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-sp7.interpolant",
+      "maximum_observed_thread_count": 3,
+      "monotonic_wall_seconds": 0.1659834999591112,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11937660002149642,
+          "peak_pagefile_bytes": 2277376,
+          "peak_working_set_bytes": 10534912,
+          "private_bytes": 77824,
+          "thread_count": 3,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-sp9.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14061130001209676,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09405060007702559,
+          "peak_pagefile_bytes": 2822144,
+          "peak_working_set_bytes": 10588160,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-sp9.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14207319996785372,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09525999997276813,
+          "peak_pagefile_bytes": 2285568,
+          "peak_working_set_bytes": 10534912,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-composite.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.22358480002731085,
+      "peak_private_bytes": 1921024,
+      "peak_working_set_bytes": 5337088,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08725119999144226,
+          "peak_pagefile_bytes": 1921024,
+          "peak_working_set_bytes": 5337088,
+          "private_bytes": 1921024,
+          "thread_count": 4,
+          "working_set_bytes": 5337088
+        },
+        {
+          "elapsed_seconds": 0.18827339995186776,
+          "peak_pagefile_bytes": 2826240,
+          "peak_working_set_bytes": 10588160,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-composite.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.23329939995892346,
+      "peak_private_bytes": 1998848,
+      "peak_working_set_bytes": 5525504,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.0955054999794811,
+          "peak_pagefile_bytes": 1998848,
+          "peak_working_set_bytes": 5525504,
+          "private_bytes": 1998848,
+          "thread_count": 4,
+          "working_set_bytes": 5525504
+        },
+        {
+          "elapsed_seconds": 0.19527090003248304,
+          "peak_pagefile_bytes": 2912256,
+          "peak_working_set_bytes": 11198464,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim2-th3-hermite.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1399513001088053,
+      "peak_private_bytes": 2891776,
+      "peak_working_set_bytes": 10457088,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09425030008424073,
+          "peak_pagefile_bytes": 2891776,
+          "peak_working_set_bytes": 10457088,
+          "private_bytes": 2891776,
+          "thread_count": 4,
+          "working_set_bytes": 10457088
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-bh2.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14889749989379197,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.1075300999218598,
+          "peak_pagefile_bytes": 2220032,
+          "peak_working_set_bytes": 9703424,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-bh2.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1431374999228865,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09532069996930659,
+          "peak_pagefile_bytes": 2891776,
+          "peak_working_set_bytes": 11124736,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-bh3.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13759360008407384,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09145480010192841,
+          "peak_pagefile_bytes": 2215936,
+          "peak_working_set_bytes": 9695232,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-bh3.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.24192319996654987,
+      "peak_private_bytes": 1986560,
+      "peak_working_set_bytes": 5525504,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09551849996205419,
+          "peak_pagefile_bytes": 1986560,
+          "peak_working_set_bytes": 5525504,
+          "private_bytes": 1986560,
+          "thread_count": 4,
+          "working_set_bytes": 5525504
+        },
+        {
+          "elapsed_seconds": 0.20455110003240407,
+          "peak_pagefile_bytes": 2867200,
+          "peak_working_set_bytes": 11165696,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-th2.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1299410000210628,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08705279999412596,
+          "peak_pagefile_bytes": 2179072,
+          "peak_working_set_bytes": 9662464,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-th2.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13884659996256232,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09047089994419366,
+          "peak_pagefile_bytes": 2883584,
+          "peak_working_set_bytes": 11186176,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-th3.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14582649990916252,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09765849995892495,
+          "peak_pagefile_bytes": 2183168,
+          "peak_working_set_bytes": 9670656,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-th3.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14084380003623664,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09837980009615421,
+          "peak_pagefile_bytes": 2912256,
+          "peak_working_set_bytes": 11194368,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-cub.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.12896520004142076,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08630620001349598,
+          "peak_pagefile_bytes": 2195456,
+          "peak_working_set_bytes": 9752576,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-cub.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.2300704000517726,
+      "peak_private_bytes": 1998848,
+      "peak_working_set_bytes": 5533696,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09827240009326488,
+          "peak_pagefile_bytes": 1998848,
+          "peak_working_set_bytes": 5533696,
+          "private_bytes": 1998848,
+          "thread_count": 4,
+          "working_set_bytes": 5533696
+        },
+        {
+          "elapsed_seconds": 0.19679529999848455,
+          "peak_pagefile_bytes": 2273280,
+          "peak_working_set_bytes": 10330112,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-exp.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14589429995976388,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09741619997657835,
+          "peak_pagefile_bytes": 2220032,
+          "peak_working_set_bytes": 9768960,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-exp.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15904490009415895,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10687380004674196,
+          "peak_pagefile_bytes": 2265088,
+          "peak_working_set_bytes": 10338304,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-gau.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1534838000079617,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10304169997107238,
+          "peak_pagefile_bytes": 2199552,
+          "peak_working_set_bytes": 9748480,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-gau.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1533128999872133,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10530040005687624,
+          "peak_pagefile_bytes": 2260992,
+          "peak_working_set_bytes": 10313728,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-gc3.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.13672619999852031,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09087800001725554,
+          "peak_pagefile_bytes": 2187264,
+          "peak_working_set_bytes": 9740288,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-gc3.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14325559989083558,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09835049998946488,
+          "peak_pagefile_bytes": 2281472,
+          "peak_working_set_bytes": 10358784,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-gc5.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14452610001899302,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10205430001951754,
+          "peak_pagefile_bytes": 2207744,
+          "peak_working_set_bytes": 9760768,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-gc5.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.2409334999974817,
+      "peak_private_bytes": 1978368,
+      "peak_working_set_bytes": 5500928,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.08978809998370707,
+          "peak_pagefile_bytes": 1978368,
+          "peak_working_set_bytes": 5500928,
+          "private_bytes": 1978368,
+          "thread_count": 4,
+          "working_set_bytes": 5500928
+        },
+        {
+          "elapsed_seconds": 0.2012054999358952,
+          "peak_pagefile_bytes": 2228224,
+          "peak_working_set_bytes": 10326016,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-gc7.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14737449993845075,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.1001105000032112,
+          "peak_pagefile_bytes": 2215936,
+          "peak_working_set_bytes": 9773056,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-gc7.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15867379994597286,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10014350002165884,
+          "peak_pagefile_bytes": 2240512,
+          "peak_working_set_bytes": 10334208,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-gc9.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15427349996753037,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10471400001551956,
+          "peak_pagefile_bytes": 2170880,
+          "peak_working_set_bytes": 9723904,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-gc9.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15191549994051456,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10198779997881502,
+          "peak_pagefile_bytes": 2260992,
+          "peak_working_set_bytes": 10358784,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-sph.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15333200001623482,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10175960010383278,
+          "peak_pagefile_bytes": 2199552,
+          "peak_working_set_bytes": 9748480,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-sph.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.18488069996237755,
+      "peak_private_bytes": 2228224,
+      "peak_working_set_bytes": 9498624,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11099580000154674,
+          "peak_pagefile_bytes": 2228224,
+          "peak_working_set_bytes": 9498624,
+          "private_bytes": 2228224,
+          "thread_count": 4,
+          "working_set_bytes": 9498624
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-sp3.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.17140630003996193,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11627150001004338,
+          "peak_pagefile_bytes": 2195456,
+          "peak_working_set_bytes": 9748480,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-sp3.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.16531900002155453,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11141939996741712,
+          "peak_pagefile_bytes": 2301952,
+          "peak_working_set_bytes": 10543104,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-sp5.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15072889998555183,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10676599992439151,
+          "peak_pagefile_bytes": 2179072,
+          "peak_working_set_bytes": 9744384,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-sp5.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15454179991502315,
+      "peak_private_bytes": 2269184,
+      "peak_working_set_bytes": 9797632,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10974449990317225,
+          "peak_pagefile_bytes": 2269184,
+          "peak_working_set_bytes": 9797632,
+          "private_bytes": 2269184,
+          "thread_count": 4,
+          "working_set_bytes": 9797632
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-sp7.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.1360841999994591,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09666030004154891,
+          "peak_pagefile_bytes": 2195456,
+          "peak_working_set_bytes": 9752576,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-sp7.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14352889999281615,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09843780007213354,
+          "peak_pagefile_bytes": 2269184,
+          "peak_working_set_bytes": 10547200,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-sp9.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15524489991366863,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11186939990147948,
+          "peak_pagefile_bytes": 2199552,
+          "peak_working_set_bytes": 9756672,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-sp9.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.15021299989894032,
+      "peak_private_bytes": 2260992,
+      "peak_working_set_bytes": 9613312,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10256409994326532,
+          "peak_pagefile_bytes": 2260992,
+          "peak_working_set_bytes": 9613312,
+          "private_bytes": 2260992,
+          "thread_count": 4,
+          "working_set_bytes": 9613312
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-composite.model",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14012889994774014,
+      "peak_private_bytes": 73728,
+      "peak_working_set_bytes": 28672,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.09665550000499934,
+          "peak_pagefile_bytes": 2203648,
+          "peak_working_set_bytes": 9760768,
+          "private_bytes": 73728,
+          "thread_count": 4,
+          "working_set_bytes": 28672
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-composite.interpolant",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.14469059999100864,
+      "peak_private_bytes": 77824,
+      "peak_working_set_bytes": 32768,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.10456719994544983,
+          "peak_pagefile_bytes": 2899968,
+          "peak_working_set_bytes": 11235328,
+          "private_bytes": 77824,
+          "thread_count": 4,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    },
+    {
+      "id": "load-dim3-th3-hermite.interpolant",
+      "maximum_observed_thread_count": 1,
+      "monotonic_wall_seconds": 0.15273969992995262,
+      "peak_private_bytes": 884736,
+      "peak_working_set_bytes": 7225344,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11064880003686994,
+          "peak_pagefile_bytes": 2879488,
+          "peak_working_set_bytes": 11153408,
+          "private_bytes": 884736,
+          "thread_count": 1,
+          "working_set_bytes": 7225344
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    }
+  ],
+  "scenario_id": "legacy-matrix",
+  "schema_version": "1.0.0"
+}

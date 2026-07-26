@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "D:\CODE\polatory\setup.py", line 8, in <module>
+    from setuptools import Extension, setup
+ModuleNotFoundError: No module named 'setuptools'

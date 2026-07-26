@@ -1,0 +1,233 @@
+{
+  "accepted_truth": false,
+  "artifact_kind": "python_build_reproduction_evidence",
+  "authority": "diagnostic_observation_only",
+  "evidence_files": [
+    {
+      "bytes": 0,
+      "path": "setup-build-ext.raw.stdout.log",
+      "run_id": "direct-setup-build-ext",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stream": "stdout"
+    },
+    {
+      "bytes": 189,
+      "path": "setup-build-ext.raw.stderr.log",
+      "run_id": "direct-setup-build-ext",
+      "sha256": "475b87101e6194a483d5ac5c27dd65e10e8152dcb8cea9c4982d44bc49f28a86",
+      "stream": "stderr"
+    },
+    {
+      "bytes": 1970,
+      "path": "setup-vcvars.stdout.log",
+      "run_id": "setup-vcvars-14.39",
+      "sha256": "eaf16d1b62095be11a1995cc5e576f31ccb15605e700b2f80639efda95c1827d",
+      "stream": "stdout"
+    },
+    {
+      "bytes": 0,
+      "path": "setup-vcvars.stderr.log",
+      "run_id": "setup-vcvars-14.39",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stream": "stderr"
+    },
+    {
+      "bytes": 16485,
+      "path": "configure.stdout.log",
+      "run_id": "direct-cmake-python-configure",
+      "sha256": "1d42f19301af2b8ca9338f4f7d59839bdf12305ddadded6b98a13b775be118da",
+      "stream": "stdout"
+    },
+    {
+      "bytes": 0,
+      "path": "configure.stderr.log",
+      "run_id": "direct-cmake-python-configure",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stream": "stderr"
+    }
+  ],
+  "exclusions": [
+    {
+      "path": "setup-build-ext.stderr.log",
+      "reason": "PowerShell NativeCommandError wrapper; superseded by the raw setup-build-ext.raw.stderr.log"
+    },
+    {
+      "path": "setup-build-ext.stdout.log",
+      "reason": "PowerShell-captured duplicate; superseded by the raw stdout log"
+    },
+    {
+      "path": "CMakeFiles/",
+      "reason": "interrupted configure intermediate, not stable evidence"
+    },
+    {
+      "path": "vcpkg_installed/",
+      "reason": "interrupted dependency-install state, not stable evidence"
+    }
+  ],
+  "id": "polatory-4a30beb-windows-x86_64-python-build-reproduction",
+  "interpretation": "These files preserve environment-specific build failure observations. They are not accepted Polatory behavior truth and must not be used as a compatibility success oracle.",
+  "limitations": [
+    "The direct CMake run did not reach compilation, so the statically identified SdfDataGenerator constructor mismatch was not a dynamically observed failure in this capture.",
+    "wrapper_exit=124 belongs to the bounded outer runner; the CMake child exit status was not captured and remains unknown."
+  ],
+  "logical_placeholders": {
+    "${CLANG_CL}": "Visual Studio LLVM x64 clang-cl 19.1.5 executable",
+    "${CMAKE}": "CMake 4.0.3 executable",
+    "${COMSPEC}": "Windows cmd.exe",
+    "${POLATORY_ROOT}": "root of the Polatory checkout at source.commit",
+    "${PYTHON_BUILD_EVIDENCE}": "fresh ${POLATORY_ROOT}/build-python-oracle capture directory",
+    "${PYTHON}": "captured CPython 3.13.5 executable",
+    "${VCVARS64}": "Visual Studio 2022 Community VC/Auxiliary/Build/vcvars64.bat"
+  },
+  "platform": {
+    "architecture": "x86_64",
+    "os": "windows",
+    "os_version": "10.0.26200.0"
+  },
+  "runs": [
+    {
+      "accepted_truth": false,
+      "command": {
+        "argv": [
+          "${PYTHON}",
+          "setup.py",
+          "build_ext",
+          "--build-temp",
+          "${PYTHON_BUILD_EVIDENCE}/setup-build-temp",
+          "--build-lib",
+          "${PYTHON_BUILD_EVIDENCE}/setup-build-lib"
+        ],
+        "cwd": "${POLATORY_ROOT}",
+        "shell": false
+      },
+      "id": "direct-setup-build-ext",
+      "observations": [
+        "setup.py failed at line 8 while importing setuptools.",
+        "The CMakeBuild implementation was not entered."
+      ],
+      "status": {
+        "classification": "missing_build_requirement",
+        "exit_code": 1,
+        "terminal_status": "exited"
+      },
+      "streams": {
+        "stderr": "setup-build-ext.raw.stderr.log",
+        "stdout": "setup-build-ext.raw.stdout.log"
+      }
+    },
+    {
+      "accepted_truth": false,
+      "command": {
+        "argv": [
+          "${COMSPEC}",
+          "/d",
+          "/s",
+          "/c",
+          "\"${VCVARS64}\" -vcvars_ver=14.39 && set"
+        ],
+        "command_interpreter_payload_index": 4,
+        "cwd": "${POLATORY_ROOT}",
+        "shell": false
+      },
+      "id": "setup-vcvars-14.39",
+      "observations": [
+        "Visual Studio Developer Command Prompt was version 17.14.11.",
+        "vcvars64 reported that toolset directory 14.39 was not found.",
+        "The unchanged setup.py invokes this helper before CMake configure."
+      ],
+      "status": {
+        "classification": "requested_msvc_toolset_absent",
+        "exit_code": 1,
+        "terminal_status": "exited"
+      },
+      "streams": {
+        "stderr": "setup-vcvars.stderr.log",
+        "stdout": "setup-vcvars.stdout.log"
+      }
+    },
+    {
+      "accepted_truth": false,
+      "command": {
+        "argv": [
+          "${CMAKE}",
+          "-S",
+          "${POLATORY_ROOT}",
+          "-B",
+          "${PYTHON_BUILD_EVIDENCE}",
+          "-G",
+          "Ninja",
+          "-DCMAKE_BUILD_TYPE=Release",
+          "-DCMAKE_CXX_COMPILER=${CLANG_CL}",
+          "-DCMAKE_TOOLCHAIN_FILE=${POLATORY_ROOT}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+          "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=${PYTHON_BUILD_EVIDENCE}/python-package/polatory",
+          "-DVCPKG_TARGET_TRIPLET=x64-windows",
+          "-DBUILD_BENCHMARKS=OFF",
+          "-DBUILD_CLI=OFF",
+          "-DBUILD_EXAMPLES=OFF",
+          "-DBUILD_PYTHON_BINDINGS=ON",
+          "-DBUILD_TESTS=OFF",
+          "-DPOLATORY_VERSION=0.1.0"
+        ],
+        "cwd": "${POLATORY_ROOT}",
+        "environment_setup": {
+          "vcvars64": "${VCVARS64}",
+          "vcvars64_arguments": []
+        },
+        "shell": false
+      },
+      "id": "direct-cmake-python-configure",
+      "observations": [
+        "vcpkg planned 86 packages and the log ends at install 56/86.",
+        "No CMakeCache.txt or build.ninja was produced.",
+        "The _core target was not invoked."
+      ],
+      "status": {
+        "build_invoked": false,
+        "child_exit": "unknown",
+        "classification": "dependency_bootstrap_interrupted",
+        "configure_completed": false,
+        "terminal_status": "bounded_wrapper_timeout",
+        "wrapper_exit": 124
+      },
+      "streams": {
+        "stderr": "configure.stderr.log",
+        "stdout": "configure.stdout.log"
+      }
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source": {
+    "commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+    "repository": "polatory",
+    "short_commit": "4a30beb",
+    "tracked_files_modified_by_capture": false,
+    "vcpkg_gitlink": "4b77da7fed37817f124936239197833469f1b9a8"
+  },
+  "tools": {
+    "clang_cl": {
+      "version": "19.1.5"
+    },
+    "cmake": {
+      "version": "4.0.3"
+    },
+    "msvc_toolset_detected_by_vcpkg": {
+      "version": "14.44.35207"
+    },
+    "ninja": {
+      "version": "1.13.1"
+    },
+    "python": {
+      "implementation": "CPython",
+      "setuptools": "absent",
+      "version": "3.13.5",
+      "wheel": "absent"
+    },
+    "vcpkg_executable": {
+      "note": "executable identity differs from source.vcpkg_gitlink",
+      "version": "2026-03-04-4b3e4c276b5b87a649e66341e11553e8c577459c"
+    },
+    "visual_studio_developer_prompt": {
+      "version": "17.14.11"
+    }
+  }
+}

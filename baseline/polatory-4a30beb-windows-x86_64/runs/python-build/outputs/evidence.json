@@ -1,0 +1,29 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "adjudication": "pending",
+    "manifest_path": "${REPO}/oracle/fixtures/python-build/windows-x86_64-polatory-4a30beb/manifest.json",
+    "manifest_sha256": "3a030960b335f728c7bdeb3d168d0bafe64fac17b620de02c8a082b1036bf103",
+    "manifest_size": 7528,
+    "role": "research_only_buildability_evidence",
+    "run_count": 3
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [],
+  "scenario_id": "python-build",
+  "schema_version": "1.0.0"
+}

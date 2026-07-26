@@ -1,0 +1,683 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "command_count": 14,
+    "conflict_behavior": "exit_category_observation",
+    "partial_number_behavior": "captured_for_intentional_change_not_candidate_truth"
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "global-help",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IFtPUFRJT05TXSBDT01NQU5EIFtBUkdTXQ0KR2xvYmFsIG9wdGlvbnM6DQogIC1oIFsgLS1oZWxwIF0gICAgICAgICBEaXNwbGF5IHRoaXMgaGVscA0K",
+        "encoding": "base64",
+        "sha256": "8b78c0fb9b4e96d20fe1a963fe0c957a0b5e8c7d856a4e090475c430c9894a74",
+        "size": 102
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "create-model",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-create-model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IGNyZWF0ZS1tb2RlbCBbT1BUSU9OU10NCk9wdGlvbnM6DQogIC0tZGltIDF8MnwzICAgICAgICAgICAgICAgICBEaW1lbnNpb24gb2YgaW5wdXQgcG9pbnRzDQogIC0tb3V0IEZJTEUgICAgICAgICAgICAgICAgICBPdXRwdXQgbW9kZWwgZmlsZQ0KDQpNb2RlbCBvcHRpb25zOg0KICAtLXJiZiBOQU1FIFBBUkFNUyBbYW5pc28gQV8xMSBBXzEyIC4uLiBBX2RkXSAuLi4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEJhc2ljIGZ1bmN0aW9uKHMpLCBvbmUgb2Y6DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5BTUUgIFBBUkFNUyAgICAgICBGdWxsIE5hbWUgICAgICAgIC0tZGVnID49DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFBvbHloYXJtb25pYyBzcGxpbmVzDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJoMiAgIFtTQ0FMRSBbQ11dICBCaWhhcm1vbmljMkQgICAgICAgICAgICAxDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJoMyAgIFtTQ0FMRSBbQ11dICBCaWhhcm1vbmljM0QgICAgICAgICAgICAwDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHRoMiAgIFtTQ0FMRSBbQ11dICBUcmloYXJtb25pYzJEICAgICAgICAgICAyDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHRoMyAgIFtTQ0FMRSBbQ11dICBUcmloYXJtb25pYzNEICAgICAgICAgICAxDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIENvdmFyaWFuY2UgZnVuY3Rpb25zDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGN1YiAgIFBTSUxMIFJBTkdFICBDb3ZDdWJpYyAgICAgICAgICAgICAgIC0xDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGV4cCAgIFBTSUxMIFJBTkdFICBDb3ZFeHBvbmVudGlhbCAgICAgICAgIC0xDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdhdSAgIFBTSUxMIFJBTkdFICBDb3ZHYXVzc2lhbiAgICAgICAgICAgIC0xDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdjMyAgIFBTSUxMIFJBTkdFICBDb3ZHZW5lcmFsaXplZENhdWNoeTMgIC0xDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdjNSAgIFBTSUxMIFJBTkdFICBDb3ZHZW5lcmFsaXplZENhdWNoeTUgIC0xDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdjNyAgIFBTSUxMIFJBTkdFICBDb3ZHZW5lcmFsaXplZENhdWNoeTcgIC0xDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdjOSAgIFBTSUxMIFJBTkdFICBDb3ZHZW5lcmFsaXplZENhdWNoeTkgIC0xDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNwMyAgIFBTSUxMIFJBTkdFICBDb3ZTcGhlcm9pZGFsMyAgICAgICAgIC0xDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNwNSAgIFBTSUxMIFJBTkdFICBDb3ZTcGhlcm9pZGFsNSAgICAgICAgIC0xDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNwNyAgIFBTSUxMIFJBTkdFICBDb3ZTcGhlcm9pZGFsNyAgICAgICAgIC0xDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNwOSAgIFBTSUxMIFJBTkdFICBDb3ZTcGhlcm9pZGFsOSAgICAgICAgIC0xDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNwaCAgIFBTSUxMIFJBTkdFICBDb3ZTcGhlcmljYWwgICAgICAgICAgIC0xDQogIC0tbnVnIE5VRyAoPTAuMCkgICAgICAgICAgICBOdWdnZXQgb2YgdGhlIG1vZGVsDQogIC0tZGVnIC0xfDB8MXwyICg9QVVUTykgICAgICBEZWdyZWUgb2YgdGhlIHBvbHlub21pYWwgdHJlbmQNCg==",
+        "encoding": "base64",
+        "sha256": "efa10999d33059d4991d8c0565686b7758a950ac4783ac4aaad273ec2fbadbfc",
+        "size": 1933
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-fit",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IGZpdCBbT1BUSU9OU10NCk9wdGlvbnM6DQogIC0taW4gRklMRSAgICAgICAgICAgICAgICAgICBJbnB1dCBmaWxlIGluIENTViBmb3JtYXQ6DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFhbLFlbLFpdXSxWQUxbLExPV0VSLFVQUEVSXQ0KICAtLWdyYWQtaW4gRklMRSAgICAgICAgICAgICAgR3JhZGllbnQgZGF0YSBpbnB1dCBmaWxlIGluIENTViBmb3JtYXQ6DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFhbLFlbLFpdXSxEWFssRFlbLERaXV0NCiAgLS1kaW0gMXwyfDMgICAgICAgICAgICAgICAgIERpbWVuc2lvbiBvZiBpbnB1dCBwb2ludHMNCiAgLS1tb2RlbCBGSUxFICAgICAgICAgICAgICAgIElucHV0IG1vZGVsIGZpbGUNCiAgLS1pbml0aWFsIEZJTEUgICAgICAgICAgICAgIElucHV0IGludGVycG9sYW50IGZpbGUgdG8gYmUgdXNlZCBhcyB0aGUgaW5pdGlhbCANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNvbHV0aW9uDQogIC0tdG9sIFRPTCAgICAgICAgICAgICAgICAgICBBYnNvbHV0ZSBmaXR0aW5nIHRvbGVyYW5jZQ0KICAtLWdyYWQtdG9sIFRPTCAoPVNBTUUgQVMgLS10b2wpDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBBYnNvbHV0ZSBncmFkaWVudCBmaXR0aW5nIHRvbGVyYW5jZQ0KICAtLW1heC1pdGVyIE4gKD0xMDApICAgICAgICAgTWF4aW11bSBudW1iZXIgb2YgaXRlcmF0aW9ucw0KICAtLWFjYyBBQ0MgKD1BTlkpICAgICAgICAgICAgQWJzb2x1dGUgZXZhbHVhdGlvbiBhY2N1cmFjeQ0KICAtLWdyYWQtYWNjIEFDQyAoPUFOWSkgICAgICAgQWJzb2x1dGUgZ3JhZGllbnQgZXZhbHVhdGlvbiBhY2N1cmFjeQ0KICAtLWluZXEgICAgICAgICAgICAgICAgICAgICAgVXNlIGluZXF1YWxpdHkgY29uc3RyYWludHMNCiAgLS1yZWR1Y2UgICAgICAgICAgICAgICAgICAgIFRyeSB0byByZWR1Y2UgdGhlIG51bWJlciBvZiBSQkYgY2VudGVycyANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIChpbmNyZW1lbnRhbCBmaXR0aW5nKQ0KICAtLW91dCBGSUxFICAgICAgICAgICAgICAgICAgT3V0cHV0IGludGVycG9sYW50IGZpbGUNCg0KTW9kZWwgb3B0aW9uczoNCiAgLS1yYmYgTkFNRSBQQVJBTVMgW2FuaXNvIEFfMTEgQV8xMiAuLi4gQV9kZF0gLi4uDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBCYXNpYyBmdW5jdGlvbihzKSwgb25lIG9mOg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBOQU1FICBQQVJBTVMgICAgICAgRnVsbCBOYW1lICAgICAgICAtLWRlZyA+PQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBQb2x5aGFybW9uaWMgc3BsaW5lcw0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBiaDIgICBbU0NBTEUgW0NdXSAgQmloYXJtb25pYzJEICAgICAgICAgICAgMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBiaDMgICBbU0NBTEUgW0NdXSAgQmloYXJtb25pYzNEICAgICAgICAgICAgMA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0aDIgICBbU0NBTEUgW0NdXSAgVHJpaGFybW9uaWMyRCAgICAgICAgICAgMg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0aDMgICBbU0NBTEUgW0NdXSAgVHJpaGFybW9uaWMzRCAgICAgICAgICAgMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBDb3ZhcmlhbmNlIGZ1bmN0aW9ucw0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjdWIgICBQU0lMTCBSQU5HRSAgQ292Q3ViaWMgICAgICAgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBleHAgICBQU0lMTCBSQU5HRSAgQ292RXhwb25lbnRpYWwgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnYXUgICBQU0lMTCBSQU5HRSAgQ292R2F1c3NpYW4gICAgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnYzMgICBQU0lMTCBSQU5HRSAgQ292R2VuZXJhbGl6ZWRDYXVjaHkzICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnYzUgICBQU0lMTCBSQU5HRSAgQ292R2VuZXJhbGl6ZWRDYXVjaHk1ICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnYzcgICBQU0lMTCBSQU5HRSAgQ292R2VuZXJhbGl6ZWRDYXVjaHk3ICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnYzkgICBQU0lMTCBSQU5HRSAgQ292R2VuZXJhbGl6ZWRDYXVjaHk5ICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzcDMgICBQU0lMTCBSQU5HRSAgQ292U3BoZXJvaWRhbDMgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzcDUgICBQU0lMTCBSQU5HRSAgQ292U3BoZXJvaWRhbDUgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzcDcgICBQU0lMTCBSQU5HRSAgQ292U3BoZXJvaWRhbDcgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzcDkgICBQU0lMTCBSQU5HRSAgQ292U3BoZXJvaWRhbDkgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzcGggICBQU0lMTCBSQU5HRSAgQ292U3BoZXJpY2FsICAgICAgICAgICAtMQ0KICAtLW51ZyBOVUcgKD0wLjApICAgICAgICAgICAgTnVnZ2V0IG9mIHRoZSBtb2RlbA0KICAtLWRlZyAtMXwwfDF8MiAoPUFVVE8pICAgICAgRGVncmVlIG9mIHRoZSBwb2x5bm9taWFsIHRyZW5kDQo=",
+        "encoding": "base64",
+        "sha256": "0f1997335a3a7ee8f32668ace6e74767537c3877e1cc63ac2028a077076d4da7",
+        "size": 2876
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "evaluate",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-evaluate",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IGV2YWx1YXRlIFtPUFRJT05TXQ0KT3B0aW9uczoNCiAgLS1pbiBGSUxFICAgICAgICAgICAgIElucHV0IGludGVycG9sYW50IGZpbGUNCiAgLS1wb2ludHMgRklMRSAgICAgICAgIElucHV0IGV2YWx1YXRpb24gcG9pbnRzIGZpbGUgaW4gQ1NWIGZvcm1hdDoNCiAgICAgICAgICAgICAgICAgICAgICAgICAgWFssWVssWl1dDQogIC0tZGltIDF8MnwzICAgICAgICAgICBEaW1lbnNpb24gb2YgaW5wdXQgcG9pbnRzDQogIC0tZ3JhZHMgICAgICAgICAgICAgICBFdmFsdWF0ZSBncmFkaWVudHMgYXMgd2VsbCBhcyB2YWx1ZXMNCiAgLS1hY2MgQUNDICg9QU5ZKSAgICAgIEFic29sdXRlIGV2YWx1YXRpb24gYWNjdXJhY3kNCiAgLS1ncmFkLWFjYyBBQ0MgKD1BTlkpIEFic29sdXRlIGdyYWRpZW50IGV2YWx1YXRpb24gYWNjdXJhY3kNCiAgLS1vdXQgRklMRSAgICAgICAgICAgIE91dHB1dCBmaWxlIGluIENTViBmb3JtYXQ6DQogICAgICAgICAgICAgICAgICAgICAgICAgIFhbLFlbLFpdXSxWQUxbLERYWyxEWVssRFpdXV0NCg==",
+        "encoding": "base64",
+        "sha256": "4bb8e84803351ef4d3991cf801e8f29e3fe3ab9c81593f2134b4fbb336bad5e2",
+        "size": 538
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "extract-model",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-extract-model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IGV4dHJhY3QtbW9kZWwgW09QVElPTlNdDQpPcHRpb25zOg0KICAtLWluIEZJTEUgICAgICAgICAgICAgSW5wdXQgaW50ZXJwb2xhbnQgZmlsZQ0KICAtLWRpbSAxfDJ8MyAgICAgICAgICAgRGltZW5zaW9uIG9mIGlucHV0IHBvaW50cw0KICAtLW91dCBGSUxFICAgICAgICAgICAgT3V0cHV0IG1vZGVsIGZpbGUNCg==",
+        "encoding": "base64",
+        "sha256": "86485391bb3d5389831a07da91b57ba247ebcd52297a3b7fcd26d0b9b224af0e",
+        "size": 193
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-model",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-show-model",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IHNob3ctbW9kZWwgW09QVElPTlNdDQpPcHRpb25zOg0KICAtLWluIEZJTEUgICAgICAgICAgICAgSW5wdXQgbW9kZWwgZmlsZQ0KICAtLWRpbSAxfDJ8MyAgICAgICAgICAgRGltZW5zaW9uIG9mIGlucHV0IHBvaW50cw0K",
+        "encoding": "base64",
+        "sha256": "1b9c902126d6a9720316f48b282ba35a14c51ce654e3cd406cbaaadeb988cdaa",
+        "size": 141
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "variogram",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-variogram",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IHZhcmlvZ3JhbSBbT1BUSU9OU10NCk9wdGlvbnM6DQogIC0taW4gRklMRSAgICAgICAgICAgICAgICBJbnB1dCBmaWxlIGluIENTViBmb3JtYXQ6DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgIFhbLFlbLFpdXSxWQUwNCiAgLS1kaW0gMXwyfDMgICAgICAgICAgICAgIERpbWVuc2lvbiBvZiBpbnB1dCBwb2ludHMNCiAgLS1kZXRyZW5kIC0xfDB8MXwyICg9LTEpIERldHJlbmQgcG9seW5vbWlhbCBvZiBzcGVjaWZpZWQgZGVncmVlDQogIC0tbm9ybWFsLXNjb3JlICAgICAgICAgICBQZXJmb3JtIG5vcm1hbCBzY29yZSB0cmFuc2Zvcm1hdGlvbiBhbmQgDQogICAgICAgICAgICAgICAgICAgICAgICAgICBiYWNrLXRyYW5zZm9ybSB2YXJpb2dyYW0NCiAgLS1sYWctZGlzdCBESVNUICAgICAgICAgIExhZyBkaXN0YW5jZQ0KICAtLW51bS1sYWdzIE4gKD0xNSkgICAgICAgTnVtYmVyIG9mIGxhZ3MNCiAgLS1sYWctdG9sIFRPTCAoPUFVVE8pICAgIExhZyB0b2xlcmFuY2UNCiAgLS1hbmdsZS10b2wgVE9MICg9QVVUTykgIEFuZ2xlIHRvbGVyYW5jZSBpbiBkZWdyZWVzDQogIC0tYW5pc28gICAgICAgICAgICAgICAgICBVc2UgYW5pc290cm9waWMgZGlyZWN0aW9ucw0KICAtLW91dCBGSUxFICAgICAgICAgICAgICAgT3V0cHV0IHZhcmlvZ3JhbSBmaWxlDQo=",
+        "encoding": "base64",
+        "sha256": "c856ca01311f1e85fe4757f1cd8b5c4ece9e993763b396b65b64a0dcf0a9dc8b",
+        "size": 674
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "show-variogram",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-show-variogram",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IHNob3ctdmFyaW9ncmFtIFtPUFRJT05TXQ0KT3B0aW9uczoNCiAgLS1pbiBGSUxFICAgICAgICAgICAgIElucHV0IHZhcmlvZ3JhbSBmaWxlDQogIC0tZGltIDF8MnwzICAgICAgICAgICBEaW1lbnNpb24gb2YgaW5wdXQgcG9pbnRzDQogIC0taWQgSUQgKD1OT05FKSAgICAgICBJRCBvZiB0aGUgdmFyaW9ncmFtDQo=",
+        "encoding": "base64",
+        "sha256": "841199038029d6a6cbef037d819a24c1a33118225fb527e06ea89152e504c4a4",
+        "size": 194
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "fit-model-to-variogram",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-fit-model-to-variogram",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IGZpdC1tb2RlbC10by12YXJpb2dyYW0gW09QVElPTlNdDQpPcHRpb25zOg0KICAtLWluIEZJTEUgICAgICAgICAgICAgICAgICAgSW5wdXQgdmFyaW9ncmFtIGZpbGUNCiAgLS1kaW0gMXwyfDMgICAgICAgICAgICAgICAgIERpbWVuc2lvbiBvZiBpbnB1dCBwb2ludHMNCiAgLS1tb2RlbCBGSUxFICAgICAgICAgICAgICAgIElucHV0IG1vZGVsIGZpbGUNCiAgLS13ZWlnaHRzIDAgdG8gNSAoPTEpICAgICAgIFdlaWdodCBmdW5jdGlvbiBmb3IgbGVhc3Qgc3F1YXJlcyBmaXR0aW5nLCBvbmUgb2YNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMDogTl9qDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE6IE5faiAvIGhfal4yDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDI6IE5faiAvIChnYW1tYShoX2opKV4yDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDM6IDENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNDogMSAvIGhfal4yDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDU6IDEgLyAoZ2FtbWEoaF9qKSleMg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2hlcmUNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTl9qOiBudW1iZXIgb2YgcGFpcnMgaW4gdGhlIGotdGggYmluDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhfajogcmVwcmVzZW50YXRpdmUgZGlzdGFuY2Ugb2YgdGhlIGotdGggYmluDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdhbW1hOiBtb2RlbCB2YXJpb2dyYW0NCiAgLS1udW0tdHJpYWxzIE4gKD0zMCkgICAgICAgIE51bWJlciBvZiB0cmlhbHMNCiAgLS1vdXQgRklMRSAgICAgICAgICAgICAgICAgIE91dHB1dCBtb2RlbCBmaWxlDQoNCk1vZGVsIG9wdGlvbnM6DQogIC0tcmJmIE5BTUUgUEFSQU1TIFthbmlzbyBBXzExIEFfMTIgLi4uIEFfZGRdIC4uLg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQmFzaWMgZnVuY3Rpb24ocyksIG9uZSBvZjoNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTkFNRSAgUEFSQU1TICAgICAgIEZ1bGwgTmFtZSAgICAgICAgLS1kZWcgPj0NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUG9seWhhcm1vbmljIHNwbGluZXMNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYmgyICAgW1NDQUxFIFtDXV0gIEJpaGFybW9uaWMyRCAgICAgICAgICAgIDENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYmgzICAgW1NDQUxFIFtDXV0gIEJpaGFybW9uaWMzRCAgICAgICAgICAgIDANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGgyICAgW1NDQUxFIFtDXV0gIFRyaWhhcm1vbmljMkQgICAgICAgICAgIDINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGgzICAgW1NDQUxFIFtDXV0gIFRyaWhhcm1vbmljM0QgICAgICAgICAgIDENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQ292YXJpYW5jZSBmdW5jdGlvbnMNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY3ViICAgUFNJTEwgUkFOR0UgIENvdkN1YmljICAgICAgICAgICAgICAgLTENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXhwICAgUFNJTEwgUkFOR0UgIENvdkV4cG9uZW50aWFsICAgICAgICAgLTENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2F1ICAgUFNJTEwgUkFOR0UgIENvdkdhdXNzaWFuICAgICAgICAgICAgLTENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2MzICAgUFNJTEwgUkFOR0UgIENvdkdlbmVyYWxpemVkQ2F1Y2h5MyAgLTENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2M1ICAgUFNJTEwgUkFOR0UgIENvdkdlbmVyYWxpemVkQ2F1Y2h5NSAgLTENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2M3ICAgUFNJTEwgUkFOR0UgIENvdkdlbmVyYWxpemVkQ2F1Y2h5NyAgLTENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2M5ICAgUFNJTEwgUkFOR0UgIENvdkdlbmVyYWxpemVkQ2F1Y2h5OSAgLTENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3AzICAgUFNJTEwgUkFOR0UgIENvdlNwaGVyb2lkYWwzICAgICAgICAgLTENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3A1ICAgUFNJTEwgUkFOR0UgIENvdlNwaGVyb2lkYWw1ICAgICAgICAgLTENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3A3ICAgUFNJTEwgUkFOR0UgIENvdlNwaGVyb2lkYWw3ICAgICAgICAgLTENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3A5ICAgUFNJTEwgUkFOR0UgIENvdlNwaGVyb2lkYWw5ICAgICAgICAgLTENCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3BoICAgUFNJTEwgUkFOR0UgIENvdlNwaGVyaWNhbCAgICAgICAgICAgLTENCiAgLS1udWcgTlVHICg9MC4wKSAgICAgICAgICAgIE51Z2dldCBvZiB0aGUgbW9kZWwNCiAgLS1kZWcgLTF8MHwxfDIgKD1BVVRPKSAgICAgIERlZ3JlZSBvZiB0aGUgcG9seW5vbWlhbCB0cmVuZA0K",
+        "encoding": "base64",
+        "sha256": "4bacda8a85d22060c1e4cd9523a6e540bc2fa480af53f24bd5a1273de78eaa3f",
+        "size": 2697
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "cross-validate",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-cross-validate",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IGNyb3NzLXZhbGlkYXRlIFtPUFRJT05TXQ0KT3B0aW9uczoNCiAgLS1pbiBGSUxFICAgICAgICAgICAgICAgICAgIElucHV0IGZpbGUgaW4gQ1NWIGZvcm1hdDoNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWFssWVssWl1dLFZBTCxTRVRfSUQsLi4uDQogIC0tZGltIDF8MnwzICAgICAgICAgICAgICAgICBEaW1lbnNpb24gb2YgaW5wdXQgcG9pbnRzDQogIC0tbW9kZWwgRklMRSAgICAgICAgICAgICAgICBJbnB1dCBtb2RlbCBmaWxlDQogIC0tdG9sIFRPTCAgICAgICAgICAgICAgICAgICBBYnNvbHV0ZSBmaXR0aW5nIHRvbGVyYW5jZQ0KICAtLW1heC1pdGVyIE4gKD0xMDApICAgICAgICAgTWF4aW11bSBudW1iZXIgb2YgaXRlcmF0aW9ucw0KICAtLWFjYyBBQ0MgKD1BTlkpICAgICAgICAgICAgQWJzb2x1dGUgZXZhbHVhdGlvbiBhY2N1cmFjeQ0KICAtLW91dCBGSUxFICAgICAgICAgICAgICAgICAgT3V0cHV0IGZpbGUgaW4gQ1NWIGZvcm1hdDoNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWFssWVssWl1dLFZBTCxTRVRfSUQsLi4uLFBSRURJQ1RJT04NCg0KTW9kZWwgb3B0aW9uczoNCiAgLS1yYmYgTkFNRSBQQVJBTVMgW2FuaXNvIEFfMTEgQV8xMiAuLi4gQV9kZF0gLi4uDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBCYXNpYyBmdW5jdGlvbihzKSwgb25lIG9mOg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBOQU1FICBQQVJBTVMgICAgICAgRnVsbCBOYW1lICAgICAgICAtLWRlZyA+PQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBQb2x5aGFybW9uaWMgc3BsaW5lcw0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBiaDIgICBbU0NBTEUgW0NdXSAgQmloYXJtb25pYzJEICAgICAgICAgICAgMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBiaDMgICBbU0NBTEUgW0NdXSAgQmloYXJtb25pYzNEICAgICAgICAgICAgMA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0aDIgICBbU0NBTEUgW0NdXSAgVHJpaGFybW9uaWMyRCAgICAgICAgICAgMg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0aDMgICBbU0NBTEUgW0NdXSAgVHJpaGFybW9uaWMzRCAgICAgICAgICAgMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBDb3ZhcmlhbmNlIGZ1bmN0aW9ucw0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjdWIgICBQU0lMTCBSQU5HRSAgQ292Q3ViaWMgICAgICAgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBleHAgICBQU0lMTCBSQU5HRSAgQ292RXhwb25lbnRpYWwgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnYXUgICBQU0lMTCBSQU5HRSAgQ292R2F1c3NpYW4gICAgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnYzMgICBQU0lMTCBSQU5HRSAgQ292R2VuZXJhbGl6ZWRDYXVjaHkzICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnYzUgICBQU0lMTCBSQU5HRSAgQ292R2VuZXJhbGl6ZWRDYXVjaHk1ICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnYzcgICBQU0lMTCBSQU5HRSAgQ292R2VuZXJhbGl6ZWRDYXVjaHk3ICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnYzkgICBQU0lMTCBSQU5HRSAgQ292R2VuZXJhbGl6ZWRDYXVjaHk5ICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzcDMgICBQU0lMTCBSQU5HRSAgQ292U3BoZXJvaWRhbDMgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzcDUgICBQU0lMTCBSQU5HRSAgQ292U3BoZXJvaWRhbDUgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzcDcgICBQU0lMTCBSQU5HRSAgQ292U3BoZXJvaWRhbDcgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzcDkgICBQU0lMTCBSQU5HRSAgQ292U3BoZXJvaWRhbDkgICAgICAgICAtMQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzcGggICBQU0lMTCBSQU5HRSAgQ292U3BoZXJpY2FsICAgICAgICAgICAtMQ0KICAtLW51ZyBOVUcgKD0wLjApICAgICAgICAgICAgTnVnZ2V0IG9mIHRoZSBtb2RlbA0KICAtLWRlZyAtMXwwfDF8MiAoPUFVVE8pICAgICAgRGVncmVlIG9mIHRoZSBwb2x5bm9taWFsIHRyZW5kDQo=",
+        "encoding": "base64",
+        "sha256": "b4f8ab1c96bd8e18e9f330b94ec6d8a846e6ee784cb5d6dfd36be7eb19eb42ef",
+        "size": 2354
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "estimate-normals",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-estimate-normals",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IGVzdGltYXRlLW5vcm1hbHMgW09QVElPTlNdDQpPcHRpb25zOg0KICAtLWluIEZJTEUgICAgICAgICAgICAgICAgSW5wdXQgZmlsZSBpbiBDU1YgZm9ybWF0Og0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICBYLFksWg0KICAtLWsgSyAuLi4gICAgICAgICAgICAgICAgVXNlIGstTk4gc2VhcmNoIHdpdGggdGhlIHNwZWNpZmllZCBudW1iZXIgb2YgcG9pbnRzIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9yIG5vcm1hbCBlc3RpbWF0aW9uDQogICAgICAgICAgICAgICAgICAgICAgICAgICBXaGVuIG11bHRpcGxlIHZhbHVlcyBhcmUgc3VwcGxpZWQsIHRoZSBiZXN0IG9uZSBpcyANCiAgICAgICAgICAgICAgICAgICAgICAgICAgIHNlbGVjdGVkIHBlciBwb2ludA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgVGhpcyBvcHRpb24gd2l0aCAxMCAzMCAxMDAgMzAwIGlzIGRlZmF1bHQNCiAgLS1yYWRpdXMgUkFESVVTIC4uLiAgICAgIFVzZSByYWRpdXMgc2VhcmNoIHdpdGggdGhlIHNwZWNpZmllZCByYWRpdXMgZm9yIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgbm9ybWFsIGVzdGltYXRpb24NCiAgICAgICAgICAgICAgICAgICAgICAgICAgIFdoZW4gbXVsdGlwbGUgdmFsdWVzIGFyZSBzdXBwbGllZCwgdGhlIGJlc3Qgb25lIGlzIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgc2VsZWN0ZWQgcGVyIHBvaW50DQogIC0tdGhyZXNob2xkIFRIUkVTICg9MS44KSBUaHJlc2hvbGQgZm9yIHBsYW5lIGZhY3RvciBmaWx0ZXJpbmcsIHNldCB0byAxLjAgdG8gDQogICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNhYmxlIGZpbHRlcmluZw0KICAtLXBvaW50IFggWSBaICAgICAgICAgICAgT3JpZW50IG5vcm1hbHMgdG93YXJkIHRoZSBwb2ludA0KICAtLWRpcmVjdGlvbiBYIFkgWiAgICAgICAgT3JpZW50IG5vcm1hbHMgdG93YXJkIHRoZSBkaXJlY3Rpb24NCiAgLS1jbG9zZWQgSyAgICAgICAgICAgICAgIE9yaWVudCBub3JtYWxzIG9mIGNsb3NlZCBzdXJmYWNlKHMpIHVzaW5nIGstTk4gDQogICAgICAgICAgICAgICAgICAgICAgICAgICBzZWFyY2ggd2l0aCB0aGUgc3BlY2lmaWVkIG51bWJlciBvZiBwb2ludHMNCiAgICAgICAgICAgICAgICAgICAgICAgICAgIFRoaXMgb3B0aW9uIHdpdGggMTAwIGlzIGRlZmF1bHQNCiAgLS1vdXQgRklMRSAgICAgICAgICAgICAgIE91dHB1dCBmaWxlIGluIENTViBmb3JtYXQ6DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgIFgsWSxaLE5YLE5ZLE5aDQo=",
+        "encoding": "base64",
+        "sha256": "655b5cea55191ad586f75f1ac58286f83116d5fda4dee54c407fc837ee75d540",
+        "size": 1280
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "normals-to-sdf",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-normals-to-sdf",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IG5vcm1hbHMtdG8tc2RmIFtPUFRJT05TXQ0KT3B0aW9uczoNCiAgLS1pbiBGSUxFICAgICAgICAgICAgICAgICAgIElucHV0IGZpbGUgaW4gQ1NWIGZvcm1hdDoNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWCxZLFosTlgsTlksTloNCiAgLS1vZmZzZXQgT0ZGU0VUICg9QVVUTykgICAgIERlZmF1bHQgb2Zmc2V0IGRpc3RhbmNlIG9mIG9mZi1zdXJmYWNlIHBvaW50cw0KICAtLWFuaXNvIEFfMTEgQV8xMiAuLi4gQV8zMyAoPTEgMCAwIDAgMSAwIDAgMCAxKQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRWxlbWVudHMgb2YgdGhlIGFuaXNvdHJvcHkgbWF0cml4DQogIC0tcmF0aW8gMC4wIHRvIDEuMCAoPTAuNSkgICBSYXRpbyBvZiBub3JtYWxzIHRvIHVzZSBmb3IgZ2VuZXJhdGluZyANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9mZi1zdXJmYWNlIHBvaW50cw0KICAtLW91dCBGSUxFICAgICAgICAgICAgICAgICAgT3V0cHV0IGZpbGUgaW4gQ1NWIGZvcm1hdDoNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWCxZLFosVkFMDQo=",
+        "encoding": "base64",
+        "sha256": "25033cf42c5dfac2c7840492627be309a4bd221e117f7c8f40e08ccd4fda2520",
+        "size": 572
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "surface-25d",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-surface-25d",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IHN1cmZhY2UtMjVkIFtPUFRJT05TXQ0KT3B0aW9uczoNCiAgLS1pbiBGSUxFICAgICAgICAgICAgICAgICAgIElucHV0IDJEIGludGVycG9sYW50IGZpbGUNCiAgLS1zZWVkcyBGSUxFICAgICAgICAgICAgICAgIElucHV0IHNlZWQgcG9pbnRzIGZpbGUgaW4gQ1NWIGZvcm1hdDoNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWCxZLFoNCiAgLS1hY2MgQUNDICg9QU5ZKSAgICAgICAgICAgIEFic29sdXRlIGV2YWx1YXRpb24gYWNjdXJhY3kNCiAgLS1ncmFkLWFjYyBBQ0MgKD1BTlkpICAgICAgIEFic29sdXRlIGdyYWRpZW50IGV2YWx1YXRpb24gYWNjdXJhY3kNCiAgLS1iYm94IFhfTUlOIFlfTUlOIFpfTUlOIFhfTUFYIFlfTUFYIFpfTUFYDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBPdXRwdXQgbWVzaCBib3VuZGluZyBib3gNCiAgLS1yZXMgUkVTICAgICAgICAgICAgICAgICAgIE91dHB1dCBtZXNoIHJlc29sdXRpb24NCiAgLS1vdXQgRklMRSAgICAgICAgICAgICAgICAgIE91dHB1dCBtZXNoIGZpbGUgaW4gT0JKIGZvcm1hdA0K",
+        "encoding": "base64",
+        "sha256": "e9e6f64ef6fecb3317a60524e5164b17af1746351ba45552f00f2c10c2c051e4",
+        "size": 561
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "isosurface",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-isosurface",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IGlzb3N1cmZhY2UgW09QVElPTlNdDQpPcHRpb25zOg0KICAtLWluIEZJTEUgICAgICAgICAgICAgICAgICAgSW5wdXQgM0QgaW50ZXJwb2xhbnQgZmlsZQ0KICAtLXNlZWRzIEZJTEUgICAgICAgICAgICAgICAgSW5wdXQgc2VlZCBwb2ludHMgZmlsZSBpbiBDU1YgZm9ybWF0Og0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBYLFksWg0KICAtLXNuYXAgRklMRSAgICAgICAgICAgICAgICAgUG9pbnRzIHRvIHNuYXAgdGhlIG1lc2ggdG8gaW4gQ1NWIGZvcm1hdDoNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWCxZLFpbLFRPTF0NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFRPTCBpcyB0aGUgdG9sZXJhbmNlIGRpc3RhbmNlIGFzIGEgZnJhY3Rpb24gb2YgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0aGUgbWVzaCByZXNvbHV0aW9uDQogIC0tYWNjIEFDQyAoPUFOWSkgICAgICAgICAgICBBYnNvbHV0ZSBldmFsdWF0aW9uIGFjY3VyYWN5DQogIC0tZ3JhZC1hY2MgQUNDICg9QU5ZKSAgICAgICBBYnNvbHV0ZSBncmFkaWVudCBldmFsdWF0aW9uIGFjY3VyYWN5DQogIC0tYmJveCBYX01JTiBZX01JTiBaX01JTiBYX01BWCBZX01BWCBaX01BWCAoPUFVVE8pDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBPdXRwdXQgbWVzaCBib3VuZGluZyBib3gNCiAgLS1yZXMgUkVTICAgICAgICAgICAgICAgICAgIE91dHB1dCBtZXNoIHJlc29sdXRpb24NCiAgLS1hbmlzbyBBXzExIEFfMTIgLi4uIEFfMzMgKD0xIDAgMCAwIDEgMCAwIDAgMSkNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVsZW1lbnRzIG9mIHRoZSBhbmlzb3Ryb3B5IG1hdHJpeA0KICAtLWlzb3ZhbCBWQUwgKD0wLjApICAgICAgICAgT3V0cHV0IG1lc2ggaXNvdmFsdWUNCiAgLS1vdXQgRklMRSAgICAgICAgICAgICAgICAgIE91dHB1dCBtZXNoIGZpbGUgaW4gT0JKIGZvcm1hdA0K",
+        "encoding": "base64",
+        "sha256": "73ac6d03ff02b4561e6f0d56904d6ee09f2453cc1cf2e6501aaa436f8066b160",
+        "size": 984
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "unique",
+        "--help"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "help-unique",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "dXNhZ2U6IHBvbGF0b3J5IHVuaXF1ZSBbT1BUSU9OU10NCk9wdGlvbnM6DQogIC0taW4gRklMRSAgICAgICAgICAgICBJbnB1dCBmaWxlIGluIENTViBmb3JtYXQ6DQogICAgICAgICAgICAgICAgICAgICAgICAgIFhbLFlbLFpdXS4uLg0KICAtLWRpbSAxfDJ8MyAgICAgICAgICAgRGltZW5zaW9uIG9mIGlucHV0IHBvaW50cw0KICAtLWRpc3QgRElTVCAoPTFlLTE5KSAgTWluaW11bSBkaXN0YW5jZSBiZXR3ZWVuIGRpc3RpbmN0IHBvaW50cw0KICAtLW91dCBGSUxFICAgICAgICAgICAgT3V0cHV0IGZpbGUgaW4gQ1NWIGZvcm1hdDoNCiAgICAgICAgICAgICAgICAgICAgICAgICAgWFssWVssWl1dLi4uDQo=",
+        "encoding": "base64",
+        "sha256": "ef99b5d5558239461d8afd471278ebef5f62242eece8d8721e65f326ca8a2f18",
+        "size": 344
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "unique",
+        "--in",
+        "${REPO}/oracle/fixtures/source/malformed-numbers.csv",
+        "--dim",
+        "1",
+        "--out",
+        "${WORK}/malformed-output.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "partial-number-parsing",
+      "outputs": [
+        {
+          "bytes_base64": "MCAwDQoxIDENCjIgMg0K",
+          "encoding": "base64",
+          "path": "${WORK}/malformed-output.csv",
+          "present": true,
+          "role": "logical_table",
+          "sha256": "22f843653d523cfa202da526905219c3dd1d159d00fe39f5b77efcd68bf1c275",
+          "size": 15
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "estimate-normals",
+        "--in",
+        "${REPO}/oracle/fixtures/source/point-cloud-plane.csv",
+        "--k",
+        "4",
+        "--radius",
+        "2",
+        "--out",
+        "${WORK}/conflict.csv"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "mutually-exclusive-normal-search",
+      "outputs": [
+        {
+          "path": "${WORK}/conflict.csv",
+          "present": false,
+          "role": "logical_table"
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IG9ubHkgZWl0aGVyIC0tayBvciAtLXJhZGl1cyBjYW4gYmUgc3BlY2lmaWVkDQo=",
+        "encoding": "base64",
+        "sha256": "9ab0b8e3cc65c13d591ace1519d18354387a32405a1069862111097d642a7a36",
+        "size": 53
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "scenario_id": "cli-command-contracts",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,42 @@
+{
+  "kind": "non_normative_resource_samples",
+  "runs": [
+    {
+      "id": "zero-rhs-fit",
+      "maximum_observed_thread_count": 4,
+      "monotonic_wall_seconds": 0.3521502000512555,
+      "peak_private_bytes": 12378112,
+      "peak_working_set_bytes": 20717568,
+      "resource_scope": "direct_child_process_only",
+      "samples": [
+        {
+          "elapsed_seconds": 0.11429820000194013,
+          "peak_pagefile_bytes": 12103680,
+          "peak_working_set_bytes": 19853312,
+          "private_bytes": 12046336,
+          "thread_count": 4,
+          "working_set_bytes": 19853312
+        },
+        {
+          "elapsed_seconds": 0.2154583000810817,
+          "peak_pagefile_bytes": 45719552,
+          "peak_working_set_bytes": 53547008,
+          "private_bytes": 12378112,
+          "thread_count": 4,
+          "working_set_bytes": 20717568
+        },
+        {
+          "elapsed_seconds": 0.30890430009458214,
+          "peak_pagefile_bytes": 45719552,
+          "peak_working_set_bytes": 53547008,
+          "private_bytes": 77824,
+          "thread_count": 0,
+          "working_set_bytes": 32768
+        }
+      ],
+      "sampling_interval_seconds": 0.05
+    }
+  ],
+  "scenario_id": "defect-zero-rhs",
+  "schema_version": "1.0.0"
+}

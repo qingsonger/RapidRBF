@@ -1,0 +1,326 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "binaries": {
+      "benchmark_points": {
+        "distribution": "not_redistributed",
+        "path": "${POLATORY_POINTS}",
+        "sha256": "3e06b1f848a4c25a580bc1b3a236d5f0659dba1b14aad539097abc79941c48a2",
+        "size": 500224
+      },
+      "benchmark_predict": {
+        "distribution": "not_redistributed",
+        "path": "${POLATORY_PREDICT}",
+        "sha256": "d0c5c887773532095b2b8c9c4d95801ae1d2c8e62bafe06005c7a9da8ccf70b3",
+        "size": 5551616
+      },
+      "polatory_cli": {
+        "distribution": "not_redistributed",
+        "path": "${POLATORY_CLI}",
+        "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9",
+        "size": 13902848
+      },
+      "polatory_tests": {
+        "distribution": "not_redistributed",
+        "path": "${POLATORY_TESTS}",
+        "sha256": "600736aa60caee4915d8cd3d8e2a9d5c8a53744dba800da6fe2d98eeeaef1e52",
+        "size": 9906176
+      }
+    },
+    "build_configuration": {
+      "build_ninja": {
+        "path": "${POLATORY_ROOT}/build/build.ninja",
+        "sha256": "622d2ba1a349f0574533be65f9cb7d0623d8cee1e6eafc32486a2bb8fe01b169",
+        "size": 201979
+      },
+      "cmake_cache": {
+        "path": "${POLATORY_ROOT}/build/CMakeCache.txt",
+        "selected_entries": {
+          "BUILD_BENCHMARKS": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "BUILD_CLI": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "BUILD_EXAMPLES": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "BUILD_PYTHON_BINDINGS": {
+            "type": "BOOL",
+            "value": "OFF"
+          },
+          "BUILD_TESTS": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "CMAKE_BUILD_TYPE": {
+            "type": "STRING",
+            "value": "Release"
+          },
+          "CMAKE_CXX_COMPILER": {
+            "type": "STRING",
+            "value": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/x64/bin/clang-cl.exe"
+          },
+          "CMAKE_CXX_FLAGS": {
+            "type": "STRING",
+            "value": "/DWIN32 /D_WINDOWS /GR /EHsc"
+          },
+          "CMAKE_CXX_FLAGS_RELEASE": {
+            "type": "STRING",
+            "value": "/O2 /Ob2 /DNDEBUG"
+          },
+          "CMAKE_GENERATOR": {
+            "type": "INTERNAL",
+            "value": "Ninja"
+          },
+          "CMAKE_TOOLCHAIN_FILE": {
+            "type": "FILEPATH",
+            "value": "${POLATORY_ROOT}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+          },
+          "MKL_DIR": {
+            "type": "PATH",
+            "value": "${POLATORY_ROOT}/build/vcpkg_installed/x64-windows/share/mkl"
+          },
+          "OpenMP_CXX_FLAGS": {
+            "type": "STRING",
+            "value": "-Xclang -fopenmp"
+          },
+          "OpenMP_CXX_LIB_NAMES": {
+            "type": "STRING",
+            "value": "libomp"
+          },
+          "OpenMP_CXX_SPEC_DATE": {
+            "type": "INTERNAL",
+            "value": "202011"
+          },
+          "VCPKG_INSTALLED_DIR": {
+            "type": "PATH",
+            "value": "${POLATORY_ROOT}/build/vcpkg_installed"
+          },
+          "VCPKG_TARGET_TRIPLET": {
+            "type": "STRING",
+            "value": "x64-windows"
+          }
+        },
+        "sha256": "ee7d8e81d25de27205ea57f0c0874bc29a59ee23f0e335122b4765fa4d816c9c",
+        "size": 30890
+      },
+      "detected_linkage": {
+        "mkl_dynamic": true,
+        "mkl_interface": "lp64",
+        "mkl_threading": "sequential",
+        "openmp_runtime": "LLVM libomp"
+      }
+    },
+    "dependency_revisions": {
+      "scalfmm_checkout": {
+        "exit_code": 0,
+        "stderr": {
+          "bytes_base64": "",
+          "encoding": "base64",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size": 0
+        },
+        "stdout": {
+          "bytes_base64": "MGJlM2Q3NGYxN2FkYjI4YWRlYzcwMDRmNzEyZjY5M2FjOGVlOTkwMQo=",
+          "encoding": "base64",
+          "sha256": "d7a7e4157290a868ec248bed34227d8689182c7a95e4196e6fd18b78b4a1f3d0",
+          "size": 41
+        },
+        "terminal_status": "exited"
+      },
+      "vcpkg_gitlink": {
+        "exit_code": 0,
+        "stderr": {
+          "bytes_base64": "",
+          "encoding": "base64",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size": 0
+        },
+        "stdout": {
+          "bytes_base64": "NGI3N2RhN2ZlZDM3ODE3ZjEyNDkzNjIzOTE5NzgzMzQ2OWYxYjlhOAo=",
+          "encoding": "base64",
+          "sha256": "2b5e40eab90d6adb125f957e766aeb95c6472bc2b2320c1d9f7a7aadbe3c41ae",
+          "size": 41
+        },
+        "terminal_status": "exited"
+      }
+    },
+    "host": {
+      "architecture": "64bit",
+      "logical_processor_count": 16,
+      "machine": "AMD64",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+      "python_implementation": "CPython",
+      "release": "11",
+      "system": "Windows",
+      "version": "10.0.26200"
+    }
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [
+    {
+      "argv": [
+        "cmake",
+        "--version"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "version-cmake",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "Y21ha2UgdmVyc2lvbiA0LjAuMwoKQ01ha2Ugc3VpdGUgbWFpbnRhaW5lZCBhbmQgc3VwcG9ydGVkIGJ5IEtpdHdhcmUgKGtpdHdhcmUuY29tL2NtYWtlKS4K",
+        "encoding": "base64",
+        "sha256": "f05fe86b5001ce00292a42883a46ecdeee3a88e96401f2d833aa0a1cb4f223ee",
+        "size": 90
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "ninja",
+        "--version"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "version-ninja",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "MS4xMy4xDQo=",
+        "encoding": "base64",
+        "sha256": "4b45271097805cc6fdcd9c06b5e6112e5426c40c8e10ffb0d182287439b89a3a",
+        "size": 8
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "C:/Users/qingsonger/AppData/Roaming/uv/python/cpython-3.13.5-windows-x86_64-none/python.exe",
+        "--version"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "version-python",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "UHl0aG9uIDMuMTMuNQ0K",
+        "encoding": "base64",
+        "sha256": "0fc277c607f29dba0321a8267cd42a095f85069b63c31f1401b6c66b9a30dd16",
+        "size": 15
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/x64/bin/clang-cl.exe",
+        "--version"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "version-clang_cl",
+      "outputs": [],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "Y2xhbmcgdmVyc2lvbiAxOS4xLjUKVGFyZ2V0OiB4ODZfNjQtcGMtd2luZG93cy1tc3ZjClRocmVhZCBtb2RlbDogcG9zaXgKSW5zdGFsbGVkRGlyOiBDOlxQcm9ncmFtIEZpbGVzXE1pY3Jvc29mdCBWaXN1YWwgU3R1ZGlvXDIwMjJcQ29tbXVuaXR5XFZDXFRvb2xzXExsdm1ceDY0XGJpbgo=",
+        "encoding": "base64",
+        "sha256": "21fe2bdcddfab7b74f90a1788b217f8ae8051d21f370efb0cbd96c8ae8212d72",
+        "size": 164
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 30
+    }
+  ],
+  "scenario_id": "build-identity",
+  "schema_version": "1.0.0"
+}

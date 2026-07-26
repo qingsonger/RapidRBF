@@ -1,0 +1,137 @@
+{
+  "authority": "diagnostic_baseline_not_mathematical_truth",
+  "configured_thread_environment": {
+    "MKL_CBWR": "COMPATIBLE",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1"
+  },
+  "kind": "frozen_polatory_workflow_observation",
+  "numeric_tolerance_applied": false,
+  "observations": {
+    "adjudication": "pending",
+    "candidate_defect": "normal_score_empty_or_singleton",
+    "role": "research_only"
+  },
+  "polatory_cli": {
+    "distribution": "not_redistributed",
+    "sha256": "95cd325f727e6f56d1656feb52672a37a5fc655132a232cbb6976f031ffccfe9"
+  },
+  "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+  "runs": [
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "variogram",
+        "--in",
+        "${REPO}/oracle/fixtures/source/normal-score-singleton.csv",
+        "--dim",
+        "1",
+        "--normal-score",
+        "--lag-dist",
+        "1",
+        "--num-lags",
+        "2",
+        "--out",
+        "${WORK}/normal-score-singleton.variogram"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 0,
+      "id": "normal-score-singleton",
+      "outputs": [
+        {
+          "bytes_base64": "AAAAAAAAAAA=",
+          "encoding": "base64",
+          "path": "${WORK}/normal-score-singleton.variogram",
+          "present": true,
+          "role": "research_only_variogram",
+          "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+          "size": 8
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    },
+    {
+      "argv": [
+        "${POLATORY_CLI}",
+        "variogram",
+        "--in",
+        "${REPO}/oracle/fixtures/source/normal-score-empty.csv",
+        "--dim",
+        "1",
+        "--normal-score",
+        "--lag-dist",
+        "1",
+        "--num-lags",
+        "2",
+        "--out",
+        "${WORK}/normal-score-empty.variogram"
+      ],
+      "configured_threads": 1,
+      "cwd": "${WORK}",
+      "environment": {
+        "MKL_CBWR": "COMPATIBLE",
+        "MKL_DYNAMIC": "FALSE",
+        "MKL_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "TEMP": "${WORK}",
+        "TMP": "${WORK}",
+        "TMPDIR": "${WORK}"
+      },
+      "exit_code": 1,
+      "id": "normal-score-empty",
+      "outputs": [
+        {
+          "path": "${WORK}/normal-score-empty.variogram",
+          "present": false,
+          "role": "research_only_variogram"
+        }
+      ],
+      "stderr": {
+        "bytes_base64": "ZXJyb3I6IGZpbGUgJ0Q6XENPREVcaW50ZXJwXFJhcGlkUkJGXG9yYWNsZVxmaXh0dXJlc1xzb3VyY2Vcbm9ybWFsLXNjb3JlLWVtcHR5LmNzdicgaXMgZW1wdHkNCg==",
+        "encoding": "base64",
+        "sha256": "3ac92b08b405102762aed697dbd88064fabf1ba19b8e4da6d7e9891df63ab0ab",
+        "size": 94
+      },
+      "stdout": {
+        "bytes_base64": "",
+        "encoding": "base64",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      "terminal_status": "exited",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "scenario_id": "defect-normal-score-small-inputs",
+  "schema_version": "1.0.0"
+}
