@@ -9,8 +9,12 @@ A Rust-native successor that preserves the selected observable capabilities, num
 _Avoid_: Port, drop-in replacement, line-by-line rewrite
 
 **Compatibility surface**:
-The complete set of Polatory capabilities visible to library, CLI, and Python users, re-expressed through idiomatic Rust interfaces where appropriate. Internal helpers and implementation details are outside this surface.
+The complete set of Polatory capabilities and documented semantic outcomes visible to library, CLI, and Python users, re-expressed through idiomatic Rust interfaces where appropriate. Incidental text, ordering, algorithm trajectories, internal helpers, and implementation details are outside this surface unless explicitly named.
 _Avoid_: Public headers, internal API, source compatibility
+
+**Intentional compatibility change**:
+A documented RapidRBF behavior that deliberately differs from Polatory because the legacy behavior is mathematically undefined, structurally invalid, unsafe, or a proven defect. Where applicable, RapidRBF provides a stable error category and migration guidance rather than preserving the legacy outcome.
+_Avoid_: Behavior drift, accidental incompatibility, silent fix
 
 **Self-contained distribution**:
 An official RapidRBF package that requires no separately installed compiler toolchain or native numerical dependency from its user, even when its internals include a native backend.
@@ -25,7 +29,7 @@ A release-blocking interpolation workload with at least one million input points
 _Avoid_: Scalability demo, aspirational benchmark
 
 **Numerical compatibility**:
-Agreement with Polatory's mathematical conventions and observable numerical behavior under explicitly defined error, residual, and convergence tolerances. It does not require bitwise-identical results across platforms or numerical backends.
+Agreement with Polatory's mathematical conventions and observable numerical outcomes under explicitly defined error, residual, and convergence tolerances. It does not require bitwise-identical results, identical coefficients, or identical solver and optimizer trajectories.
 _Avoid_: Bitwise compatibility, visually similar output
 
 **Legacy artifact**:
@@ -43,6 +47,10 @@ _Avoid_: Polatory is always correct, implementation-defined truth
 **Polatory baseline**:
 The frozen Polatory source revision `4a30beb`, together with its captured build configuration, dependency versions, datasets, and executable artifacts, used for RapidRBF v1.0.0 differential and performance comparisons.
 _Avoid_: Latest Polatory, moving upstream target
+
+**Reproducibility controls**:
+Stable Rust, Python, and CLI inputs and metadata that expose build identity, random seeds, configured and effective thread counts, and relevant runtime configuration without promising identical random sequences across implementations.
+_Avoid_: Bitwise deterministic execution, hidden execution defaults
 
 **Performance parity**:
 Absence of a material regression from the Polatory baseline in runtime, peak memory, or iterative convergence for the accepted benchmark suite, using empirically calibrated thresholds and a separate hard gate for million-scale workloads.
