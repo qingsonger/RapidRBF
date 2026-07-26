@@ -12,6 +12,58 @@ _Avoid_: Port, drop-in replacement, line-by-line rewrite
 The complete set of Polatory capabilities and documented semantic outcomes visible to library, CLI, and Python users, re-expressed through idiomatic Rust interfaces where appropriate. Incidental text, ordering, algorithm trajectories, internal helpers, and implementation details are outside this surface unless explicitly named.
 _Avoid_: Public headers, internal API, source compatibility
 
+**Acceptance workload tier**:
+The earliest cumulative gate at which an acceptance scenario must pass: `PR`, `Extended`, `Nightly`, or `Release-blocking`. Each higher tier includes the lower tiers; platform, oracle, resource, and workflow attributes remain orthogonal scenario metadata rather than duplicate tiers.
+_Avoid_: Exclusive test bucket, importance label, duplicated workload matrix
+
+**Acceptance workload coverage**:
+Coverage of every level of each compatibility axis plus deterministic pairwise combinations and explicitly required high-risk interactions, without requiring the full Cartesian product. Cheap atomic kernel semantics may be exhaustive, while expensive fit, geometry, and scale scenarios use pre-registered representative journeys.
+_Avoid_: Full Cartesian matrix, ad hoc sampling, one happy path per feature
+
+**Acceptance surface ownership**:
+The Rust core owns the complete numerical and semantic acceptance corpus. Python and CLI adapters own exhaustive interface shapes, defaults, mappings, and public workflows plus a representative end-to-end semantic spine; release artifacts additionally pass clean-host installation and execution journeys.
+_Avoid_: Repeating the full numerical matrix per interface, adapter-only semantic authority
+
+**PR acceptance spine**:
+The complete set of cheap, deterministic, environment-independent contract checks, including exhaustive atomic kernel semantics, every cheaply constructible stable state and validation failure, and small end-to-end representatives for each public workflow. It is always part of the `PR` acceptance workload tier rather than a smoke-test sample.
+_Avoid_: Smoke-only PR gate, change-selected correctness subset
+
+**Extended acceptance matrix**:
+The deterministic, repeatable integration and differential corpus that applies constrained pairwise coverage and mandatory high-risk interactions across every operation shape and public workflow at small-to-moderate scale. It includes the accepted legacy artifact matrix but excludes solver stress, fuzzing, performance judgment, and large-scale resource evidence.
+_Avoid_: PR smoke suite, nightly stress suite, Cartesian integration matrix
+
+**Nightly acceptance stress**:
+The cumulative scheduled corpus for medium-to-large solver stress, conditioning sweeps, complex geometry, property and metamorphic exploration, bounded fuzzing, concurrency determinism, operational-failure checks, and repeated numerical and resource trends through the 100k scale rung. Trend collection does not itself define the final release thresholds.
+_Avoid_: Deterministic integration matrix, million-scale hard gate, uncalibrated release judgment
+
+**Release-blocking evidence**:
+The immutable, content-addressed, pre-registered evidence closure required for publication, including every lower acceptance workload tier, tier-one clean-host journeys, the complete million-scale fit and evaluation gate, paired performance evidence, and identity, dataset, numerical, convergence, resource, packaging, and supply-chain records. Missing required evidence is a failed gate even before calibrated thresholds are applied.
+_Avoid_: Best-effort release run, post-release evidence, unregistered benchmark
+
+**Acceptance boundary triplet**:
+The three-sided workload around a numerical or geometric decision boundary: a difficult valid case that must certify success, an uncertain or mathematically degenerate case that must return its defined indeterminate category, and an invalid-side case that must fail validation. Exact thresholds belong to the operation's numerical acceptance standard.
+_Avoid_: Happy-path/invalid pair, epsilon guessing, boundary waiver
+
+**Evaluation batch equivalence**:
+One atomic evaluation batch and any ordered partition of the same targets, reassembled in original order, agree within requested accuracy while preserving duplicates and source coincidences. Success shapes include empty, singleton, and many-target batches; failure remains atomic and names the same first original target index regardless of internal chunking.
+_Avoid_: Chunk-size semantics, reordered targets, partial batch result
+
+**Acceptance execution lane**:
+An orthogonal execution of one semantic workload under a declared platform, backend, thread, affinity, and cache profile; it does not create a second workload identity. The canonical single-thread lane reaches 100k, while million-scale release journeys use a fixed physical-core throughput lane and always record configured, effective, and maximum live threads.
+_Avoid_: Duplicated semantic scenario, cross-host performance ratio, implicit thread count
+
+**Acceptance scenario**:
+A stable semantic workload identity that declares its minimum tier, covered contract, operation and data shape, expected outcome, oracle authority, content-addressed fixture, required evidence, and readiness. Execution lanes and later numerical or resource thresholds attach to this identity without redefining it.
+_Avoid_: CI job, test-function name, backend-specific benchmark
+
+**Acceptance readiness**:
+The evidence state of an acceptance scenario, independent of its tier: `accepted-ready` has executable content-addressed authority, `source-only` records non-executable surface facts, `research-only` is diagnostic without acceptance authority, and `missing` identifies required evidence not yet built. Every required release scenario must be `accepted-ready` before publication.
+_Avoid_: Passing by omission, tier downgrade, diagnostic oracle authority
+
+**Acceptance corpus**:
+The immutable, versioned set of acceptance scenarios and their materialized content-addressed fixtures, including generator and build identity rather than a seed alone. A semantic input, expected-outcome, or oracle-authority change creates a new scenario version; thresholds and adjudicated compatibility changes attach as separately reviewed records.
+_Avoid_: Mutable golden data, seed-only fixture, in-place benchmark rewrite
+
 **Intentional compatibility change**:
 A documented RapidRBF behavior that deliberately differs from Polatory because the legacy behavior is mathematically undefined, structurally invalid, unsafe, or a proven defect. Where applicable, RapidRBF provides a stable error category and migration guidance rather than preserving the legacy outcome.
 _Avoid_: Behavior drift, accidental incompatibility, silent fix
@@ -21,12 +73,12 @@ An official RapidRBF package that requires no separately installed compiler tool
 _Avoid_: Source-only release, system dependency
 
 **Tier-one platform**:
-A supported operating-system and architecture pair whose library, CLI, and Python artifacts must pass the v1.0.0 release gates. The tier-one set is Windows x86_64, Linux x86_64 with glibc, macOS arm64, and macOS x86_64.
+A supported operating-system and architecture pair whose canonical release build must pass the million-scale correctness, convergence, and absolute-resource journey once through the core release harness, while each library, CLI, and Python artifact passes its own clean-host installation and public-workflow gates without repeating the core numerical corpus. The tier-one set is Windows x86_64, Linux x86_64 with glibc, macOS arm64, and macOS x86_64; performance parity is measured only on separately designated same-host Polatory/RapidRBF pairs, never by cross-platform ratios.
 _Avoid_: Best-effort platform, build-only target
 
 **Million-scale workload**:
-A release-blocking interpolation workload with at least one million input points whose fit, evaluation, convergence, peak memory, and runtime are assessed against the Polatory baseline on identical hardware and inputs.
-_Avoid_: Scalability demo, aspirational benchmark
+The release-blocking pair of 3D interpolation journeys, each with at least one million supplied fit-point rows and one million independent evaluation targets: the frozen-ladder value-only `exp` model followed by value evaluation, and a Hermite-safe `th3 + gau` composite with distinct valid full anisotropy, non-zero nugget, 75% value rows, and 25% full-gradient rows followed by value-plus-gradient evaluation. The value-only dataset also drives an independent incremental fit; every journey advances through content-addressed lower rungs before freezing and retains scalar-equation count, accuracy, convergence, peak-memory, scratch, and thread evidence on every tier-one platform, with paired Polatory performance evidence required only on designated same-host lanes.
+_Avoid_: Scalability demo, aspirational benchmark, prediction-only million case
 
 **Numerical compatibility**:
 Agreement with Polatory's mathematical conventions and observable numerical outcomes under explicitly defined error, residual, and convergence tolerances. It does not require bitwise-identical results, identical coefficients, or identical solver and optimizer trajectories.
