@@ -21,11 +21,11 @@ Coverage of every level of each compatibility axis plus deterministic pairwise c
 _Avoid_: Full Cartesian matrix, ad hoc sampling, one happy path per feature
 
 **Acceptance surface ownership**:
-The Rust core owns the complete numerical and semantic acceptance corpus. Python and CLI adapters own exhaustive interface shapes, defaults, mappings, and public workflows plus a representative end-to-end semantic spine; release artifacts additionally pass clean-host installation and execution journeys.
+The Rust core owns the complete numerical and semantic acceptance corpus. Python and CLI adapters own exhaustive interface shapes, options, defaults, mappings, exception and exit categories, and public workflows plus a representative end-to-end semantic spine; release artifacts additionally pass clean-host installation and execution journeys.
 _Avoid_: Repeating the full numerical matrix per interface, adapter-only semantic authority
 
 **PR acceptance spine**:
-The complete set of cheap, deterministic, environment-independent contract checks, including exhaustive atomic kernel semantics, every cheaply constructible stable state and validation failure, and small end-to-end representatives for each public workflow. It is always part of the `PR` acceptance workload tier rather than a smoke-test sample.
+The complete set of cheap, deterministic, environment-independent contract checks, including exhaustive atomic kernel semantics, every cheaply constructible stable state and validation failure, atomic failure with prior-state preservation and object reusability, and small end-to-end representatives for each public workflow. It is always part of the `PR` acceptance workload tier rather than a smoke-test sample.
 _Avoid_: Smoke-only PR gate, change-selected correctness subset
 
 **Extended acceptance matrix**:
@@ -33,7 +33,7 @@ The deterministic, repeatable integration and differential corpus that applies c
 _Avoid_: PR smoke suite, nightly stress suite, Cartesian integration matrix
 
 **Nightly acceptance stress**:
-The cumulative scheduled corpus for medium-to-large solver stress, conditioning sweeps, complex geometry, property and metamorphic exploration, bounded fuzzing, concurrency determinism, operational-failure checks, and repeated numerical and resource trends through the 100k scale rung. Trend collection does not itself define the final release thresholds.
+The cumulative scheduled corpus for medium-to-large solver stress, conditioning sweeps, complex geometry, property and metamorphic exploration, bounded fuzzing, concurrency determinism, operational-failure checks, and repeated numerical and resource trends through each scenario's declared scale ceiling, normally 100k but 10k for quadratic-pair kriging workloads. Trend collection does not itself define the final release thresholds.
 _Avoid_: Deterministic integration matrix, million-scale hard gate, uncalibrated release judgment
 
 **Release-blocking evidence**:
@@ -77,7 +77,7 @@ A supported operating-system and architecture pair whose canonical release build
 _Avoid_: Best-effort platform, build-only target
 
 **Million-scale workload**:
-The release-blocking pair of 3D interpolation journeys, each with at least one million supplied fit-point rows and one million independent evaluation targets: the frozen-ladder value-only `exp` model followed by value evaluation, and a Hermite-safe `th3 + gau` composite with distinct valid full anisotropy, non-zero nugget, 75% value rows, and 25% full-gradient rows followed by value-plus-gradient evaluation. The value-only dataset also drives an independent incremental fit; every journey advances through content-addressed lower rungs before freezing and retains scalar-equation count, accuracy, convergence, peak-memory, scratch, and thread evidence on every tier-one platform, with paired Polatory performance evidence required only on designated same-host lanes.
+The release-blocking set contains two 3D model/data journeys with at least one million supplied fit-point rows and one million independent evaluation targets: the frozen-ladder value-only `exp(psill=1, range=0.02)` model with identity anisotropy, degree zero, and zero nugget, and a Hermite-safe `th3(c>0) + gau` composite with distinct valid full anisotropy including shear, `AUTO` degree, non-zero nugget, 75% value rows, and 25% full-gradient rows. The first journey runs separate ordinary and incremental fits with full-data certification and million-target value evaluation, while the second runs ordinary fit and million-target value-plus-gradient evaluation; all variants advance through content-addressed lower rungs and retain scalar-equation count, accuracy, convergence, peak-memory, scratch, and thread evidence on every tier-one platform, with paired Polatory performance required only on designated same-host lanes.
 _Avoid_: Scalability demo, aspirational benchmark, prediction-only million case
 
 **Numerical compatibility**:
