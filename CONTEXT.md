@@ -76,9 +76,29 @@ _Avoid_: Passing by omission, tier downgrade, diagnostic oracle authority
 The immutable, versioned set of acceptance scenarios and their materialized content-addressed fixtures, including generator and build identity rather than a seed alone. A semantic input, expected-outcome, or oracle-authority change creates a new scenario version; thresholds and adjudicated compatibility changes attach as separately reviewed records.
 _Avoid_: Mutable golden data, seed-only fixture, in-place benchmark rewrite
 
+**Numerical acceptance profile**:
+The named, versioned set of operation-, channel-, metric-, and scenario-specific correctness thresholds, escalation rules, and evidence requirements applied unchanged across cumulative acceptance workload tiers. A tier changes coverage, scale, execution lanes, and evidence closure, never the semantic pass/fail rule of the same scenario.
+_Avoid_: Global epsilon, tier-specific correctness, release-only tolerance
+
+**Acceptance metric role**:
+The non-substitutable purpose of a numerical acceptance metric: exact comparison owns discrete semantics, absolute infinity norm owns public accuracy and fit residuals, componentwise absolute-plus-relative comparison owns floating reference agreement, and scale-normalized metrics own dimensionless certificates. ULP, RMS, and L2 measurements are diagnostic and cannot mask a failed primary metric.
+_Avoid_: Metric voting, RMS-only success, ULP compatibility, aggregate-error waiver
+
+**Acceptance threshold calibration**:
+The independent, content-addressed process that freezes each numerical acceptance profile threshold before candidate acceptance as the smallest power of two covering the sound error bound, four times calibration error, and eight times oracle uncertainty without exceeding its hard ceiling. Holdout or candidate results cannot widen a threshold, and any later change creates a new profile version.
+_Avoid_: Candidate-tuned tolerance, mutable threshold, inherited test epsilon
+
+**Reference error scale**:
+The candidate-independent local magnitude formed from the high-precision absolute sum of the canonical mathematical contributions to one compared output component, or a sound upper bound on that sum. It scales only the absolute term of floating reference agreement; exact-zero semantics and public unscaled requested accuracy remain separate.
+_Avoid_: Candidate-derived scale, batch-global maximum, reference magnitude alone, post-hoc normalization
+
 **Intentional compatibility change**:
 A documented RapidRBF behavior that deliberately differs from Polatory because the legacy behavior is mathematically undefined, structurally invalid, unsafe, or a proven defect. Where applicable, RapidRBF provides a stable error category and migration guidance rather than preserving the legacy outcome.
 _Avoid_: Behavior drift, accidental incompatibility, silent fix
+
+**Intentional difference adjudication**:
+The immutable, content-addressed lifecycle record that retains frozen Polatory evidence while an accepted independent mathematical, structural, safety, or reproduced-defect adjudication supersedes only its acceptance authority for one narrowly scoped, versioned compatibility change. It binds evidence readiness, oracle authority, the required RapidRBF outcome, unchanged acceptance profiles, migration guidance, and human approval; every non-accepted record remains non-authoritative and no numerical correctness waiver exists.
+_Avoid_: Candidate-as-oracle, tolerance waiver, expected failure, blanket exception, silent incompatibility
 
 **Self-contained distribution**:
 An official RapidRBF package that requires no separately installed compiler toolchain or native numerical dependency from its user, even when its internals include a native backend.
@@ -96,9 +116,17 @@ _Avoid_: Scalability demo, aspirational benchmark, prediction-only million case
 Agreement with Polatory's mathematical conventions and observable numerical outcomes under explicitly defined error, residual, and convergence tolerances. It does not require bitwise-identical results, identical coefficients, or identical solver and optimizer trajectories.
 _Avoid_: Bitwise compatibility, visually similar output
 
+**Semantic numerical determinism**:
+The requirement that every non-operational execution lane of the same acceptance scenario has identical discrete semantic results and independently passes the same oracle, while continuous two-sided results remain within the sum of their certified error envelopes. Agreement among candidates, averaging, or selection of a favorable run cannot replace an oracle pass, and internal solver, optimizer, or mesh identities remain non-contractual.
+_Avoid_: Bitwise reproducibility, majority-vote correctness, best-run selection, trajectory determinism
+
 **Fit success**:
 A fitted interpolant state whose full value and gradient observation residuals, recomputed from the candidate outside the solver's internal convergence estimate, are finite and within their configured absolute infinity-norm tolerances. Sampling may guide computation but cannot establish fit success.
 _Avoid_: Solver convergence, sampled convergence, internal residual success
+
+**Certified convergence**:
+An operation reports numerical convergence only after its complete external result certificate passes within its declared iteration and work budgets. Recurrence residuals, optimizer stop criteria, restart trajectories, and Polatory outcomes are diagnostic triggers rather than proof; exhausting a budget without a certificate is non-convergence unless a more specific proven failure applies.
+_Avoid_: Solver-declared convergence, recurrence-residual success, Polatory-success proxy, hidden extra iterations
 
 **Kernel parameter domain**:
 The finite parameter set in which `scale`, `psill`, `c`, and `nugget` are non-negative and covariance `range` is strictly positive. A zero-amplitude component remains part of the model with its family identity and CPD rules; negative `c` is invalid rather than normalized.
@@ -180,12 +208,16 @@ _Avoid_: Relative accuracy, scale-adjusted accuracy, backend tuning hint
 The deterministic full pairwise evaluation of a canonical matrix-kernel action used as the zero backend-approximation reference for requested accuracy. It is a floating-point reference governed by the operation-level numerical acceptance standard, not a claim of exact real arithmetic.
 _Avoid_: Sampled fast estimate, backend trajectory, exact-real oracle
 
+**Direct accumulation certificate**:
+A per-output sound error bound that composes interval bounds for every weighted canonical kernel contribution with deterministic reduction, polynomial, and nugget roundoff. It keeps direct-reference error separate from backend approximation and solver residual rather than replacing them with one matrix epsilon.
+_Avoid_: Flat matrix epsilon, sampled accumulation proof, merged error budget
+
 **Kernel approximation certificate**:
 A call-scoped sound upper bound on the absolute infinity-norm error of a complete requested value or gradient batch against the canonical direct reference, including adapter approximation and matrix-kernel transformation, composition, and accumulation error. Sampling may select a route or tune it but cannot alone certify success.
 _Avoid_: Sampled calibration result, backend convergence flag, per-point spot check
 
 **Default accuracy profile**:
-The public, named, and versioned absolute infinity-norm error envelope used when requested accuracy is `Any`. A backend must certify that envelope or refine, fall back, or fail; certificate-bearing operations instead derive a concrete internal budget from their outer tolerance.
+The public, named, and versioned absolute infinity-norm error envelope used when requested accuracy is `Any`; `rapidrbf-default-v1` derives its effective value and gradient ceilings before execution from sound reference error scales and direct accumulation certificates. A backend must certify that envelope or refine, fall back, or fail, while fit, KKT, and geometry operations derive concrete internal budgets from their outer tolerances instead.
 _Avoid_: Unlimited `Any` error, undocumented backend default, using the default profile as a fit certificate
 
 **Normal-score transformation**:
@@ -244,8 +276,16 @@ _Avoid_: Gauge-dependent `range`/matrix pairs, hidden post-fit clipping, treatin
 A bounded deterministic multi-start fit whose starts are controlled by an explicit seed, whose candidates are independently revalidated and rescored, and whose winner is selected by objective value with a stable trial-order tie-break. Compatibility concerns the objective and modeled values within tolerance, not optimizer trajectory or bitwise parameter identity.
 _Avoid_: Unseeded trials, accepting an unchecked terminal iterate, optimizer-specific trajectory contracts
 
+**Certified variogram-fit convergence**:
+An in-domain variogram-fit candidate whose independently recomputed projected first-order KKT residual passes the numerical acceptance profile in normalized positive, zero-boundary, and rotation-manifold coordinates. Optimizer termination, cost or step stagnation, and iteration exhaustion are diagnostic and cannot establish convergence.
+_Avoid_: Optimizer-declared convergence, stagnation success, iteration-limit success, unchecked terminal candidate
+
+**Variogram-fit output equivalence**:
+Agreement between a certified fitted model and its independent reference in modeled semivariances, one-sided canonical objective regret, and preregistered held-out predictions under the numerical acceptance profile. A lower objective cannot waive an output or prediction discrepancy, while parameter values, optimizer trajectories, and trial membership are not compatibility targets.
+_Avoid_: Parameter-vector equality, objective-only equivalence, training-selected holdout, lower-cost waiver
+
 **Usable variogram-fit candidate**:
-A converged, in-domain covariance model whose objective and every weight are independently recomputable and finite. Trial-local invalidity is diagnostic and does not abort other starts, while a non-converged terminal iterate or an operation interrupted by cancellation, deadline, or resource failure is never returned as best-so-far.
+A covariance model with certified variogram-fit convergence whose objective and every weight are independently recomputable and finite. Trial-local invalidity is diagnostic and does not abort other starts, while a non-converged terminal iterate or an operation interrupted by cancellation, deadline, or resource failure is never returned as best-so-far.
 _Avoid_: Lowest reported cost regardless of termination, clipped candidate, zero-trial identity result, interrupted best-so-far result
 
 **Polynomial detrending**:
@@ -269,8 +309,8 @@ A transactional fit whose finite coefficients independently satisfy the complete
 _Avoid_: Solver-recurrence-only stopping, unchecked polynomial moments, partially committed failed fits, best-effort coefficients
 
 **Certified error budget**:
-The acceptance rule for a result computed with a certified approximation error `alpha`: the independently measured residual plus `alpha` must remain within the public operation tolerance. A fit must obtain a concrete error bound even when public evaluation otherwise permits `Any`.
-_Avoid_: Treating requested accuracy as a tuning hint, spending the full tolerance on solver residual, using `Any` as proof
+The channel-specific additive ledger that assigns every evaluator, oracle, reduction, and rounding uncertainty exactly once before requiring the worst-case sum plus any independently measured residual to remain within the public operation tolerance. An uncertainty already enclosed by an outward interval is not charged again, while a point estimate must expose every omitted uncertainty explicitly; value, gradient, and geometry channels cannot borrow from one another.
+_Avoid_: Double-counted interval radius, omitted point-estimate error, root-sum-square budgeting, cross-channel borrowing
 
 **Atomic evaluation batch**:
 An order-preserving value-only or value-and-gradient request that returns a complete finite result within requested accuracy or fails as a whole with the first failing target index and stable cause. Failure never emits partial arrays or mutates certified interpolant state.
@@ -381,8 +421,12 @@ Every successful `Surface` result before optional snapping is a certified mesh-v
 _Avoid_: Uncertified coarse success, refine-only correctness, sample-point residual
 
 **Surface accuracy profile**:
-A versioned set of numerical bounds and certification budgets used by base, equivalent, refined, seeded, snapped, 2.5D, and mesh-validity results. Position uses transformed distance `norm(A*(x-y))`, physical normals compare as normalized `A^-T*n`, and normalized field residual is `(abs(f_hat-isovalue)+value_error)/certified_lower_bound(norm(A^-T*grad(f)))` over full triangle surfaces; inability to certify a positive denominator is `TopologyUnresolved`. Seed capture uses an inclusive finite positive profile factor times resolution, and bbox predicates use the same certified error discipline. The v1 factors, angular ceilings, robust-predicate escalation, and work budgets belong to the numerical acceptance standard rather than mesh implementation identity.
+A versioned set of numerical bounds and certification budgets used by base, equivalent, refined, seeded, snapped, 2.5D, and mesh-validity results. Position uses transformed distance `norm(A*(x-y))`, physical normals compare as normalized `A^-T*n`, and normalized field residual is `(abs(f_hat-isovalue)+value_error)/certified_lower_bound(norm(A^-T*grad(f)))` over full triangle surfaces; inability to certify a positive denominator is `TopologyUnresolved`. Seed capture uses an inclusive finite positive profile factor times resolution, while continuous coordinate guards never establish discrete bbox incidence. The v1 factors, angular ceilings, robust-predicate escalation, and work budgets belong to the numerical acceptance standard rather than mesh implementation identity.
 _Avoid_: Bbox-relative visual tolerance, unversioned hidden epsilon, implementation-iteration budget
+
+**Surface proof certificate**:
+The independently verifiable, bounded evidence that every continuous field claim is supported by sound interval enclosures and every finite-coordinate topology or mesh claim resolves to an exact sign or identity under the surface accuracy profile. Its budget measures canonical certificate leaves and clauses rather than extraction or refinement iterations; exhaustion yields the owning unresolved result and never partial success.
+_Avoid_: Sampled topology proof, epsilon predicate, iteration-budget certificate, successful mesh as proof
 
 **Geometrically equivalent isosurface**:
 Topology-resolved oriented surfaces ambient-isotopic to the same requested underlying level-set component union relative to the bbox stratification, inducing a component bijection that preserves interior/exterior orientation, embedded topology, per-component Euler characteristic and genus, and bbox-boundary-loop incidence, followed by componentwise certified anisotropic symmetric triangle-surface Hausdorff distance, normalized level-set positional residual outside snapped regions, transformed-space oriented-normal angle, and finite physical-bbox containment and clipping-boundary criteria under the same surface accuracy profile. Vertex samples alone, bbox-relative visual similarity, or any one metric cannot establish equivalence.
@@ -405,15 +449,15 @@ An enabled refinement whose final mesh satisfies the requested mode's surface ac
 _Avoid_: Single-step refinement promise, silent rejected move, partially refined success
 
 **Certified mesh snapping**:
-A per-input-point constraint relative to the certified, clipped, unsnapped base surface `M0`: an outside-bbox point or an in-bbox point farther than one anisotropic resolution from `M0` is diagnosed without constraining the mesh, while every in-bbox point within that range must finish within its finite relative tolerance times resolution and a zero-tolerance point must be an exact mesh vertex. Conflicting or incomplete in-range constraints atomically fail with stable input indices; iteration count, mesh-hash cycles, and partial winners are not compatibility behavior.
+A per-input-point constraint whose active or out-of-range classification is certified against the requested canonical underlying component union, not a candidate tessellation. Before its unsnapped base surface `M0` is frozen, every active target must also be certified within one anisotropic resolution of `M0`; the final mesh must meet each finite relative tolerance times resolution, with a zero-tolerance point as an exact mesh vertex.
 _Avoid_: Best-effort snap, silent dishonored point, winner-only contention, iteration-limit success
 
 **Canonical snap constraints**:
-The order-independent candidate set derived from finite snap locations with finite relative tolerances in `[0,1]`, defaulting to zero: an outside-bbox location is diagnostic only, and an in-bbox location becomes an active constraint only when it is within one anisotropic resolution of `M0`. Signed-zero-normalized duplicate in-bbox candidates coalesce at their minimum tolerance while retaining every original index for status reporting; near-but-distinct points never merge, and invalid inputs fail atomically.
+The order-independent candidate set derived from finite snap locations with finite relative tolerances in `[0,1]`, defaulting to zero: an outside-bbox location is diagnostic only, and an in-bbox location becomes active exactly when its certified distance to the requested underlying component union is within the inclusive capture radius. Signed-zero-normalized duplicates coalesce at their minimum tolerance while retaining every original index; near-but-distinct points never merge, and an active target without a certified local `M0` anchor is incomplete rather than silently reclassified.
 _Avoid_: Input-order winner, duplicate snap vertices, implicit positive tolerance, near-point merge
 
 **Snap point status**:
-For a certified `Surface`, the per-original-point success status is `OutsideDomain` for a finite point outside the bbox, `OutOfRange` for an in-bbox point farther than one anisotropic resolution from `M0`, or `Satisfied` for every active constraint, including one already satisfied before deformation. For certified `Empty` or `Entire`, outside-bbox points remain `OutsideDomain` and in-bbox points are `NoSurfaceInDomain`. Proven joint infeasibility of active constraints is the indexed atomic failure `SnapConflict`; failure to certify all constraints without such a proof is `SnapIncomplete`. Coalesced duplicates retain a status for every original index.
+For a certified `Surface`, the per-original-point success status is `OutsideDomain` for a finite point outside the bbox, `OutOfRange` for an in-bbox point beyond the underlying-union capture radius, or `Satisfied` for every active constraint, including one already satisfied before deformation. For certified `Empty` or `Entire`, outside-bbox points remain `OutsideDomain` and in-bbox points are `NoSurfaceInDomain`; unresolved distance or local-anchor evidence is `SnapIncomplete`, while only proven joint infeasibility is `SnapConflict`.
 _Avoid_: Winner-only status, already-satisfied ambiguity, partial snap success
 
 **Certified snapped surface**:
@@ -421,7 +465,7 @@ An orientation-preserving ambient-isotopic deformation `M1` of a certified unsna
 _Avoid_: Unbounded snap deformation, topology-changing snap, globally relaxed level-set residual
 
 **Certified mesh validity**:
-A robustly certified finite indexed triangle surface with no unreferenced vertices, invalid indices, zero-area or duplicate/oppositely duplicated faces, non-manifold edge or vertex links, inconsistent winding, T-junctions, non-adjacent contact or intersection, or coplanar overlap beyond an adjacent pair's declared shared vertex or edge; a boundary edge is single-sided and lies on the bbox clipping boundary. A proven defect that cannot be repaired yields `MeshValidityFailed`, while numerically indeterminate predicates refine or return `MeshValidityUnresolved`; clustering and legacy defect-finder output cannot weaken the certificate.
+A robustly certified finite indexed triangle surface with no unreferenced vertices, invalid indices, zero-area or duplicate/oppositely duplicated faces, non-manifold edge or vertex links, inconsistent winding, T-junctions, non-adjacent contact or intersection, or coplanar overlap beyond an adjacent pair's declared shared vertex or edge. Every boundary primitive is single-sided, uses the canonical bbox endpoint coordinate on its declared stratum, and is exactly incident with that face, edge, or corner; a proven defect yields `MeshValidityFailed`, while an indeterminate predicate refines or yields `MeshValidityUnresolved`.
 _Avoid_: Legacy-defect parity, boundary-singularity exception, floating-predicate guess, cluster-success certificate
 
 **Certified mesh post-processing**:
@@ -455,6 +499,10 @@ _Avoid_: Native memory dump, legacy artifact
 **Reference hierarchy**:
 The order used to judge numerical discrepancies: explicit mathematical definitions and high-precision direct references first, Polatory's observable behavior second, and a RapidRBF candidate implementation third. Proven Polatory defects become documented intentional differences rather than compatibility requirements.
 _Avoid_: Polatory is always correct, implementation-defined truth
+
+**Oracle escalation**:
+The mandatory promotion from ordinary floating-point evidence to analytic, higher-precision, interval, or exact-predicate adjudication whenever uncertainty crosses a semantic boundary or a Polatory difference may be a defect. When a full direct reference is infeasible at scale, only a sound full-batch error certificate plus the complete operation certificate can replace it; fixed audit samples validate that evidence but never prove success alone.
+_Avoid_: Spot-check proof, boundary guess, sampled certificate, Polatory tie-break
 
 **Polatory baseline**:
 The frozen Polatory source revision `4a30beb`, together with its captured build configuration, dependency versions, datasets, and executable artifacts, used for RapidRBF v1.0.0 differential and performance comparisons.
