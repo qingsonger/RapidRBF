@@ -56,6 +56,18 @@ _Avoid_: Duplicated semantic scenario, cross-host performance ratio, implicit th
 A stable semantic workload identity that declares its minimum tier, covered contract, operation and data shape, expected outcome, oracle authority, content-addressed fixture, required evidence, and readiness. Execution lanes and later numerical or resource thresholds attach to this identity without redefining it.
 _Avoid_: CI job, test-function name, backend-specific benchmark
 
+**Paired measurement plan**:
+An immutable binding of one acceptance scenario and content-addressed fixture to one acceptance execution lane, the Polatory baseline, and one RapidRBF candidate, with every comparison pair, subject order, and required evidence channel declared before collection. Changing the lane, candidate, order, or evidence obligations creates a new plan without changing the scenario identity.
+_Avoid_: Acceptance scenario, mutable benchmark configuration, post-hoc run selection
+
+**Measurement lifecycle profile**:
+The declared reuse condition of a paired measurement plan: `Fresh process` means a new subject process and isolated scratch without claiming a cold operating-system page cache; `Declared warm-up` adds a recorded untimed precondition for each subject; and `Prepared reuse` separates preparation from ordered measured applications while retaining resource evidence through cleanup.
+_Avoid_: Cold-cache run, implicit warm state, backend-state guess
+
+**Paired measurement evidence**:
+The complete, content-addressed, integrity-audited record of a paired measurement plan, with every planned Polatory/RapidRBF observation and every required semantic and resource channel accounted for. Without the relevant separately versioned threshold sets, its disposition is `COLLECTED, UNJUDGED`, which asserts neither numerical compatibility nor performance parity.
+_Avoid_: Benchmark result, provisional pass, partial run log
+
 **Acceptance readiness**:
 The evidence state of an acceptance scenario, independent of its tier: `accepted-ready` has executable content-addressed authority, `source-only` records non-executable surface facts, `research-only` is diagnostic without acceptance authority, and `missing` identifies required evidence not yet built. Every required release scenario must be `accepted-ready` before publication.
 _Avoid_: Passing by omission, tier downgrade, diagnostic oracle authority
