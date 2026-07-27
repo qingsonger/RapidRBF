@@ -1,0 +1,788 @@
+{
+  "authority": "Throwaway algebraic mapping evidence only; not kifmm execution, accepted harness evidence, a sound certificate, or Auto qualification.",
+  "host": {
+    "machine": "AMD64",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.5"
+  },
+  "kernel": {
+    "beta": 0.37,
+    "family": "Gaussian"
+  },
+  "rows": [
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "identity",
+      "dimension": 1,
+      "geometry": "cross",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "2.93431372456685636e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "identity",
+      "dimension": 1,
+      "geometry": "cross",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "2.57037174522794222e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "identity",
+      "dimension": 1,
+      "geometry": "cross",
+      "max_abs_error": "2.22044604925031308e-16",
+      "relative_to_output_scale": "2.22044604925031308e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "identity",
+      "dimension": 1,
+      "geometry": "cross",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "2.08800309294111563e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "diagonal",
+      "dimension": 1,
+      "geometry": "cross",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "3.15851074827143367e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "diagonal",
+      "dimension": 1,
+      "geometry": "cross",
+      "max_abs_error": "9.43689570931383059e-16",
+      "relative_to_output_scale": "2.13249050732992457e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "diagonal",
+      "dimension": 1,
+      "geometry": "cross",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "4.14588896333410848e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "diagonal",
+      "dimension": 1,
+      "geometry": "cross",
+      "max_abs_error": "1.77635683940025046e-15",
+      "relative_to_output_scale": "3.04992617751503326e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "identity",
+      "dimension": 1,
+      "geometry": "self",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "1.44908812675820001e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "identity",
+      "dimension": 1,
+      "geometry": "self",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "2.59232222438935922e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "identity",
+      "dimension": 1,
+      "geometry": "self",
+      "max_abs_error": "2.77555756156289135e-16",
+      "relative_to_output_scale": "2.77555756156289135e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "identity",
+      "dimension": 1,
+      "geometry": "self",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "2.09024663657359420e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "diagonal",
+      "dimension": 1,
+      "geometry": "self",
+      "max_abs_error": "5.55111512312578270e-16",
+      "relative_to_output_scale": "1.96909763699294039e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "diagonal",
+      "dimension": 1,
+      "geometry": "self",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "2.15380878970563464e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "diagonal",
+      "dimension": 1,
+      "geometry": "self",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "4.19083722828879482e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "diagonal",
+      "dimension": 1,
+      "geometry": "self",
+      "max_abs_error": "2.66453525910037570e-15",
+      "relative_to_output_scale": "4.64802011036444025e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "identity",
+      "dimension": 2,
+      "geometry": "cross",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "1.83606408090353619e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 2,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "identity",
+      "dimension": 2,
+      "geometry": "cross",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "3.80951206675213469e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "identity",
+      "dimension": 2,
+      "geometry": "cross",
+      "max_abs_error": "3.33066907387546962e-16",
+      "relative_to_output_scale": "3.33066907387546962e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 2,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "identity",
+      "dimension": 2,
+      "geometry": "cross",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "2.59942230306915488e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "diagonal",
+      "dimension": 2,
+      "geometry": "cross",
+      "max_abs_error": "6.66133814775093924e-16",
+      "relative_to_output_scale": "2.70957856085266280e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 2,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "diagonal",
+      "dimension": 2,
+      "geometry": "cross",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "1.43614133672542217e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "diagonal",
+      "dimension": 2,
+      "geometry": "cross",
+      "max_abs_error": "6.66133814775093924e-16",
+      "relative_to_output_scale": "4.76914440460113065e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 2,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "diagonal",
+      "dimension": 2,
+      "geometry": "cross",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "1.01274786059016139e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "shear",
+      "dimension": 2,
+      "geometry": "cross",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "1.85462368027049338e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 2,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "shear",
+      "dimension": 2,
+      "geometry": "cross",
+      "max_abs_error": "1.33226762955018785e-15",
+      "relative_to_output_scale": "4.48383763362546148e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "shear",
+      "dimension": 2,
+      "geometry": "cross",
+      "max_abs_error": "6.66133814775093924e-16",
+      "relative_to_output_scale": "6.66133814775093924e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 2,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "shear",
+      "dimension": 2,
+      "geometry": "cross",
+      "max_abs_error": "1.33226762955018785e-15",
+      "relative_to_output_scale": "3.35485597740272988e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "identity",
+      "dimension": 2,
+      "geometry": "self",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "1.80980951744275996e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 2,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "identity",
+      "dimension": 2,
+      "geometry": "self",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "2.57011191693550397e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "identity",
+      "dimension": 2,
+      "geometry": "self",
+      "max_abs_error": "2.22044604925031308e-16",
+      "relative_to_output_scale": "2.22044604925031308e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 2,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "identity",
+      "dimension": 2,
+      "geometry": "self",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "2.78944902736816446e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "diagonal",
+      "dimension": 2,
+      "geometry": "self",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "1.79574321738476762e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 2,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "diagonal",
+      "dimension": 2,
+      "geometry": "self",
+      "max_abs_error": "6.66133814775093924e-16",
+      "relative_to_output_scale": "2.21883372740116911e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "diagonal",
+      "dimension": 2,
+      "geometry": "self",
+      "max_abs_error": "6.66133814775093924e-16",
+      "relative_to_output_scale": "4.92234095553936319e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 2,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "diagonal",
+      "dimension": 2,
+      "geometry": "self",
+      "max_abs_error": "2.22044604925031308e-15",
+      "relative_to_output_scale": "5.37047968233152723e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "shear",
+      "dimension": 2,
+      "geometry": "self",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "3.70679934983223347e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 2,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "shear",
+      "dimension": 2,
+      "geometry": "self",
+      "max_abs_error": "1.33226762955018785e-15",
+      "relative_to_output_scale": "3.84509302913787608e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "shear",
+      "dimension": 2,
+      "geometry": "self",
+      "max_abs_error": "6.10622663543836097e-16",
+      "relative_to_output_scale": "6.10622663543836097e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 2,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "shear",
+      "dimension": 2,
+      "geometry": "self",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "2.35902212090539571e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "identity",
+      "dimension": 3,
+      "geometry": "cross",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "2.14255823313126826e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 3,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "identity",
+      "dimension": 3,
+      "geometry": "cross",
+      "max_abs_error": "3.88578058618804789e-16",
+      "relative_to_output_scale": "2.13458620578727760e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "identity",
+      "dimension": 3,
+      "geometry": "cross",
+      "max_abs_error": "3.19189119579732505e-16",
+      "relative_to_output_scale": "3.19189119579732505e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 3,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "identity",
+      "dimension": 3,
+      "geometry": "cross",
+      "max_abs_error": "1.11022302462515654e-15",
+      "relative_to_output_scale": "4.70808633644945423e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "diagonal",
+      "dimension": 3,
+      "geometry": "cross",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "2.18920053781117166e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 3,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "diagonal",
+      "dimension": 3,
+      "geometry": "cross",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "2.23536435433105868e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "diagonal",
+      "dimension": 3,
+      "geometry": "cross",
+      "max_abs_error": "3.33066907387546962e-16",
+      "relative_to_output_scale": "3.15373104004517459e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 3,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "diagonal",
+      "dimension": 3,
+      "geometry": "cross",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "3.04816074454986115e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "shear",
+      "dimension": 3,
+      "geometry": "cross",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "2.07682990822141599e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 3,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "shear",
+      "dimension": 3,
+      "geometry": "cross",
+      "max_abs_error": "6.66133814775093924e-16",
+      "relative_to_output_scale": "3.56822542006824607e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "shear",
+      "dimension": 3,
+      "geometry": "cross",
+      "max_abs_error": "5.55111512312578270e-16",
+      "relative_to_output_scale": "5.55111512312578270e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 3,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "shear",
+      "dimension": 3,
+      "geometry": "cross",
+      "max_abs_error": "9.99200722162640886e-16",
+      "relative_to_output_scale": "3.95347261157719944e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "identity",
+      "dimension": 3,
+      "geometry": "self",
+      "max_abs_error": "2.22044604925031308e-16",
+      "relative_to_output_scale": "1.09715763316001637e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 3,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "identity",
+      "dimension": 3,
+      "geometry": "self",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "1.93820443108554746e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "identity",
+      "dimension": 3,
+      "geometry": "self",
+      "max_abs_error": "2.22044604925031308e-16",
+      "relative_to_output_scale": "2.22044604925031308e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 3,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "identity",
+      "dimension": 3,
+      "geometry": "self",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "3.94454467106986011e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "diagonal",
+      "dimension": 3,
+      "geometry": "self",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "2.27200257699141158e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 3,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "diagonal",
+      "dimension": 3,
+      "geometry": "self",
+      "max_abs_error": "8.88178419700125232e-16",
+      "relative_to_output_scale": "4.53439598678793965e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "diagonal",
+      "dimension": 3,
+      "geometry": "self",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "3.40284701872871329e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 3,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "diagonal",
+      "dimension": 3,
+      "geometry": "self",
+      "max_abs_error": "1.33226762955018785e-15",
+      "relative_to_output_scale": "4.78008086502569498e-16"
+    },
+    {
+      "action": "A",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 0
+      },
+      "anisotropy": "shear",
+      "dimension": 3,
+      "geometry": "self",
+      "max_abs_error": "4.44089209850062616e-16",
+      "relative_to_output_scale": "2.10807484595448365e-16"
+    },
+    {
+      "action": "F",
+      "adapter_shape": {
+        "rhs": 3,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "shear",
+      "dimension": 3,
+      "geometry": "self",
+      "max_abs_error": "1.11022302462515654e-15",
+      "relative_to_output_scale": "4.96390326155915228e-16"
+    },
+    {
+      "action": "FT",
+      "adapter_shape": {
+        "rhs": 1,
+        "target_derivative_order": 1
+      },
+      "anisotropy": "shear",
+      "dimension": 3,
+      "geometry": "self",
+      "max_abs_error": "3.05311331771918049e-16",
+      "relative_to_output_scale": "3.05311331771918049e-16"
+    },
+    {
+      "action": "H",
+      "adapter_shape": {
+        "rhs": 3,
+        "target_derivative_order": 2
+      },
+      "anisotropy": "shear",
+      "dimension": 3,
+      "geometry": "self",
+      "max_abs_error": "6.66133814775093924e-16",
+      "relative_to_output_scale": "2.75423102666183489e-16"
+    }
+  ],
+  "schema": "rapidrbf-kifmm-metric-action-probe/v1",
+  "source_sha256": "261D67E297E4749C6EC00985C34BE0B974EFB8C0D20F2ECCED673203BDA64E16",
+  "summary": {
+    "maximum_max_abs_error": "2.66453525910037570e-15",
+    "rows": 64
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "authority": "Throwaway build and packaging observation only; not accepted harness evidence, a sound numerical certificate, or Auto qualification.",
+  "dependency_graph": {
+    "captured_lock_path": "probe/kifmm-d4ca4b5-Cargo.lock",
+    "cargo_lock_committed_upstream": false,
+    "generated_lock_sha256": "FF50830C7C5A7429EC03B4735453677912A71A60CF00AB7A5C0F3E2F16310690",
+    "resolved_git_revisions": {
+      "distributed_tools": "9d5c832446f1aaa1079b3e601f1bbe604baed4dd",
+      "green-kernels": "ed83120e5e74972fb0f21593b1f8f5047b6eefac",
+      "rlst": "33bd9a6339f2aa60076b74b6ed020473a81b1eb6"
+    }
+  },
+  "distribution_facts": {
+    "fftw": {
+      "build_shape": "unconditional direct dependency; anonymous plain-FTP download of fftw-3.3.9.zip without a declared digest; configure + make; static fftw3/fftw3f link; bindgen requires libclang",
+      "ordinary_license": "GPL-2.0-or-later",
+      "ordinary_license_source": "https://www.fftw.org/fftw3_doc/License-and-Copyright.html",
+      "remediation_boundary": "Remove or default-off feature-gate FFTW from the shipped graph, replace it with an accepted provider, or obtain and review commercial terms. Making configure run is insufficient."
+    },
+    "kifmm_package": {
+      "cargo_package_command": "cargo package -p kifmm --locked --allow-dirty --no-verify",
+      "terminal_outcome": "nonzero: git dependency green-kernels has no version requirement"
+    },
+    "rlst": {
+      "default_shape": "system BLAS/LAPACK on Linux, Accelerate on macOS, and no default Windows provider branch",
+      "remaining_boundary": "Pin, acquire, bundle, license-review, and thread-govern the concrete provider on every tier-one platform."
+    }
+  },
+  "frozen_input": {
+    "repository": "https://github.com/bempp/kifmm",
+    "revision": "d4ca4b52a2403e6dff0d424fdbfe1f7d595f6068"
+  },
+  "runs": [
+    {
+      "command": "cargo check -p kifmm --lib --locked",
+      "elapsed_seconds": 50.6,
+      "host": "Windows x86_64",
+      "normalized_failure": "kifmm-fftw-src attempted to execute fftw-3.3.9/configure directly; Windows returned os error 193 (%1 is not a valid Win32 application).",
+      "rust_host": "x86_64-pc-windows-msvc",
+      "terminal_outcome": "nonzero",
+      "toolchain": {
+        "cargo": "1.96.1 (356927216 2026-06-26)",
+        "rustc": "1.96.1 (31fca3adb 2026-06-26)"
+      }
+    },
+    {
+      "command": "cargo check -p kifmm --lib --locked",
+      "elapsed_seconds": 130.4,
+      "host": "WSL Ubuntu 24.04 x86_64, no packages installed for the probe",
+      "normalized_failure": "openssl-sys 0.9.117 could not find OpenSSL development headers/pkg-config metadata through rlst build-dependency git2 -> libgit2-sys -> openssl-sys.",
+      "qualification": "This is independent clean-host source-build evidence. The parallel build did not reach a terminal FFTW result, so it does not show that provisioned Linux or FFTW configure is broken.",
+      "terminal_outcome": "nonzero",
+      "toolchain": {
+        "cargo": "1.96.1 (356927216 2026-06-26)",
+        "rustc": "1.96.1 (31fca3adb 2026-06-26)"
+      }
+    }
+  ],
+  "schema": "rapidrbf-kifmm-build-observation/v1",
+  "upstream_ci_context": {
+    "observation": "Frozen upstream workflow runs Ubuntu only and provisions OpenBLAS; it has no Windows or macOS job.",
+    "workflow": "https://github.com/bempp/kifmm/blob/d4ca4b52a2403e6dff0d424fdbfe1f7d595f6068/.github/workflows/run-tests.yml"
+  }
+}

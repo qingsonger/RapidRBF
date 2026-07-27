@@ -1,0 +1,53 @@
+{
+  "authority": "Throwaway frozen-source evidence only; not runtime semantics, accepted harness evidence, a sound certificate, or Auto qualification.",
+  "facts": {
+    "cargo_lock_tracked": false,
+    "component_method_references_in_kifmm_core_excluding_bindings": {
+      "domain_component_count": 0,
+      "range_component_count": 0
+    },
+    "eval_modes": [
+      "Value",
+      "ValueDeriv"
+    ],
+    "fft_matrix_rhs_supported": false,
+    "fftw": {
+      "download": "plain FTP fftw-3.3.9.zip without a declared digest",
+      "link": "unconditional static fftw3 and fftw3f",
+      "toolchain": "configure + make + bindgen/libclang"
+    },
+    "homogeneous_scale_shape": "fixed 2^-level helper; custom RBF fork must use non-homogeneous per-level metadata",
+    "kernel_metadata_specializations": [
+      "Laplace3dKernel",
+      "Helmholtz3dKernel"
+    ],
+    "native_dimension": 3,
+    "operational_token_counts": {
+      "cancel": 0,
+      "deadline": 0,
+      "thread_pool_builder": 0
+    },
+    "sequential_weight_reuse": true,
+    "target_hessian_eval_mode": false
+  },
+  "hash_basis": "SHA-256 of canonical HEAD Git blobs",
+  "revisions": {
+    "green-kernels": "ed83120e5e74972fb0f21593b1f8f5047b6eefac",
+    "kifmm": "d4ca4b52a2403e6dff0d424fdbfe1f7d595f6068",
+    "rlst": "33bd9a6339f2aa60076b74b6ed020473a81b1eb6"
+  },
+  "schema": "rapidrbf-kifmm-source-surface-probe/v1",
+  "source_sha256": {
+    "fftw-src/build.rs": "CAAD18408316D8C2AECBAF25B730D7FEBA21F402848C6BDC870AAB9300965AA4",
+    "fftw-sys/Cargo.toml": "574CB89885528A3EA03E6F57EBFC23DD0BD5C2570A46C03F3CEFB01EB5BA4C3E",
+    "fftw-sys/build.rs": "01F72157A195B74DD9ABC1EAFD1A8BD5B65420CB0D76B45CE6A9AA4481DF0958",
+    "green-kernels/src/traits.rs": "DA596089617F668AA9FDEA12576F8CB8857C002A1D4855B07ACB453302E29605",
+    "green-kernels/src/types.rs": "85C5E62903EA122724A483809879F4287FC3149E99790301BFBA8D1ABB3917F6",
+    "kifmm/Cargo.toml": "843FCCA07D566ED7FF8D66FE3EBEFFBE96BEC88ABC992961DBDB672FCB806B93",
+    "kifmm/builder/single_node.rs": "CAF5616C87452D1AC8BDB7107D2B60E8298B72DE14723C09502F7419B853B727",
+    "kifmm/metadata/single_node/metadata.rs": "A24C69981FE3BE927ECD2AB1900ED23AB9927FAF1C197BBFD912ED2E0C01B913",
+    "kifmm/source_to_target/fft/single_node.rs": "846E3AB8F606F99582890B560F5FD4AE304635A21899342946D3E20CDAB1AE59",
+    "rlst/Cargo.toml": "70EA9BA9BE640A13D377AB6B57ED6E0D24784B84304E22910F665493516C8A3C",
+    "rlst/build.rs": "CD3341427B57CD198AA82087579025789FD62C9F6C157A7188CEAD87D61A870F"
+  }
+}
