@@ -1,0 +1,3 @@
+# Use a private action-level matrix-kernel adapter seam
+
+RapidRBF owns RBF composition, requested-accuracy certification, anisotropy, resource control, and direct fallback in an RBF-only matrix-kernel module; crate-private sealed adapters execute normalized `A`, `F`, `F^T`, or `H` actions, while nugget, polynomial blocks, and solvers remain outside. This keeps native and future FMM plans replaceable and portable artifacts backend-neutral, accepting that v1 provides no third-party backend or plugin interface. The authoritative contract and trade-offs are recorded in [Define the backend-neutral matrix-kernel contract](https://github.com/qingsonger/RapidRBF/issues/10).

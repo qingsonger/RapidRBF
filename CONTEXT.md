@@ -108,6 +108,10 @@ _Avoid_: Rotation-and-scale only, determinant-only validation, fixed condition-n
 The piecewise classification of a kernel at compact-support and spheroidal switch boundaries, with exact branch membership and exact numerical zero outside compact support. Values within a selected branch are tolerance-based mathematical results rather than bitwise replays of legacy rounding.
 _Avoid_: Fuzzy branch boundary, bitwise boundary replay
 
+**Matrix-kernel action**:
+One canonical RBF contribution mapping value or full-gradient source weights to value or full-gradient targets as value `A`, source-gradient `F`, target-gradient `F^T`, or Hessian `H`, with derivative signs, component order, and self-interaction semantics fixed by the numerical contract. It excludes nugget, polynomial blocks, and solver behavior.
+_Avoid_: Backend kernel, arbitrary channel map, complete interpolation operator
+
 **Finite problem data**:
 Public problem data and concrete numerical controls reaching the RapidRBF core contain only finite values; absence and unconstrained choices are represented structurally. Legacy NaN sentinels may be translated only at migration adapters before core validation.
 _Avoid_: Core NaN sentinel, infinity as `Any`, infinity as an absent bound
@@ -159,6 +163,14 @@ _Avoid_: Zero fit tolerance, absent-channel numeric sentinel, zero-iteration col
 **Requested accuracy**:
 A positive absolute infinity-norm ceiling on value or gradient approximation error against the canonical direct reference at the requested targets. `Any` removes the per-call ceiling but not the operation-level numerical acceptance standard.
 _Avoid_: Relative accuracy, scale-adjusted accuracy, backend tuning hint
+
+**Canonical direct reference**:
+The deterministic full pairwise evaluation of a canonical matrix-kernel action used as the zero backend-approximation reference for requested accuracy. It is a floating-point reference governed by the operation-level numerical acceptance standard, not a claim of exact real arithmetic.
+_Avoid_: Sampled fast estimate, backend trajectory, exact-real oracle
+
+**Kernel approximation certificate**:
+A call-scoped sound upper bound on the absolute infinity-norm error of a complete requested value or gradient batch against the canonical direct reference, including adapter approximation and matrix-kernel transformation, composition, and accumulation error. Sampling may select a route or tune it but cannot alone certify success.
+_Avoid_: Sampled calibration result, backend convergence flag, per-point spot check
 
 **Default accuracy profile**:
 The public, named, and versioned absolute infinity-norm error envelope used when requested accuracy is `Any`. A backend must certify that envelope or refine, fall back, or fail; certificate-bearing operations instead derive a concrete internal budget from their outer tolerance.
