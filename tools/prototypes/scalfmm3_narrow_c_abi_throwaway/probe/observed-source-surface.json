@@ -1,0 +1,114 @@
+{
+  "checks": {
+    "dimensions_1_to_3": true,
+    "four_action_factories": true,
+    "frozen_revisions": true,
+    "installed_headers_match_source_checkout": true,
+    "mutable_setter_surface": true,
+    "new_compiled_shim_required": true,
+    "no_cancellation_symbols_in_scanned_surfaces": true,
+    "sampled_estimator_shape": true
+  },
+  "facts": {
+    "accuracy_estimator": {
+      "compares_sampled_absolute_error": true,
+      "maximum_sampled_targets": 10000,
+      "uses_deterministic_shuffle": true
+    },
+    "cancellation": {
+      "match_counts": {
+        "cancel": 0,
+        "deadline": 0,
+        "stop_requested": 0,
+        "stop_token": 0
+      },
+      "scanned_source_files": 193,
+      "search_terms": [
+        "cancel",
+        "stop_token",
+        "stop_requested",
+        "deadline"
+      ],
+      "total_matches": 0
+    },
+    "compiled_header_provenance": {
+      "installed_include": {
+        "file_count": 152,
+        "root": "D:\\CODE\\polatory\\build\\scalfmm\\install\\include\\scalfmm",
+        "tree_sha256": "61CF1F90EDB955907B274675F4C599B84286D48018A46A81A648DAF20022CF5F"
+      },
+      "source_checkout": {
+        "file_count": 152,
+        "root": "D:\\CODE\\polatory\\build\\scalfmm\\src\\scalfmm\\include\\scalfmm",
+        "tree_sha256": "61CF1F90EDB955907B274675F4C599B84286D48018A46A81A648DAF20022CF5F"
+      },
+      "trees_match": true
+    },
+    "distribution": {
+      "license_marker": "CeCILL-C",
+      "manifest_dependencies": [
+        {
+          "name": "fftw3",
+          "platform": "osx & arm64"
+        },
+        {
+          "name": "intel-mkl",
+          "platform": "(windows | linux | osx) & x64"
+        }
+      ],
+      "tier_one_platforms_observed": [
+        "windows-x86_64"
+      ]
+    },
+    "factory": {
+      "action_factories": {
+        "A": 4,
+        "F": 4,
+        "FT": 4,
+        "H": 4
+      },
+      "dimensions_explicitly_instantiated": [
+        1,
+        2,
+        3
+      ],
+      "family_case_count_per_factory": 17
+    },
+    "mutable_legacy_evaluator": {
+      "has_set_source_points": true,
+      "has_set_target_points": true,
+      "has_set_weights": true,
+      "releases_cross_trees_after_evaluate": true,
+      "releases_symmetric_tree_after_evaluate": true,
+      "weight_change_warning_present": true
+    },
+    "native_surface": {
+      "c_linkage_markers": 0,
+      "declared_core_libraries": "BLAS LAPACK FFTW OpenMP",
+      "export_markers": 0,
+      "scalfmm_target_is_interface": true,
+      "scanned_public_core_source_files": 151
+    },
+    "polatory_revision": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+    "scalfmm_revision": "0be3d74f17adb28adec7004f712f693ac8ee9901",
+    "source_sha256": {
+      "estimator": "E3D12C739D5C7D3B720E8C79157A6D23C9817F651A95C2C1FB70A5D05408E331",
+      "evaluator": "FF312C5A6F48215E1374B92B0FE9035E20A7097E714214F449408917C07D0297",
+      "factory": "957D8475CAF363255D9E0AD67DB0C8D3632F61279967DEE185169B2A37CD2C8E",
+      "scalfmm_cmake": "482483C1D7D07641509C0C50E84E52F00DC5D02476794C75797496DC5CDF5CFB",
+      "scalfmm_license": "10E9B6558E0523CF6D49414B837AB0E5ABD0B831D7E2380A769E0B91CF90B08A",
+      "scalfmm_manifest": "90759F2C682E5409CFE1DDD7BCA636121FA193DD320D01847866EECAE70E229B",
+      "symmetric_evaluator": "FB7D1C6D48846912A94838E69BE1F2BADD30F8349BB42C3476C506E5EDBC4495"
+    }
+  },
+  "limits": [
+    "Source structure is not runtime behavior.",
+    "Factory coverage is not semantic or numerical acceptance.",
+    "Negative symbol scans are source-inspected interpretations, not formal proofs of absence.",
+    "The sampled estimator shape alone is not a complete-batch certification analysis.",
+    "Vendored external modules are excluded from the public ScalFMM C-surface scan.",
+    "License inventory is engineering evidence, not legal advice."
+  ],
+  "question": "What does the frozen source prove or leave missing for a narrow private C ABI?",
+  "schema": "rapidrbf-scalfmm3-source-observation/v1"
+}
