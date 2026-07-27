@@ -1,0 +1,189 @@
+{
+  "schema": "rapidrbf-ferreus-prototype-observation/v1",
+  "authority": "throwaway prototype only; not accepted harness evidence",
+  "upstream": {
+    "repository": "https://github.com/graphic-goose/ferreus_rbf_rs",
+    "commit": "d0442ee978668386f6ccbeec866bfa52fcc4484f"
+  },
+  "host": {
+    "platform": "Windows x86_64",
+    "rust_host": "x86_64-pc-windows-msvc"
+  },
+  "build_observations": [
+    {
+      "toolchain": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+      "command": "cargo +1.85.0 test -p ferreus_bbfmm --locked",
+      "outcome": "pass",
+      "unit_tests": {
+        "passed": 1,
+        "failed": 0
+      },
+      "doc_tests": {
+        "passed": 3,
+        "failed": 0
+      },
+      "qualification": "The tests contain no RapidRBF numerical, resource, scale, or packaging assertions."
+    },
+    {
+      "toolchain": "rustc 1.96.1 (31fca3adb 2026-06-26)",
+      "command": "cargo +1.96.1 test -p ferreus_bbfmm --lib --locked",
+      "outcome": "compile-fail",
+      "dependency": "spindle 0.2.5",
+      "diagnostic_codes": [
+        "E0597"
+      ],
+      "qualification": "This is a toolchain/dependency closure failure, not a numerical disqualification. It blocks an unmodified current-stable build until the graph or source is patched and requalified."
+    }
+  ],
+  "action_probe": {
+    "kernel": "Gaussian exp(-||u_t-u_s||^2)",
+    "sources": 128,
+    "cross_targets": 83,
+    "self_targets": 128,
+    "dimensions": [
+      1,
+      2,
+      3
+    ],
+    "geometry": [
+      "cross",
+      "self"
+    ],
+    "anisotropy": "valid upper-triangular metric transform; 2D and 3D include nonsymmetric shear",
+    "interpolation_order": 8,
+    "compression": "M2LCompressionType::None (reference-vector symmetry remains enabled)",
+    "weights": "deterministic signed, nonsymmetric scalar and physical-vector weights",
+    "metric": "maximum absolute difference from a complete floating direct sum",
+    "F_radial_multi_rhs_scope": "The probe compares the unsigned target-gradient diagonal contraction. RapidRBF's fixed external negative sign was applied to neither candidate nor direct output and remains untested.",
+    "qualification": "Observed agreement can falsify an adaptation but cannot establish a sound call-scoped certificate or Auto eligibility.",
+    "rows": [
+      {
+        "dimension": 1,
+        "geometry": "cross",
+        "route": "near-field-control",
+        "A_error": 3.9968028886505636e-15,
+        "FT_error": 5.773159728050814e-15,
+        "F_radial_multi_rhs_error": 6.661338147750939e-16,
+        "F_scalar_component_hack_error": 4.996003610813204e-16,
+        "H_scalar_component_hack_error": 2.55351295663786e-15
+      },
+      {
+        "dimension": 1,
+        "geometry": "self",
+        "route": "near-field-control",
+        "A_error": 3.552713678800501e-15,
+        "FT_error": 7.771561172376096e-15,
+        "F_radial_multi_rhs_error": 6.661338147750939e-16,
+        "F_scalar_component_hack_error": 7.771561172376096e-16,
+        "H_scalar_component_hack_error": 1.887379141862766e-15
+      },
+      {
+        "dimension": 1,
+        "geometry": "cross",
+        "route": "symmetry-reduced-far-field",
+        "A_error": 1.11503408595226e-6,
+        "FT_error": 4.948867313903094e-5,
+        "F_radial_multi_rhs_error": 7.964282082800755e-6,
+        "F_scalar_component_hack_error": 1.0426441986466783,
+        "H_scalar_component_hack_error": 7.2272609877156
+      },
+      {
+        "dimension": 1,
+        "geometry": "self",
+        "route": "symmetry-reduced-far-field",
+        "A_error": 1.1413812117666566e-6,
+        "FT_error": 1.2310633279155603e-4,
+        "F_radial_multi_rhs_error": 2.4563247802866783e-5,
+        "F_scalar_component_hack_error": 1.0522367567775666,
+        "H_scalar_component_hack_error": 6.306803972941173
+      },
+      {
+        "dimension": 2,
+        "geometry": "cross",
+        "route": "near-field-control",
+        "A_error": 2.9976021664879227e-15,
+        "FT_error": 5.773159728050814e-15,
+        "F_radial_multi_rhs_error": 2.6645352591003757e-15,
+        "F_scalar_component_hack_error": 2.6645352591003757e-15,
+        "H_scalar_component_hack_error": 3.9968028886505635e-15
+      },
+      {
+        "dimension": 2,
+        "geometry": "self",
+        "route": "near-field-control",
+        "A_error": 5.10702591327572e-15,
+        "FT_error": 7.105427357601002e-15,
+        "F_radial_multi_rhs_error": 4.440892098500626e-15,
+        "F_scalar_component_hack_error": 2.6645352591003757e-15,
+        "H_scalar_component_hack_error": 5.773159728050814e-15
+      },
+      {
+        "dimension": 2,
+        "geometry": "cross",
+        "route": "symmetry-reduced-far-field",
+        "A_error": 3.3470678775238127e-6,
+        "FT_error": 6.822284576335491e-5,
+        "F_radial_multi_rhs_error": 1.02578862648528e-5,
+        "F_scalar_component_hack_error": 6.85187942842204,
+        "H_scalar_component_hack_error": 7.375306246275892
+      },
+      {
+        "dimension": 2,
+        "geometry": "self",
+        "route": "symmetry-reduced-far-field",
+        "A_error": 4.2364467345290535e-6,
+        "FT_error": 3.306160658285151e-4,
+        "F_radial_multi_rhs_error": 2.6286988686896606e-5,
+        "F_scalar_component_hack_error": 6.892581470947053,
+        "H_scalar_component_hack_error": 8.657643970770103
+      },
+      {
+        "dimension": 3,
+        "geometry": "cross",
+        "route": "near-field-control",
+        "A_error": 3.552713678800501e-15,
+        "FT_error": 5.329070518200751e-15,
+        "F_radial_multi_rhs_error": 6.217248937900877e-15,
+        "F_scalar_component_hack_error": 6.217248937900877e-15,
+        "H_scalar_component_hack_error": 9.769962616701378e-15
+      },
+      {
+        "dimension": 3,
+        "geometry": "self",
+        "route": "near-field-control",
+        "A_error": 5.329070518200751e-15,
+        "FT_error": 7.993605777301127e-15,
+        "F_radial_multi_rhs_error": 6.217248937900877e-15,
+        "F_scalar_component_hack_error": 9.769962616701378e-15,
+        "H_scalar_component_hack_error": 1.2434497875801753e-14
+      },
+      {
+        "dimension": 3,
+        "geometry": "cross",
+        "route": "symmetry-reduced-far-field",
+        "A_error": 1.5772184429607705e-6,
+        "FT_error": 1.589476999628303e-4,
+        "F_radial_multi_rhs_error": 4.893211298861999e-5,
+        "F_scalar_component_hack_error": 9.52100754872272,
+        "H_scalar_component_hack_error": 15.065703042324033
+      },
+      {
+        "dimension": 3,
+        "geometry": "self",
+        "route": "symmetry-reduced-far-field",
+        "A_error": 3.503630720436135e-6,
+        "FT_error": 1.0298927839846872e-4,
+        "F_radial_multi_rhs_error": 2.6757503898244828e-5,
+        "F_scalar_component_hack_error": 10.3755590606318,
+        "H_scalar_component_hack_error": 14.806832793326846
+      }
+    ],
+    "interpretation": [
+      "Near-field controls show that the direct component-kernel formulas and physical/metric transforms agree to floating summation noise.",
+      "A and F^T use the scalar radial M2L path and retain approximation-sized far-field errors.",
+      "F's unsigned component mapping, expressed as D scalar-radial right-hand sides followed by a target-gradient diagonal contraction, retains approximation-sized far-field errors without introducing component kernels into M2L; the canonical external minus was not exercised.",
+      "Wrapping gradient or Hessian components as scalar kernels fails under Ferreus reference-vector symmetry by six or more orders of magnitude and is disqualified.",
+      "The frozen public interface has no target-Hessian output. The companion observed-hessian-windows-x86_64.json records a limited uniform-tree second-derivative fork; it does not change the public-interface fact or establish Auto eligibility."
+    ]
+  }
+}

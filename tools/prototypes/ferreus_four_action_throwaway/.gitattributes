@@ -1,0 +1,4 @@
+# Preserve captured primary-source bytes and documented SHA-256 identities.
+probe/ferreus-d0442ee-target-hessian.patch -text
+probe/throwaway_scalar_action_probe.rs -text
+probe/throwaway_target_hessian_probe.rs -text

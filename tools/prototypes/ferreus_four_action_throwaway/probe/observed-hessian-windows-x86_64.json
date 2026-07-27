@@ -1,0 +1,284 @@
+{
+  "schema": "rapidrbf-ferreus-target-hessian-prototype-observation/v1",
+  "authority": "throwaway prototype only; not accepted harness evidence and not Auto qualification",
+  "observed_date": "2026-07-27",
+  "upstream": {
+    "repository": "https://github.com/graphic-goose/ferreus_rbf_rs",
+    "commit": "d0442ee978668386f6ccbeec866bfa52fcc4484f"
+  },
+  "host": {
+    "platform": "Windows x86_64",
+    "rust_host": "x86_64-pc-windows-msvc"
+  },
+  "toolchain": {
+    "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+    "commit_hash": "4d91de4e48198da2e33413efdcd9cd2cc0c46688",
+    "llvm": "19.1.7"
+  },
+  "commands": [
+    {
+      "command": "cargo +1.85.0 check -p ferreus_bbfmm --example throwaway_target_hessian_probe",
+      "outcome": "pass"
+    },
+    {
+      "command": "cargo +1.85.0 run --release -q -p ferreus_bbfmm --example throwaway_target_hessian_probe",
+      "outcome": "pass",
+      "terminal_marker": "PASS"
+    }
+  ],
+  "prototype": {
+    "question": "Can scalar radial M2L plus D right-hand sides and uniform P2P/L2P target Hessians reproduce the RapidRBF H contraction?",
+    "kernel": "Gaussian exp(-alpha * ||u_t-u_s||^2)",
+    "alpha": 0.45,
+    "interpolation_order": 7,
+    "sources": 96,
+    "self_targets": 96,
+    "cross_targets": 57,
+    "adaptive_tree": false,
+    "sparse_tree": false,
+    "compression": "M2LCompressionType::None",
+    "metric_coordinates": "u = A x",
+    "right_hand_sides": "D columns w = A q",
+    "hessian_layout": "RHS-major; row-major Hessian components within each RHS",
+    "rapidrbf_contraction": "(H q)_r = -sum_k A[k,r] sum_c d2P_c/(du_k du_c)",
+    "matrices": {
+      "1": [
+        1.3
+      ],
+      "2": [
+        1.2,
+        0.35,
+        -0.15,
+        0.9
+      ],
+      "3": [
+        1.1,
+        0.25,
+        -0.1,
+        0.05,
+        0.9,
+        0.3,
+        0.0,
+        -0.12,
+        1.2
+      ]
+    }
+  },
+  "path_assertions": [
+    {
+      "route": "near",
+      "assertion": "max_points_per_cell = 97; depth = 1; V-list entries = 0; reference M2L operators = 0",
+      "outcome": "pass"
+    },
+    {
+      "route": "far",
+      "assertion": "max_points_per_cell = 2; depth >= 2; V-list entries > 0; reference M2L operators > 0",
+      "outcome": "pass"
+    },
+    {
+      "route": "all",
+      "assertion": "near tensor/H max absolute error < 2e-12; far tensor/H relative L2 error < 2e-2",
+      "outcome": "pass"
+    },
+    {
+      "route": "anisotropy",
+      "assertion": "2D and 3D A matrices are nonsymmetric shears",
+      "outcome": "pass"
+    }
+  ],
+  "rows": [
+    {
+      "dimension": 1,
+      "route": "near",
+      "geometry": "self",
+      "targets": 96,
+      "depth": 1,
+      "v_list_entries": 0,
+      "m2l_reference_operators": 0,
+      "tensor_max_absolute_error": 2.081668e-17,
+      "tensor_relative_l2_error": 8.372535e-16,
+      "H_max_absolute_error": 2.688821e-17,
+      "H_relative_l2_error": 8.459141e-16,
+      "H_reference_max_absolute": 1.637221e-2
+    },
+    {
+      "dimension": 1,
+      "route": "near",
+      "geometry": "cross",
+      "targets": 57,
+      "depth": 1,
+      "v_list_entries": 0,
+      "m2l_reference_operators": 0,
+      "tensor_max_absolute_error": 1.994932e-17,
+      "tensor_relative_l2_error": 7.981570e-16,
+      "H_max_absolute_error": 2.602085e-17,
+      "H_relative_l2_error": 8.150470e-16,
+      "H_reference_max_absolute": 1.637039e-2
+    },
+    {
+      "dimension": 1,
+      "route": "far",
+      "geometry": "self",
+      "targets": 96,
+      "depth": 7,
+      "v_list_entries": 398,
+      "m2l_reference_operators": 12,
+      "tensor_max_absolute_error": 5.847396e-6,
+      "tensor_relative_l2_error": 1.057881e-4,
+      "H_max_absolute_error": 7.601615e-6,
+      "H_relative_l2_error": 1.057881e-4,
+      "H_reference_max_absolute": 1.637221e-2
+    },
+    {
+      "dimension": 1,
+      "route": "far",
+      "geometry": "cross",
+      "targets": 57,
+      "depth": 7,
+      "v_list_entries": 398,
+      "m2l_reference_operators": 12,
+      "tensor_max_absolute_error": 3.955288e-6,
+      "tensor_relative_l2_error": 9.378082e-5,
+      "H_max_absolute_error": 5.141875e-6,
+      "H_relative_l2_error": 9.378082e-5,
+      "H_reference_max_absolute": 1.637039e-2
+    },
+    {
+      "dimension": 2,
+      "route": "near",
+      "geometry": "self",
+      "targets": 96,
+      "depth": 1,
+      "v_list_entries": 0,
+      "m2l_reference_operators": 0,
+      "tensor_max_absolute_error": 1.994932e-17,
+      "tensor_relative_l2_error": 9.670323e-16,
+      "H_max_absolute_error": 2.168404e-17,
+      "H_relative_l2_error": 1.186407e-15,
+      "H_reference_max_absolute": 1.234837e-2
+    },
+    {
+      "dimension": 2,
+      "route": "near",
+      "geometry": "cross",
+      "targets": 57,
+      "depth": 1,
+      "v_list_entries": 0,
+      "m2l_reference_operators": 0,
+      "tensor_max_absolute_error": 1.734723e-17,
+      "tensor_relative_l2_error": 1.031442e-15,
+      "H_max_absolute_error": 2.211772e-17,
+      "H_relative_l2_error": 1.209854e-15,
+      "H_reference_max_absolute": 1.287664e-2
+    },
+    {
+      "dimension": 2,
+      "route": "far",
+      "geometry": "self",
+      "targets": 96,
+      "depth": 4,
+      "v_list_entries": 1833,
+      "m2l_reference_operators": 21,
+      "tensor_max_absolute_error": 1.127217e-5,
+      "tensor_relative_l2_error": 2.256165e-4,
+      "H_max_absolute_error": 1.204804e-5,
+      "H_relative_l2_error": 2.503914e-4,
+      "H_reference_max_absolute": 1.234837e-2
+    },
+    {
+      "dimension": 2,
+      "route": "far",
+      "geometry": "cross",
+      "targets": 57,
+      "depth": 4,
+      "v_list_entries": 1833,
+      "m2l_reference_operators": 21,
+      "tensor_max_absolute_error": 9.909241e-6,
+      "tensor_relative_l2_error": 2.052893e-4,
+      "H_max_absolute_error": 9.713136e-6,
+      "H_relative_l2_error": 2.569347e-4,
+      "H_reference_max_absolute": 1.287664e-2
+    },
+    {
+      "dimension": 3,
+      "route": "near",
+      "geometry": "self",
+      "targets": 96,
+      "depth": 1,
+      "v_list_entries": 0,
+      "m2l_reference_operators": 0,
+      "tensor_max_absolute_error": 2.515349e-17,
+      "tensor_relative_l2_error": 6.601200e-16,
+      "H_max_absolute_error": 2.775558e-17,
+      "H_relative_l2_error": 4.306336e-16,
+      "H_reference_max_absolute": 4.473469e-2
+    },
+    {
+      "dimension": 3,
+      "route": "near",
+      "geometry": "cross",
+      "targets": 57,
+      "depth": 1,
+      "v_list_entries": 0,
+      "m2l_reference_operators": 0,
+      "tensor_max_absolute_error": 1.734723e-17,
+      "tensor_relative_l2_error": 6.074464e-16,
+      "H_max_absolute_error": 2.081668e-17,
+      "H_relative_l2_error": 4.475855e-16,
+      "H_reference_max_absolute": 4.497757e-2
+    },
+    {
+      "dimension": 3,
+      "route": "far",
+      "geometry": "self",
+      "targets": 96,
+      "depth": 3,
+      "v_list_entries": 9115,
+      "m2l_reference_operators": 32,
+      "tensor_max_absolute_error": 2.131982e-5,
+      "tensor_relative_l2_error": 1.997060e-4,
+      "H_max_absolute_error": 2.548270e-5,
+      "H_relative_l2_error": 1.872415e-4,
+      "H_reference_max_absolute": 4.473469e-2
+    },
+    {
+      "dimension": 3,
+      "route": "far",
+      "geometry": "cross",
+      "targets": 57,
+      "depth": 3,
+      "v_list_entries": 9115,
+      "m2l_reference_operators": 32,
+      "tensor_max_absolute_error": 1.632669e-5,
+      "tensor_relative_l2_error": 1.743083e-4,
+      "H_max_absolute_error": 1.951370e-5,
+      "H_relative_l2_error": 1.590488e-4,
+      "H_reference_max_absolute": 4.497757e-2
+    }
+  ],
+  "summary": {
+    "result": "PASS",
+    "near_H_max_absolute_error_range": [
+      2.081668e-17,
+      2.775558e-17
+    ],
+    "far_H_max_absolute_error_range": [
+      5.141875e-6,
+      2.548270e-5
+    ],
+    "far_H_relative_l2_error_range": [
+      9.378082e-5,
+      2.569347e-4
+    ]
+  },
+  "limitations": [
+    "Gaussian kernel only at alpha 0.45 and interpolation order 7.",
+    "Uniform trees only; adaptive W-list/M2P target Hessians are not implemented.",
+    "M2LCompressionType::None; ACA and SVD compression are not exercised.",
+    "Only 96 sources and 96 self or 57 cross targets in dimensions 1 through 3.",
+    "Windows x86_64 only; no cross-platform, packaging, Python-binding, scale, or performance evidence.",
+    "No sound call-scoped certificate, cancellation, resource accounting, thread accounting, or determinism evidence.",
+    "The code follows Ferreus's existing unsafe raw-pointer accumulation style and has not received a production safety review.",
+    "Hash-set traversal can change last-bit accumulation order; near-field roundoff values can vary slightly between runs."
+  ]
+}
