@@ -489,8 +489,40 @@ Exactly one success state `Surface`, `Empty`, or `Entire`, or one atomic failure
 _Avoid_: Overlapping error categories, traversal-first index, partial success payload, cancellation-dependent semantic claim
 
 **Legacy artifact**:
-A model or fitted interpolant serialized by Polatory's unversioned native binary format and accepted by RapidRBF only through a one-way migration path.
+A model or fitted interpolant encoded by a supported legacy layout profile and accepted by RapidRBF only through a one-way migration path.
 _Avoid_: RapidRBF format, portable model
+
+**Legacy layout profile**:
+A closed byte-level decoding contract for Polatory's unversioned native format, defined by field order, byte order, scalar encodings, native integer widths, boolean representation, and matrix storage. Producer platform and build are provenance; byte-identical layouts share a profile, and support requires accepted-ready fixtures.
+_Avoid_: Platform-named format, guessed ABI, inferred legacy layout
+
+**Legacy import declaration**:
+The caller-supplied artifact kind, dimension, and legacy layout profile that together fix one interpretation of a legacy artifact. RapidRBF neither infers a declaration nor retries alternative declarations after a failed import.
+_Avoid_: Format autodetection, fallback parsing, ambiguous legacy import
+
+**Legacy import coverage**:
+Every valid RapidRBF-compatible `Model` or fitted `Interpolant` logical state expressible by a supported legacy layout profile. Accepted-ready fixtures establish coverage evidence rather than forming a hash or shape whitelist.
+_Avoid_: Fixture whitelist, known-file-only import, unfitted interpolant import
+
+**Validated legacy interpolant**:
+A fitted legacy artifact whose model, finite field state, canonical bbox, weight shape, Hermite eligibility, and CPD side condition have passed import validation. It may be evaluated, converted, or used as a compatible warm start, but it makes no historical fit-success claim because the original observations and tolerances are absent.
+_Avoid_: Certified interpolation fit, trusted legacy coefficients, reconstructed fit evidence
+
+**Legacy numeric preservation**:
+The migration obligation to retain accepted finite model parameters, anisotropy, centers, and weights with their decoded binary64 values, except for explicit domain canonicalization. Exact imported state and numerical evaluation equivalence are both required; neither substitutes for the other.
+_Avoid_: Refitted import, coefficient-tolerant migration, evaluation-only import
+
+**Legacy import result**:
+Exactly one validated `Model` or validated legacy interpolant, or one atomic failure selected in stage order: `InvalidRequest`, `UnsupportedLegacyLayout`, `IoFailure`, `MalformedLegacyArtifact`, `UnsupportedLegacyVariant`, then `InvalidLegacyState`. Operational termination uses `ResourceExhausted`, `Cancelled`, then `DeadlineExceeded`; failure never exposes partial state or poisons importer reuse.
+_Avoid_: Partial legacy import, guessed hint mismatch, loader exception text
+
+**Legacy import resource grant**:
+The caller-resolved ceilings on input bytes, decoded memory, and element counts for one legacy import. A structurally possible artifact beyond the grant is retryable `ResourceExhausted`; an impossible or overflowing encoded size is `MalformedLegacyArtifact`.
+_Avoid_: Unbounded native allocation, layout-encoded machine limit, corruption-by-size alone
+
+**Legacy layout conversion route**:
+The bounded source-side migration path for an artifact outside every supported legacy layout profile: decode it on its matching producer platform and ABI, preserve its validated logical state into a portable artifact, then revalidate that output in RapidRBF. It is not importer fallback, refitting, resampling, or a RapidRBF runtime dependency.
+_Avoid_: Layout guessing, native-loader fallback, evaluation-based conversion
 
 **Portable artifact**:
 A versioned RapidRBF model or fitted interpolant representation with an explicit cross-platform compatibility contract.
