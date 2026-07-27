@@ -261,11 +261,11 @@ PROBE_ROWS = (
         1,
         "cross",
         "5.773159728050814e-15",
-        "1.11503408595226e-6",
-        "4.948867313903094e-5",
-        "7.964282082800755e-6",
-        "1.0426441986466783",
-        "7.2272609877156",
+        "1.11503408595226006e-6",
+        "4.94886731390309365e-5",
+        "7.96428211832789223e-6",
+        "1.04264419864667857",
+        "7.22726098771554781",
         "2.602085e-17",
         "5.141875e-6",
         "9.378082e-5",
@@ -274,11 +274,11 @@ PROBE_ROWS = (
         1,
         "self",
         "7.771561172376096e-15",
-        "1.1413812117666566e-6",
-        "1.2310633279155603e-4",
-        "2.4563247802866783e-5",
-        "1.0522367567775666",
-        "6.306803972941173",
+        "1.14138121176665663e-6",
+        "1.23106332791556028e-4",
+        "2.45632478028667833e-5",
+        "1.05223675677756656",
+        "6.30680397294115647",
         "2.688821e-17",
         "7.601615e-6",
         "1.057881e-4",
@@ -286,12 +286,12 @@ PROBE_ROWS = (
     ProbeRow(
         2,
         "cross",
-        "5.773159728050814e-15",
-        "3.3470678775238127e-6",
-        "6.822284576335491e-5",
-        "1.02578862648528e-5",
-        "6.85187942842204",
-        "7.375306246275892",
+        "8.88178419700125232e-15",
+        "3.34706787707972353e-6",
+        "6.82228457717926062e-5",
+        "1.02578861791435827e-5",
+        "6.85187942842203945",
+        "7.37530624627577325",
         "2.211772e-17",
         "9.713136e-6",
         "2.569347e-4",
@@ -299,12 +299,12 @@ PROBE_ROWS = (
     ProbeRow(
         2,
         "self",
-        "7.105427357601002e-15",
-        "4.2364467345290535e-6",
-        "3.306160658285151e-4",
-        "2.6286988686896606e-5",
-        "6.892581470947053",
-        "8.657643970770103",
+        "1.15463194561016280e-14",
+        "4.23644673541723193e-6",
+        "3.30616066320121860e-4",
+        "2.62869886841210487e-5",
+        "6.89258147094705365",
+        "8.65764397077017200",
         "2.168404e-17",
         "1.204804e-5",
         "2.503914e-4",
@@ -312,12 +312,12 @@ PROBE_ROWS = (
     ProbeRow(
         3,
         "cross",
-        "9.769962616701378e-15",
-        "1.5772184429607705e-6",
-        "1.589476999628303e-4",
-        "4.893211298861999e-5",
-        "9.52100754872272",
-        "15.065703042324033",
+        "1.33226762955018785e-14",
+        "1.57721844251668131e-6",
+        "1.58947699893552397e-4",
+        "4.89321129930608834e-5",
+        "9.52100754872271970",
+        "15.0657030423240226",
         "2.081668e-17",
         "1.951370e-5",
         "1.590488e-4",
@@ -326,11 +326,11 @@ PROBE_ROWS = (
         3,
         "self",
         "1.2434497875801753e-14",
-        "3.503630720436135e-6",
-        "1.0298927839846872e-4",
-        "2.6757503898244828e-5",
-        "10.3755590606318",
-        "14.806832793326846",
+        "3.50363071910386736e-6",
+        "1.02989278377152438e-4",
+        "2.67575038838119283e-5",
+        "10.3755590606318027",
+        "14.8068327933268407",
         "2.775558e-17",
         "2.548270e-5",
         "1.872415e-4",
@@ -373,8 +373,8 @@ class LabState:
     lifetime_index: int = 0
     evidence_index: int = 0
     notice: str = (
-        "Current evidence is candidate-specific support/falsification, not an "
-        "Auto promotion record."
+        "Architecture accepted; signed-F evidence awaits HITL review, not "
+        "Auto promotion."
     )
 
     @property
@@ -517,9 +517,9 @@ def _action_probe_detail(state: LabState) -> str:
         )
     if state.action.key == "F":
         return (
-            f"{state.dimension}D/{state.geometry.key} radial multi-RHS "
-            f"unsigned-contraction error={row.far_f_radial}; the canonical "
-            "external minus was not exercised"
+            f"{state.dimension}D/{state.geometry.key} sign witness PASS; "
+            f"canonical signed multi-RHS far F error={row.far_f_radial}; "
+            "support only"
         )
     if state.action.key == "FT":
         return (
@@ -644,10 +644,6 @@ def _current_gates(state: LabState) -> tuple[GateResult, ...]:
             action_gaps.append(
                 "H support is Gaussian/uniform only; adaptive W-list/M2P and "
                 "required families remain absent."
-            )
-        if state.action.key == "F":
-            action_gaps.append(
-                "The radial probe did not exercise F's canonical external minus."
             )
         applicable, applicability_detail = probe_applicability(state)
         if not applicable:

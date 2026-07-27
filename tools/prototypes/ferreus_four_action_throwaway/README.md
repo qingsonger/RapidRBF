@@ -25,6 +25,9 @@ RapidRBF. The source facts and small Gaussian/transformed-coordinate probe
 summaries are frozen inputs from the companion audit and recorded Rust probes;
 changing controls only asks how those facts bear on a selected contract case.
 
+**HITL status:** the action-specific adaptation architecture is accepted. The
+canonical signed-`F` evidence rerun is captured here and awaits evidence review.
+
 Empirical agreement is useful to **falsify** an unsafe component transform and
 to **support** the plausibility of a safe scalar-lift adaptation. Approximation
 errors are therefore labelled `OBSERVED SUPPORT`, never an acceptance pass.
@@ -67,21 +70,20 @@ frozen row remains visible only as explicitly labelled context.
 - The small Gaussian corpus uses diagonal scaling in 1D and nonsymmetric shear
   in 2D/3D. It covers each dimension with 128 sources against 83 cross targets
   and 128 self targets. The per-row maximum near-control errors range from
-  `5.773159728050814e-15` to
-  `1.2434497875801753e-14`. There are 6 near-control and 6
+  `5.77315972805081401e-15` to
+  `1.33226762955018785e-14`. There are 6 near-control and 6
   symmetry-reduced far-field rows, 12 total.
 - The TUI selects the exact frozen row for its dimension and geometry.
   Across the six far-field rows, absolute errors were
-  `1.11503408595226e-6` to `4.2364467345290535e-6` for `A`,
-  `4.948867313903094e-5` to `3.306160658285151e-4` for `F^T`, and
-  `7.964282082800755e-6` to `4.893211298861999e-5` for the radial
-  multi-right-hand-side unsigned `F` mapping. The probe did not apply
-  RapidRBF's canonical external minus on either side, so it supports the
-  component mapping but does not test that sign.
+  `1.11503408595226006e-6` to `4.23644673541723193e-6` for `A`,
+  `4.94886731390309365e-5` to `3.30616066320121860e-4` for `F^T`, and
+  `7.96428211832789223e-6` to `4.89321129930608834e-5` for canonical
+  signed `F`. Every row asserts and records nonzero unsigned/canonical
+  candidate/direct witnesses with the fixed external sign `-1`.
 - Treating scalar signed/permuted interaction offsets as component transforms is
-  unsafe: far component-`F` errors span `1.0426441986466783` to
-  `10.3755590606318`, and far component-`H` errors span
-  `6.306803972941173` to `15.065703042324033`.
+  unsafe: far component-`F` errors span `1.04264419864667857` to
+  `10.3755590606318027`, and far component-`H` errors span
+  `6.30680397294115647` to `15.0657030423240226`.
 - A throwaway uniform-tree fork keeps M2L scalar/radial and differentiates the
   target expansion twice. Its separate 96-source Gaussian corpus uses 1D
   diagonal scaling and 2D/3D shear, covering self/cross and near/far cases.
@@ -138,7 +140,8 @@ human-reviewed decision belongs on `main`.
 - `probe/observed-hessian-windows-x86_64.json` records all twelve target-Hessian
   rows and path assertions.
 - `probe/throwaway_scalar_action_probe.rs` is the exact scalar-action example
-  used to record the `A/F/F^T` and rejected component-kernel observations.
+  used to record canonical `A`, signed `F`, `F^T`, and rejected
+  component-kernel observations, including the sign-sensitive `F` witnesses.
 - `probe/ferreus-d0442ee-target-hessian.patch` is the exact frozen-source patch.
 - `probe/throwaway_target_hessian_probe.rs` is the exact probe example.
 - `probe/REPRODUCE.md` gives the clean-clone commands and deliberate limits.

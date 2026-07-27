@@ -208,13 +208,17 @@ fn run_case(dim: usize, self_geometry: bool, force_far_field: bool) {
     let (_, radial_vector_gradients) = radial_vector_tree
         .evaluate_with_gradients(&vector_weights.as_ref(), &targets)
         .unwrap();
-    let candidate_f_radial_rhs = Mat::from_fn(target_count, 1, |target, _| {
+    let candidate_f_radial_rhs_unsigned = Mat::from_fn(target_count, 1, |target, _| {
         (0..dim)
             .map(|axis| radial_vector_gradients[(target, axis * dim + axis)])
-            .sum()
+            .sum::<f64>()
+    });
+    // Canonical F is the fixed negative displacement-gradient row.
+    let candidate_f_radial_rhs = Mat::from_fn(target_count, 1, |target, _| {
+        -candidate_f_radial_rhs_unsigned[(target, 0)]
     });
 
-    let mut candidate_f = Mat::zeros(target_count, 1);
+    let mut candidate_f_unsigned: Mat<f64> = Mat::zeros(target_count, 1);
     let mut candidate_h_metric = Mat::zeros(target_count, dim);
     for source_axis in 0..dim {
         let component_weights =
@@ -233,16 +237,19 @@ fn run_case(dim: usize, self_geometry: bool, force_far_field: bool) {
             .evaluate_with_gradients(&component_weights.as_ref(), &targets)
             .unwrap();
         for target in 0..target_count {
-            candidate_f[(target, 0)] += values[(target, 0)];
+            candidate_f_unsigned[(target, 0)] += values[(target, 0)];
             for output_axis in 0..dim {
                 candidate_h_metric[(target, output_axis)] += gradients[(target, output_axis)];
             }
         }
     }
+    let candidate_f = Mat::from_fn(target_count, 1, |target, _| {
+        -candidate_f_unsigned[(target, 0)]
+    });
 
     let mut direct_a = Mat::zeros(target_count, 1);
     let mut direct_ft_metric = Mat::zeros(target_count, dim);
-    let mut direct_f = Mat::zeros(target_count, 1);
+    let mut direct_f_unsigned: Mat<f64> = Mat::zeros(target_count, 1);
     let mut direct_h_metric = Mat::zeros(target_count, dim);
     for target in 0..target_count {
         for source in 0..source_count {
@@ -252,7 +259,7 @@ fn run_case(dim: usize, self_geometry: bool, force_far_field: bool) {
                 let gradient = -2.0 * displacement[output_axis] * value;
                 direct_ft_metric[(target, output_axis)] +=
                     gradient * scalar_weights[(source, 0)];
-                direct_f[(target, 0)] +=
+                direct_f_unsigned[(target, 0)] +=
                     gradient * vector_weights[(source, output_axis)];
                 for source_axis in 0..dim {
                     let diagonal = if output_axis == source_axis { 2.0 } else { 0.0 };
@@ -267,6 +274,9 @@ fn run_case(dim: usize, self_geometry: bool, force_far_field: bool) {
             }
         }
     }
+    let direct_f = Mat::from_fn(target_count, 1, |target, _| {
+        -direct_f_unsigned[(target, 0)]
+    });
 
     let candidate_ft = Mat::from_fn(target_count, dim, |target, physical_axis| {
         let metric: Vec<f64> = (0..dim)
@@ -284,21 +294,48 @@ fn run_case(dim: usize, self_geometry: bool, force_far_field: bool) {
         let metric: Vec<f64> = (0..dim)
             .map(|metric_axis| candidate_h_metric[(target, metric_axis)])
             .collect();
-        physical_output(&metric, &transform)[physical_axis]
+        -physical_output(&metric, &transform)[physical_axis]
     });
     let direct_h = Mat::from_fn(target_count, dim, |target, physical_axis| {
         let metric: Vec<f64> = (0..dim)
             .map(|metric_axis| direct_h_metric[(target, metric_axis)])
             .collect();
-        physical_output(&metric, &transform)[physical_axis]
+        -physical_output(&metric, &transform)[physical_axis]
     });
 
+    let mut f_sign_witness_target = 0;
+    for target in 1..target_count {
+        if direct_f_unsigned[(target, 0)].abs()
+            > direct_f_unsigned[(f_sign_witness_target, 0)].abs()
+        {
+            f_sign_witness_target = target;
+        }
+    }
+    let f_candidate_unsigned_witness =
+        candidate_f_radial_rhs_unsigned[(f_sign_witness_target, 0)];
+    let f_candidate_canonical_witness =
+        candidate_f_radial_rhs[(f_sign_witness_target, 0)];
+    let f_direct_unsigned_witness = direct_f_unsigned[(f_sign_witness_target, 0)];
+    let f_direct_canonical_witness = direct_f[(f_sign_witness_target, 0)];
+    assert!(f_direct_unsigned_witness.abs() > 0.0);
+    assert_eq!(
+        f_candidate_canonical_witness,
+        -f_candidate_unsigned_witness
+    );
+    assert_eq!(f_direct_canonical_witness, -f_direct_unsigned_witness);
+    assert!(f_candidate_canonical_witness * f_direct_canonical_witness > 0.0);
+
     println!(
-        "{{\"dimension\":{dim},\"geometry\":\"{}\",\"route\":\"{}\",\"A_error\":{:.17e},\"FT_error\":{:.17e},\"F_radial_multi_rhs_error\":{:.17e},\"F_scalar_component_hack_error\":{:.17e},\"H_scalar_component_hack_error\":{:.17e}}}",
+        "{{\"dimension\":{dim},\"geometry\":\"{}\",\"route\":\"{}\",\"A_error\":{:.17e},\"FT_error\":{:.17e},\"F_external_sign\":-1,\"F_sign_witness_target\":{},\"F_candidate_unsigned_witness\":{:.17e},\"F_candidate_canonical_witness\":{:.17e},\"F_direct_unsigned_witness\":{:.17e},\"F_direct_canonical_witness\":{:.17e},\"F_radial_multi_rhs_error\":{:.17e},\"F_scalar_component_hack_error\":{:.17e},\"H_component_control_external_sign\":-1,\"H_scalar_component_hack_error\":{:.17e}}}",
         if self_geometry { "self" } else { "cross" },
         if force_far_field { "symmetry-reduced-far-field" } else { "near-field-control" },
         max_abs_diff(&candidate_a, &direct_a),
         max_abs_diff(&candidate_ft, &direct_ft),
+        f_sign_witness_target,
+        f_candidate_unsigned_witness,
+        f_candidate_canonical_witness,
+        f_direct_unsigned_witness,
+        f_direct_canonical_witness,
         max_abs_diff(&candidate_f_radial_rhs, &direct_f),
         max_abs_diff(&candidate_f, &direct_f),
         max_abs_diff(&candidate_h, &direct_h),

@@ -29,7 +29,7 @@ Captured SHA-256 identities:
 - patch: `80A92472F60607F69D48C8D32911923EFF5F011BF29883459767DBBB5528703F`
 - example: `DA426D514FE4198168F69CF4171DE85D6AC382611E825B8B3C233F5576A75F72`
 - scalar-action example:
-  `3DCC037BC22C947789A831B214F59A33743BF84D61A6864C8227A08AA11365C9`
+  `4C16000E4AD1C77FB77A4E7D86B0E350CA53C833E7A75963D35D78CEA40AB31E`
 
 ## Reproduce
 
@@ -64,7 +64,7 @@ Windows observation is in
 ## Reproduce the scalar-action control from a separate clean clone
 
 This is deliberately a second clone with no target-Hessian patch applied. It
-captures the exact scalar-action example used for the original four-action
+captures the exact scalar-action example used for the canonical signed
 observation.
 
 ```powershell
@@ -83,11 +83,19 @@ Pop-Location
 ```
 
 The captured file and the source used for the recorded run both have SHA-256
-`3DCC037BC22C947789A831B214F59A33743BF84D61A6864C8227A08AA11365C9`.
+`4C16000E4AD1C77FB77A4E7D86B0E350CA53C833E7A75963D35D78CEA40AB31E`.
 The corresponding structured observation is
 `observed-windows-x86_64.json`.
 
 ## What is compared
+
+For canonical `F`, the scalar-action example evaluates `D` scalar radial
+right-hand sides, contracts their target gradients diagonally, and applies the
+fixed external sign `-1`. The rejected component-kernel control and complete
+direct oracle apply the same sign. Every emitted row selects a nonzero direct
+`F` witness, records its unsigned and canonical candidate/direct values, and
+asserts that each canonical witness is the exact negative of its unsigned
+value and that candidate/direct canonical signs agree.
 
 For physical points and vectors, the example forms metric coordinates and
 right-hand sides
