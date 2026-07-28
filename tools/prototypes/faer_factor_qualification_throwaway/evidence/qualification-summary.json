@@ -1,0 +1,471 @@
+{
+  "authority": {
+    "authority": {
+      "candidate_build": {
+        "default_features": false,
+        "execution_boundary": "direct-in-process-stock-crate",
+        "features": [
+          "std",
+          "linalg"
+        ],
+        "local_parallelism": "Par::Seq",
+        "registered_cpu_features": [
+          "avx2",
+          "fma"
+        ],
+        "target": "x86_64-pc-windows-msvc"
+      },
+      "candidate_factor_backend_calls": 0,
+      "counts": {
+        "blocks": 204,
+        "factor_sources": 216,
+        "p_top_factor_sources": 12,
+        "qtaq_factor_sources": 204,
+        "workloads": 12
+      },
+      "factor_roles": {
+        "p_top": 12,
+        "qtaq": 204
+      },
+      "physical_witnesses": 204,
+      "rank_and_nullspace_certificates": 625,
+      "semantic_state": "Admitted"
+    },
+    "identities": {
+      "admission_report": {
+        "bytes": 8989713,
+        "name": "hierarchy-admission-report.json",
+        "sha256": "bc907929fdf82976f83212ec514a0ccf43c59499a5dda45f9c4d4ef34aa37e90"
+      },
+      "candidate_lock": {
+        "bytes": 22861,
+        "name": "Cargo.lock",
+        "sha256": "bd15eedbba33089e0613b5ad7134e627733140f6bcc127cedb5f9eac2bd83915"
+      },
+      "candidate_manifest": {
+        "bytes": 609,
+        "name": "Cargo.toml",
+        "sha256": "82dcc349b0734c52f28058ad4b562a73c4938e13e552ebf520a8d67ab5578bc0"
+      },
+      "factor_health_profile": {
+        "bytes": 4248,
+        "name": "factor-health-profile.v1.json",
+        "sha256": "55398d3e7156d7af09bbcb47aa320506f08f2a8c720f80506a1df3648e5f2124"
+      },
+      "lock": {
+        "bytes": 1491363,
+        "name": "manifest.lock.json",
+        "sha256": "7abd17eabba0cd578fa8989075f9d09d5113a696df48c9643785822dadde5a75"
+      },
+      "manifest": {
+        "bytes": 1887496,
+        "name": "hierarchy.manifest.raw.json",
+        "sha256": "cf5aaa1e3fe6bf51c3f24f13455ac1036e7ec591668c18ec4c86f3243aa07f54"
+      },
+      "physical_report": {
+        "bytes": 1511307,
+        "name": "hierarchy-physical-evaluator-report.json",
+        "sha256": "da75d43c66e7405676639c61e11c99686d291ea690b85ed0828233d957b6a769"
+      }
+    }
+  },
+  "backend_calls": 0,
+  "disposition": "NOT_ADMITTED_DIAGNOSTIC_ONLY",
+  "gates": [
+    {
+      "authority": "upstream rank/nullspace and physical certificates",
+      "evidence": [
+        "cf5aaa1e3fe6bf51c3f24f13455ac1036e7ec591668c18ec4c86f3243aa07f54",
+        "38f39fee8b4059cd2619df4bbfabb6f7159b41df1511907e0346c32642737f79",
+        "bc907929fdf82976f83212ec514a0ccf43c59499a5dda45f9c4d4ef34aa37e90",
+        "da75d43c66e7405676639c61e11c99686d291ea690b85ed0828233d957b6a769"
+      ],
+      "gate_id": "semantic_corpus",
+      "reason": "The complete 12-workload, 204-block, 216-factor inventory is bound; the backend has no rank authority.",
+      "status": "PASS",
+      "title": "Canonical corpus and semantic authority"
+    },
+    {
+      "authority": "candidate-independent profile",
+      "evidence": [
+        "55398d3e7156d7af09bbcb47aa320506f08f2a8c720f80506a1df3648e5f2124"
+      ],
+      "gate_id": "factor_health_profile",
+      "reason": "Algorithms, health formulae, controls, lanes, and the narrow recompute exception were frozen before candidate execution.",
+      "status": "PASS",
+      "title": "Preregistered FactorHealthProfile"
+    },
+    {
+      "authority": "public faer component and low-level interfaces",
+      "evidence": [
+        "530103a7c8f62e8cf225045d39410b9d36e67d11f5acf6793f403bb0fc1a9fb9",
+        "Stage-0 QTAQ pack/reload was diagnostic only"
+      ],
+      "gate_id": "owned_representation",
+      "reason": "Stock faer exposes enough logical components for an owned record, but the complete P_top record and all-216-source reload witness have not been materialized.",
+      "status": "PARTIAL",
+      "title": "RapidRBF-owned B and P_top representation"
+    },
+    {
+      "authority": "independent value/gradient and CPD evaluator",
+      "evidence": [
+        "da75d43c66e7405676639c61e11c99686d291ea690b85ed0828233d957b6a769"
+      ],
+      "gate_id": "external_certificate",
+      "reason": "The current evaluator certifies frozen reference witnesses, not runtime faer outputs; backend entry is rejected before candidate publication.",
+      "status": "NOT_REACHED",
+      "title": "Externally certified operational and manufactured solves"
+    },
+    {
+      "authority": "caller-owned resource grant",
+      "evidence": [
+        "530103a7c8f62e8cf225045d39410b9d36e67d11f5acf6793f403bb0fc1a9fb9",
+        "private-gemm TLS capacity derives from runtime cache topology"
+      ],
+      "gate_id": "exact_transient_accounting",
+      "reason": "For the bound Windows std+linalg direct in-process candidate, native f64 GEMM retains a TLS Vec outside faer's declared MemStack and the caller's grant; this candidate has neither allocator instrumentation nor an isolated-worker quota.",
+      "status": "BLOCKED",
+      "title": "Exact whole-call transient and cleanup accounting"
+    },
+    {
+      "authority": "registered 1/12, 2/12, and 8/16 lanes",
+      "evidence": [
+        "530103a7c8f62e8cf225045d39410b9d36e67d11f5acf6793f403bb0fc1a9fb9"
+      ],
+      "gate_id": "caller_permit_lease",
+      "reason": "Low-level calls accept explicit Par and can be wrapped, but stock faer supplies no lease or active-worker evidence and the prototype has not materialized the process-tree lane controller.",
+      "status": "PARTIAL",
+      "title": "Caller-owned permit lease and maximum-live evidence"
+    },
+    {
+      "authority": "operational factor contract",
+      "evidence": [
+        "530103a7c8f62e8cf225045d39410b9d36e67d11f5acf6793f403bb0fc1a9fb9",
+        "factor/solve cancellation vocabulary matches: 0"
+      ],
+      "gate_id": "bounded_cancellation",
+      "reason": "Pinned in-process factor/solve code exposes no cancellation token or polling hook, and this candidate has no isolated worker to terminate; boundary checks cannot interrupt an in-flight O(n^3) kernel.",
+      "status": "BLOCKED",
+      "title": "Bounded cancellation with prior-state preservation"
+    },
+    {
+      "authority": "non-compensating execution lanes",
+      "evidence": [
+        "1/12",
+        "2/12",
+        "8/16"
+      ],
+      "gate_id": "lane_closure",
+      "reason": "No candidate session may start after the exact-resource and cancellation preflight fails; no lane may borrow authority from another.",
+      "status": "NOT_REACHED",
+      "title": "Complete 1k/10k resource and thread lanes"
+    },
+    {
+      "authority": "transactional factor and solve publication",
+      "evidence": [
+        "530103a7c8f62e8cf225045d39410b9d36e67d11f5acf6793f403bb0fc1a9fb9"
+      ],
+      "gate_id": "atomic_controls",
+      "reason": "Metadata and pack controls are implementable outside faer, but cancellation, total-grant-minus-one, and all-lane reuse cannot close while the owning contracts are blocked.",
+      "status": "PARTIAL",
+      "title": "Atomic corruption, grant, cancellation, and reuse controls"
+    },
+    {
+      "authority": "RapidRBF-owned logical factor format",
+      "evidence": [
+        "530103a7c8f62e8cf225045d39410b9d36e67d11f5acf6793f403bb0fc1a9fb9"
+      ],
+      "gate_id": "durable_pack_reload",
+      "reason": "Logical component packing is feasible, but this is not the sole gap; the profile therefore forbids the run-scoped recompute exception.",
+      "status": "PARTIAL",
+      "title": "Durable pack/reload"
+    }
+  ],
+  "next_decision": {
+    "not_part_of_this_ticket": true,
+    "question": "Should v1 probe an instrumented/isolated faer adapter with accepted quota and cancellation authority, or reopen the dense-factor substrate?"
+  },
+  "preflight": {
+    "candidate_observations_used_to_set_profile": false,
+    "reason": "the bound direct in-process candidate lacks whole-call transient grant authority and bounded in-flight cancellation",
+    "state": "BackendContractUnavailable"
+  },
+  "profile": {
+    "allowed_outcomes": [
+      "QUALIFIED_PACKED",
+      "QUALIFIED_RUN_SCOPED_RECOMPUTE",
+      "NOT_ADMITTED_DIAGNOSTIC_ONLY"
+    ],
+    "authority": {
+      "candidate_observations_may_not_change_this_profile": true,
+      "corpus_sha256": "38f39fee8b4059cd2619df4bbfabb6f7159b41df1511907e0346c32642737f79",
+      "physical_profile_sha256": "cf64f2b26e2a3f4844a5c63027deb5bd4e1f856f0c7f45d4d2afdcccbff724a1",
+      "rank_profile_sha256": "8d60d932464e04c1ce052ecf33acc93f6e72d424ba05d1af7e40cf69b456731e",
+      "semantic_rank_precedes_backend_health": true
+    },
+    "cancellation_contract": {
+      "boundary_only_polling_is_insufficient": true,
+      "bounded_during_factor_or_solve": true,
+      "failure_preserves_prior_validated_state": true
+    },
+    "candidate": {
+      "allocator_instrumentation": false,
+      "cargo_lock_sha256": "bd15eedbba33089e0613b5ad7134e627733140f6bcc127cedb5f9eac2bd83915",
+      "cargo_manifest_sha256": "82dcc349b0734c52f28058ad4b562a73c4938e13e552ebf520a8d67ab5578bc0",
+      "crate": "faer",
+      "default_features": false,
+      "execution_boundary": "direct-in-process-stock-crate",
+      "fallback": "fresh-partial-pivot-lu-after-validated-symmetric-path-failure",
+      "features": [
+        "std",
+        "linalg"
+      ],
+      "local_parallelism": "Par::Seq",
+      "polynomial_factor": "full-pivot-lu",
+      "process_isolated_backend": false,
+      "projected_factor": "bunch-kaufman-lblt",
+      "required_cpu_features": [
+        "avx2",
+        "fma"
+      ],
+      "target": "x86_64-pc-windows-msvc",
+      "version": "0.24.4"
+    },
+    "factor_health": {
+      "all_factor_components_finite": true,
+      "all_inputs_finite": true,
+      "candidate_factor_status_is_not_rank_authority": true,
+      "cpd_eta_plus_alpha_max": "2^-32",
+      "pack_reload_solution_relative_inf_max": "256*n*2^-53",
+      "reconstruction_relative_inf_max": "64*n*2^-53",
+      "reduced_backward_error_max": "64*n*2^-53"
+    },
+    "owned_representation": {
+      "coarse_p_top": [
+        "canonical packed L and U",
+        "forward and inverse row permutation",
+        "forward and inverse column permutation",
+        "source and profile identities",
+        "payload checksum"
+      ],
+      "projected_b": [
+        "canonical packed lower L",
+        "B diagonal",
+        "B subdiagonal",
+        "forward and inverse permutation",
+        "source and profile identities",
+        "payload checksum"
+      ],
+      "raw faer allocation bytes_are_portable": false,
+      "recompute_record_must_never_be_named_packed_factor": true
+    },
+    "profile_id": "RapidRBF/FactorHealthProfile/v1",
+    "publication": {
+      "atomic_factor_publication": true,
+      "atomic_solve_publication": true,
+      "external_value_gradient_and_cpd_certificate_required": true,
+      "factor_state": "ValidatedFactor",
+      "required_controls": [
+        "corruption",
+        "truncation",
+        "wrong-source",
+        "metadata-mismatch",
+        "one-byte-below-grant",
+        "cancellation",
+        "prior-state-reuse"
+      ],
+      "required_rhs_families": [
+        "operational",
+        "constraint",
+        "dynamic-range"
+      ],
+      "solve_state": "Solved"
+    },
+    "recompute_exception": {
+      "cross_run_cache": false,
+      "eviction_triggered_rebuild": false,
+      "maximum_recomputations_per_run": 216,
+      "only_permitted_when_the_sole_nonpassing_gate_is": "durable_pack_reload"
+    },
+    "resource_contract": {
+      "declared_memstack_is_not_whole_call_authority": true,
+      "failure_releases_permits_and_scratch": true,
+      "one_byte_below_total_grant": "ResourceDenied before any backend call and before any publication.",
+      "temporary_storage": "Record live occupancy, cumulative writes, high-water, residue, and open handles; normal exit requires zero residue.",
+      "whole_call_transient_bytes": "Every backend allocation and retained cache byte is caller-owned or exactly precomputable from validated inputs before backend entry."
+    },
+    "schema": "rapidrbf-factor-health-profile-v1",
+    "thread_contract": {
+      "caller_owned_permit_lease": true,
+      "configured_effective_and_maximum_live_required": true,
+      "lanes": [
+        {
+          "maximum_live_threads": 12,
+          "workers": 1
+        },
+        {
+          "maximum_live_threads": 12,
+          "workers": 2
+        },
+        {
+          "maximum_live_threads": 16,
+          "workers": 8
+        }
+      ],
+      "nested_automatic_pool_forbidden": true
+    }
+  },
+  "published_solved_corrections": 0,
+  "published_validated_factors": 0,
+  "question": "Can the bound Windows std+linalg direct in-process stock-faer 0.24.4 candidate publish run-scoped ValidatedFactor and externally certified Solved corrections for every canonical 1k/10k mechanism-panel factor while closing all registered gates?",
+  "recompute_exception": {
+    "eligible": false,
+    "reason": "durable_pack_reload is not the sole nonpassing gate"
+  },
+  "schema": "rapidrbf-faer-factor-qualification-lab-v1",
+  "source_audit": {
+    "audited_api_set_sha256": "f152bd3feb6f0d78fbb2ee9fc3f8f18f8e25847698160d3789a5ea17dfe39732",
+    "candidate": {
+      "crate": "faer",
+      "version": "0.24.4"
+    },
+    "crate_closure_algorithm": "sha256-length-prefixed-path-byte-length-file-sha256-v1",
+    "crate_closures": {
+      "dyn-stack-0.13.2": {
+        "bytes": 107768,
+        "files": 15,
+        "sha256": "f0e0c3c60c4aa59b8cd24d671e1860ac89c6e8163f728282a05cfa1e3158d608"
+      },
+      "faer-0.24.4": {
+        "bytes": 9208583,
+        "files": 179,
+        "sha256": "6788513332d8385fe5b01e104aa407b9302ea2d126d7dc60386a512b0e957d61"
+      },
+      "private-gemm-x86-0.1.20": {
+        "bytes": 262197,
+        "files": 13,
+        "sha256": "fbfb14de2dabc443a292be45bc763725d19482fa73ed324b050dd72c5716bcd2"
+      }
+    },
+    "facts": {
+      "bound_execution_boundary": "direct-in-process-stock-crate",
+      "bound_features": [
+        "std",
+        "linalg"
+      ],
+      "bound_local_parallelism": "Par::Seq",
+      "bound_native_f64_matmul_routes_to_private_gemm": true,
+      "bound_registered_cpu_features": [
+        "avx2",
+        "fma"
+      ],
+      "bound_target": "x86_64-pc-windows-msvc",
+      "dyn_stack_drop_deallocates_without_write_or_residue_evidence": true,
+      "factor_and_solve_module_cancellation_matches": [],
+      "high_level_process_global_parallelism": true,
+      "low_level_explicit_memstack": true,
+      "owned_component_getters": true,
+      "private_gemm_persistent_tls_vec": true,
+      "unselected_parallel_full_pivot_path_allocates_vec_outside_memstack": true
+    },
+    "files": [
+      {
+        "bytes": 72805,
+        "path": "faer-0.24.4/src/linalg/solvers.rs",
+        "required_fragments": [
+          "pub struct Lblt<T>",
+          "pub struct FullPivLu<T>",
+          "pub fn B_diag(&self)",
+          "pub fn B_subdiag(&self)",
+          "pub fn P(&self)",
+          "pub fn Q(&self)",
+          "get_global_parallelism()"
+        ],
+        "sha256": "a28e52d6ce7d00cd4b324fc7c777668929fb976a4d25b40d04e134bcd15edf77"
+      },
+      {
+        "bytes": 9047,
+        "path": "faer-0.24.4/src/linalg/lu/partial_pivoting/factor.rs",
+        "required_fragments": [
+          "pub fn lu_in_place_scratch",
+          "pub fn lu_in_place"
+        ],
+        "sha256": "a59599d23897934cd7eee4738c72d3a38df5b5c200d6c20e1e59fe5cd4c8a41e"
+      },
+      {
+        "bytes": 34416,
+        "path": "faer-0.24.4/src/linalg/lu/full_pivoting/factor.rs",
+        "required_fragments": [
+          "pub fn lu_in_place_scratch",
+          "pub fn lu_in_place",
+          "collect::<alloc::vec::Vec<_>>()"
+        ],
+        "sha256": "617f9f1a159d56619988e2ad09029bc8e537263eec63c9679e6eb665908bd8d7"
+      },
+      {
+        "bytes": 8722,
+        "path": "faer-0.24.4/src/linalg/matmul/internal/mod.rs",
+        "required_fragments": [
+          "#[cfg(all(target_arch = \"x86_64\", feature = \"std\"))]",
+          "is_x86_feature_detected!(\"avx2\")",
+          "is_x86_feature_detected!(\"fma\")",
+          "use private_gemm_x86::*",
+          "private_gemm_x86::gemm"
+        ],
+        "sha256": "d5de7bbddd14be60c359001a1403c61ad03951467bcb06f7cb68d701e33d98c1"
+      },
+      {
+        "bytes": 43376,
+        "path": "faer-0.24.4/src/lib.rs",
+        "required_fragments": [
+          "pub enum Par",
+          "GLOBAL_PARALLELISM",
+          "pub fn disable_global_parallelism()",
+          "pub fn set_global_parallelism(par: Par)"
+        ],
+        "sha256": "a083697f01e2b01a5468a7eb4c9f4e609e6229ddb6aea55d8d908f99f9557658"
+      },
+      {
+        "bytes": 3704,
+        "path": "faer-0.24.4/Cargo.toml.orig",
+        "required_fragments": [
+          "std = [",
+          "\"dep:private-gemm-x86\"",
+          "linalg = []"
+        ],
+        "sha256": "14da84e6b7bba776ee499f8c58154fb1a3fc550ca552a2b5b6c6f50790bcdf69"
+      },
+      {
+        "bytes": 92232,
+        "path": "private-gemm-x86-0.1.20/src/lib.rs",
+        "required_fragments": [
+          "thread_local!",
+          "static MEM: RefCell<Vec",
+          "Vec::with_capacity(lhs_size + rhs_size)",
+          "mem.reserve_exact(lhs_size + rhs_size)"
+        ],
+        "sha256": "b3300291b8869f5f5cd5b02182a0a1b3668b1abf95e1d8d14bc064c7923d2414"
+      },
+      {
+        "bytes": 11583,
+        "path": "dyn-stack-0.13.2/src/mem.rs",
+        "required_fragments": [
+          "impl<A: Allocator> Drop for MemBuffer<A>",
+          "self.alloc.deallocate"
+        ],
+        "sha256": "9254016254794343aa86335df3fad17b16b238bf3f2b62db2cf1f17c48b92d30"
+      },
+      {
+        "bytes": 6499,
+        "path": "dyn-stack-0.13.2/src/stack_req.rs",
+        "required_fragments": [
+          "pub const fn size_bytes(&self)",
+          "pub fn any_of"
+        ],
+        "sha256": "2af90d740bf88f35186a7dba1c18c0a268c3092438dabfae0aec207cc659322e"
+      }
+    ],
+    "source_closure_algorithm": "sha256-of-canonical-json-over-full-crate-closures-v1",
+    "source_closure_sha256": "530103a7c8f62e8cf225045d39410b9d36e67d11f5acf6793f403bb0fc1a9fb9"
+  }
+}
