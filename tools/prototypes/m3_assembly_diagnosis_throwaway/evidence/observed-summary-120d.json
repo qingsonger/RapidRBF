@@ -1,0 +1,517 @@
+{
+  "adjudication": {
+    "canonical_rule": "all local value rows, followed by point-major gradient rows selected at source_value_rows + 3*global_gradient_index + component",
+    "dense_factor_substrate_disposition": "not causal; the representation split exists before factorization",
+    "downstream_m3_representation_authority": "canonical-row-channel-map",
+    "frozen_literal_disposition": "diagnostic-only confirmed legacy internal assembly-defect fixture; must not supply factors or expected semantics to the mechanism panel",
+    "production_factor_admission": "still EVIDENCE_MISSING pending formal Q^T A Q semantic-rank certificate, FactorHealthProfile, external evaluator/publication witnesses, and bounded resource/thread ownership",
+    "public_intentional_difference_record": "NOT_APPLICABLE_TO_THE_INTERNAL_REPRESENTATION_ALONE; no registered public outcome difference is established here. If validation observes one, it remains unadjudicated until the validation program materializes a narrow, human-approved IntentionalDifferenceAdjudication/v1 record"
+  },
+  "diagnosis_state": "ADJUDICATED",
+  "frozen_polatory_source": {
+    "clean_checkout": true,
+    "commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+    "facts": {
+      "coarse_local_mu_definition_lines": [
+        34
+      ],
+      "coarse_local_offset_lines": [
+        54
+      ],
+      "fine_local_mu_definition_lines": [
+        53
+      ],
+      "fine_local_offset_lines": [
+        73
+      ],
+      "full_lagrange_matrix_lines": [
+        85,
+        91
+      ],
+      "point_major_gradient_storage_lines": [
+        162,
+        180,
+        214
+      ],
+      "ras_full_mu_definition_lines": [
+        59
+      ]
+    },
+    "files": {
+      "coarse": {
+        "path": "include/polatory/preconditioner/coarse_grid.hpp",
+        "sha256": "34f9fcb2a031d043885eeeacfb71283523e5e01023744f66110adc2e75547921"
+      },
+      "fine": {
+        "path": "include/polatory/preconditioner/fine_grid.hpp",
+        "sha256": "53ccac9d530f08023a5634cbec1f3b44cc0c29d1bc33a5b5a5c7f5f9fccdd0cf"
+      },
+      "monomial": {
+        "path": "include/polatory/polynomial/monomial_basis.hpp",
+        "sha256": "0e6c004576e28fd24729d3084cd26f811e5363ee1e96fc3ed85067c3f1371788"
+      },
+      "ras": {
+        "path": "include/polatory/preconditioner/ras_preconditioner.hpp",
+        "sha256": "6380a83cb7ffcec6a69008fd942a9bc2078a82675d962109fd2a88191e2078b1"
+      }
+    },
+    "interpretation": "RasPreconditioner builds lagrange_p_ over all value rows followed by point-major gradient rows, while FineGrid and CoarseGrid index its gradient portion from their local value-row count mu_."
+  },
+  "hypothesis_results": {
+    "H1_local_vs_global_gradient_offset": {
+      "evidence": "source, locked row indices, direct local-P Q oracle, P^T Q, augmented residual, and CPD residual all agree",
+      "result": "SUPPORTED"
+    },
+    "H2_replay_matrix_residual_implementation_bug": {
+      "evidence": "120-digit standard-library reconstruction from raw A/P/d/lambda/c reproduces the matrix-residual gap independently; this does not replace the still-missing external value/gradient evaluator",
+      "result": "FALSIFIED"
+    },
+    "H3_rank_boundary_or_binary64_roundoff": {
+      "evidence": "P_top is far above tau_rank, both Q forms have structural full column rank, and the literal P^T Q defect remains order one at 120 decimal digits; formal Q^T A Q production rank certification remains separately missing",
+      "result": "FALSIFIED_AS_CAUSE"
+    },
+    "H4_reduced_rhs_mapping_only": {
+      "evidence": "P^T Q fails independently of any RHS, while each stored reduced RHS closes against its own Q and full RHS",
+      "result": "FALSIFIED"
+    },
+    "H5_capture_misread_full_lagrange_layout": {
+      "evidence": "frozen source constructs lagrange_p_ over all value rows followed by point-major gradient rows; the literal map selects from local mu_",
+      "result": "FALSIFIED"
+    }
+  },
+  "locked_corpus": {
+    "all_locked_files_verified": true,
+    "corpus_sha256": "ac282ee95062b4463d2e0a0c0ca83da454660e0e5048fa79ea3a07da280ef26e",
+    "exact_directory_closure": true,
+    "exact_manifest_coverage": true,
+    "lock_body_sha256_recomputed": "ac282ee95062b4463d2e0a0c0ca83da454660e0e5048fa79ea3a07da280ef26e",
+    "record_count": 10,
+    "referenced_payload_count": 190,
+    "schema": "rapidrbf-dense-factor-corpus-lock-v2",
+    "symlinks_rejected": true,
+    "verified_bytes": 300188945,
+    "verified_file_count": 191
+  },
+  "precision_decimal_digits": 120,
+  "roles": {
+    "level0-coarse": {
+      "adjudication_gate_role": "falsifiable diagnosis invariants; not numerical acceptance thresholds",
+      "adjudication_gates": {
+        "augmented_matrix_residual_gap_is_reconstructed": true,
+        "both_lambda_payloads_close": true,
+        "both_reduced_rhs_payloads_close": true,
+        "canonical_ptq_is_roundoff_scale": true,
+        "canonical_q_matches_direct_oracle": true,
+        "canonical_row_map_is_global": true,
+        "captured_p_top_matches_local_p_prefix": true,
+        "cpd_gap_is_reconstructed": true,
+        "expected_assembly_outputs_are_byte_different": true,
+        "literal_ptq_is_order_one": true,
+        "literal_q_disagrees_with_direct_oracle": true,
+        "literal_row_map_is_local_not_global": true,
+        "p_top_is_far_from_rank_boundary": true,
+        "shared_source_inputs_are_byte_equal": true
+      },
+      "all_adjudication_gates_satisfied": true,
+      "comparison": {
+        "augmented_alpha_ratio_literal_over_canonical": "1.670599482418983274315930E+11",
+        "eta_cpd_ratio_literal_over_canonical": "3.978956286689232664200611E+14",
+        "ptq_component_ratio_literal_over_canonical": "8.733162345991300085348862E+14",
+        "q_oracle_error_ratio_literal_over_canonical": "8.400930734974331536079501E+15"
+      },
+      "payload_identity": {
+        "assembly_outputs_all_byte_different": true,
+        "expected_divergent_payloads": {
+          "b_lower": true,
+          "lagrange_flat_indices": true,
+          "q_top_row_major": true,
+          "rhs_reduced": true
+        },
+        "p_top_payload_matches_local_p_prefix": true,
+        "shared_inputs_all_byte_equal": true,
+        "shared_payloads": {
+          "a_lower": true,
+          "domain_gradient_indices": true,
+          "domain_value_indices": true,
+          "p_row_major": true,
+          "polynomial_p_top": true,
+          "rhs_full": true
+        }
+      },
+      "row_map": {
+        "canonical": {
+          "expected_offset_for_variant": 7500,
+          "gradient_rows": 315,
+          "gradient_rows_mismatching_global_map": 0,
+          "gradient_scalar_rows": 945,
+          "literal_selected_rows_inside_gradient_block": 945,
+          "literal_selected_rows_still_inside_value_block": 0,
+          "local_value_rows": 1109,
+          "matches_frozen_local_row_map": false,
+          "matches_global_row_map": true,
+          "source_value_rows": 7500,
+          "unique_gradient_index_deltas_from_global": [
+            0
+          ],
+          "variant": "canonical-row-channel-map"
+        },
+        "frozen_literal": {
+          "expected_offset_for_variant": 1109,
+          "gradient_rows": 315,
+          "gradient_rows_mismatching_global_map": 945,
+          "gradient_scalar_rows": 945,
+          "literal_selected_rows_inside_gradient_block": 123,
+          "literal_selected_rows_still_inside_value_block": 822,
+          "local_value_rows": 1109,
+          "matches_frozen_local_row_map": true,
+          "matches_global_row_map": false,
+          "source_value_rows": 7500,
+          "unique_gradient_index_deltas_from_global": [
+            -6391
+          ],
+          "variant": "frozen-literal-gradient-row-map"
+        }
+      },
+      "semantic_rank_adjudication": {
+        "canonical_q_semantics": "the direct local-P oracle confirms the polynomial-nullspace construction to binary64 roundoff",
+        "factor_health_profile": "EVIDENCE_MISSING",
+        "formal_qtaq_rank_certificate": "EVIDENCE_MISSING",
+        "frozen_literal_q_semantics": "algebraic column rank cannot repair P^T Q != 0; the representation is semantically inadmissible before B factorization",
+        "p_top": {
+          "conservative_parent_order_tau": 2.2803980925800715e-13,
+          "decimal_precision": 120,
+          "determinant_from_binary64_values": "-4.734817510333338361883592E-2",
+          "diagnostic_sigma_min_over_sigma_max": 0.04621309935156404,
+          "diagnostic_singular_values": [
+            0.12875914321615836,
+            0.25577817651846163,
+            0.5159988075096359,
+            2.786204453344041
+          ],
+          "distance_above_conservative_parent_order_tau_factor": 202653648509.58084,
+          "distance_above_tau_factor": 104062648509669.77,
+          "matrix": "local P_top",
+          "order": 4,
+          "rank_boundary_disposition": "far above both the 4x4 tau_rank and the more conservative parent scalar-order diagnostic; not a formal production scaled/equilibrated rank certificate",
+          "tau_rank": 4.440892098500626e-16
+        },
+        "q": "both stored representations have an exact structural identity tail and therefore algebraic full column rank",
+        "scope": "this ticket adjudicates representation authority, not production factor-path admission"
+      },
+      "shape": {
+        "gradient_rows": 315,
+        "polynomial_order": 4,
+        "reduced_order": 2050,
+        "scalar_order": 2054,
+        "value_rows": 1109
+      },
+      "variants": {
+        "canonical": {
+          "assembly_authority_before_adjudication": "candidate-independent-canonical",
+          "assembly_variant": "canonical-row-channel-map",
+          "decimal_precision": 120,
+          "direct_nullspace_oracle": {
+            "construction": "Q=[-(P_top^T)^-1 P_tail^T; I], derived only from the local P",
+            "normalized_ptq_inf": "1.466641514526423496941211E-19",
+            "ptq_inf_norm": "6.802336471878334123175591E-13",
+            "ptq_max_abs_component": "1.332267629550187848508358E-15",
+            "q_has_exact_structural_identity_tail": true,
+            "q_structural_column_rank": 2050,
+            "q_top_max_abs_error": "1.017848939900515738849007E-15"
+          },
+          "frozen_eigen_factor_diagnostic": {
+            "ldlt_info": "Success",
+            "ldlt_is_positive": true,
+            "polynomial_invertible": true,
+            "polynomial_rank": 4,
+            "polynomial_rcond": 0.07448710962581992,
+            "reduced_backward_error": 2.4340375947179354e-18
+          },
+          "high_precision_external_reconstruction": {
+            "acceptance_disposition": "diagnostic only; external evaluator uncertainty and publication witnesses are not materialized",
+            "augmented_residual_inf": "1.563644113559349414954806E-15",
+            "augmented_residual_max_row": 1119,
+            "eta_cpd": "4.896681658009922639979159E-18",
+            "eta_cpd_below_limit_before_external_evaluator_uncertainty": true,
+            "normalized_augmented_alpha": "4.963450867323461821261189E-18",
+            "pt_lambda_components": [
+              "2.991737310361133883596096E-16",
+              "2.041531952483217002620474E-16",
+              "1.287965822671857062480630E-16",
+              "2.105906007894983514966229E-17"
+            ],
+            "two_pow_minus_32_limit": "2.328306436538696289062500E-10"
+          },
+          "lambda_reconstruction": {
+            "identity_tail_bit_equal": true,
+            "q_gamma_top_max_abs_error": "3.484151001350984828504237E-16"
+          },
+          "record_id": "M3-HERMITE-COMPOSITE-level0-coarse-canonical",
+          "reduced_rhs_closure": {
+            "formula": "Q^T d using the captured Q and full RHS",
+            "max_abs_error": "3.451822670339226422387783E-16"
+          },
+          "solution_source": "frozen Eigen capture from the locked binary64 corpus"
+        },
+        "frozen_literal": {
+          "assembly_authority_before_adjudication": "research-only-frozen-compatibility",
+          "assembly_variant": "frozen-literal-gradient-row-map",
+          "decimal_precision": 120,
+          "direct_nullspace_oracle": {
+            "construction": "Q=[-(P_top^T)^-1 P_tail^T; I], derived only from the local P",
+            "normalized_ptq_inf": "2.677120559498753227471402E-4",
+            "ptq_inf_norm": "8.220000000000007703976346E+2",
+            "ptq_max_abs_component": "1.163490949717078682115038E+0",
+            "q_has_exact_structural_identity_tail": true,
+            "q_structural_column_rank": 2050,
+            "q_top_max_abs_error": "8.550878442771283894057498E+0"
+          },
+          "frozen_eigen_factor_diagnostic": {
+            "ldlt_info": "Success",
+            "ldlt_is_positive": false,
+            "polynomial_invertible": true,
+            "polynomial_rank": 4,
+            "polynomial_rcond": 0.07448710962581992,
+            "reduced_backward_error": 3.618224383259583e-16
+          },
+          "high_precision_external_reconstruction": {
+            "acceptance_disposition": "diagnostic only; external evaluator uncertainty and publication witnesses are not materialized",
+            "augmented_residual_inf": "1.848283609956624444076260E-3",
+            "augmented_residual_max_row": 1924,
+            "eta_cpd": "1.948368226705443688361123E-3",
+            "eta_cpd_below_limit_before_external_evaluator_uncertainty": false,
+            "normalized_augmented_alpha": "8.291938449962628941343144E-7",
+            "pt_lambda_components": [
+              "-8.526334666533595535510321E-1",
+              "-7.286321424729428090212207E-1",
+              "-3.211773819997013733184083E-1",
+              "-4.882919601590660010008470E-1"
+            ],
+            "two_pow_minus_32_limit": "2.328306436538696289062500E-10"
+          },
+          "lambda_reconstruction": {
+            "identity_tail_bit_equal": true,
+            "q_gamma_top_max_abs_error": "1.045554041806820994175717E-15"
+          },
+          "record_id": "M3-HERMITE-COMPOSITE-level0-coarse-frozen-literal",
+          "reduced_rhs_closure": {
+            "formula": "Q^T d using the captured Q and full RHS",
+            "max_abs_error": "3.451822670339226422387783E-16"
+          },
+          "solution_source": "frozen Eigen capture from the locked binary64 corpus"
+        }
+      }
+    },
+    "max-order-fine": {
+      "adjudication_gate_role": "falsifiable diagnosis invariants; not numerical acceptance thresholds",
+      "adjudication_gates": {
+        "augmented_matrix_residual_gap_is_reconstructed": true,
+        "both_lambda_payloads_close": true,
+        "both_reduced_rhs_payloads_close": true,
+        "canonical_ptq_is_roundoff_scale": true,
+        "canonical_q_matches_direct_oracle": true,
+        "canonical_row_map_is_global": true,
+        "captured_p_top_matches_local_p_prefix": true,
+        "cpd_gap_is_reconstructed": true,
+        "expected_assembly_outputs_are_byte_different": true,
+        "literal_ptq_is_order_one": true,
+        "literal_q_disagrees_with_direct_oracle": true,
+        "literal_row_map_is_local_not_global": true,
+        "p_top_is_far_from_rank_boundary": true,
+        "shared_source_inputs_are_byte_equal": true
+      },
+      "all_adjudication_gates_satisfied": true,
+      "comparison": {
+        "augmented_alpha_ratio_literal_over_canonical": "6.006598564369481889432849E+7",
+        "eta_cpd_ratio_literal_over_canonical": "5.560790769461454405925698E+12",
+        "ptq_component_ratio_literal_over_canonical": "8.701917412957300028084252E+14",
+        "q_oracle_error_ratio_literal_over_canonical": "7.595600623612290994118708E+15"
+      },
+      "payload_identity": {
+        "assembly_outputs_all_byte_different": true,
+        "expected_divergent_payloads": {
+          "b_lower": true,
+          "lagrange_flat_indices": true,
+          "q_top_row_major": true,
+          "rhs_reduced": true
+        },
+        "p_top_payload_matches_local_p_prefix": true,
+        "shared_inputs_all_byte_equal": true,
+        "shared_payloads": {
+          "a_lower": true,
+          "domain_gradient_indices": true,
+          "domain_value_indices": true,
+          "p_row_major": true,
+          "polynomial_p_top": true,
+          "rhs_full": true
+        }
+      },
+      "row_map": {
+        "canonical": {
+          "expected_offset_for_variant": 7500,
+          "gradient_rows": 164,
+          "gradient_rows_mismatching_global_map": 0,
+          "gradient_scalar_rows": 492,
+          "literal_selected_rows_inside_gradient_block": 492,
+          "literal_selected_rows_still_inside_value_block": 0,
+          "local_value_rows": 479,
+          "matches_frozen_local_row_map": false,
+          "matches_global_row_map": true,
+          "source_value_rows": 7500,
+          "unique_gradient_index_deltas_from_global": [
+            0
+          ],
+          "variant": "canonical-row-channel-map"
+        },
+        "frozen_literal": {
+          "expected_offset_for_variant": 479,
+          "gradient_rows": 164,
+          "gradient_rows_mismatching_global_map": 492,
+          "gradient_scalar_rows": 492,
+          "literal_selected_rows_inside_gradient_block": 36,
+          "literal_selected_rows_still_inside_value_block": 456,
+          "local_value_rows": 479,
+          "matches_frozen_local_row_map": true,
+          "matches_global_row_map": false,
+          "source_value_rows": 7500,
+          "unique_gradient_index_deltas_from_global": [
+            -7021
+          ],
+          "variant": "frozen-literal-gradient-row-map"
+        }
+      },
+      "semantic_rank_adjudication": {
+        "canonical_q_semantics": "the direct local-P oracle confirms the polynomial-nullspace construction to binary64 roundoff",
+        "factor_health_profile": "EVIDENCE_MISSING",
+        "formal_qtaq_rank_certificate": "EVIDENCE_MISSING",
+        "frozen_literal_q_semantics": "algebraic column rank cannot repair P^T Q != 0; the representation is semantically inadmissible before B factorization",
+        "p_top": {
+          "conservative_parent_order_tau": 1.078026556911027e-13,
+          "decimal_precision": 120,
+          "determinant_from_binary64_values": "-4.734817510333338361883592E-2",
+          "diagnostic_sigma_min_over_sigma_max": 0.04621309935156404,
+          "diagnostic_singular_values": [
+            0.12875914321615836,
+            0.25577817651846163,
+            0.5159988075096359,
+            2.786204453344041
+          ],
+          "distance_above_conservative_parent_order_tau_factor": 428682383150.0299,
+          "distance_above_tau_factor": 104062648509669.77,
+          "matrix": "local P_top",
+          "order": 4,
+          "rank_boundary_disposition": "far above both the 4x4 tau_rank and the more conservative parent scalar-order diagnostic; not a formal production scaled/equilibrated rank certificate",
+          "tau_rank": 4.440892098500626e-16
+        },
+        "q": "both stored representations have an exact structural identity tail and therefore algebraic full column rank",
+        "scope": "this ticket adjudicates representation authority, not production factor-path admission"
+      },
+      "shape": {
+        "gradient_rows": 164,
+        "polynomial_order": 4,
+        "reduced_order": 967,
+        "scalar_order": 971,
+        "value_rows": 479
+      },
+      "variants": {
+        "canonical": {
+          "assembly_authority_before_adjudication": "candidate-independent-canonical",
+          "assembly_variant": "canonical-row-channel-map",
+          "decimal_precision": 120,
+          "direct_nullspace_oracle": {
+            "construction": "Q=[-(P_top^T)^-1 P_tail^T; I], derived only from the local P",
+            "normalized_ptq_inf": "3.240808685783075972025847E-19",
+            "ptq_inf_norm": "3.885780586188047891482711E-13",
+            "ptq_max_abs_component": "1.332267629550187848508358E-15",
+            "q_has_exact_structural_identity_tail": true,
+            "q_structural_column_rank": 967,
+            "q_top_max_abs_error": "1.125767252189292304773701E-15"
+          },
+          "frozen_eigen_factor_diagnostic": {
+            "ldlt_info": "Success",
+            "ldlt_is_positive": true,
+            "polynomial_invertible": true,
+            "polynomial_rank": 4,
+            "polynomial_rcond": 0.07448710962581992,
+            "reduced_backward_error": 8.568987086913713e-18
+          },
+          "high_precision_external_reconstruction": {
+            "acceptance_disposition": "diagnostic only; external evaluator uncertainty and publication witnesses are not materialized",
+            "augmented_residual_inf": "1.126718550056121276487313E-13",
+            "augmented_residual_max_row": 639,
+            "eta_cpd": "1.720562133559466845583079E-17",
+            "eta_cpd_below_limit_before_external_evaluator_uncertainty": true,
+            "normalized_augmented_alpha": "9.867520178788779091020027E-18",
+            "pt_lambda_components": [
+              "-2.489243315325403299587137E-14",
+              "-1.371857992596503155373418E-14",
+              "-1.371458048240893616617966E-14",
+              "-6.495084267324460142771998E-15"
+            ],
+            "two_pow_minus_32_limit": "2.328306436538696289062500E-10"
+          },
+          "lambda_reconstruction": {
+            "identity_tail_bit_equal": true,
+            "q_gamma_top_max_abs_error": "2.316847025754785206365251E-14"
+          },
+          "record_id": "M3-HERMITE-COMPOSITE-max-order-fine-canonical",
+          "reduced_rhs_closure": {
+            "formula": "Q^T d using the captured Q and full RHS",
+            "max_abs_error": "3.868877334286013288308105E-16"
+          },
+          "solution_source": "frozen Eigen capture from the locked binary64 corpus"
+        },
+        "frozen_literal": {
+          "assembly_authority_before_adjudication": "research-only-frozen-compatibility",
+          "assembly_variant": "frozen-literal-gradient-row-map",
+          "decimal_precision": 120,
+          "direct_nullspace_oracle": {
+            "construction": "Q=[-(P_top^T)^-1 P_tail^T; I], derived only from the local P",
+            "normalized_ptq_inf": "5.701719927781140997200053E-4",
+            "ptq_inf_norm": "4.560000000000004053146707E+2",
+            "ptq_max_abs_component": "1.159328288430212520598983E+0",
+            "q_has_exact_structural_identity_tail": true,
+            "q_structural_column_rank": 967,
+            "q_top_max_abs_error": "8.550878442771283894057498E+0"
+          },
+          "frozen_eigen_factor_diagnostic": {
+            "ldlt_info": "Success",
+            "ldlt_is_positive": false,
+            "polynomial_invertible": true,
+            "polynomial_rank": 4,
+            "polynomial_rcond": 0.07448710962581992,
+            "reduced_backward_error": 2.642286877894918e-16
+          },
+          "high_precision_external_reconstruction": {
+            "acceptance_disposition": "diagnostic only; external evaluator uncertainty and publication witnesses are not materialized",
+            "augmented_residual_inf": "8.806431568555857083682059E-4",
+            "augmented_residual_max_row": 481,
+            "eta_cpd": "9.567686030582389324679868E-5",
+            "eta_cpd_below_limit_before_external_evaluator_uncertainty": false,
+            "normalized_augmented_alpha": "5.927023253979957374710977E-10",
+            "pt_lambda_components": [
+              "1.801807859561763831834913E+1",
+              "7.008037442799370292187027E+0",
+              "1.251026414547969720849524E+1",
+              "1.235390571297707235470207E+1"
+            ],
+            "two_pow_minus_32_limit": "2.328306436538696289062500E-10"
+          },
+          "lambda_reconstruction": {
+            "identity_tail_bit_equal": true,
+            "q_gamma_top_max_abs_error": "6.967429398840295195037283E-13"
+          },
+          "record_id": "M3-HERMITE-COMPOSITE-max-order-fine-frozen-literal",
+          "reduced_rhs_closure": {
+            "formula": "Q^T d using the captured Q and full RHS",
+            "max_abs_error": "3.868877334286013288308105E-16"
+          },
+          "solution_source": "frozen Eigen capture from the locked binary64 corpus"
+        }
+      }
+    }
+  },
+  "root_cause": "Frozen Polatory FineGrid and CoarseGrid use the local domain value-row count mu_ as the gradient-row offset into a full lagrange_p_ matrix. In mixed-Hermite domains this selects unrelated global value/gradient rows, so the resulting Q is not a basis for null(P^T).",
+  "schema": "rapidrbf-m3-assembly-diagnosis-v1",
+  "script_sha256": "cc6659189e9772adc32973ca62a8efb6f4d71cce3cd7020cb54566ea2a582b0a"
+}

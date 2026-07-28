@@ -1,0 +1,187 @@
+{
+  "backend_results": {
+    "faer": {
+      "alpha_ratio": 49031506.37004251,
+      "canonical": {
+        "artifact_coordinates": {
+          "cargo_lock": true,
+          "crate": "faer",
+          "version": "0.24.4"
+        },
+        "assembly_authority": "candidate-independent-canonical",
+        "assembly_variant": "canonical-row-channel-map",
+        "augmented_alpha": 1.2088190923201249e-17,
+        "backend_version": "0.24.4",
+        "eta_cpd": 7.507033161701643e-18,
+        "input_identity": {
+          "b_lower_sha256": "3e37b3d7d1c8bffd290333b1933ab4e6f6ad1519aaa75dff465e701c8cd0d00b",
+          "corpus_sha256": "ac282ee95062b4463d2e0a0c0ca83da454660e0e5048fa79ea3a07da280ef26e",
+          "rhs_reduced_sha256": "411fe80ebdf4002644ef67675fdd367d97b44313fe95831a61e4df7e0927a320"
+        },
+        "reduced_backward_error": 6.503487046544765e-18
+      },
+      "eta_ratio": 12744967704212.61,
+      "frozen_literal": {
+        "artifact_coordinates": {
+          "cargo_lock": true,
+          "crate": "faer",
+          "version": "0.24.4"
+        },
+        "assembly_authority": "research-only-frozen-compatibility",
+        "assembly_variant": "frozen-literal-gradient-row-map",
+        "augmented_alpha": 5.927022102532321e-10,
+        "backend_version": "0.24.4",
+        "eta_cpd": 9.567689520034052e-05,
+        "input_identity": {
+          "b_lower_sha256": "b07edd04e193b705c53303c49cc8d7768e02f028c33daebabe8cbc98c7e8161a",
+          "corpus_sha256": "ac282ee95062b4463d2e0a0c0ca83da454660e0e5048fa79ea3a07da280ef26e",
+          "rhs_reduced_sha256": "01cfa3eb7e752b60c3642263eecb63aba4adc7cefd4a69ac593bbc6f2152ddd8"
+        },
+        "reduced_backward_error": 6.1257621058812846e-18
+      },
+      "symptom_reproduced": true
+    },
+    "nalgebra": {
+      "alpha_ratio": 42376380.683586836,
+      "canonical": {
+        "artifact_coordinates": {
+          "cargo_lock": true,
+          "crate": "nalgebra",
+          "version": "0.35.0"
+        },
+        "assembly_authority": "candidate-independent-canonical",
+        "assembly_variant": "canonical-row-channel-map",
+        "augmented_alpha": 1.3986616159642762e-17,
+        "backend_version": "0.35.0",
+        "eta_cpd": 5.2228258068203366e-18,
+        "input_identity": {
+          "b_lower_sha256": "3e37b3d7d1c8bffd290333b1933ab4e6f6ad1519aaa75dff465e701c8cd0d00b",
+          "corpus_sha256": "ac282ee95062b4463d2e0a0c0ca83da454660e0e5048fa79ea3a07da280ef26e",
+          "rhs_reduced_sha256": "411fe80ebdf4002644ef67675fdd367d97b44313fe95831a61e4df7e0927a320"
+        },
+        "reduced_backward_error": 6.9320866715394955e-18
+      },
+      "eta_ratio": 18318989148988.223,
+      "frozen_literal": {
+        "artifact_coordinates": {
+          "cargo_lock": true,
+          "crate": "nalgebra",
+          "version": "0.35.0"
+        },
+        "assembly_authority": "research-only-frozen-compatibility",
+        "assembly_variant": "frozen-literal-gradient-row-map",
+        "augmented_alpha": 5.92702170856229e-10,
+        "backend_version": "0.35.0",
+        "eta_cpd": 9.56768892821974e-05,
+        "input_identity": {
+          "b_lower_sha256": "b07edd04e193b705c53303c49cc8d7768e02f028c33daebabe8cbc98c7e8161a",
+          "corpus_sha256": "ac282ee95062b4463d2e0a0c0ca83da454660e0e5048fa79ea3a07da280ef26e",
+          "rhs_reduced_sha256": "01cfa3eb7e752b60c3642263eecb63aba4adc7cefd4a69ac593bbc6f2152ddd8"
+        },
+        "reduced_backward_error": 5.024004623352909e-18
+      },
+      "symptom_reproduced": true
+    },
+    "onemkl-lp64-sequential": {
+      "alpha_ratio": 41021816.04669759,
+      "canonical": {
+        "artifact_coordinates": {
+          "bin": "D:\\CODE\\polatory\\build\\vcpkg_installed\\x64-windows\\bin",
+          "interface": "LP64",
+          "lib": "D:\\CODE\\polatory\\build\\vcpkg_installed\\x64-windows\\lib\\intel64",
+          "root": "D:\\CODE\\polatory\\build\\vcpkg_installed\\x64-windows",
+          "runtime_version": "Intel(R) oneAPI Math Kernel Library Version 2023.0-Product Build 20221128 for Intel(R) 64 architecture applications",
+          "threading": "sequential",
+          "version": "oneMKL 2023.0.0#2"
+        },
+        "assembly_authority": "candidate-independent-canonical",
+        "assembly_variant": "canonical-row-channel-map",
+        "augmented_alpha": 1.444846365416615e-17,
+        "backend_version": "Intel(R) oneAPI Math Kernel Library Version 2023.0-Product Build 20221128 for Intel(R) 64 architecture applications",
+        "eta_cpd": 5.652569730860564e-18,
+        "input_identity": {
+          "b_lower_sha256": "3e37b3d7d1c8bffd290333b1933ab4e6f6ad1519aaa75dff465e701c8cd0d00b",
+          "corpus_sha256": "ac282ee95062b4463d2e0a0c0ca83da454660e0e5048fa79ea3a07da280ef26e",
+          "rhs_reduced_sha256": "411fe80ebdf4002644ef67675fdd367d97b44313fe95831a61e4df7e0927a320"
+        },
+        "reduced_backward_error": 8.877181618392633e-18
+      },
+      "eta_ratio": 16926265518716.434,
+      "frozen_literal": {
+        "artifact_coordinates": {
+          "bin": "D:\\CODE\\polatory\\build\\vcpkg_installed\\x64-windows\\bin",
+          "interface": "LP64",
+          "lib": "D:\\CODE\\polatory\\build\\vcpkg_installed\\x64-windows\\lib\\intel64",
+          "root": "D:\\CODE\\polatory\\build\\vcpkg_installed\\x64-windows",
+          "runtime_version": "Intel(R) oneAPI Math Kernel Library Version 2023.0-Product Build 20221128 for Intel(R) 64 architecture applications",
+          "threading": "sequential",
+          "version": "oneMKL 2023.0.0#2"
+        },
+        "assembly_authority": "research-only-frozen-compatibility",
+        "assembly_variant": "frozen-literal-gradient-row-map",
+        "augmented_alpha": 5.927022181785998e-10,
+        "backend_version": "Intel(R) oneAPI Math Kernel Library Version 2023.0-Product Build 20221128 for Intel(R) 64 architecture applications",
+        "eta_cpd": 9.56768961276054e-05,
+        "input_identity": {
+          "b_lower_sha256": "b07edd04e193b705c53303c49cc8d7768e02f028c33daebabe8cbc98c7e8161a",
+          "corpus_sha256": "ac282ee95062b4463d2e0a0c0ca83da454660e0e5048fa79ea3a07da280ef26e",
+          "rhs_reduced_sha256": "01cfa3eb7e752b60c3642263eecb63aba4adc7cefd4a69ac593bbc6f2152ddd8"
+        },
+        "reduced_backward_error": 9.68004606723412e-18
+      },
+      "symptom_reproduced": true
+    }
+  },
+  "corpus_identity": {
+    "capture_schema": "rapidrbf-dense-factor-corpus-v1",
+    "compiler": "clang-19.1.5",
+    "corpus_sha256": "ac282ee95062b4463d2e0a0c0ca83da454660e0e5048fa79ea3a07da280ef26e",
+    "eigen_version": "3.5.0",
+    "generator": "m1-m4-10k-max-fine-and-level0-coarse-v1",
+    "lock_schema": "rapidrbf-dense-factor-corpus-lock-v2",
+    "manifest_sha256": "b488d8fa726872cf17cfe4f1bb48e08c44de1a1ecf2370a2d08fb59eb7384cbc",
+    "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+    "record_count": 10
+  },
+  "corpus_identity_repeatable": true,
+  "corpus_lock_body_sha256_recomputed": "ac282ee95062b4463d2e0a0c0ca83da454660e0e5048fa79ea3a07da280ef26e",
+  "corpus_sha256": "ac282ee95062b4463d2e0a0c0ca83da454660e0e5048fa79ea3a07da280ef26e",
+  "diagnostic_evidence_complete": true,
+  "elapsed_seconds": [
+    {
+      "canonical": 2.6526087999809533,
+      "frozen_literal": 2.7767591001465917,
+      "pair": 5.429367900127545
+    },
+    {
+      "canonical": 2.8871725001372397,
+      "frozen_literal": 2.778855999931693,
+      "pair": 5.666028500068933
+    },
+    {
+      "canonical": 2.9299955000169575,
+      "frozen_literal": 3.0340348000172526,
+      "pair": 5.96403030003421
+    }
+  ],
+  "key_metrics_bitwise_repeatable": true,
+  "predicate_role": "diagnostic symptom detector; not an acceptance threshold",
+  "python": {
+    "implementation": "cpython",
+    "version": "3.13.5"
+  },
+  "records": {
+    "canonical": "M3-HERMITE-COMPOSITE-max-order-fine-canonical",
+    "frozen_literal": "M3-HERMITE-COMPOSITE-max-order-fine-frozen-literal"
+  },
+  "repeat_count": 3,
+  "repeatability_assessed": true,
+  "replay_executable": {
+    "bytes": 3715072,
+    "name": "rapidrbf-dense-factor-replay-throwaway.exe",
+    "sha256": "937c374cf75e3101b4e13824c24b0f1d892604eeed5a9787c836de64a7d3decd"
+  },
+  "reproduction_script_sha256": "079f7ab29824789074729b0a871493f749427c2c596a28924fc1dfb81fc5d9e3",
+  "schema": "rapidrbf-m3-assembly-reproduction-v1",
+  "symptom_reproduced_on_all_backends": true
+}
