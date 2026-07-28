@@ -1,0 +1,176 @@
+{
+  "schema": "rapidrbf-factor-admission-disposition-v1",
+  "bundle": {
+    "schema": "rapidrbf-factor-admission-bundle-v1",
+    "sha256": "e526df4301141baeed695618c3c7cc9330465065bf3306231f5b6d3ad50141a4",
+    "authority": "negative-disposition-only"
+  },
+  "lineage": {
+    "wayfinder_ticket": "Admit the canonical dense-factor corpus for mechanism-panel use",
+    "dense_replay_commit": "b00160b318d2d1faf27ef6f305960ccadd3061eb",
+    "m3_diagnosis_commit": "5be79c562b848d3f8bc020784d6ac9b2d0551fcf",
+    "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c"
+  },
+  "corpus": {
+    "schema": "rapidrbf-dense-factor-corpus-v1",
+    "lock_schema": "rapidrbf-dense-factor-corpus-lock-v2",
+    "sha256": "ac282ee95062b4463d2e0a0c0ca83da454660e0e5048fa79ea3a07da280ef26e",
+    "raw_manifest_sha256": "b488d8fa726872cf17cfe4f1bb48e08c44de1a1ecf2370a2d08fb59eb7384cbc",
+    "verified_file_count": 191,
+    "referenced_payload_count": 190,
+    "canonical_record_ids": [
+      "M1-EXP-LOCAL-max-order-fine-canonical",
+      "M1-EXP-LOCAL-level0-coarse-canonical",
+      "M2-TH3-CPD-max-order-fine-canonical",
+      "M2-TH3-CPD-level0-coarse-canonical",
+      "M3-HERMITE-COMPOSITE-max-order-fine-canonical",
+      "M3-HERMITE-COMPOSITE-level0-coarse-canonical",
+      "M4-GEOMETRY-FAILURE-max-order-fine-canonical",
+      "M4-GEOMETRY-FAILURE-level0-coarse-canonical"
+    ],
+    "excluded_defect_fixture_ids": [
+      "M3-HERMITE-COMPOSITE-max-order-fine-frozen-literal",
+      "M3-HERMITE-COMPOSITE-level0-coarse-frozen-literal"
+    ]
+  },
+  "scope": {
+    "captured_scale": "10k-derived",
+    "captured_roles": [
+      "lexicographically first maximum scalar-order fine domain",
+      "level-0 coarse domain"
+    ],
+    "coverage": "representative local/coarse blocks only",
+    "missing": [
+      "registered M1-M4 1k factor hierarchy",
+      "complete registered M1-M4 10k factor hierarchy",
+      "per-factor hierarchy manifest and source hashes",
+      "coordinate/model fixtures needed by an independent physical value/gradient evaluator"
+    ]
+  },
+  "attempt_evidence_state": "COLLECTED, UNJUDGED",
+  "evidence_state": "EVIDENCE_MISSING",
+  "prerequisites": [
+    {
+      "id": "corpus_identity",
+      "state": "PASS",
+      "evidence": "v2 lock closes the raw manifest plus all 190 referenced payloads (191 verified files total)",
+      "effect": "the representative corpus identity is usable"
+    },
+    {
+      "id": "canonical_m3_representation",
+      "state": "PASS",
+      "evidence": "canonical-row-channel-map is the downstream authority; both frozen-literal M3 records are explicitly excluded",
+      "effect": "the known M3 defect fixture cannot contaminate downstream factors or expected semantics"
+    },
+    {
+      "id": "panel_hierarchy_coverage",
+      "state": "EVIDENCE_MISSING",
+      "evidence": "the corpus contains two 10k-derived representative roles per M1-M4 case, not the accepted 1k/10k end-to-end hierarchy/factor set",
+      "effect": "representative blocks cannot authorize the registered mechanism-panel hierarchy"
+    }
+  ],
+  "gates": [
+    {
+      "id": "semantic_rank_certificates",
+      "state": "EVIDENCE_MISSING",
+      "evidence": "0/8 canonical records carry hash-bound certified P, Q^T A Q, and applicable coarse P_top singular-value-ratio intervals or the 256/512/1024/2048-bit straddle ladder",
+      "effect": "backend status, pivots, and small residuals cannot admit semantic rank"
+    },
+    {
+      "id": "factor_health_profile",
+      "state": "EVIDENCE_MISSING",
+      "evidence": "no preregistered FactorHealthProfile { profile_id, profile_hash } owns reconstruction, residual, certificate, and fallback thresholds",
+      "effect": "the 30/30 backend observations remain COLLECTED, UNJUDGED"
+    },
+    {
+      "id": "independent_evaluator_and_publication",
+      "state": "EVIDENCE_MISSING",
+      "evidence": "the replay has diagnostic augmented residuals for one operational RHS but no bounded-uncertainty physical value/gradient evaluator, constraint/dynamic-range witnesses, or atomic prior-state publication proof",
+      "effect": "no correction is externally certified Solved and no factor is publishable"
+    },
+    {
+      "id": "resource_and_thread_lease",
+      "state": "EVIDENCE_MISSING",
+      "evidence": "fresh workers pin local Seq execution but do not expose bounded high-level scratch, aggregate maximum-live concurrency, temporary-storage closure, or caller-owned 1/2/8 lane permit handoff",
+      "effect": "the mechanism panel cannot enforce its total resource and thread grants"
+    },
+    {
+      "id": "atomic_factor_pack_reload_reuse",
+      "state": "PARTIAL",
+      "evidence": "faer projected B factors have owned component roundtrips, but coarse P_top packing, complete carried-path metadata, corruption/wrong-source controls, publication witnesses, and reusable prior-state preservation are absent",
+      "effect": "partial faer B-factor replay is not a complete RapidRBF-owned factor path"
+    }
+  ],
+  "gate_summary": {
+    "required_gate_count": 5,
+    "closed_gate_count": 0,
+    "unclosed_gate_count": 5,
+    "unclosed_gate_ids": [
+      "semantic_rank_certificates",
+      "factor_health_profile",
+      "independent_evaluator_and_publication",
+      "resource_and_thread_lease",
+      "atomic_factor_pack_reload_reuse"
+    ],
+    "missing_prerequisite_ids": [
+      "panel_hierarchy_coverage"
+    ]
+  },
+  "backend_roles": {
+    "qualification_candidate": "faer 0.24.4",
+    "diagnostic_comparators": [
+      "nalgebra 0.35.0",
+      "oneMKL 2023.0.0#2 Windows LP64 sequential"
+    ],
+    "production_selection": null
+  },
+  "disposition": {
+    "admission_disposition": "NOT_ADMITTED",
+    "mechanism_input_authority": "DIAGNOSTIC_ONLY",
+    "downstream_decision_authority": "BLOCKED",
+    "bounded_recompute_fallback_ready": false,
+    "reasons": [
+      "representative blocks cannot authorize the registered mechanism-panel hierarchy",
+      "backend status, pivots, and small residuals cannot admit semantic rank",
+      "the 30/30 backend observations remain COLLECTED, UNJUDGED",
+      "no correction is externally certified Solved and no factor is publishable",
+      "the mechanism panel cannot enforce its total resource and thread grants",
+      "partial faer B-factor replay is not a complete RapidRBF-owned factor path"
+    ]
+  },
+  "diagnostic_contract": {
+    "allowed": [
+      "hash-verified canonical matrices and right-hand sides may be force-replayed in fresh private workers",
+      "pivots, factor reconstruction, reduced/full residual diagnostics, trajectories, work, and failure observations may be collected",
+      "nalgebra and exact Windows oneMKL may run only as sidecar diagnostic comparators",
+      "identity/no-factor execution may run only as the registered M1-M4 1k diagnostic ablation"
+    ],
+    "forbidden": [
+      "using either frozen-literal M3 record as a factor input or expected semantic result",
+      "publishing or caching a ValidatedFactor or certified correction",
+      "declaring Converged, selecting rank/restart/preconditioner settings, or advancing a mechanism survivor",
+      "naming faer, nalgebra, or oneMKL as an adopted production factor backend",
+      "using representative-block observations as 1k/10k hierarchy, 100k storage, or release evidence"
+    ],
+    "bounded_factor_free_fallback": {
+      "name": "identity/no-factor",
+      "scope": "registered M1-M4 1k diagnostics only",
+      "authority": "DIAGNOSTIC_ONLY",
+      "production_factor_implication": false
+    },
+    "bounded_recompute_fallback": {
+      "state": "NOT_AVAILABLE",
+      "reason": "semantic rank, profile, evaluator/publication, and resource/thread gates must all close before run-scoped recomputation can support mechanism judgment"
+    }
+  },
+  "successor_questions": [
+    {
+      "title": "Materialize the canonical 1k/10k hierarchy admission corpus and certificates",
+      "purpose": "bind every actual panel factor plus rank/nullspace and physical value/gradient evaluator authority under deterministic controls"
+    },
+    {
+      "title": "Qualify the run-scoped faer factor path for mechanism-panel use",
+      "purpose": "bind a preregistered profile, complete B/P_top factor ownership, atomic witnesses, and caller-owned resource/thread lanes"
+    }
+  ]
+}
