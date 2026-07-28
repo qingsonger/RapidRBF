@@ -1,0 +1,6 @@
+replay/target/
+capture/build/
+capture/build-msvc/
+capture/build-clangcl/
+results/
+__pycache__/
