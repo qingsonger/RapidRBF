@@ -1,0 +1,210 @@
+{
+  "schema": "RapidRBF/RankScalingProfile/v1",
+  "profile_id": "rapidrbf-rank-scaling-v1",
+  "profile_hash": "8d60d932464e04c1ce052ecf33acc93f6e72d424ba05d1af7e40cf69b456731e",
+  "freeze_status": "frozen canonical 12-workload v3 expansion",
+  "profile_hash_rule": "sha256 of canonical UTF-8 JSON after removing profile_hash",
+  "scope": {
+    "dimensions": [3],
+    "polynomial_degrees": [0, 1],
+    "matrix_subjects": ["P", "QTAQ", "P_TOP"],
+    "bbox_scope": "workload-global union of value and full-gradient coordinates"
+  },
+  "canonical_numbers": {
+    "artifact_float": "IEEE-754 binary64 little-endian",
+    "signed_zero": "normalize to positive zero before derived-matrix hashing",
+    "non_finite": "reject before scaling",
+    "exact_input_model": "each finite binary64 input is its exact dyadic value"
+  },
+  "execution_coordinate": {
+    "required_thread_environment": {
+      "OPENBLAS_NUM_THREADS": "16"
+    },
+    "required_loaded_blas": {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "prefix": "libscipy_openblas",
+      "version": "0.3.30",
+      "binary_basename": "libscipy_openblas64_-860d95b1c38e637ce4509f5fa24fbf2a.dll",
+      "binary_sha256": "860d95b1c38e637ce4509f5fa24fbf2a98ba8696f9f3d28bf184bee74ad9a325",
+      "num_threads": 16
+    },
+    "required_numpy_blas_build": {
+      "name": "scipy-openblas",
+      "found": true,
+      "version": "0.3.30"
+    },
+    "runtime_binding": "record Python, NumPy, actual threadpool controller records, loaded BLAS binary basename and SHA-256, platform, binary64, and thread environment before semantic judgment"
+  },
+  "coordinate_scaling": {
+    "profile": "exact-dyadic-workload-bbox-power2-v1",
+    "center": "(axis_min + axis_max) / 2 in exact dyadic arithmetic",
+    "radius": "max(abs(x - center)) over all workload value and gradient coordinates",
+    "scale": "1 when radius is zero; otherwise 2^ceil(log2(radius))",
+    "coordinate": "(x - center) / scale",
+    "derivatives": "differentiate normalized monomials with respect to physical coordinates",
+    "materialization": "round each exact derived entry once to binary64, ties-to-even",
+    "application": {
+      "P": "yes",
+      "P_TOP": "use the same workload transform as P",
+      "QTAQ": "no; coordinate scaling would change kernel semantics"
+    }
+  },
+  "equilibration": {
+    "profile": "one-pass-power2-maxabs-row-then-column-v1",
+    "row_exponent": "zero for an all-zero row; otherwise -ceil(log2(max(abs(row))))",
+    "column_exponent": "after row scaling, zero for an all-zero column; otherwise -ceil(log2(max(abs(column))))",
+    "result": "diag(2^row_exponent) * matrix * diag(2^column_exponent)",
+    "arithmetic": "power-of-two binary64 scaling; reject overflow; preserve zero rows and columns",
+    "passes": 1
+  },
+  "rank_rule": {
+    "unit_roundoff": "2^-53",
+    "tau_rank": "max(rows, columns) * 2^-53",
+    "ratio": "sigma_min / sigma_max of the equilibrated matrix",
+    "pass": "lower_bound > tau_rank",
+    "fail": "upper_bound <= tau_rank",
+    "straddle": "lower_bound <= tau_rank < upper_bound",
+    "precision_ladder_bits": [256, 512, 1024, 2048],
+    "final_straddle_max_width": "tau_rank / 8",
+    "final_straddle_state": "IndeterminateRank",
+    "precision_checker": {
+      "profile": "exact-dyadic-gram-sturm-outward-v1",
+      "activation": "lazy; only after the binary64 analytic authority genuinely straddles tau_rank",
+      "exact_input_model": "each equilibrated finite binary64 entry is its exact dyadic rational value",
+      "gram_orientation": "form the smaller of A^T A and A A^T in exact rational arithmetic",
+      "eigenvalue_enclosure": "exact Faddeev-LeVerrier characteristic polynomial, square-free Sturm chain, and requested-bit dyadic bisection of the least and greatest Gram roots",
+      "ratio_enclosure": "propagate Gram-root intervals to sigma_min/sigma_max and round binary64 endpoints outward by exact rational comparison",
+      "supported_precision_bits": [256, 512, 1024, 2048],
+      "resource_limits": {
+        "max_min_dimension": 8,
+        "max_matrix_elements": 100000,
+        "max_gram_term_products": 1000000,
+        "max_bisection_iterations": 2048
+      },
+      "resource_scope": "all canonical P and P_TOP subjects are within the exact-checker caps; a larger QTAQ straddle may be denied after activation",
+      "resource_denial_state": "EVIDENCE_MISSING",
+      "backend_invocations": 0
+    }
+  },
+  "certificate_encoding": {
+    "human_readable": "JSON finite number fields are retained for inspection",
+    "exact_binary64": "every outward endpoint, envelope width, and tau_rank is also encoded with Python/C99 hexadecimal binary floating-point syntax",
+    "authority": "the hexadecimal field is the exact serialization of each binary64 bound; decimal JSON text alone is not an authority encoding",
+    "unbounded_endpoint": "the literal string inf is used only when the analytic enclosure is unbounded"
+  },
+  "f64_authority_checker": {
+    "profile": "left-inverse-and-singular-witness-analytic-outward-v1",
+    "exact_structural_shortcuts": "an all-zero matrix, or an exact dyadic zero row/column that prevents full min-dimension rank, proves the ratio envelope [0,0]",
+    "rounding_model": "binary64 round-to-nearest ties-to-even with gradual underflow",
+    "runtime_precondition": "observe radix-2/53-bit binary64, ties-to-even probes, minimum-subnormal preservation, and a BLAS minimum-subnormal matmul before granting authority",
+    "dot_bound": "gamma_(2k+1) times an outward upper bound on sum(abs(products)), plus (2k+1) minimum-subnormal",
+    "left_inverse_bound": "if delta=norm2_upper(I-RM)<1 then sigma_min >= (1-delta)/norm2_upper(R)",
+    "operator_upper_bound": "sigma_max <= sqrt(norm1_upper(M)*norminf_upper(M))",
+    "pass_shortcut": "when the certified inverse/operator lower ratio already exceeds tau_rank, use the universal ratio upper bound 1 and skip singular-vector proposal",
+    "singular_witness_bounds": [
+      "sigma_min <= norm2_upper(M*v_min)/norm2_lower(v_min)",
+      "sigma_max >= norm2_lower(M*v_max)/norm2_upper(v_max)"
+    ],
+    "proposer_authority": false,
+    "checker_authority": true,
+    "unclosed_result": "EVIDENCE_MISSING"
+  },
+  "q_nullspace": {
+    "profile": "canonical-global-row-map-exact-qstar-v1",
+    "row_map": "values first, then source_value_rows + dimension*global_gradient_index + component",
+    "exact_basis": "Q* = [-(P_top^T)^-1 P_tail^T; I] in exact rational arithmetic",
+    "proof": "P^T Q* is exact zero and the identity tail gives full structural column rank",
+    "captured_q_requirement": "finite, correctly shaped, identity tail implicit, and the exact-dyadic rational normalized P^T Q residual <= 2^-32",
+    "operational_f64_residual": "emit an analytic outward replay envelope as a diagnostic; the exact-dyadic rational residual is the stronger admission authority",
+    "captured_q_bit_equality_required": false,
+    "cpd_level_limit": "2^-32"
+  },
+  "inventory": {
+    "capture_inventory_profile_id": "canonical-m1-m4-1k-10k-v3",
+    "artifact_count": 2738,
+    "workload_count": 12,
+    "block_count": 204,
+    "fine_block_count": 192,
+    "coarse_block_count": 12,
+    "workload_plus_block_count": 216,
+    "carried_factor_source_count": 216,
+    "qtaq_factor_source_count": 204,
+    "p_top_factor_source_count": 12,
+    "rank_certificate_count": 420,
+    "q_certificate_count": 204,
+    "coarse_p_top_count": 12,
+    "generator_auxiliary_p_top_count": 12,
+    "control_count": 1,
+    "m4_control_ids": [
+      "M4-GEOMETRY-1K-RANK-INVALID-DUPLICATE"
+    ],
+    "blocks_per_1k_workload": 1,
+    "fine_blocks_per_1k_workload": 0,
+    "blocks_per_10k_workload": 33,
+    "fine_blocks_per_10k_workload": 32
+  },
+  "integrity_lock": {
+    "schema": "rapidrbf-canonical-hierarchy-corpus-lock-v3",
+    "algorithm": "SHA-256",
+    "requirements": [
+      "bind the canonical JSON lock body",
+      "bind the raw manifest bytes",
+      "bind every declared artifact path, byte count, metadata tuple, and payload",
+      "reject missing, extra, aliased, or mismatched active records before semantics"
+    ]
+  },
+  "reference_witness_policy": {
+    "reference_gamma_lambda_and_coarse_c": "untrusted proposer/replay witnesses only",
+    "rank_or_admission_authority": false,
+    "backend_invocations": 0
+  },
+  "production_controls": {
+    "M4-GEOMETRY-1K-RANK-INVALID-DUPLICATE": {
+      "materialization": "copy one declared binary64 coordinate row bit-for-bit over a distinct declared source row and bind both recipe and mutated coordinates in the immutable lock",
+      "precondition": "both source and destination are ordinary value rows absent from selected_polynomial_indices, and the bound model nugget is exact positive zero",
+      "authority": "the exact difference of the duplicate non-anchor value rows is a nonzero polynomial-nullspace tail direction annihilated by the projected operator",
+      "expected_disposition": "RankDeficient",
+      "admission_phase": "pre-backend",
+      "backend_invocations": 0,
+      "inventory_contribution": {
+        "workloads": 0,
+        "blocks": 0,
+        "factor_sources": 0
+      }
+    }
+  },
+  "stable_states": [
+    "Admitted",
+    "EVIDENCE_MISSING",
+    "MalformedCorpus",
+    "IntegrityMismatch",
+    "NonFinite",
+    "ResourceDenied",
+    "RankDeficient",
+    "IndeterminateRank",
+    "NullspaceViolation"
+  ],
+  "failure_order": [
+    "MalformedCorpus",
+    "ResourceDenied",
+    "IntegrityMismatch",
+    "NonFinite",
+    "RankDeficient",
+    "IndeterminateRank",
+    "NullspaceViolation",
+    "EVIDENCE_MISSING"
+  ],
+  "resource_preflight": {
+    "logical_units": "matrix elements retained concurrently by the checker",
+    "metadata_authority": "validated immutable-lock artifact shapes",
+    "timing": "deny the complete semantic run before any artifact is materialized as an array or any derived rank subject is constructed",
+    "subject_units": "rows*columns",
+    "proposer_units": "3*rows*columns + 2*min(rows,columns)^2",
+    "checker_units": "8*rows*columns + 4*min(rows,columns)^2",
+    "minimum_required_units": "subject_units + proposer_units + checker_units",
+    "denial_state_before_rank": "ResourceDenied",
+    "denial_state_during_a_started_straddle_ladder": "EVIDENCE_MISSING",
+    "backend_invocations": 0
+  }
+}

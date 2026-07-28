@@ -1,0 +1,17 @@
+[package]
+name = "rapidrbf-physical-factor-evaluator"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+astro-float-num = { version = "=0.3.6", default-features = false, features = ["std"] }
+serde = { version = "=1.0.229", features = ["derive"] }
+serde_json = "=1.0.149"
+sha2 = "=0.10.9"
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+overflow-checks = true
+panic = "abort"

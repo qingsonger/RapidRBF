@@ -1,0 +1,173 @@
+{
+  "schema": "rapidrbf-independent-physical-evaluator-controls-v2",
+  "acceptance_profile": {
+    "schema": "RapidRBF/PhysicalEvidenceProfile/v1",
+    "profile_id": "canonical-hierarchy-physical-evidence-v1",
+    "profile_sha256": "cf64f2b26e2a3f4844a5c63027deb5bd4e1f856f0c7f45d4d2afdcccbff724a1"
+  },
+  "evaluator_source_closure": "sha256(length-prefixed-path-and-content-v1; Cargo.toml,Cargo.lock,physical-evidence-profile.v1.json,src/*.rs)",
+  "evaluator_source_files": [
+    "Cargo.lock",
+    "Cargo.toml",
+    "physical-evidence-profile.v1.json",
+    "src/evaluator.rs",
+    "src/interval.rs",
+    "src/lib.rs",
+    "src/loader.rs",
+    "src/main.rs",
+    "src/physical.rs",
+    "src/profile.rs",
+    "src/schema.rs"
+  ],
+  "evaluator_source_sha256": "591670bcf1ab95bc2273b5af968f8eea9814e5e7f02208262153feaf03eee805",
+  "evaluator_executable_sha256": "adee8fdca4f28a033f251e7d33f5fee5d50b160bd7dc033ace5d96dc848d1eb5",
+  "evaluator_executable_bytes": 1332736,
+  "backend_calls": 0,
+  "controls": [
+    {
+      "control_id": "nonfinite-coordinate",
+      "expected_code": "NonfiniteInput",
+      "actual_code": "NonfiniteInput",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "nonfinite-model",
+      "expected_code": "NonfiniteOrInvalidModel",
+      "actual_code": "NonfiniteOrInvalidModel",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "nonfinite-rhs",
+      "expected_code": "NonfiniteInput",
+      "actual_code": "NonfiniteInput",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "nonfinite-lambda",
+      "expected_code": "NonfiniteInput",
+      "actual_code": "NonfiniteInput",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "malformed-truncated-payload",
+      "expected_code": "MalformedPayload",
+      "actual_code": "MalformedPayload",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "malformed-out-of-range-index",
+      "expected_code": "MalformedPayload",
+      "actual_code": "MalformedPayload",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "malformed-mask-byte",
+      "expected_code": "MalformedPayload",
+      "actual_code": "MalformedPayload",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "m3-local-gradient-offset-defect",
+      "expected_code": "NullspaceViolation",
+      "actual_code": "NullspaceViolation",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "resource-byte-grant-minus-one",
+      "expected_code": "ResourceDenied",
+      "actual_code": "ResourceDenied",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "resource-pair-work-grant-minus-one",
+      "expected_code": "ResourceDenied",
+      "actual_code": "ResourceDenied",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "precision-bits-below-profile",
+      "expected_code": "InvalidOption",
+      "actual_code": "InvalidOption",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "precision-bits-above-profile",
+      "expected_code": "InvalidOption",
+      "actual_code": "InvalidOption",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "self-consistent-acceptance-profile-drift",
+      "expected_code": "IntegrityMismatch",
+      "actual_code": "IntegrityMismatch",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "tampered-lock-body",
+      "expected_code": "MalformedManifest",
+      "actual_code": "MalformedManifest",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "tampered-qtaq-candidate",
+      "expected_code": "PhysicalCertificateRejected",
+      "actual_code": "PhysicalCertificateRejected",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "tampered-lambda-identity-tail",
+      "expected_code": "PhysicalCertificateRejected",
+      "actual_code": "PhysicalCertificateRejected",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "signed-zero-lambda-identity-tail",
+      "expected_code": "PhysicalCertificateRejected",
+      "actual_code": "PhysicalCertificateRejected",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    },
+    {
+      "control_id": "unknown-kernel-family",
+      "expected_code": "UnknownKernelFamily",
+      "actual_code": "UnknownKernelFamily",
+      "prior_state_unchanged": true,
+      "backend_calls": 0,
+      "pass": true
+    }
+  ],
+  "pass": true
+}

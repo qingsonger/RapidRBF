@@ -1,6 +1,17 @@
 replay/target/
+evaluator/target/
+admission/.venv/
+admission/admission-report.json
+admission/inventory-report.json
+admission/self-test-report.json
+evaluator/certificates/
+evaluator/controls.json
+evaluator/summary.json
 capture/build/
 capture/build-msvc/
 capture/build-clangcl/
+capture/build-hierarchy/
 results/
+hierarchy-results/
 __pycache__/
+.ruff_cache/

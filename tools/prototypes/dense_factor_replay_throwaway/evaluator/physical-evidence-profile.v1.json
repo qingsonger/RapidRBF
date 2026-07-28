@@ -1,0 +1,60 @@
+{
+  "schema": "RapidRBF/PhysicalEvidenceProfile/v1",
+  "profile_id": "canonical-hierarchy-physical-evidence-v1",
+  "profile_sha256": "cf64f2b26e2a3f4844a5c63027deb5bd4e1f856f0c7f45d4d2afdcccbff724a1",
+  "interval": {
+    "method": "pure-rust-directed-rounding-astro-float-num-v0.3.6",
+    "precision_bits": 256
+  },
+  "residual_allowance": {
+    "value": {
+      "scale_power_of_two_exponent": -43,
+      "rhs_power_of_two_exponent": -40
+    },
+    "gradient": {
+      "scale_power_of_two_exponent": -38,
+      "rhs_power_of_two_exponent": -35
+    }
+  },
+  "qtaq_allowance": {
+    "value_only": {
+      "physical_component_power_of_two_exponent": -43,
+      "transform_and_captured_power_of_two_exponent": -40
+    },
+    "derivative_involving": {
+      "physical_component_power_of_two_exponent": -38,
+      "transform_and_captured_power_of_two_exponent": -35
+    }
+  },
+  "coefficient_closure": {
+    "q_top_gamma_roundoff": "gamma-k-binary64-v1",
+    "unit_roundoff_power_of_two_exponent": -53,
+    "identity_tail": "exact-binary64-identity"
+  },
+  "cpd": {
+    "normalization": "infinity-norm-ratio-with-zero-over-zero-equals-zero-v1",
+    "threshold_power_of_two_exponent": -32
+  },
+  "resource": {
+    "metric": "locked-used-payload-bytes-plus-streaming-O(m)-logical-scratch-v1",
+    "pair_work_metric": "hierarchy-physical-pair-work-v1",
+    "logical_scratch_bytes_per_scalar": 1024,
+    "physical_pair_work": {
+      "upper_triangle_multiplier": 1,
+      "same_gradient_point_channel_correction": 3
+    },
+    "qtaq_pair_work": {
+      "a11_q_multiplier": 1,
+      "congruence_terms_per_anchor": 3,
+      "witness_matvec_multiplier": 1,
+      "reduced_rhs_multiplier": 1
+    },
+    "auxiliary_pair_work": {
+      "cpd_multiplier": 1,
+      "coefficient_q_multiplier": 1,
+      "coefficient_tail_multiplier": 1,
+      "fine_projection_multiplier": 1,
+      "coarse_polynomial_multiplier": 1
+    }
+  }
+}
