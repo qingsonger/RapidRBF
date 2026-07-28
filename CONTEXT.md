@@ -152,6 +152,14 @@ _Avoid_: Fuzzy branch boundary, bitwise boundary replay
 One canonical RBF contribution mapping value or full-gradient source weights to value or full-gradient targets as value `A`, source-gradient `F`, target-gradient `F^T`, or Hessian `H`, with derivative signs, component order, and self-interaction semantics fixed by the numerical contract. It excludes nugget, polynomial blocks, and solver behavior.
 _Avoid_: Backend kernel, arbitrary channel map, complete interpolation operator
 
+**Large-smooth adapter**:
+A private matrix-kernel adapter that may evaluate infinite-support smooth contributions and spheroidal smooth tails at accepted large scales only after semantic coverage, sound call-scoped certification, prepared-lifetime, operational-control, scale, and tier-one distribution gates all pass. Before then it is a qualification target rather than an `Auto` route.
+_Avoid_: Prototype-selected backend, sampling-certified backend, quadratic direct fallback
+
+**Acceleration routing profile**:
+A named, versioned, build-specific internal decision table that deterministically selects among canonical direct, exact compact-neighbor, and eligible large-smooth routes from the kernel form, matrix-kernel action, geometry, work size, neighborhood occupancy, preparation shape, requested accuracy, and resource grant. Its calibrated crossover values are diagnostic rather than public compatibility semantics.
+_Avoid_: Global pair-count cutoff, public backend selector, unversioned routing heuristic
+
 **Finite problem data**:
 Public problem data and concrete numerical controls reaching the RapidRBF core contain only finite values; absence and unconstrained choices are represented structurally. Legacy NaN sentinels may be translated only at migration adapters before core validation.
 _Avoid_: Core NaN sentinel, infinity as `Any`, infinity as an absent bound
