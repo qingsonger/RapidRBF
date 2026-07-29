@@ -1,0 +1,26 @@
+{
+  "schema": "RapidRBF/FactorQualificationTransportManifest/v1",
+  "asset": {
+    "release_tag": "issue-41-factor-qualification-input-v1",
+    "name": "rapidrbf-issue41-factor-qualification-input-v1.zip",
+    "url": "https://github.com/qingsonger/RapidRBF/releases/download/issue-41-factor-qualification-input-v1/rapidrbf-issue41-factor-qualification-input-v1.zip",
+    "bytes": 452947159,
+    "sha256": "a3b6417e61a604ee568d7bb5fed0416ce5c726f0e529ca1f998a7bdb272e207a",
+    "logical_factor_sources": 216,
+    "unique_matrix_payloads": 179,
+    "unique_matrix_bytes": 563213480
+  },
+  "factor_qualification_plan": {
+    "bytes": 170978,
+    "sha256": "fef5f0b3e4d84e8af95505f3b822aded357631191a1e13226474adc985b964ce",
+    "plan_id": "RapidRBF/FactorQualificationPlan/v1/2d0f0ca77df0460babdcea3d945e6c487e84c3a658d704bde2915e406ad6a8f0"
+  },
+  "source_corpus": {
+    "raw_manifest_sha256": "cf5aaa1e3fe6bf51c3f24f13455ac1036e7ec591668c18ec4c86f3243aa07f54",
+    "lock_sha256": "7abd17eabba0cd578fa8989075f9d09d5113a696df48c9643785822dadde5a75",
+    "corpus_sha256": "38f39fee8b4059cd2619df4bbfabb6f7159b41df1511907e0346c32642737f79",
+    "admission_report_sha256": "bc907929fdf82976f83212ec514a0ccf43c59499a5dda45f9c4d4ef34aa37e90",
+    "physical_report_sha256": "da75d43c66e7405676639c61e11c99686d291ea690b85ed0828233d957b6a769"
+  },
+  "scope": "Throwaway issue-41 qualification input only; this is not a RapidRBF product release."
+}

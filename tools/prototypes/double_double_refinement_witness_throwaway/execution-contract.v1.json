@@ -1,0 +1,46 @@
+{
+  "schema": "RapidRBF/DoubleDoubleRefinementWitnessExecutionContract/v1",
+  "contract_id": "RapidRBF/DoubleDoubleRefinementWitnessExecutionContract/v1/7018a1a33d601076ff17b6824068ada146039fa57aab5b1cf71793cbe6d13d60",
+  "witness_plan_sha256": "7018a1a33d601076ff17b6824068ada146039fa57aab5b1cf71793cbe6d13d60",
+  "candidate_binding_sha256": "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6",
+  "reference_manifest_sha256": "6ed634a288145dfb3688e6e480f9519c1dbbe5c528aa9bb4b825eb57bc1b584a",
+  "witness_ordinals": [
+    0,
+    36,
+    69,
+    72,
+    106,
+    150
+  ],
+  "targets": {
+    "windows-x86_64": "x86_64-pc-windows-msvc",
+    "linux-x86_64-glibc": "x86_64-unknown-linux-gnu",
+    "macos-arm64": "aarch64-apple-darwin",
+    "macos-x86_64": "x86_64-apple-darwin"
+  },
+  "profiles": [
+    {
+      "workers": 1,
+      "maximum_live_threads": 12
+    },
+    {
+      "workers": 2,
+      "maximum_live_threads": 12
+    },
+    {
+      "workers": 8,
+      "maximum_live_threads": 16
+    }
+  ],
+  "owned_refinement_bytes_per_matrix_row": 168,
+  "maximum_refinement_steps": 12,
+  "maximum_unpolled_matrix_terms": 2047,
+  "allowed_dispositions": [
+    "REFINEMENT_ROUTE_SUPPORTED_FOR_FULL_CORPUS_PLAN",
+    "REFINEMENT_ROUTE_REJECTED_DIAGNOSTIC_ONLY",
+    "INVALID_UNJUDGED"
+  ],
+  "attempt_mixing_permitted": false,
+  "partial_rerun_permitted": false,
+  "candidate_observations_may_change_binding": false
+}
