@@ -124,10 +124,12 @@ def check_candidate(
         controls.get("exact_n_minus_one_observations") != 216
         or cancellation.get("status") != "PASS"
         or cancellation.get("mid_factor", {}).get("cancelled") is not True
+        or cancellation.get("mid_factor", {}).get("backend_entered") is not True
         or cancellation.get("mid_factor", {}).get("prior_factor_preserved")
         is not True
         or cancellation.get("mid_factor", {}).get("failed_publications") != 0
         or cancellation.get("mid_solve", {}).get("cancelled") is not True
+        or cancellation.get("mid_solve", {}).get("backend_entered") is not True
         or cancellation.get("mid_solve", {}).get(
             "prior_solved_correction_preserved"
         )

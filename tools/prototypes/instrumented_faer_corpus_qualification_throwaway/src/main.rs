@@ -1399,6 +1399,7 @@ fn cancellation_controls(
     let factor_cancelled = matches!(factor_result, Err(ExecutionError::Cancelled));
     let factor_prior_preserved = prior.fingerprint() == prior_fingerprint;
     let factor_clean = clean_metrics(factor_lease.metrics());
+    let factor_backend_entered = factor_lease.metrics().backend_entries > 0;
 
     let expected = declared_solutions(input.dimension);
     let rhs = manufactured_rhs(&input, &expected);
@@ -1420,7 +1421,6 @@ fn cancellation_controls(
             while !solve_entered.load(Ordering::Acquire) {
                 thread::yield_now();
             }
-            thread::sleep(Duration::from_millis(1));
             let requested = Instant::now();
             solve_token.cancel();
             requested
@@ -1437,27 +1437,42 @@ fn cancellation_controls(
     let solve_cancelled = matches!(solve_result, Err(ExecutionError::Cancelled));
     let solved_prior_preserved = sha256_f64s(&prior_solution) == prior_solution_fingerprint;
     let solve_clean = clean_metrics(solve_lease.metrics());
+    let solve_backend_entered = solve_lease.metrics().backend_entries > 0;
     let pass = factor_cancelled
+        && factor_backend_entered
         && factor_prior_preserved
         && factor_clean
         && solve_cancelled
+        && solve_backend_entered
         && solved_prior_preserved
         && solve_clean;
+    let factor_result_label = match &factor_result {
+        Err(error) => format!("Err({error:?})"),
+        Ok(Err(error)) => format!("Ok(Err({error}))"),
+        Ok(Ok(_)) => "Ok(Ok(CompletedWithoutCancellation))".to_owned(),
+    };
+    let solve_result_label = match &solve_result {
+        Err(error) => format!("Err({error:?})"),
+        Ok(Err(error)) => format!("Ok(Err({error}))"),
+        Ok(Ok(_)) => "Ok(Ok(CompletedWithoutCancellation))".to_owned(),
+    };
     Ok(json!({
         "status": if pass { "PASS" } else { "FAIL" },
         "plan_id": plan_id,
         "factor_source_id": source.factor_source_id,
         "mid_factor": {
-            "result": format!("{factor_result:?}"),
+            "result": factor_result_label,
             "cancelled": factor_cancelled,
+            "backend_entered": factor_backend_entered,
             "acknowledgment_latency_ns": factor_latency.as_nanos(),
             "prior_factor_preserved": factor_prior_preserved,
             "failed_publications": 0,
             "metrics": metrics_json(factor_lease.metrics()),
         },
         "mid_solve": {
-            "result": format!("{solve_result:?}"),
+            "result": solve_result_label,
             "cancelled": solve_cancelled,
+            "backend_entered": solve_backend_entered,
             "acknowledgment_latency_ns": solve_latency.as_nanos(),
             "prior_solved_correction_preserved": solved_prior_preserved,
             "failed_publications": 0,
