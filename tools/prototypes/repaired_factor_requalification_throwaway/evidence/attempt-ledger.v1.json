@@ -1,0 +1,58 @@
+{
+  "schema": "RapidRBF/RepairedProjectedFactorRequalificationAttemptLedger/v1",
+  "ticket": {
+    "title": "Execute the repaired projected-factor full-corpus requalification",
+    "url": "https://github.com/qingsonger/RapidRBF/issues/47"
+  },
+  "attempts": [
+    {
+      "sequence": 1,
+      "github_run_id": 30450084209,
+      "github_run_attempt": 1,
+      "github_run_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30450084209",
+      "source_commit": "46b8fbafa510a8253abfbf55ddfa521101e9265c",
+      "github_conclusion": "cancelled",
+      "aggregated_disposition": "INVALID_UNJUDGED",
+      "cohort_summary_sha256": "e6faab13d8fe7e2d782635d7e6482ed78573c8e31927ede866260735846def21",
+      "reference_manifest_sha256": "6ed634a288145dfb3688e6e480f9519c1dbbe5c528aa9bb4b825eb57bc1b584a",
+      "invalidity": {
+        "classification": "external-controller-invalid",
+        "failed_lane": "windows-x86_64",
+        "failed_step": "Check out the exact dispatched commit",
+        "candidate_entry_on_failed_lane": false,
+        "cause": "Git for Windows rejected already-archived repository paths because core.longpaths was not enabled before checkout.",
+        "check_run_id": 90571064190,
+        "other_lane_candidate_entries_were_in_flight": true,
+        "other_lane_outputs_used_for_repair_or_judgment": false,
+        "action": "The complete run was cancelled; all partial candidate output was excluded."
+      }
+    },
+    {
+      "sequence": 2,
+      "github_run_id": 30450649081,
+      "github_run_attempt": 1,
+      "github_run_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30450649081",
+      "source_commit": "46716da137e6b4a9eaf062cafa8ac3674a411f44",
+      "github_conclusion": "success",
+      "aggregated_disposition": "NOT_ADMITTED_DIAGNOSTIC_ONLY",
+      "cohort_summary_sha256": "2b774ba332dee359ff7a72c948a034dcd2896545f7740f236ed29d3b1f7a4f10",
+      "reference_manifest_sha256": "6ed634a288145dfb3688e6e480f9519c1dbbe5c528aa9bb4b825eb57bc1b584a",
+      "controller_change_from_prior_attempt": {
+        "commit": "46716da137e6b4a9eaf062cafa8ac3674a411f44",
+        "change": "Enable Git core.longpaths on Windows before checkout.",
+        "candidate_binding_changed": false,
+        "authority_changed": false,
+        "requalification_plan_changed": false,
+        "reference_generator_closure_changed": false,
+        "threshold_changed": false,
+        "candidate_observation_used_to_choose_change": false
+      }
+    }
+  ],
+  "retry_assessment": {
+    "partial_attempts_mixed": false,
+    "replacement_is_one_complete_new_cohort": true,
+    "human_ratification": "PENDING_LIVE_PROTOTYPE_REVIEW",
+    "note": "The first controller invalidity occurred on Windows before its candidate entry while other matrix lanes had begun entry. No partial candidate result was inspected or used to change the frozen plan, reference, threshold, or candidate. The replacement result is presented for explicit human acceptance, adjustment, or rejection."
+  }
+}
