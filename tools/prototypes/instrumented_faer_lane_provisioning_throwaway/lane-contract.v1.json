@@ -1,0 +1,130 @@
+{
+  "schema": "rapidrbf-instrumented-faer-lane-contract-v1",
+  "contract_id": "RapidRBF/InstrumentedFaerQualifiedHostLanes/v1",
+  "authority": {
+    "wayfinder_map": "https://github.com/qingsonger/RapidRBF/issues/1",
+    "provisioning_ticket": "https://github.com/qingsonger/RapidRBF/issues/43",
+    "candidate_binding_ticket": "https://github.com/qingsonger/RapidRBF/issues/42",
+    "execution_ticket": "https://github.com/qingsonger/RapidRBF/issues/44",
+    "factor_health_profile_sha256": "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3",
+    "two_factor_plan_sha256": "5b288e33d13464ae79948b1afcb2d76d0d08f9c81b27010ad51d4906cfc66892"
+  },
+  "lanes": [
+    {
+      "lane_id": "windows-x86_64",
+      "tier_one": "Windows x86_64",
+      "runner_label": "windows-2025",
+      "target": "x86_64-pc-windows-msvc",
+      "runner_os": "Windows",
+      "runner_arch": "X64",
+      "native_machine": ["AMD64", "x86_64"],
+      "rust_std_os": "windows",
+      "rust_std_arch": "x86_64",
+      "executable_format": "pe",
+      "executable_machine": 34404,
+      "required_cpu_features": ["avx2", "fma"]
+    },
+    {
+      "lane_id": "linux-x86_64-glibc",
+      "tier_one": "Linux x86_64 glibc",
+      "runner_label": "ubuntu-24.04",
+      "target": "x86_64-unknown-linux-gnu",
+      "runner_os": "Linux",
+      "runner_arch": "X64",
+      "native_machine": ["AMD64", "x86_64"],
+      "rust_std_os": "linux",
+      "rust_std_arch": "x86_64",
+      "executable_format": "elf",
+      "executable_machine": 62,
+      "required_cpu_features": ["avx2", "fma"],
+      "libc": "glibc"
+    },
+    {
+      "lane_id": "macos-arm64",
+      "tier_one": "macOS arm64",
+      "runner_label": "macos-15",
+      "target": "aarch64-apple-darwin",
+      "runner_os": "macOS",
+      "runner_arch": "ARM64",
+      "native_machine": ["arm64", "aarch64"],
+      "rust_std_os": "macos",
+      "rust_std_arch": "aarch64",
+      "executable_format": "mach-o",
+      "executable_machine": 16777228,
+      "required_cpu_features": []
+    },
+    {
+      "lane_id": "macos-x86_64",
+      "tier_one": "macOS x86_64",
+      "runner_label": "macos-15-intel",
+      "target": "x86_64-apple-darwin",
+      "runner_os": "macOS",
+      "runner_arch": "X64",
+      "native_machine": ["AMD64", "x86_64"],
+      "rust_std_os": "macos",
+      "rust_std_arch": "x86_64",
+      "executable_format": "mach-o",
+      "executable_machine": 16777223,
+      "required_cpu_features": ["avx2", "fma"]
+    }
+  ],
+  "qualification": {
+    "native_host_execution_required": true,
+    "cross_compilation_has_evidence_authority": false,
+    "runner_environment": "github-hosted",
+    "runner_image_identity_required": true,
+    "native_rust_compile_and_execute_required": true,
+    "native_executable_header_required": true,
+    "isolated_scratch_roundtrip_required": true,
+    "candidate_execution_in_preflight": false
+  },
+  "isolation": {
+    "one_fresh_hosted_job_per_lane": true,
+    "actions_cache_permitted": false,
+    "shared_writable_state_permitted": false,
+    "checkout_credentials_persisted": false,
+    "repository_permission": "contents: read",
+    "probe_root": "RUNNER_TEMP",
+    "temporary_storage_policy_for_two_factor_gate": "deny",
+    "candidate_parallelism": "one outer compute permit; faer Par::Seq",
+    "candidate_thread_observation_required": true
+  },
+  "capacity_authority": {
+    "bounded_two_factor_native_probe": true,
+    "performance_parity": false,
+    "million_scale_release_envelope": false,
+    "reason": "standard hosted runners do not supply the frozen eight-physical-core, 64 GiB memory, and 512 GiB scratch envelope"
+  },
+  "evidence_transport": {
+    "medium": "GitHub Actions v4 artifacts",
+    "repository_retention_days": 90,
+    "durable_authority": false,
+    "durable_capture": "download the complete same-attempt cohort plus run/job metadata and Set up job logs, verify hashes, and commit it to an immutable task asset before expiry",
+    "runner_image_authority": "archived Set up job log and Included Software link; ImageOS and ImageVersion are fail-closed runtime corroboration",
+    "per_lane_files": [
+      "lane-identity.json",
+      "lane-identity.json.sha256"
+    ]
+  },
+  "retry": {
+    "cohort_key": [
+      "GITHUB_RUN_ID",
+      "GITHUB_RUN_ATTEMPT",
+      "GITHUB_SHA",
+      "lane_contract_sha256"
+    ],
+    "mix_attempts": false,
+    "partial_rerun_valid": false,
+    "eligible_reason": "infrastructure failure before candidate entry, recorded before retry",
+    "after_candidate_entry": "retain as an observation; no silent retry",
+    "old_attempts_retained": true
+  },
+  "access": {
+    "control_plane": "repository Actions UI or authenticated gh session with repository Actions permission",
+    "operator_credential": "operator GitHub/OS credential store; never copied into evidence",
+    "job_credential": "automatic job-scoped GITHUB_TOKEN",
+    "repository_actions_secrets_required": [],
+    "repository_actions_variables_required": [],
+    "external_credentials_required": []
+  }
+}

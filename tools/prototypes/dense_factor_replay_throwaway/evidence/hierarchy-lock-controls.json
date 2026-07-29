@@ -1,0 +1,91 @@
+{
+  "backend_calls": 0,
+  "canonical_corpus_sha256": "38f39fee8b4059cd2619df4bbfabb6f7159b41df1511907e0346c32642737f79",
+  "controls": [
+    {
+      "control_id": "artifact-storage-mismatch",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "self-declared-count-lie",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "inventory-profile-lie",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "workload-artifact-roles-missing",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "block-artifact-owner-alias",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "fine-block-smuggled-p-top",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "m3-local-row-map-claim",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "factor-matrix-reference-drift",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "auxiliary-promoted-to-handoff",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "negative-control-backend-call",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "capture-assertion-lie",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "lock-count-self-hash-lie",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "lock-polatory-self-hash-lie",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "lock-native-coordinate-self-hash-lie",
+      "disposition": "rejected"
+    },
+    {
+      "control_id": "lock-hash-algorithm-self-hash-lie",
+      "disposition": "rejected"
+    }
+  ],
+  "raw_manifest": {
+    "bytes": 1887496,
+    "path": "hierarchy.manifest.raw.json",
+    "sha256": "cf5aaa1e3fe6bf51c3f24f13455ac1036e7ec591668c18ec4c86f3243aa07f54"
+  },
+  "schema": "rapidrbf-hierarchy-lock-malformed-controls-v1",
+  "source_closure": {
+    "capture/hierarchy/CMakeLists.txt": {
+      "bytes": 6537,
+      "sha256": "1397844f92c4fe508281be265ceb59bde94b337e2027759697bb17ee1df4ce66"
+    },
+    "capture/hierarchy_capture.cpp": {
+      "bytes": 72586,
+      "sha256": "9bc2addd4de1a50829e79d91fd676ac7715fed3702ce2831c5f1022beb31ac85"
+    },
+    "capture_executable": {
+      "bytes": 773632,
+      "sha256": "e73a4a3c953ba61cb08f68af800f94da672de7275d9cf3033caee24fe5c8530c"
+    },
+    "hierarchy_lock.py": {
+      "bytes": 66819,
+      "sha256": "d1f25789308f08d075c10cf4d117a78683eb8483230f9f5d50fc48ec4bafb694"
+    }
+  },
+  "status": "PASS"
+}

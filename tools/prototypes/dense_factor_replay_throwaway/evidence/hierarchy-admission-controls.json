@@ -1,0 +1,808 @@
+{
+  "artifact_lock": [
+    {
+      "artifact_id": "workload:SYNTHETIC-1K:value_points",
+      "bytes": 72,
+      "path": "fixture/SYNTHETIC-1K/value_points.bin",
+      "sha256": "cc6ca321056990d3075c29d7c3a11eb3650a6fd8cf794a65f4016949c5d30232"
+    },
+    {
+      "artifact_id": "workload:SYNTHETIC-1K:gradient_points",
+      "bytes": 0,
+      "path": "fixture/SYNTHETIC-1K/gradient_points.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "artifact_id": "workload:SYNTHETIC-1K:observations",
+      "bytes": 24,
+      "path": "fixture/SYNTHETIC-1K/observations.bin",
+      "sha256": "a68de4b5e96a60c8ceb3c7b7ef93461725bdbbff3516b136585a743b5c0ec664"
+    },
+    {
+      "artifact_id": "workload:SYNTHETIC-1K:selected_polynomial_indices",
+      "bytes": 8,
+      "path": "fixture/SYNTHETIC-1K/selected_polynomial_indices.bin",
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+      "artifact_id": "workload:SYNTHETIC-1K:model_values",
+      "bytes": 8,
+      "path": "fixture/SYNTHETIC-1K/model_values.bin",
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+      "artifact_id": "block:SYNTHETIC-1K-level-0-coarse-000:domain_value_indices",
+      "bytes": 24,
+      "path": "fixture/SYNTHETIC-1K-level-0-coarse-000/domain_value_indices.bin",
+      "sha256": "ab25350e3e65efebe24584461683ecda68725576e825e550038b90e7b1479946"
+    },
+    {
+      "artifact_id": "block:SYNTHETIC-1K-level-0-coarse-000:domain_gradient_indices",
+      "bytes": 0,
+      "path": "fixture/SYNTHETIC-1K-level-0-coarse-000/domain_gradient_indices.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "artifact_id": "block:SYNTHETIC-1K-level-0-coarse-000:inner_value_mask",
+      "bytes": 3,
+      "path": "fixture/SYNTHETIC-1K-level-0-coarse-000/inner_value_mask.bin",
+      "sha256": "75c8fd04ad916aec3e3d5cb76a452b116b3d4d0912a0a485e9fb8e3d240e210c"
+    },
+    {
+      "artifact_id": "block:SYNTHETIC-1K-level-0-coarse-000:inner_gradient_mask",
+      "bytes": 0,
+      "path": "fixture/SYNTHETIC-1K-level-0-coarse-000/inner_gradient_mask.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "artifact_id": "block:SYNTHETIC-1K-level-0-coarse-000:canonical_lagrange_flat_indices",
+      "bytes": 24,
+      "path": "fixture/SYNTHETIC-1K-level-0-coarse-000/canonical_lagrange_flat_indices.bin",
+      "sha256": "ab25350e3e65efebe24584461683ecda68725576e825e550038b90e7b1479946"
+    },
+    {
+      "artifact_id": "block:SYNTHETIC-1K-level-0-coarse-000:a_lower",
+      "bytes": 48,
+      "path": "fixture/SYNTHETIC-1K-level-0-coarse-000/a_lower.bin",
+      "sha256": "503fdbbad6a3d8b5c572acc6bb9c210e1d179f81d6c690707d98063fad931542"
+    },
+    {
+      "artifact_id": "block:SYNTHETIC-1K-level-0-coarse-000:p_row_major",
+      "bytes": 24,
+      "path": "fixture/SYNTHETIC-1K-level-0-coarse-000/p_row_major.bin",
+      "sha256": "cc143326a2646c605ea66139d7b440df7cbde18c050f1f8cf4dd30f42cfe7123"
+    },
+    {
+      "artifact_id": "block:SYNTHETIC-1K-level-0-coarse-000:q_top_row_major",
+      "bytes": 16,
+      "path": "fixture/SYNTHETIC-1K-level-0-coarse-000/q_top_row_major.bin",
+      "sha256": "e077172409ed971e7cbc8aaf3f5fc99ffd5806da65b60973369d000cf6a32fc6"
+    },
+    {
+      "artifact_id": "block:SYNTHETIC-1K-level-0-coarse-000:qtaq_lower",
+      "bytes": 24,
+      "path": "fixture/SYNTHETIC-1K-level-0-coarse-000/qtaq_lower.bin",
+      "sha256": "64483a43cbce6f6b0e1788f8543df72ebfd16a0b51b0c4b05cae79a6967801fc"
+    },
+    {
+      "artifact_id": "block:SYNTHETIC-1K-level-0-coarse-000:rhs_full",
+      "bytes": 24,
+      "path": "fixture/SYNTHETIC-1K-level-0-coarse-000/rhs_full.bin",
+      "sha256": "a68de4b5e96a60c8ceb3c7b7ef93461725bdbbff3516b136585a743b5c0ec664"
+    },
+    {
+      "artifact_id": "block:SYNTHETIC-1K-level-0-coarse-000:rhs_reduced",
+      "bytes": 16,
+      "path": "fixture/SYNTHETIC-1K-level-0-coarse-000/rhs_reduced.bin",
+      "sha256": "dc91ce9a50ddc828740aa26743716897fdb2bb64f1db662fe263a59be56145ae"
+    },
+    {
+      "artifact_id": "block:SYNTHETIC-1K-level-0-coarse-000:p_top_row_major",
+      "bytes": 8,
+      "path": "fixture/SYNTHETIC-1K-level-0-coarse-000/p_top_row_major.bin",
+      "sha256": "6c3c396ed6b5c36dcae172271f462051b1266b851e92df3deea8ac65478fd712"
+    }
+  ],
+  "backend_invocations": 0,
+  "control_certificates": [],
+  "controls": [
+    {
+      "backend_invocations": 0,
+      "certificate_id": "control:exact-rank-failure",
+      "equilibration": {
+        "column_exponents": [
+          0,
+          0
+        ],
+        "profile": "one-pass-power2-maxabs-row-then-column-v1",
+        "row_exponents": [
+          0,
+          0
+        ]
+      },
+      "reason": null,
+      "resource": {
+        "checker_logical_units": 48,
+        "limit_logical_units": null,
+        "proposer_logical_units": 20,
+        "required_logical_units": 72,
+        "subject_logical_units": 4
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "state": "RankDeficient",
+      "steps": [
+        {
+          "authority": "exact-zero-row-or-column-dyadic",
+          "classification": "RankDeficient",
+          "diagnostics": {
+            "checker": "exact structural singularity",
+            "nonzero_matrix": true,
+            "zero_column": true,
+            "zero_row": true
+          },
+          "lower": 0.0,
+          "lower_binary64_hex": "0x0.0p+0",
+          "precision_bits": 53,
+          "tau_rank": 2.220446049250313e-16,
+          "tau_rank_binary64_hex": "0x1.0000000000000p-52",
+          "upper": 0.0,
+          "upper_binary64_hex": "0x0.0p+0",
+          "width": 0.0,
+          "width_binary64_hex": "0x0.0p+0"
+        }
+      ],
+      "subject": "CONTROL",
+      "tau_rank": 2.220446049250313e-16,
+      "tau_rank_binary64_hex": "0x1.0000000000000p-52"
+    },
+    {
+      "backend_invocations": 0,
+      "certificate_id": "control:genuine-exact-precision-ladder",
+      "equilibration": {
+        "column_exponents": [
+          0,
+          0
+        ],
+        "profile": "one-pass-power2-maxabs-row-then-column-v1",
+        "row_exponents": [
+          0,
+          -1
+        ]
+      },
+      "reason": null,
+      "resource": {
+        "checker_logical_units": 48,
+        "limit_logical_units": null,
+        "proposer_logical_units": 20,
+        "required_logical_units": 72,
+        "subject_logical_units": 4
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "state": "Admitted",
+      "steps": [
+        {
+          "authority": "left-inverse-and-singular-witness-analytic-outward-v1",
+          "classification": "straddle",
+          "diagnostics": {
+            "delta_upper": 1.6666666666666725,
+            "left_inverse_norm_upper": 2600154457184657.0,
+            "sigma_max_lower": 1.5811388300841862,
+            "sigma_max_upper": 1.732050807568879,
+            "sigma_min_lower": 0.0,
+            "sigma_min_upper": 1.2644457717428646e-15,
+            "svd_proposer_ratio": 2.979040983896728e-16
+          },
+          "lower": 0.0,
+          "lower_binary64_hex": "0x0.0p+0",
+          "precision_bits": 53,
+          "tau_rank": 2.220446049250313e-16,
+          "tau_rank_binary64_hex": "0x1.0000000000000p-52",
+          "upper": 7.997057232953671e-16,
+          "upper_binary64_hex": "0x1.ccffbc07e2054p-51",
+          "width": 7.997057232953672e-16,
+          "width_binary64_hex": "0x1.ccffbc07e2055p-51"
+        },
+        {
+          "authority": "exact-dyadic-gram-sturm-outward-v1",
+          "classification": "Admitted",
+          "diagnostics": {
+            "backend_invocations": 0,
+            "binary64_endpoint_rounding": "exact monotone bit-pattern search; lower rounded toward zero and upper rounded toward positive infinity",
+            "bisection_iterations_per_extreme": 256,
+            "characteristic_polynomial_coefficient_order": "ascending",
+            "characteristic_polynomial_sha256": "e969028eff6486611c539961175f5f349f5d3d6c2222448e9807753b63a5d052",
+            "checker": "exact-dyadic-gram-sturm-outward-v1",
+            "distinct_positive_gram_eigenvalues": 2,
+            "exact_full_min_dimension_rank": true,
+            "exact_input_model": "each finite binary64 value is its exact dyadic rational",
+            "gershgorin_upper_bound": "50706024009129196326066451382281/20282409603651670423947251286016",
+            "gram_orientation": "A_transpose_A",
+            "gram_term_products": 6,
+            "lambda_max_interval": {
+              "lower": "2261564242916332544468387398072529876543108146709480005736825956506513151361/904625697166532776746648320380374280103671755200316906558262375061821325312",
+              "upper": "72370055773322641422988396738320956049379460694703360183578430608208420843553/28948022309329048855892746252171976963317496166410141009864396001978282409984"
+            },
+            "lambda_min_interval": {
+              "lower": "5138091693741454202747181243530246478753517535/28948022309329048855892746252171976963317496166410141009864396001978282409984",
+              "upper": "160565365429420443835849413860320202461047423/904625697166532776746648320380374280103671755200316906558262375061821325312"
+            },
+            "matrix_binary64_sha256": "b2fcfc211f7587fa0701d54491ca193fa5cb045690cfd9e9a2413cecd317ba9c",
+            "matrix_elements": 4,
+            "minimum_dimension": 2,
+            "outer_dimension": 2,
+            "ratio_squared_interval": {
+              "lower": "5138091693741454202747181243530246478753517535/72370055773322641422988396738320956049379460694703360183578430608208420843553",
+              "upper": "160565365429420443835849413860320202461047423/2261564242916332544468387398072529876543108146709480005736825956506513151361"
+            },
+            "resource_limits": {
+              "max_bisection_iterations": 2048,
+              "max_gram_term_products": 1000000,
+              "max_matrix_elements": 100000,
+              "max_min_dimension": 8
+            },
+            "root_interval_width": "1/28948022309329048855892746252171976963317496166410141009864396001978282409984",
+            "root_interval_width_relative_to_initial": "2^-256",
+            "strict_initial_dyadic_upper": "4/1",
+            "sturm_sequence_length": 3
+          },
+          "lower": 2.6645352591003746e-16,
+          "lower_binary64_hex": "0x1.3333333333331p-52",
+          "precision_bits": 256,
+          "tau_rank": 2.220446049250313e-16,
+          "tau_rank_binary64_hex": "0x1.0000000000000p-52",
+          "upper": 2.664535259100375e-16,
+          "upper_binary64_hex": "0x1.3333333333332p-52",
+          "width": 4.930380657631325e-32,
+          "width_binary64_hex": "0x1.0000000000001p-104"
+        }
+      ],
+      "subject": "CONTROL",
+      "tau_rank": 2.220446049250313e-16,
+      "tau_rank_binary64_hex": "0x1.0000000000000p-52"
+    },
+    {
+      "backend_invocations": 0,
+      "certificate_id": "control:true-final-straddle",
+      "reason": "threshold remains inside final envelope",
+      "state": "IndeterminateRank",
+      "steps": [
+        {
+          "authority": "hash-bound-control-envelope",
+          "classification": "straddle",
+          "diagnostics": null,
+          "lower": 4.163336342344337e-16,
+          "lower_binary64_hex": "0x1.e000000000000p-52",
+          "precision_bits": 53,
+          "tau_rank": 4.440892098500626e-16,
+          "tau_rank_binary64_hex": "0x1.0000000000000p-51",
+          "upper": 4.718447854656915e-16,
+          "upper_binary64_hex": "0x1.1000000000000p-51",
+          "width": 5.551115123125784e-17,
+          "width_binary64_hex": "0x1.0000000000001p-54"
+        },
+        {
+          "authority": "hash-bound-control-envelope",
+          "classification": "straddle",
+          "diagnostics": null,
+          "lower": 4.3021142204224816e-16,
+          "lower_binary64_hex": "0x1.f000000000000p-52",
+          "precision_bits": 256,
+          "tau_rank": 4.440892098500626e-16,
+          "tau_rank_binary64_hex": "0x1.0000000000000p-51",
+          "upper": 4.579669976578771e-16,
+          "upper_binary64_hex": "0x1.0800000000000p-51",
+          "width": 2.775557561562892e-17,
+          "width_binary64_hex": "0x1.0000000000001p-55"
+        },
+        {
+          "authority": "hash-bound-control-envelope",
+          "classification": "straddle",
+          "diagnostics": null,
+          "lower": 4.3021142204224816e-16,
+          "lower_binary64_hex": "0x1.f000000000000p-52",
+          "precision_bits": 512,
+          "tau_rank": 4.440892098500626e-16,
+          "tau_rank_binary64_hex": "0x1.0000000000000p-51",
+          "upper": 4.579669976578771e-16,
+          "upper_binary64_hex": "0x1.0800000000000p-51",
+          "width": 2.775557561562892e-17,
+          "width_binary64_hex": "0x1.0000000000001p-55"
+        },
+        {
+          "authority": "hash-bound-control-envelope",
+          "classification": "straddle",
+          "diagnostics": null,
+          "lower": 4.3021142204224816e-16,
+          "lower_binary64_hex": "0x1.f000000000000p-52",
+          "precision_bits": 1024,
+          "tau_rank": 4.440892098500626e-16,
+          "tau_rank_binary64_hex": "0x1.0000000000000p-51",
+          "upper": 4.579669976578771e-16,
+          "upper_binary64_hex": "0x1.0800000000000p-51",
+          "width": 2.775557561562892e-17,
+          "width_binary64_hex": "0x1.0000000000001p-55"
+        },
+        {
+          "authority": "hash-bound-control-envelope",
+          "classification": "straddle",
+          "diagnostics": null,
+          "lower": 4.3021142204224816e-16,
+          "lower_binary64_hex": "0x1.f000000000000p-52",
+          "precision_bits": 2048,
+          "tau_rank": 4.440892098500626e-16,
+          "tau_rank_binary64_hex": "0x1.0000000000000p-51",
+          "upper": 4.579669976578771e-16,
+          "upper_binary64_hex": "0x1.0800000000000p-51",
+          "width": 2.775557561562892e-17,
+          "width_binary64_hex": "0x1.0000000000001p-55"
+        }
+      ],
+      "subject": "CONTROL",
+      "tau_rank": 4.440892098500626e-16,
+      "tau_rank_binary64_hex": "0x1.0000000000000p-51"
+    },
+    {
+      "backend_invocations": 0,
+      "certificate_id": "control:nonfinite",
+      "reason": "rank subject contains NaN or infinity",
+      "resource": {
+        "checker_logical_units": 12,
+        "limit_logical_units": null,
+        "proposer_logical_units": 5,
+        "required_logical_units": 18,
+        "subject_logical_units": 1
+      },
+      "shape": [
+        1,
+        1
+      ],
+      "state": "NonFinite",
+      "steps": [],
+      "subject": "CONTROL"
+    },
+    {
+      "backend_invocations": 0,
+      "certificate_id": "control:resource-preflight",
+      "reason": "rank resource preflight denied from locked metadata before payload materialization: control:resource-preflight/CONTROL requires 72 logical units, limit is 1",
+      "shape": [
+        2,
+        2
+      ],
+      "state": "ResourceDenied",
+      "subject": "CONTROL"
+    },
+    {
+      "backend_invocations": 0,
+      "certificate_id": "control:resource-after-straddle",
+      "reason": "precision ladder resource authority was unavailable before the required final narrow straddle completed: ",
+      "state": "EVIDENCE_MISSING",
+      "steps": [
+        {
+          "authority": "hash-bound-control-envelope",
+          "classification": "straddle",
+          "diagnostics": null,
+          "lower": 4.163336342344337e-16,
+          "lower_binary64_hex": "0x1.e000000000000p-52",
+          "precision_bits": 53,
+          "tau_rank": 4.440892098500626e-16,
+          "tau_rank_binary64_hex": "0x1.0000000000000p-51",
+          "upper": 4.718447854656915e-16,
+          "upper_binary64_hex": "0x1.1000000000000p-51",
+          "width": 5.551115123125784e-17,
+          "width_binary64_hex": "0x1.0000000000001p-54"
+        }
+      ],
+      "subject": "CONTROL",
+      "tau_rank": 4.440892098500626e-16,
+      "tau_rank_binary64_hex": "0x1.0000000000000p-51"
+    },
+    {
+      "backend_invocations": 0,
+      "certificate_id": "control:malformed",
+      "reason": "rank subject must be a nonempty matrix",
+      "state": "MalformedCorpus",
+      "subject": "CONTROL"
+    },
+    {
+      "backend_invocations": 0,
+      "certificate_id": "control:integrity",
+      "reason": "rank profile hash mismatch: expected 8d60d932464e04c1ce052ecf33acc93f6e72d424ba05d1af7e40cf69b456731e, found '0000000000000000000000000000000000000000000000000000000000000000'",
+      "state": "IntegrityMismatch",
+      "subject": "CONTROL"
+    },
+    {
+      "backend_invocations": 0,
+      "certificate_id": "control:semantic-profile-drift",
+      "reason": "rank profile is self-consistent but is not the pinned canonical profile: expected 8d60d932464e04c1ce052ecf33acc93f6e72d424ba05d1af7e40cf69b456731e, found 0197e19b6a6ef7ca83d1ad199c5aa193998de902e1000b66c6e2f5985b855534",
+      "state": "IntegrityMismatch",
+      "subject": "CONTROL"
+    }
+  ],
+  "execution": {
+    "runtime": {
+      "binary64": {
+        "mantissa_bits": 53,
+        "minimum_subnormal_binary64_hex": "0x0.0000000000001p-1022",
+        "radix": 2
+      },
+      "blas": {
+        "detection method": "pkgconfig",
+        "found": true,
+        "name": "scipy-openblas",
+        "openblas configuration": "OpenBLAS 0.3.30  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24",
+        "version": "0.3.30"
+      },
+      "byteorder": "little",
+      "lapack": {
+        "detection method": "pkgconfig",
+        "found": true,
+        "name": "scipy-openblas",
+        "openblas configuration": "OpenBLAS 0.3.30  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24",
+        "version": "0.3.30"
+      },
+      "loaded_threadpools": [
+        {
+          "architecture": "Haswell",
+          "binary": {
+            "basename": "libscipy_openblas64_-860d95b1c38e637ce4509f5fa24fbf2a.dll",
+            "bytes": 20403712,
+            "sha256": "860d95b1c38e637ce4509f5fa24fbf2a98ba8696f9f3d28bf184bee74ad9a325"
+          },
+          "internal_api": "openblas",
+          "num_threads": 16,
+          "prefix": "libscipy_openblas",
+          "threading_layer": "pthreads",
+          "user_api": "blas",
+          "version": "0.3.30"
+        }
+      ],
+      "machine": "AMD64",
+      "numpy_version": "2.3.2",
+      "processor_identifier": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+      "python_compiler": "MSC v.1944 64 bit (AMD64)",
+      "python_implementation": "CPython",
+      "python_version": "3.13.5",
+      "simd_extensions": {
+        "baseline": [
+          "SSE",
+          "SSE2",
+          "SSE3"
+        ],
+        "found": [
+          "SSSE3",
+          "SSE41",
+          "POPCNT",
+          "SSE42",
+          "AVX",
+          "F16C",
+          "FMA3",
+          "AVX2"
+        ],
+        "not found": [
+          "AVX512F",
+          "AVX512CD",
+          "AVX512_SKX",
+          "AVX512_CLX",
+          "AVX512_CNL",
+          "AVX512_ICL"
+        ]
+      },
+      "system": "Windows",
+      "system_release": "11",
+      "system_version": "10.0.26200",
+      "thread_environment": {
+        "BLIS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null,
+        "NUMEXPR_NUM_THREADS": null,
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": "16",
+        "VECLIB_MAXIMUM_THREADS": null
+      },
+      "threadpoolctl_version": "3.6.0"
+    },
+    "source_closure": {
+      "algorithm": "sha256-length-prefixed-path-and-payload-v1",
+      "files": [
+        {
+          "bytes": 126569,
+          "path": "certify.py",
+          "sha256": "9b0441191f75b15ebd821b40c1f890498a1b62946798685024fab2b9c604e6c6"
+        },
+        {
+          "bytes": 18772,
+          "path": "exact_rank.py",
+          "sha256": "7785d90da68917767da0f236c8993ad0493e7c471fe9729a94ebde7528203a10"
+        },
+        {
+          "bytes": 353,
+          "path": "pyproject.toml",
+          "sha256": "0a2b47122ee202661f491a96b8693549d6f51f9ad56dc4118df59465babd5abe"
+        },
+        {
+          "bytes": 10308,
+          "path": "rank-scaling-profile.v1.json",
+          "sha256": "35dc17ecefa477541effd2d4ab8556e50b01ea242bfe5127745696875d9320ad"
+        },
+        {
+          "bytes": 8394,
+          "path": "uv.lock",
+          "sha256": "bf28649ad35137967e81e82bd968940d48721420be892f2cdd8d6523d6912a74"
+        }
+      ],
+      "sha256": "52247e094509d5e5c5a69ed999558a4ce59c395fd2c0b8acc630e5025077b9c2"
+    }
+  },
+  "inventory": {
+    "artifact_locks": 17,
+    "blocks": 1,
+    "control_certificates": 0,
+    "factor_sources": 2,
+    "q_certificates": 1,
+    "rank_certificates": 3,
+    "workloads": 1
+  },
+  "manifest": {
+    "corpus_sha256": null,
+    "mode": "synthetic-self-test",
+    "path": "hierarchy.manifest.raw.json",
+    "schema": "rapidrbf-canonical-hierarchy-admission-corpus-v3",
+    "sha256": "8031bd810cac476097e04bd52c76d8693155292074f091cf7e6ac260b0e92930"
+  },
+  "profile": {
+    "profile_hash": "8d60d932464e04c1ce052ecf33acc93f6e72d424ba05d1af7e40cf69b456731e",
+    "profile_id": "rapidrbf-rank-scaling-v1"
+  },
+  "q_certificates": [
+    {
+      "backend_invocations": 0,
+      "block_id": "SYNTHETIC-1K-level-0-coarse-000",
+      "canonical_row_map": "source_value_rows + 3*global_gradient_index + component",
+      "captured_q": {
+        "authority": "exact-dyadic-rational-normalized-residual",
+        "exact_dyadic_eta": "0/1",
+        "limit": "1/4294967296",
+        "max_abs_difference_from_qstar": "0/1",
+        "operational_analytic_eta_is_authority": false,
+        "operational_analytic_eta_upper": 1.110223024625159e-16
+      },
+      "certificate_id": "q-nullspace:SYNTHETIC-1K-level-0-coarse-000",
+      "qstar_exact_proof": {
+        "captured_bit_equality_required": false,
+        "formula": "[-(P_top^T)^-1 P_tail^T; I]",
+        "identity_tail_structural_rank": 2,
+        "p_transpose_qstar_exact_zero": true,
+        "rational_stream_order": "Q_top columns, then rows",
+        "rational_stream_sha256": "52ca0b38013ed99edcd9749da66928aea2262eb5761819e2040d14297a675b66"
+      },
+      "reason": null,
+      "shape": [
+        3,
+        2
+      ],
+      "state": "Admitted"
+    }
+  ],
+  "rank_certificates": [
+    {
+      "backend_invocations": 0,
+      "certificate_id": "rank:SYNTHETIC-1K-level-0-coarse-000:P",
+      "coordinate_transform": {
+        "center_exact": [
+          "1/2",
+          "1/2",
+          "1/2"
+        ],
+        "center_hex": [
+          "0x1.0000000000000p-1",
+          "0x1.0000000000000p-1",
+          "0x1.0000000000000p-1"
+        ],
+        "profile": "exact-dyadic-workload-bbox-power2-v1",
+        "scale_exact": [
+          "1/2",
+          "1/2",
+          "1/2"
+        ],
+        "scale_hex": [
+          "0x1.0000000000000p-1",
+          "0x1.0000000000000p-1",
+          "0x1.0000000000000p-1"
+        ]
+      },
+      "equilibration": {
+        "column_exponents": [
+          0
+        ],
+        "profile": "one-pass-power2-maxabs-row-then-column-v1",
+        "row_exponents": [
+          0,
+          0,
+          0
+        ]
+      },
+      "reason": null,
+      "resource": {
+        "checker_logical_units": 28,
+        "limit_logical_units": null,
+        "proposer_logical_units": 11,
+        "required_logical_units": 42,
+        "subject_logical_units": 3
+      },
+      "shape": [
+        3,
+        1
+      ],
+      "source_artifact": "block:SYNTHETIC-1K-level-0-coarse-000:p_row_major",
+      "state": "Admitted",
+      "steps": [
+        {
+          "authority": "left-or-right-inverse-analytic-outward-v1",
+          "classification": "Admitted",
+          "diagnostics": {
+            "delta_upper": 7.771561172376119e-16,
+            "inverse_norm_upper": 0.5773502691896263,
+            "sigma_max_upper": 1.7320508075688785,
+            "sigma_min_lower": 1.7320508075688739,
+            "singular_vector_proposer_skipped": true,
+            "witness_proposer": "binary64 inverse or pseudoinverse"
+          },
+          "lower": 0.9999999999999972,
+          "lower_binary64_hex": "0x1.fffffffffffe7p-1",
+          "precision_bits": 53,
+          "tau_rank": 3.3306690738754696e-16,
+          "tau_rank_binary64_hex": "0x1.8000000000000p-52",
+          "upper": 1.0,
+          "upper_binary64_hex": "0x1.0000000000000p+0",
+          "width": 2.7755575615628917e-15,
+          "width_binary64_hex": "0x1.9000000000001p-49"
+        }
+      ],
+      "subject": "P",
+      "tau_rank": 3.3306690738754696e-16,
+      "tau_rank_binary64_hex": "0x1.8000000000000p-52"
+    },
+    {
+      "backend_invocations": 0,
+      "certificate_id": "rank:SYNTHETIC-1K-level-0-coarse-000:QTAQ",
+      "coordinate_scaling": "not-applied-to-kernel-semantics",
+      "equilibration": {
+        "column_exponents": [
+          0,
+          0
+        ],
+        "profile": "one-pass-power2-maxabs-row-then-column-v1",
+        "row_exponents": [
+          -1,
+          -1
+        ]
+      },
+      "reason": null,
+      "resource": {
+        "checker_logical_units": 48,
+        "limit_logical_units": null,
+        "proposer_logical_units": 20,
+        "required_logical_units": 72,
+        "subject_logical_units": 4
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source_artifact": "block:SYNTHETIC-1K-level-0-coarse-000:qtaq_lower",
+      "state": "Admitted",
+      "steps": [
+        {
+          "authority": "left-or-right-inverse-analytic-outward-v1",
+          "classification": "Admitted",
+          "diagnostics": {
+            "delta_upper": 1.665334536937739e-15,
+            "inverse_norm_upper": 2.0000000000000018,
+            "sigma_max_upper": 1.500000000000001,
+            "sigma_min_lower": 0.4999999999999986,
+            "singular_vector_proposer_skipped": true,
+            "witness_proposer": "binary64 inverse or pseudoinverse"
+          },
+          "lower": 0.3333333333333321,
+          "lower_binary64_hex": "0x1.555555555553fp-2",
+          "precision_bits": 53,
+          "tau_rank": 2.220446049250313e-16,
+          "tau_rank_binary64_hex": "0x1.0000000000000p-52",
+          "upper": 1.0,
+          "upper_binary64_hex": "0x1.0000000000000p+0",
+          "width": 0.666666666666668,
+          "width_binary64_hex": "0x1.5555555555561p-1"
+        }
+      ],
+      "subject": "QTAQ",
+      "tau_rank": 2.220446049250313e-16,
+      "tau_rank_binary64_hex": "0x1.0000000000000p-52"
+    },
+    {
+      "backend_invocations": 0,
+      "certificate_id": "rank:SYNTHETIC-1K-level-0-coarse-000:P_TOP",
+      "coordinate_transform": {
+        "center_exact": [
+          "1/2",
+          "1/2",
+          "1/2"
+        ],
+        "center_hex": [
+          "0x1.0000000000000p-1",
+          "0x1.0000000000000p-1",
+          "0x1.0000000000000p-1"
+        ],
+        "profile": "exact-dyadic-workload-bbox-power2-v1",
+        "scale_exact": [
+          "1/2",
+          "1/2",
+          "1/2"
+        ],
+        "scale_hex": [
+          "0x1.0000000000000p-1",
+          "0x1.0000000000000p-1",
+          "0x1.0000000000000p-1"
+        ]
+      },
+      "equilibration": {
+        "column_exponents": [
+          0
+        ],
+        "profile": "one-pass-power2-maxabs-row-then-column-v1",
+        "row_exponents": [
+          0
+        ]
+      },
+      "reason": null,
+      "resource": {
+        "checker_logical_units": 12,
+        "limit_logical_units": null,
+        "proposer_logical_units": 5,
+        "required_logical_units": 18,
+        "subject_logical_units": 1
+      },
+      "shape": [
+        1,
+        1
+      ],
+      "source_artifact": "block:SYNTHETIC-1K-level-0-coarse-000:p_top_row_major",
+      "state": "Admitted",
+      "steps": [
+        {
+          "authority": "left-or-right-inverse-analytic-outward-v1",
+          "classification": "Admitted",
+          "diagnostics": {
+            "delta_upper": 3.330669073875477e-16,
+            "inverse_norm_upper": 1.0000000000000007,
+            "sigma_max_upper": 1.0000000000000007,
+            "sigma_min_lower": 0.9999999999999988,
+            "singular_vector_proposer_skipped": true,
+            "witness_proposer": "binary64 inverse or pseudoinverse"
+          },
+          "lower": 0.999999999999998,
+          "lower_binary64_hex": "0x1.fffffffffffeep-1",
+          "precision_bits": 53,
+          "tau_rank": 1.1102230246251565e-16,
+          "tau_rank_binary64_hex": "0x1.0000000000000p-53",
+          "upper": 1.0,
+          "upper_binary64_hex": "0x1.0000000000000p+0",
+          "width": 1.998401444325282e-15,
+          "width_binary64_hex": "0x1.2000000000001p-49"
+        }
+      ],
+      "subject": "P_TOP",
+      "tau_rank": 1.1102230246251565e-16,
+      "tau_rank_binary64_hex": "0x1.0000000000000p-53"
+    }
+  ],
+  "schema": "RapidRBF/HierarchyAdmissionReport/v1",
+  "state": "Admitted",
+  "state_counts": {
+    "Admitted": 4
+  }
+}
