@@ -243,6 +243,72 @@ def verify_lane(lane_id: str, target: str, lane_witness_path: Path) -> dict[str,
     return witness
 
 
+def diagnostic_helper_observation(
+    scratch: Path,
+    *,
+    helper_executable: Path,
+    name: str,
+    threads: int,
+    grant: int,
+    environment: dict[str, str],
+    require_sample: bool,
+    fault_mode: str | None = None,
+) -> dict[str, Any]:
+    """Run the unchanged helper/observer and retain streams the old journal hashed."""
+
+    entry = scratch / f"{name}-entry.json"
+    release = scratch / f"{name}-release"
+    completed, observation = issue51.observe_process(
+        [
+            str(helper_executable),
+            "--threads",
+            str(threads),
+            "--entry",
+            str(entry),
+            "--release",
+            str(release),
+        ],
+        cwd=issue51.ROOT,
+        env=environment,
+        timeout_seconds=5.0,
+        maximum_live_threads=grant,
+        candidate_entry=entry,
+        candidate_output=None,
+        require_candidate_entry=False,
+        require_successful_sample=require_sample,
+        invocation_kind=f"controller-preflight-{name}",
+        fault_mode=fault_mode,
+        after_first_sample=lambda: release.write_bytes(b"release\n"),
+        stop_sampling_after_first_callback=True,
+    )
+    observation["diagnostic_streams"] = {
+        "stdout_utf8": completed.stdout.decode("utf-8", errors="replace"),
+        "stderr_utf8": completed.stderr.decode("utf-8", errors="replace"),
+    }
+    observation["helper"] = {
+        "name": name,
+        "requested_threads": threads,
+        "returncode": completed.returncode,
+        "entry": (
+            {
+                "bytes": entry.stat().st_size,
+                "sha256": sha256_file(entry),
+            }
+            if entry.is_file()
+            else None
+        ),
+        "release": (
+            {
+                "bytes": release.stat().st_size,
+                "sha256": sha256_file(release),
+            }
+            if release.is_file()
+            else None
+        ),
+    }
+    return observation
+
+
 def diagnose(
     *,
     lane_id: str,
@@ -333,8 +399,15 @@ def diagnose(
                 timeout=300,
             )
             return {
-                "source_sha256": issue51.sha256_file(
+                "source_file_sha256": issue51.sha256_file(
                     issue51.CONTROLLER_HELPER
+                ),
+                "source_git_blob_sha256": sha256_bytes(
+                    issue51.git_blob(
+                        "tools/prototypes/"
+                        "double_double_refinement_witness_throwaway/"
+                        "controller_helper.rs"
+                    )
                 ),
                 "executable_sha256": issue51.sha256_file(helper_executable),
                 "stdout": completed.stdout,
@@ -347,13 +420,13 @@ def diagnose(
             action=build_helper,
             predicate=lambda value: (
                 helper_executable.is_file()
-                and value["source_sha256"]
-                == "6bac891f15f3a023a59eaa95be3393ebdf7fbd866ccda68fa993debde29f6302"
+                and value["source_git_blob_sha256"]
+                == "02df329887aada08419b12d47002f62328f6c6f39c5e005c79d75f0ae53518aa"
             ),
         )
         if helper_build is not None and helper_executable.is_file():
             def observe(name: str, threads: int, require_sample: bool, fault: str | None = None) -> Any:
-                return issue51.helper_observation(
+                return diagnostic_helper_observation(
                     scratch,
                     helper_executable=helper_executable,
                     name=name,
