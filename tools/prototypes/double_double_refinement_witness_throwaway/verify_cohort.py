@@ -1,4 +1,4 @@
-"""Verify the immutable non-compensating Issue 49 four-target cohort."""
+"""Verify the immutable non-compensating Issue 51 four-target cohort."""
 
 from __future__ import annotations
 
@@ -16,6 +16,7 @@ TARGETS = {
     "macos-x86_64": "x86_64-apple-darwin",
 }
 WORKERS = (1, 2, 8)
+GRANTS = {1: 12, 2: 12, 8: 16}
 ORDINALS = (0, 36, 69, 72, 106, 150)
 SUPPORTED = "REFINEMENT_ROUTE_SUPPORTED_FOR_FULL_CORPUS_PLAN"
 REJECTED = "REFINEMENT_ROUTE_REJECTED_DIAGNOSTIC_ONLY"
@@ -30,7 +31,26 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def candidate_failures(candidate: dict[str, Any], lane: str, workers: int) -> list[dict[str, Any]]:
+def matches(path: Path, expected_bytes: int, expected_sha256: str) -> bool:
+    return (
+        path.is_file()
+        and path.stat().st_size == expected_bytes
+        and sha256_file(path) == expected_sha256
+    )
+
+
+def verify_sidecar(path: Path) -> bool:
+    sidecar = path.with_name(path.name + ".sha256")
+    if not sidecar.is_file():
+        return False
+    return sidecar.read_text(encoding="utf-8").strip() == (
+        f"{sha256_file(path)}  {path.name}"
+    )
+
+
+def candidate_failures(
+    candidate: dict[str, Any], lane: str, workers: int
+) -> list[dict[str, Any]]:
     failures: list[dict[str, Any]] = []
     if candidate["baseline_replay"]["status"] != "PASS":
         failures.append({"lane": lane, "workers": workers, "gate": "baseline-replay"})
@@ -46,6 +66,7 @@ def candidate_failures(candidate: dict[str, Any], lane: str, workers: int) -> li
     if tuple(item["ordinal"] for item in sources) != ORDINALS:
         failures.append({"lane": lane, "workers": workers, "gate": "witness-inventory"})
         return failures
+    rhs_identities: list[str] = []
     for source in sources:
         if source["status"] != "PASS":
             failures.append(
@@ -85,9 +106,164 @@ def candidate_failures(candidate: dict[str, Any], lane: str, workers: int) -> li
                     "gate": "pre-post-reload-bit-identity",
                 }
             )
+        pre = source["solution_judgments"]
+        post = source["reload_solution_judgments"]
+        if len(pre) != 3 or len(post) != 3:
+            failures.append(
+                {
+                    "lane": lane,
+                    "workers": workers,
+                    "ordinal": source["ordinal"],
+                    "gate": "rhs-inventory",
+                }
+            )
+            continue
+        pre_ids = [item["rhs_sha256"] for item in pre]
+        post_ids = [item["rhs_sha256"] for item in post]
+        if pre_ids != post_ids:
+            failures.append(
+                {
+                    "lane": lane,
+                    "workers": workers,
+                    "ordinal": source["ordinal"],
+                    "gate": "rhs-pre-post-identity",
+                }
+            )
+        rhs_identities.extend(pre_ids)
+    if len(rhs_identities) != 18 or len(set(rhs_identities)) != 18:
+        failures.append(
+            {
+                "lane": lane,
+                "workers": workers,
+                "gate": "frozen-18-rhs-identity",
+            }
+        )
     if any(candidate["scope"].values()):
         failures.append({"lane": lane, "workers": workers, "gate": "scope-boundary"})
     return failures
+
+
+def verify_controller(
+    observation: dict[str, Any],
+    *,
+    lane: str,
+    workers: int,
+    entry_path: Path | None,
+    output_path: Path | None,
+) -> tuple[list[str], list[dict[str, Any]]]:
+    invalidity: list[str] = []
+    failures: list[dict[str, Any]] = []
+    if observation.get("schema") != "RapidRBF/ControllerValidProcessObservation/v1":
+        return [f"{lane}/{workers} controller schema differs"], failures
+    events = observation.get("event_log", [])
+    nonce = observation.get("invocation_nonce")
+    if (
+        not events
+        or [item.get("sequence") for item in events] != list(range(len(events)))
+        or any(item.get("invocation_nonce") != nonce for item in events)
+        or any(
+            events[index]["monotonic_ns"] > events[index + 1]["monotonic_ns"]
+            for index in range(len(events) - 1)
+        )
+    ):
+        invalidity.append(f"{lane}/{workers} controller event order differs")
+    kinds = [item.get("kind") for item in events]
+    if kinds.count("terminal_observed") != 1 or kinds.count("reaped") != 1:
+        invalidity.append(f"{lane}/{workers} sole-waiter closure differs")
+    if (
+        observation.get("successful_samples", 0) < 1
+        or observation.get("maximum_live_threads", 0) < 1
+    ):
+        invalidity.append(f"{lane}/{workers} has no successful live sample")
+    for event in events:
+        if event.get("kind") != "sample_ok":
+            continue
+        inventory = event.get("process_inventory", [])
+        identities = [item.get("process_identity") for item in inventory]
+        if (
+            not inventory
+            or len(identities) != len(set(identities))
+            or sum(item.get("threads", 0) for item in inventory)
+            != event.get("summed_live_threads")
+            or not any(item.get("is_root") for item in inventory)
+        ):
+            invalidity.append(
+                f"{lane}/{workers} contains an incomplete process-tree sample"
+            )
+            break
+    benign = [
+        item for item in events if item.get("kind") == "benign_terminal_race"
+    ]
+    if len(benign) != observation.get("benign_terminal_races") or len(benign) > 1:
+        invalidity.append(f"{lane}/{workers} benign ESRCH count differs")
+    if benign:
+        sample_errors = [
+            item
+            for item in events
+            if item.get("kind") == "sample_error"
+            and item.get("sample_id") == benign[0].get("sample_id")
+        ]
+        terminal = next(
+            (item for item in events if item.get("kind") == "terminal_observed"),
+            None,
+        )
+        if (
+            len(sample_errors) != 1
+            or terminal is None
+            or benign[0].get("terminal_sequence") != terminal.get("sequence")
+            or sample_errors[0].get("raw_adapter_result", {}).get("adapter")
+            != "macos-proc_pidinfo"
+            or sample_errors[0].get("raw_adapter_result", {}).get("errno") != 3
+            or sample_errors[0].get("raw_adapter_result", {}).get("error_name")
+            != "ESRCH"
+        ):
+            invalidity.append(f"{lane}/{workers} benign ESRCH evidence differs")
+    result = observation.get("process_result", {})
+    if not result.get("process_tree_empty_after_reap"):
+        invalidity.append(f"{lane}/{workers} process tree survived root reap")
+    entry_identity = result.get("candidate_entry")
+    if (
+        entry_path is None
+        or entry_identity is None
+        or not matches(
+            entry_path, entry_identity["bytes"], entry_identity["sha256"]
+        )
+    ):
+        invalidity.append(f"{lane}/{workers} candidate-entry identity differs")
+    output_identity = result.get("candidate_output")
+    if output_path is None:
+        if output_identity is not None:
+            invalidity.append(f"{lane}/{workers} absent output has an identity")
+    elif (
+        output_identity is None
+        or not matches(
+            output_path, output_identity["bytes"], output_identity["sha256"]
+        )
+    ):
+        invalidity.append(f"{lane}/{workers} candidate-output identity differs")
+
+    classification = observation.get("classification")
+    if classification == "INVALID_CONTROLLER_EVIDENCE":
+        invalidity.append(f"{lane}/{workers} controller evidence is invalid")
+    elif classification == "VALID_CANDIDATE_OWNED_NONPASS":
+        failures.append(
+            {"lane": lane, "workers": workers, "gate": "controller-owned-process"}
+        )
+    elif classification != "PASS":
+        invalidity.append(f"{lane}/{workers} controller classification is unknown")
+    if (
+        observation.get("maximum_live_threads", 0) > GRANTS[workers]
+        and classification != "VALID_CANDIDATE_OWNED_NONPASS"
+    ):
+        invalidity.append(f"{lane}/{workers} over-grant attribution differs")
+    if (
+        observation.get("maximum_live_threads", 0) <= GRANTS[workers]
+        and result.get("returncode") == 0
+        and not observation.get("timed_out")
+        and classification == "VALID_CANDIDATE_OWNED_NONPASS"
+    ):
+        invalidity.append(f"{lane}/{workers} candidate nonpass lacks a cause")
+    return invalidity, failures
 
 
 def main() -> int:
@@ -101,20 +277,167 @@ def main() -> int:
     contract = json.loads(args.contract.read_text(encoding="utf-8"))
     invalidity: list[str] = []
     failures: list[dict[str, Any]] = []
+    referenced: set[Path] = set()
+
+    reference_paths = sorted(
+        args.evidence_root.rglob("reference-manifest.v1.json")
+    )
+    reference_evidence: dict[str, Any] | None = None
+    if len(reference_paths) != 1:
+        invalidity.append(
+            f"expected one accepted reference, found {len(reference_paths)}"
+        )
+    elif sha256_file(reference_paths[0]) != contract["reference_manifest_sha256"]:
+        invalidity.append("accepted reference differs")
+    else:
+        reference_path = reference_paths[0]
+        reproduction_path = reference_path.with_name(
+            "reference-reproduction.json"
+        )
+        if not verify_sidecar(reference_path):
+            invalidity.append("accepted reference sidecar differs")
+        try:
+            reproduction = json.loads(
+                reproduction_path.read_text(encoding="utf-8")
+            )
+            if (
+                reproduction["schema"]
+                != "RapidRBF/ProjectedFactorReferenceReproduction/v1"
+                or reproduction["manifest_sha256"]
+                != contract["reference_manifest_sha256"]
+            ):
+                invalidity.append("accepted reference reproduction differs")
+        except (OSError, KeyError, json.JSONDecodeError) as error:
+            invalidity.append(f"accepted reference reproduction is malformed: {error}")
+        referenced.update(
+            {
+                reference_path,
+                reference_path.with_name(reference_path.name + ".sha256"),
+                reproduction_path,
+            }
+        )
+        reference_evidence = {
+            "manifest": {
+                "bytes": reference_path.stat().st_size,
+                "sha256": sha256_file(reference_path),
+            },
+            "reproduction": {
+                "bytes": (
+                    reproduction_path.stat().st_size
+                    if reproduction_path.is_file()
+                    else None
+                ),
+                "sha256": (
+                    sha256_file(reproduction_path)
+                    if reproduction_path.is_file()
+                    else None
+                ),
+            },
+        }
+
+    preflight_paths = sorted(
+        args.evidence_root.rglob("preflight-observation.json")
+    )
+    if len(preflight_paths) != 4:
+        invalidity.append(
+            f"expected four preflight observations, found {len(preflight_paths)}"
+        )
+    preflights: dict[str, dict[str, Any]] = {}
+    preflight_files: dict[str, Path] = {}
+    for path in preflight_paths:
+        try:
+            item = json.loads(path.read_text(encoding="utf-8"))
+            lane = item["lane_id"]
+            if lane in preflights or lane not in TARGETS:
+                invalidity.append(f"duplicate or unexpected preflight {lane}")
+                continue
+            if (
+                item["schema"]
+                != "RapidRBF/ControllerValidRefinementWitnessTargetPreflight/v1"
+                or item["status"] != "PASS"
+                or item["target"] != TARGETS[lane]
+                or item["binary_preflight"]["candidate_executed"]
+                or item["binary_preflight"]["backend_entries"] != 0
+                or item["binary_preflight"]["factor_or_solve_calls"] != 0
+                or item["binary_preflight"]["candidate_observations"] != 0
+                or item["controller_preflight"]["status"] != "PASS"
+            ):
+                invalidity.append(f"preflight {lane} contract differs")
+            for child_key in ("binary_preflight", "controller_preflight"):
+                child = item[child_key]
+                child_path = path.parent / child["file"]
+                if not matches(child_path, child["bytes"], child["sha256"]):
+                    invalidity.append(f"preflight {lane} {child_key} differs")
+                referenced.add(child_path)
+            if not verify_sidecar(path):
+                invalidity.append(f"preflight {lane} sidecar differs")
+            referenced.update({path, path.with_name(path.name + ".sha256")})
+            preflights[lane] = item
+            preflight_files[lane] = path
+        except (KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
+            invalidity.append(f"malformed preflight {path}: {error}")
+    if set(preflights) != set(TARGETS):
+        invalidity.append("complete four-lane preflight set is absent")
+
+    target_paths = sorted(args.evidence_root.rglob("target-observation.json"))
+    if len(target_paths) != 4:
+        invalidity.append(
+            f"expected four target observations, found {len(target_paths)}"
+        )
     targets: dict[str, Any] = {}
-    paths = sorted(args.evidence_root.rglob("target-observation.json"))
-    if len(paths) != 4:
-        invalidity.append(f"expected four target observations, found {len(paths)}")
-    for path in paths:
+    run_coordinates: set[tuple[str, str, str]] = set()
+    binding_ids: set[str] = set()
+    controller_ids: set[str] = set()
+    commits: set[str] = set()
+    for path in target_paths:
         try:
             target = json.loads(path.read_text(encoding="utf-8"))
             lane = target["lane_id"]
             if lane in targets:
                 invalidity.append(f"duplicate target observation for {lane}")
                 continue
-            if lane not in TARGETS or target["target"] != TARGETS[lane]:
+            if (
+                lane not in TARGETS
+                or target["target"] != TARGETS[lane]
+                or target["schema"]
+                != "RapidRBF/ControllerValidRefinementWitnessTargetEvidence/v1"
+            ):
                 invalidity.append(f"unexpected target identity in {path}")
                 continue
+            if lane not in preflights:
+                invalidity.append(f"target {lane} lacks same-attempt preflight")
+            else:
+                if (
+                    target["lane_equivalence"]
+                    != preflights[lane]["lane_equivalence"]
+                ):
+                    invalidity.append(
+                        f"target {lane} lane/toolchain differs from preflight"
+                    )
+                for preflight_lane, preflight in preflights.items():
+                    summary = target["preflight_cohort"]["lanes"][
+                        preflight_lane
+                    ]
+                    preflight_path = preflight_files[preflight_lane]
+                    if (
+                        summary["preflight_bytes"] != preflight_path.stat().st_size
+                        or summary["preflight_sha256"]
+                        != sha256_file(preflight_path)
+                    ):
+                        invalidity.append(
+                            f"target {lane} preflight cohort hash differs"
+                        )
+                        break
+            raw_lane = path.parent.parent / "lane" / "lane-identity.json"
+            lane_file = target["lane_witness_file"]
+            if not matches(
+                raw_lane, lane_file["bytes"], lane_file["sha256"]
+            ) or not verify_sidecar(raw_lane):
+                invalidity.append(f"target {lane} raw lane witness differs")
+            referenced.update(
+                {raw_lane, raw_lane.with_name(raw_lane.name + ".sha256")}
+            )
+
             profiles = target["profiles"]
             if tuple(item["workers"] for item in profiles) != WORKERS:
                 invalidity.append(f"profile inventory differs for {lane}")
@@ -122,61 +445,170 @@ def main() -> int:
             target_failures: list[dict[str, Any]] = []
             for profile in profiles:
                 workers = profile["workers"]
-                if not profile["controller_threads"]["pass"]:
-                    target_failures.append(
-                        {"lane": lane, "workers": workers, "gate": "thread-bound"}
-                    )
-                candidate_name = profile.get("candidate_file")
-                if candidate_name is None:
+                baseline_path = (
+                    path.parent / profile["baseline_file"]
+                    if profile.get("baseline_file")
+                    else None
+                )
+                entry_path = (
+                    path.parent / profile["candidate_entry_file"]
+                    if profile.get("candidate_entry_file")
+                    else None
+                )
+                candidate_path = (
+                    path.parent / profile["candidate_file"]
+                    if profile.get("candidate_file")
+                    else None
+                )
+                for artifact_path, bytes_key, hash_key, label in (
+                    (
+                        baseline_path,
+                        "baseline_bytes",
+                        "baseline_sha256",
+                        "baseline",
+                    ),
+                    (
+                        entry_path,
+                        "candidate_entry_bytes",
+                        "candidate_entry_sha256",
+                        "entry",
+                    ),
+                    (
+                        candidate_path,
+                        "candidate_bytes",
+                        "candidate_sha256",
+                        "candidate",
+                    ),
+                ):
+                    if artifact_path is None:
+                        continue
+                    if not matches(
+                        artifact_path,
+                        profile[bytes_key],
+                        profile[hash_key],
+                    ):
+                        invalidity.append(
+                            f"{lane}/{workers} {label} artifact differs"
+                        )
+                    referenced.add(artifact_path)
+                controller_invalid, controller_failures = verify_controller(
+                    profile["controller_observation"],
+                    lane=lane,
+                    workers=workers,
+                    entry_path=entry_path,
+                    output_path=candidate_path,
+                )
+                invalidity.extend(controller_invalid)
+                target_failures.extend(controller_failures)
+                if candidate_path is None:
                     if profile["disposition"] == INVALID:
                         invalidity.append(
-                            f"{lane}/{workers} stopped before refined candidate entry"
+                            f"{lane}/{workers} stopped before valid candidate evidence"
                         )
-                    else:
-                        target_failures.append(
-                            {
-                                "lane": lane,
-                                "workers": workers,
-                                "gate": "candidate-crash-or-timeout",
-                            }
+                    elif profile["disposition"] != REJECTED:
+                        invalidity.append(
+                            f"{lane}/{workers} absent candidate has wrong disposition"
                         )
                     continue
-                candidate_path = path.parent / candidate_name
-                if (
-                    not candidate_path.is_file()
-                    or sha256_file(candidate_path) != profile["candidate_sha256"]
-                ):
-                    invalidity.append(f"candidate evidence differs for {lane}/{workers}")
-                    continue
-                candidate = json.loads(candidate_path.read_text(encoding="utf-8"))
+                candidate = json.loads(
+                    candidate_path.read_text(encoding="utf-8")
+                )
                 if (
                     candidate["schema"]
                     != "RapidRBF/DoubleDoubleRefinementWitnessLaneObservation/v1"
                     or candidate["lane_id"] != lane
                     or candidate["lane"]["configured_workers"] != workers
                 ):
-                    invalidity.append(f"candidate identity differs for {lane}/{workers}")
+                    invalidity.append(
+                        f"candidate identity differs for {lane}/{workers}"
+                    )
                     continue
-                target_failures.extend(candidate_failures(candidate, lane, workers))
+                target_failures.extend(
+                    candidate_failures(candidate, lane, workers)
+                )
             failures.extend(target_failures)
+            if not verify_sidecar(path):
+                invalidity.append(f"target {lane} sidecar differs")
+            referenced.update({path, path.with_name(path.name + ".sha256")})
             targets[lane] = {
                 "target": target["target"],
                 "disposition": target["disposition"],
-                "source_binding_sha256": target["source_binding"]["binding_sha256"],
+                "source_binding_sha256": target["source_binding"][
+                    "source_binding_sha256"
+                ],
+                "controller_binding_sha256": target["source_binding"][
+                    "controller_binding_sha256"
+                ],
                 "git_sha": target["git_sha"],
+                "target_observation_bytes": path.stat().st_size,
                 "target_observation_sha256": sha256_file(path),
                 "failures": len(target_failures),
             }
+            binding_ids.add(
+                target["source_binding"]["source_binding_sha256"]
+            )
+            controller_ids.add(
+                target["source_binding"]["controller_binding_sha256"]
+            )
+            commits.add(target["git_sha"])
+            run_coordinates.add(
+                (
+                    str(target["github"]["run_id"]),
+                    str(target["github"]["run_attempt"]),
+                    str(target["github"]["sha"]),
+                )
+            )
         except (KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
             invalidity.append(f"malformed target observation {path}: {error}")
+
     if set(targets) != set(TARGETS):
         invalidity.append("complete four-target set is absent")
-    binding_ids = {item["source_binding_sha256"] for item in targets.values()}
-    commits = {item["git_sha"] for item in targets.values()}
     if len(binding_ids) != 1:
         invalidity.append("target source bindings are mixed")
+    if len(controller_ids) != 1:
+        invalidity.append("target controller bindings are mixed")
     if len(commits) != 1:
         invalidity.append("target commits are mixed")
+    if len(run_coordinates) != 1:
+        invalidity.append("target workflow attempts are mixed")
+    if commits and run_coordinates:
+        coordinate_sha = next(iter(run_coordinates))[2]
+        if coordinate_sha != next(iter(commits)):
+            invalidity.append("workflow SHA differs from materialized commit")
+    if preflights:
+        preflight_bindings = {
+            item["source_binding"]["source_binding_sha256"]
+            for item in preflights.values()
+        }
+        preflight_controllers = {
+            item["source_binding"]["controller_binding_sha256"]
+            for item in preflights.values()
+        }
+        preflight_commits = {item["git_sha"] for item in preflights.values()}
+        if preflight_bindings != binding_ids:
+            invalidity.append("preflight and target source bindings differ")
+        if preflight_controllers != controller_ids:
+            invalidity.append("preflight and target controller bindings differ")
+        if preflight_commits != commits:
+            invalidity.append("preflight and target commits differ")
+        preflight_runs = {
+            (
+                str(item["lane_witness"]["github"]["run_id"]),
+                str(item["lane_witness"]["github"]["run_attempt"]),
+                str(item["lane_witness"]["github"]["sha"]),
+            )
+            for item in preflights.values()
+        }
+        if preflight_runs != run_coordinates:
+            invalidity.append("preflight and target workflow attempts differ")
+
+    actual_files = {path for path in args.evidence_root.rglob("*") if path.is_file()}
+    unexpected = sorted(actual_files - referenced)
+    if unexpected:
+        invalidity.append(
+            "unexpected or unreferenced evidence: "
+            + ", ".join(str(path.relative_to(args.evidence_root)) for path in unexpected)
+        )
 
     if invalidity:
         disposition = INVALID
@@ -189,20 +621,44 @@ def main() -> int:
         failures.append({"gate": "target-disposition-without-coordinate"})
 
     summary = {
-        "schema": "RapidRBF/DoubleDoubleRefinementWitnessCohortSummary/v1",
+        "schema": "RapidRBF/ControllerValidRefinementWitnessCohortSummary/v1",
         "disposition": disposition,
         "contract_sha256": sha256_file(args.contract),
         "contract_id": contract["contract_id"],
-        "source_binding_sha256": next(iter(binding_ids)) if len(binding_ids) == 1 else None,
+        "controller_plan_sha256": contract["controller_plan_sha256"],
+        "candidate_binding_sha256": contract["candidate_binding_sha256"],
+        "source_binding_sha256": (
+            next(iter(binding_ids)) if len(binding_ids) == 1 else None
+        ),
+        "controller_binding_sha256": (
+            next(iter(controller_ids)) if len(controller_ids) == 1 else None
+        ),
         "git_sha": next(iter(commits)) if len(commits) == 1 else None,
+        "workflow_coordinate": (
+            {
+                "run_id": next(iter(run_coordinates))[0],
+                "run_attempt": next(iter(run_coordinates))[1],
+                "sha": next(iter(run_coordinates))[2],
+            }
+            if len(run_coordinates) == 1
+            else None
+        ),
+        "reference_evidence": reference_evidence,
+        "preflight_count": len(preflights),
         "target_count": len(targets),
         "target_profile_count": len(targets) * 3,
         "witness_source_observations": len(targets) * 3 * 6,
+        "rhs_identity_observations": len(targets) * 3 * 18,
         "pre_pack_solution_judgments": len(targets) * 3 * 6 * 3,
         "post_reload_solution_judgments": len(targets) * 3 * 6 * 3,
         "targets": targets,
         "invalidity_reasons": invalidity,
         "nonpassing_coordinates": failures,
+        "integrity": {
+            "referenced_files": len(referenced),
+            "actual_files": len(actual_files),
+            "unexpected_files": len(unexpected),
+        },
         "scope": {
             "supports_full_corpus_plan_only": disposition == SUPPORTED,
             "factor_path_admitted": False,
@@ -214,9 +670,11 @@ def main() -> int:
             "downstream_solver_comparison_unblocked": False,
         },
         "retry": {
+            "maximum_attempts": contract["maximum_attempts"],
             "attempt_mixing_permitted": False,
             "partial_rerun_permitted": False,
             "candidate_owned_failure_retriable": False,
+            "replacement_requires_live_human_ratification": True,
         },
     }
     args.output.mkdir(parents=True)
@@ -226,16 +684,23 @@ def main() -> int:
         f"{sha256_file(output)}  cohort-summary.json\n"
     )
     lines = [
-        "# Double-double refinement witness cohort",
+        "# Controller-valid double-double refinement witness cohort",
         "",
         f"Disposition: `{disposition}`",
         "",
+        f"- Preflights: {len(preflights)}/4",
         f"- Targets: {len(targets)}/4",
         f"- Target/profile observations: {len(targets) * 3}/12",
+        f"- Witness/RHS observations: {len(targets) * 3 * 18}/216",
         f"- Nonpassing coordinates: {len(failures)}",
         f"- Invalidity reasons: {len(invalidity)}",
+        f"- Integrity files: {len(referenced)}/{len(actual_files)}",
         "- Factor route admitted: no",
-        "- Full-corpus qualification authorized by this result: no",
+        (
+            "- Separate full-corpus plan supported: yes"
+            if disposition == SUPPORTED
+            else "- Separate full-corpus plan supported: no"
+        ),
     ]
     (args.output / "cohort-summary.md").write_text("\n".join(lines) + "\n")
     print(disposition)

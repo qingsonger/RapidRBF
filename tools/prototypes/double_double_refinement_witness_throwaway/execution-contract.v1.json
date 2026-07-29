@@ -1,9 +1,18 @@
 {
-  "schema": "RapidRBF/DoubleDoubleRefinementWitnessExecutionContract/v1",
-  "contract_id": "RapidRBF/DoubleDoubleRefinementWitnessExecutionContract/v1/7018a1a33d601076ff17b6824068ada146039fa57aab5b1cf71793cbe6d13d60",
+  "schema": "RapidRBF/ControllerValidDoubleDoubleRefinementWitnessExecutionContract/v1",
+  "contract_id": "RapidRBF/ControllerValidDoubleDoubleRefinementWitnessExecutionContract/v1/347cd33670d4f53c3d0b439fcc01085081f019324fdf23f107d2b5e32b4ceea4",
+  "controller_plan_sha256": "347cd33670d4f53c3d0b439fcc01085081f019324fdf23f107d2b5e32b4ceea4",
   "witness_plan_sha256": "7018a1a33d601076ff17b6824068ada146039fa57aab5b1cf71793cbe6d13d60",
+  "issue49_materialized_source_binding_sha256": "54a5c04609562963a4eb73af82a101197d42a1298e46f06bd3c8caf7c69c54b8",
   "candidate_binding_sha256": "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6",
   "reference_manifest_sha256": "6ed634a288145dfb3688e6e480f9519c1dbbe5c528aa9bb4b825eb57bc1b584a",
+  "transport_bundle_sha256": "a3b6417e61a604ee568d7bb5fed0416ce5c726f0e529ca1f998a7bdb272e207a",
+  "rust_toolchain": "1.85.0",
+  "pinned_actions": {
+    "actions/checkout": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+    "actions/download-artifact": "3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c",
+    "actions/upload-artifact": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
+  },
   "witness_ordinals": [
     0,
     36,
@@ -12,6 +21,7 @@
     106,
     150
   ],
+  "rhs_count": 18,
   "targets": {
     "windows-x86_64": "x86_64-pc-windows-msvc",
     "linux-x86_64-glibc": "x86_64-unknown-linux-gnu",
@@ -32,6 +42,15 @@
       "maximum_live_threads": 16
     }
   ],
+  "controller": {
+    "sampling_period_ms": 2,
+    "profile_timeout_seconds": 7200,
+    "macos_same_handle_esrch_reconciliation_ms": 1000,
+    "sole_waiter": true,
+    "sampler_may_poll_wait_or_reap": false,
+    "complete_process_tree_required": true,
+    "at_least_one_successful_sample_required": true
+  },
   "owned_refinement_bytes_per_matrix_row": 168,
   "maximum_refinement_steps": 12,
   "maximum_unpolled_matrix_terms": 2047,
@@ -42,5 +61,8 @@
   ],
   "attempt_mixing_permitted": false,
   "partial_rerun_permitted": false,
-  "candidate_observations_may_change_binding": false
+  "candidate_observations_may_change_binding": false,
+  "maximum_attempts": 2,
+  "replacement_requires_live_human_ratification_after_invalid_primary": true,
+  "issue49_observations_may_satisfy_cohort_counts": false
 }

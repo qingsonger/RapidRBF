@@ -1,4 +1,4 @@
-"""Pure in-memory review state for the Issue 49 throwaway prototype."""
+"""Pure in-memory review state for the Issue 51 throwaway prototype."""
 
 from __future__ import annotations
 
@@ -10,6 +10,8 @@ from typing import Any
 class ReviewState:
     disposition: str
     source_binding_sha256: str | None
+    controller_binding_sha256: str | None
+    preflight_count: int
     target_profile_count: int
     witness_source_observations: int
     invalidity_reasons: tuple[str, ...]
@@ -24,6 +26,8 @@ def from_summary(summary: dict[str, Any]) -> ReviewState:
     return ReviewState(
         disposition=summary["disposition"],
         source_binding_sha256=summary.get("source_binding_sha256"),
+        controller_binding_sha256=summary.get("controller_binding_sha256"),
+        preflight_count=summary["preflight_count"],
         target_profile_count=summary["target_profile_count"],
         witness_source_observations=summary["witness_source_observations"],
         invalidity_reasons=tuple(summary["invalidity_reasons"]),

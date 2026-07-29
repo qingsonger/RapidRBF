@@ -1,11 +1,11 @@
-name: Frozen double-double refinement witness gate
+name: Controller-valid double-double refinement witness gate
 
 on:
   push:
     branches:
-      - codex/execute-double-double-refinement-witness
+      - codex/execute-controller-valid-refinement-witness
     paths:
-      - .github/workflows/double-double-refinement-witness.yml
+      - .github/workflows/controller-valid-double-double-refinement-witness.yml
       - tools/prototypes/double_double_refinement_witness_throwaway/**
   workflow_dispatch:
 
@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: double-double-refinement-witness
+  group: controller-valid-double-double-refinement-witness
   cancel-in-progress: false
 
 jobs:
@@ -64,6 +64,17 @@ jobs:
       - name: Install the exact Rust toolchain
         run: rustup toolchain install 1.85.0 --profile minimal
 
+      - name: Capture and qualify the zero-entry native host
+        run: >-
+          ${{ matrix.python_command }}
+          tools/prototypes/instrumented_faer_lane_provisioning_throwaway/collect_lane_identity.py
+          --contract
+          tools/prototypes/instrumented_faer_lane_provisioning_throwaway/lane-contract.v1.json
+          --lane
+          "${{ matrix.lane_id }}"
+          --output
+          "preflight-lane/${{ matrix.lane_id }}"
+
       - name: Build and execute the zero-factor-call binding preflight
         run: >-
           ${{ matrix.python_command }}
@@ -73,6 +84,8 @@ jobs:
           "${{ matrix.lane_id }}"
           --target
           "${{ matrix.target }}"
+          --lane-witness
+          "preflight-lane/${{ matrix.lane_id }}/lane-identity.json"
           --output
           "preflight-evidence/${{ matrix.lane_id }}"
 
@@ -80,7 +93,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-refinement-preflight-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-controller-valid-refinement-preflight-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: preflight-evidence
           if-no-files-found: error
           retention-days: 90
@@ -126,7 +139,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-controller-valid-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: reference-evidence
           if-no-files-found: error
           retention-days: 90
@@ -183,14 +196,14 @@ jobs:
       - name: Download all four completed preflights
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          pattern: rapidrbf-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          pattern: rapidrbf-controller-valid-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: preflight-cohort
           merge-multiple: true
 
       - name: Download the accepted reference
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          name: rapidrbf-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-controller-valid-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: reference-evidence
 
       - name: Capture and qualify the native host
@@ -235,7 +248,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-refinement-target-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-controller-valid-refinement-target-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: target-evidence
           if-no-files-found: error
           retention-days: 90
@@ -258,9 +271,24 @@ jobs:
         continue-on-error: true
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          pattern: rapidrbf-refinement-target-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          pattern: rapidrbf-controller-valid-refinement-target-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-evidence
           merge-multiple: true
+
+      - name: Download this attempt's preflight evidence
+        continue-on-error: true
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          pattern: rapidrbf-controller-valid-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence
+          merge-multiple: true
+
+      - name: Download this attempt's accepted reference
+        continue-on-error: true
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-controller-valid-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence/reference-evidence
 
       - name: Verify and judge the immutable cohort
         run: >-
@@ -277,7 +305,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-refinement-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-controller-valid-refinement-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-summary
           if-no-files-found: error
           retention-days: 90
