@@ -52,7 +52,10 @@
   "retry_assessment": {
     "partial_attempts_mixed": false,
     "replacement_is_one_complete_new_cohort": true,
-    "human_ratification": "PENDING_LIVE_PROTOTYPE_REVIEW",
-    "note": "The first controller invalidity occurred on Windows before its candidate entry while other matrix lanes had begun entry. No partial candidate result was inspected or used to change the frozen plan, reference, threshold, or candidate. The replacement result is presented for explicit human acceptance, adjustment, or rejection."
+    "human_ratification": "ACCEPTED",
+    "ratified_at_utc": "2026-07-29T12:54:15Z",
+    "review_comment_url": "https://github.com/qingsonger/RapidRBF/issues/47#issuecomment-5117880821",
+    "ratification_scope": "The live reviewer accepted the NOT_ADMITTED_DIAGNOSTIC_ONLY prototype result and ratified the single complete replacement attempt under the frozen retry rule.",
+    "note": "The first controller invalidity occurred on Windows before its candidate entry while other matrix lanes had begun entry. No partial candidate result was inspected or used to change the frozen plan, reference, threshold, or candidate. The accepted replacement is the only complete cohort used for judgment."
   }
 }

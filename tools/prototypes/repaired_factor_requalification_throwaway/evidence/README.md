@@ -16,4 +16,5 @@ After extracting the archive, review the full 12,144-coordinate judgment with:
 python tools/prototypes/repaired_factor_requalification_throwaway/tui.py <extracted-path>/cohort-summary.json
 ```
 
-The prototype remains pending live human acceptance, adjustment, or rejection.
+The live reviewer accepted the prototype result and ratified the single
+complete replacement attempt under the frozen retry rule on 2026-07-29.
