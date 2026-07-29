@@ -1,0 +1,11 @@
+inputs/*.f64le binary
+inputs/*.f64le -diff
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.rs text eol=lf
+*.toml text eol=lf
+Cargo.lock text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
+evidence/** -text

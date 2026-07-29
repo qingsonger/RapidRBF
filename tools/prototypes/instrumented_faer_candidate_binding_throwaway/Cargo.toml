@@ -1,0 +1,22 @@
+[workspace]
+members = [
+    "crates/rapidrbf-faer-control",
+    "crates/rapidrbf-instrumented-factor",
+]
+exclude = [
+    "vendor/dyn-stack-0.13.2",
+    "vendor/faer-0.24.4",
+    "vendor/private-gemm-x86-0.1.20",
+]
+resolver = "2"
+
+[patch.crates-io]
+dyn-stack = { path = "vendor/dyn-stack-0.13.2" }
+faer = { path = "vendor/faer-0.24.4" }
+private-gemm-x86 = { path = "vendor/private-gemm-x86-0.1.20" }
+
+[profile.dev]
+panic = "unwind"
+
+[profile.release]
+panic = "unwind"

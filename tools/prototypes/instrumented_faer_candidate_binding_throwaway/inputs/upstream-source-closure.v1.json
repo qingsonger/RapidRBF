@@ -1,0 +1,25 @@
+{
+  "schema": "rapidrbf-stock-faer-source-closure-v1",
+  "algorithm": "sha256-length-prefixed-path-byte-length-file-sha256-v1",
+  "combined_algorithm": "sha256-of-canonical-json-over-full-crate-closures-v1",
+  "combined_sha256": "530103a7c8f62e8cf225045d39410b9d36e67d11f5acf6793f403bb0fc1a9fb9",
+  "crates": {
+    "faer-0.24.4": {
+      "files": 179,
+      "bytes": 9208583,
+      "sha256": "6788513332d8385fe5b01e104aa407b9302ea2d126d7dc60386a512b0e957d61"
+    },
+    "private-gemm-x86-0.1.20": {
+      "files": 13,
+      "bytes": 262197,
+      "sha256": "fbfb14de2dabc443a292be45bc763725d19482fa73ed324b050dd72c5716bcd2"
+    },
+    "dyn-stack-0.13.2": {
+      "files": 15,
+      "bytes": 107768,
+      "sha256": "f0e0c3c60c4aa59b8cd24d671e1860ac89c6e8163f728282a05cfa1e3158d608"
+    }
+  },
+  "origin_issue": 40,
+  "stock_audited_source_set_sha256": "e9e0482f5c4caf995aea9f9085ced62a84077b2726978a531677ef8755d2ba1f"
+}
