@@ -1,0 +1,202 @@
+{
+  "schema": "RapidRBF/RepairedProjectedSolveRefinementWitnessPlan/v1",
+  "question": "Does one RapidRBF-owned double-double residual and accumulation refinement boundary around the unchanged instrumented faer 0.24.4 Bunch-Kaufman factor/solve route remove candidate-owned frozen-system forward-solution failures on the exact six-source boundary panel without weakening any authority or breaking resource, cancellation, reuse, or publication controls?",
+  "decision_disposition": "NEXT_DENSE_FACTOR_EXPERIMENT_FROZEN",
+  "authorities": {
+    "wayfinder_map": "https://github.com/qingsonger/RapidRBF/issues/1",
+    "diagnosis_ticket": "https://github.com/qingsonger/RapidRBF/issues/48",
+    "accepted_issue47_ticket": "https://github.com/qingsonger/RapidRBF/issues/47",
+    "accepted_issue45_ticket": "https://github.com/qingsonger/RapidRBF/issues/45",
+    "frozen_system_adr": "docs/adr/0005-judge-factor-solves-against-the-frozen-system.md",
+    "issue47_archive_sha256": "b38870fedb17886c105d9162ac79ed81661a4a1f8428d6a80f627ddaf37e96a1",
+    "issue47_reference_manifest_sha256": "6ed634a288145dfb3688e6e480f9519c1dbbe5c528aa9bb4b825eb57bc1b584a",
+    "issue47_cohort_summary_sha256": "2b774ba332dee359ff7a72c948a034dcd2896545f7740f236ed29d3b1f7a4f10",
+    "issue41_factor_qualification_plan_sha256": "fef5f0b3e4d84e8af95505f3b822aded357631191a1e13226474adc985b964ce",
+    "unchanged_candidate_binding_sha256": "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6",
+    "frozen_authority_profile_sha256": "c671a0a5cf4b48cd580a5c6e67a920bb24288e964036d5f3d216b3ad850168d6",
+    "unchanged_factor_health_profile_sha256": "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3",
+    "accepted_issue45_evidence_sha256": "b5dbe24ace553df3d390673feef5cad1912bdc8130d97875739f13e8512587d2",
+    "accepted_issue45_refinement_source": {
+      "commit": "9f282a727ccfff9019064d371a43d9b24126b458",
+      "src_main_rs_sha256": "daa81498c6a75c921f764b1ed5ab5716bd78dae5c753089ccbd17485cb75cb25",
+      "cargo_toml_sha256": "d1a518bc15b2b25ae65f24b4e79923f6ff86b20fd18d08fd483758a980f4e63b",
+      "cargo_lock_sha256": "dd1227baf0cb52344e07e0759753870574b910b218a72aa0abcf1c64c08125f8"
+    }
+  },
+  "selected_candidate_boundary": {
+    "name": "instrumented-faer Bunch-Kaufman plus owned double-double refinement",
+    "factorization": "Reuse the exact issue-47 f64 Bunch-Kaufman factor bytes, pivot policy, correction solve, Par::Seq backend calls, pack schema, source lease, and instrumented allocation/cancellation seam unchanged.",
+    "residual": "For each frozen binary64 A and b, evaluate r=b-A*x in deterministic row-major order with error-free-transformation double-double multiplication and accumulation; candidate observations and certified reference centers are never inputs to residual construction.",
+    "correction": "Round each double-double residual once to binary64, solve A*delta=r with the unchanged factor, and add delta to x with double-double accumulation.",
+    "terminal_rounding": "After the frozen refinement stop rule, round each final double-double solution component once to nearest, ties-to-even binary64 before candidate-independent judgment.",
+    "maximum_refinement_steps": 12,
+    "stop_rule": [
+      "relative correction is at most 8*2^-104",
+      "or the double-double reduced backward error is exactly zero",
+      "or, after at least two corrections, backward error does not decrease and relative correction is at most binary64 epsilon"
+    ],
+    "prototype_primitive": "The exact qd 0.8.0 closure in the accepted issue-45 source is the diagnostic implementation authority only; it is not adopted as a production dependency by this experiment.",
+    "materialization_rule": "Before any witness candidate entry, materialize one source/dependency/feature/toolchain binding implementing exactly this boundary, publish its complete content hash, and complete a zero-factor-call build/identity preflight on all four fixed native targets. Any semantic source change creates a new plan rather than a retry."
+  },
+  "witness_corpus": [
+    {
+      "ordinal": 0,
+      "category": "passing projected control",
+      "factor_source_id": "factor:M1-EXP-1K-level-0-coarse-000:qtaq",
+      "dimension": 999,
+      "expected_rank": 999,
+      "source_sha256": "2ec1278eac0be1e1114f53d58dff2cf5035d8f1a9fe03327b2ab18d2e35ca8c3",
+      "rhs_sha256": {
+        "operational": "f7cd09b546e349400c8a06fe7395a93e8e71dfdefe64e0c56c9d4a58b03b15d9",
+        "constraint": "2069b32b1a87ee5d224424a952f8bd6835c0851ff3ba30ef84bae3404533b985",
+        "dynamic-range": "dbf5bea5b7a8df6d5f226882f13e6ffc0d4ec02fda4f79899222cf7266192d87"
+      }
+    },
+    {
+      "ordinal": 36,
+      "category": "M2-TH3 1k failure boundary",
+      "factor_source_id": "factor:M2-TH3-1K-level-0-coarse-000:qtaq",
+      "dimension": 996,
+      "expected_rank": 996,
+      "source_sha256": "840642612b2038e142ad56253b26c75ae23d11dbc58202b535c44940857bce9d",
+      "rhs_sha256": {
+        "operational": "6fdf2183fa68d7600956ffe9545da2e17d15041cf3df01b89d2c02c38c03b394",
+        "constraint": "d8d904e91f93c13d5ac3e1bfbc7ffc8ea15791b305963fe035c8bb236edd9b67",
+        "dynamic-range": "79699dafbddcce0a44b90377c157aa7aca7d6df4df0731c250384e24512e191e"
+      }
+    },
+    {
+      "ordinal": 69,
+      "category": "M2-TH3 smallest-dimension failed and duplicate-source boundary",
+      "factor_source_id": "factor:M2-TH3-10K-level-1-fine-031:qtaq",
+      "dimension": 808,
+      "expected_rank": 808,
+      "source_sha256": "fb0fed5a70bcaed434f3f7c4179f5270f120bad6e46e4ee498c9874d28aa4bfd",
+      "rhs_sha256": {
+        "operational": "2fc8307983565c9540cefb7c0d95c9567e54a0deda59064e235c1164c22dcb76",
+        "constraint": "33524e20449d72271f7a5e3fcd0b57b16446933a05c50b0e45d3700b19dc622a",
+        "dynamic-range": "51919eebed3291befa3ef6eaddc01c121f4e114c07a13c41df6b168e02d168da"
+      }
+    },
+    {
+      "ordinal": 72,
+      "category": "repaired M3-HERMITE 1k pass and rank/pivot boundary",
+      "factor_source_id": "factor:M3-HERMITE-1K-level-0-coarse-000:qtaq",
+      "dimension": 1496,
+      "expected_rank": 1496,
+      "source_sha256": "87080050d55f8c4410f16ad3691c5640c20defdec3ffb8d638c1c0678f2b1847",
+      "rhs_sha256": {
+        "operational": "0048d77ba8e7b0b199abc71c72105b0826cd8e49ce82b23e124b7a8300dce862",
+        "constraint": "c36dde9fd59ac1522b5f03c34615c0271f5852fe6868f785e940bf3d36b3a9ce",
+        "dynamic-range": "c28de7919dfe2646cc2418788bf30e24f29d23067403221746d42918460d0f5e"
+      }
+    },
+    {
+      "ordinal": 106,
+      "category": "M3-HERMITE partial-RHS-family exception",
+      "factor_source_id": "factor:M3-HERMITE-10K-level-0-coarse-000:qtaq",
+      "dimension": 2047,
+      "expected_rank": 2047,
+      "source_sha256": "e33319fe9a5f02a91bcf7410a784eccc1bded3e05628b59d1d7f0350614d7945",
+      "rhs_sha256": {
+        "operational": "0c781756eec3e3bf5c14d1614aa49f279c309d4f4abbe032d56c2bc9193b9806",
+        "constraint": "79ed6a037d68d89270cee0989dc7f091541ac47aff2389d8ba159cd9e66e0f0b",
+        "dynamic-range": "8918975337e94148b9a18aaa7108e406e3942eeb74af988f7d609c7313cc79c5"
+      }
+    },
+    {
+      "ordinal": 150,
+      "category": "M4-GEOMETRY worst frozen-system failure boundary",
+      "factor_source_id": "factor:M4-GEOMETRY-NEAR-COINCIDENT-10K-level-1-fine-002:qtaq",
+      "dimension": 809,
+      "expected_rank": 809,
+      "source_sha256": "dcb8cb1caf6624f26b38cb33714c4eb6b6d720046d569ad803f3db97ee0db2d4",
+      "rhs_sha256": {
+        "operational": "5e9b608407cbf84036cef25433b58bc1a2ce93e249cc70280843908d42d0d5c9",
+        "constraint": "25ca55a465bdcd5d38347c7b4ef22c4281fe7c4bd99374078e3920dd07275177",
+        "dynamic-range": "f11a2a55c334800bfd554767b7c14117d1c828ae976beba75c77898054c46c8e"
+      }
+    }
+  ],
+  "execution_matrix": {
+    "targets": [
+      "windows-x86_64",
+      "linux-x86_64-glibc",
+      "macos-arm64",
+      "macos-x86_64"
+    ],
+    "profiles": [
+      {
+        "workers": 1,
+        "maximum_live_threads": 12
+      },
+      {
+        "workers": 2,
+        "maximum_live_threads": 12
+      },
+      {
+        "workers": 8,
+        "maximum_live_threads": 16
+      }
+    ],
+    "logical_sources_per_observation": 6,
+    "rhs_families_per_source": 3,
+    "target_profile_observations": 12,
+    "candidate_source_observations": 72,
+    "candidate_solution_judgments_pre_pack": 216,
+    "candidate_solution_judgments_post_reload": 216,
+    "cross_target_bitwise_identity_required": false,
+    "within_lane_pre_pack_post_reload_bitwise_identity_required": true
+  },
+  "unchanged_numerical_authority": {
+    "system": "Each frozen binary64 (A,b) is exact real data under ADR 0005.",
+    "reference": "Reuse only the 18 already certified issue-47 centers and outward radii selected by the witness hashes; no reference regeneration or precision escalation occurs after candidate binding or entry.",
+    "solution_threshold": "256*n*2^-53",
+    "judgment": "The existing exact-dyadic PASS/FAIL/INDETERMINATE comparison is unchanged; INDETERMINATE is nonpassing.",
+    "conjunctive_gates": [
+      "factor reconstruction <= 64*n*2^-53",
+      "reduced backward error <= 64*n*2^-53",
+      "candidate-independent frozen-system forward solution <= 256*n*2^-53",
+      "all three RHS families pass before pack and after reload"
+    ],
+    "threshold_change_forbidden": true
+  },
+  "controls": {
+    "baseline_replay": "Before the refined route, the unchanged issue-47 candidate must reproduce the archived six-witness status vector on every target/profile: ordinal 0 PASS/PASS/PASS; 36 FAIL/FAIL/FAIL; 69 FAIL/FAIL/FAIL; 72 PASS/PASS/PASS; 106 FAIL/PASS/PASS; 150 FAIL/FAIL/FAIL. A mismatch is INVALID_UNJUDGED, not candidate evidence.",
+    "factor_identity": "The refined arm must use the same factor bytes, pivots, fingerprints, and reconstruction result as its paired unchanged baseline within each target/profile.",
+    "alternative_routes": "Do not rerun full-pivot LU or symmetric equilibration; accepted issue-45 evidence already shows neither raw route alone closes the 69 and 150 boundary failures.",
+    "pack_reload": [
+      "positive source-bound factor reload",
+      "truncated, corrupt, wrong-source, wrong-profile, and metadata-mismatch rejection before backend entry",
+      "pre-pack and post-reload rounded refined solutions bit-exact within a lane"
+    ],
+    "resource_denial": "For every source, exact N-minus-one denial includes the existing factor schedule plus exactly 168*n additional owned refinement bytes for three RHS columns: three double-double n-by-3 buffers and one binary64 correction n-by-3 buffer. Denial occurs before operation or backend entry.",
+    "allocation": "All owned refinement allocations are planned before entry; zero hidden heap growth is allowed inside residual, correction, accumulation, or rounding loops; transient and permit residue must be zero.",
+    "cancellation": "Retain existing typed mid-factor and mid-correction-solve cancellation. Add typed mid-refinement cancellation with one poll before each residual row of each RHS family (at most n<=2047 double-double matrix terms unpolled), before and after every correction solve, and before publication. Cancellation publishes no partial refined solution and preserves the prior factor and prior solved correction.",
+    "threads": "Double-double residual and accumulation are caller-owned and use the configured outer worker grant without nested automatic pools; existing 1/12, 2/12, and 8/16 ceilings remain hard.",
+    "scratch": "Per-source isolated scratch is empty after success, denial, cancellation, or failure."
+  },
+  "dispositions": {
+    "REFINEMENT_ROUTE_SUPPORTED_FOR_FULL_CORPUS_PLAN": "Every identity, baseline, numerical, pre/post reload, resource, cancellation, thread, publication, and cleanup gate passes for every witness on every target/profile. This supports, but does not itself admit, a later separately frozen full-corpus refined-factor qualification.",
+    "REFINEMENT_ROUTE_REJECTED_DIAGNOSTIC_ONLY": "Any valid candidate-owned numerical, reconstruction, backward, pack/reload, resource, cancellation, thread, publication, cleanup, crash, or timeout failure rejects this refinement route for promotion from the witness gate. Do not tune steps, precision, thresholds, witnesses, or binding after entry.",
+    "INVALID_UNJUDGED": "A missing/mismatched identity, reference, source, RHS, baseline replay, controller, lane, transport, or evidence closure prevents route judgment."
+  },
+  "retry": {
+    "mix_attempts": false,
+    "partial_rerun_valid": false,
+    "before_candidate_entry": "A proven external identity, build, transport, reference, baseline, or controller invalidity requires one complete unchanged retry.",
+    "after_candidate_entry_candidate_owned": "A candidate-owned failure is final REFINEMENT_ROUTE_REJECTED_DIAGNOSTIC_ONLY and is never retried.",
+    "after_candidate_entry_external": "A proven external controller/evidence invalidity permits at most one human-ratified complete unchanged replacement attempt.",
+    "candidate_observations_may_change_nothing": true
+  },
+  "scope": {
+    "reruns_issue47_full_cohort": false,
+    "mutates_issue47_evidence": false,
+    "admits_factor_path": false,
+    "adopts_faer_or_qd": false,
+    "runs_mechanism_panel": false,
+    "selects_persistent_factor_storage": false,
+    "enters_100k_rung": false,
+    "unblocks_downstream_solver_comparison": false
+  }
+}
