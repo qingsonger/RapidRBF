@@ -290,12 +290,33 @@ def run_observed_process(
     maximum_threads = 0
     sampling_errors: list[str] = []
     while process.poll() is None:
-        try:
-            maximum_threads = max(maximum_threads, process_thread_count(process.pid))
-            samples += 1
-        except (OSError, RuntimeError, subprocess.SubprocessError, ValueError) as error:
-            if process.poll() is None:
-                sampling_errors.append(str(error))
+        sampled = False
+        last_sampling_error: BaseException | None = None
+        for _ in range(4):
+            try:
+                maximum_threads = max(
+                    maximum_threads,
+                    process_thread_count(process.pid),
+                )
+                samples += 1
+                sampled = True
+                break
+            except (
+                OSError,
+                RuntimeError,
+                subprocess.SubprocessError,
+                ValueError,
+            ) as error:
+                last_sampling_error = error
+                if process.poll() is not None:
+                    break
+                time.sleep(0.001)
+        if (
+            not sampled
+            and process.poll() is None
+            and last_sampling_error is not None
+        ):
+            sampling_errors.append(str(last_sampling_error))
         if (time.monotonic_ns() - started) / 1_000_000_000 > timeout:
             process.kill()
             stdout, stderr = process.communicate()
