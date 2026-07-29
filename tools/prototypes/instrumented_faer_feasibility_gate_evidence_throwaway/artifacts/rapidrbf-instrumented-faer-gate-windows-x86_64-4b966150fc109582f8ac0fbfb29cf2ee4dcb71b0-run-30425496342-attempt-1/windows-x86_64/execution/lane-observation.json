@@ -1,0 +1,682 @@
+{
+  "authority_verification": {
+    "binding_manifest_sha256": "da90b4642e3670e458c5aa5cf3aa61e370a2a944f120f2f07e897ad00a25c822",
+    "binding_sha256": "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6",
+    "binding_verifier_stdout": "{\"backend_calls\": 0, \"binding_id\": \"RapidRBF/InstrumentedFaerCandidateExecutionBinding/v1/1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6\", \"binding_sha256\": \"1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6\", \"content_bytes\": 18359161, \"content_files\": 225}"
+  },
+  "build": {
+    "cargo": "cargo 1.85.0 (d73d2caf9 2024-12-31)",
+    "command": [
+      "cargo",
+      "build",
+      "--release",
+      "--locked"
+    ],
+    "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-pc-windows-msvc\nrelease: 1.85.0\nLLVM version: 19.1.7",
+    "stderr": "Updating crates.io index\n Downloading crates ...\n  Downloaded equator v0.2.2\n  Downloaded gemm-f16 v0.19.0\n  Downloaded bitflags v2.13.1\n  Downloaded seq-macro v0.3.6\n  Downloaded version_check v0.9.5\n  Downloaded sha2 v0.10.9\n  Downloaded quote v1.0.47\n  Downloaded unicode-ident v1.0.24\n  Downloaded serde_core v1.0.228\n  Downloaded serde v1.0.228\n  Downloaded zerocopy-derive v0.8.55\n  Downloaded raw-cpuid v11.6.0\n  Downloaded serde_json v1.0.145\n  Downloaded pulp v0.22.3\n  Downloaded libm v0.2.16\n  Downloaded typenum v1.20.1\n  Downloaded zerocopy v0.8.55\n  Downloaded syn v2.0.119\n  Downloaded nano-gemm-f64 v0.2.1\n  Downloaded syn v1.0.109\n  Downloaded memchr v2.8.3\n  Downloaded half v2.7.1\n  Downloaded ryu v1.0.23\n  Downloaded proc-macro2 v1.0.107\n  Downloaded num-traits v0.2.19\n  Downloaded bytemuck v1.25.2\n  Downloaded serde_derive v1.0.228\n  Downloaded gemm-common v0.19.0\n  Downloaded once_cell v1.21.4\n  Downloaded gemm v0.19.0\n  Downloaded digest v0.10.7\n  Downloaded bytemuck_derive v1.11.0\n  Downloaded qd v0.8.0\n  Downloaded paste v1.0.15\n  Downloaded num-complex v0.4.6\n  Downloaded nano-gemm-c64 v0.2.1\n  Downloaded nano-gemm v0.2.2\n  Downloaded generic-array v0.14.7\n  Downloaded generativity v1.2.1\n  Downloaded gemm-f64 v0.19.0\n  Downloaded gemm-c32 v0.19.0\n  Downloaded faer-traits v0.24.0\n  Downloaded cfg-if v1.0.4\n  Downloaded autocfg v1.5.1\n  Downloaded pulp-wasm-simd-flag v0.1.1\n  Downloaded gemm-c64 v0.19.0\n  Downloaded equator-macro v0.6.0\n  Downloaded equator-macro v0.2.1\n  Downloaded dyn-stack-macros v0.1.3\n  Downloaded defer v0.2.1\n  Downloaded cpufeatures v0.2.17\n  Downloaded reborrow v0.5.5\n  Downloaded num_cpus v1.17.0\n  Downloaded nano-gemm-f32 v0.2.1\n  Downloaded nano-gemm-core v0.2.1\n  Downloaded nano-gemm-codegen v0.2.1\n  Downloaded nano-gemm-c32 v0.2.1\n  Downloaded itoa v1.0.18\n  Downloaded interpol v0.2.1\n  Downloaded gemm-f32 v0.19.0\n  Downloaded equator v0.6.0\n  Downloaded crypto-common v0.1.7\n  Downloaded block-buffer v0.10.4\n   Compiling version_check v0.9.5\n   Compiling autocfg v1.5.1\n   Compiling proc-macro2 v1.0.107\n   Compiling bytemuck v1.25.2\n   Compiling quote v1.0.47\n   Compiling unicode-ident v1.0.24\n   Compiling nano-gemm-codegen v0.2.1\n   Compiling num-traits v0.2.19\n   Compiling libm v0.2.16\n   Compiling paste v1.0.15\n   Compiling bitflags v2.13.1\n   Compiling pulp v0.22.3\n   Compiling cfg-if v1.0.4\n   Compiling raw-cpuid v11.6.0\n   Compiling num-complex v0.4.6\n   Compiling reborrow v0.5.5\n   Compiling rapidrbf-faer-control v0.0.0 (D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\crates\\rapidrbf-faer-control)\n   Compiling pulp-wasm-simd-flag v0.1.1\n   Compiling dyn-stack-macros v0.1.3\n   Compiling syn v1.0.109\n   Compiling dyn-stack v0.13.2 (D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\dyn-stack-0.13.2)\n   Compiling once_cell v1.21.4\n   Compiling seq-macro v0.3.6\n   Compiling syn v2.0.119\n   Compiling nano-gemm-core v0.2.1\n   Compiling generic-array v0.14.7\n   Compiling nano-gemm-c64 v0.2.1\n   Compiling nano-gemm-f32 v0.2.1\n   Compiling nano-gemm-c32 v0.2.1\n   Compiling nano-gemm-f64 v0.2.1\n   Compiling defer v0.2.1\n   Compiling typenum v1.20.1\n   Compiling equator-macro v0.2.1\n   Compiling serde_core v1.0.228\n   Compiling interpol v0.2.1\n   Compiling private-gemm-x86 v0.1.20 (D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\private-gemm-x86-0.1.20)\n   Compiling gemm-common v0.19.0\n   Compiling gemm-f32 v0.19.0\n   Compiling gemm-c32 v0.19.0\n   Compiling gemm-c64 v0.19.0\n   Compiling gemm-f64 v0.19.0\n   Compiling qd v0.8.0\n   Compiling equator v0.2.2\n   Compiling generativity v1.2.1\n   Compiling equator-macro v0.6.0\n   Compiling num_cpus v1.17.0\n   Compiling equator v0.6.0\n   Compiling faer-traits v0.24.0\n   Compiling gemm v0.19.0\n   Compiling block-buffer v0.10.4\n   Compiling crypto-common v0.1.7\n   Compiling serde v1.0.228\n   Compiling serde_json v1.0.145\n   Compiling digest v0.10.7\n   Compiling serde_derive v1.0.228\n   Compiling cpufeatures v0.2.17\n   Compiling ryu v1.0.23\n   Compiling memchr v2.8.3\n   Compiling itoa v1.0.18\n   Compiling nano-gemm v0.2.2\n   Compiling faer v0.24.4 (D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4)\nwarning: unused import: `core::num::NonZeroUsize`\n   --> D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4\\src\\lib.rs:190:5\n    |\n190 | use core::num::NonZeroUsize;\n    |     ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(unused_imports)]` on by default\n\nwarning: unused import: `crate::mat::matmut::SyncCell`\n --> D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4\\src\\col\\colmut.rs:2:5\n  |\n2 | use crate::mat::matmut::SyncCell;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nwarning: unused import: `crate::prelude::*`\n --> D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4\\src\\io.rs:1:5\n  |\n1 | use crate::prelude::*;\n  |     ^^^^^^^^^^^^^^^^^\n\nwarning: unused import: `crate::utils::thread::par_split_indices`\n --> D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4\\src\\linalg\\lu\\full_pivoting\\factor.rs:3:5\n  |\n3 | use crate::utils::thread::par_split_indices;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nwarning: unused import: `super::temp_mat_scratch`\n --> D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4\\src\\linalg\\matmul\\mod.rs:2:5\n  |\n2 | use super::temp_mat_scratch;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^\n\nwarning: unused import: `MemBuffer`\n  --> D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4\\src\\linalg\\matmul\\mod.rs:11:17\n   |\n11 | use dyn_stack::{MemBuffer, MemStack};\n   |                 ^^^^^^^^^\n\nwarning: unused import: `crate::utils::bound::IdxInc`\n   --> D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4\\src\\linalg\\matmul\\mod.rs:889:6\n    |\n889 |     use crate::utils::bound::IdxInc;\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n   Compiling sha2 v0.10.9\nwarning: variable does not need to be mutable\n   --> D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4\\src\\linalg\\householder.rs:510:7\n    |\n510 |         let mut tmp = tmp.as_mat_mut();\n    |             ----^^^\n    |             |\n    |             help: remove this `mut`\n    |\n    = note: `#[warn(unused_mut)]` on by default\n\nwarning: method `as_type` is never used\n   --> D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4\\src\\col\\colmut.rs:656:23\n    |\n451 | impl<'a, T, Rows: Shape, RStride: Stride> ColMut<'a, T, Rows, RStride> {\n    | ---------------------------------------------------------------------- method in this implementation\n...\n656 |     pub(crate) unsafe fn as_type<U>(self) -> ColMut<'a, U, Rows, RStride> {\n    |                          ^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\nwarning: struct `SyncCell` is never constructed\n  --> D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4\\src\\mat\\matmut.rs:23:19\n   |\n23 | pub(crate) struct SyncCell<T>(T);\n   |                   ^^^^^^^^\n\nwarning: method `as_type` is never used\n    --> D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4\\src\\mat\\matmut.rs:1301:23\n     |\n987  | / impl<'a, T, Rows: Shape, Cols: Shape, RStride: Stride, CStride: Stride>\n988  | |     MatMut<'a, T, Rows, Cols, RStride, CStride>\n     | |_______________________________________________- method in this implementation\n...\n1301 |       pub(crate) unsafe fn as_type<U>(\n     |                            ^^^^^^^\n\nwarning: method `as_type` is never used\n   --> D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4\\src\\row\\rowmut.rs:574:23\n    |\n361 | impl<'a, T, Cols: Shape, CStride: Stride> RowMut<'a, T, Cols, CStride> {\n    | ---------------------------------------------------------------------- method in this implementation\n...\n574 |     pub(crate) unsafe fn as_type<U>(self) -> RowMut<'a, U, Cols, CStride> {\n    |                          ^^^^^^^\n\nwarning: fields `re` and `im` are never read\n  --> D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\vendor\\faer-0.24.4\\src\\stats\\mod.rs:19:2\n   |\n18 | pub struct ComplexDistribution<Re, Im = Re> {\n   |            ------------------- fields in this struct\n19 |     re: Re,\n   |     ^^\n20 |     im: Im,\n   |     ^^\n   |\n   = note: `ComplexDistribution` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis\n\n   Compiling rapidrbf-instrumented-factor v0.0.0 (D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_candidate_binding_throwaway\\crates\\rapidrbf-instrumented-factor)\nwarning: `faer` (lib) generated 13 warnings (run `cargo fix --lib -p faer` to apply 8 suggestions)\n   Compiling rapidrbf-instrumented-faer-feasibility-gate-throwaway v0.0.0 (D:\\a\\RapidRBF\\RapidRBF\\tools\\prototypes\\instrumented_faer_feasibility_gate_throwaway)\n    Finished `release` profile [optimized] target(s) in 2m 44s",
+    "stdout": ""
+  },
+  "candidate": {
+    "binding": {
+      "parallelism": "Par::Seq",
+      "profile_sha256": "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3",
+      "schema": "RapidRBF/InstrumentedFaerCandidateExecutionBinding/v1",
+      "temporary_storage": "denied-for-two-factor-feasibility"
+    },
+    "cancellation": {
+      "acknowledgement_latency_ns": 2845600,
+      "backend_signal_observed": true,
+      "cancellation_requested": true,
+      "failed_replacement_publications": 0,
+      "metrics_after_cancellation": {
+        "backend_entries": 2,
+        "checkpoint_events": 27730,
+        "cumulative_released_bytes": 43040807,
+        "cumulative_reserved_bytes": 43040807,
+        "outer_compute_permits_live": 0,
+        "stack_carve_events": 2,
+        "stack_carved_bytes": 1064952,
+        "temporary_storage_cumulative_writes": 0,
+        "temporary_storage_open_handles": 0,
+        "temporary_storage_residue_bytes": 0,
+        "transient_high_water_bytes": 43040807,
+        "transient_residue_bytes": 0
+      },
+      "passed": true,
+      "prior_state": {
+        "fingerprint_after": "ea2d08d42e54e49ccf01075b7178260b7f1dca3f3facaf3b1c61638737314fe1",
+        "fingerprint_before": "ea2d08d42e54e49ccf01075b7178260b7f1dca3f3facaf3b1c61638737314fe1",
+        "preserved": true,
+        "retained_bytes_after": 33570800,
+        "retained_bytes_before": 33570800,
+        "role": "projected_b"
+      },
+      "production_factor_publications": 0,
+      "production_solve_publications": 0,
+      "request_delay_after_backend_signal_ms": 10,
+      "result": "Cancelled",
+      "role": "projected_b"
+    },
+    "disposition": "FEASIBLE_FOR_216_FACTOR_QUALIFICATION",
+    "global_parallelism": "Seq",
+    "input_identities": {
+      "coarse_p_top": {
+        "bytes": 128,
+        "sha256": "d8f2c6eda87764e279872463d89cbd344d53947ecffeb7bbc0e55cf90438679e"
+      },
+      "projected_b": {
+        "bytes": 16769024,
+        "sha256": "e33319fe9a5f02a91bcf7410a784eccc1bded3e05628b59d1d7f0350614d7945"
+      }
+    },
+    "lane_id": "windows-x86_64",
+    "n_minus_one": [
+      {
+        "failed_replacement_publications": 0,
+        "grant_transient_bytes": 43040806,
+        "metrics_after_denial": {
+          "backend_entries": 0,
+          "checkpoint_events": 0,
+          "cumulative_released_bytes": 0,
+          "cumulative_reserved_bytes": 0,
+          "outer_compute_permits_live": 0,
+          "stack_carve_events": 0,
+          "stack_carved_bytes": 0,
+          "temporary_storage_cumulative_writes": 0,
+          "temporary_storage_open_handles": 0,
+          "temporary_storage_residue_bytes": 0,
+          "transient_high_water_bytes": 0,
+          "transient_residue_bytes": 0
+        },
+        "operation_entered": false,
+        "passed": true,
+        "required_transient_bytes": 43040807,
+        "result": "Err(ResourceDenied)",
+        "role": "projected_b"
+      },
+      {
+        "failed_replacement_publications": 0,
+        "grant_transient_bytes": 358,
+        "metrics_after_denial": {
+          "backend_entries": 0,
+          "checkpoint_events": 0,
+          "cumulative_released_bytes": 0,
+          "cumulative_reserved_bytes": 0,
+          "outer_compute_permits_live": 0,
+          "stack_carve_events": 0,
+          "stack_carved_bytes": 0,
+          "temporary_storage_cumulative_writes": 0,
+          "temporary_storage_open_handles": 0,
+          "temporary_storage_residue_bytes": 0,
+          "transient_high_water_bytes": 0,
+          "transient_residue_bytes": 0
+        },
+        "operation_entered": false,
+        "passed": true,
+        "required_transient_bytes": 359,
+        "result": "Err(ResourceDenied)",
+        "role": "coarse_p_top"
+      }
+    ],
+    "private_retention": {
+      "bytes_after_cleanup": 0,
+      "bytes_before_cleanup": 33571056,
+      "cleanup_closed": true
+    },
+    "production_publication": {
+      "reason": "issue-44 is a feasibility gate; full 216-factor qualification remains delegated",
+      "solved_count": 0,
+      "validated_factor_count": 0
+    },
+    "schema": "rapidrbf-instrumented-faer-lane-observation-v1",
+    "success": [
+      {
+        "checkpoint_bounds": [
+          {
+            "kind": "Pivot",
+            "maximum_unpolled_work_units": 4190209,
+            "selected_path": "faer Bunch-Kaufman LDLT",
+            "unit": "scalar pivot-search/update candidates"
+          },
+          {
+            "kind": "Panel",
+            "maximum_unpolled_work_units": 4190209,
+            "selected_path": "faer Bunch-Kaufman LDLT",
+            "unit": "scalar panel candidates (zero when path has no panel)"
+          },
+          {
+            "kind": "Packing",
+            "maximum_unpolled_work_units": 24576,
+            "selected_path": "private-gemm-x86 f64",
+            "unit": "scalar elements packed"
+          },
+          {
+            "kind": "MacroKernel",
+            "maximum_unpolled_work_units": 98304,
+            "selected_path": "private-gemm-x86 f64",
+            "unit": "scalar multiply-add contributions"
+          },
+          {
+            "kind": "Solve",
+            "maximum_unpolled_work_units": 2047,
+            "selected_path": "faer Bunch-Kaufman and triangular solve",
+            "unit": "matrix elements in one recursive solve region"
+          }
+        ],
+        "error": null,
+        "factor_fingerprint_sha256": "ea2d08d42e54e49ccf01075b7178260b7f1dca3f3facaf3b1c61638737314fe1",
+        "factor_finite": true,
+        "metrics_after_execution": {
+          "backend_entries": 33,
+          "checkpoint_events": 463723,
+          "cumulative_released_bytes": 303087655,
+          "cumulative_reserved_bytes": 303087655,
+          "outer_compute_permits_live": 0,
+          "stack_carve_events": 35,
+          "stack_carved_bytes": 17645560,
+          "temporary_storage_cumulative_writes": 0,
+          "temporary_storage_open_handles": 0,
+          "temporary_storage_residue_bytes": 0,
+          "transient_high_water_bytes": 43040807,
+          "transient_residue_bytes": 0
+        },
+        "outer_compute_permits_observed_inside_operation": 1,
+        "parallelism": "Par::Seq",
+        "passed": true,
+        "private_retained_bytes_before_cleanup": 33570800,
+        "production_factor_publications": 0,
+        "production_solve_publications": 0,
+        "reduced_backward_error": 1.420337517129258e-17,
+        "reduced_backward_error_threshold": 1.454480980100925e-11,
+        "role": "projected_b",
+        "schedule": {
+          "factor_auxiliary_alignment": 8,
+          "factor_auxiliary_bytes": 49128,
+          "peak_transient_bytes": 43040807,
+          "private_gemm_workspace_alignment": 4096,
+          "private_gemm_workspace_bytes": 8388608,
+          "publication_bytes": 33570800,
+          "required_compute_permits": 1,
+          "retained_bytes": 33570800,
+          "solve_rhs_alignment": 8,
+          "solve_rhs_bytes": 16376,
+          "solver_stack_alignment": 64,
+          "solver_stack_bytes": 1065023,
+          "staged_matrix_alignment": 8,
+          "staged_matrix_bytes": 33521672
+        },
+        "solution_finite": true,
+        "stack_requirement_bytes": 1065023,
+        "status": "COMPLETED"
+      },
+      {
+        "checkpoint_bounds": [
+          {
+            "kind": "Pivot",
+            "maximum_unpolled_work_units": 16,
+            "selected_path": "faer full-pivot LU",
+            "unit": "scalar pivot-search/update candidates"
+          },
+          {
+            "kind": "Panel",
+            "maximum_unpolled_work_units": 0,
+            "selected_path": "not applicable",
+            "unit": "scalar panel candidates (zero when path has no panel)"
+          },
+          {
+            "kind": "Packing",
+            "maximum_unpolled_work_units": 0,
+            "selected_path": "not applicable to 4x4 full-pivot LU",
+            "unit": "scalar elements packed"
+          },
+          {
+            "kind": "MacroKernel",
+            "maximum_unpolled_work_units": 0,
+            "selected_path": "not applicable to 4x4 full-pivot LU",
+            "unit": "scalar multiply-add contributions"
+          },
+          {
+            "kind": "Solve",
+            "maximum_unpolled_work_units": 4,
+            "selected_path": "faer full-pivot LU and triangular solve",
+            "unit": "matrix elements in one recursive solve region"
+          }
+        ],
+        "error": null,
+        "factor_fingerprint_sha256": "fa2d5280c43c93f5fed0dfdcba721e1fa58ff5e14c8963c7478ffc31e864b6d6",
+        "factor_finite": true,
+        "metrics_after_execution": {
+          "backend_entries": 1,
+          "checkpoint_events": 8,
+          "cumulative_released_bytes": 359,
+          "cumulative_reserved_bytes": 359,
+          "outer_compute_permits_live": 0,
+          "stack_carve_events": 2,
+          "stack_carved_bytes": 64,
+          "temporary_storage_cumulative_writes": 0,
+          "temporary_storage_open_handles": 0,
+          "temporary_storage_residue_bytes": 0,
+          "transient_high_water_bytes": 359,
+          "transient_residue_bytes": 0
+        },
+        "outer_compute_permits_observed_inside_operation": 1,
+        "parallelism": "Par::Seq",
+        "passed": true,
+        "private_retained_bytes_before_cleanup": 256,
+        "production_factor_publications": 0,
+        "production_solve_publications": 0,
+        "reduced_backward_error": 0.0,
+        "reduced_backward_error_threshold": 2.842170943040401e-14,
+        "role": "coarse_p_top",
+        "schedule": {
+          "factor_auxiliary_alignment": 8,
+          "factor_auxiliary_bytes": 128,
+          "peak_transient_bytes": 359,
+          "private_gemm_workspace_alignment": 1,
+          "private_gemm_workspace_bytes": 0,
+          "publication_bytes": 256,
+          "required_compute_permits": 1,
+          "retained_bytes": 256,
+          "solve_rhs_alignment": 8,
+          "solve_rhs_bytes": 32,
+          "solver_stack_alignment": 8,
+          "solver_stack_bytes": 71,
+          "staged_matrix_alignment": 8,
+          "staged_matrix_bytes": 128
+        },
+        "solution_finite": true,
+        "stack_requirement_bytes": 71,
+        "status": "COMPLETED"
+      }
+    ],
+    "target": "x86_64-pc-windows-msvc",
+    "temporary_storage_policy": {
+      "candidate_bytes_written": 0,
+      "candidate_files_created": 0,
+      "candidate_open_handles_after_execution": 0,
+      "policy": "denied"
+    }
+  },
+  "captured_at_utc": "2026-07-29T05:38:35.577727+00:00",
+  "disposition": "FEASIBLE_FOR_216_FACTOR_QUALIFICATION",
+  "execution_contract": {
+    "contract_id": "RapidRBF/InstrumentedFaerTwoFactorExecution/v1",
+    "git_sha": "4b966150fc109582f8ac0fbfb29cf2ee4dcb71b0",
+    "sha256": "57f784756ec4ca36bb2c0d631e5aafccfba4dd5746cfe68257531bf5728dfd47"
+  },
+  "github": {
+    "job": "lane",
+    "ref": "refs/heads/codex/execute-instrumented-faer-gate",
+    "repository": "qingsonger/RapidRBF",
+    "run_attempt": "1",
+    "run_id": "30425496342",
+    "sha": "4b966150fc109582f8ac0fbfb29cf2ee4dcb71b0",
+    "workflow": "Instrumented faer frozen feasibility gate"
+  },
+  "input_manifest": {
+    "artifacts": [
+      {
+        "artifact_id": "block:M3-HERMITE-10K-level-0-coarse-000:qtaq_lower",
+        "byte_order": "little",
+        "bytes": 16769024,
+        "dtype": "f64",
+        "encoding": "lower-triangle-row-major-packed",
+        "file": "projected_b_qtaq_lower.f64le",
+        "role": "projected_b",
+        "sha256": "e33319fe9a5f02a91bcf7410a784eccc1bded3e05628b59d1d7f0350614d7945",
+        "shape": [
+          2047,
+          2047
+        ],
+        "stored_elements": 2096128
+      },
+      {
+        "artifact_id": "block:M2-TH3-1K-level-0-coarse-000:p_top_row_major",
+        "byte_order": "little",
+        "bytes": 128,
+        "dtype": "f64",
+        "encoding": "row-major",
+        "file": "coarse_p_top_row_major.f64le",
+        "role": "coarse_p_top",
+        "sha256": "d8f2c6eda87764e279872463d89cbd344d53947ecffeb7bbc0e55cf90438679e",
+        "shape": [
+          4,
+          4
+        ],
+        "stored_elements": 16
+      }
+    ],
+    "canonical_hierarchy": {
+      "corpus_sha256": "38f39fee8b4059cd2619df4bbfabb6f7159b41df1511907e0346c32642737f79",
+      "lock_sha256": "7abd17eabba0cd578fa8989075f9d09d5113a696df48c9643785822dadde5a75",
+      "raw_manifest_sha256": "cf5aaa1e3fe6bf51c3f24f13455ac1036e7ec591668c18ec4c86f3243aa07f54"
+    },
+    "sha256": "cc385dd6329ae301144db341f0d22fb83b27f23d3797604c0db70ddaa63058bf"
+  },
+  "lane_id": "windows-x86_64",
+  "lane_witness": {
+    "candidate": {
+      "backend_calls": 0,
+      "binding_loaded": false,
+      "disposition": "NOT_IN_SCOPE_FOR_LANE_PREFLIGHT",
+      "factor_publications": 0
+    },
+    "captured_at_utc": "2026-07-29T05:35:44.927242+00:00",
+    "checks": [
+      {
+        "detail": "GITHUB_ACTIONS='true'",
+        "name": "github_actions",
+        "status": "PASS"
+      },
+      {
+        "detail": "RUNNER_ENVIRONMENT='github-hosted'",
+        "name": "github_hosted_runner",
+        "status": "PASS"
+      },
+      {
+        "detail": "RUNNER_OS='Windows'; expected='Windows'",
+        "name": "runner_os",
+        "status": "PASS"
+      },
+      {
+        "detail": "RUNNER_ARCH='X64'; expected='X64'",
+        "name": "runner_arch",
+        "status": "PASS"
+      },
+      {
+        "detail": "platform.machine()='AMD64'; accepted=['AMD64', 'x86_64']",
+        "name": "native_machine",
+        "status": "PASS"
+      },
+      {
+        "detail": "rustc host='x86_64-pc-windows-msvc'; required target='x86_64-pc-windows-msvc'",
+        "name": "native_rust_host",
+        "status": "PASS"
+      },
+      {
+        "detail": "required=['avx2', 'fma']; missing=[]",
+        "name": "required_cpu_features",
+        "status": "PASS"
+      },
+      {
+        "detail": "ImageOS='win25-vs2026'; ImageVersion='20260714.173.1'",
+        "name": "runner_image_identity",
+        "status": "PASS"
+      },
+      {
+        "detail": "RUNNER_TEMP is present and resolves to a directory",
+        "name": "runner_temp",
+        "status": "PASS"
+      },
+      {
+        "detail": "native executable returned 'windows:x86_64'; expected 'windows:x86_64'; header={'format': 'pe', 'machine': 34404}",
+        "name": "native_rust_compile_and_execute",
+        "status": "PASS"
+      },
+      {
+        "detail": "write/read/delete completed below RUNNER_TEMP",
+        "name": "isolated_scratch_roundtrip",
+        "status": "PASS"
+      }
+    ],
+    "contract": {
+      "contract_id": "RapidRBF/InstrumentedFaerQualifiedHostLanes/v1",
+      "sha256": "d6edbf73cc9788dfb56eedc58010ce3b091d94014111a6a4b1f1171cc8f7c5a3"
+    },
+    "github": {
+      "event_name": "push",
+      "image_os": "win25-vs2026",
+      "image_version": "20260714.173.1",
+      "job": "lane",
+      "ref": "refs/heads/codex/execute-instrumented-faer-gate",
+      "repository": "qingsonger/RapidRBF",
+      "run_attempt": "1",
+      "run_id": "30425496342",
+      "run_number": "1",
+      "run_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30425496342",
+      "runner_arch": "X64",
+      "runner_environment": "github-hosted",
+      "runner_name": "GitHub Actions 1000005054",
+      "runner_os": "Windows",
+      "sha": "4b966150fc109582f8ac0fbfb29cf2ee4dcb71b0",
+      "workflow": "Instrumented faer frozen feasibility gate",
+      "workflow_ref": "qingsonger/RapidRBF/.github/workflows/instrumented-faer-feasibility-gate.yml@refs/heads/codex/execute-instrumented-faer-gate"
+    },
+    "host": {
+      "cpu": {
+        "logical_cpu_count": 4,
+        "platform_detail": {
+          "command": [
+            "powershell",
+            "-NoProfile",
+            "-Command",
+            "Get-CimInstance Win32_Processor | Select-Object Name,Manufacturer,NumberOfCores,NumberOfLogicalProcessors | ConvertTo-Json -Compress"
+          ],
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "{\"Name\":\"AMD EPYC 9V74 80-Core Processor                \",\"Manufacturer\":\"AuthenticAMD\",\"NumberOfCores\":2,\"NumberOfLogicalProcessors\":4}"
+        },
+        "python_processor": "AMD64 Family 25 Model 17 Stepping 1, AuthenticAMD"
+      },
+      "glibc": null,
+      "native_rust_features": [
+        "adx",
+        "aes",
+        "avx",
+        "avx2",
+        "bmi1",
+        "bmi2",
+        "cmpxchg16b",
+        "f16c",
+        "fma",
+        "fxsr",
+        "lzcnt",
+        "movbe",
+        "pclmulqdq",
+        "popcnt",
+        "rdrand",
+        "rdseed",
+        "sha",
+        "sse",
+        "sse2",
+        "sse3",
+        "sse4.1",
+        "sse4.2",
+        "ssse3",
+        "xsave",
+        "xsavec",
+        "xsaveopt",
+        "xsaves"
+      ],
+      "os": {
+        "platform_detail": {
+          "command": [
+            "powershell",
+            "-NoProfile",
+            "-Command",
+            "Get-CimInstance Win32_OperatingSystem | Select-Object Caption,Version,BuildNumber | ConvertTo-Json -Compress"
+          ],
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "{\"Caption\":\"Microsoft Windows Server 2025 Datacenter\",\"Version\":\"10.0.26100\",\"BuildNumber\":\"26100\"}"
+        },
+        "platform_machine": "AMD64",
+        "platform_release": "2025Server",
+        "platform_system": "Windows",
+        "platform_version": "10.0.26100",
+        "uname": [
+          "Windows",
+          "runnervmr7g38",
+          "2025Server",
+          "10.0.26100",
+          "AMD64",
+          "AMD64 Family 25 Model 17 Stepping 1, AuthenticAMD"
+        ]
+      },
+      "resources": {
+        "memory": {
+          "command": [
+            "powershell",
+            "-NoProfile",
+            "-Command",
+            "Get-CimInstance Win32_OperatingSystem | Select-Object TotalVisibleMemorySize,FreePhysicalMemory | ConvertTo-Json -Compress"
+          ],
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "{\"TotalVisibleMemorySize\":16771836,\"FreePhysicalMemory\":13952348}"
+        },
+        "runner_temp_disk": {
+          "free_bytes": 157796282368,
+          "total_bytes": 161059172352,
+          "used_bytes": 3262889984
+        }
+      }
+    },
+    "lane": {
+      "executable_format": "pe",
+      "executable_machine": 34404,
+      "lane_id": "windows-x86_64",
+      "native_machine": [
+        "AMD64",
+        "x86_64"
+      ],
+      "required_cpu_features": [
+        "avx2",
+        "fma"
+      ],
+      "runner_arch": "X64",
+      "runner_label": "windows-2025",
+      "runner_os": "Windows",
+      "rust_std_arch": "x86_64",
+      "rust_std_os": "windows",
+      "target": "x86_64-pc-windows-msvc",
+      "tier_one": "Windows x86_64"
+    },
+    "native_smoke": {
+      "compile_returncode": 0,
+      "compile_stderr": "",
+      "executable_header": {
+        "format": "pe",
+        "machine": 34404
+      },
+      "execute_returncode": 0,
+      "execute_stderr": "",
+      "execute_stdout": "windows:x86_64"
+    },
+    "qualification": "PASS",
+    "schema": "rapidrbf-instrumented-faer-lane-witness-v1",
+    "toolchain": {
+      "cargo_version": {
+        "command": [
+          "cargo",
+          "-V"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "cargo 1.85.0 (d73d2caf9 2024-12-31)"
+      },
+      "clang_version": {
+        "command": [
+          "clang",
+          "--version"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "clang version 20.1.8\nTarget: x86_64-pc-windows-msvc\nThread model: posix\nInstalledDir: C:\\Program Files\\LLVM\\bin"
+      },
+      "cmake_version": {
+        "command": [
+          "cmake",
+          "--version"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "cmake version 4.4.0\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake)."
+      },
+      "git_version": {
+        "command": [
+          "git",
+          "--version"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "git version 2.55.0.windows.2"
+      },
+      "native_feature_command": {
+        "command": [
+          "rustc",
+          "--print",
+          "cfg",
+          "-C",
+          "target-cpu=native"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "debug_assertions\npanic=\"unwind\"\ntarget_abi=\"\"\ntarget_arch=\"x86_64\"\ntarget_endian=\"little\"\ntarget_env=\"msvc\"\ntarget_family=\"windows\"\ntarget_feature=\"adx\"\ntarget_feature=\"aes\"\ntarget_feature=\"avx\"\ntarget_feature=\"avx2\"\ntarget_feature=\"bmi1\"\ntarget_feature=\"bmi2\"\ntarget_feature=\"cmpxchg16b\"\ntarget_feature=\"f16c\"\ntarget_feature=\"fma\"\ntarget_feature=\"fxsr\"\ntarget_feature=\"lzcnt\"\ntarget_feature=\"movbe\"\ntarget_feature=\"pclmulqdq\"\ntarget_feature=\"popcnt\"\ntarget_feature=\"rdrand\"\ntarget_feature=\"rdseed\"\ntarget_feature=\"sha\"\ntarget_feature=\"sse\"\ntarget_feature=\"sse2\"\ntarget_feature=\"sse3\"\ntarget_feature=\"sse4.1\"\ntarget_feature=\"sse4.2\"\ntarget_feature=\"ssse3\"\ntarget_feature=\"xsave\"\ntarget_feature=\"xsavec\"\ntarget_feature=\"xsaveopt\"\ntarget_feature=\"xsaves\"\ntarget_has_atomic=\"128\"\ntarget_has_atomic=\"16\"\ntarget_has_atomic=\"32\"\ntarget_has_atomic=\"64\"\ntarget_has_atomic=\"8\"\ntarget_has_atomic=\"ptr\"\ntarget_os=\"windows\"\ntarget_pointer_width=\"64\"\ntarget_vendor=\"pc\"\nwindows"
+      },
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "rustc_verbose": {
+        "command": [
+          "rustc",
+          "-vV"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-pc-windows-msvc\nrelease: 1.85.0\nLLVM version: 19.1.7"
+      },
+      "rustup_active_toolchain": {
+        "command": [
+          "rustup",
+          "show",
+          "active-toolchain"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "1.85.0-x86_64-pc-windows-msvc (overridden by environment variable RUSTUP_TOOLCHAIN)"
+      }
+    }
+  },
+  "native_executable": {
+    "bytes": 2805248,
+    "path_role": "target/release native issue-44 runner",
+    "sha256": "0a9aa22a8559913a9d45f5f824fb21166030b28432488b6fbfa268f4c47b9e2e"
+  },
+  "retry": {
+    "candidate_observation_started": true,
+    "silent_retry_permitted": false
+  },
+  "schema": "rapidrbf-instrumented-faer-qualified-lane-evidence-v1",
+  "source_identity": {
+    "Cargo.lock": {
+      "bytes": 19549,
+      "sha256": "1675a4239538f8f4c02c8005c7d064fa1a45fd93df0547ebd572476cd03dc407"
+    },
+    "Cargo.toml": {
+      "bytes": 1199,
+      "sha256": "28974facd58e02be3e2bd364019ae99711bfc0f7f31cb4302a6531f260dc93ba"
+    },
+    "execution-contract.v1.json": {
+      "bytes": 4445,
+      "sha256": "57f784756ec4ca36bb2c0d631e5aafccfba4dd5746cfe68257531bf5728dfd47"
+    },
+    "inputs/input-manifest.v1.json": {
+      "bytes": 1239,
+      "sha256": "cc385dd6329ae301144db341f0d22fb83b27f23d3797604c0db70ddaa63058bf"
+    },
+    "run.py": {
+      "bytes": 10838,
+      "sha256": "bb5f666cf2bcbfdc6c9176adbeabefdba766aeafae4004c10f9dda0d373d69f3"
+    },
+    "src/main.rs": {
+      "bytes": 35123,
+      "sha256": "5d2b5969429eea303692bbeefcdef6a9d234b4527411244ce9a8f6d0ac037cc0"
+    }
+  },
+  "target": "x86_64-pc-windows-msvc",
+  "temporary_storage": {
+    "candidate_scratch_after": [],
+    "candidate_scratch_before": [],
+    "policy": "denied",
+    "scratch_removed_after_observation": true
+  }
+}

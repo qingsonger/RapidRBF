@@ -1,0 +1,1191 @@
+{
+  "cohort_keys": [
+    [
+      "30425496342",
+      "1",
+      "4b966150fc109582f8ac0fbfb29cf2ee4dcb71b0",
+      "57f784756ec4ca36bb2c0d631e5aafccfba4dd5746cfe68257531bf5728dfd47"
+    ]
+  ],
+  "disposition": "FEASIBLE_FOR_216_FACTOR_QUALIFICATION",
+  "execution_contract": {
+    "contract_id": "RapidRBF/InstrumentedFaerTwoFactorExecution/v1",
+    "sha256": "57f784756ec4ca36bb2c0d631e5aafccfba4dd5746cfe68257531bf5728dfd47"
+  },
+  "lane_dispositions": {
+    "linux-x86_64-glibc": "FEASIBLE_FOR_216_FACTOR_QUALIFICATION",
+    "macos-arm64": "FEASIBLE_FOR_216_FACTOR_QUALIFICATION",
+    "macos-x86_64": "FEASIBLE_FOR_216_FACTOR_QUALIFICATION",
+    "windows-x86_64": "FEASIBLE_FOR_216_FACTOR_QUALIFICATION"
+  },
+  "lane_evidence": {
+    "linux-x86_64-glibc": {
+      "candidate": {
+        "binding": {
+          "parallelism": "Par::Seq",
+          "profile_sha256": "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3",
+          "schema": "RapidRBF/InstrumentedFaerCandidateExecutionBinding/v1",
+          "temporary_storage": "denied-for-two-factor-feasibility"
+        },
+        "cancellation": {
+          "acknowledgement_latency_ns": 346161,
+          "backend_signal_observed": true,
+          "cancellation_requested": true,
+          "failed_replacement_publications": 0,
+          "metrics_after_cancellation": {
+            "backend_entries": 2,
+            "checkpoint_events": 26945,
+            "cumulative_released_bytes": 101761063,
+            "cumulative_reserved_bytes": 101761063,
+            "outer_compute_permits_live": 0,
+            "stack_carve_events": 2,
+            "stack_carved_bytes": 1064952,
+            "temporary_storage_cumulative_writes": 0,
+            "temporary_storage_open_handles": 0,
+            "temporary_storage_residue_bytes": 0,
+            "transient_high_water_bytes": 101761063,
+            "transient_residue_bytes": 0
+          },
+          "passed": true,
+          "prior_state": {
+            "fingerprint_after": "ea2d08d42e54e49ccf01075b7178260b7f1dca3f3facaf3b1c61638737314fe1",
+            "fingerprint_before": "ea2d08d42e54e49ccf01075b7178260b7f1dca3f3facaf3b1c61638737314fe1",
+            "preserved": true,
+            "retained_bytes_after": 33570800,
+            "retained_bytes_before": 33570800,
+            "role": "projected_b"
+          },
+          "production_factor_publications": 0,
+          "production_solve_publications": 0,
+          "request_delay_after_backend_signal_ms": 10,
+          "result": "Cancelled",
+          "role": "projected_b"
+        },
+        "disposition": "FEASIBLE_FOR_216_FACTOR_QUALIFICATION",
+        "global_parallelism": "Seq",
+        "input_identities": {
+          "coarse_p_top": {
+            "bytes": 128,
+            "sha256": "d8f2c6eda87764e279872463d89cbd344d53947ecffeb7bbc0e55cf90438679e"
+          },
+          "projected_b": {
+            "bytes": 16769024,
+            "sha256": "e33319fe9a5f02a91bcf7410a784eccc1bded3e05628b59d1d7f0350614d7945"
+          }
+        },
+        "lane_id": "linux-x86_64-glibc",
+        "n_minus_one": [
+          {
+            "failed_replacement_publications": 0,
+            "grant_transient_bytes": 101761062,
+            "metrics_after_denial": {
+              "backend_entries": 0,
+              "checkpoint_events": 0,
+              "cumulative_released_bytes": 0,
+              "cumulative_reserved_bytes": 0,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 0,
+              "stack_carved_bytes": 0,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 0,
+              "transient_residue_bytes": 0
+            },
+            "operation_entered": false,
+            "passed": true,
+            "required_transient_bytes": 101761063,
+            "result": "Err(ResourceDenied)",
+            "role": "projected_b"
+          },
+          {
+            "failed_replacement_publications": 0,
+            "grant_transient_bytes": 358,
+            "metrics_after_denial": {
+              "backend_entries": 0,
+              "checkpoint_events": 0,
+              "cumulative_released_bytes": 0,
+              "cumulative_reserved_bytes": 0,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 0,
+              "stack_carved_bytes": 0,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 0,
+              "transient_residue_bytes": 0
+            },
+            "operation_entered": false,
+            "passed": true,
+            "required_transient_bytes": 359,
+            "result": "Err(ResourceDenied)",
+            "role": "coarse_p_top"
+          }
+        ],
+        "private_retention": {
+          "bytes_after_cleanup": 0,
+          "bytes_before_cleanup": 33571056,
+          "cleanup_closed": true
+        },
+        "production_publication": {
+          "reason": "issue-44 is a feasibility gate; full 216-factor qualification remains delegated",
+          "solved_count": 0,
+          "validated_factor_count": 0
+        },
+        "schema": "rapidrbf-instrumented-faer-lane-observation-v1",
+        "success": [
+          {
+            "checkpoint_bounds": [
+              {
+                "kind": "Pivot",
+                "maximum_unpolled_work_units": 4190209,
+                "selected_path": "faer Bunch-Kaufman LDLT",
+                "unit": "scalar pivot-search/update candidates"
+              },
+              {
+                "kind": "Panel",
+                "maximum_unpolled_work_units": 4190209,
+                "selected_path": "faer Bunch-Kaufman LDLT",
+                "unit": "scalar panel candidates (zero when path has no panel)"
+              },
+              {
+                "kind": "Packing",
+                "maximum_unpolled_work_units": 24576,
+                "selected_path": "private-gemm-x86 f64",
+                "unit": "scalar elements packed"
+              },
+              {
+                "kind": "MacroKernel",
+                "maximum_unpolled_work_units": 98304,
+                "selected_path": "private-gemm-x86 f64",
+                "unit": "scalar multiply-add contributions"
+              },
+              {
+                "kind": "Solve",
+                "maximum_unpolled_work_units": 2047,
+                "selected_path": "faer Bunch-Kaufman and triangular solve",
+                "unit": "matrix elements in one recursive solve region"
+              }
+            ],
+            "error": null,
+            "factor_fingerprint_sha256": "ea2d08d42e54e49ccf01075b7178260b7f1dca3f3facaf3b1c61638737314fe1",
+            "factor_finite": true,
+            "metrics_after_execution": {
+              "backend_entries": 33,
+              "checkpoint_events": 466986,
+              "cumulative_released_bytes": 2182135847,
+              "cumulative_reserved_bytes": 2182135847,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 35,
+              "stack_carved_bytes": 17645560,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 101761063,
+              "transient_residue_bytes": 0
+            },
+            "outer_compute_permits_observed_inside_operation": 1,
+            "parallelism": "Par::Seq",
+            "passed": true,
+            "private_retained_bytes_before_cleanup": 33570800,
+            "production_factor_publications": 0,
+            "production_solve_publications": 0,
+            "reduced_backward_error": 1.420337517129258e-17,
+            "reduced_backward_error_threshold": 1.454480980100925e-11,
+            "role": "projected_b",
+            "schedule": {
+              "factor_auxiliary_alignment": 8,
+              "factor_auxiliary_bytes": 49128,
+              "peak_transient_bytes": 101761063,
+              "private_gemm_workspace_alignment": 4096,
+              "private_gemm_workspace_bytes": 67108864,
+              "publication_bytes": 33570800,
+              "required_compute_permits": 1,
+              "retained_bytes": 33570800,
+              "solve_rhs_alignment": 8,
+              "solve_rhs_bytes": 16376,
+              "solver_stack_alignment": 64,
+              "solver_stack_bytes": 1065023,
+              "staged_matrix_alignment": 8,
+              "staged_matrix_bytes": 33521672
+            },
+            "solution_finite": true,
+            "stack_requirement_bytes": 1065023,
+            "status": "COMPLETED"
+          },
+          {
+            "checkpoint_bounds": [
+              {
+                "kind": "Pivot",
+                "maximum_unpolled_work_units": 16,
+                "selected_path": "faer full-pivot LU",
+                "unit": "scalar pivot-search/update candidates"
+              },
+              {
+                "kind": "Panel",
+                "maximum_unpolled_work_units": 0,
+                "selected_path": "not applicable",
+                "unit": "scalar panel candidates (zero when path has no panel)"
+              },
+              {
+                "kind": "Packing",
+                "maximum_unpolled_work_units": 0,
+                "selected_path": "not applicable to 4x4 full-pivot LU",
+                "unit": "scalar elements packed"
+              },
+              {
+                "kind": "MacroKernel",
+                "maximum_unpolled_work_units": 0,
+                "selected_path": "not applicable to 4x4 full-pivot LU",
+                "unit": "scalar multiply-add contributions"
+              },
+              {
+                "kind": "Solve",
+                "maximum_unpolled_work_units": 4,
+                "selected_path": "faer full-pivot LU and triangular solve",
+                "unit": "matrix elements in one recursive solve region"
+              }
+            ],
+            "error": null,
+            "factor_fingerprint_sha256": "fa2d5280c43c93f5fed0dfdcba721e1fa58ff5e14c8963c7478ffc31e864b6d6",
+            "factor_finite": true,
+            "metrics_after_execution": {
+              "backend_entries": 1,
+              "checkpoint_events": 8,
+              "cumulative_released_bytes": 359,
+              "cumulative_reserved_bytes": 359,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 2,
+              "stack_carved_bytes": 64,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 359,
+              "transient_residue_bytes": 0
+            },
+            "outer_compute_permits_observed_inside_operation": 1,
+            "parallelism": "Par::Seq",
+            "passed": true,
+            "private_retained_bytes_before_cleanup": 256,
+            "production_factor_publications": 0,
+            "production_solve_publications": 0,
+            "reduced_backward_error": 0.0,
+            "reduced_backward_error_threshold": 2.842170943040401e-14,
+            "role": "coarse_p_top",
+            "schedule": {
+              "factor_auxiliary_alignment": 8,
+              "factor_auxiliary_bytes": 128,
+              "peak_transient_bytes": 359,
+              "private_gemm_workspace_alignment": 1,
+              "private_gemm_workspace_bytes": 0,
+              "publication_bytes": 256,
+              "required_compute_permits": 1,
+              "retained_bytes": 256,
+              "solve_rhs_alignment": 8,
+              "solve_rhs_bytes": 32,
+              "solver_stack_alignment": 8,
+              "solver_stack_bytes": 71,
+              "staged_matrix_alignment": 8,
+              "staged_matrix_bytes": 128
+            },
+            "solution_finite": true,
+            "stack_requirement_bytes": 71,
+            "status": "COMPLETED"
+          }
+        ],
+        "target": "x86_64-unknown-linux-gnu",
+        "temporary_storage_policy": {
+          "candidate_bytes_written": 0,
+          "candidate_files_created": 0,
+          "candidate_open_handles_after_execution": 0,
+          "policy": "denied"
+        }
+      },
+      "native_executable": {
+        "bytes": 3687448,
+        "path_role": "target/release native issue-44 runner",
+        "sha256": "e984a340bcf2407f86ed989b4e9e3fbef40418e1a9022c371eed31b22b52c87d"
+      },
+      "sha256": "f16c159b50809e4affac1d6a97aa906e6beb863393901e179ad22e6dbdfc724b",
+      "target": "x86_64-unknown-linux-gnu"
+    },
+    "macos-arm64": {
+      "candidate": {
+        "binding": {
+          "parallelism": "Par::Seq",
+          "profile_sha256": "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3",
+          "schema": "RapidRBF/InstrumentedFaerCandidateExecutionBinding/v1",
+          "temporary_storage": "denied-for-two-factor-feasibility"
+        },
+        "cancellation": {
+          "acknowledgement_latency_ns": 6807209,
+          "backend_signal_observed": true,
+          "cancellation_requested": true,
+          "failed_replacement_publications": 0,
+          "metrics_after_cancellation": {
+            "backend_entries": 1,
+            "checkpoint_events": 258,
+            "cumulative_released_bytes": 34652199,
+            "cumulative_reserved_bytes": 34652199,
+            "outer_compute_permits_live": 0,
+            "stack_carve_events": 2357,
+            "stack_carved_bytes": 2120269368,
+            "temporary_storage_cumulative_writes": 0,
+            "temporary_storage_open_handles": 0,
+            "temporary_storage_residue_bytes": 0,
+            "transient_high_water_bytes": 34652199,
+            "transient_residue_bytes": 0
+          },
+          "passed": true,
+          "prior_state": {
+            "fingerprint_after": "93834656695d9f340648c3c99c048d79d8ddc08aeb84753524a674a5bad56f4a",
+            "fingerprint_before": "93834656695d9f340648c3c99c048d79d8ddc08aeb84753524a674a5bad56f4a",
+            "preserved": true,
+            "retained_bytes_after": 33570800,
+            "retained_bytes_before": 33570800,
+            "role": "projected_b"
+          },
+          "production_factor_publications": 0,
+          "production_solve_publications": 0,
+          "request_delay_after_backend_signal_ms": 10,
+          "result": "Cancelled",
+          "role": "projected_b"
+        },
+        "disposition": "FEASIBLE_FOR_216_FACTOR_QUALIFICATION",
+        "global_parallelism": "Seq",
+        "input_identities": {
+          "coarse_p_top": {
+            "bytes": 128,
+            "sha256": "d8f2c6eda87764e279872463d89cbd344d53947ecffeb7bbc0e55cf90438679e"
+          },
+          "projected_b": {
+            "bytes": 16769024,
+            "sha256": "e33319fe9a5f02a91bcf7410a784eccc1bded3e05628b59d1d7f0350614d7945"
+          }
+        },
+        "lane_id": "macos-arm64",
+        "n_minus_one": [
+          {
+            "failed_replacement_publications": 0,
+            "grant_transient_bytes": 34652198,
+            "metrics_after_denial": {
+              "backend_entries": 0,
+              "checkpoint_events": 0,
+              "cumulative_released_bytes": 0,
+              "cumulative_reserved_bytes": 0,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 0,
+              "stack_carved_bytes": 0,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 0,
+              "transient_residue_bytes": 0
+            },
+            "operation_entered": false,
+            "passed": true,
+            "required_transient_bytes": 34652199,
+            "result": "Err(ResourceDenied)",
+            "role": "projected_b"
+          },
+          {
+            "failed_replacement_publications": 0,
+            "grant_transient_bytes": 358,
+            "metrics_after_denial": {
+              "backend_entries": 0,
+              "checkpoint_events": 0,
+              "cumulative_released_bytes": 0,
+              "cumulative_reserved_bytes": 0,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 0,
+              "stack_carved_bytes": 0,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 0,
+              "transient_residue_bytes": 0
+            },
+            "operation_entered": false,
+            "passed": true,
+            "required_transient_bytes": 359,
+            "result": "Err(ResourceDenied)",
+            "role": "coarse_p_top"
+          }
+        ],
+        "private_retention": {
+          "bytes_after_cleanup": 0,
+          "bytes_before_cleanup": 33571056,
+          "cleanup_closed": true
+        },
+        "production_publication": {
+          "reason": "issue-44 is a feasibility gate; full 216-factor qualification remains delegated",
+          "solved_count": 0,
+          "validated_factor_count": 0
+        },
+        "schema": "rapidrbf-instrumented-faer-lane-observation-v1",
+        "success": [
+          {
+            "checkpoint_bounds": [
+              {
+                "kind": "Pivot",
+                "maximum_unpolled_work_units": 4190209,
+                "selected_path": "faer Bunch-Kaufman LDLT",
+                "unit": "scalar pivot-search/update candidates"
+              },
+              {
+                "kind": "Panel",
+                "maximum_unpolled_work_units": 4190209,
+                "selected_path": "faer Bunch-Kaufman LDLT",
+                "unit": "scalar panel candidates (zero when path has no panel)"
+              },
+              {
+                "kind": "Packing",
+                "maximum_unpolled_work_units": 0,
+                "selected_path": "faer generic Apple arm64 f64",
+                "unit": "scalar elements packed"
+              },
+              {
+                "kind": "MacroKernel",
+                "maximum_unpolled_work_units": 1024,
+                "selected_path": "faer generic Apple arm64 f64",
+                "unit": "scalar multiply-add contributions"
+              },
+              {
+                "kind": "Solve",
+                "maximum_unpolled_work_units": 2047,
+                "selected_path": "faer Bunch-Kaufman and triangular solve",
+                "unit": "matrix elements in one recursive solve region"
+              }
+            ],
+            "error": null,
+            "factor_fingerprint_sha256": "93834656695d9f340648c3c99c048d79d8ddc08aeb84753524a674a5bad56f4a",
+            "factor_finite": true,
+            "metrics_after_execution": {
+              "backend_entries": 1,
+              "checkpoint_events": 6175,
+              "cumulative_released_bytes": 34652199,
+              "cumulative_reserved_bytes": 34652199,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 12020,
+              "stack_carved_bytes": 9466625400,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 34652199,
+              "transient_residue_bytes": 0
+            },
+            "outer_compute_permits_observed_inside_operation": 1,
+            "parallelism": "Par::Seq",
+            "passed": true,
+            "private_retained_bytes_before_cleanup": 33570800,
+            "production_factor_publications": 0,
+            "production_solve_publications": 0,
+            "reduced_backward_error": 1.725388254569498e-17,
+            "reduced_backward_error_threshold": 1.454480980100925e-11,
+            "role": "projected_b",
+            "schedule": {
+              "factor_auxiliary_alignment": 8,
+              "factor_auxiliary_bytes": 49128,
+              "peak_transient_bytes": 34652199,
+              "private_gemm_workspace_alignment": 1,
+              "private_gemm_workspace_bytes": 0,
+              "publication_bytes": 33570800,
+              "required_compute_permits": 1,
+              "retained_bytes": 33570800,
+              "solve_rhs_alignment": 8,
+              "solve_rhs_bytes": 16376,
+              "solver_stack_alignment": 64,
+              "solver_stack_bytes": 1065023,
+              "staged_matrix_alignment": 8,
+              "staged_matrix_bytes": 33521672
+            },
+            "solution_finite": true,
+            "stack_requirement_bytes": 1065023,
+            "status": "COMPLETED"
+          },
+          {
+            "checkpoint_bounds": [
+              {
+                "kind": "Pivot",
+                "maximum_unpolled_work_units": 16,
+                "selected_path": "faer full-pivot LU",
+                "unit": "scalar pivot-search/update candidates"
+              },
+              {
+                "kind": "Panel",
+                "maximum_unpolled_work_units": 0,
+                "selected_path": "not applicable",
+                "unit": "scalar panel candidates (zero when path has no panel)"
+              },
+              {
+                "kind": "Packing",
+                "maximum_unpolled_work_units": 0,
+                "selected_path": "not applicable to 4x4 full-pivot LU",
+                "unit": "scalar elements packed"
+              },
+              {
+                "kind": "MacroKernel",
+                "maximum_unpolled_work_units": 0,
+                "selected_path": "not applicable to 4x4 full-pivot LU",
+                "unit": "scalar multiply-add contributions"
+              },
+              {
+                "kind": "Solve",
+                "maximum_unpolled_work_units": 4,
+                "selected_path": "faer full-pivot LU and triangular solve",
+                "unit": "matrix elements in one recursive solve region"
+              }
+            ],
+            "error": null,
+            "factor_fingerprint_sha256": "fa2d5280c43c93f5fed0dfdcba721e1fa58ff5e14c8963c7478ffc31e864b6d6",
+            "factor_finite": true,
+            "metrics_after_execution": {
+              "backend_entries": 1,
+              "checkpoint_events": 8,
+              "cumulative_released_bytes": 359,
+              "cumulative_reserved_bytes": 359,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 2,
+              "stack_carved_bytes": 64,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 359,
+              "transient_residue_bytes": 0
+            },
+            "outer_compute_permits_observed_inside_operation": 1,
+            "parallelism": "Par::Seq",
+            "passed": true,
+            "private_retained_bytes_before_cleanup": 256,
+            "production_factor_publications": 0,
+            "production_solve_publications": 0,
+            "reduced_backward_error": 0.0,
+            "reduced_backward_error_threshold": 2.842170943040401e-14,
+            "role": "coarse_p_top",
+            "schedule": {
+              "factor_auxiliary_alignment": 8,
+              "factor_auxiliary_bytes": 128,
+              "peak_transient_bytes": 359,
+              "private_gemm_workspace_alignment": 1,
+              "private_gemm_workspace_bytes": 0,
+              "publication_bytes": 256,
+              "required_compute_permits": 1,
+              "retained_bytes": 256,
+              "solve_rhs_alignment": 8,
+              "solve_rhs_bytes": 32,
+              "solver_stack_alignment": 8,
+              "solver_stack_bytes": 71,
+              "staged_matrix_alignment": 8,
+              "staged_matrix_bytes": 128
+            },
+            "solution_finite": true,
+            "stack_requirement_bytes": 71,
+            "status": "COMPLETED"
+          }
+        ],
+        "target": "aarch64-apple-darwin",
+        "temporary_storage_policy": {
+          "candidate_bytes_written": 0,
+          "candidate_files_created": 0,
+          "candidate_open_handles_after_execution": 0,
+          "policy": "denied"
+        }
+      },
+      "native_executable": {
+        "bytes": 1038560,
+        "path_role": "target/release native issue-44 runner",
+        "sha256": "c0b9e014a390da32dd408f7f24a90d357ccfa44acdeefd3909ef191c22a2be34"
+      },
+      "sha256": "c7e4c245ac5df965536a48db55c4abe1513e566c9f81e9c74f637c9450d3f59c",
+      "target": "aarch64-apple-darwin"
+    },
+    "macos-x86_64": {
+      "candidate": {
+        "binding": {
+          "parallelism": "Par::Seq",
+          "profile_sha256": "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3",
+          "schema": "RapidRBF/InstrumentedFaerCandidateExecutionBinding/v1",
+          "temporary_storage": "denied-for-two-factor-feasibility"
+        },
+        "cancellation": {
+          "acknowledgement_latency_ns": 2753870,
+          "backend_signal_observed": true,
+          "cancellation_requested": true,
+          "failed_replacement_publications": 0,
+          "metrics_after_cancellation": {
+            "backend_entries": 3,
+            "checkpoint_events": 51820,
+            "cumulative_released_bytes": 43040807,
+            "cumulative_reserved_bytes": 43040807,
+            "outer_compute_permits_live": 0,
+            "stack_carve_events": 3,
+            "stack_carved_bytes": 2080760,
+            "temporary_storage_cumulative_writes": 0,
+            "temporary_storage_open_handles": 0,
+            "temporary_storage_residue_bytes": 0,
+            "transient_high_water_bytes": 38846503,
+            "transient_residue_bytes": 0
+          },
+          "passed": true,
+          "prior_state": {
+            "fingerprint_after": "ea2d08d42e54e49ccf01075b7178260b7f1dca3f3facaf3b1c61638737314fe1",
+            "fingerprint_before": "ea2d08d42e54e49ccf01075b7178260b7f1dca3f3facaf3b1c61638737314fe1",
+            "preserved": true,
+            "retained_bytes_after": 33570800,
+            "retained_bytes_before": 33570800,
+            "role": "projected_b"
+          },
+          "production_factor_publications": 0,
+          "production_solve_publications": 0,
+          "request_delay_after_backend_signal_ms": 10,
+          "result": "Cancelled",
+          "role": "projected_b"
+        },
+        "disposition": "FEASIBLE_FOR_216_FACTOR_QUALIFICATION",
+        "global_parallelism": "Seq",
+        "input_identities": {
+          "coarse_p_top": {
+            "bytes": 128,
+            "sha256": "d8f2c6eda87764e279872463d89cbd344d53947ecffeb7bbc0e55cf90438679e"
+          },
+          "projected_b": {
+            "bytes": 16769024,
+            "sha256": "e33319fe9a5f02a91bcf7410a784eccc1bded3e05628b59d1d7f0350614d7945"
+          }
+        },
+        "lane_id": "macos-x86_64",
+        "n_minus_one": [
+          {
+            "failed_replacement_publications": 0,
+            "grant_transient_bytes": 38846502,
+            "metrics_after_denial": {
+              "backend_entries": 0,
+              "checkpoint_events": 0,
+              "cumulative_released_bytes": 0,
+              "cumulative_reserved_bytes": 0,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 0,
+              "stack_carved_bytes": 0,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 0,
+              "transient_residue_bytes": 0
+            },
+            "operation_entered": false,
+            "passed": true,
+            "required_transient_bytes": 38846503,
+            "result": "Err(ResourceDenied)",
+            "role": "projected_b"
+          },
+          {
+            "failed_replacement_publications": 0,
+            "grant_transient_bytes": 358,
+            "metrics_after_denial": {
+              "backend_entries": 0,
+              "checkpoint_events": 0,
+              "cumulative_released_bytes": 0,
+              "cumulative_reserved_bytes": 0,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 0,
+              "stack_carved_bytes": 0,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 0,
+              "transient_residue_bytes": 0
+            },
+            "operation_entered": false,
+            "passed": true,
+            "required_transient_bytes": 359,
+            "result": "Err(ResourceDenied)",
+            "role": "coarse_p_top"
+          }
+        ],
+        "private_retention": {
+          "bytes_after_cleanup": 0,
+          "bytes_before_cleanup": 33571056,
+          "cleanup_closed": true
+        },
+        "production_publication": {
+          "reason": "issue-44 is a feasibility gate; full 216-factor qualification remains delegated",
+          "solved_count": 0,
+          "validated_factor_count": 0
+        },
+        "schema": "rapidrbf-instrumented-faer-lane-observation-v1",
+        "success": [
+          {
+            "checkpoint_bounds": [
+              {
+                "kind": "Pivot",
+                "maximum_unpolled_work_units": 4190209,
+                "selected_path": "faer Bunch-Kaufman LDLT",
+                "unit": "scalar pivot-search/update candidates"
+              },
+              {
+                "kind": "Panel",
+                "maximum_unpolled_work_units": 4190209,
+                "selected_path": "faer Bunch-Kaufman LDLT",
+                "unit": "scalar panel candidates (zero when path has no panel)"
+              },
+              {
+                "kind": "Packing",
+                "maximum_unpolled_work_units": 24576,
+                "selected_path": "private-gemm-x86 f64",
+                "unit": "scalar elements packed"
+              },
+              {
+                "kind": "MacroKernel",
+                "maximum_unpolled_work_units": 98304,
+                "selected_path": "private-gemm-x86 f64",
+                "unit": "scalar multiply-add contributions"
+              },
+              {
+                "kind": "Solve",
+                "maximum_unpolled_work_units": 2047,
+                "selected_path": "faer Bunch-Kaufman and triangular solve",
+                "unit": "matrix elements in one recursive solve region"
+              }
+            ],
+            "error": null,
+            "factor_fingerprint_sha256": "ea2d08d42e54e49ccf01075b7178260b7f1dca3f3facaf3b1c61638737314fe1",
+            "factor_finite": true,
+            "metrics_after_execution": {
+              "backend_entries": 33,
+              "checkpoint_events": 478611,
+              "cumulative_released_bytes": 168869927,
+              "cumulative_reserved_bytes": 168869927,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 35,
+              "stack_carved_bytes": 17645560,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 38846503,
+              "transient_residue_bytes": 0
+            },
+            "outer_compute_permits_observed_inside_operation": 1,
+            "parallelism": "Par::Seq",
+            "passed": true,
+            "private_retained_bytes_before_cleanup": 33570800,
+            "production_factor_publications": 0,
+            "production_solve_publications": 0,
+            "reduced_backward_error": 1.420337517129258e-17,
+            "reduced_backward_error_threshold": 1.454480980100925e-11,
+            "role": "projected_b",
+            "schedule": {
+              "factor_auxiliary_alignment": 8,
+              "factor_auxiliary_bytes": 49128,
+              "peak_transient_bytes": 38846503,
+              "private_gemm_workspace_alignment": 4096,
+              "private_gemm_workspace_bytes": 4194304,
+              "publication_bytes": 33570800,
+              "required_compute_permits": 1,
+              "retained_bytes": 33570800,
+              "solve_rhs_alignment": 8,
+              "solve_rhs_bytes": 16376,
+              "solver_stack_alignment": 64,
+              "solver_stack_bytes": 1065023,
+              "staged_matrix_alignment": 8,
+              "staged_matrix_bytes": 33521672
+            },
+            "solution_finite": true,
+            "stack_requirement_bytes": 1065023,
+            "status": "COMPLETED"
+          },
+          {
+            "checkpoint_bounds": [
+              {
+                "kind": "Pivot",
+                "maximum_unpolled_work_units": 16,
+                "selected_path": "faer full-pivot LU",
+                "unit": "scalar pivot-search/update candidates"
+              },
+              {
+                "kind": "Panel",
+                "maximum_unpolled_work_units": 0,
+                "selected_path": "not applicable",
+                "unit": "scalar panel candidates (zero when path has no panel)"
+              },
+              {
+                "kind": "Packing",
+                "maximum_unpolled_work_units": 0,
+                "selected_path": "not applicable to 4x4 full-pivot LU",
+                "unit": "scalar elements packed"
+              },
+              {
+                "kind": "MacroKernel",
+                "maximum_unpolled_work_units": 0,
+                "selected_path": "not applicable to 4x4 full-pivot LU",
+                "unit": "scalar multiply-add contributions"
+              },
+              {
+                "kind": "Solve",
+                "maximum_unpolled_work_units": 4,
+                "selected_path": "faer full-pivot LU and triangular solve",
+                "unit": "matrix elements in one recursive solve region"
+              }
+            ],
+            "error": null,
+            "factor_fingerprint_sha256": "fa2d5280c43c93f5fed0dfdcba721e1fa58ff5e14c8963c7478ffc31e864b6d6",
+            "factor_finite": true,
+            "metrics_after_execution": {
+              "backend_entries": 1,
+              "checkpoint_events": 8,
+              "cumulative_released_bytes": 359,
+              "cumulative_reserved_bytes": 359,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 2,
+              "stack_carved_bytes": 64,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 359,
+              "transient_residue_bytes": 0
+            },
+            "outer_compute_permits_observed_inside_operation": 1,
+            "parallelism": "Par::Seq",
+            "passed": true,
+            "private_retained_bytes_before_cleanup": 256,
+            "production_factor_publications": 0,
+            "production_solve_publications": 0,
+            "reduced_backward_error": 0.0,
+            "reduced_backward_error_threshold": 2.842170943040401e-14,
+            "role": "coarse_p_top",
+            "schedule": {
+              "factor_auxiliary_alignment": 8,
+              "factor_auxiliary_bytes": 128,
+              "peak_transient_bytes": 359,
+              "private_gemm_workspace_alignment": 1,
+              "private_gemm_workspace_bytes": 0,
+              "publication_bytes": 256,
+              "required_compute_permits": 1,
+              "retained_bytes": 256,
+              "solve_rhs_alignment": 8,
+              "solve_rhs_bytes": 32,
+              "solver_stack_alignment": 8,
+              "solver_stack_bytes": 71,
+              "staged_matrix_alignment": 8,
+              "staged_matrix_bytes": 128
+            },
+            "solution_finite": true,
+            "stack_requirement_bytes": 71,
+            "status": "COMPLETED"
+          }
+        ],
+        "target": "x86_64-apple-darwin",
+        "temporary_storage_policy": {
+          "candidate_bytes_written": 0,
+          "candidate_files_created": 0,
+          "candidate_open_handles_after_execution": 0,
+          "policy": "denied"
+        }
+      },
+      "native_executable": {
+        "bytes": 2743000,
+        "path_role": "target/release native issue-44 runner",
+        "sha256": "e49d7a5e0e879a9d0714339d6a2ebac379eadf0dc5d58155af166986cbbf324e"
+      },
+      "sha256": "acdc1db0e9966e8563f9cfde40bd8553f5cc71fc81ec3adb6bc33e5747ccfdbf",
+      "target": "x86_64-apple-darwin"
+    },
+    "windows-x86_64": {
+      "candidate": {
+        "binding": {
+          "parallelism": "Par::Seq",
+          "profile_sha256": "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3",
+          "schema": "RapidRBF/InstrumentedFaerCandidateExecutionBinding/v1",
+          "temporary_storage": "denied-for-two-factor-feasibility"
+        },
+        "cancellation": {
+          "acknowledgement_latency_ns": 2845600,
+          "backend_signal_observed": true,
+          "cancellation_requested": true,
+          "failed_replacement_publications": 0,
+          "metrics_after_cancellation": {
+            "backend_entries": 2,
+            "checkpoint_events": 27730,
+            "cumulative_released_bytes": 43040807,
+            "cumulative_reserved_bytes": 43040807,
+            "outer_compute_permits_live": 0,
+            "stack_carve_events": 2,
+            "stack_carved_bytes": 1064952,
+            "temporary_storage_cumulative_writes": 0,
+            "temporary_storage_open_handles": 0,
+            "temporary_storage_residue_bytes": 0,
+            "transient_high_water_bytes": 43040807,
+            "transient_residue_bytes": 0
+          },
+          "passed": true,
+          "prior_state": {
+            "fingerprint_after": "ea2d08d42e54e49ccf01075b7178260b7f1dca3f3facaf3b1c61638737314fe1",
+            "fingerprint_before": "ea2d08d42e54e49ccf01075b7178260b7f1dca3f3facaf3b1c61638737314fe1",
+            "preserved": true,
+            "retained_bytes_after": 33570800,
+            "retained_bytes_before": 33570800,
+            "role": "projected_b"
+          },
+          "production_factor_publications": 0,
+          "production_solve_publications": 0,
+          "request_delay_after_backend_signal_ms": 10,
+          "result": "Cancelled",
+          "role": "projected_b"
+        },
+        "disposition": "FEASIBLE_FOR_216_FACTOR_QUALIFICATION",
+        "global_parallelism": "Seq",
+        "input_identities": {
+          "coarse_p_top": {
+            "bytes": 128,
+            "sha256": "d8f2c6eda87764e279872463d89cbd344d53947ecffeb7bbc0e55cf90438679e"
+          },
+          "projected_b": {
+            "bytes": 16769024,
+            "sha256": "e33319fe9a5f02a91bcf7410a784eccc1bded3e05628b59d1d7f0350614d7945"
+          }
+        },
+        "lane_id": "windows-x86_64",
+        "n_minus_one": [
+          {
+            "failed_replacement_publications": 0,
+            "grant_transient_bytes": 43040806,
+            "metrics_after_denial": {
+              "backend_entries": 0,
+              "checkpoint_events": 0,
+              "cumulative_released_bytes": 0,
+              "cumulative_reserved_bytes": 0,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 0,
+              "stack_carved_bytes": 0,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 0,
+              "transient_residue_bytes": 0
+            },
+            "operation_entered": false,
+            "passed": true,
+            "required_transient_bytes": 43040807,
+            "result": "Err(ResourceDenied)",
+            "role": "projected_b"
+          },
+          {
+            "failed_replacement_publications": 0,
+            "grant_transient_bytes": 358,
+            "metrics_after_denial": {
+              "backend_entries": 0,
+              "checkpoint_events": 0,
+              "cumulative_released_bytes": 0,
+              "cumulative_reserved_bytes": 0,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 0,
+              "stack_carved_bytes": 0,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 0,
+              "transient_residue_bytes": 0
+            },
+            "operation_entered": false,
+            "passed": true,
+            "required_transient_bytes": 359,
+            "result": "Err(ResourceDenied)",
+            "role": "coarse_p_top"
+          }
+        ],
+        "private_retention": {
+          "bytes_after_cleanup": 0,
+          "bytes_before_cleanup": 33571056,
+          "cleanup_closed": true
+        },
+        "production_publication": {
+          "reason": "issue-44 is a feasibility gate; full 216-factor qualification remains delegated",
+          "solved_count": 0,
+          "validated_factor_count": 0
+        },
+        "schema": "rapidrbf-instrumented-faer-lane-observation-v1",
+        "success": [
+          {
+            "checkpoint_bounds": [
+              {
+                "kind": "Pivot",
+                "maximum_unpolled_work_units": 4190209,
+                "selected_path": "faer Bunch-Kaufman LDLT",
+                "unit": "scalar pivot-search/update candidates"
+              },
+              {
+                "kind": "Panel",
+                "maximum_unpolled_work_units": 4190209,
+                "selected_path": "faer Bunch-Kaufman LDLT",
+                "unit": "scalar panel candidates (zero when path has no panel)"
+              },
+              {
+                "kind": "Packing",
+                "maximum_unpolled_work_units": 24576,
+                "selected_path": "private-gemm-x86 f64",
+                "unit": "scalar elements packed"
+              },
+              {
+                "kind": "MacroKernel",
+                "maximum_unpolled_work_units": 98304,
+                "selected_path": "private-gemm-x86 f64",
+                "unit": "scalar multiply-add contributions"
+              },
+              {
+                "kind": "Solve",
+                "maximum_unpolled_work_units": 2047,
+                "selected_path": "faer Bunch-Kaufman and triangular solve",
+                "unit": "matrix elements in one recursive solve region"
+              }
+            ],
+            "error": null,
+            "factor_fingerprint_sha256": "ea2d08d42e54e49ccf01075b7178260b7f1dca3f3facaf3b1c61638737314fe1",
+            "factor_finite": true,
+            "metrics_after_execution": {
+              "backend_entries": 33,
+              "checkpoint_events": 463723,
+              "cumulative_released_bytes": 303087655,
+              "cumulative_reserved_bytes": 303087655,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 35,
+              "stack_carved_bytes": 17645560,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 43040807,
+              "transient_residue_bytes": 0
+            },
+            "outer_compute_permits_observed_inside_operation": 1,
+            "parallelism": "Par::Seq",
+            "passed": true,
+            "private_retained_bytes_before_cleanup": 33570800,
+            "production_factor_publications": 0,
+            "production_solve_publications": 0,
+            "reduced_backward_error": 1.420337517129258e-17,
+            "reduced_backward_error_threshold": 1.454480980100925e-11,
+            "role": "projected_b",
+            "schedule": {
+              "factor_auxiliary_alignment": 8,
+              "factor_auxiliary_bytes": 49128,
+              "peak_transient_bytes": 43040807,
+              "private_gemm_workspace_alignment": 4096,
+              "private_gemm_workspace_bytes": 8388608,
+              "publication_bytes": 33570800,
+              "required_compute_permits": 1,
+              "retained_bytes": 33570800,
+              "solve_rhs_alignment": 8,
+              "solve_rhs_bytes": 16376,
+              "solver_stack_alignment": 64,
+              "solver_stack_bytes": 1065023,
+              "staged_matrix_alignment": 8,
+              "staged_matrix_bytes": 33521672
+            },
+            "solution_finite": true,
+            "stack_requirement_bytes": 1065023,
+            "status": "COMPLETED"
+          },
+          {
+            "checkpoint_bounds": [
+              {
+                "kind": "Pivot",
+                "maximum_unpolled_work_units": 16,
+                "selected_path": "faer full-pivot LU",
+                "unit": "scalar pivot-search/update candidates"
+              },
+              {
+                "kind": "Panel",
+                "maximum_unpolled_work_units": 0,
+                "selected_path": "not applicable",
+                "unit": "scalar panel candidates (zero when path has no panel)"
+              },
+              {
+                "kind": "Packing",
+                "maximum_unpolled_work_units": 0,
+                "selected_path": "not applicable to 4x4 full-pivot LU",
+                "unit": "scalar elements packed"
+              },
+              {
+                "kind": "MacroKernel",
+                "maximum_unpolled_work_units": 0,
+                "selected_path": "not applicable to 4x4 full-pivot LU",
+                "unit": "scalar multiply-add contributions"
+              },
+              {
+                "kind": "Solve",
+                "maximum_unpolled_work_units": 4,
+                "selected_path": "faer full-pivot LU and triangular solve",
+                "unit": "matrix elements in one recursive solve region"
+              }
+            ],
+            "error": null,
+            "factor_fingerprint_sha256": "fa2d5280c43c93f5fed0dfdcba721e1fa58ff5e14c8963c7478ffc31e864b6d6",
+            "factor_finite": true,
+            "metrics_after_execution": {
+              "backend_entries": 1,
+              "checkpoint_events": 8,
+              "cumulative_released_bytes": 359,
+              "cumulative_reserved_bytes": 359,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 2,
+              "stack_carved_bytes": 64,
+              "temporary_storage_cumulative_writes": 0,
+              "temporary_storage_open_handles": 0,
+              "temporary_storage_residue_bytes": 0,
+              "transient_high_water_bytes": 359,
+              "transient_residue_bytes": 0
+            },
+            "outer_compute_permits_observed_inside_operation": 1,
+            "parallelism": "Par::Seq",
+            "passed": true,
+            "private_retained_bytes_before_cleanup": 256,
+            "production_factor_publications": 0,
+            "production_solve_publications": 0,
+            "reduced_backward_error": 0.0,
+            "reduced_backward_error_threshold": 2.842170943040401e-14,
+            "role": "coarse_p_top",
+            "schedule": {
+              "factor_auxiliary_alignment": 8,
+              "factor_auxiliary_bytes": 128,
+              "peak_transient_bytes": 359,
+              "private_gemm_workspace_alignment": 1,
+              "private_gemm_workspace_bytes": 0,
+              "publication_bytes": 256,
+              "required_compute_permits": 1,
+              "retained_bytes": 256,
+              "solve_rhs_alignment": 8,
+              "solve_rhs_bytes": 32,
+              "solver_stack_alignment": 8,
+              "solver_stack_bytes": 71,
+              "staged_matrix_alignment": 8,
+              "staged_matrix_bytes": 128
+            },
+            "solution_finite": true,
+            "stack_requirement_bytes": 71,
+            "status": "COMPLETED"
+          }
+        ],
+        "target": "x86_64-pc-windows-msvc",
+        "temporary_storage_policy": {
+          "candidate_bytes_written": 0,
+          "candidate_files_created": 0,
+          "candidate_open_handles_after_execution": 0,
+          "policy": "denied"
+        }
+      },
+      "native_executable": {
+        "bytes": 2805248,
+        "path_role": "target/release native issue-44 runner",
+        "sha256": "0a9aa22a8559913a9d45f5f824fb21166030b28432488b6fbfa268f4c47b9e2e"
+      },
+      "sha256": "e610d7f82183c9635e32630d190da9b50e189450360c6b96e523575b06032de7",
+      "target": "x86_64-pc-windows-msvc"
+    }
+  },
+  "problems": [],
+  "required_lanes": [
+    "windows-x86_64",
+    "linux-x86_64-glibc",
+    "macos-arm64",
+    "macos-x86_64"
+  ],
+  "schema": "rapidrbf-instrumented-faer-feasibility-cohort-v1"
+}

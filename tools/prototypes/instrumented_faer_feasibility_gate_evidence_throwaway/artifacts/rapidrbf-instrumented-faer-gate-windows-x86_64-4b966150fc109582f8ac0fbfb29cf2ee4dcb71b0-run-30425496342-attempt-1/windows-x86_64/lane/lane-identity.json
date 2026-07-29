@@ -1,0 +1,282 @@
+{
+  "candidate": {
+    "backend_calls": 0,
+    "binding_loaded": false,
+    "disposition": "NOT_IN_SCOPE_FOR_LANE_PREFLIGHT",
+    "factor_publications": 0
+  },
+  "captured_at_utc": "2026-07-29T05:35:44.927242+00:00",
+  "checks": [
+    {
+      "detail": "GITHUB_ACTIONS='true'",
+      "name": "github_actions",
+      "status": "PASS"
+    },
+    {
+      "detail": "RUNNER_ENVIRONMENT='github-hosted'",
+      "name": "github_hosted_runner",
+      "status": "PASS"
+    },
+    {
+      "detail": "RUNNER_OS='Windows'; expected='Windows'",
+      "name": "runner_os",
+      "status": "PASS"
+    },
+    {
+      "detail": "RUNNER_ARCH='X64'; expected='X64'",
+      "name": "runner_arch",
+      "status": "PASS"
+    },
+    {
+      "detail": "platform.machine()='AMD64'; accepted=['AMD64', 'x86_64']",
+      "name": "native_machine",
+      "status": "PASS"
+    },
+    {
+      "detail": "rustc host='x86_64-pc-windows-msvc'; required target='x86_64-pc-windows-msvc'",
+      "name": "native_rust_host",
+      "status": "PASS"
+    },
+    {
+      "detail": "required=['avx2', 'fma']; missing=[]",
+      "name": "required_cpu_features",
+      "status": "PASS"
+    },
+    {
+      "detail": "ImageOS='win25-vs2026'; ImageVersion='20260714.173.1'",
+      "name": "runner_image_identity",
+      "status": "PASS"
+    },
+    {
+      "detail": "RUNNER_TEMP is present and resolves to a directory",
+      "name": "runner_temp",
+      "status": "PASS"
+    },
+    {
+      "detail": "native executable returned 'windows:x86_64'; expected 'windows:x86_64'; header={'format': 'pe', 'machine': 34404}",
+      "name": "native_rust_compile_and_execute",
+      "status": "PASS"
+    },
+    {
+      "detail": "write/read/delete completed below RUNNER_TEMP",
+      "name": "isolated_scratch_roundtrip",
+      "status": "PASS"
+    }
+  ],
+  "contract": {
+    "contract_id": "RapidRBF/InstrumentedFaerQualifiedHostLanes/v1",
+    "sha256": "d6edbf73cc9788dfb56eedc58010ce3b091d94014111a6a4b1f1171cc8f7c5a3"
+  },
+  "github": {
+    "event_name": "push",
+    "image_os": "win25-vs2026",
+    "image_version": "20260714.173.1",
+    "job": "lane",
+    "ref": "refs/heads/codex/execute-instrumented-faer-gate",
+    "repository": "qingsonger/RapidRBF",
+    "run_attempt": "1",
+    "run_id": "30425496342",
+    "run_number": "1",
+    "run_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30425496342",
+    "runner_arch": "X64",
+    "runner_environment": "github-hosted",
+    "runner_name": "GitHub Actions 1000005054",
+    "runner_os": "Windows",
+    "sha": "4b966150fc109582f8ac0fbfb29cf2ee4dcb71b0",
+    "workflow": "Instrumented faer frozen feasibility gate",
+    "workflow_ref": "qingsonger/RapidRBF/.github/workflows/instrumented-faer-feasibility-gate.yml@refs/heads/codex/execute-instrumented-faer-gate"
+  },
+  "host": {
+    "cpu": {
+      "logical_cpu_count": 4,
+      "platform_detail": {
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-Command",
+          "Get-CimInstance Win32_Processor | Select-Object Name,Manufacturer,NumberOfCores,NumberOfLogicalProcessors | ConvertTo-Json -Compress"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "{\"Name\":\"AMD EPYC 9V74 80-Core Processor                \",\"Manufacturer\":\"AuthenticAMD\",\"NumberOfCores\":2,\"NumberOfLogicalProcessors\":4}"
+      },
+      "python_processor": "AMD64 Family 25 Model 17 Stepping 1, AuthenticAMD"
+    },
+    "glibc": null,
+    "native_rust_features": [
+      "adx",
+      "aes",
+      "avx",
+      "avx2",
+      "bmi1",
+      "bmi2",
+      "cmpxchg16b",
+      "f16c",
+      "fma",
+      "fxsr",
+      "lzcnt",
+      "movbe",
+      "pclmulqdq",
+      "popcnt",
+      "rdrand",
+      "rdseed",
+      "sha",
+      "sse",
+      "sse2",
+      "sse3",
+      "sse4.1",
+      "sse4.2",
+      "ssse3",
+      "xsave",
+      "xsavec",
+      "xsaveopt",
+      "xsaves"
+    ],
+    "os": {
+      "platform_detail": {
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-Command",
+          "Get-CimInstance Win32_OperatingSystem | Select-Object Caption,Version,BuildNumber | ConvertTo-Json -Compress"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "{\"Caption\":\"Microsoft Windows Server 2025 Datacenter\",\"Version\":\"10.0.26100\",\"BuildNumber\":\"26100\"}"
+      },
+      "platform_machine": "AMD64",
+      "platform_release": "2025Server",
+      "platform_system": "Windows",
+      "platform_version": "10.0.26100",
+      "uname": [
+        "Windows",
+        "runnervmr7g38",
+        "2025Server",
+        "10.0.26100",
+        "AMD64",
+        "AMD64 Family 25 Model 17 Stepping 1, AuthenticAMD"
+      ]
+    },
+    "resources": {
+      "memory": {
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-Command",
+          "Get-CimInstance Win32_OperatingSystem | Select-Object TotalVisibleMemorySize,FreePhysicalMemory | ConvertTo-Json -Compress"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "{\"TotalVisibleMemorySize\":16771836,\"FreePhysicalMemory\":13952348}"
+      },
+      "runner_temp_disk": {
+        "free_bytes": 157796282368,
+        "total_bytes": 161059172352,
+        "used_bytes": 3262889984
+      }
+    }
+  },
+  "lane": {
+    "executable_format": "pe",
+    "executable_machine": 34404,
+    "lane_id": "windows-x86_64",
+    "native_machine": [
+      "AMD64",
+      "x86_64"
+    ],
+    "required_cpu_features": [
+      "avx2",
+      "fma"
+    ],
+    "runner_arch": "X64",
+    "runner_label": "windows-2025",
+    "runner_os": "Windows",
+    "rust_std_arch": "x86_64",
+    "rust_std_os": "windows",
+    "target": "x86_64-pc-windows-msvc",
+    "tier_one": "Windows x86_64"
+  },
+  "native_smoke": {
+    "compile_returncode": 0,
+    "compile_stderr": "",
+    "executable_header": {
+      "format": "pe",
+      "machine": 34404
+    },
+    "execute_returncode": 0,
+    "execute_stderr": "",
+    "execute_stdout": "windows:x86_64"
+  },
+  "qualification": "PASS",
+  "schema": "rapidrbf-instrumented-faer-lane-witness-v1",
+  "toolchain": {
+    "cargo_version": {
+      "command": [
+        "cargo",
+        "-V"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "cargo 1.85.0 (d73d2caf9 2024-12-31)"
+    },
+    "clang_version": {
+      "command": [
+        "clang",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "clang version 20.1.8\nTarget: x86_64-pc-windows-msvc\nThread model: posix\nInstalledDir: C:\\Program Files\\LLVM\\bin"
+    },
+    "cmake_version": {
+      "command": [
+        "cmake",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "cmake version 4.4.0\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake)."
+    },
+    "git_version": {
+      "command": [
+        "git",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "git version 2.55.0.windows.2"
+    },
+    "native_feature_command": {
+      "command": [
+        "rustc",
+        "--print",
+        "cfg",
+        "-C",
+        "target-cpu=native"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "debug_assertions\npanic=\"unwind\"\ntarget_abi=\"\"\ntarget_arch=\"x86_64\"\ntarget_endian=\"little\"\ntarget_env=\"msvc\"\ntarget_family=\"windows\"\ntarget_feature=\"adx\"\ntarget_feature=\"aes\"\ntarget_feature=\"avx\"\ntarget_feature=\"avx2\"\ntarget_feature=\"bmi1\"\ntarget_feature=\"bmi2\"\ntarget_feature=\"cmpxchg16b\"\ntarget_feature=\"f16c\"\ntarget_feature=\"fma\"\ntarget_feature=\"fxsr\"\ntarget_feature=\"lzcnt\"\ntarget_feature=\"movbe\"\ntarget_feature=\"pclmulqdq\"\ntarget_feature=\"popcnt\"\ntarget_feature=\"rdrand\"\ntarget_feature=\"rdseed\"\ntarget_feature=\"sha\"\ntarget_feature=\"sse\"\ntarget_feature=\"sse2\"\ntarget_feature=\"sse3\"\ntarget_feature=\"sse4.1\"\ntarget_feature=\"sse4.2\"\ntarget_feature=\"ssse3\"\ntarget_feature=\"xsave\"\ntarget_feature=\"xsavec\"\ntarget_feature=\"xsaveopt\"\ntarget_feature=\"xsaves\"\ntarget_has_atomic=\"128\"\ntarget_has_atomic=\"16\"\ntarget_has_atomic=\"32\"\ntarget_has_atomic=\"64\"\ntarget_has_atomic=\"8\"\ntarget_has_atomic=\"ptr\"\ntarget_os=\"windows\"\ntarget_pointer_width=\"64\"\ntarget_vendor=\"pc\"\nwindows"
+    },
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "rustc_verbose": {
+      "command": [
+        "rustc",
+        "-vV"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-pc-windows-msvc\nrelease: 1.85.0\nLLVM version: 19.1.7"
+    },
+    "rustup_active_toolchain": {
+      "command": [
+        "rustup",
+        "show",
+        "active-toolchain"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "1.85.0-x86_64-pc-windows-msvc (overridden by environment variable RUSTUP_TOOLCHAIN)"
+    }
+  }
+}

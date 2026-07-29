@@ -1,0 +1,303 @@
+{
+  "candidate": {
+    "backend_calls": 0,
+    "binding_loaded": false,
+    "disposition": "NOT_IN_SCOPE_FOR_LANE_PREFLIGHT",
+    "factor_publications": 0
+  },
+  "captured_at_utc": "2026-07-29T05:35:19.924130+00:00",
+  "checks": [
+    {
+      "detail": "GITHUB_ACTIONS='true'",
+      "name": "github_actions",
+      "status": "PASS"
+    },
+    {
+      "detail": "RUNNER_ENVIRONMENT='github-hosted'",
+      "name": "github_hosted_runner",
+      "status": "PASS"
+    },
+    {
+      "detail": "RUNNER_OS='Linux'; expected='Linux'",
+      "name": "runner_os",
+      "status": "PASS"
+    },
+    {
+      "detail": "RUNNER_ARCH='X64'; expected='X64'",
+      "name": "runner_arch",
+      "status": "PASS"
+    },
+    {
+      "detail": "platform.machine()='x86_64'; accepted=['AMD64', 'x86_64']",
+      "name": "native_machine",
+      "status": "PASS"
+    },
+    {
+      "detail": "rustc host='x86_64-unknown-linux-gnu'; required target='x86_64-unknown-linux-gnu'",
+      "name": "native_rust_host",
+      "status": "PASS"
+    },
+    {
+      "detail": "required=['avx2', 'fma']; missing=[]",
+      "name": "required_cpu_features",
+      "status": "PASS"
+    },
+    {
+      "detail": "ImageOS='ubuntu24'; ImageVersion='20260720.247.2'",
+      "name": "runner_image_identity",
+      "status": "PASS"
+    },
+    {
+      "detail": "RUNNER_TEMP is present and resolves to a directory",
+      "name": "runner_temp",
+      "status": "PASS"
+    },
+    {
+      "detail": "getconf GNU_LIBC_VERSION='glibc 2.39'",
+      "name": "glibc",
+      "status": "PASS"
+    },
+    {
+      "detail": "native executable returned 'linux:x86_64'; expected 'linux:x86_64'; header={'format': 'elf', 'machine': 62}",
+      "name": "native_rust_compile_and_execute",
+      "status": "PASS"
+    },
+    {
+      "detail": "write/read/delete completed below RUNNER_TEMP",
+      "name": "isolated_scratch_roundtrip",
+      "status": "PASS"
+    }
+  ],
+  "contract": {
+    "contract_id": "RapidRBF/InstrumentedFaerQualifiedHostLanes/v1",
+    "sha256": "d6edbf73cc9788dfb56eedc58010ce3b091d94014111a6a4b1f1171cc8f7c5a3"
+  },
+  "github": {
+    "event_name": "push",
+    "image_os": "ubuntu24",
+    "image_version": "20260720.247.2",
+    "job": "lane",
+    "ref": "refs/heads/codex/execute-instrumented-faer-gate",
+    "repository": "qingsonger/RapidRBF",
+    "run_attempt": "1",
+    "run_id": "30425496342",
+    "run_number": "1",
+    "run_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30425496342",
+    "runner_arch": "X64",
+    "runner_environment": "github-hosted",
+    "runner_name": "GitHub Actions 1000005053",
+    "runner_os": "Linux",
+    "sha": "4b966150fc109582f8ac0fbfb29cf2ee4dcb71b0",
+    "workflow": "Instrumented faer frozen feasibility gate",
+    "workflow_ref": "qingsonger/RapidRBF/.github/workflows/instrumented-faer-feasibility-gate.yml@refs/heads/codex/execute-instrumented-faer-gate"
+  },
+  "host": {
+    "cpu": {
+      "logical_cpu_count": 4,
+      "platform_detail": {
+        "command": [
+          "lscpu",
+          "--json"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "{\n   \"lscpu\": [\n      {\n         \"field\": \"Architecture:\",\n         \"data\": \"x86_64\"\n      },{\n         \"field\": \"CPU op-mode(s):\",\n         \"data\": \"32-bit, 64-bit\"\n      },{\n         \"field\": \"Address sizes:\",\n         \"data\": \"48 bits physical, 48 bits virtual\"\n      },{\n         \"field\": \"Byte Order:\",\n         \"data\": \"Little Endian\"\n      },{\n         \"field\": \"CPU(s):\",\n         \"data\": \"4\"\n      },{\n         \"field\": \"On-line CPU(s) list:\",\n         \"data\": \"0-3\"\n      },{\n         \"field\": \"Vendor ID:\",\n         \"data\": \"AuthenticAMD\"\n      },{\n         \"field\": \"Model name:\",\n         \"data\": \"AMD EPYC 7763 64-Core Processor\"\n      },{\n         \"field\": \"CPU family:\",\n         \"data\": \"25\"\n      },{\n         \"field\": \"Model:\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"Thread(s) per core:\",\n         \"data\": \"2\"\n      },{\n         \"field\": \"Core(s) per socket:\",\n         \"data\": \"2\"\n      },{\n         \"field\": \"Socket(s):\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"Stepping:\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"BogoMIPS:\",\n         \"data\": \"4890.85\"\n      },{\n         \"field\": \"Flags:\",\n         \"data\": \"fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm\"\n      },{\n         \"field\": \"Virtualization:\",\n         \"data\": \"AMD-V\"\n      },{\n         \"field\": \"Hypervisor vendor:\",\n         \"data\": \"Microsoft\"\n      },{\n         \"field\": \"Virtualization type:\",\n         \"data\": \"full\"\n      },{\n         \"field\": \"L1d cache:\",\n         \"data\": \"64 KiB (2 instances)\"\n      },{\n         \"field\": \"L1i cache:\",\n         \"data\": \"64 KiB (2 instances)\"\n      },{\n         \"field\": \"L2 cache:\",\n         \"data\": \"1 MiB (2 instances)\"\n      },{\n         \"field\": \"L3 cache:\",\n         \"data\": \"32 MiB (1 instance)\"\n      },{\n         \"field\": \"NUMA node(s):\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"NUMA node0 CPU(s):\",\n         \"data\": \"0-3\"\n      },{\n         \"field\": \"Vulnerability Gather data sampling:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Ghostwrite:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Indirect target selection:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Itlb multihit:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability L1tf:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Mds:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Meltdown:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Mmio stale data:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Old microcode:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Reg file data sampling:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Retbleed:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Spec rstack overflow:\",\n         \"data\": \"Vulnerable: Safe RET, no microcode\"\n      },{\n         \"field\": \"Vulnerability Spec store bypass:\",\n         \"data\": \"Vulnerable\"\n      },{\n         \"field\": \"Vulnerability Spectre v1:\",\n         \"data\": \"Mitigation; usercopy/swapgs barriers and __user pointer sanitization\"\n      },{\n         \"field\": \"Vulnerability Spectre v2:\",\n         \"data\": \"Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\"\n      },{\n         \"field\": \"Vulnerability Srbds:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Tsa:\",\n         \"data\": \"Vulnerable: No microcode\"\n      },{\n         \"field\": \"Vulnerability Tsx async abort:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Vmscape:\",\n         \"data\": \"Not affected\"\n      }\n   ]\n}"
+      },
+      "python_processor": "x86_64"
+    },
+    "glibc": "glibc 2.39",
+    "native_rust_features": [
+      "adx",
+      "aes",
+      "avx",
+      "avx2",
+      "bmi1",
+      "bmi2",
+      "cmpxchg16b",
+      "f16c",
+      "fma",
+      "fxsr",
+      "lzcnt",
+      "movbe",
+      "pclmulqdq",
+      "popcnt",
+      "rdrand",
+      "rdseed",
+      "sha",
+      "sse",
+      "sse2",
+      "sse3",
+      "sse4.1",
+      "sse4.2",
+      "ssse3",
+      "xsave",
+      "xsavec",
+      "xsaveopt",
+      "xsaves"
+    ],
+    "os": {
+      "glibc": {
+        "command": [
+          "getconf",
+          "GNU_LIBC_VERSION"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "glibc 2.39"
+      },
+      "os_release": {
+        "BUG_REPORT_URL": "https://bugs.launchpad.net/ubuntu/",
+        "HOME_URL": "https://www.ubuntu.com/",
+        "ID": "ubuntu",
+        "ID_LIKE": "debian",
+        "LOGO": "ubuntu-logo",
+        "NAME": "Ubuntu",
+        "PRETTY_NAME": "Ubuntu 24.04.4 LTS",
+        "PRIVACY_POLICY_URL": "https://www.ubuntu.com/legal/terms-and-policies/privacy-policy",
+        "SUPPORT_URL": "https://help.ubuntu.com/",
+        "UBUNTU_CODENAME": "noble",
+        "VERSION": "24.04.4 LTS (Noble Numbat)",
+        "VERSION_CODENAME": "noble",
+        "VERSION_ID": "24.04"
+      },
+      "platform_detail": {
+        "command": [
+          "uname",
+          "-a"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Linux runnervmvrwv9 6.17.0-1020-azure #20~24.04.1-Ubuntu SMP Fri Jun 19 20:09:14 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux"
+      },
+      "platform_machine": "x86_64",
+      "platform_release": "6.17.0-1020-azure",
+      "platform_system": "Linux",
+      "platform_version": "#20~24.04.1-Ubuntu SMP Fri Jun 19 20:09:14 UTC 2026",
+      "uname": [
+        "Linux",
+        "runnervmvrwv9",
+        "6.17.0-1020-azure",
+        "#20~24.04.1-Ubuntu SMP Fri Jun 19 20:09:14 UTC 2026",
+        "x86_64",
+        "x86_64"
+      ]
+    },
+    "resources": {
+      "memory": {
+        "MemAvailable": "15200208 kB",
+        "MemTotal": "16373460 kB",
+        "SwapFree": "3145724 kB",
+        "SwapTotal": "3145724 kB"
+      },
+      "runner_temp_disk": {
+        "free_bytes": 93295157248,
+        "total_bytes": 154894188544,
+        "used_bytes": 61582254080
+      }
+    }
+  },
+  "lane": {
+    "executable_format": "elf",
+    "executable_machine": 62,
+    "lane_id": "linux-x86_64-glibc",
+    "libc": "glibc",
+    "native_machine": [
+      "AMD64",
+      "x86_64"
+    ],
+    "required_cpu_features": [
+      "avx2",
+      "fma"
+    ],
+    "runner_arch": "X64",
+    "runner_label": "ubuntu-24.04",
+    "runner_os": "Linux",
+    "rust_std_arch": "x86_64",
+    "rust_std_os": "linux",
+    "target": "x86_64-unknown-linux-gnu",
+    "tier_one": "Linux x86_64 glibc"
+  },
+  "native_smoke": {
+    "compile_returncode": 0,
+    "compile_stderr": "",
+    "executable_header": {
+      "format": "elf",
+      "machine": 62
+    },
+    "execute_returncode": 0,
+    "execute_stderr": "",
+    "execute_stdout": "linux:x86_64"
+  },
+  "qualification": "PASS",
+  "schema": "rapidrbf-instrumented-faer-lane-witness-v1",
+  "toolchain": {
+    "cargo_version": {
+      "command": [
+        "cargo",
+        "-V"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "cargo 1.85.0 (d73d2caf9 2024-12-31)"
+    },
+    "clang_version": {
+      "command": [
+        "clang",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Ubuntu clang version 18.1.3 (1ubuntu1)\nTarget: x86_64-pc-linux-gnu\nThread model: posix\nInstalledDir: /usr/bin"
+    },
+    "cmake_version": {
+      "command": [
+        "cmake",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "cmake version 3.31.6\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake)."
+    },
+    "git_version": {
+      "command": [
+        "git",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "git version 2.54.0"
+    },
+    "native_feature_command": {
+      "command": [
+        "rustc",
+        "--print",
+        "cfg",
+        "-C",
+        "target-cpu=native"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "debug_assertions\npanic=\"unwind\"\ntarget_abi=\"\"\ntarget_arch=\"x86_64\"\ntarget_endian=\"little\"\ntarget_env=\"gnu\"\ntarget_family=\"unix\"\ntarget_feature=\"adx\"\ntarget_feature=\"aes\"\ntarget_feature=\"avx\"\ntarget_feature=\"avx2\"\ntarget_feature=\"bmi1\"\ntarget_feature=\"bmi2\"\ntarget_feature=\"cmpxchg16b\"\ntarget_feature=\"f16c\"\ntarget_feature=\"fma\"\ntarget_feature=\"fxsr\"\ntarget_feature=\"lzcnt\"\ntarget_feature=\"movbe\"\ntarget_feature=\"pclmulqdq\"\ntarget_feature=\"popcnt\"\ntarget_feature=\"rdrand\"\ntarget_feature=\"rdseed\"\ntarget_feature=\"sha\"\ntarget_feature=\"sse\"\ntarget_feature=\"sse2\"\ntarget_feature=\"sse3\"\ntarget_feature=\"sse4.1\"\ntarget_feature=\"sse4.2\"\ntarget_feature=\"ssse3\"\ntarget_feature=\"xsave\"\ntarget_feature=\"xsavec\"\ntarget_feature=\"xsaveopt\"\ntarget_feature=\"xsaves\"\ntarget_has_atomic=\"16\"\ntarget_has_atomic=\"32\"\ntarget_has_atomic=\"64\"\ntarget_has_atomic=\"8\"\ntarget_has_atomic=\"ptr\"\ntarget_os=\"linux\"\ntarget_pointer_width=\"64\"\ntarget_vendor=\"unknown\"\nunix"
+    },
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "rustc_verbose": {
+      "command": [
+        "rustc",
+        "-vV"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7"
+    },
+    "rustup_active_toolchain": {
+      "command": [
+        "rustup",
+        "show",
+        "active-toolchain"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "1.85.0-x86_64-unknown-linux-gnu (overridden by environment variable RUSTUP_TOOLCHAIN)"
+    }
+  }
+}
