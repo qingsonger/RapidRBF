@@ -209,22 +209,64 @@ def windows_thread_count(pid: int) -> int:
     return count
 
 
+def macos_thread_count(pid: int) -> int:
+    class ProcTaskInfo(ctypes.Structure):
+        _fields_ = [
+            ("pti_virtual_size", ctypes.c_uint64),
+            ("pti_resident_size", ctypes.c_uint64),
+            ("pti_total_user", ctypes.c_uint64),
+            ("pti_total_system", ctypes.c_uint64),
+            ("pti_threads_user", ctypes.c_uint64),
+            ("pti_threads_system", ctypes.c_uint64),
+            ("pti_policy", ctypes.c_int32),
+            ("pti_faults", ctypes.c_int32),
+            ("pti_pageins", ctypes.c_int32),
+            ("pti_cow_faults", ctypes.c_int32),
+            ("pti_messages_sent", ctypes.c_int32),
+            ("pti_messages_received", ctypes.c_int32),
+            ("pti_syscalls_mach", ctypes.c_int32),
+            ("pti_syscalls_unix", ctypes.c_int32),
+            ("pti_csw", ctypes.c_int32),
+            ("pti_threadnum", ctypes.c_int32),
+            ("pti_numrunning", ctypes.c_int32),
+            ("pti_priority", ctypes.c_int32),
+        ]
+
+    proc_pidtaskinfo = 4
+    libproc = ctypes.CDLL("/usr/lib/libproc.dylib", use_errno=True)
+    libproc.proc_pidinfo.argtypes = [
+        ctypes.c_int,
+        ctypes.c_int,
+        ctypes.c_uint64,
+        ctypes.c_void_p,
+        ctypes.c_int,
+    ]
+    libproc.proc_pidinfo.restype = ctypes.c_int
+    info = ProcTaskInfo()
+    expected = ctypes.sizeof(info)
+    observed = libproc.proc_pidinfo(
+        pid,
+        proc_pidtaskinfo,
+        0,
+        ctypes.byref(info),
+        expected,
+    )
+    if observed != expected:
+        raise OSError(
+            ctypes.get_errno(),
+            f"proc_pidinfo returned {observed} bytes; expected {expected}",
+        )
+    return int(info.pti_threadnum)
+
+
 def process_thread_count(pid: int) -> int:
     if sys.platform == "win32":
         return windows_thread_count(pid)
+    if sys.platform == "darwin":
+        return macos_thread_count(pid)
     task_root = Path(f"/proc/{pid}/task")
     if task_root.is_dir():
         return len(list(task_root.iterdir()))
-    if sys.platform == "darwin":
-        completed = subprocess.run(
-            ["ps", "-o", "thcount=", "-p", str(pid)],
-            check=False,
-            capture_output=True,
-            text=True,
-            timeout=5,
-        )
-        if completed.returncode == 0 and completed.stdout.strip():
-            return int(completed.stdout.strip())
     raise RuntimeError(f"no native thread-count route for {sys.platform}")
 
 
@@ -252,7 +294,8 @@ def run_observed_process(
             maximum_threads = max(maximum_threads, process_thread_count(process.pid))
             samples += 1
         except (OSError, RuntimeError, subprocess.SubprocessError, ValueError) as error:
-            sampling_errors.append(str(error))
+            if process.poll() is None:
+                sampling_errors.append(str(error))
         if (time.monotonic_ns() - started) / 1_000_000_000 > timeout:
             process.kill()
             stdout, stderr = process.communicate()
