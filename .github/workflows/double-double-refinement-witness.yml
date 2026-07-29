@@ -1,6 +1,12 @@
 name: Frozen double-double refinement witness gate
 
 on:
+  push:
+    branches:
+      - codex/execute-double-double-refinement-witness
+    paths:
+      - .github/workflows/double-double-refinement-witness.yml
+      - tools/prototypes/double_double_refinement_witness_throwaway/**
   workflow_dispatch:
 
 permissions:
