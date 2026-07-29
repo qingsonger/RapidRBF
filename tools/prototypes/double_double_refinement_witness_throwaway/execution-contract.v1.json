@@ -1,6 +1,10 @@
 {
-  "schema": "RapidRBF/ControllerValidDoubleDoubleRefinementWitnessExecutionContract/v1",
-  "contract_id": "RapidRBF/ControllerValidDoubleDoubleRefinementWitnessExecutionContract/v1/347cd33670d4f53c3d0b439fcc01085081f019324fdf23f107d2b5e32b4ceea4",
+  "schema": "RapidRBF/ReadyGatedDoubleDoubleRefinementWitnessExecutionContract/v1",
+  "contract_id": "RapidRBF/ReadyGatedDoubleDoubleRefinementWitnessExecutionContract/v1/08036fb07eb581b5fce2664066956640be45cae136068ad69bb7b972e3f306ba",
+  "issue": 53,
+  "base_commit": "7bd33ea97d9958278bd5bc3bf3e1d3b7de3a3593",
+  "replacement_execution_plan_sha256": "08036fb07eb581b5fce2664066956640be45cae136068ad69bb7b972e3f306ba",
+  "validated_ready_gated_controller_binding_sha256": "ed3c2aef678709518e311cf55f9ea51ac26c5d91ea89240dc98417da2b9f2219",
   "controller_plan_sha256": "347cd33670d4f53c3d0b439fcc01085081f019324fdf23f107d2b5e32b4ceea4",
   "witness_plan_sha256": "7018a1a33d601076ff17b6824068ada146039fa57aab5b1cf71793cbe6d13d60",
   "issue49_materialized_source_binding_sha256": "54a5c04609562963a4eb73af82a101197d42a1298e46f06bd3c8caf7c69c54b8",
@@ -49,7 +53,13 @@
     "sole_waiter": true,
     "sampler_may_poll_wait_or_reap": false,
     "complete_process_tree_required": true,
-    "at_least_one_successful_sample_required": true
+    "at_least_one_successful_sample_required": true,
+    "synthetic_helper_readiness_witness": "entry marker after the requested threads reach their barrier",
+    "pre_ready_samples_retained_as": "sample_deferred",
+    "pre_ready_sample_may_update_or_release": false,
+    "controller_checks_per_lane": 277,
+    "each_check_persisted_before_global_pass": true,
+    "raw_helper_streams_retained": true
   },
   "owned_refinement_bytes_per_matrix_row": 168,
   "maximum_refinement_steps": 12,
@@ -61,8 +71,14 @@
   ],
   "attempt_mixing_permitted": false,
   "partial_rerun_permitted": false,
+  "automatic_retry_permitted": false,
+  "replacement_retry_permitted": false,
+  "favorable_attempt_selection_permitted": false,
   "candidate_observations_may_change_binding": false,
-  "maximum_attempts": 2,
-  "replacement_requires_live_human_ratification_after_invalid_primary": true,
-  "issue49_observations_may_satisfy_cohort_counts": false
+  "maximum_attempts": 1,
+  "required_run_attempt": 1,
+  "issue49_observations_may_satisfy_cohort_counts": false,
+  "issue51_observations_may_satisfy_cohort_counts": false,
+  "issue52_observations_may_satisfy_cohort_counts": false,
+  "invalidity_returns_to_fresh_wayfinder_ticket": true
 }

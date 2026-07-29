@@ -1,19 +1,19 @@
-name: Controller-valid double-double refinement witness gate
+name: Ready-gated double-double refinement witness replacement
 
 on:
   push:
     branches:
-      - codex/execute-controller-valid-refinement-witness
+      - codex/execute-ready-gated-refinement-witness
     paths:
-      - .github/workflows/controller-valid-double-double-refinement-witness.yml
+      - .github/workflows/ready-gated-double-double-refinement-witness.yml
       - tools/prototypes/double_double_refinement_witness_throwaway/**
-  workflow_dispatch:
+      - tools/prototypes/controller_preflight_replacement_plan_throwaway/replacement-execution-plan.v1.json
 
 permissions:
   contents: read
 
 concurrency:
-  group: controller-valid-double-double-refinement-witness
+  group: ready-gated-double-double-refinement-witness
   cancel-in-progress: false
 
 jobs:
@@ -93,7 +93,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-controller-valid-refinement-preflight-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-ready-gated-refinement-preflight-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: preflight-evidence
           if-no-files-found: error
           retention-days: 90
@@ -139,7 +139,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-controller-valid-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-ready-gated-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: reference-evidence
           if-no-files-found: error
           retention-days: 90
@@ -196,14 +196,14 @@ jobs:
       - name: Download all four completed preflights
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          pattern: rapidrbf-controller-valid-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          pattern: rapidrbf-ready-gated-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: preflight-cohort
           merge-multiple: true
 
       - name: Download the accepted reference
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          name: rapidrbf-controller-valid-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-ready-gated-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: reference-evidence
 
       - name: Capture and qualify the native host
@@ -248,7 +248,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-controller-valid-refinement-target-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-ready-gated-refinement-target-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: target-evidence
           if-no-files-found: error
           retention-days: 90
@@ -271,7 +271,7 @@ jobs:
         continue-on-error: true
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          pattern: rapidrbf-controller-valid-refinement-target-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          pattern: rapidrbf-ready-gated-refinement-target-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-evidence
           merge-multiple: true
 
@@ -279,7 +279,7 @@ jobs:
         continue-on-error: true
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          pattern: rapidrbf-controller-valid-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          pattern: rapidrbf-ready-gated-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-evidence
           merge-multiple: true
 
@@ -287,7 +287,7 @@ jobs:
         continue-on-error: true
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          name: rapidrbf-controller-valid-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-ready-gated-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-evidence/reference-evidence
 
       - name: Verify and judge the immutable cohort
@@ -305,7 +305,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-controller-valid-refinement-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-ready-gated-refinement-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-summary
           if-no-files-found: error
           retention-days: 90

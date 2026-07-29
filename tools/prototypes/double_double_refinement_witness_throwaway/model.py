@@ -1,4 +1,4 @@
-"""Pure in-memory review state for the Issue 51 throwaway prototype."""
+"""Pure in-memory review state for the Issue 53 throwaway prototype."""
 
 from __future__ import annotations
 

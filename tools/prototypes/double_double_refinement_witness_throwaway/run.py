@@ -1,4 +1,4 @@
-"""Controller for the frozen Issue 51 controller-valid witness gate."""
+"""Controller for the frozen Issue 53 ready-gated replacement witness."""
 
 from __future__ import annotations
 
@@ -19,6 +19,11 @@ from pathlib import Path
 from typing import Any, Sequence
 
 from controller_observer import observe_process
+from preflight_journal import (
+    PreflightJournal,
+    stream_record,
+    verify_preflight_journal,
+)
 
 
 ROOT = Path(__file__).resolve().parent
@@ -28,6 +33,11 @@ LANES = ROOT.parent / "instrumented_faer_lane_provisioning_throwaway"
 PLAN = ROOT / "factor-qualification-plan.v1.json"
 TRANSPORT = ROOT / "transport-manifest.v1.json"
 CONTRACT = ROOT / "execution-contract.v1.json"
+REPLACEMENT_PLAN = (
+    ROOT.parent
+    / "controller_preflight_replacement_plan_throwaway"
+    / "replacement-execution-plan.v1.json"
+)
 CONTROLLER_PLAN = (
     ROOT.parent
     / "controller_thread_evidence_plan_throwaway"
@@ -76,6 +86,9 @@ CONTROLLER_PLAN_SHA256 = (
 )
 ISSUE49_SOURCE_BINDING_SHA256 = (
     "54a5c04609562963a4eb73af82a101197d42a1298e46f06bd3c8caf7c69c54b8"
+)
+REPLACEMENT_PLAN_SHA256 = (
+    "08036fb07eb581b5fce2664066956640be45cae136068ad69bb7b972e3f306ba"
 )
 PINNED_ACTIONS = {
     "actions/checkout": "3d3c42e5aac5ba805825da76410c181273ba90b1",
@@ -155,11 +168,17 @@ CONTROLLER_BINDING_PATHS = {
     "tools/prototypes/double_double_refinement_witness_throwaway/controller_helper.rs": (
         CONTROLLER_HELPER
     ),
+    "tools/prototypes/double_double_refinement_witness_throwaway/preflight_journal.py": (
+        ROOT / "preflight_journal.py"
+    ),
     "tools/prototypes/double_double_refinement_witness_throwaway/verify_cohort.py": (
         ROOT / "verify_cohort.py"
     ),
     "tools/prototypes/double_double_refinement_witness_throwaway/execution-contract.v1.json": (
         ROOT / "execution-contract.v1.json"
+    ),
+    "tools/prototypes/controller_preflight_replacement_plan_throwaway/replacement-execution-plan.v1.json": (
+        REPLACEMENT_PLAN
     ),
     "tools/prototypes/controller_thread_evidence_plan_throwaway/controller-evidence-plan.v1.json": (
         CONTROLLER_PLAN
@@ -167,9 +186,15 @@ CONTROLLER_BINDING_PATHS = {
     "tools/prototypes/controller_thread_evidence_plan_throwaway/model.py": (
         CONTROLLER_MODEL
     ),
-    ".github/workflows/controller-valid-double-double-refinement-witness.yml": (
+    "tools/prototypes/instrumented_faer_lane_provisioning_throwaway/collect_lane_identity.py": (
+        LANES / "collect_lane_identity.py"
+    ),
+    "tools/prototypes/instrumented_faer_lane_provisioning_throwaway/lane-contract.v1.json": (
+        LANES / "lane-contract.v1.json"
+    ),
+    ".github/workflows/ready-gated-double-double-refinement-witness.yml": (
         REPOSITORY
-        / ".github/workflows/controller-valid-double-double-refinement-witness.yml"
+        / ".github/workflows/ready-gated-double-double-refinement-witness.yml"
     ),
 }
 SUPPORTED = "REFINEMENT_ROUTE_SUPPORTED_FOR_FULL_CORPUS_PLAN"
@@ -244,6 +269,10 @@ def git_blob(relative: str) -> bytes:
 
 def verify_static_authority() -> dict[str, Any]:
     require(
+        sha256_file(REPLACEMENT_PLAN) == REPLACEMENT_PLAN_SHA256,
+        "replacement execution plan differs",
+    )
+    require(
         sha256_file(CONTROLLER_PLAN) == CONTROLLER_PLAN_SHA256,
         "controller-valid plan differs",
     )
@@ -264,8 +293,19 @@ def verify_static_authority() -> dict[str, Any]:
             sha256_bytes(git_blob(relative)) == expected,
             f"unchanged Issue 49 execution byte differs: {relative}",
         )
+    contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+    require(
+        contract["replacement_execution_plan_sha256"]
+        == REPLACEMENT_PLAN_SHA256
+        and contract["candidate_binding_sha256"] == BINDING_SHA256
+        and contract["witness_plan_sha256"] == WITNESS_PLAN_SHA256
+        and contract["reference_manifest_sha256"] == REFERENCE_SHA256
+        and contract["maximum_attempts"] == 1
+        and contract["required_run_attempt"] == 1,
+        "Issue 53 execution contract differs",
+    )
     workflow = CONTROLLER_BINDING_PATHS[
-        ".github/workflows/controller-valid-double-double-refinement-witness.yml"
+        ".github/workflows/ready-gated-double-double-refinement-witness.yml"
     ].read_text(encoding="utf-8")
     for action, commit in PINNED_ACTIONS.items():
         require(
@@ -285,6 +325,7 @@ def verify_static_authority() -> dict[str, Any]:
         "witness inventory differs",
     )
     return {
+        "replacement_execution_plan_sha256": REPLACEMENT_PLAN_SHA256,
         "controller_plan_sha256": CONTROLLER_PLAN_SHA256,
         "issue49_materialized_source_binding_sha256": (
             ISSUE49_SOURCE_BINDING_SHA256
@@ -340,7 +381,7 @@ def source_binding() -> dict[str, Any]:
         (CANDIDATE / "binding-manifest.v1.json").read_text(encoding="utf-8")
     )
     value = {
-        "schema": "RapidRBF/ControllerValidRefinementWitnessSourceBinding/v1",
+        "schema": "RapidRBF/ReadyGatedRefinementWitnessReplacementSourceBinding/v1",
         "git_commit": git_value("rev-parse", "HEAD"),
         "rust_toolchain": "1.85.0",
         "cargo_lock_sha256": unchanged[
@@ -359,6 +400,7 @@ def source_binding() -> dict[str, Any]:
             ISSUE49_SOURCE_BINDING_SHA256
         ),
         "controller_plan_sha256": CONTROLLER_PLAN_SHA256,
+        "replacement_execution_plan_sha256": REPLACEMENT_PLAN_SHA256,
         "witness_plan_sha256": WITNESS_PLAN_SHA256,
         "accepted_reference_sha256": REFERENCE_SHA256,
         "transport_bundle_sha256": json.loads(
@@ -554,6 +596,10 @@ def helper_observation(
         stop_sampling_after_first_callback=True,
         sample_readiness=entry.is_file,
     )
+    observation["diagnostic_streams"] = {
+        "stdout": stream_record(completed.stdout),
+        "stderr": stream_record(completed.stderr),
+    }
     observation["helper"] = {
         "name": name,
         "requested_threads": threads,
@@ -570,135 +616,229 @@ def helper_observation(
     return observation
 
 
-def run_controller_preflight(environment: dict[str, str]) -> dict[str, Any]:
-    model = load_controller_model()
-    traces: dict[str, Any] = {}
-    for name, scenario in model.scenario_catalog().items():
-        state = model.initial_state(scenario["grant"])
-        for action in scenario["actions"]:
-            state = model.reduce(state, action)
-        traces[name] = {
-            "expected": scenario["expected"],
-            "observed": state["verdict"],
-            "pass": state["verdict"] == scenario["expected"],
-            "history": state["history"],
-        }
+def run_controller_preflight(
+    environment: dict[str, str],
+    *,
+    journal: PreflightJournal,
+    authority: dict[str, Any],
+    controller: dict[str, Any],
+) -> dict[str, Any]:
+    identity_pass = (
+        authority["replacement_execution_plan_sha256"]
+        == REPLACEMENT_PLAN_SHA256
+        and authority["candidate_binding_sha256"] == BINDING_SHA256
+        and authority["witness_plan_sha256"] == WITNESS_PLAN_SHA256
+        and controller["controller_binding_sha256"]
+        == source_binding()["controller_binding_sha256"]
+    )
+    journal.record(
+        name="issue53-authority-and-controller-binding",
+        group="identity",
+        passed=identity_pass,
+        detail={
+            "authority": authority,
+            "controller_binding": controller,
+        },
+    )
 
-    scratch = Path(tempfile.mkdtemp(prefix="rapidrbf-issue51-controller-preflight-"))
+    model = load_controller_model()
+    traces: dict[str, Any | None] = {}
+    for name, scenario in model.scenario_catalog().items():
+        def drive(scenario: dict[str, Any] = scenario) -> dict[str, Any]:
+            state = model.initial_state(scenario["grant"])
+            for action in scenario["actions"]:
+                state = model.reduce(state, action)
+            return {
+                "expected": scenario["expected"],
+                "observed": state["verdict"],
+                "history": state["history"],
+            }
+
+        traces[name] = journal.capture(
+            name=f"pure-state-{name}",
+            group="pure-state-trace",
+            action=drive,
+            predicate=lambda value: value["observed"] == value["expected"],
+        )
+    pure_state_pass = all(
+        result is not None and result["observed"] == result["expected"]
+        for result in traces.values()
+    )
+    journal.record(
+        name="pure_state_traces",
+        group="global-check",
+        passed=pure_state_pass,
+        detail={"scenario_count": len(traces)},
+    )
+
+    scratch = Path(tempfile.mkdtemp(prefix="rapidrbf-issue53-controller-preflight-"))
+    observations: dict[str, Any | None] = {}
+    fast_exits: list[Any | None] = []
     try:
         helper_executable = scratch / (
             "controller-helper.exe" if sys.platform == "win32" else "controller-helper"
         )
-        helper_build = run(
-            [
-                "rustc",
-                str(CONTROLLER_HELPER),
-                "-C",
-                "opt-level=0",
-                "-o",
-                str(helper_executable),
-            ],
-            cwd=ROOT,
-            env=environment,
-            timeout=300,
-        )
-        helper_build_evidence = {
-            "source_sha256": sha256_file(CONTROLLER_HELPER),
-            "executable_sha256": sha256_file(helper_executable),
-            "stdout": helper_build.stdout,
-            "stderr": helper_build.stderr,
-        }
-        one_thread = helper_observation(
-            scratch,
-            helper_executable=helper_executable,
-            name="one-thread",
-            threads=1,
-            grant=12,
-            environment=environment,
-            require_sample=True,
-        )
-        over_grant = helper_observation(
-            scratch,
-            helper_executable=helper_executable,
-            name="grant-plus-one",
-            threads=13,
-            grant=12,
-            environment=environment,
-            require_sample=True,
-        )
-        fast_exits = [
-            helper_observation(
-                scratch,
-                helper_executable=helper_executable,
-                name=f"fast-exit-{index:03d}",
-                threads=1,
-                grant=12,
-                environment=environment,
-                require_sample=False,
+        def build_helper() -> dict[str, Any]:
+            completed = run(
+                [
+                    "rustc",
+                    str(CONTROLLER_HELPER),
+                    "-C",
+                    "opt-level=0",
+                    "-o",
+                    str(helper_executable),
+                ],
+                cwd=ROOT,
+                env=environment,
+                timeout=300,
             )
-            for index in range(256)
-        ]
-        unpaired_esrch = helper_observation(
-            scratch,
-            helper_executable=helper_executable,
-            name="fault-unpaired-esrch",
-            threads=1,
-            grant=12,
-            environment=environment,
-            require_sample=False,
-            fault_mode="unpaired-esrch",
+            return {
+                "source_sha256": sha256_file(CONTROLLER_HELPER),
+                "executable_sha256": sha256_file(helper_executable),
+                "stdout": completed.stdout,
+                "stderr": completed.stderr,
+            }
+
+        helper_build = journal.capture(
+            name="native-helper-build",
+            group="helper-build",
+            action=build_helper,
+            predicate=lambda value: helper_executable.is_file(),
         )
-        other_error = helper_observation(
-            scratch,
-            helper_executable=helper_executable,
-            name="fault-non-esrch",
-            threads=1,
-            grant=12,
-            environment=environment,
-            require_sample=False,
-            fault_mode="non-esrch",
-        )
+        if helper_build is not None and helper_executable.is_file():
+            def observe(
+                name: str,
+                threads: int,
+                require_sample: bool,
+                fault_mode: str | None = None,
+            ) -> dict[str, Any]:
+                return helper_observation(
+                    scratch,
+                    helper_executable=helper_executable,
+                    name=name,
+                    threads=threads,
+                    grant=12,
+                    environment=environment,
+                    require_sample=require_sample,
+                    fault_mode=fault_mode,
+                )
+
+            observations["one_thread"] = journal.capture(
+                name="one-thread",
+                group="native-helper-observation",
+                action=lambda: observe("one-thread", 1, True),
+                predicate=lambda value: (
+                    value["classification"] == "PASS"
+                    and 1 <= value["maximum_live_threads"] <= 12
+                ),
+            )
+            observations["grant_plus_one"] = journal.capture(
+                name="grant-plus-one",
+                group="native-helper-observation",
+                action=lambda: observe("grant-plus-one", 13, True),
+                predicate=lambda value: (
+                    value["classification"] == "VALID_CANDIDATE_OWNED_NONPASS"
+                    and value["maximum_live_threads"] >= 13
+                ),
+            )
+            for index in range(256):
+                name = f"fast-exit-{index:03d}"
+                fast_exits.append(
+                    journal.capture(
+                        name=name,
+                        group="fast-exit-observation",
+                        action=lambda name=name: observe(name, 1, False),
+                        predicate=lambda value: (
+                            value["classification"] == "PASS"
+                            and value["process_result"][
+                                "process_tree_empty_after_reap"
+                            ]
+                        ),
+                    )
+                )
+            observations["unpaired_esrch"] = journal.capture(
+                name="fault-unpaired-esrch",
+                group="native-helper-observation",
+                action=lambda: observe(
+                    "fault-unpaired-esrch", 1, False, "unpaired-esrch"
+                ),
+                predicate=lambda value: (
+                    value["classification"] == "INVALID_CONTROLLER_EVIDENCE"
+                ),
+            )
+            observations["other_error"] = journal.capture(
+                name="fault-non-esrch",
+                group="native-helper-observation",
+                action=lambda: observe(
+                    "fault-non-esrch", 1, False, "non-esrch"
+                ),
+                predicate=lambda value: (
+                    value["classification"] == "INVALID_CONTROLLER_EVIDENCE"
+                ),
+            )
     finally:
         shutil.rmtree(scratch, ignore_errors=True)
+
+    one_thread = observations.get("one_thread")
+    over_grant = observations.get("grant_plus_one")
+    unpaired_esrch = observations.get("unpaired_esrch")
+    other_error = observations.get("other_error")
     checks = {
-        "pure_state_traces": all(item["pass"] for item in traces.values()),
+        "pure_state_traces": pure_state_pass,
         "one_thread_detected": (
-            one_thread["classification"] == "PASS"
+            one_thread is not None
+            and one_thread["classification"] == "PASS"
             and 1 <= one_thread["maximum_live_threads"] <= 12
         ),
         "grant_plus_one_detected": (
-            over_grant["classification"] == "VALID_CANDIDATE_OWNED_NONPASS"
+            over_grant is not None
+            and over_grant["classification"] == "VALID_CANDIDATE_OWNED_NONPASS"
             and over_grant["maximum_live_threads"] >= 13
         ),
-        "fast_exit_closure": all(
-            item["classification"] == "PASS"
-            and item["process_result"]["process_tree_empty_after_reap"]
-            for item in fast_exits
+        "fast_exit_closure": (
+            len(fast_exits) == 256
+            and all(
+                item is not None
+                and item["classification"] == "PASS"
+                and item["process_result"]["process_tree_empty_after_reap"]
+                for item in fast_exits
+            )
         ),
         "unpaired_esrch_invalid": (
+            unpaired_esrch is not None
+            and
             unpaired_esrch["classification"] == "INVALID_CONTROLLER_EVIDENCE"
         ),
         "other_sampling_error_invalid": (
+            other_error is not None
+            and
             other_error["classification"] == "INVALID_CONTROLLER_EVIDENCE"
         ),
         "helper_scratch_removed": not scratch.exists(),
     }
+    for name, passed in checks.items():
+        if name == "pure_state_traces":
+            continue
+        journal.record(
+            name=name,
+            group="global-check",
+            passed=passed,
+            detail={"frozen_controller_check": name},
+        )
+    status = "PASS" if identity_pass and all(checks.values()) else "FAIL"
+    journal_identity = journal.finalize(status=status)
     return {
-        "schema": "RapidRBF/ControllerValidZeroEntryPreflight/v1",
-        "status": "PASS" if all(checks.values()) else "FAIL",
+        "schema": "RapidRBF/ReadyGatedControllerZeroEntryPreflight/v1",
+        "status": status,
         "candidate_backend_entries": 0,
         "factor_or_solve_calls": 0,
         "candidate_observations": 0,
         "checks": checks,
-        "pure_state_traces": traces,
-        "native_helpers": {
-            "build": helper_build_evidence,
-            "one_thread": one_thread,
-            "grant_plus_one": over_grant,
-            "fast_exits": fast_exits,
-            "unpaired_esrch": unpaired_esrch,
-            "other_sampling_error": other_error,
-        },
+        "failed_global_checks": [
+            name for name, passed in checks.items() if not passed
+        ],
+        "completed_check_count": journal_identity["completed_check_count"],
+        "journal": journal_identity,
     }
 
 
@@ -710,7 +850,6 @@ def run_preflight(
 ) -> None:
     require(lane_id in TARGETS and TARGETS[lane_id] == target, "target identity differs")
     require(not output.exists(), f"preflight output must be absent: {output}")
-    authority = verify_static_authority()
     lane = json.loads(lane_witness_path.read_text(encoding="utf-8"))
     require(
         lane["qualification"] == "PASS"
@@ -718,6 +857,19 @@ def run_preflight(
         and lane["lane"]["target"] == target,
         "preflight lane witness differs",
     )
+    require(
+        str(lane["github"]["run_attempt"]) == "1",
+        "replacement plan forbids a workflow rerun",
+    )
+    output.mkdir(parents=True)
+    journal = PreflightJournal(
+        output=output,
+        lane_id=lane_id,
+        target=target,
+        replacement_plan_sha256=REPLACEMENT_PLAN_SHA256,
+        lane_witness=lane_witness_path,
+    )
+    authority = verify_static_authority()
     environment = build_environment()
     environment["RAPIDRBF_LANE_ID"] = lane_id
     environment["RAPIDRBF_TARGET"] = target
@@ -729,7 +881,7 @@ def run_preflight(
     )
     executable = native_executable()
     require(executable.is_file(), "native executable missing")
-    output.mkdir(parents=True)
+    journal.mark_candidate_built()
     binary_path = output / "binary-preflight.json"
     binary = {
         "schema": "RapidRBF/UnexecutedCandidateBuildPreflight/v1",
@@ -746,8 +898,12 @@ def run_preflight(
         },
     }
     binary_path.write_text(json.dumps(binary, indent=2, sort_keys=True) + "\n")
-    controller = run_controller_preflight(environment)
-    require(controller["status"] == "PASS", "controller-only preflight failed")
+    controller = run_controller_preflight(
+        environment,
+        journal=journal,
+        authority=authority,
+        controller=controller_binding(),
+    )
     controller_path = output / "controller-preflight.json"
     controller_path.write_text(
         json.dumps(controller, indent=2, sort_keys=True) + "\n",
@@ -755,8 +911,8 @@ def run_preflight(
     )
     binding = source_binding()
     evidence = {
-        "schema": "RapidRBF/ControllerValidRefinementWitnessTargetPreflight/v1",
-        "status": "PASS",
+        "schema": "RapidRBF/ReadyGatedRefinementWitnessTargetPreflight/v1",
+        "status": controller["status"],
         "lane_id": lane_id,
         "target": target,
         "authority": authority,
@@ -775,6 +931,7 @@ def run_preflight(
             "bytes": controller_path.stat().st_size,
             "sha256": sha256_file(controller_path),
             "status": controller["status"],
+            "journal": controller["journal"],
         },
         "lane_witness": lane,
         "lane_witness_sha256": sha256_file(lane_witness_path),
@@ -797,6 +954,7 @@ def run_preflight(
     (output / "preflight-observation.json.sha256").write_text(
         f"{sha256_file(path)}  preflight-observation.json\n"
     )
+    require(controller["status"] == "PASS", "controller-only preflight failed")
 
 
 def verify_preflight_cohort(root: Path) -> dict[str, Any]:
@@ -827,9 +985,16 @@ def verify_preflight_cohort(root: Path) -> dict[str, Any]:
         binary = item["binary_preflight"]
         controller = item["controller_preflight"]
         require(
-            item["status"] == "PASS"
+            item["schema"]
+            == "RapidRBF/ReadyGatedRefinementWitnessTargetPreflight/v1"
+            and item["status"] == "PASS"
             and item["target"] == target
-            and item["binary_preflight"]["backend_entries"] == 0,
+            and not binary["candidate_executed"]
+            and binary["backend_entries"] == 0
+            and binary["factor_or_solve_calls"] == 0
+            and binary["candidate_observations"] == 0
+            and controller["status"] == "PASS"
+            and str(item["lane_witness"]["github"]["run_attempt"]) == "1",
             f"preflight {lane_id} failed",
         )
         require(
@@ -838,6 +1003,26 @@ def verify_preflight_cohort(root: Path) -> dict[str, Any]:
             and (parent / controller["file"]).stat().st_size == controller["bytes"]
             and sha256_file(parent / controller["file"]) == controller["sha256"],
             f"preflight descendants differ for {lane_id}",
+        )
+        journal_result = verify_preflight_journal(
+            parent,
+            lane_id=lane_id,
+            target=target,
+            replacement_plan_sha256=REPLACEMENT_PLAN_SHA256,
+        )
+        require(
+            {
+                name: journal_result[name]
+                for name in (
+                    "file",
+                    "bytes",
+                    "sha256",
+                    "sidecar",
+                    "completed_check_count",
+                )
+            }
+            == controller["journal"],
+            f"preflight journal envelope differs for {lane_id}",
         )
     local = source_binding()
     require(
@@ -1064,6 +1249,14 @@ def execute_target(args: argparse.Namespace) -> None:
     require(not args.output.exists(), f"output must be absent: {args.output}")
     authority = verify_static_authority()
     preflights = verify_preflight_cohort(args.preflight_root)
+    require(
+        os.environ.get("GITHUB_RUN_ATTEMPT") == "1",
+        "replacement plan forbids a workflow rerun",
+    )
+    require(
+        preflights["git_sha"] == git_value("rev-parse", "HEAD"),
+        "preflight commit differs from executing commit",
+    )
     reference = verify_reference(args.reference_manifest)
     transport, extraction = verify_transport(args.bundle)
     environment = build_environment()
@@ -1097,7 +1290,7 @@ def execute_target(args: argparse.Namespace) -> None:
             baseline = entry.with_suffix(".baseline.json")
             scratch = Path(
                 tempfile.gettempdir(),
-                f"rapidrbf-issue51-{args.lane_id}-{workers}-{os.getpid()}",
+                f"rapidrbf-issue53-{args.lane_id}-{workers}-{os.getpid()}",
             )
             require(
                 not output.exists()
@@ -1275,7 +1468,7 @@ def execute_target(args: argparse.Namespace) -> None:
         else:
             disposition = REJECTED
         evidence = {
-            "schema": "RapidRBF/ControllerValidRefinementWitnessTargetEvidence/v1",
+            "schema": "RapidRBF/ReadyGatedRefinementWitnessTargetEvidence/v1",
             "captured_at_utc": datetime.now(timezone.utc).isoformat(),
             "lane_id": args.lane_id,
             "target": args.target,

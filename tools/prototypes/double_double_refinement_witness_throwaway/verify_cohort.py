@@ -1,4 +1,4 @@
-"""Verify the immutable non-compensating Issue 51 four-target cohort."""
+"""Verify the sole immutable non-compensating Issue 53 replacement cohort."""
 
 from __future__ import annotations
 
@@ -7,6 +7,8 @@ import hashlib
 import json
 from pathlib import Path
 from typing import Any
+
+from preflight_journal import verify_preflight_journal
 
 
 TARGETS = {
@@ -278,6 +280,16 @@ def main() -> int:
     invalidity: list[str] = []
     failures: list[dict[str, Any]] = []
     referenced: set[Path] = set()
+    if (
+        contract.get("schema")
+        != "RapidRBF/ReadyGatedDoubleDoubleRefinementWitnessExecutionContract/v1"
+        or contract.get("maximum_attempts") != 1
+        or contract.get("required_run_attempt") != 1
+        or contract.get("replacement_retry_permitted")
+        or contract.get("partial_rerun_permitted")
+        or contract.get("attempt_mixing_permitted")
+    ):
+        invalidity.append("Issue 53 execution contract differs")
 
     reference_paths = sorted(
         args.evidence_root.rglob("reference-manifest.v1.json")
@@ -353,7 +365,7 @@ def main() -> int:
                 continue
             if (
                 item["schema"]
-                != "RapidRBF/ControllerValidRefinementWitnessTargetPreflight/v1"
+                != "RapidRBF/ReadyGatedRefinementWitnessTargetPreflight/v1"
                 or item["status"] != "PASS"
                 or item["target"] != TARGETS[lane]
                 or item["binary_preflight"]["candidate_executed"]
@@ -369,12 +381,39 @@ def main() -> int:
                 if not matches(child_path, child["bytes"], child["sha256"]):
                     invalidity.append(f"preflight {lane} {child_key} differs")
                 referenced.add(child_path)
+            journal = verify_preflight_journal(
+                path.parent,
+                lane_id=lane,
+                target=TARGETS[lane],
+                replacement_plan_sha256=contract[
+                    "replacement_execution_plan_sha256"
+                ],
+            )
+            if {
+                name: journal[name]
+                for name in (
+                    "file",
+                    "bytes",
+                    "sha256",
+                    "sidecar",
+                    "completed_check_count",
+                )
+            } != item["controller_preflight"]["journal"]:
+                invalidity.append(f"preflight {lane} journal envelope differs")
+            referenced.update(journal["referenced_paths"])
             if not verify_sidecar(path):
                 invalidity.append(f"preflight {lane} sidecar differs")
             referenced.update({path, path.with_name(path.name + ".sha256")})
             preflights[lane] = item
             preflight_files[lane] = path
-        except (KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
+        except (
+            KeyError,
+            OSError,
+            RuntimeError,
+            TypeError,
+            ValueError,
+            json.JSONDecodeError,
+        ) as error:
             invalidity.append(f"malformed preflight {path}: {error}")
     if set(preflights) != set(TARGETS):
         invalidity.append("complete four-lane preflight set is absent")
@@ -400,7 +439,7 @@ def main() -> int:
                 lane not in TARGETS
                 or target["target"] != TARGETS[lane]
                 or target["schema"]
-                != "RapidRBF/ControllerValidRefinementWitnessTargetEvidence/v1"
+                != "RapidRBF/ReadyGatedRefinementWitnessTargetEvidence/v1"
             ):
                 invalidity.append(f"unexpected target identity in {path}")
                 continue
@@ -571,6 +610,8 @@ def main() -> int:
         invalidity.append("target commits are mixed")
     if len(run_coordinates) != 1:
         invalidity.append("target workflow attempts are mixed")
+    elif next(iter(run_coordinates))[1] != "1":
+        invalidity.append("replacement workflow attempt is not the sole attempt")
     if commits and run_coordinates:
         coordinate_sha = next(iter(run_coordinates))[2]
         if coordinate_sha != next(iter(commits)):
@@ -621,11 +662,14 @@ def main() -> int:
         failures.append({"gate": "target-disposition-without-coordinate"})
 
     summary = {
-        "schema": "RapidRBF/ControllerValidRefinementWitnessCohortSummary/v1",
+        "schema": "RapidRBF/ReadyGatedRefinementWitnessCohortSummary/v1",
         "disposition": disposition,
         "contract_sha256": sha256_file(args.contract),
         "contract_id": contract["contract_id"],
         "controller_plan_sha256": contract["controller_plan_sha256"],
+        "replacement_execution_plan_sha256": contract[
+            "replacement_execution_plan_sha256"
+        ],
         "candidate_binding_sha256": contract["candidate_binding_sha256"],
         "source_binding_sha256": (
             next(iter(binding_ids)) if len(binding_ids) == 1 else None
@@ -674,7 +718,8 @@ def main() -> int:
             "attempt_mixing_permitted": False,
             "partial_rerun_permitted": False,
             "candidate_owned_failure_retriable": False,
-            "replacement_requires_live_human_ratification": True,
+            "replacement_retry_permitted": False,
+            "invalidity_returns_to_fresh_wayfinder_ticket": True,
         },
     }
     args.output.mkdir(parents=True)
@@ -684,7 +729,7 @@ def main() -> int:
         f"{sha256_file(output)}  cohort-summary.json\n"
     )
     lines = [
-        "# Controller-valid double-double refinement witness cohort",
+        "# Ready-gated double-double refinement witness replacement cohort",
         "",
         f"Disposition: `{disposition}`",
         "",

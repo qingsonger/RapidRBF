@@ -1,4 +1,4 @@
-"""Tiny terminal reviewer for the immutable Issue 51 cohort summary."""
+"""Tiny terminal reviewer for the immutable Issue 53 cohort summary."""
 
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ RESET = "\x1b[0m"
 
 def render(state: ReviewState) -> str:
     lines = [
-        f"{BOLD}Controller-valid refinement witness review{RESET}",
+        f"{BOLD}Ready-gated refinement witness replacement review{RESET}",
         "",
         f"{BOLD}Disposition:{RESET} {state.disposition}",
         f"{BOLD}Source binding:{RESET} {state.source_binding_sha256}",
