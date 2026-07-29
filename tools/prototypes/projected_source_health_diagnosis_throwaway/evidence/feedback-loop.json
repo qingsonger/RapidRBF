@@ -1,0 +1,102 @@
+{
+  "archived_exact_match": {
+    "factor_fingerprint": true,
+    "maximum_backward_error": true,
+    "maximum_solution_relative_inf": true,
+    "ordinal": true,
+    "reconstruction_relative_inf": true,
+    "status": true
+  },
+  "issue_41_disposition": "NOT_ADMITTED_DIAGNOSTIC_ONLY",
+  "issue_41_lane": {
+    "configured_workers": 1,
+    "lane_id": "local-windows-x86_64",
+    "maximum_live_threads_grant": 12,
+    "target": "x86_64-pc-windows-msvc"
+  },
+  "issue_41_output_schema": "RapidRBF/InstrumentedFaerCorpusQualificationLaneObservation/v1",
+  "normalization": {
+    "candidate_raw_output": "ignored local input",
+    "host_timing_elided": true
+  },
+  "schema": "RapidRBF/ProjectedSourceHealthFeedbackLoopReplay/v1",
+  "source_observation": {
+    "backward_threshold": 1.0629719326971099e-11,
+    "block_id": "M3-HERMITE-1K-level-0-coarse-000",
+    "dimension": 1496,
+    "error": "factor health failed: reconstruction=4.974988096965682e-16, backward=3.386444624644089e-16, pack_reload_solution=5.037237293947783e-11",
+    "execution_metrics": {
+      "backend_entries": 85,
+      "checkpoint_events": 182845,
+      "cumulative_released_bytes": 3151899007,
+      "cumulative_reserved_bytes": 3151899007,
+      "outer_compute_permits_live": 0,
+      "stack_carve_events": 26,
+      "stack_carved_bytes": 9571072,
+      "transient_high_water_bytes": 56502655,
+      "transient_residue_bytes": 0
+    },
+    "factor_fingerprint": "a70901bee4078889d672c4cf5cc95d91e4da0c79b335e803ff7921a79f5850ee",
+    "factor_source_id": "factor:M3-HERMITE-1K-level-0-coarse-000:qtaq",
+    "maximum_backward_error": 3.386444624644089e-16,
+    "maximum_solution_relative_inf": 5.037237293947783e-11,
+    "n_minus_one": {
+      "metrics": {
+        "backend_entries": 0,
+        "checkpoint_events": 0,
+        "cumulative_released_bytes": 0,
+        "cumulative_reserved_bytes": 0,
+        "outer_compute_permits_live": 0,
+        "stack_carve_events": 0,
+        "stack_carved_bytes": 0,
+        "transient_high_water_bytes": 0,
+        "transient_residue_bytes": 0
+      },
+      "operation_called": false,
+      "result": "Err(ResourceDenied)",
+      "status": "PASS"
+    },
+    "negative_reload_controls": {
+      "backend_entries": 0,
+      "corrupt_pack": true,
+      "metadata_mismatch": true,
+      "status": "PASS",
+      "truncated_pack": true,
+      "wrong_profile": true,
+      "wrong_source": true
+    },
+    "ordinal": 72,
+    "pack": {
+      "bytes": 17940766,
+      "positive_reload": true,
+      "removed_after_reload": true,
+      "schema": "RapidRBF/PrototypeQualifiedFactorPack/v1",
+      "sha256": "dac438859ea82b8c8a50095d736ccd9c4dfc1e5c09fb98f2122952be56817c26"
+    },
+    "reconstruction_relative_inf": 4.974988096965682e-16,
+    "reconstruction_threshold": 1.0629719326971099e-11,
+    "reload_metrics": {
+      "backend_entries": 61,
+      "checkpoint_events": 4137,
+      "cumulative_released_bytes": 2283678079,
+      "cumulative_reserved_bytes": 2283678079,
+      "outer_compute_permits_live": 0,
+      "stack_carve_events": 1,
+      "stack_carved_bytes": 35904,
+      "transient_high_water_bytes": 56502655,
+      "transient_residue_bytes": 0
+    },
+    "reload_solution_threshold": 4.2518877307884395e-11,
+    "role": "projected_b",
+    "schedule": {
+      "peak_transient_bytes": 56502655,
+      "private_gemm_workspace_bytes": 37748736,
+      "required_compute_permits": 1,
+      "retained_bytes": 17940032,
+      "solver_stack_bytes": 777983
+    },
+    "source_sha256": "87080050d55f8c4410f16ad3691c5640c20defdec3ffb8d638c1c0678f2b1847",
+    "status": "FAIL",
+    "workload_id": "M3-HERMITE-1K"
+  }
+}

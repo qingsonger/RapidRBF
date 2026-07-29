@@ -1,0 +1,105 @@
+{
+  "schema": "RapidRBF/ProjectedSourceHealthDiagnosisPlan/v1",
+  "question": "Why do the same 170 admitted projected sources pass reconstruction and backward-error gates but fail only the positive pack/reload solution-relative gate, and what is the narrowest evidence-backed next dense-factor route?",
+  "authorities": {
+    "issue_41_bundle": {
+      "name": "rapidrbf-issue41-factor-qualification-input-v1.zip",
+      "bytes": 452947159,
+      "sha256": "a3b6417e61a604ee568d7bb5fed0416ce5c726f0e529ca1f998a7bdb272e207a"
+    },
+    "issue_41_plan": {
+      "sha256": "fef5f0b3e4d84e8af95505f3b822aded357631191a1e13226474adc985b964ce",
+      "plan_id": "RapidRBF/FactorQualificationPlan/v1/2d0f0ca77df0460babdcea3d945e6c487e84c3a658d704bde2915e406ad6a8f0"
+    },
+    "issue_41_windows_one_worker_observation": {
+      "bytes": 605650,
+      "sha256": "bdc2ed4d326659668ef1cf4bfe18685e853528dc44320060ab64aa22009307c8"
+    },
+    "factor_health_profile": {
+      "profile_sha256": "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3",
+      "solution_relative_inf_max": "256*n*2^-53",
+      "reconstruction_relative_inf_max": "64*n*2^-53",
+      "reduced_backward_error_max": "64*n*2^-53"
+    },
+    "candidate_binding_sha256": "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6"
+  },
+  "feedback_loop": {
+    "ordinal": 72,
+    "category": "nearest frozen failure boundary",
+    "expected_status": "FAIL",
+    "expected_factor_fingerprint": "a70901bee4078889d672c4cf5cc95d91e4da0c79b335e803ff7921a79f5850ee",
+    "expected_failure_shape": "reconstruction PASS; backward PASS; declared-solution-relative FAIL"
+  },
+  "samples": [
+    {
+      "ordinal": 0,
+      "category": "projected passing control",
+      "workload_id": "M1-EXP-1K",
+      "dimension": 999,
+      "source_sha256": "2ec1278eac0be1e1114f53d58dff2cf5035d8f1a9fe03327b2ab18d2e35ca8c3",
+      "archived_status": "PASS",
+      "archived_solution_relative_inf": 1.1476980981745493e-11,
+      "solution_threshold": 2.8393287720973603e-11
+    },
+    {
+      "ordinal": 69,
+      "category": "smallest-dimension failed source and duplicate-logical-source boundary",
+      "workload_id": "M2-TH3-10K",
+      "dimension": 808,
+      "source_sha256": "fb0fed5a70bcaed434f3f7c4179f5270f120bad6e46e4ee498c9874d28aa4bfd",
+      "archived_status": "FAIL",
+      "archived_solution_relative_inf": 3.9129551585447052e-9,
+      "solution_threshold": 2.2964741219766438e-11
+    },
+    {
+      "ordinal": 72,
+      "category": "nearest frozen failure boundary",
+      "workload_id": "M3-HERMITE-1K",
+      "dimension": 1496,
+      "source_sha256": "87080050d55f8c4410f16ad3691c5640c20defdec3ffb8d638c1c0678f2b1847",
+      "archived_status": "FAIL",
+      "archived_solution_relative_inf": 5.0372372939477827e-11,
+      "solution_threshold": 4.2518877307884395e-11
+    },
+    {
+      "ordinal": 150,
+      "category": "worst frozen failure boundary",
+      "workload_id": "M4-GEOMETRY-NEAR-COINCIDENT-10K",
+      "dimension": 809,
+      "source_sha256": "dcb8cb1caf6624f26b38cb33714c4eb6b6d720046d569ad803f3db97ee0db2d4",
+      "archived_status": "FAIL",
+      "archived_solution_relative_inf": 2.1716784721851042e-4,
+      "solution_threshold": 2.2993162929196842e-11
+    }
+  ],
+  "hypotheses": [
+    {
+      "rank": 1,
+      "id": "frozen-forward-health-authority-defect",
+      "prediction": "Independent double-double-refined LDLT and full-pivot LU agree on the frozen-b solution, and that solution remains outside the declared-x gate for failed sources."
+    },
+    {
+      "rank": 2,
+      "id": "candidate-local-solve-accuracy",
+      "prediction": "Equilibration, double-double-residual refinement, or full-pivot LU restores the declared-x gate for the same frozen b."
+    },
+    {
+      "rank": 3,
+      "id": "serialization-or-reuse-corruption",
+      "prediction": "A byte round-trip changes the factor fingerprint or the solved correction."
+    },
+    {
+      "rank": 4,
+      "id": "source-or-rank-authority-defect",
+      "prediction": "Independent routes cannot converge to the same solution for a source admitted as exact full rank."
+    }
+  ],
+  "scope": {
+    "mutate_issue_41_evidence": false,
+    "change_registered_gate": false,
+    "adopt_dependency": false,
+    "run_mechanism_panel": false,
+    "enter_100k_rung": false,
+    "representative_subset_is_corpus_admission": false
+  }
+}
