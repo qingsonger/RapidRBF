@@ -90,6 +90,10 @@ jobs:
       RAPIDRBF_TARGET: ${{ matrix.target }}
       GH_TOKEN: ${{ github.token }}
     steps:
+      - name: Enable Git long paths on Windows before checkout
+        if: runner.os == 'Windows'
+        run: git config --global core.longpaths true
+
       - name: Check out the exact dispatched commit
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
