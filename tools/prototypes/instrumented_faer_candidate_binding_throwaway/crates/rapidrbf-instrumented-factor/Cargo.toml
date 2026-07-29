@@ -1,0 +1,17 @@
+[package]
+name = "rapidrbf-instrumented-factor"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.84"
+publish = false
+
+[dependencies]
+dyn-stack = { path = "../../vendor/dyn-stack-0.13.2", default-features = false, features = ["alloc", "core-error", "std"] }
+faer = { path = "../../vendor/faer-0.24.4", default-features = false, features = ["std", "linalg"] }
+rapidrbf-faer-control = { path = "../rapidrbf-faer-control" }
+
+[target.'cfg(target_arch = "x86_64")'.dependencies]
+private-gemm-x86 = { path = "../../vendor/private-gemm-x86-0.1.20", default-features = false, features = ["std"] }
+
+[lib]
+path = "src/lib.rs"

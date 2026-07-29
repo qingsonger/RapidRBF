@@ -1,0 +1,160 @@
+{
+  "schema": "rapidrbf-instrumented-faer-patch-set-v1",
+  "upstream_source_closure_sha256": "530103a7c8f62e8cf225045d39410b9d36e67d11f5acf6793f403bb0fc1a9fb9",
+  "rule": "Every changed or added byte is named by stock and bound SHA-256; all other vendored bytes are covered by the binding content closure.",
+  "changes": [
+    {
+      "path": "faer-0.24.4/Cargo.toml",
+      "change": "modified",
+      "stock_sha256": "89afbab9a191adc4a4d28d7b91db271935bb3800f0ce838fa5de8e32fa3ad117",
+      "stock_bytes": 5521,
+      "bound_sha256": "8921dc58166f973c7bcdb33462a8e19a3e1f4535ba2ff00cfd74693e1caf83f0",
+      "bound_bytes": 5603
+    },
+    {
+      "path": "faer-0.24.4/Cargo.toml.orig",
+      "change": "modified",
+      "stock_sha256": "14da84e6b7bba776ee499f8c58154fb1a3fc550ca552a2b5b6c6f50790bcdf69",
+      "stock_bytes": 3704,
+      "bound_sha256": "2ec7e5a796072e8fa2d12a299ee312208bf39e4efde65c74c578d2c655f3b649",
+      "bound_bytes": 3776
+    },
+    {
+      "path": "faer-0.24.4/src/linalg/cholesky/bunch_kaufman/factor.rs",
+      "change": "modified",
+      "stock_sha256": "f60077f69fb331ce0412ff2a7558b84c89d2bad53ed3c9377e1db6339bef2dc7",
+      "stock_bytes": 30849,
+      "bound_sha256": "b456a51085e9d13e0f4ac0038ccaaabc1f89a80bb4fe273d40432a398151f145",
+      "bound_bytes": 31537
+    },
+    {
+      "path": "faer-0.24.4/src/linalg/cholesky/bunch_kaufman/solve.rs",
+      "change": "modified",
+      "stock_sha256": "d55c4419e9abfc7d16b64c588cae402641adf5285b8d7daae0fda24e51992458",
+      "stock_bytes": 3336,
+      "bound_sha256": "c043e65b3c779d314788b5ce509963096c223021a50a730fee85c36b50473174",
+      "bound_bytes": 3534
+    },
+    {
+      "path": "faer-0.24.4/src/linalg/lu/full_pivoting/factor.rs",
+      "change": "modified",
+      "stock_sha256": "617f9f1a159d56619988e2ad09029bc8e537263eec63c9679e6eb665908bd8d7",
+      "stock_bytes": 34416,
+      "bound_sha256": "b2214c08f60c3af096cd04a6f51f07867ce3a2b72f74c3f80379dc16eee68792",
+      "bound_bytes": 34624
+    },
+    {
+      "path": "faer-0.24.4/src/linalg/lu/full_pivoting/solve.rs",
+      "change": "modified",
+      "stock_sha256": "0884b0c911f8cfc8c845d17836e51ce8c42018ea0f4829352c751ee3ace817c0",
+      "stock_bytes": 5365,
+      "bound_sha256": "bbacd9569c2bc10503fd203ccef43d23813bcd84c4189bc3bb48b101623086d6",
+      "bound_bytes": 5597
+    },
+    {
+      "path": "faer-0.24.4/src/linalg/matmul/internal/mod.rs",
+      "change": "modified",
+      "stock_sha256": "d5de7bbddd14be60c359001a1403c61ad03951467bcb06f7cb68d701e33d98c1",
+      "stock_bytes": 8722,
+      "bound_sha256": "4498abbf9bdc0160e082cff213d945957eb89fd648648f4b585a1542281c3bba",
+      "bound_bytes": 9495
+    },
+    {
+      "path": "faer-0.24.4/src/linalg/matmul/mod.rs",
+      "change": "modified",
+      "stock_sha256": "dfb61cfb21ba4092346fd1f736d9e7e7baa69cfa84fc53c7c933521c3d52b7a4",
+      "stock_bytes": 54272,
+      "bound_sha256": "44636ce53c5b1e0eb4c1bc21a877dd6079be2e36e7838a2c44691ff11d2abc2d",
+      "bound_bytes": 54668
+    },
+    {
+      "path": "faer-0.24.4/src/linalg/matmul/triangular.rs",
+      "change": "modified",
+      "stock_sha256": "1a8369a460507d02f3a046bcede0331a7228f72d6259f1f62af28273d5cc3d04",
+      "stock_bytes": 34311,
+      "bound_sha256": "7e2e188e13dcd0d9395bf6414451ffcc2b22cf2d1429e04620b1f72ca107920c",
+      "bound_bytes": 34349
+    },
+    {
+      "path": "faer-0.24.4/src/linalg/triangular_solve.rs",
+      "change": "modified",
+      "stock_sha256": "2556ddb04972a8aaf4a603e4e8da54bb3af814be1d5326b685d99d4d47c918da",
+      "stock_bytes": 15975,
+      "bound_sha256": "a3d4ef347b5ca43ce0300313c203c5dfbcaaa0fc9b1282442649d2eccb99547f",
+      "bound_bytes": 16187
+    },
+    {
+      "path": "private-gemm-x86-0.1.20/Cargo.toml",
+      "change": "modified",
+      "stock_sha256": "c2eb97236a00822b6ed56e5b21a38497855b56653cbda78704750a90ae809c7f",
+      "stock_bytes": 2292,
+      "bound_sha256": "e79e4858de130ea0d2bde8b63a09656e245a2cccf14f9bfe7316c00beccd0101",
+      "bound_bytes": 2374
+    },
+    {
+      "path": "private-gemm-x86-0.1.20/Cargo.toml.orig",
+      "change": "modified",
+      "stock_sha256": "d7ec56c74605e7053e3420f1d4d52531740589258b4ca895970a96432b15de0a",
+      "stock_bytes": 1194,
+      "bound_sha256": "a57b5bac14873378945ac1d3eb8140ee658eaa88f640a2837da418b46fa592d5",
+      "bound_bytes": 1266
+    },
+    {
+      "path": "private-gemm-x86-0.1.20/build.rs",
+      "change": "modified",
+      "stock_sha256": "1e223f1990dda8e8862e9601bd2c4f8bc349a4f3471d0460844dbb397f20c127",
+      "stock_bytes": 81344,
+      "bound_sha256": "c33beaa02313c9429a74502123f6d4d1579f18794e30cdb2178a62adbc2240d8",
+      "bound_bytes": 82244
+    },
+    {
+      "path": "private-gemm-x86-0.1.20/generated/x86_64/asm.rs",
+      "change": "added",
+      "stock_sha256": null,
+      "stock_bytes": 0,
+      "bound_sha256": "4842a0cb51436aa092317caff49f4663c9504a8cb4c8691b4dc580ad57edbd34",
+      "bound_bytes": 97960
+    },
+    {
+      "path": "private-gemm-x86-0.1.20/generated/x86_64/asm.s",
+      "change": "added",
+      "stock_sha256": null,
+      "stock_bytes": 0,
+      "bound_sha256": "eb7bad48175bf2a074cf9f2cc98e62e2cda27e08d0aba1266bf192ebd1141988",
+      "bound_bytes": 8592955
+    },
+    {
+      "path": "private-gemm-x86-0.1.20/src/lib.rs",
+      "change": "modified",
+      "stock_sha256": "b3300291b8869f5f5cd5b02182a0a1b3668b1abf95e1d8d14bc064c7923d2414",
+      "stock_bytes": 92232,
+      "bound_sha256": "a46b0ddbdd2a8831a36e23a9f4f24d99b3fca78aae1cfd082225891763291e61",
+      "bound_bytes": 94020
+    },
+    {
+      "path": "dyn-stack-0.13.2/Cargo.toml",
+      "change": "modified",
+      "stock_sha256": "671d52ed66145ab5af4a33b546f7236f5dc8a8e39544ca1e6ca64ade801e3c2e",
+      "stock_bytes": 1344,
+      "bound_sha256": "b2ef2045a5148bd273866a24b2793031979087157cf8ed41bdb61bc69dd7efce",
+      "bound_bytes": 1426
+    },
+    {
+      "path": "dyn-stack-0.13.2/Cargo.toml.orig",
+      "change": "modified",
+      "stock_sha256": "815d4d077f753a2ce97bfebe212ead04890ca7ead4176f3b3abe007c46dd8e0b",
+      "stock_bytes": 627,
+      "bound_sha256": "ef3bd21b98381521aa07743f6c2e625597eb9cb188eaf9f3b0246bb637aa67b3",
+      "bound_bytes": 699
+    },
+    {
+      "path": "dyn-stack-0.13.2/src/lib.rs",
+      "change": "modified",
+      "stock_sha256": "1ef44dfcb6cdf131224e4bfa89c14b197537477bfe541d95e757356ad3975b2c",
+      "stock_bytes": 35672,
+      "bound_sha256": "de24e2c813ed565a25b45e13a455e4dca4435368e99e2f03f790f7437f011c61",
+      "bound_bytes": 35728
+    }
+  ],
+  "removed": []
+}

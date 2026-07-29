@@ -1,0 +1,77 @@
+{
+  "schema": "rapidrbf-instrumented-faer-two-factor-plan-v1",
+  "plan_id": "RapidRBF/InstrumentedFaerTwoFactorFeasibility/v1",
+  "authority": {
+    "canonical_corpus_sha256": "38f39fee8b4059cd2619df4bbfabb6f7159b41df1511907e0346c32642737f79",
+    "manifest_file_sha256": "cf5aaa1e3fe6bf51c3f24f13455ac1036e7ec591668c18ec4c86f3243aa07f54",
+    "admitted_workloads": 12,
+    "admitted_blocks": 204,
+    "admitted_factor_sources": 216
+  },
+  "factors": [
+    {
+      "role": "projected_b",
+      "artifact_id": "block:M3-HERMITE-10K-level-0-coarse-000:qtaq_lower",
+      "matrix_shape": [2047, 2047],
+      "stored_triangle_elements": 2096128,
+      "stored_triangle_bytes": 16769024,
+      "factorization": "faer-bunch-kaufman-lblt",
+      "selection": "maximum admitted projected-B dimension; tied maximum resolved before candidate observations by preferring the mixed-Hermite workload as the pivot-path stress representative"
+    },
+    {
+      "role": "coarse_p_top",
+      "artifact_id": "block:M2-TH3-1K-level-0-coarse-000:p_top_row_major",
+      "matrix_shape": [4, 4],
+      "stored_elements": 16,
+      "stored_bytes": 128,
+      "factorization": "faer-full-pivot-lu",
+      "selection": "maximum admitted P_top dimension; tied maximum resolved by canonical manifest order"
+    }
+  ],
+  "targets": [
+    {
+      "target": "x86_64-pc-windows-msvc",
+      "tier_one": "Windows x86_64",
+      "selected_matmul_path": "private-gemm-x86 when AVX2+FMA is present",
+      "qualified_host_witness_required": true
+    },
+    {
+      "target": "x86_64-unknown-linux-gnu",
+      "tier_one": "Linux x86_64 glibc",
+      "selected_matmul_path": "private-gemm-x86 when AVX2+FMA is present",
+      "qualified_host_witness_required": true
+    },
+    {
+      "target": "aarch64-apple-darwin",
+      "tier_one": "macOS arm64",
+      "selected_matmul_path": "faer generic/architecture path with dyn-stack scratch",
+      "qualified_host_witness_required": true
+    },
+    {
+      "target": "x86_64-apple-darwin",
+      "tier_one": "macOS x86_64",
+      "selected_matmul_path": "private-gemm-x86 when AVX2+FMA is present",
+      "qualified_host_witness_required": true
+    }
+  ],
+  "required_allocation_proof": {
+    "caller_owned_execution_lease": true,
+    "exact_aligned_transient_and_retained_reservations": true,
+    "one_outer_compute_permit": true,
+    "faer_parallelism": "Par::Seq",
+    "persistent_unowned_tls": false,
+    "temporary_storage_policy": "deny for the two-factor feasibility probe",
+    "n_minus_one": "ResourceDenied before permit acquisition, allocation, or backend entry"
+  },
+  "required_cancellation_proof": {
+    "checkpoints": ["pivot", "panel", "packing", "macro-kernel", "solve"],
+    "reported_bound": "maximum unpolled work units per selected path",
+    "host_observation": "qualified-host acknowledgment latency per target",
+    "unconditional_wall_clock_promise": false
+  },
+  "allowed_dispositions": [
+    "FEASIBLE_FOR_216_FACTOR_QUALIFICATION",
+    "EVIDENCE_BACKED_REJECTED",
+    "UNJUDGED_EVIDENCE_MISSING"
+  ]
+}

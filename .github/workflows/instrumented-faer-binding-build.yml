@@ -1,0 +1,72 @@
+name: Instrumented faer candidate binding build
+
+on:
+  push:
+    branches:
+      - codex/materialize-instrumented-faer-binding
+    paths:
+      - .github/workflows/instrumented-faer-binding-build.yml
+      - tools/prototypes/instrumented_faer_candidate_binding_throwaway/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: instrumented-faer-candidate-binding
+  cancel-in-progress: false
+
+jobs:
+  binding:
+    name: ${{ matrix.lane_id }}
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include:
+          - lane_id: windows-x86_64
+            runner: windows-2025
+            python_command: python
+          - lane_id: linux-x86_64-glibc
+            runner: ubuntu-24.04
+            python_command: python3
+          - lane_id: macos-arm64
+            runner: macos-15
+            python_command: python3
+          - lane_id: macos-x86_64
+            runner: macos-15-intel
+            python_command: python3
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+    env:
+      CARGO_INCREMENTAL: "0"
+      RUSTUP_TOOLCHAIN: "1.85.0"
+      RAPIDRBF_BINDING_ROOT: tools/prototypes/instrumented_faer_candidate_binding_throwaway
+    defaults:
+      run:
+        working-directory: tools/prototypes/instrumented_faer_candidate_binding_throwaway
+    steps:
+      - name: Check out the exact pushed commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          clean: true
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Install the exact Rust toolchain
+        run: rustup toolchain install 1.85.0 --profile minimal
+
+      - name: Verify the exact content binding
+        run: ${{ matrix.python_command }} verify_binding.py
+
+      - name: Compile and run control-plane tests without factor entry
+        run: >-
+          cargo test --locked
+          -p rapidrbf-faer-control
+          -p rapidrbf-instrumented-factor
+
+      - name: Print preflight arithmetic without factor entry
+        run: >-
+          cargo run --locked
+          -p rapidrbf-instrumented-factor
+          --example binding_report

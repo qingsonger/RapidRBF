@@ -1,0 +1,50 @@
+{
+  "schema": "rapidrbf-instrumented-faer-checkpoint-metadata-v1",
+  "work_unit_contract": "Every bound is a maximum count of source-level scalar work units between cooperative polls, not a wall-clock promise.",
+  "host_observation_required": "Issue 44 must measure acknowledgment latency independently on each qualified host.",
+  "frozen_factor_bounds": {
+    "projected_b_n_2047_rhs_1": {
+      "pivot": 4190209,
+      "panel": 4190209,
+      "solve": 2047
+    },
+    "coarse_p_top_n_4_rhs_1": {
+      "pivot": 16,
+      "panel": 0,
+      "packing": 0,
+      "macro_kernel": 0,
+      "solve": 4
+    }
+  },
+  "target_route_bounds": {
+    "x86_64-pc-windows-msvc": {
+      "route": "private-gemm-x86 f64; AVX-512 upper bound covers AVX2",
+      "packing": 24576,
+      "macro_kernel": 98304
+    },
+    "x86_64-unknown-linux-gnu": {
+      "route": "private-gemm-x86 f64; AVX-512 upper bound covers AVX2",
+      "packing": 24576,
+      "macro_kernel": 98304
+    },
+    "aarch64-apple-darwin": {
+      "route": "faer generic Apple arm64 f64; 2 lanes, MR_DIV_N=2, NR=2, KC=128",
+      "packing": 0,
+      "macro_kernel": 1024
+    },
+    "x86_64-apple-darwin": {
+      "route": "private-gemm-x86 f64; AVX-512 upper bound covers AVX2",
+      "packing": 24576,
+      "macro_kernel": 98304
+    }
+  },
+  "checkpoint_sources": [
+    "vendor/faer-0.24.4/src/linalg/cholesky/bunch_kaufman/factor.rs",
+    "vendor/faer-0.24.4/src/linalg/cholesky/bunch_kaufman/solve.rs",
+    "vendor/faer-0.24.4/src/linalg/lu/full_pivoting/factor.rs",
+    "vendor/faer-0.24.4/src/linalg/lu/full_pivoting/solve.rs",
+    "vendor/faer-0.24.4/src/linalg/triangular_solve.rs",
+    "vendor/faer-0.24.4/src/linalg/matmul/mod.rs",
+    "vendor/private-gemm-x86-0.1.20/src/lib.rs"
+  ]
+}
