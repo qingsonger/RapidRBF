@@ -1,0 +1,126 @@
+name: Instrumented faer lane preflight
+
+on:
+  push:
+    branches:
+      - codex/provision-instrumented-faer-lanes
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: instrumented-faer-lane-preflight
+  cancel-in-progress: false
+
+jobs:
+  lane:
+    name: ${{ matrix.lane_id }}
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include:
+          - lane_id: windows-x86_64
+            runner: windows-2025
+            python_command: python
+          - lane_id: linux-x86_64-glibc
+            runner: ubuntu-24.04
+            python_command: python3
+          - lane_id: macos-arm64
+            runner: macos-15
+            python_command: python3
+          - lane_id: macos-x86_64
+            runner: macos-15-intel
+            python_command: python3
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 45
+    env:
+      CARGO_INCREMENTAL: "0"
+      CARGO_TARGET_DIR: ${{ runner.temp }}/rapidrbf-instrumented-faer-target
+      RAPIDRBF_LANE_ID: ${{ matrix.lane_id }}
+    steps:
+      - name: Check out the exact pushed commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          clean: true
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Capture and qualify the native host
+        run: >-
+          ${{ matrix.python_command }}
+          tools/prototypes/instrumented_faer_lane_provisioning_throwaway/collect_lane_identity.py
+          --contract
+          tools/prototypes/instrumented_faer_lane_provisioning_throwaway/lane-contract.v1.json
+          --lane
+          "${{ matrix.lane_id }}"
+          --output
+          "lane-evidence/${{ matrix.lane_id }}"
+
+      - name: Upload the lane witness
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: rapidrbf-instrumented-faer-lane-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: lane-evidence
+          if-no-files-found: error
+          retention-days: 90
+
+  cohort:
+    name: Verify four-lane cohort
+    if: always()
+    needs: lane
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out the exact pushed commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          clean: true
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Download this attempt's lane witnesses
+        id: download
+        continue-on-error: true
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: rapidrbf-instrumented-faer-lane-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence
+          merge-multiple: true
+
+      - name: Verify the non-compensating cohort
+        id: verify
+        continue-on-error: true
+        run: >-
+          python3
+          tools/prototypes/instrumented_faer_lane_provisioning_throwaway/verify_lane_cohort.py
+          --contract
+          tools/prototypes/instrumented_faer_lane_provisioning_throwaway/lane-contract.v1.json
+          --evidence-root
+          cohort-evidence
+          --output
+          cohort-summary
+
+      - name: Upload the cohort summary
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: rapidrbf-instrumented-faer-lane-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-summary
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish the readable summary
+        if: always()
+        run: |
+          if [ -f cohort-summary/cohort-summary.md ]; then
+            cat cohort-summary/cohort-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No cohort summary was produced." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Fail an incomplete or unqualified cohort
+        if: steps.verify.outcome != 'success'
+        run: exit 1
