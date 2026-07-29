@@ -37,7 +37,6 @@ jobs:
     timeout-minutes: 45
     env:
       CARGO_INCREMENTAL: "0"
-      CARGO_TARGET_DIR: ${{ runner.temp }}/rapidrbf-instrumented-faer-target
       RAPIDRBF_LANE_ID: ${{ matrix.lane_id }}
     steps:
       - name: Check out the exact pushed commit
