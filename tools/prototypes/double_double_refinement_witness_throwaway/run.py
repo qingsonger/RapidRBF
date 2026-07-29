@@ -546,12 +546,13 @@ def helper_observation(
         maximum_live_threads=grant,
         candidate_entry=entry,
         candidate_output=None,
-        require_candidate_entry=False,
+        require_candidate_entry=True,
         require_successful_sample=require_sample,
         invocation_kind=f"controller-preflight-{name}",
         fault_mode=fault_mode,
         after_first_sample=lambda: release.write_bytes(b"release\n"),
         stop_sampling_after_first_callback=True,
+        sample_readiness=entry.is_file,
     )
     observation["helper"] = {
         "name": name,

@@ -81,6 +81,7 @@ class Journal:
         lane_id: str,
         target: str,
         lane_witness: Path,
+        boundary: str,
     ) -> None:
         self.output = output
         self.checks = output / "checks"
@@ -98,6 +99,7 @@ class Journal:
             "started_at": datetime.now(timezone.utc).isoformat(),
             "lane_id": lane_id,
             "target": target,
+            "boundary": boundary,
             "issue51_commit": ISSUE51_COMMIT,
             "issue51_controller_binding_sha256": ISSUE51_CONTROLLER_BINDING,
             "issue51_source_binding_sha256": ISSUE51_SOURCE_BINDING,
@@ -253,6 +255,7 @@ def diagnostic_helper_observation(
     environment: dict[str, str],
     require_sample: bool,
     fault_mode: str | None = None,
+    ready_gated: bool,
 ) -> dict[str, Any]:
     """Run the unchanged helper/observer and retain streams the old journal hashed."""
 
@@ -274,12 +277,13 @@ def diagnostic_helper_observation(
         maximum_live_threads=grant,
         candidate_entry=entry,
         candidate_output=None,
-        require_candidate_entry=False,
+        require_candidate_entry=ready_gated,
         require_successful_sample=require_sample,
         invocation_kind=f"controller-preflight-{name}",
         fault_mode=fault_mode,
         after_first_sample=lambda: release.write_bytes(b"release\n"),
         stop_sampling_after_first_callback=True,
+        sample_readiness=(entry.is_file if ready_gated else None),
     )
     observation["diagnostic_streams"] = {
         "stdout_utf8": completed.stdout.decode("utf-8", errors="replace"),
@@ -315,6 +319,7 @@ def diagnose(
     target: str,
     lane_witness_path: Path,
     output: Path,
+    boundary: str,
 ) -> None:
     require(not output.exists(), f"output must be absent: {output}")
     witness = verify_lane(lane_id, target, lane_witness_path)
@@ -324,22 +329,33 @@ def diagnose(
         lane_id=lane_id,
         target=target,
         lane_witness=lane_witness_path,
+        boundary=boundary,
     )
+
+    observed_controller_binding: dict[str, Any] | None = None
+
+    def capture_authority() -> dict[str, Any]:
+        nonlocal observed_controller_binding
+        observed_controller_binding = issue51.controller_binding()
+        return {
+            "authority": issue51.verify_static_authority(),
+            "controller_binding": observed_controller_binding,
+        }
 
     authority = journal.capture(
         name="issue51-authority-and-controller-binding",
         group="identity",
-        action=lambda: {
-            "authority": issue51.verify_static_authority(),
-            "controller_binding": issue51.controller_binding(),
-        },
+        action=capture_authority,
         predicate=lambda value: (
             value["authority"]["candidate_binding_sha256"]
             == ISSUE51_CANDIDATE_BINDING
             and value["authority"]["controller_plan_sha256"]
             == ISSUE51_CONTROLLER_PLAN
-            and value["controller_binding"]["controller_binding_sha256"]
-            == ISSUE51_CONTROLLER_BINDING
+            and (
+                boundary == "ready-gated"
+                or value["controller_binding"]["controller_binding_sha256"]
+                == ISSUE51_CONTROLLER_BINDING
+            )
         ),
     )
 
@@ -435,6 +451,7 @@ def diagnose(
                     environment=environment,
                     require_sample=require_sample,
                     fault_mode=fault,
+                    ready_gated=boundary == "ready-gated",
                 )
 
             observations["one_thread"] = journal.capture(
@@ -563,6 +580,7 @@ def diagnose(
         "issue": 52,
         "lane_id": lane_id,
         "target": target,
+        "boundary": boundary,
         "collection_status": "COMPLETE",
         "original_controller_status": (
             "PASS" if all(global_checks.values()) else "FAIL"
@@ -583,6 +601,11 @@ def diagnose(
         "identity": {
             "issue51_commit": ISSUE51_COMMIT,
             "issue51_controller_binding_sha256": ISSUE51_CONTROLLER_BINDING,
+            "observed_controller_binding_sha256": (
+                observed_controller_binding["controller_binding_sha256"]
+                if observed_controller_binding is not None
+                else None
+            ),
             "issue51_source_binding_sha256": ISSUE51_SOURCE_BINDING,
             "candidate_binding_sha256": ISSUE51_CANDIDATE_BINDING,
             "accepted_reference_sha256": ISSUE51_ACCEPTED_REFERENCE,
@@ -636,6 +659,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--target", required=True)
     parser.add_argument("--lane-witness", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument(
+        "--boundary",
+        choices=("original", "ready-gated"),
+        default="original",
+    )
     args = parser.parse_args()
     args.lane_witness = args.lane_witness.resolve()
     args.output = args.output.resolve()
@@ -649,4 +677,5 @@ if __name__ == "__main__":
         target=parsed.target,
         lane_witness_path=parsed.lane_witness,
         output=parsed.output,
+        boundary=parsed.boundary,
     )

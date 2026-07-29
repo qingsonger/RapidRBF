@@ -87,6 +87,8 @@ jobs:
           "diagnostic-lane/${{ matrix.lane_id }}/lane-identity.json"
           --output
           "diagnostic-evidence/${{ matrix.lane_id }}"
+          --boundary
+          ready-gated
 
       - name: Upload the immutable diagnostic journal
         if: always()

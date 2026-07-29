@@ -23,6 +23,11 @@ Run the local platform's controller-only diagnostic:
 python tools/prototypes/controller_preflight_diagnosis_throwaway/diagnose.py --lane-id windows-x86_64 --target x86_64-pc-windows-msvc --lane-witness <lane-identity.json> --output <empty-output-directory>
 ```
 
+Add `--boundary ready-gated` to validate the proposed replacement seam. In
+that mode, the observer defers synthetic-helper sampling until the helper's
+entry marker proves that its requested thread set is live. The actual candidate
+observation path does not opt into this preflight-only readiness gate.
+
 Dispatch all four frozen controller-only lanes:
 
 ```text

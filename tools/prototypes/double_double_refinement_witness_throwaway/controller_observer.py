@@ -659,6 +659,7 @@ def observe_process(
     fault_mode: str | None = None,
     after_first_sample: Callable[[], None] | None = None,
     stop_sampling_after_first_callback: bool = False,
+    sample_readiness: Callable[[], bool] | None = None,
 ) -> tuple[subprocess.CompletedProcess[bytes], dict[str, Any]]:
     """Run one subject with a sole waiter and a non-reaping sampler."""
 
@@ -785,6 +786,16 @@ def observe_process(
                     "sample_begin",
                     sample_id=sample_id,
                 )
+                if sample_readiness is not None and not sample_readiness():
+                    recorder.append(
+                        "sample_deferred",
+                        sample_id=sample_id,
+                        sample_started_ns=sample_started["monotonic_ns"],
+                        reason="preflight-readiness-marker-absent",
+                    )
+                    sample_id += 1
+                    terminal_event.wait(SAMPLE_PERIOD_SECONDS)
+                    continue
                 try:
                     if fault_mode and not injected:
                         injected = True

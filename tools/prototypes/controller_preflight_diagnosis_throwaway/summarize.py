@@ -63,8 +63,10 @@ def main(root: Path, output: Path) -> None:
 
     identities = {
         (
+            value["boundary"],
             value["identity"]["issue51_commit"],
             value["identity"]["issue51_controller_binding_sha256"],
+            value["identity"]["observed_controller_binding_sha256"],
             value["identity"]["issue51_source_binding_sha256"],
             value["identity"]["candidate_binding_sha256"],
             value["identity"]["accepted_reference_sha256"],
@@ -79,6 +81,7 @@ def main(root: Path, output: Path) -> None:
         path, value = by_lane[lane_id]
         lane_records[lane_id] = {
             "target": value["target"],
+            "boundary": value["boundary"],
             "original_controller_status": value["original_controller_status"],
             "global_checks": value["global_checks"],
             "failed_global_checks": value["failed_global_checks"],
@@ -96,23 +99,39 @@ def main(root: Path, output: Path) -> None:
         "issue": 52,
         "collection_status": "COMPLETE",
         "question_status": (
-            "FAILURES_REPRODUCED"
-            if all(
-                lane_records[lane]["original_controller_status"] == "FAIL"
-                for lane in ("windows-x86_64", "macos-arm64", "macos-x86_64")
+            "READY_GATED_BOUNDARY_VALIDATED"
+            if next(iter(identities))[0] == "ready-gated"
+            and all(
+                record["original_controller_status"] == "PASS"
+                for record in lane_records.values()
             )
-            and lane_records["linux-x86_64-glibc"]["original_controller_status"]
-            == "PASS"
-            else "OBSERVED_PATTERN_DIFFERS"
+            else (
+                "FAILURES_REPRODUCED"
+                if all(
+                    lane_records[lane]["original_controller_status"] == "FAIL"
+                    for lane in (
+                        "windows-x86_64",
+                        "macos-arm64",
+                        "macos-x86_64",
+                    )
+                )
+                and lane_records["linux-x86_64-glibc"][
+                    "original_controller_status"
+                ]
+                == "PASS"
+                else "OBSERVED_PATTERN_DIFFERS"
+            )
         ),
         "identity": {
-            "issue51_commit": next(iter(identities))[0],
-            "issue51_controller_binding_sha256": next(iter(identities))[1],
-            "issue51_source_binding_sha256": next(iter(identities))[2],
-            "candidate_binding_sha256": next(iter(identities))[3],
-            "accepted_reference_sha256": next(iter(identities))[4],
-            "controller_plan_sha256": next(iter(identities))[5],
-            "diagnostic_git_commit": next(iter(identities))[6],
+            "boundary": next(iter(identities))[0],
+            "issue51_commit": next(iter(identities))[1],
+            "issue51_controller_binding_sha256": next(iter(identities))[2],
+            "observed_controller_binding_sha256": next(iter(identities))[3],
+            "issue51_source_binding_sha256": next(iter(identities))[4],
+            "candidate_binding_sha256": next(iter(identities))[5],
+            "accepted_reference_sha256": next(iter(identities))[6],
+            "controller_plan_sha256": next(iter(identities))[7],
+            "diagnostic_git_commit": next(iter(identities))[8],
         },
         "scope": {
             "candidate_built": False,
