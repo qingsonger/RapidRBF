@@ -1,0 +1,200 @@
+{
+  "schema": "RapidRBF/ControllerValidRefinementWitnessPlan/v1",
+  "decision": "CONTROLLER_VALID_REFINEMENT_WITNESS_PLAN_FROZEN",
+  "question": "What exact external controller and evidence boundary can judge the unchanged double-double refinement witness route without treating a normal macOS proc_pidinfo ESRCH at process exit as a candidate-owned thread failure?",
+  "scope": {
+    "only": [
+      "external child-process observation",
+      "thread-evidence collection and judgment",
+      "process-result identity",
+      "cohort evidence closure and retry"
+    ],
+    "forbidden": [
+      "candidate semantic source changes",
+      "dependency, feature, precision, stop-rule, witness, RHS, reference, threshold, resource, cancellation, worker-profile, target, or lane changes",
+      "reuse or mixing of Issue 49 candidate observations",
+      "factor-path or factor-corpus admission",
+      "mechanism-panel execution",
+      "persistent factor storage selection",
+      "100k execution",
+      "downstream solver unblocking"
+    ]
+  },
+  "inherited_immutable_authority": {
+    "witness_plan_sha256": "7018a1a33d601076ff17b6824068ada146039fa57aab5b1cf71793cbe6d13d60",
+    "issue49_captured_commit": "36a1226e8f424b28a3c327930f5cf0a6f630d4e3",
+    "issue49_materialized_source_binding_sha256": "54a5c04609562963a4eb73af82a101197d42a1298e46f06bd3c8caf7c69c54b8",
+    "unchanged_candidate_binding_sha256": "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6",
+    "accepted_reference_sha256": "6ed634a288145dfb3688e6e480f9519c1dbbe5c528aa9bb4b825eb57bc1b584a",
+    "transport_bundle_sha256": "a3b6417e61a604ee568d7bb5fed0416ce5c726f0e529ca1f998a7bdb272e207a",
+    "witness_ordinals": [0, 36, 69, 72, 106, 150],
+    "rhs_count": 18,
+    "owned_refinement_bytes_per_matrix_row": 168,
+    "maximum_refinement_steps": 12,
+    "maximum_unpolled_matrix_terms": 2047,
+    "candidate_controls": [
+      "unchanged-candidate status-vector replay before refined entry",
+      "candidate-independent frozen-system solution enclosure and unchanged 256*n*2^-53 threshold",
+      "reconstruction and reduced-backward gates",
+      "pre-pack and post-reload solution judgments",
+      "within-lane pre/post bit identity",
+      "positive and negative reload controls",
+      "exact N-minus-one denial including 168*n owned refinement bytes",
+      "typed factor, correction-solve, and refinement cancellation",
+      "prior-state preservation",
+      "allocation, permit, and thread bounds",
+      "zero publication before complete success",
+      "scratch and transient cleanup"
+    ]
+  },
+  "targets_and_profiles": {
+    "targets": [
+      {
+        "lane_id": "windows-x86_64",
+        "runner": "windows-2025",
+        "target": "x86_64-pc-windows-msvc"
+      },
+      {
+        "lane_id": "linux-x86_64-glibc",
+        "runner": "ubuntu-24.04",
+        "target": "x86_64-unknown-linux-gnu"
+      },
+      {
+        "lane_id": "macos-arm64",
+        "runner": "macos-15",
+        "target": "aarch64-apple-darwin"
+      },
+      {
+        "lane_id": "macos-x86_64",
+        "runner": "macos-15-intel",
+        "target": "x86_64-apple-darwin"
+      }
+    ],
+    "profiles": [
+      {
+        "configured_workers": 1,
+        "maximum_live_threads": 12
+      },
+      {
+        "configured_workers": 2,
+        "maximum_live_threads": 12
+      },
+      {
+        "configured_workers": 8,
+        "maximum_live_threads": 16
+      }
+    ],
+    "sampling_period_ms": 2,
+    "profile_timeout_seconds": 7200
+  },
+  "materialization_and_binding": {
+    "candidate_boundary": "The Rust candidate subtree, Cargo.lock, dependency versions, features, target configuration, double-double precision and stop rule must reproduce unchanged candidate binding 1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6 byte-for-byte. Only the external Python controller, cohort verifier, execution contract, and workflow may differ from Issue 49.",
+    "single_commit_rule": "Before candidate entry, materialize exactly one pushed commit containing the unchanged candidate plus the controller-only change. Every job checks out that exact commit with clean=true and fetch-depth=1.",
+    "controller_binding_algorithm": "For the allowlisted controller, verifier, execution-contract, workflow, and prototype-plan paths, hash each exact blob with SHA-256, sort records by UTF-8 path bytes, serialize each as '<path>\\u0000<lowercase-sha256>\\n', and SHA-256 the concatenation. Record the resulting controller_binding_sha256 in every preflight, target, and cohort artifact.",
+    "source_binding_rule": "The source binding manifest contains the exact git commit, unchanged candidate binding, controller binding, Cargo.lock SHA-256, dependency and feature inventory, plan and reference hashes, and all allowlisted blob hashes. Canonical JSON is UTF-8, LF, sorted keys, no insignificant whitespace; its SHA-256 is the source_binding_sha256. All four targets must report one identical source binding.",
+    "toolchain_rule": {
+      "rustup_toolchain": "1.85.0",
+      "checkout_action_commit": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "upload_artifact_action_commit": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+      "download_artifact_action_commit": "3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c",
+      "lane_identity": "Each lane records runner image label and image version, OS build/kernel, architecture/ISA witness, target triple, rustc -vV, cargo -V, Python implementation/version/executable SHA-256, and linker identity. The target job must equal that lane's same-attempt zero-entry preflight on every declared field; a mismatch is external invalidity."
+    },
+    "no_issue49_evidence_promotion": "Issue 49 observations may be replayed only as named controller-diagnostic traces. No Issue 49 profile, candidate file, target observation, maximum, or disposition may appear in the replacement cohort or satisfy any minimum-evidence count."
+  },
+  "controller_state_machine": {
+    "process_identity": "A random invocation nonce plus the controller-owned subprocess object/OS child handle identifies the process. PID is diagnostic only and never sufficient for reconciliation.",
+    "owners": {
+      "waiter": "One dedicated waiter is the sole owner of wait/reap and emits exactly one terminal event with monotonic timestamp, return code or signal, and the same invocation nonce.",
+      "sampler": "One sampler emits timestamped native thread-count attempts every 2 ms while no terminal event is set. It never polls, waits, reaps, or infers termination from PID absence.",
+      "deadline": "One monotonic 7200-second deadline owner emits timeout, terminates the same child handle, and delegates final reap to the sole waiter."
+    },
+    "process_tree_scope": "Launch the root in a fresh non-breakaway Windows Job Object or fresh POSIX process group. Every successful sample is the sum of the root and every member, with per-process start identity and thread count retained. Windows obtains the job PID inventory and a Toolhelp thread snapshot; Linux scans /proc for the exact process group and binds each PID to /proc/<pid>/stat starttime before counting /proc/<pid>/task; macOS uses proc_listpids(PROC_PGRP_ONLY) and binds each PID through PROC_PIDTBSDINFO before PROC_PIDTASKINFO. A membership, identity, or descendant-count race is an invalid sampling error rather than a lower count. The macOS ESRCH exception below applies only to the root PROC_PIDTASKINFO call paired to the root sole-waiter event. Cleanup proves the Job Object/process group is empty after root reap.",
+    "states": [
+      "NOT_STARTED",
+      "LIVE",
+      "RECONCILING_PROCESS_ABSENT",
+      "TERMINAL_OBSERVED",
+      "REAPED",
+      "INVALID"
+    ],
+    "successful_sample": "A platform adapter must return complete native records, stable per-process identities, and a summed live subject-process-tree thread count >= 1 for the same root invocation. The sum updates the ordered sample count and maximum; the per-process inventory remains in evidence.",
+    "macos_esrch_rule": {
+      "eligible_error": "Only errno 3 / ESRCH returned by macOS proc_pidinfo(PROC_PIDTASKINFO) for the one in-flight sample is eligible.",
+      "terminal_first_order": "If the waiter terminal event is already serialized, ESRCH is BENIGN_TERMINAL_RACE only when the sample began no later than the terminal-observed timestamp and finished no earlier than it.",
+      "sample_first_order": "If ESRCH is serialized first, sampling stops and the controller waits at most 1000 ms for the same subprocess handle's waiter event. Matching closure is BENIGN_TERMINAL_RACE.",
+      "effect": "BENIGN_TERMINAL_RACE is retained verbatim in the event log, does not increment sampling_errors, adds no thread sample, cannot lower the observed maximum, and ends sampling.",
+      "failure": "Wrong handle/nonce, a sample begun after terminal observation, no waiter closure within 1000 ms, more than one eligible terminal race, or any controller kill before closure is external controller invalidity."
+    },
+    "all_other_sampling_errors": "Every non-eligible errno, exception, short native record, zero/negative count, adapter failure, malformed timestamp, event-order violation, and cross-process identity mismatch is external controller invalidity. It is never converted to a candidate-owned failure and is never retried within a coordinate.",
+    "process_result": "The sole waiter result, candidate-entry marker hash, stdout/stderr hashes, candidate output hash or absence, timeout/kill history, and invocation nonce form one process-result record. A missing entry marker is external invalidity. After entry, a nonzero exit, signal, or timeout is a valid candidate-owned nonpass and cannot be masked by thread evidence.",
+    "hard_thread_ceiling": "Thread evidence passes only with at least one successful live sample, complete terminal/reap closure, no invalid sampling event, and maximum_live_threads <= the profile grant. Any valid observed count above the grant after candidate entry is a candidate-owned nonpass. BENIGN_TERMINAL_RACE cannot itself pass the gate."
+  },
+  "zero_candidate_entry_preflight": {
+    "required_on_all_four_lanes": true,
+    "must_precede_every_candidate_job": true,
+    "candidate_backend_entries": 0,
+    "factor_or_solve_calls": 0,
+    "candidate_observations": 0,
+    "checks": [
+      "recompute candidate, controller, source, plan, reference, transport, dependency, feature, and toolchain identities",
+      "build the unchanged candidate without executing it",
+      "run the pure frozen state traces for terminal-first ESRCH, sample-first ESRCH, unpaired ESRCH, other sampling error, over-grant, timeout, pre-entry exit, and zero-successful-sample cases",
+      "run a controller-only native helper behind a start barrier for one-thread and grant-plus-one detection",
+      "run 256 controller-only fast-exit children and retain every raw event; observed ESRCH must close through the same-handle waiter rule, while absence of ESRCH is allowed",
+      "fault-inject ESRCH without waiter closure and one non-ESRCH adapter error and require external invalidity",
+      "prove the sole waiter reaps every helper and no helper, scratch, or output survives"
+    ],
+    "admission": "All checks and all identities pass on all four lanes in one attempt. Otherwise candidate jobs do not start and the attempt is INVALID_UNJUDGED."
+  },
+  "minimum_profile_evidence": [
+    "exact lane, target, profile, source binding, controller binding, toolchain witness, plan, reference, and transport identities",
+    "invocation nonce, diagnostic PID, executable hash, argv hash, selected environment hash, cwd identity, start and deadline timestamps",
+    "candidate-entry marker bytes and SHA-256",
+    "ordered append-only launch, sampling, reconciliation, terminal, timeout/kill, and reap event log with monotonic timestamps",
+    "at least one successful thread sample, sample count, maximum, grant, every raw adapter result, and zero or one explicitly reconciled BENIGN_TERMINAL_RACE",
+    "sole-waiter return code or signal and matching reaped result",
+    "stdout, stderr, baseline, candidate-entry, candidate-report, scratch-inventory, and cleanup hashes or an explicit justified absence",
+    "all inherited numerical, reload, resource, cancellation, prior-state, publication, and cleanup controls"
+  ],
+  "cohort_and_judgment": {
+    "complete_cohort": "Exactly four target observations, each with exactly the 1/12, 2/12, and 8/16 profiles, exactly six witness sources and 18 RHS identities, from one workflow run attempt, one commit, one source/controller/candidate binding, one reference, one transport, and one preflight cohort.",
+    "mixing": "No target, profile, preflight, candidate observation, or sidecar may be filled from another run, attempt, commit, controller binding, or Issue 49.",
+    "integrity": "Every artifact has byte length and SHA-256 in its parent manifest; the cohort verifier independently rehashes all descendants and rejects duplicate, missing, unexpected, or unreferenced evidence.",
+    "precedence": [
+      "Any external identity, preflight, controller, transport, evidence, integrity, or completeness invalidity makes the complete attempt INVALID_UNJUDGED.",
+      "Otherwise any valid candidate-owned numerical, resource, cancellation, thread, process, publication, or cleanup nonpass makes the complete attempt REFINEMENT_ROUTE_REJECTED_DIAGNOSTIC_ONLY.",
+      "Otherwise the complete attempt is REFINEMENT_ROUTE_SUPPORTED_FOR_FULL_CORPUS_PLAN."
+    ],
+    "supported_scope": "Support freezes a separate full-corpus refined-factor qualification plan; it does not admit faer, qd, a factor route, or the corpus."
+  },
+  "immutable_retry": {
+    "attempt_unit": "One complete four-target workflow dispatch and its same-attempt preflight, reference, target, and cohort artifacts.",
+    "maximum_attempts": 2,
+    "replacement_condition": "Attempt 2 exists only after an audited INVALID_UNJUDGED disposition for attempt 1 and explicit live human ratification.",
+    "replacement_identity": "Attempt 2 must use the exact same commit, source/controller/candidate binding, toolchains, plan, reference, transport, targets, profiles, witnesses, RHS identities, thresholds, resources, and workflow inputs.",
+    "forbidden": [
+      "automatic retry",
+      "partial target or profile retry",
+      "attempt mixing",
+      "replacement after a valid supported or rejected disposition",
+      "semantic or controller repair between attempts",
+      "selection of the more favorable attempt"
+    ],
+    "finality": "Attempt 2 consumes the only replacement. If it is invalid, the execution ticket resolves INVALID_UNJUDGED; any repair requires a new Wayfinder decision ticket and a new plan."
+  },
+  "issue49_diagnostic_interpretation": {
+    "allowed": "Replay the five macOS [Errno 3] proc_pidinfo traces as controller diagnostic inputs and show that maxima 2/3 under grants 12/12 on arm64 and 2/3/7 under grants 12/12/16 on x86_64 remain unchanged while each same-handle terminal race closes.",
+    "not_allowed": "Promote those maxima, candidate reports, sources, profiles, sidecars, or dispositions into the replacement cohort or count them toward any execution gate."
+  },
+  "next_ticket_on_acceptance": {
+    "title": "Execute the controller-valid double-double refinement witness gate",
+    "type": "wayfinder:prototype",
+    "blocked_by": "Freeze a controller-valid thread-evidence plan for the refinement witness gate",
+    "blocks": "Compare restarted FGMRES and same-hierarchy RAS variants on the mechanism panel",
+    "allowed_outcomes": [
+      "REFINEMENT_ROUTE_SUPPORTED_FOR_FULL_CORPUS_PLAN",
+      "REFINEMENT_ROUTE_REJECTED_DIAGNOSTIC_ONLY",
+      "INVALID_UNJUDGED"
+    ]
+  }
+}
