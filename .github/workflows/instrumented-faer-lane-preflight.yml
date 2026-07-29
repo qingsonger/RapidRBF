@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - codex/provision-instrumented-faer-lanes
+    paths:
+      - .github/workflows/instrumented-faer-lane-preflight.yml
+      - tools/prototypes/instrumented_faer_lane_provisioning_throwaway/collect_lane_identity.py
+      - tools/prototypes/instrumented_faer_lane_provisioning_throwaway/lane-contract.v1.json
+      - tools/prototypes/instrumented_faer_lane_provisioning_throwaway/verify_lane_cohort.py
   workflow_dispatch:
 
 permissions:
@@ -40,7 +45,7 @@ jobs:
       RAPIDRBF_LANE_ID: ${{ matrix.lane_id }}
     steps:
       - name: Check out the exact pushed commit
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           clean: true
           fetch-depth: 1
@@ -59,7 +64,7 @@ jobs:
 
       - name: Upload the lane witness
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: rapidrbf-instrumented-faer-lane-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: lane-evidence
@@ -74,7 +79,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Check out the exact pushed commit
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           clean: true
           fetch-depth: 1
@@ -83,7 +88,7 @@ jobs:
       - name: Download this attempt's lane witnesses
         id: download
         continue-on-error: true
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
           pattern: rapidrbf-instrumented-faer-lane-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-evidence
@@ -104,7 +109,7 @@ jobs:
 
       - name: Upload the cohort summary
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: rapidrbf-instrumented-faer-lane-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-summary
