@@ -1,6 +1,16 @@
 name: Instrumented faer 216-factor corpus qualification
 
 on:
+  push:
+    branches:
+      - codex/qualify-instrumented-faer-corpus
+    paths:
+      - .github/workflows/instrumented-faer-corpus-qualification.yml
+      - tools/prototypes/dense_factor_replay_throwaway/evidence/**
+      - tools/prototypes/instrumented_faer_candidate_binding_throwaway/**
+      - tools/prototypes/instrumented_faer_corpus_qualification_throwaway/**
+      - tools/prototypes/instrumented_faer_lane_provisioning_throwaway/collect_lane_identity.py
+      - tools/prototypes/instrumented_faer_lane_provisioning_throwaway/lane-contract.v1.json
   workflow_dispatch:
 
 permissions:
