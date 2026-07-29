@@ -48,9 +48,11 @@ jobs:
       RAPIDRBF_LANE_ID: ${{ matrix.lane_id }}
       RAPIDRBF_TARGET: ${{ matrix.target }}
     steps:
-      - name: Enable Git long paths on Windows before checkout
+      - name: Configure canonical Git bytes on Windows before checkout
         if: runner.os == 'Windows'
-        run: git config --global core.longpaths true
+        run: |
+          git config --global core.longpaths true
+          git config --global core.autocrlf false
 
       - name: Check out the exact dispatched commit
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -162,9 +164,11 @@ jobs:
       RAPIDRBF_TARGET: ${{ matrix.target }}
       GH_TOKEN: ${{ github.token }}
     steps:
-      - name: Enable Git long paths on Windows before checkout
+      - name: Configure canonical Git bytes on Windows before checkout
         if: runner.os == 'Windows'
-        run: git config --global core.longpaths true
+        run: |
+          git config --global core.longpaths true
+          git config --global core.autocrlf false
 
       - name: Check out the exact dispatched commit
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
