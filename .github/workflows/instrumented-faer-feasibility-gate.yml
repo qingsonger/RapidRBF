@@ -1,0 +1,144 @@
+name: Instrumented faer frozen feasibility gate
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: instrumented-faer-frozen-feasibility-gate
+  cancel-in-progress: false
+
+jobs:
+  lane:
+    name: ${{ matrix.lane_id }}
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include:
+          - lane_id: windows-x86_64
+            runner: windows-2025
+            target: x86_64-pc-windows-msvc
+            python_command: python
+          - lane_id: linux-x86_64-glibc
+            runner: ubuntu-24.04
+            target: x86_64-unknown-linux-gnu
+            python_command: python3
+          - lane_id: macos-arm64
+            runner: macos-15
+            target: aarch64-apple-darwin
+            python_command: python3
+          - lane_id: macos-x86_64
+            runner: macos-15-intel
+            target: x86_64-apple-darwin
+            python_command: python3
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+    env:
+      CARGO_INCREMENTAL: "0"
+      RUSTUP_TOOLCHAIN: "1.85.0"
+      RAPIDRBF_LANE_ID: ${{ matrix.lane_id }}
+      RAPIDRBF_TARGET: ${{ matrix.target }}
+    steps:
+      - name: Check out the exact dispatched commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          clean: true
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Install the exact Rust toolchain
+        run: rustup toolchain install 1.85.0 --profile minimal
+
+      - name: Capture and qualify the native host
+        run: >-
+          ${{ matrix.python_command }}
+          tools/prototypes/instrumented_faer_lane_provisioning_throwaway/collect_lane_identity.py
+          --contract
+          tools/prototypes/instrumented_faer_lane_provisioning_throwaway/lane-contract.v1.json
+          --lane
+          "${{ matrix.lane_id }}"
+          --output
+          "lane-evidence/${{ matrix.lane_id }}/lane"
+
+      - name: Execute the immutable two-factor plan once
+        run: >-
+          ${{ matrix.python_command }}
+          tools/prototypes/instrumented_faer_feasibility_gate_throwaway/run.py
+          --lane-id
+          "${{ matrix.lane_id }}"
+          --target
+          "${{ matrix.target }}"
+          --lane-witness
+          "lane-evidence/${{ matrix.lane_id }}/lane/lane-identity.json"
+          --output
+          "lane-evidence/${{ matrix.lane_id }}/execution"
+
+      - name: Upload the complete lane evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: rapidrbf-instrumented-faer-gate-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: lane-evidence
+          if-no-files-found: error
+          retention-days: 90
+
+  cohort:
+    name: Judge the four-lane cohort
+    if: always()
+    needs: lane
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out the exact dispatched commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          clean: true
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Download this attempt's lane evidence
+        id: download
+        continue-on-error: true
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          pattern: rapidrbf-instrumented-faer-gate-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence
+          merge-multiple: true
+
+      - name: Verify and judge the non-compensating cohort
+        id: verify
+        continue-on-error: true
+        run: >-
+          python3
+          tools/prototypes/instrumented_faer_feasibility_gate_throwaway/verify_execution_cohort.py
+          --contract
+          tools/prototypes/instrumented_faer_feasibility_gate_throwaway/execution-contract.v1.json
+          --evidence-root
+          cohort-evidence
+          --output
+          cohort-summary
+
+      - name: Upload the cohort summary
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: rapidrbf-instrumented-faer-gate-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-summary
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish the readable disposition
+        if: always()
+        run: |
+          if [ -f cohort-summary/cohort-summary.md ]; then
+            cat cohort-summary/cohort-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No cohort summary was produced." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Fail only an unjudged cohort
+        if: steps.verify.outcome != 'success'
+        run: exit 1

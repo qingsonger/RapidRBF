@@ -1,0 +1,76 @@
+{
+  "schema": "rapidrbf-instrumented-faer-feasibility-execution-contract-v1",
+  "contract_id": "RapidRBF/InstrumentedFaerTwoFactorExecution/v1",
+  "authority": {
+    "wayfinder_map": "https://github.com/qingsonger/RapidRBF/issues/1",
+    "execution_ticket": "https://github.com/qingsonger/RapidRBF/issues/44",
+    "candidate_binding_ticket": "https://github.com/qingsonger/RapidRBF/issues/42",
+    "lane_provisioning_ticket": "https://github.com/qingsonger/RapidRBF/issues/43",
+    "candidate_binding_commit": "8a175d63ba7fed63da684201819a0cf9e5d8995c",
+    "candidate_binding_sha256": "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6",
+    "candidate_manifest_file_sha256": "da90b4642e3670e458c5aa5cf3aa61e370a2a944f120f2f07e897ad00a25c822",
+    "factor_health_profile_sha256": "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3",
+    "factor_health_profile_file_sha256": "7ed996b6b2bce7e59398385fd152d41b56a7b47b7ddb5126ebff3b5f10152465",
+    "two_factor_plan_sha256": "5b288e33d13464ae79948b1afcb2d76d0d08f9c81b27010ad51d4906cfc66892",
+    "two_factor_plan_file_sha256": "c9043c22884369177c0d5e099ef22b8081e6c22969011186cbd54ce6f5b20f77",
+    "checkpoint_metadata_file_sha256": "5e39dcb672b81ad92a79c16c9466287214d37a93eb9aad310e633eefb43b42e5",
+    "lane_contract_sha256": "d6edbf73cc9788dfb56eedc58010ce3b091d94014111a6a4b1f1171cc8f7c5a3",
+    "input_manifest_file": "inputs/input-manifest.v1.json"
+  },
+  "execution": {
+    "rust_toolchain": "1.85.0",
+    "cargo_profile": "release",
+    "cargo_incremental": false,
+    "parallelism": "Par::Seq",
+    "outer_compute_permits": 1,
+    "temporary_storage": "denied",
+    "rhs_columns": 1,
+    "rhs_formula": "1 + (row mod 17) / 17",
+    "coarse_solve_route": "the same faer full-pivot LU factors, runner-owned allocation-free single-RHS permutations, and faer unit-lower/upper triangular solves inside the frozen 71-byte factor stack schedule",
+    "success_order": ["projected_b", "coarse_p_top"],
+    "n_minus_one_order": ["projected_b", "coarse_p_top"],
+    "cancellation_factor": "projected_b",
+    "cancellation_request_delay_after_backend_signal_ms": 10,
+    "cancellation_observations_per_lane": 1,
+    "prior_state": "the successful projected_b ProbeFactor remains retained while a replacement projected_b attempt is cancelled",
+    "publication_boundary": "probe-private only; production ValidatedFactor and Solved publication counts remain zero"
+  },
+  "judgment": {
+    "lanes_are_non_compensating": true,
+    "required_lanes": [
+      "windows-x86_64",
+      "linux-x86_64-glibc",
+      "macos-arm64",
+      "macos-x86_64"
+    ],
+    "feasible_requires": [
+      "exact binding, profile, plan, checkpoint, lane, and input identities",
+      "both frozen factors enter their selected backend and complete factor plus solve",
+      "all factor and solve components are finite",
+      "reduced backward error is no greater than 64*n*2^-53",
+      "successful transient high-water bytes exactly equal the frozen peak schedule",
+      "actual private retained bytes equal the frozen publication schedule before cleanup",
+      "one outer permit is observed live inside each operation and zero after it",
+      "transient, permit, and temporary-storage residue are zero after every attempt",
+      "both one-byte-short transient grants deny before operation or backend entry",
+      "the in-flight projected_b cancellation returns Cancelled and reports host acknowledgment latency",
+      "the retained prior projected_b fingerprint and bytes are unchanged after cancellation",
+      "the failed replacement publishes nothing and final private retained residue is zero",
+      "every checkpoint bound remains the exact immutable source-level metadata for the target route"
+    ],
+    "allowed_dispositions": [
+      "FEASIBLE_FOR_216_FACTOR_QUALIFICATION",
+      "EVIDENCE_BACKED_REJECTED",
+      "UNJUDGED_EVIDENCE_MISSING"
+    ],
+    "complete_failed_gate": "EVIDENCE_BACKED_REJECTED",
+    "missing_or_malformed_evidence": "UNJUDGED_EVIDENCE_MISSING"
+  },
+  "retry": {
+    "cohort_key": ["GITHUB_RUN_ID", "GITHUB_RUN_ATTEMPT", "GITHUB_SHA", "execution_contract_sha256"],
+    "mix_attempts": false,
+    "partial_rerun_valid": false,
+    "before_candidate_entry": "an infrastructure failure may be retried only after it is recorded",
+    "after_candidate_entry": "retain the attempt as an observation; do not silently retry or change the contract"
+  }
+}
