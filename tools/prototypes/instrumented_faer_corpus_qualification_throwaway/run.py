@@ -293,10 +293,13 @@ def main() -> int:
     parser.add_argument("--lane-witness", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
+    args.bundle = args.bundle.resolve()
+    args.lane_witness = args.lane_witness.resolve()
+    args.output = args.output.resolve()
     require(not args.output.exists(), f"output must be absent: {args.output}")
 
     authority = verify_authority()
-    transport, extraction = verify_transport(args.bundle.resolve())
+    transport, extraction = verify_transport(args.bundle)
     try:
         lane_witness = json.loads(args.lane_witness.read_text(encoding="utf-8"))
         require(lane_witness["qualification"] == "PASS", "lane is not qualified")
