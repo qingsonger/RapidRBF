@@ -1,0 +1,11 @@
+{
+  "authority_profile_sha256": "c671a0a5cf4b48cd580a5c6e67a920bb24288e964036d5f3d216b3ad850168d6",
+  "command": "python tools/prototypes/projected_factor_health_authority_throwaway/run.py",
+  "diagnosis_evidence_sha256": "b5dbe24ace553df3d390673feef5cad1912bdc8130d97875739f13e8512587d2",
+  "diagnosis_plan_sha256": "fb36f808157131c203dd8209450bde9f4a440ec0ca5f52cf0511b0e53bcd3001",
+  "evidence_sha256": "220699c200b3ae40732be9bf58b7d227260c65e27cd008349117d7e85c0eb5ba",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.5",
+  "requalification_plan_sha256": "3d948e6a3c5e824d84ac8abae8135bafbb9a052480361fe4589982bc8bfba829",
+  "schema": "RapidRBF/ProjectedFactorHealthAuthorityReproduction/v1"
+}

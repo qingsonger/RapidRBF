@@ -1,0 +1,218 @@
+{
+  "schema": "RapidRBF/ProjectedFactorRequalificationPlan/v1",
+  "plan_id": "RapidRBF/ProjectedFactorRequalificationPlan/v1",
+  "question": "Can the exact issue-41 instrumented-faer binding pass the repaired candidate-independent factor-health authority across the complete frozen cohort?",
+  "authorities": {
+    "replacement_solution_health": {
+      "file": "authority-profile.v1.json",
+      "sha256": "c671a0a5cf4b48cd580a5c6e67a920bb24288e964036d5f3d216b3ad850168d6"
+    },
+    "issue_41_bundle": {
+      "name": "rapidrbf-issue41-factor-qualification-input-v1.zip",
+      "bytes": 452947159,
+      "sha256": "a3b6417e61a604ee568d7bb5fed0416ce5c726f0e529ca1f998a7bdb272e207a"
+    },
+    "issue_41_factor_qualification_plan": {
+      "plan_id": "RapidRBF/FactorQualificationPlan/v1/2d0f0ca77df0460babdcea3d945e6c487e84c3a658d704bde2915e406ad6a8f0",
+      "file_sha256": "fef5f0b3e4d84e8af95505f3b822aded357631191a1e13226474adc985b964ce",
+      "plan_payload_sha256": "2d0f0ca77df0460babdcea3d945e6c487e84c3a658d704bde2915e406ad6a8f0"
+    },
+    "canonical_hierarchy": {
+      "corpus_sha256": "38f39fee8b4059cd2619df4bbfabb6f7159b41df1511907e0346c32642737f79",
+      "raw_manifest_sha256": "cf5aaa1e3fe6bf51c3f24f13455ac1036e7ec591668c18ec4c86f3243aa07f54",
+      "lock_sha256": "7abd17eabba0cd578fa8989075f9d09d5113a696df48c9643785822dadde5a75",
+      "rank_profile_sha256": "8d60d932464e04c1ce052ecf33acc93f6e72d424ba05d1af7e40cf69b456731e",
+      "physical_profile_sha256": "cf64f2b26e2a3f4844a5c63027deb5bd4e1f856f0c7f45d4d2afdcccbff724a1"
+    },
+    "candidate_binding": {
+      "binding_id": "RapidRBF/InstrumentedFaerCandidateExecutionBinding/v1/1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6",
+      "binding_sha256": "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6",
+      "manifest_file_sha256": "da90b4642e3670e458c5aa5cf3aa61e370a2a944f120f2f07e897ad00a25c822"
+    },
+    "lane_contract_file_sha256": "d6edbf73cc9788dfb56eedc58010ce3b091d94014111a6a4b1f1171cc8f7c5a3"
+  },
+  "cohort": {
+    "workloads": 12,
+    "blocks": 204,
+    "logical_factor_sources": 216,
+    "unique_matrix_payloads": 179,
+    "coarse_p_top_sources": 12,
+    "projected_qtaq_sources": 204,
+    "rhs_families_per_source": 3,
+    "targets": 4,
+    "profiles_per_target": 3,
+    "required_target_profile_observations": 12,
+    "required_factor_observations": 2592,
+    "required_rhs_solution_judgments": 7776,
+    "source_order": "Exact factor_sources order in the frozen issue-41 plan; no filtering, deduplication, sharding omission, or candidate-selected ordering.",
+    "rhs_families": [
+      {
+        "id": "operational",
+        "frozen_declared_vector": "1 + (row mod 17) / 17",
+        "rhs": "issue-41 ordered binary64 A*x construction"
+      },
+      {
+        "id": "constraint",
+        "frozen_declared_vector": "alternating +1/-1",
+        "rhs": "issue-41 ordered binary64 A*x construction"
+      },
+      {
+        "id": "dynamic-range",
+        "frozen_declared_vector": "sign(row)*2^((row mod 21)-10)",
+        "rhs": "issue-41 ordered binary64 A*x construction"
+      }
+    ]
+  },
+  "targets": [
+    {
+      "lane_id": "windows-x86_64",
+      "runner": "windows-2025",
+      "target": "x86_64-pc-windows-msvc"
+    },
+    {
+      "lane_id": "linux-x86_64-glibc",
+      "runner": "ubuntu-24.04",
+      "target": "x86_64-unknown-linux-gnu"
+    },
+    {
+      "lane_id": "macos-arm64",
+      "runner": "macos-15",
+      "target": "aarch64-apple-darwin"
+    },
+    {
+      "lane_id": "macos-x86_64",
+      "runner": "macos-15-intel",
+      "target": "x86_64-apple-darwin"
+    }
+  ],
+  "profiles": [
+    {
+      "workers": 1,
+      "maximum_live_threads": 12
+    },
+    {
+      "workers": 2,
+      "maximum_live_threads": 12
+    },
+    {
+      "workers": 8,
+      "maximum_live_threads": 16
+    }
+  ],
+  "reference_phase": {
+    "must_complete_before_candidate_entry": true,
+    "one_target_independent_manifest": true,
+    "required_references": "Every unique frozen (matrix payload SHA-256, RHS SHA-256) pair used by all 216 logical sources.",
+    "manifest_identity": [
+      "authority profile SHA-256",
+      "issue-41 plan SHA-256",
+      "source and RHS hashes",
+      "generator closure SHA-256",
+      "precision rung",
+      "canonical certificate and endpoint hashes"
+    ],
+    "failure": "A missing, mismatched, non-unique, or unresolved reference prevents candidate entry and records REFERENCE_SET_INCOMPLETE_UNJUDGED."
+  },
+  "positive_factor_and_reload_checks": [
+    "Verify source, reference, profile, candidate binding, target, and worker-profile identities before backend entry.",
+    "Build the candidate factor and independently pass the unchanged reconstruction gate.",
+    "Solve every RHS family before packing; independently pass reduced backward error and repaired reference-solution judgment.",
+    "Atomically publish the private source-bound factor pack.",
+    "Reload in a fresh factor object and repeat all three solves, reduced backward errors, and repaired reference-solution judgments.",
+    "Require the pre-pack and post-reload solved corrections to be bit-exact, retaining the repaired reference judgment as the candidate-independent health authority.",
+    "Keep factor publication, optional run-scoped recompute recipe, and solved-correction publication separate."
+  ],
+  "negative_and_operational_controls": [
+    "exact-n-minus-one-every-source",
+    "truncated-pack",
+    "corrupt-pack",
+    "wrong-source",
+    "wrong-profile",
+    "metadata-mismatch",
+    "mid-factor-cancellation-after-backend-entry",
+    "mid-solve-cancellation-after-backend-entry",
+    "prior-factor-reuse",
+    "prior-solved-correction-reuse",
+    "allocation-high-water",
+    "configured-worker-and-external-live-thread-bound",
+    "scratch-live-occupancy-write-high-water-and-zero-residue-cleanup"
+  ],
+  "numeric_judgment": {
+    "all_factor_components_finite": true,
+    "reconstruction_relative_inf_max": "64*n*2^-53",
+    "reduced_backward_error_max": "64*n*2^-53",
+    "solution_authority": "authority-profile.v1.json",
+    "solution_relative_inf_max": "256*n*2^-53",
+    "solution_judgments": [
+      "PASS",
+      "FAIL",
+      "INDETERMINATE"
+    ],
+    "indeterminate_is_nonpassing": true,
+    "metrics_are_non_compensating": true
+  },
+  "factor_access": {
+    "packed_schema": "RapidRBF/PrototypeQualifiedFactorPack/v1",
+    "recompute_recipe_schema": "RapidRBF/RunScopedRecomputeRecipe/v1",
+    "recompute_only_if_sole_nonpassing_gate": "durable_pack_reload",
+    "retained_source_lease_required": true,
+    "one_shared_noncopyable_recompute_budget": 216,
+    "cross_run_cache": false,
+    "eviction_rebuild": false
+  },
+  "aggregation": {
+    "target_profile_source_rhs_controls_are_conjunctive": true,
+    "no_cross_target_profile_source_or_metric_compensation": true,
+    "missing_or_indeterminate_required_evidence_cannot_pass": true,
+    "admission": "Every identity, reference, factor, RHS, reload, negative, cancellation, resource, publication, prior-state, thread, and cleanup check passes in all 12 target-profile observations.",
+    "non_admission": "Any valid candidate-owned FAIL or INDETERMINATE yields NOT_ADMITTED_DIAGNOSTIC_ONLY with the exact failed coordinates.",
+    "invalid": "Evidence-identity or controller failure follows the retry policy and never becomes candidate success or failure."
+  },
+  "retry": {
+    "cohort_key": [
+      "GITHUB_RUN_ID",
+      "GITHUB_RUN_ATTEMPT",
+      "GITHUB_SHA",
+      "requalification_plan_sha256",
+      "reference_manifest_sha256"
+    ],
+    "mix_attempts": false,
+    "partial_rerun_valid": false,
+    "candidate_results_may_not_change_plan_reference_or_threshold": true,
+    "before_candidate_entry": "Identity, transport, reference, or controller failure is INVALID_PRE_ENTRY_UNJUDGED; retain it in the append-only ledger and retry only the complete unchanged cohort.",
+    "after_candidate_entry_candidate_owned": "Numerical, pack, cancellation, resource, publication, thread, cleanup, crash, or timeout failure is a valid NOT_ADMITTED_DIAGNOSTIC_ONLY result and is never retried.",
+    "after_candidate_entry_external": "A proven external controller or evidence-capture failure is INVALID_POST_ENTRY_UNJUDGED; retain it and allow at most one human-approved complete unchanged replacement attempt.",
+    "replacement_exhausted": "A second external-invalid post-entry attempt yields INVALID_UNJUDGED and requires a newly identified plan."
+  },
+  "dispositions": {
+    "reference": [
+      "CERTIFIED_REFERENCE",
+      "REFERENCE_INDETERMINATE",
+      "REFERENCE_SET_INCOMPLETE_UNJUDGED"
+    ],
+    "solution": [
+      "PASS",
+      "FAIL",
+      "INDETERMINATE"
+    ],
+    "factor_access": [
+      "QUALIFIED_PACKED",
+      "QUALIFIED_RUN_SCOPED_RECOMPUTE",
+      "NOT_ADMITTED_DIAGNOSTIC_ONLY"
+    ],
+    "cohort": [
+      "ADMITTED_FOR_MECHANISM_PANEL",
+      "NOT_ADMITTED_DIAGNOSTIC_ONLY",
+      "INVALID_UNJUDGED"
+    ]
+  },
+  "scope": {
+    "executes_or_prejudges_cohort": false,
+    "changes_candidate_binding": false,
+    "changes_existing_reconstruction_or_backward_thresholds": false,
+    "admits_dependency_factor_path_or_corpus": false,
+    "runs_mechanism_panel": false,
+    "chooses_factor_storage": false,
+    "enters_100k_rung": false
+  }
+}

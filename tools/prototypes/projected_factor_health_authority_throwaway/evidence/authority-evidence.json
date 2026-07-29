@@ -1,0 +1,126 @@
+{
+  "accepted_diagnosis": {
+    "disposition": "HEALTH_AUTHORITY_DEFECT_PROVEN",
+    "evidence_sha256": "b5dbe24ace553df3d390673feef5cad1912bdc8130d97875739f13e8512587d2",
+    "plan_sha256": "fb36f808157131c203dd8209450bde9f4a440ec0ca5f52cf0511b0e53bcd3001"
+  },
+  "adversarial": [
+    {
+      "case_id": "declared-vector-perturbation",
+      "expected": "PASS",
+      "explanation": "Changing the diagnostic declared vector after frozen b exists does not enter the new judgment; ordinal 72 remains PASS.",
+      "status": "PASS"
+    },
+    {
+      "case_id": "threshold-overlap",
+      "expected": "INDETERMINATE",
+      "explanation": "An oracle interval straddling the unchanged threshold cannot be rounded or voted into PASS.",
+      "status": "INDETERMINATE"
+    },
+    {
+      "case_id": "low-backward-error-false-admission",
+      "expected": "FAIL",
+      "explanation": "A candidate two thresholds from the reference fails even when a separate backward-error gate would pass.",
+      "status": "FAIL"
+    },
+    {
+      "case_id": "candidate-circularity",
+      "expected": "REJECTED_BEFORE_REFERENCE_GENERATION",
+      "explanation": "A reference request containing a candidate binding, factor, solution, residual, or observation is identity-invalid.",
+      "status": "REJECTED_BEFORE_REFERENCE_GENERATION"
+    },
+    {
+      "case_id": "candidate-threshold-override",
+      "expected": "REJECTED_BEFORE_CANDIDATE_ENTRY",
+      "explanation": "The threshold is fixed by the authority profile; a candidate or lane override changes identity and cannot enter the cohort.",
+      "status": "REJECTED_BEFORE_CANDIDATE_ENTRY"
+    }
+  ],
+  "authority_profile_sha256": "c671a0a5cf4b48cd580a5c6e67a920bb24288e964036d5f3d216b3ad850168d6",
+  "boundaries": [
+    {
+      "backward_error": 2.0665403817096002e-15,
+      "candidate_distance": {
+        "lower": 6.7404504992461535e-15,
+        "upper": 6.740450499247791e-15
+      },
+      "category": "projected passing control",
+      "dimension": 999,
+      "explanation": "The repaired authority preserves the boundary result without using the declared vector as an oracle.",
+      "new_status": "PASS",
+      "old_status": "PASS",
+      "oracle_radius": 5.711379099754434e-28,
+      "ordinal": 0,
+      "threshold": 2.8393287720973603e-11,
+      "workload": "M1-EXP-1K"
+    },
+    {
+      "backward_error": 6.473874345423012e-16,
+      "candidate_distance": {
+        "lower": 2.241942185732155e-10,
+        "upper": 2.2419421869938991e-10
+      },
+      "category": "smallest-dimension failed source and duplicate-logical-source boundary",
+      "dimension": 808,
+      "explanation": "The defective declared-vector comparison is removed, but this candidate solution remains separated from the frozen-system reference by more than the unchanged threshold.",
+      "new_status": "FAIL",
+      "old_status": "FAIL",
+      "oracle_radius": 6.313485436363006e-25,
+      "ordinal": 69,
+      "threshold": 2.296474121976644e-11,
+      "workload": "M2-TH3-10K"
+    },
+    {
+      "backward_error": 3.386444624644089e-16,
+      "candidate_distance": {
+        "lower": 3.1213911752429344e-12,
+        "upper": 3.121391175263167e-12
+      },
+      "category": "nearest frozen failure boundary",
+      "dimension": 1496,
+      "explanation": "The candidate is close to the frozen-(A,b) reference even though the pre-rounding declared vector made the old gate fail.",
+      "new_status": "PASS",
+      "old_status": "FAIL",
+      "oracle_radius": 6.541037410608428e-27,
+      "ordinal": 72,
+      "threshold": 4.251887730788439e-11,
+      "workload": "M3-HERMITE-1K"
+    },
+    {
+      "backward_error": 1.152410829891103e-15,
+      "candidate_distance": {
+        "lower": 6.236845717006173e-07,
+        "upper": 6.236855459863281e-07
+      },
+      "category": "worst frozen failure boundary",
+      "dimension": 809,
+      "explanation": "The defective declared-vector comparison is removed, but this candidate solution remains separated from the frozen-system reference by more than the unchanged threshold.",
+      "new_status": "FAIL",
+      "old_status": "FAIL",
+      "oracle_radius": 3.58675790671219e-21,
+      "ordinal": 150,
+      "threshold": 2.299316292919684e-11,
+      "workload": "M4-GEOMETRY-NEAR-COINCIDENT-10K"
+    }
+  ],
+  "closure": {
+    "all_adversarial_guards_close": true,
+    "authority_excludes_candidate_inputs": true,
+    "candidate_not_blanket_accommodated": true,
+    "frozen_issue_45_evidence_verified": true,
+    "full_cohort_remains_unexecuted": true,
+    "nearest_declared_vector_false_failure_repaired": true,
+    "passing_control_preserved": true,
+    "unchanged_threshold_bound": true
+  },
+  "disposition": "REPLACEMENT_HEALTH_AUTHORITY_AND_PLAN_FROZEN",
+  "requalification_plan_sha256": "3d948e6a3c5e824d84ac8abae8135bafbb9a052480361fe4589982bc8bfba829",
+  "schema": "RapidRBF/ProjectedFactorHealthAuthorityEvidence/v1",
+  "scope": {
+    "candidate_or_corpus_admitted": false,
+    "entered_100k_rung": false,
+    "factor_storage_selected": false,
+    "full_requalification_executed": false,
+    "mechanism_panel_run": false
+  }
+}

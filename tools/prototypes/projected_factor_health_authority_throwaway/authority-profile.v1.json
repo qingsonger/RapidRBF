@@ -1,0 +1,102 @@
+{
+  "schema": "RapidRBF/ProjectedFactorSolutionHealthAuthority/v1",
+  "profile_id": "RapidRBF/ProjectedFactorSolutionHealthAuthority/v1",
+  "question": "What candidate-independent authority should replace the defective declared-solution positive pack/reload check for the frozen projected binary64 systems?",
+  "supersedes": {
+    "factor_health_profile_sha256": "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3",
+    "field": "factor_health.pack_reload_solution_relative_inf_max",
+    "reason": "The old field compares a solution of frozen binary64 (A,b) with the pre-rounding declared vector rather than the exact solution of that frozen system."
+  },
+  "frozen_inputs": {
+    "issue_41_bundle": {
+      "name": "rapidrbf-issue41-factor-qualification-input-v1.zip",
+      "bytes": 452947159,
+      "sha256": "a3b6417e61a604ee568d7bb5fed0416ce5c726f0e529ca1f998a7bdb272e207a"
+    },
+    "factor_qualification_plan": {
+      "plan_id": "RapidRBF/FactorQualificationPlan/v1/2d0f0ca77df0460babdcea3d945e6c487e84c3a658d704bde2915e406ad6a8f0",
+      "sha256": "fef5f0b3e4d84e8af95505f3b822aded357631191a1e13226474adc985b964ce"
+    },
+    "matrix": "The source payload's finite IEEE-754 binary64 entries, interpreted as exact real numbers in the frozen column-major order.",
+    "right_hand_side": "The issue-41 ordered binary64 matrix-times-declared-solution construction, including every specified binary64 rounding, interpreted after construction as exact real numbers.",
+    "declared_solution_role": "RHS-construction input and diagnostic only; forbidden as a reference center, uncertainty input, scale authority, or pass/fail oracle."
+  },
+  "independence": {
+    "reference_manifest_created_before_candidate_entry": true,
+    "reference_manifest_reused_across_targets_and_profiles": true,
+    "forbidden_reference_inputs": [
+      "candidate binding or source",
+      "candidate factor bytes",
+      "pre-pack or post-reload candidate solution",
+      "candidate residual or backward error",
+      "candidate observation or disposition",
+      "declared solution as an expected solution"
+    ],
+    "identity_fields": [
+      "authority profile SHA-256",
+      "factor qualification plan SHA-256",
+      "source payload SHA-256",
+      "RHS family and exact frozen RHS SHA-256",
+      "reference generator source and dependency closure SHA-256",
+      "MPFR version and target-independent precision",
+      "precision rung",
+      "reference center and certificate SHA-256"
+    ]
+  },
+  "reference_generation": {
+    "input_conversion": "Exact binary64-to-MPFR conversion; every subsequent bound uses directed outward rounding.",
+    "precision_ladder_bits": [
+      256,
+      512,
+      1024,
+      2048
+    ],
+    "pivoting": "Deterministic complete pivoting; equal-magnitude choices break by lowest original row and then column.",
+    "center": "A point x0 produced only from the frozen (A,b) at the active precision rung.",
+    "approximate_inverse": "A square point operator R produced only from frozen A by the same deterministic reference generator.",
+    "certificate": {
+      "q": "outward upper bound of ||I - R*A||_inf",
+      "c": "outward upper bound of ||R*(b - A*x0)||_inf",
+      "certified_when": "q < 1",
+      "solution_enclosure": "The unique exact solution x* satisfies ||x* - x0||_inf <= rho = c/(1-q), evaluated outward.",
+      "proof": "Banach perturbation bound: ||I-R*A||_inf < 1 makes R*A invertible and bounds the fixed-point tail."
+    },
+    "reference_quality": "Before candidate entry, require rho/max(1, lower(||x*||_inf)) <= (256*n*2^-53)/64 using only the frozen (A,b) certificate.",
+    "precision_escalation": "Use the first rung whose certificate proves q < 1 and meets the preregistered reference-quality bound. Precision selection is completed before candidate entry and cannot inspect a candidate comparison.",
+    "terminal_unresolved": "If 2048 bits cannot prove q < 1 or meet the preregistered reference-quality bound, return REFERENCE_INDETERMINATE without candidate entry. A later candidate comparison that overlaps the fixed reference remains INDETERMINATE and does not trigger more precision."
+  },
+  "candidate_judgment": {
+    "candidate_value": "Treat each finite candidate binary64 solution component as an exact real number; non-finite output is FAIL.",
+    "scale": "s_lo=max(1, lower(||x*||_inf)); s_hi=max(1, upper(||x*||_inf)) from the certified enclosure.",
+    "distance": "d_lo and d_hi are outward lower and upper bounds of ||x_candidate-x*||_inf.",
+    "threshold": "tau = 256*n*2^-53",
+    "pass": "d_hi <= tau*s_lo",
+    "fail": "d_lo > tau*s_hi",
+    "indeterminate": "All remaining cases, including equality bands that overlap the threshold.",
+    "non_compensation": "Reference-solution, reconstruction, and reduced-backward-error judgments are separate conjunctive gates."
+  },
+  "rounding_and_oracle_uncertainty": {
+    "binary64_inputs": "No input uncertainty: frozen binary64 A, b, and candidate x are exact values.",
+    "reference_arithmetic": "All MPFR conversion, factorization verification, matrix products, residuals, norms, q, c, rho, distances, and scales are outward intervals.",
+    "reference_serialization": "Store hexadecimal MPFR endpoints and hash the canonical manifest; do not round x0 or rho to binary64 for judgment.",
+    "comparison": "The interval formulas include reference, oracle, and comparison rounding once; no extra heuristic epsilon is added."
+  },
+  "unchanged_factor_health": {
+    "reconstruction_relative_inf_max": "64*n*2^-53",
+    "reduced_backward_error_max": "64*n*2^-53",
+    "all_inputs_and_factor_components_finite": true,
+    "cpd_eta_plus_alpha_max": "2^-32"
+  },
+  "allowed_solution_judgments": [
+    "PASS",
+    "FAIL",
+    "INDETERMINATE"
+  ],
+  "scope": {
+    "mutates_issue_41_evidence": false,
+    "changes_numeric_threshold": false,
+    "uses_candidate_as_oracle": false,
+    "executes_full_requalification": false,
+    "admits_factor_path_or_corpus": false
+  }
+}
