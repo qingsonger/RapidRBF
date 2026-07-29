@@ -624,6 +624,10 @@ _Avoid_: Temperature normalization, busy shared runner, post-hoc host excuse
 A planned performance attempt invalidated only by preregistered external evidence-closure failure, such as host qualification, controller or instrumentation, identity, fixture, affinity, or paired-order failure, irrespective of the observed performance value. At most two preregistered replacement pairs are allowed; a third invalid pair makes the plan `INVALID, UNJUDGED` and requires a newly identified plan after host requalification, while a slow observation or subject-owned timeout, resource breach, crash, cleanup failure, numerical failure, or terminal-state failure remains a valid failed result.
 _Avoid_: Performance outlier, retriable subject failure, discarded bad run
 
+**Controller preflight readiness**:
+The evidence condition that a controller-only synthetic subject has established its declared live state before any sample may satisfy or release its preflight check. Process existence alone is not readiness, and this synthetic-subject gate does not delay or redefine candidate observation.
+_Avoid_: First-process sample, startup grace period, candidate readiness
+
 **Canonical performance completion**:
 Every planned RapidRBF subject slot in a canonical performance plan completes with its expected successful terminal state and all numerical, resource, cleanup, and evidence prerequisites satisfied; any subject-owned failure fails that scenario and lane rather than contributing to an allowed failure rate. A Polatory subject failure leaves the paired comparison `UNJUDGED`, while separately registered reliability stress never waives canonical completion.
 _Avoid_: Majority pass, tolerated benchmark failure, candidate wins by baseline crash

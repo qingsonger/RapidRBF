@@ -1,0 +1,217 @@
+{
+  "schema": "RapidRBF/ControllerPreflightReplacementExecutionPlan/v1",
+  "decision": "REPLACEMENT_CONTROLLER_EXECUTION_PLAN_FROZEN",
+  "issue": 52,
+  "question": "What exact platform-specific Issue 51 controller-only checks failed, and what diagnostic-first controller/evidence boundary plus one immutable replacement execution plan can validly re-run the unchanged candidate without reusing or mixing Issue 51 observations?",
+  "predecessor": {
+    "issue": 51,
+    "commit": "53e9d28aa78a3bbe2cbb486a1ef35f1a3aad5387",
+    "workflow_run": 30495185735,
+    "disposition": "INVALID_UNJUDGED",
+    "controller_plan_sha256": "347cd33670d4f53c3d0b439fcc01085081f019324fdf23f107d2b5e32b4ceea4",
+    "controller_binding_sha256": "e8bec9e0dda182727315f328d693f0b420d15c8059cdc09f05072655420aac8d",
+    "source_binding_sha256": "954ff5dbc200309ed807cdd52af97dc782c757b56be2678fe35e3a171cd0af11"
+  },
+  "diagnosis": {
+    "authority": "controller-only; no candidate build, entry, execution, observation, factor call, solve call, reference materialization, or target profile",
+    "failure_detail_run": {
+      "run_id": 30497300812,
+      "attempt": 1,
+      "head_sha": "c4f1a1f1051253f409501bf19d58cd98f4baf854",
+      "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30497300812",
+      "cohort_artifact": {
+        "id": 8742113512,
+        "archive_digest": "sha256:543b04bdf050595886cd44be1053d46929abac7f0ebb135408965b565734f1a0",
+        "cohort_json_sha256": "f8c3a9c5838babb8db52447d5ee55234634c1951646e5b896c6d2cbf86a1697d"
+      },
+      "question_status": "FAILURES_REPRODUCED"
+    },
+    "root_cause": "The Issue 51 synthetic-helper harness treated the first complete process-tree sample as helper readiness. Its callback wrote the release marker and stopped sampling before the helper entry marker proved that the declared thread set was live.",
+    "platform_findings": {
+      "windows-x86_64": {
+        "failed_global_checks": [
+          "grant_plus_one_detected"
+        ],
+        "exact_failure": "The only accepted sample occurred before the helper entry marker, observed one live thread from a requested thirteen, wrote release, and stopped. The helper later completed normally, so the observation was a false PASS with a maximum below the deliberately over-grant state.",
+        "failed_native_observations": 1,
+        "completed_checks": 277,
+        "summary_sha256": "2647e6a073933cd1f4a8aa4221908e69abcb082a2b0ac8ff324adfd4de16f49f",
+        "journal_sha256": "139c5184ed637642064190d17d20ed7cf9d57103a238f8d77f9bbcf7f4b93e5f"
+      },
+      "linux-x86_64-glibc": {
+        "failed_global_checks": [],
+        "exact_failure": null,
+        "failed_native_observations": 0,
+        "completed_checks": 277,
+        "summary_sha256": "f42354f1d1af0ac833f4432be8f1a65406b4e31451eaf131c3b610a721cfe807",
+        "journal_sha256": "9933adda098b0ae41424dcaa97c384653867a07853f071a4daa0b7a484357a20"
+      },
+      "macos-arm64": {
+        "failed_global_checks": [
+          "one_thread_detected",
+          "grant_plus_one_detected",
+          "fast_exit_closure"
+        ],
+        "exact_failure": "The pre-ready callback created the release marker before helper startup completed. Both named helpers and 251 of 256 fast-exit helpers then panicked at controller_helper.rs:26 because release already existed; each returned 101 with no entry marker. The retained stderr SHA-256 is 7e8a7e43e857264c4b4749ba46e3693a6dcfc182d8c661f74d444429ee02f691.",
+        "failed_native_observations": 253,
+        "completed_checks": 277,
+        "summary_sha256": "f0e890050c25f45f156abd471f1568d93b00c37f2822ffa952c7e754c898e1c2",
+        "journal_sha256": "57d845010f8c4125f8d505f821226727a4782e87e6fa3251032844f1148d0d23"
+      },
+      "macos-x86_64": {
+        "failed_global_checks": [
+          "one_thread_detected",
+          "grant_plus_one_detected",
+          "fast_exit_closure"
+        ],
+        "exact_failure": "The pre-ready callback created the release marker before helper startup completed. Both named helpers and all 256 fast-exit helpers then panicked at controller_helper.rs:26 because release already existed; each returned 101 with no entry marker. The retained stderr SHA-256 is 7e8a7e43e857264c4b4749ba46e3693a6dcfc182d8c661f74d444429ee02f691.",
+        "failed_native_observations": 258,
+        "completed_checks": 277,
+        "summary_sha256": "f036fb6ba0ddaf37ef940e21786a20d47485b9b381187c4165204426b85d4aff",
+        "journal_sha256": "b8d400ed9ea6f0777a48b8c0b6abf43188a7f8a1a322cd83f9ed0bd4f10f5945"
+      }
+    },
+    "adjudication": "CONTROLLER_PREFLIGHT_HARNESS_DEFECT_PROVEN",
+    "candidate_owned_failure": false
+  },
+  "controller_evidence_boundary": {
+    "canonical_term": "Controller preflight readiness",
+    "synthetic_helper_rule": "The helper entry marker is the sole readiness witness because it is written only after the requested thread set reaches its barrier. Process existence and a complete process-tree sample before that marker are not readiness.",
+    "pre_ready_sample_rule": {
+      "event": "sample_deferred",
+      "counts_as_successful_sample": false,
+      "updates_maximum_live_threads": false,
+      "may_trigger_release": false,
+      "may_satisfy_any_check": false,
+      "retained_in_event_log": true
+    },
+    "post_ready_rule": "After readiness, at least one complete subject-process-tree sample must be retained before release. One-thread must pass at or below 12; grant-plus-one must validly observe at least 13 and classify as the expected over-grant nonpass; every fast exit must close with a successful post-ready sample and an empty process tree.",
+    "early_terminal_rule": "Termination, timeout, malformed entry, or controller error before readiness is external controller invalidity, never candidate-owned nonpass.",
+    "candidate_observation_rule": "Actual candidate observation does not opt into the synthetic-helper readiness gate. It remains launch-to-terminal evidence under the accepted sole-waiter, complete-tree sampler, candidate-entry, timeout, ESRCH, and process-result rules.",
+    "failure_detail_rule": "Each pure trace, helper build, named helper observation, individual fast exit, injected invalidity, cleanup result, and original global check is atomically persisted before global status is required. Raw helper stdout and stderr are retained with byte count and SHA-256.",
+    "unchanged_controller_rules": {
+      "sole_waiter": true,
+      "sampler_may_poll_wait_or_reap": false,
+      "sampling_period_ms": 2,
+      "macos_same_handle_esrch_reconciliation_ms": 1000,
+      "complete_process_tree_required": true,
+      "at_least_one_successful_sample_required": true,
+      "profile_timeout_seconds": 7200
+    }
+  },
+  "boundary_validation": {
+    "run_id": 30497675184,
+    "attempt": 1,
+    "head_sha": "b7df6c91be6db2b215c5e528637a6dd7da7c4aa4",
+    "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30497675184",
+    "question_status": "READY_GATED_BOUNDARY_VALIDATED",
+    "validation_controller_binding_sha256": "ed3c2aef678709518e311cf55f9ea51ac26c5d91ea89240dc98417da2b9f2219",
+    "cohort_artifact": {
+      "id": 8742263296,
+      "archive_digest": "sha256:94c6e9c43173cec14402f5e129565c9eea4a909f3458ab2e7ba9c06ed7500b80",
+      "cohort_json_sha256": "d523f77c72459b26d1383c541cbd8bc65f82612d12472c4c199358dd7d88e065"
+    },
+    "lanes": {
+      "windows-x86_64": {
+        "status": "PASS",
+        "completed_checks": 277,
+        "failed_checks": 0,
+        "summary_sha256": "5b6be8d085ebc8c0a959862fd633ce6e180f05f2e8d75ecee763e6b6e520df93",
+        "journal_sha256": "9db01f75b93ed6522e95080efce46651f9ea0d88c7f2d1472e0759eab03c9589"
+      },
+      "linux-x86_64-glibc": {
+        "status": "PASS",
+        "completed_checks": 277,
+        "failed_checks": 0,
+        "summary_sha256": "ed09dde4c7bf3244836f17801c81dd87f08126ea210f438113912af2fc065f61",
+        "journal_sha256": "f34662331835427196121aa4da828cc66a4ec13d9ceddcdd46caafc3e578ef82"
+      },
+      "macos-arm64": {
+        "status": "PASS",
+        "completed_checks": 277,
+        "failed_checks": 0,
+        "summary_sha256": "cc374e04e9811cca30d4d4493abb99d61772294e87e47c9736576dad3006b1ae",
+        "journal_sha256": "29f23ed74a5ac33563832e9d2aad80813bcff933c03dc2174213cdebc5e20d2b"
+      },
+      "macos-x86_64": {
+        "status": "PASS",
+        "completed_checks": 277,
+        "failed_checks": 0,
+        "summary_sha256": "b76462bcb1af3b7cda13bd9683bee8d87be1918c93a4a27226ed6d0d3257c2ab",
+        "journal_sha256": "af5ccc00fe7c51c57559a192ac66bf41fdfbf1e4c793e95bbb66e7bb15f3907a"
+      }
+    },
+    "candidate_built": false,
+    "candidate_executed": false,
+    "candidate_observations": 0
+  },
+  "inherited_immutable_scope": {
+    "witness_plan_sha256": "7018a1a33d601076ff17b6824068ada146039fa57aab5b1cf71793cbe6d13d60",
+    "candidate_binding_sha256": "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6",
+    "accepted_reference_sha256": "6ed634a288145dfb3688e6e480f9519c1dbbe5c528aa9bb4b825eb57bc1b584a",
+    "transport_bundle_sha256": "a3b6417e61a604ee568d7bb5fed0416ce5c726f0e529ca1f998a7bdb272e207a",
+    "rust_toolchain": "1.85.0",
+    "double_double_precision_and_stop_rule": "unchanged",
+    "owned_refinement_bytes_per_matrix_row": 168,
+    "maximum_refinement_steps": 12,
+    "maximum_unpolled_matrix_terms": 2047,
+    "witness_ordinals": [
+      0,
+      36,
+      69,
+      72,
+      106,
+      150
+    ],
+    "rhs_count": 18,
+    "profiles": [
+      {
+        "workers": 1,
+        "maximum_live_threads": 12
+      },
+      {
+        "workers": 2,
+        "maximum_live_threads": 12
+      },
+      {
+        "workers": 8,
+        "maximum_live_threads": 16
+      }
+    ],
+    "targets": {
+      "windows-x86_64": "x86_64-pc-windows-msvc",
+      "linux-x86_64-glibc": "x86_64-unknown-linux-gnu",
+      "macos-arm64": "aarch64-apple-darwin",
+      "macos-x86_64": "x86_64-apple-darwin"
+    },
+    "numerical_thresholds": "unchanged",
+    "reload_cancellation_prior_state_publication_resource_cleanup_controls": "unchanged"
+  },
+  "replacement_execution_plan": {
+    "plan_count": 1,
+    "attempt_count": 1,
+    "materialization": "A fresh execution ticket must materialize exactly one pushed commit that binds this plan, the unchanged candidate and inherited scopes, the ready-gated synthetic-helper seam, per-check diagnostic journal, verifier, contract, pinned workflow actions, Rust 1.85.0, runner images, targets, Python executables, and linker witnesses.",
+    "zero_entry_preflight": "All four target lanes must complete one same-commit, same-attempt zero-candidate-entry preflight. The candidate may be built for byte identity but must not be entered or observed; backend entries, factor/solve calls, and candidate observations remain zero. All 277 controller checks and their individual records must close before a global PASS.",
+    "cohort": "Only after all four zero-entry preflights pass, execute exactly four targets by three profiles by six witness sources by eighteen frozen RHS identities. Every observation comes from this plan's sole attempt.",
+    "attempt_mixing_permitted": false,
+    "partial_rerun_permitted": false,
+    "automatic_retry_permitted": false,
+    "replacement_retry_permitted": false,
+    "favorable_attempt_selection_permitted": false,
+    "issue51_observations_may_satisfy_any_count": false,
+    "issue52_diagnostic_observations_may_satisfy_any_count": false,
+    "dispositions": {
+      "all_gates_pass": "REFINEMENT_ROUTE_SUPPORTED_FOR_FULL_CORPUS_PLAN",
+      "valid_candidate_owned_nonpass": "REFINEMENT_ROUTE_REJECTED_DIAGNOSTIC_ONLY",
+      "any_external_or_evidence_invalidity": "INVALID_UNJUDGED"
+    },
+    "after_invalid_attempt": "Return to Wayfinder for a new diagnosis and plan identity; do not repair or rerun this plan."
+  },
+  "forbidden_here": [
+    "Execute the candidate or any full cohort in Issue 52",
+    "Reuse or mix Issue 51 observations",
+    "Change or tune the candidate, dependency, precision, witnesses, RHS identities, reference, thresholds, resources, cancellation semantics, worker profiles, targets, or lane set",
+    "Admit faer, qd, a factor route, or the factor corpus",
+    "Run the mechanism panel, select persistent factor storage, enter the 100k rung, or unblock downstream solver comparison"
+  ]
+}
