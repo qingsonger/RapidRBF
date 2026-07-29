@@ -1,0 +1,26 @@
+{
+  "commands": {
+    "diagnosis_stdout": "RapidRBF/ProjectedSourceHealthDiagnosisEvidence/v1 samples=4 disposition=HEALTH_AUTHORITY_DEFECT_PROVEN",
+    "entrypoint": [
+      "python",
+      "tools/prototypes/projected_source_health_diagnosis_throwaway/run.py"
+    ],
+    "feedback_stdout": "local-windows-x86_64 workers=1 disposition=NOT_ADMITTED_DIAGNOSTIC_ONLY sources=0/1"
+  },
+  "disposition": "HEALTH_AUTHORITY_DEFECT_PROVEN",
+  "outputs": {
+    "diagnosis-evidence.json": {
+      "bytes": 25525,
+      "sha256": "b5dbe24ace553df3d390673feef5cad1912bdc8130d97875739f13e8512587d2"
+    },
+    "feedback-loop.json": {
+      "bytes": 3622,
+      "sha256": "f7cbdb1a7383a27643758857e82afa0258454f8219fab4fe01e4e44437382962"
+    },
+    "observed-results.md": {
+      "bytes": 2707,
+      "sha256": "47d7582945bd1b34c7768a103f2235b85057f384209f58fa60524ab3e4563bef"
+    }
+  },
+  "schema": "RapidRBF/ProjectedSourceHealthDiagnosisReproduction/v1"
+}
