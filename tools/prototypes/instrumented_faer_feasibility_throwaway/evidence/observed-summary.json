@@ -1,0 +1,315 @@
+{
+  "schema": "rapidrbf-instrumented-faer-feasibility-evidence-v1",
+  "question": "Can one exact hash-bound instrumented in-process faer fork close allocation and cancellation on two factors and four targets?",
+  "disposition": "UNJUDGED_EVIDENCE_MISSING",
+  "disposition_reason": "The candidate-independent profile and exact stock source facts are frozen, but no exact fork, executable two-factor control, or qualified-host target witness exists. The current evidence therefore supports neither feasibility nor rejection.",
+  "profile": {
+    "origin_sha256": "55398d3e7156d7af09bbcb47aa320506f08f2a8c720f80506a1df3648e5f2124",
+    "sha256": "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3",
+    "projection_algorithm": "ordered-allowlist-from-accepted-mixed-profile-v1"
+  },
+  "plan": {
+    "sha256": "5b288e33d13464ae79948b1afcb2d76d0d08f9c81b27010ad51d4906cfc66892",
+    "factor_count": 2,
+    "target_count": 4,
+    "factors": [
+      {
+        "role": "projected_b",
+        "artifact_id": "block:M3-HERMITE-10K-level-0-coarse-000:qtaq_lower",
+        "matrix_shape": [
+          2047,
+          2047
+        ],
+        "stored_triangle_elements": 2096128,
+        "stored_triangle_bytes": 16769024,
+        "factorization": "faer-bunch-kaufman-lblt",
+        "selection": "maximum admitted projected-B dimension; tied maximum resolved before candidate observations by preferring the mixed-Hermite workload as the pivot-path stress representative"
+      },
+      {
+        "role": "coarse_p_top",
+        "artifact_id": "block:M2-TH3-1K-level-0-coarse-000:p_top_row_major",
+        "matrix_shape": [
+          4,
+          4
+        ],
+        "stored_elements": 16,
+        "stored_bytes": 128,
+        "factorization": "faer-full-pivot-lu",
+        "selection": "maximum admitted P_top dimension; tied maximum resolved by canonical manifest order"
+      }
+    ]
+  },
+  "binding": {
+    "schema": "rapidrbf-instrumented-faer-candidate-binding-v1",
+    "binding_id": null,
+    "binding_sha256": null,
+    "state": "MISSING_EXACT_FORK",
+    "upstream": {
+      "faer": "0.24.4",
+      "private-gemm-x86": "0.1.20",
+      "dyn-stack": "0.13.2"
+    },
+    "required_source_changes": [
+      {
+        "path": "private-gemm-x86/src/lib.rs",
+        "responsibilities": [
+          "replace persistent TLS Vec packing storage with caller-owned aligned scratch",
+          "expose exact target/runtime packing requirement before backend entry",
+          "poll bounded packing and macro-kernel work units"
+        ]
+      },
+      {
+        "path": "faer/src/linalg/matmul/internal/mod.rs",
+        "responsibilities": [
+          "include private-gemm packing in the declared scratch requirement",
+          "pass caller-owned scratch and cancellation control to selected x86 paths",
+          "poll the selected non-x86 fallback path"
+        ]
+      },
+      {
+        "path": "faer/src/linalg/cholesky/bunch_kaufman/factor.rs",
+        "responsibilities": [
+          "add fallible pivot and panel checkpoints",
+          "propagate cancellation without publishing partial factor state"
+        ]
+      },
+      {
+        "path": "faer/src/linalg/cholesky/bunch_kaufman/solve.rs",
+        "responsibilities": [
+          "add a fallible bounded solve path"
+        ]
+      },
+      {
+        "path": "faer/src/linalg/lu/full_pivoting/factor.rs",
+        "responsibilities": [
+          "add fallible pivot/update checkpoints for Par::Seq",
+          "keep the unselected parallel Vec path outside the registered binding"
+        ]
+      },
+      {
+        "path": "faer/src/linalg/lu/full_pivoting/solve.rs",
+        "responsibilities": [
+          "add a fallible bounded solve path"
+        ]
+      },
+      {
+        "path": "faer/src/linalg/triangular_solve.rs",
+        "responsibilities": [
+          "bound triangular solve work between polls"
+        ]
+      },
+      {
+        "path": "dyn-stack/src/lib.rs",
+        "responsibilities": [
+          "bind every selected stack carve to the caller-owned lease observer"
+        ]
+      },
+      {
+        "path": "dyn-stack/src/mem.rs",
+        "responsibilities": [
+          "retain fallible caller-allocator construction and exact aligned layout reporting"
+        ]
+      }
+    ],
+    "rule": "A patch sketch, dirty working tree, floating git ref, or per-target source divergence is not an exact candidate binding."
+  },
+  "source_audit": {
+    "crate_closure_algorithm": "sha256-length-prefixed-path-byte-length-file-sha256-v1",
+    "source_closure_algorithm": "sha256-of-canonical-json-over-full-crate-closures-v1",
+    "source_closure_sha256": "530103a7c8f62e8cf225045d39410b9d36e67d11f5acf6793f403bb0fc1a9fb9",
+    "crate_closures": {
+      "faer-0.24.4": {
+        "files": 179,
+        "bytes": 9208583,
+        "sha256": "6788513332d8385fe5b01e104aa407b9302ea2d126d7dc60386a512b0e957d61"
+      },
+      "private-gemm-x86-0.1.20": {
+        "files": 13,
+        "bytes": 262197,
+        "sha256": "fbfb14de2dabc443a292be45bc763725d19482fa73ed324b050dd72c5716bcd2"
+      },
+      "dyn-stack-0.13.2": {
+        "files": 15,
+        "bytes": 107768,
+        "sha256": "f0e0c3c60c4aa59b8cd24d671e1860ac89c6e8163f728282a05cfa1e3158d608"
+      }
+    },
+    "audited_source_set_sha256": "e9e0482f5c4caf995aea9f9085ced62a84077b2726978a531677ef8755d2ba1f",
+    "audited_files": [
+      "faer-0.24.4/src/linalg/matmul/internal/mod.rs",
+      "faer-0.24.4/src/linalg/cholesky/bunch_kaufman/factor.rs",
+      "faer-0.24.4/src/linalg/cholesky/bunch_kaufman/solve.rs",
+      "faer-0.24.4/src/linalg/lu/full_pivoting/factor.rs",
+      "faer-0.24.4/src/linalg/lu/full_pivoting/solve.rs",
+      "faer-0.24.4/src/linalg/triangular_solve.rs",
+      "private-gemm-x86-0.1.20/src/lib.rs",
+      "dyn-stack-0.13.2/src/lib.rs",
+      "dyn-stack-0.13.2/src/mem.rs"
+    ],
+    "stock_facts": {
+      "x86_spicy_scratch_declares_zero_bytes": true,
+      "x86_private_gemm_owns_persistent_tls_vec": true,
+      "x86_private_gemm_has_reentrant_vec_fallback": true,
+      "bunch_kaufman_accepts_caller_memstack": true,
+      "full_pivot_seq_path_uses_caller_memstack": true,
+      "full_pivot_parallel_path_has_unowned_vec": true,
+      "dyn_stack_has_fallible_allocator_entry": true,
+      "selected_factor_and_solve_paths_have_cancellation_vocabulary": false
+    }
+  },
+  "gates": [
+    {
+      "gate_id": "mechanical_profile_projection",
+      "title": "Mechanical candidate-independent profile projection",
+      "status": "PASS",
+      "authority": "accepted mixed direct-faer profile",
+      "reason": "The allowlisted rule fields are canonicalized and hashed before any candidate observation.",
+      "evidence": [
+        "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3"
+      ]
+    },
+    {
+      "gate_id": "stock_source_closure",
+      "title": "Exact stock faer/private-gemm/dyn-stack source closure",
+      "status": "PASS",
+      "authority": "captured direct-faer source identities",
+      "reason": "All complete crate closures and the selected source surfaces match the accepted direct-faer evidence.",
+      "evidence": [
+        "530103a7c8f62e8cf225045d39410b9d36e67d11f5acf6793f403bb0fc1a9fb9",
+        "e9e0482f5c4caf995aea9f9085ced62a84077b2726978a531677ef8755d2ba1f"
+      ]
+    },
+    {
+      "gate_id": "exact_candidate_binding",
+      "title": "Exact hash-bound narrow fork",
+      "status": "EVIDENCE_MISSING",
+      "authority": "CandidateExecutionBinding",
+      "reason": "The binding deliberately contains no fork commit, patch-set digest, per-target source digest, or executable identity.",
+      "evidence": [
+        "MISSING_EXACT_FORK"
+      ]
+    },
+    {
+      "gate_id": "two_factor_execution",
+      "title": "Maximum projected-B and coarse-P_top execution",
+      "status": "NOT_REACHED",
+      "authority": "immutable two-factor plan",
+      "reason": "Candidate execution cannot begin before one exact binding freezes the implementation being observed.",
+      "evidence": [
+        "block:M3-HERMITE-10K-level-0-coarse-000:qtaq_lower",
+        "block:M2-TH3-1K-level-0-coarse-000:p_top_row_major"
+      ]
+    },
+    {
+      "gate_id": "allocation_closure",
+      "title": "ExecutionLease allocation and temporary-storage closure",
+      "status": "NOT_REACHED",
+      "authority": "caller-owned exact grant",
+      "reason": "Stock x86 private-gemm still retains a TLS Vec and declares zero scratch; no fork exists to route it or the selected dyn-stack paths through a lease.",
+      "evidence": [
+        "530103a7c8f62e8cf225045d39410b9d36e67d11f5acf6793f403bb0fc1a9fb9"
+      ]
+    },
+    {
+      "gate_id": "n_minus_one",
+      "title": "Deterministic exact N-minus-one denial",
+      "status": "NOT_REACHED",
+      "authority": "two-factor exact resource schedule",
+      "reason": "There is no candidate preflight calculation to challenge with N-1 before permit acquisition, allocation, and backend entry.",
+      "evidence": []
+    },
+    {
+      "gate_id": "bounded_cancellation",
+      "title": "Bounded pivot, panel, packing, macro-kernel, and solve cancellation",
+      "status": "NOT_REACHED",
+      "authority": "fork checkpoint manifest plus executable controls",
+      "reason": "The selected stock paths contain no cancellation vocabulary; no fallible checkpoint implementation or maximum unpolled work-unit record exists.",
+      "evidence": [
+        "e9e0482f5c4caf995aea9f9085ced62a84077b2726978a531677ef8755d2ba1f"
+      ]
+    },
+    {
+      "gate_id": "target_closure",
+      "title": "Four tier-one target and qualified-host witnesses",
+      "status": "EVIDENCE_MISSING",
+      "authority": "non-compensating target matrix",
+      "reason": "Every target lacks a bound candidate build and qualified-host acknowledgment-latency witness.",
+      "evidence": [
+        "x86_64-pc-windows-msvc",
+        "x86_64-unknown-linux-gnu",
+        "aarch64-apple-darwin",
+        "x86_64-apple-darwin"
+      ]
+    },
+    {
+      "gate_id": "atomicity_cleanup",
+      "title": "Prior-state preservation, zero publication, and cleanup",
+      "status": "NOT_REACHED",
+      "authority": "transactional factor/solve publication",
+      "reason": "No executable factor or solve attempt exists from which to observe cancellation, cleanup, and prior-state reuse.",
+      "evidence": []
+    }
+  ],
+  "targets": [
+    {
+      "target": "x86_64-pc-windows-msvc",
+      "tier_one": "Windows x86_64",
+      "selected_matmul_path": "private-gemm-x86 when AVX2+FMA is present",
+      "qualified_host_witness_required": true,
+      "candidate_build": "EVIDENCE_MISSING",
+      "two_factor_execution": "NOT_REACHED",
+      "allocation_trace": "NOT_REACHED",
+      "n_minus_one_control": "NOT_REACHED",
+      "cancellation_work_unit_bound": "NOT_REACHED",
+      "qualified_host_ack_latency": "EVIDENCE_MISSING",
+      "prior_state_and_cleanup": "NOT_REACHED",
+      "reason": "No exact candidate binding exists; target execution and qualified-host observation would otherwise be candidate-free."
+    },
+    {
+      "target": "x86_64-unknown-linux-gnu",
+      "tier_one": "Linux x86_64 glibc",
+      "selected_matmul_path": "private-gemm-x86 when AVX2+FMA is present",
+      "qualified_host_witness_required": true,
+      "candidate_build": "EVIDENCE_MISSING",
+      "two_factor_execution": "NOT_REACHED",
+      "allocation_trace": "NOT_REACHED",
+      "n_minus_one_control": "NOT_REACHED",
+      "cancellation_work_unit_bound": "NOT_REACHED",
+      "qualified_host_ack_latency": "EVIDENCE_MISSING",
+      "prior_state_and_cleanup": "NOT_REACHED",
+      "reason": "No exact candidate binding exists; target execution and qualified-host observation would otherwise be candidate-free."
+    },
+    {
+      "target": "aarch64-apple-darwin",
+      "tier_one": "macOS arm64",
+      "selected_matmul_path": "faer generic/architecture path with dyn-stack scratch",
+      "qualified_host_witness_required": true,
+      "candidate_build": "EVIDENCE_MISSING",
+      "two_factor_execution": "NOT_REACHED",
+      "allocation_trace": "NOT_REACHED",
+      "n_minus_one_control": "NOT_REACHED",
+      "cancellation_work_unit_bound": "NOT_REACHED",
+      "qualified_host_ack_latency": "EVIDENCE_MISSING",
+      "prior_state_and_cleanup": "NOT_REACHED",
+      "reason": "No exact candidate binding exists; target execution and qualified-host observation would otherwise be candidate-free."
+    },
+    {
+      "target": "x86_64-apple-darwin",
+      "tier_one": "macOS x86_64",
+      "selected_matmul_path": "private-gemm-x86 when AVX2+FMA is present",
+      "qualified_host_witness_required": true,
+      "candidate_build": "EVIDENCE_MISSING",
+      "two_factor_execution": "NOT_REACHED",
+      "allocation_trace": "NOT_REACHED",
+      "n_minus_one_control": "NOT_REACHED",
+      "cancellation_work_unit_bound": "NOT_REACHED",
+      "qualified_host_ack_latency": "EVIDENCE_MISSING",
+      "prior_state_and_cleanup": "NOT_REACHED",
+      "reason": "No exact candidate binding exists; target execution and qualified-host observation would otherwise be candidate-free."
+    }
+  ],
+  "backend_calls": 0,
+  "published_validated_factors": 0,
+  "published_solved_corrections": 0,
+  "candidate_observations_used_to_set_profile": false
+}

@@ -1,0 +1,119 @@
+{
+  "schema": "rapidrbf-factor-health-profile-v1",
+  "profile_id": "RapidRBF/FactorHealthProfile/v1",
+  "candidate": {
+    "crate": "faer",
+    "version": "0.24.4",
+    "cargo_manifest_sha256": "82dcc349b0734c52f28058ad4b562a73c4938e13e552ebf520a8d67ab5578bc0",
+    "cargo_lock_sha256": "bd15eedbba33089e0613b5ad7134e627733140f6bcc127cedb5f9eac2bd83915",
+    "default_features": false,
+    "features": ["std", "linalg"],
+    "target": "x86_64-pc-windows-msvc",
+    "required_cpu_features": ["avx2", "fma"],
+    "local_parallelism": "Par::Seq",
+    "execution_boundary": "direct-in-process-stock-crate",
+    "process_isolated_backend": false,
+    "allocator_instrumentation": false,
+    "projected_factor": "bunch-kaufman-lblt",
+    "polynomial_factor": "full-pivot-lu",
+    "fallback": "fresh-partial-pivot-lu-after-validated-symmetric-path-failure"
+  },
+  "authority": {
+    "corpus_sha256": "38f39fee8b4059cd2619df4bbfabb6f7159b41df1511907e0346c32642737f79",
+    "rank_profile_sha256": "8d60d932464e04c1ce052ecf33acc93f6e72d424ba05d1af7e40cf69b456731e",
+    "physical_profile_sha256": "cf64f2b26e2a3f4844a5c63027deb5bd4e1f856f0c7f45d4d2afdcccbff724a1",
+    "semantic_rank_precedes_backend_health": true,
+    "candidate_observations_may_not_change_this_profile": true
+  },
+  "factor_health": {
+    "all_inputs_finite": true,
+    "all_factor_components_finite": true,
+    "reconstruction_relative_inf_max": "64*n*2^-53",
+    "reduced_backward_error_max": "64*n*2^-53",
+    "pack_reload_solution_relative_inf_max": "256*n*2^-53",
+    "cpd_eta_plus_alpha_max": "2^-32",
+    "candidate_factor_status_is_not_rank_authority": true
+  },
+  "owned_representation": {
+    "projected_b": [
+      "canonical packed lower L",
+      "B diagonal",
+      "B subdiagonal",
+      "forward and inverse permutation",
+      "source and profile identities",
+      "payload checksum"
+    ],
+    "coarse_p_top": [
+      "canonical packed L and U",
+      "forward and inverse row permutation",
+      "forward and inverse column permutation",
+      "source and profile identities",
+      "payload checksum"
+    ],
+    "raw faer allocation bytes_are_portable": false,
+    "recompute_record_must_never_be_named_packed_factor": true
+  },
+  "publication": {
+    "factor_state": "ValidatedFactor",
+    "solve_state": "Solved",
+    "atomic_factor_publication": true,
+    "atomic_solve_publication": true,
+    "required_rhs_families": [
+      "operational",
+      "constraint",
+      "dynamic-range"
+    ],
+    "required_controls": [
+      "corruption",
+      "truncation",
+      "wrong-source",
+      "metadata-mismatch",
+      "one-byte-below-grant",
+      "cancellation",
+      "prior-state-reuse"
+    ],
+    "external_value_gradient_and_cpd_certificate_required": true
+  },
+  "resource_contract": {
+    "whole_call_transient_bytes": "Every backend allocation and retained cache byte is caller-owned or exactly precomputable from validated inputs before backend entry.",
+    "declared_memstack_is_not_whole_call_authority": true,
+    "one_byte_below_total_grant": "ResourceDenied before any backend call and before any publication.",
+    "temporary_storage": "Record live occupancy, cumulative writes, high-water, residue, and open handles; normal exit requires zero residue.",
+    "failure_releases_permits_and_scratch": true
+  },
+  "cancellation_contract": {
+    "bounded_during_factor_or_solve": true,
+    "boundary_only_polling_is_insufficient": true,
+    "failure_preserves_prior_validated_state": true
+  },
+  "thread_contract": {
+    "caller_owned_permit_lease": true,
+    "nested_automatic_pool_forbidden": true,
+    "configured_effective_and_maximum_live_required": true,
+    "lanes": [
+      {
+        "workers": 1,
+        "maximum_live_threads": 12
+      },
+      {
+        "workers": 2,
+        "maximum_live_threads": 12
+      },
+      {
+        "workers": 8,
+        "maximum_live_threads": 16
+      }
+    ]
+  },
+  "allowed_outcomes": [
+    "QUALIFIED_PACKED",
+    "QUALIFIED_RUN_SCOPED_RECOMPUTE",
+    "NOT_ADMITTED_DIAGNOSTIC_ONLY"
+  ],
+  "recompute_exception": {
+    "only_permitted_when_the_sole_nonpassing_gate_is": "durable_pack_reload",
+    "maximum_recomputations_per_run": 216,
+    "eviction_triggered_rebuild": false,
+    "cross_run_cache": false
+  }
+}

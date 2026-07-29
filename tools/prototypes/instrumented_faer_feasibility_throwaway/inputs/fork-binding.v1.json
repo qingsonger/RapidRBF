@@ -1,0 +1,74 @@
+{
+  "schema": "rapidrbf-instrumented-faer-candidate-binding-v1",
+  "binding_id": null,
+  "binding_sha256": null,
+  "state": "MISSING_EXACT_FORK",
+  "upstream": {
+    "faer": "0.24.4",
+    "private-gemm-x86": "0.1.20",
+    "dyn-stack": "0.13.2"
+  },
+  "required_source_changes": [
+    {
+      "path": "private-gemm-x86/src/lib.rs",
+      "responsibilities": [
+        "replace persistent TLS Vec packing storage with caller-owned aligned scratch",
+        "expose exact target/runtime packing requirement before backend entry",
+        "poll bounded packing and macro-kernel work units"
+      ]
+    },
+    {
+      "path": "faer/src/linalg/matmul/internal/mod.rs",
+      "responsibilities": [
+        "include private-gemm packing in the declared scratch requirement",
+        "pass caller-owned scratch and cancellation control to selected x86 paths",
+        "poll the selected non-x86 fallback path"
+      ]
+    },
+    {
+      "path": "faer/src/linalg/cholesky/bunch_kaufman/factor.rs",
+      "responsibilities": [
+        "add fallible pivot and panel checkpoints",
+        "propagate cancellation without publishing partial factor state"
+      ]
+    },
+    {
+      "path": "faer/src/linalg/cholesky/bunch_kaufman/solve.rs",
+      "responsibilities": [
+        "add a fallible bounded solve path"
+      ]
+    },
+    {
+      "path": "faer/src/linalg/lu/full_pivoting/factor.rs",
+      "responsibilities": [
+        "add fallible pivot/update checkpoints for Par::Seq",
+        "keep the unselected parallel Vec path outside the registered binding"
+      ]
+    },
+    {
+      "path": "faer/src/linalg/lu/full_pivoting/solve.rs",
+      "responsibilities": [
+        "add a fallible bounded solve path"
+      ]
+    },
+    {
+      "path": "faer/src/linalg/triangular_solve.rs",
+      "responsibilities": [
+        "bound triangular solve work between polls"
+      ]
+    },
+    {
+      "path": "dyn-stack/src/lib.rs",
+      "responsibilities": [
+        "bind every selected stack carve to the caller-owned lease observer"
+      ]
+    },
+    {
+      "path": "dyn-stack/src/mem.rs",
+      "responsibilities": [
+        "retain fallible caller-allocator construction and exact aligned layout reporting"
+      ]
+    }
+  ],
+  "rule": "A patch sketch, dirty working tree, floating git ref, or per-target source divergence is not an exact candidate binding."
+}
