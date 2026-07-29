@@ -1,0 +1,58 @@
+{
+  "candidate": {
+    "backend_calls": 0,
+    "binding_loaded": false,
+    "disposition": "NOT_IN_SCOPE_FOR_LANE_PREFLIGHT",
+    "factor_publications": 0
+  },
+  "captured_at_utc": "2026-07-29T03:47:19.642031+00:00",
+  "cohort_id": "969a79cf2dbebdea15602854003fd394bd75dd9241a34fd81880f295446c5b9a",
+  "contract_id": "RapidRBF/InstrumentedFaerQualifiedHostLanes/v1",
+  "contract_sha256": "d6edbf73cc9788dfb56eedc58010ce3b091d94014111a6a4b1f1171cc8f7c5a3",
+  "github_sha": "af55916ce8845fc803976e97642723893afe24c9",
+  "lanes": [
+    {
+      "image_os": "ubuntu24",
+      "image_version": "20260720.247.2",
+      "lane_id": "linux-x86_64-glibc",
+      "qualification": "PASS",
+      "runner_label": "ubuntu-24.04",
+      "target": "x86_64-unknown-linux-gnu",
+      "witness_sha256": "87ac741420b0ba8a77fc19b7961c7e6f6c5635d68fc4eb5674545d9cdbfc6935"
+    },
+    {
+      "image_os": "macos15",
+      "image_version": "20260715.0234.1",
+      "lane_id": "macos-arm64",
+      "qualification": "PASS",
+      "runner_label": "macos-15",
+      "target": "aarch64-apple-darwin",
+      "witness_sha256": "45db90a25b5046b429576054771b54eed4bfa7ecd9bb650ea9f08d49f2f40a72"
+    },
+    {
+      "image_os": "macos15",
+      "image_version": "20260720.0353.1",
+      "lane_id": "macos-x86_64",
+      "qualification": "PASS",
+      "runner_label": "macos-15-intel",
+      "target": "x86_64-apple-darwin",
+      "witness_sha256": "aac16fa85d99aeac27929d9436ecc7b48ebc30ba281d7a14afbfc91e3358ae69"
+    },
+    {
+      "image_os": "win25-vs2026",
+      "image_version": "20260714.173.1",
+      "lane_id": "windows-x86_64",
+      "qualification": "PASS",
+      "runner_label": "windows-2025",
+      "target": "x86_64-pc-windows-msvc",
+      "witness_sha256": "fade0f5a07c90fe3a3594515037b746e6a1dad861aa55fc203a7b268c986004e"
+    }
+  ],
+  "problems": [],
+  "qualification": "PASS",
+  "repository": "qingsonger/RapidRBF",
+  "run_attempt": "1",
+  "run_id": "30420466293",
+  "schema": "rapidrbf-instrumented-faer-lane-cohort-v1",
+  "workflow_ref": "qingsonger/RapidRBF/.github/workflows/instrumented-faer-lane-preflight.yml@refs/heads/codex/provision-instrumented-faer-lanes"
+}

@@ -1,0 +1,409 @@
+{
+  "total_count": 5,
+  "jobs": [
+    {
+      "id": 90476013284,
+      "run_id": 30420466293,
+      "workflow_name": "Instrumented faer lane preflight",
+      "head_branch": "codex/provision-instrumented-faer-lanes",
+      "run_url": "https://api.github.com/repos/qingsonger/RapidRBF/actions/runs/30420466293",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOTjl-WM8AAAAVEMpm5A",
+      "head_sha": "af55916ce8845fc803976e97642723893afe24c9",
+      "url": "https://api.github.com/repos/qingsonger/RapidRBF/actions/jobs/90476013284",
+      "html_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30420466293/job/90476013284",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-07-29T03:46:27Z",
+      "started_at": "2026-07-29T03:46:28Z",
+      "completed_at": "2026-07-29T03:46:40Z",
+      "name": "macos-arm64",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-07-29T03:46:29Z",
+          "completed_at": "2026-07-29T03:46:30Z"
+        },
+        {
+          "name": "Check out the exact pushed commit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-07-29T03:46:30Z",
+          "completed_at": "2026-07-29T03:46:33Z"
+        },
+        {
+          "name": "Capture and qualify the native host",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-07-29T03:46:33Z",
+          "completed_at": "2026-07-29T03:46:37Z"
+        },
+        {
+          "name": "Upload the lane witness",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-07-29T03:46:37Z",
+          "completed_at": "2026-07-29T03:46:37Z"
+        },
+        {
+          "name": "Post Check out the exact pushed commit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-07-29T03:46:37Z",
+          "completed_at": "2026-07-29T03:46:38Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-07-29T03:46:38Z",
+          "completed_at": "2026-07-29T03:46:38Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/qingsonger/RapidRBF/check-runs/90476013284",
+      "labels": [
+        "macos-15"
+      ],
+      "runner_id": 1000005042,
+      "runner_name": "GitHub Actions 1000005042",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 90476013329,
+      "run_id": 30420466293,
+      "workflow_name": "Instrumented faer lane preflight",
+      "head_branch": "codex/provision-instrumented-faer-lanes",
+      "run_url": "https://api.github.com/repos/qingsonger/RapidRBF/actions/runs/30420466293",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOTjl-WM8AAAAVEMpnEQ",
+      "head_sha": "af55916ce8845fc803976e97642723893afe24c9",
+      "url": "https://api.github.com/repos/qingsonger/RapidRBF/actions/jobs/90476013329",
+      "html_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30420466293/job/90476013329",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-07-29T03:46:27Z",
+      "started_at": "2026-07-29T03:46:30Z",
+      "completed_at": "2026-07-29T03:46:49Z",
+      "name": "macos-x86_64",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-07-29T03:46:31Z",
+          "completed_at": "2026-07-29T03:46:33Z"
+        },
+        {
+          "name": "Check out the exact pushed commit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-07-29T03:46:33Z",
+          "completed_at": "2026-07-29T03:46:37Z"
+        },
+        {
+          "name": "Capture and qualify the native host",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-07-29T03:46:37Z",
+          "completed_at": "2026-07-29T03:46:46Z"
+        },
+        {
+          "name": "Upload the lane witness",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-07-29T03:46:46Z",
+          "completed_at": "2026-07-29T03:46:47Z"
+        },
+        {
+          "name": "Post Check out the exact pushed commit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-07-29T03:46:47Z",
+          "completed_at": "2026-07-29T03:46:48Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-07-29T03:46:48Z",
+          "completed_at": "2026-07-29T03:46:48Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/qingsonger/RapidRBF/check-runs/90476013329",
+      "labels": [
+        "macos-15-intel"
+      ],
+      "runner_id": 1000005044,
+      "runner_name": "GitHub Actions 1000005044",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 90476013337,
+      "run_id": 30420466293,
+      "workflow_name": "Instrumented faer lane preflight",
+      "head_branch": "codex/provision-instrumented-faer-lanes",
+      "run_url": "https://api.github.com/repos/qingsonger/RapidRBF/actions/runs/30420466293",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOTjl-WM8AAAAVEMpnGQ",
+      "head_sha": "af55916ce8845fc803976e97642723893afe24c9",
+      "url": "https://api.github.com/repos/qingsonger/RapidRBF/actions/jobs/90476013337",
+      "html_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30420466293/job/90476013337",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-07-29T03:46:27Z",
+      "started_at": "2026-07-29T03:46:32Z",
+      "completed_at": "2026-07-29T03:47:08Z",
+      "name": "windows-x86_64",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-07-29T03:46:32Z",
+          "completed_at": "2026-07-29T03:46:33Z"
+        },
+        {
+          "name": "Check out the exact pushed commit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-07-29T03:46:33Z",
+          "completed_at": "2026-07-29T03:46:40Z"
+        },
+        {
+          "name": "Capture and qualify the native host",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-07-29T03:46:40Z",
+          "completed_at": "2026-07-29T03:47:05Z"
+        },
+        {
+          "name": "Upload the lane witness",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-07-29T03:47:05Z",
+          "completed_at": "2026-07-29T03:47:05Z"
+        },
+        {
+          "name": "Post Check out the exact pushed commit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-07-29T03:47:05Z",
+          "completed_at": "2026-07-29T03:47:07Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-07-29T03:47:07Z",
+          "completed_at": "2026-07-29T03:47:07Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/qingsonger/RapidRBF/check-runs/90476013337",
+      "labels": [
+        "windows-2025"
+      ],
+      "runner_id": 1000005043,
+      "runner_name": "GitHub Actions 1000005043",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 90476013399,
+      "run_id": 30420466293,
+      "workflow_name": "Instrumented faer lane preflight",
+      "head_branch": "codex/provision-instrumented-faer-lanes",
+      "run_url": "https://api.github.com/repos/qingsonger/RapidRBF/actions/runs/30420466293",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOTjl-WM8AAAAVEMpnVw",
+      "head_sha": "af55916ce8845fc803976e97642723893afe24c9",
+      "url": "https://api.github.com/repos/qingsonger/RapidRBF/actions/jobs/90476013399",
+      "html_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30420466293/job/90476013399",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-07-29T03:46:27Z",
+      "started_at": "2026-07-29T03:46:30Z",
+      "completed_at": "2026-07-29T03:46:39Z",
+      "name": "linux-x86_64-glibc",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-07-29T03:46:31Z",
+          "completed_at": "2026-07-29T03:46:32Z"
+        },
+        {
+          "name": "Check out the exact pushed commit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-07-29T03:46:32Z",
+          "completed_at": "2026-07-29T03:46:33Z"
+        },
+        {
+          "name": "Capture and qualify the native host",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-07-29T03:46:33Z",
+          "completed_at": "2026-07-29T03:46:35Z"
+        },
+        {
+          "name": "Upload the lane witness",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-07-29T03:46:35Z",
+          "completed_at": "2026-07-29T03:46:36Z"
+        },
+        {
+          "name": "Post Check out the exact pushed commit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-07-29T03:46:36Z",
+          "completed_at": "2026-07-29T03:46:37Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-07-29T03:46:37Z",
+          "completed_at": "2026-07-29T03:46:37Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/qingsonger/RapidRBF/check-runs/90476013399",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000005045,
+      "runner_name": "GitHub Actions 1000005045",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 90476101927,
+      "run_id": 30420466293,
+      "workflow_name": "Instrumented faer lane preflight",
+      "head_branch": "codex/provision-instrumented-faer-lanes",
+      "run_url": "https://api.github.com/repos/qingsonger/RapidRBF/actions/runs/30420466293",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOTjl-WM8AAAAVEMvBJw",
+      "head_sha": "af55916ce8845fc803976e97642723893afe24c9",
+      "url": "https://api.github.com/repos/qingsonger/RapidRBF/actions/jobs/90476101927",
+      "html_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30420466293/job/90476101927",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-07-29T03:47:08Z",
+      "started_at": "2026-07-29T03:47:16Z",
+      "completed_at": "2026-07-29T03:47:21Z",
+      "name": "Verify four-lane cohort",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-07-29T03:47:17Z",
+          "completed_at": "2026-07-29T03:47:18Z"
+        },
+        {
+          "name": "Check out the exact pushed commit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-07-29T03:47:18Z",
+          "completed_at": "2026-07-29T03:47:19Z"
+        },
+        {
+          "name": "Download this attempt's lane witnesses",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-07-29T03:47:19Z",
+          "completed_at": "2026-07-29T03:47:19Z"
+        },
+        {
+          "name": "Verify the non-compensating cohort",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-07-29T03:47:19Z",
+          "completed_at": "2026-07-29T03:47:19Z"
+        },
+        {
+          "name": "Upload the cohort summary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-07-29T03:47:19Z",
+          "completed_at": "2026-07-29T03:47:20Z"
+        },
+        {
+          "name": "Publish the readable summary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-07-29T03:47:20Z",
+          "completed_at": "2026-07-29T03:47:20Z"
+        },
+        {
+          "name": "Fail an incomplete or unqualified cohort",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2026-07-29T03:47:20Z",
+          "completed_at": "2026-07-29T03:47:20Z"
+        },
+        {
+          "name": "Post Check out the exact pushed commit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-07-29T03:47:20Z",
+          "completed_at": "2026-07-29T03:47:20Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-07-29T03:47:20Z",
+          "completed_at": "2026-07-29T03:47:20Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/qingsonger/RapidRBF/check-runs/90476101927",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000005046,
+      "runner_name": "GitHub Actions 1000005046",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "schema": "rapidrbf-instrumented-faer-lane-attempt-ledger-v1",
+  "captured_at_utc": "2026-07-29T03:50:55Z",
+  "lane_contract_sha256": "d6edbf73cc9788dfb56eedc58010ce3b091d94014111a6a4b1f1171cc8f7c5a3",
+  "accepted_cohort": {
+    "run_id": 30420466293,
+    "run_attempt": 1,
+    "head_sha": "af55916ce8845fc803976e97642723893afe24c9",
+    "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30420466293",
+    "conclusion": "success",
+    "cohort_id": "969a79cf2dbebdea15602854003fd394bd75dd9241a34fd81880f295446c5b9a",
+    "qualification": "PASS",
+    "candidate_entry_reached": false,
+    "candidate_binding_loaded": false,
+    "backend_calls": 0,
+    "factor_publications": 0
+  },
+  "runs": [
+    {
+      "run_id": 30420288538,
+      "run_attempt": 1,
+      "head_sha": "0df0e1986a0904d02c62ee875ecc0133b0ef144b",
+      "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30420288538",
+      "conclusion": "failure",
+      "jobs_created": 0,
+      "candidate_entry_reached": false,
+      "accepted": false,
+      "reason": "GitHub rejected the workflow graph before job creation because runner.temp was referenced in job-level env, where the runner context was unavailable."
+    },
+    {
+      "run_id": 30420365293,
+      "run_attempt": 1,
+      "head_sha": "753575c46b663b28c08011a0d71b1a737b403db1",
+      "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30420365293",
+      "conclusion": "success",
+      "jobs_created": 5,
+      "candidate_entry_reached": false,
+      "accepted": false,
+      "reason": "All four lanes and the cohort passed, but GitHub warned that the pinned Node 20 actions were being forced onto Node 24. The complete quartet was rerun after pinning current Node 24 action releases."
+    },
+    {
+      "run_id": 30420466293,
+      "run_attempt": 1,
+      "head_sha": "af55916ce8845fc803976e97642723893afe24c9",
+      "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30420466293",
+      "conclusion": "success",
+      "jobs_created": 5,
+      "candidate_entry_reached": false,
+      "accepted": true,
+      "reason": "All four non-compensating native lane witnesses and the same-run cohort passed with full-SHA Node 24 action pins and no workflow annotations."
+    }
+  ],
+  "service_artifacts": [
+    {
+      "id": 8711715761,
+      "role": "cohort",
+      "sha256": "6e1461501542fe53983d3d273ff21599cb9d37fbb3ee5de9a078e8fb84231a79",
+      "expires_at": "2026-10-27T03:46:26Z"
+    },
+    {
+      "id": 8711712356,
+      "role": "windows-x86_64",
+      "sha256": "f5793388d0eb4e85e5056c7fd0fd363e76c064bfe136f285a284c1ee589d4b38",
+      "expires_at": "2026-10-27T03:46:26Z"
+    },
+    {
+      "id": 8711708066,
+      "role": "macos-x86_64",
+      "sha256": "c724da094f33da99ce726c20c7ec418279b2aaf3363c0f314893b0c7455f71e3",
+      "expires_at": "2026-10-27T03:46:26Z"
+    },
+    {
+      "id": 8711705677,
+      "role": "macos-arm64",
+      "sha256": "6da1a02b577d6aacb04067cedf3e935edb8277ceeb4d0b3e3d2fe65ee3f1609e",
+      "expires_at": "2026-10-27T03:46:26Z"
+    },
+    {
+      "id": 8711705407,
+      "role": "linux-x86_64-glibc",
+      "sha256": "bb64e3758fdec55f470228838f1afb797b091b64e9c79de16e2ebc4f255c9863",
+      "expires_at": "2026-10-27T03:46:26Z"
+    }
+  ],
+  "retry_compliance": {
+    "mixed_run_ids": false,
+    "partial_rerun_accepted": false,
+    "old_runs_retained_by_url": true,
+    "candidate_observation_discarded": false
+  }
+}

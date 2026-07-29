@@ -1,0 +1,302 @@
+{
+  "candidate": {
+    "backend_calls": 0,
+    "binding_loaded": false,
+    "disposition": "NOT_IN_SCOPE_FOR_LANE_PREFLIGHT",
+    "factor_publications": 0
+  },
+  "captured_at_utc": "2026-07-29T03:46:45.567287+00:00",
+  "checks": [
+    {
+      "detail": "GITHUB_ACTIONS='true'",
+      "name": "github_actions",
+      "status": "PASS"
+    },
+    {
+      "detail": "RUNNER_ENVIRONMENT='github-hosted'",
+      "name": "github_hosted_runner",
+      "status": "PASS"
+    },
+    {
+      "detail": "RUNNER_OS='macOS'; expected='macOS'",
+      "name": "runner_os",
+      "status": "PASS"
+    },
+    {
+      "detail": "RUNNER_ARCH='X64'; expected='X64'",
+      "name": "runner_arch",
+      "status": "PASS"
+    },
+    {
+      "detail": "platform.machine()='x86_64'; accepted=['AMD64', 'x86_64']",
+      "name": "native_machine",
+      "status": "PASS"
+    },
+    {
+      "detail": "rustc host='x86_64-apple-darwin'; required target='x86_64-apple-darwin'",
+      "name": "native_rust_host",
+      "status": "PASS"
+    },
+    {
+      "detail": "required=['avx2', 'fma']; missing=[]",
+      "name": "required_cpu_features",
+      "status": "PASS"
+    },
+    {
+      "detail": "ImageOS='macos15'; ImageVersion='20260720.0353.1'",
+      "name": "runner_image_identity",
+      "status": "PASS"
+    },
+    {
+      "detail": "RUNNER_TEMP is present and resolves to a directory",
+      "name": "runner_temp",
+      "status": "PASS"
+    },
+    {
+      "detail": "native executable returned 'macos:x86_64'; expected 'macos:x86_64'; header={'format': 'mach-o', 'machine': 16777223}",
+      "name": "native_rust_compile_and_execute",
+      "status": "PASS"
+    },
+    {
+      "detail": "write/read/delete completed below RUNNER_TEMP",
+      "name": "isolated_scratch_roundtrip",
+      "status": "PASS"
+    }
+  ],
+  "contract": {
+    "contract_id": "RapidRBF/InstrumentedFaerQualifiedHostLanes/v1",
+    "sha256": "d6edbf73cc9788dfb56eedc58010ce3b091d94014111a6a4b1f1171cc8f7c5a3"
+  },
+  "github": {
+    "event_name": "push",
+    "image_os": "macos15",
+    "image_version": "20260720.0353.1",
+    "job": "lane",
+    "ref": "refs/heads/codex/provision-instrumented-faer-lanes",
+    "repository": "qingsonger/RapidRBF",
+    "run_attempt": "1",
+    "run_id": "30420466293",
+    "run_number": "3",
+    "run_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30420466293",
+    "runner_arch": "X64",
+    "runner_environment": "github-hosted",
+    "runner_name": "GitHub Actions 1000005044",
+    "runner_os": "macOS",
+    "sha": "af55916ce8845fc803976e97642723893afe24c9",
+    "workflow": "Instrumented faer lane preflight",
+    "workflow_ref": "qingsonger/RapidRBF/.github/workflows/instrumented-faer-lane-preflight.yml@refs/heads/codex/provision-instrumented-faer-lanes"
+  },
+  "host": {
+    "cpu": {
+      "brand": {
+        "command": [
+          "sysctl",
+          "-n",
+          "machdep.cpu.brand_string"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz"
+      },
+      "logical_cpu_count": 4,
+      "logical_cpu_count_command": {
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.logicalcpu"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "4"
+      },
+      "physical_cpu_count": {
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.physicalcpu"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "4"
+      },
+      "python_processor": "i386"
+    },
+    "glibc": null,
+    "native_rust_features": [
+      "adx",
+      "aes",
+      "avx",
+      "avx2",
+      "bmi1",
+      "bmi2",
+      "cmpxchg16b",
+      "f16c",
+      "fma",
+      "fxsr",
+      "lzcnt",
+      "movbe",
+      "pclmulqdq",
+      "popcnt",
+      "rdrand",
+      "rdseed",
+      "sse",
+      "sse2",
+      "sse3",
+      "sse4.1",
+      "sse4.2",
+      "ssse3",
+      "xsave",
+      "xsaveopt"
+    ],
+    "os": {
+      "platform_detail": {
+        "command": [
+          "sw_vers"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t15.7.7\nBuildVersion:\t\t24G720"
+      },
+      "platform_machine": "x86_64",
+      "platform_release": "24.6.0",
+      "platform_system": "Darwin",
+      "platform_version": "Darwin Kernel Version 24.6.0: Tue Apr 21 20:17:54 PDT 2026; root:xnu-11417.140.69.710.16~1/RELEASE_X86_64",
+      "uname": [
+        "Darwin",
+        "iad01-ar513-44079c27-5c20-4a6f-8c59-97accc77dcb0-C622ECD9440C.local",
+        "24.6.0",
+        "Darwin Kernel Version 24.6.0: Tue Apr 21 20:17:54 PDT 2026; root:xnu-11417.140.69.710.16~1/RELEASE_X86_64",
+        "x86_64",
+        "i386"
+      ]
+    },
+    "resources": {
+      "memory_bytes": {
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.memsize"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "15032385536"
+      },
+      "runner_temp_disk": {
+        "free_bytes": 117965344768,
+        "total_bytes": 348622118912,
+        "used_bytes": 230656774144
+      },
+      "vm_stat": {
+        "command": [
+          "vm_stat"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Mach Virtual Memory Statistics: (page size of 4096 bytes)\nPages free:                              596429.\nPages active:                            908358.\nPages inactive:                          879907.\nPages speculative:                       935958.\nPages throttled:                              0.\nPages wired down:                        348320.\nPages purgeable:                          21515.\n\"Translation faults\":                  63810588.\nPages copy-on-write:                    8182797.\nPages zero filled:                     31141865.\nPages reactivated:                        21222.\nPages purged:                             10382.\nFile-backed pages:                      2173387.\nAnonymous pages:                         550836.\nPages stored in compressor:                   0.\nPages occupied by compressor:                 0.\nDecompressions:                               0.\nCompressions:                                 0.\nPageins:                                1351496.\nPageouts:                                     0.\nSwapins:                                      0.\nSwapouts:                                     0."
+      }
+    }
+  },
+  "lane": {
+    "executable_format": "mach-o",
+    "executable_machine": 16777223,
+    "lane_id": "macos-x86_64",
+    "native_machine": [
+      "AMD64",
+      "x86_64"
+    ],
+    "required_cpu_features": [
+      "avx2",
+      "fma"
+    ],
+    "runner_arch": "X64",
+    "runner_label": "macos-15-intel",
+    "runner_os": "macOS",
+    "rust_std_arch": "x86_64",
+    "rust_std_os": "macos",
+    "target": "x86_64-apple-darwin",
+    "tier_one": "macOS x86_64"
+  },
+  "native_smoke": {
+    "compile_returncode": 0,
+    "compile_stderr": "",
+    "executable_header": {
+      "format": "mach-o",
+      "machine": 16777223
+    },
+    "execute_returncode": 0,
+    "execute_stderr": "",
+    "execute_stdout": "macos:x86_64"
+  },
+  "qualification": "PASS",
+  "schema": "rapidrbf-instrumented-faer-lane-witness-v1",
+  "toolchain": {
+    "cargo_version": {
+      "command": [
+        "cargo",
+        "-V"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "cargo 1.97.1 (c980f4866 2026-06-30)"
+    },
+    "clang_version": {
+      "command": [
+        "clang",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Apple clang version 17.0.0 (clang-1700.0.13.5)\nTarget: x86_64-apple-darwin24.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
+    },
+    "cmake_version": {
+      "command": [
+        "cmake",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "cmake version 4.4.0\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake)."
+    },
+    "git_version": {
+      "command": [
+        "git",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "git version 2.55.0"
+    },
+    "native_feature_command": {
+      "command": [
+        "rustc",
+        "--print",
+        "cfg",
+        "-C",
+        "target-cpu=native"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "debug_assertions\npanic=\"unwind\"\ntarget_abi=\"\"\ntarget_arch=\"x86_64\"\ntarget_endian=\"little\"\ntarget_env=\"\"\ntarget_family=\"unix\"\ntarget_feature=\"adx\"\ntarget_feature=\"aes\"\ntarget_feature=\"avx\"\ntarget_feature=\"avx2\"\ntarget_feature=\"bmi1\"\ntarget_feature=\"bmi2\"\ntarget_feature=\"cmpxchg16b\"\ntarget_feature=\"f16c\"\ntarget_feature=\"fma\"\ntarget_feature=\"fxsr\"\ntarget_feature=\"lzcnt\"\ntarget_feature=\"movbe\"\ntarget_feature=\"pclmulqdq\"\ntarget_feature=\"popcnt\"\ntarget_feature=\"rdrand\"\ntarget_feature=\"rdseed\"\ntarget_feature=\"sse\"\ntarget_feature=\"sse2\"\ntarget_feature=\"sse3\"\ntarget_feature=\"sse4.1\"\ntarget_feature=\"sse4.2\"\ntarget_feature=\"ssse3\"\ntarget_feature=\"xsave\"\ntarget_feature=\"xsaveopt\"\ntarget_has_atomic=\"128\"\ntarget_has_atomic=\"16\"\ntarget_has_atomic=\"32\"\ntarget_has_atomic=\"64\"\ntarget_has_atomic=\"8\"\ntarget_has_atomic=\"ptr\"\ntarget_has_atomic_primitive_alignment=\"128\"\ntarget_has_atomic_primitive_alignment=\"16\"\ntarget_has_atomic_primitive_alignment=\"32\"\ntarget_has_atomic_primitive_alignment=\"64\"\ntarget_has_atomic_primitive_alignment=\"8\"\ntarget_has_atomic_primitive_alignment=\"ptr\"\ntarget_os=\"macos\"\ntarget_pointer_width=\"64\"\ntarget_vendor=\"apple\"\nunix"
+    },
+    "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 17.0.0 (clang-1700.6.4.2)]",
+    "rustc_verbose": {
+      "command": [
+        "rustc",
+        "-vV"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-apple-darwin\nrelease: 1.97.1\nLLVM version: 22.1.6"
+    },
+    "rustup_active_toolchain": {
+      "command": [
+        "rustup",
+        "show",
+        "active-toolchain"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "stable-x86_64-apple-darwin (default)"
+    }
+  }
+}

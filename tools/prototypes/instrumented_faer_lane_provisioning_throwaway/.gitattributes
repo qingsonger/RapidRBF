@@ -1,0 +1,3 @@
+evidence/run-*/** binary
+evidence/*.json -text
+evidence/checksums.sha256 -text
