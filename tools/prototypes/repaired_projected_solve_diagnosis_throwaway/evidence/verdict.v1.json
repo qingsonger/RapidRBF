@@ -1,0 +1,56 @@
+{
+  "schema": "RapidRBF/RepairedProjectedSolveDiagnosisVerdict/v1",
+  "disposition": "NEXT_DENSE_FACTOR_EXPERIMENT_FROZEN",
+  "identities": {
+    "issue47_archive_sha256": "b38870fedb17886c105d9162ac79ed81661a4a1f8428d6a80f627ddaf37e96a1",
+    "issue47_reference_manifest_sha256": "6ed634a288145dfb3688e6e480f9519c1dbbe5c528aa9bb4b825eb57bc1b584a",
+    "issue47_cohort_summary_sha256": "2b774ba332dee359ff7a72c948a034dcd2896545f7740f236ed29d3b1f7a4f10",
+    "issue41_candidate_binding_sha256": "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6",
+    "witness_subset_payload_sha256": "493ca2269de9390929ff6e8b291f340d4fdc341c363c67b33c5ab3e0db44e741",
+    "witness_subset_file_sha256": "108bbac2ed4ab87d55e87032263281b3c145512d4b04a19d1e702765701e4fc5",
+    "next_experiment_plan_file_sha256": "7018a1a33d601076ff17b6824068ada146039fa57aab5b1cf71793cbe6d13d60"
+  },
+  "mechanism": {
+    "classification": "condition-and-RHS-amplified binary64 forward-solve error",
+    "candidate_owned": true,
+    "factor_reconstruction_passes": true,
+    "reduced_backward_error_passes": true,
+    "pre_post_solution_bits_match": true,
+    "status_vectors_identical_across_12_observations": true,
+    "matrix_only_conditioning_is_sufficient_verdict": false,
+    "pivot_replacement_alone_supported": false,
+    "symmetric_equilibration_alone_supported": false,
+    "owned_double_double_refinement_supported_for_witness_gate": true
+  },
+  "witness_gate": {
+    "ordinals": [
+      0,
+      36,
+      69,
+      72,
+      106,
+      150
+    ],
+    "logical_sources": 6,
+    "rhs_families": 3,
+    "target_profile_observations": 12,
+    "candidate_source_observations": 72,
+    "current_pre_and_post_failure_coordinates": 240,
+    "selected_candidate": "instrumented-faer Bunch-Kaufman plus owned double-double refinement",
+    "valid_outcomes": [
+      "REFINEMENT_ROUTE_SUPPORTED_FOR_FULL_CORPUS_PLAN",
+      "REFINEMENT_ROUTE_REJECTED_DIAGNOSTIC_ONLY",
+      "INVALID_UNJUDGED"
+    ]
+  },
+  "scope": {
+    "reruns_issue47_full_cohort": false,
+    "mutates_issue47_evidence": false,
+    "admits_factor_path": false,
+    "adopts_faer_or_qd": false,
+    "runs_mechanism_panel": false,
+    "selects_persistent_factor_storage": false,
+    "enters_100k_rung": false,
+    "unblocks_downstream_solver_comparison": false
+  }
+}
