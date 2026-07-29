@@ -552,6 +552,10 @@ _Avoid_: Polatory is always correct, implementation-defined truth
 The mandatory promotion from ordinary floating-point evidence to analytic, higher-precision, interval, or exact-predicate adjudication whenever uncertainty crosses a semantic boundary or a Polatory difference may be a defect. When a full direct reference is infeasible at scale, only a sound full-batch error certificate plus the complete operation certificate can replace it; fixed audit samples validate that evidence but never prove success alone.
 _Avoid_: Spot-check proof, boundary guess, sampled certificate, Polatory tie-break
 
+**Frozen-system solution authority**:
+The candidate-independent acceptance authority for a factor solve whose matrix and right-hand side are the exact real values represented by their frozen binary64 inputs. It encloses the unique solution and oracle uncertainty before candidate execution; a candidate error band wholly inside the unchanged solution threshold passes, wholly outside fails, and overlap or unresolved conditioning is indeterminate.
+_Avoid_: Declared-solution oracle, candidate-tuned reference, backward-error-only solution health, agreement-as-proof
+
 **Polatory baseline**:
 The frozen Polatory source revision `4a30beb`, together with its captured build configuration, dependency versions, datasets, and executable artifacts, used for RapidRBF v1.0.0 differential and performance comparisons.
 _Avoid_: Latest Polatory, moving upstream target
