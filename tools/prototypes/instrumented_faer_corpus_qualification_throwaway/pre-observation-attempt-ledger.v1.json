@@ -37,5 +37,64 @@
     "repeatable_gate": "170 projected_b sources exceeded the frozen pack_reload_solution_relative_inf_max gate in every profile; all 12 coarse_p_top sources and all 34 M1-EXP projected_b sources passed.",
     "gate_was_not_weakened": true
   },
-  "official_attempts": []
+  "official_attempts": [
+    {
+      "run_id": "30430939100",
+      "run_attempt": 1,
+      "git_sha": "43a5134d02ff0328fe7aa76c771a59df9cf0e404",
+      "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30430939100",
+      "workflow_conclusion": "failure",
+      "qualification_authority": false,
+      "retained_reason": "The frozen binding closure omitted two Cargo-ignored metadata files, so exact binding verification failed before a cohort could be judged."
+    },
+    {
+      "run_id": "30431325683",
+      "run_attempt": 1,
+      "git_sha": "6426f784e183b7fa8f928cbd1ee443aa5d8310d9",
+      "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30431325683",
+      "workflow_conclusion": "failure",
+      "qualification_authority": false,
+      "retained_reason": "Target evidence paths were resolved after changing the working directory and therefore pointed at a nonexistent relative destination."
+    },
+    {
+      "run_id": "30431571491",
+      "run_attempt": 1,
+      "git_sha": "8d3f23d20ad2a13511439d5b4e1d39faebf05c18",
+      "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30431571491",
+      "workflow_conclusion": "failure",
+      "qualification_authority": false,
+      "retained_reason": "Windows and Linux completed; the macOS process-thread sampler used an unsupported ps field and could not certify the lane."
+    },
+    {
+      "run_id": "30432032220",
+      "run_attempt": 1,
+      "git_sha": "f3dd87c2370a986ac740424b60ca142f853f2133",
+      "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30432032220",
+      "workflow_conclusion": "failure",
+      "qualification_authority": false,
+      "retained_reason": "The libproc macOS sampler treated the expected process-termination ESRCH race as a sampling failure."
+    },
+    {
+      "run_id": "30432567016",
+      "run_attempt": 1,
+      "git_sha": "9c4d0fe8ad1edffbc915ee16b2ee9163a2741737",
+      "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30432567016",
+      "workflow_conclusion": "success",
+      "qualification_authority": true,
+      "observed_disposition": "NOT_ADMITTED_DIAGNOSTIC_ONLY",
+      "retained_reason": "The exact diagnostic cohort completed, but three fast-platform mid-solve controls finished during the fixed 1 ms delay before cancellation was requested."
+    },
+    {
+      "run_id": "30434309514",
+      "run_attempt": 1,
+      "git_sha": "6c17cd0a60b031a8a908f59b36ca501c4346960f",
+      "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30434309514",
+      "workflow_conclusion": "success",
+      "qualification_authority": true,
+      "observed_disposition": "NOT_ADMITTED_DIAGNOSTIC_ONLY",
+      "archived_under": "evidence/",
+      "cohort_summary_sha256": "2c3452465aca518e90c105b2b4acf2c4fcae09ad994b4ac270829cc6ef61cff6",
+      "retained_reason": "Final four-target cohort: all controls pass in all 12 observations; the same 170 projected sources fail only the frozen pack/reload solution-relative health gate."
+    }
+  ]
 }

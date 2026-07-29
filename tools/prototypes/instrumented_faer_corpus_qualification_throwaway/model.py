@@ -9,6 +9,7 @@ from typing import Any
 
 
 ADMITTED = "ADMITTED_FOR_MECHANISM_PANEL"
+PROBLEM_PREVIEW_LIMIT = 12
 
 
 @dataclass(frozen=True)
@@ -169,7 +170,11 @@ def render_dashboard(
             )
         lines.append("")
     if dashboard.problems:
-        lines.extend(["Diagnostic reasons:", *[f"  - {item}" for item in dashboard.problems]])
+        preview = dashboard.problems[:PROBLEM_PREVIEW_LIMIT]
+        lines.extend(["Diagnostic reasons:", *[f"  - {item}" for item in preview]])
+        remaining = len(dashboard.problems) - len(preview)
+        if remaining:
+            lines.append(f"  ... {remaining} more; inspect cohort-summary.json")
     else:
         lines.append("Diagnostic reasons: none")
     return "\n".join(lines)

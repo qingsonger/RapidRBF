@@ -61,6 +61,9 @@ Every target and lane is non-compensating. The cohort returns
 `ADMITTED_FOR_MECHANISM_PANEL` only when every required observation passes;
 otherwise it returns an exact `NOT_ADMITTED_DIAGNOSTIC_ONLY` disposition.
 
+The captured cohort and its decision are summarized in
+[`observed-results.md`](observed-results.md).
+
 ## Prepare the immutable input bundle
 
 Point at one verified reproduction of the admitted hierarchy corpus:

@@ -8,3 +8,4 @@ inputs/*.f64le -diff
 Cargo.lock text eol=lf
 .gitattributes text eol=lf
 .gitignore text eol=lf
+evidence/** -text

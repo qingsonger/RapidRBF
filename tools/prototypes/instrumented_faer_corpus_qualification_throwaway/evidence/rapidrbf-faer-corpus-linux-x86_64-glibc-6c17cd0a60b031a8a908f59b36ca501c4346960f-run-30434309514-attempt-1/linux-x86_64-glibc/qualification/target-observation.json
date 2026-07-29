@@ -1,0 +1,675 @@
+{
+  "authority": {
+    "binding_manifest_file_sha256": "da90b4642e3670e458c5aa5cf3aa61e370a2a944f120f2f07e897ad00a25c822",
+    "binding_sha256": "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6",
+    "binding_verifier_stdout": "{\"backend_calls\": 0, \"binding_id\": \"RapidRBF/InstrumentedFaerCandidateExecutionBinding/v1/1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6\", \"binding_sha256\": \"1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6\", \"content_bytes\": 18359161, \"content_files\": 225}",
+    "plan_file_sha256": "fef5f0b3e4d84e8af95505f3b822aded357631191a1e13226474adc985b964ce",
+    "plan_id": "RapidRBF/FactorQualificationPlan/v1/2d0f0ca77df0460babdcea3d945e6c487e84c3a658d704bde2915e406ad6a8f0"
+  },
+  "build": {
+    "cargo": "cargo 1.85.0 (d73d2caf9 2024-12-31)",
+    "command": [
+      "cargo",
+      "build",
+      "--release",
+      "--locked"
+    ],
+    "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7",
+    "stderr": "Updating crates.io index\n Downloading crates ...\n  Downloaded nano-gemm-f32 v0.2.1\n  Downloaded gemm v0.19.0\n  Downloaded equator v0.6.0\n  Downloaded faer-traits v0.24.0\n  Downloaded digest v0.10.7\n  Downloaded gemm-c64 v0.19.0\n  Downloaded block-buffer v0.10.4\n  Downloaded sha2 v0.10.9\n  Downloaded unicode-ident v1.0.24\n  Downloaded generic-array v0.14.7\n  Downloaded version_check v0.9.5\n  Downloaded ryu v1.0.23\n  Downloaded reborrow v0.5.5\n  Downloaded serde v1.0.228\n  Downloaded serde_derive v1.0.228\n  Downloaded num-traits v0.2.19\n  Downloaded gemm-f16 v0.19.0\n  Downloaded syn v2.0.119\n  Downloaded half v2.7.1\n  Downloaded seq-macro v0.3.6\n  Downloaded zerocopy v0.8.55\n  Downloaded num-complex v0.4.6\n  Downloaded interpol v0.2.1\n  Downloaded nano-gemm v0.2.2\n  Downloaded equator-macro v0.2.1\n  Downloaded cpufeatures v0.2.17\n  Downloaded pulp v0.22.3\n  Downloaded memchr v2.8.3\n  Downloaded nano-gemm-core v0.2.1\n  Downloaded zerocopy-derive v0.8.55\n  Downloaded serde_json v1.0.145\n  Downloaded raw-cpuid v11.6.0\n  Downloaded syn v1.0.109\n  Downloaded typenum v1.20.1\n  Downloaded num_cpus v1.17.0\n  Downloaded gemm-f32 v0.19.0\n  Downloaded bitflags v2.13.1\n  Downloaded quote v1.0.47\n  Downloaded paste v1.0.15\n  Downloaded generativity v1.2.1\n  Downloaded gemm-c32 v0.19.0\n  Downloaded dyn-stack-macros v0.1.3\n  Downloaded defer v0.2.1\n  Downloaded nano-gemm-c32 v0.2.1\n  Downloaded qd v0.8.0\n  Downloaded pulp-wasm-simd-flag v0.1.1\n  Downloaded nano-gemm-f64 v0.2.1\n  Downloaded nano-gemm-codegen v0.2.1\n  Downloaded gemm-common v0.19.0\n  Downloaded libc v0.2.189\n  Downloaded crypto-common v0.1.7\n  Downloaded bytemuck_derive v1.11.0\n  Downloaded proc-macro2 v1.0.107\n  Downloaded libm v0.2.16\n  Downloaded cfg-if v1.0.4\n  Downloaded gemm-f64 v0.19.0\n  Downloaded serde_core v1.0.228\n  Downloaded nano-gemm-c64 v0.2.1\n  Downloaded once_cell v1.21.4\n  Downloaded itoa v1.0.18\n  Downloaded equator-macro v0.6.0\n  Downloaded autocfg v1.5.1\n  Downloaded equator v0.2.2\n  Downloaded bytemuck v1.25.2\n   Compiling version_check v0.9.5\n   Compiling autocfg v1.5.1\n   Compiling proc-macro2 v1.0.107\n   Compiling bytemuck v1.25.2\n   Compiling quote v1.0.47\n   Compiling nano-gemm-codegen v0.2.1\n   Compiling unicode-ident v1.0.24\n   Compiling num-traits v0.2.19\n   Compiling libm v0.2.16\n   Compiling paste v1.0.15\n   Compiling bitflags v2.13.1\n   Compiling pulp v0.22.3\n   Compiling cfg-if v1.0.4\n   Compiling raw-cpuid v11.6.0\n   Compiling num-complex v0.4.6\n   Compiling rapidrbf-faer-control v0.0.0 (/home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/crates/rapidrbf-faer-control)\n   Compiling reborrow v0.5.5\n   Compiling pulp-wasm-simd-flag v0.1.1\n   Compiling dyn-stack-macros v0.1.3\n   Compiling seq-macro v0.3.6\n   Compiling dyn-stack v0.13.2 (/home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/dyn-stack-0.13.2)\n   Compiling syn v1.0.109\n   Compiling once_cell v1.21.4\n   Compiling syn v2.0.119\n   Compiling nano-gemm-core v0.2.1\n   Compiling generic-array v0.14.7\n   Compiling libc v0.2.189\n   Compiling nano-gemm-f64 v0.2.1\n   Compiling nano-gemm-c64 v0.2.1\n   Compiling nano-gemm-c32 v0.2.1\n   Compiling nano-gemm-f32 v0.2.1\n   Compiling typenum v1.20.1\n   Compiling interpol v0.2.1\n   Compiling defer v0.2.1\n   Compiling equator-macro v0.2.1\n   Compiling private-gemm-x86 v0.1.20 (/home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/private-gemm-x86-0.1.20)\n   Compiling serde_core v1.0.228\n   Compiling num_cpus v1.17.0\n   Compiling gemm-common v0.19.0\n   Compiling gemm-c64 v0.19.0\n   Compiling gemm-c32 v0.19.0\n   Compiling gemm-f64 v0.19.0\n   Compiling gemm-f32 v0.19.0\n   Compiling qd v0.8.0\n   Compiling equator v0.2.2\n   Compiling generativity v1.2.1\n   Compiling equator-macro v0.6.0\n   Compiling faer-traits v0.24.0\n   Compiling equator v0.6.0\n   Compiling gemm v0.19.0\n   Compiling crypto-common v0.1.7\n   Compiling block-buffer v0.10.4\n   Compiling serde_json v1.0.145\n   Compiling serde v1.0.228\n   Compiling digest v0.10.7\n   Compiling serde_derive v1.0.228\n   Compiling itoa v1.0.18\n   Compiling memchr v2.8.3\n   Compiling cpufeatures v0.2.17\n   Compiling ryu v1.0.23\n   Compiling sha2 v0.10.9\n   Compiling nano-gemm v0.2.2\n   Compiling faer v0.24.4 (/home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4)\nwarning: unused import: `core::num::NonZeroUsize`\n   --> /home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4/src/lib.rs:190:5\n    |\n190 | use core::num::NonZeroUsize;\n    |     ^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(unused_imports)]` on by default\n\nwarning: unused import: `crate::mat::matmut::SyncCell`\n --> /home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4/src/col/colmut.rs:2:5\n  |\n2 | use crate::mat::matmut::SyncCell;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nwarning: unused import: `crate::prelude::*`\n --> /home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4/src/io.rs:1:5\n  |\n1 | use crate::prelude::*;\n  |     ^^^^^^^^^^^^^^^^^\n\nwarning: unused import: `crate::utils::thread::par_split_indices`\n --> /home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4/src/linalg/lu/full_pivoting/factor.rs:3:5\n  |\n3 | use crate::utils::thread::par_split_indices;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nwarning: unused import: `super::temp_mat_scratch`\n --> /home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4/src/linalg/matmul/mod.rs:2:5\n  |\n2 | use super::temp_mat_scratch;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^\n\nwarning: unused import: `MemBuffer`\n  --> /home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4/src/linalg/matmul/mod.rs:11:17\n   |\n11 | use dyn_stack::{MemBuffer, MemStack};\n   |                 ^^^^^^^^^\n\nwarning: unused import: `crate::utils::bound::IdxInc`\n   --> /home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4/src/linalg/matmul/mod.rs:889:6\n    |\n889 |     use crate::utils::bound::IdxInc;\n    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nwarning: variable does not need to be mutable\n   --> /home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4/src/linalg/householder.rs:510:7\n    |\n510 |         let mut tmp = tmp.as_mat_mut();\n    |             ----^^^\n    |             |\n    |             help: remove this `mut`\n    |\n    = note: `#[warn(unused_mut)]` on by default\n\nwarning: method `as_type` is never used\n   --> /home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4/src/col/colmut.rs:656:23\n    |\n451 | impl<'a, T, Rows: Shape, RStride: Stride> ColMut<'a, T, Rows, RStride> {\n    | ---------------------------------------------------------------------- method in this implementation\n...\n656 |     pub(crate) unsafe fn as_type<U>(self) -> ColMut<'a, U, Rows, RStride> {\n    |                          ^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` on by default\n\nwarning: struct `SyncCell` is never constructed\n  --> /home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4/src/mat/matmut.rs:23:19\n   |\n23 | pub(crate) struct SyncCell<T>(T);\n   |                   ^^^^^^^^\n\nwarning: method `as_type` is never used\n    --> /home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4/src/mat/matmut.rs:1301:23\n     |\n987  | / impl<'a, T, Rows: Shape, Cols: Shape, RStride: Stride, CStride: Stride>\n988  | |     MatMut<'a, T, Rows, Cols, RStride, CStride>\n     | |_______________________________________________- method in this implementation\n...\n1301 |       pub(crate) unsafe fn as_type<U>(\n     |                            ^^^^^^^\n\nwarning: method `as_type` is never used\n   --> /home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4/src/row/rowmut.rs:574:23\n    |\n361 | impl<'a, T, Cols: Shape, CStride: Stride> RowMut<'a, T, Cols, CStride> {\n    | ---------------------------------------------------------------------- method in this implementation\n...\n574 |     pub(crate) unsafe fn as_type<U>(self) -> RowMut<'a, U, Cols, CStride> {\n    |                          ^^^^^^^\n\nwarning: fields `re` and `im` are never read\n  --> /home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4/src/stats/mod.rs:19:2\n   |\n18 | pub struct ComplexDistribution<Re, Im = Re> {\n   |            ------------------- fields in this struct\n19 |     re: Re,\n   |     ^^\n20 |     im: Im,\n   |     ^^\n   |\n   = note: `ComplexDistribution` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis\n\n   Compiling rapidrbf-instrumented-factor v0.0.0 (/home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_candidate_binding_throwaway/crates/rapidrbf-instrumented-factor)\nwarning: `faer` (lib) generated 13 warnings (run `cargo fix --lib -p faer` to apply 8 suggestions)\n   Compiling rapidrbf-instrumented-faer-corpus-qualification-throwaway v0.0.0 (/home/runner/work/RapidRBF/RapidRBF/tools/prototypes/instrumented_faer_corpus_qualification_throwaway)\n    Finished `release` profile [optimized] target(s) in 1m 44s",
+    "stdout": ""
+  },
+  "captured_at_utc": "2026-07-29T08:11:18.911440+00:00",
+  "disposition": "NOT_ADMITTED_DIAGNOSTIC_ONLY",
+  "execution_contract": {
+    "contract_id": "RapidRBF/InstrumentedFaerCorpusQualification/v1",
+    "sha256": "72a753b838410fc804da886c2583f4daebce2a407b5993dd914720d57baa6020"
+  },
+  "git_sha": "6c17cd0a60b031a8a908f59b36ca501c4346960f",
+  "github": {
+    "job": "target",
+    "ref": "refs/heads/codex/qualify-instrumented-faer-corpus",
+    "repository": "qingsonger/RapidRBF",
+    "run_attempt": "1",
+    "run_id": "30434309514",
+    "sha": "6c17cd0a60b031a8a908f59b36ca501c4346960f",
+    "workflow": "Instrumented faer 216-factor corpus qualification"
+  },
+  "lane_id": "linux-x86_64-glibc",
+  "lane_observations": [
+    {
+      "candidate_controls": {
+        "cancellation": {
+          "factor_source_id": "factor:M4-GEOMETRY-NONUNIFORM-10K-level-0-coarse-000:qtaq",
+          "mid_factor": {
+            "acknowledgment_latency_ns": 95827,
+            "backend_entered": true,
+            "cancelled": true,
+            "failed_publications": 0,
+            "metrics": {
+              "backend_entries": 2,
+              "checkpoint_events": 24292,
+              "cumulative_released_bytes": 101793815,
+              "cumulative_reserved_bytes": 101793815,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 2,
+              "stack_carved_bytes": 1064952,
+              "transient_high_water_bytes": 101793815,
+              "transient_residue_bytes": 0
+            },
+            "prior_factor_preserved": true,
+            "result": "Err(Cancelled)"
+          },
+          "mid_solve": {
+            "acknowledgment_latency_ns": 38990,
+            "backend_entered": true,
+            "cancelled": true,
+            "failed_publications": 0,
+            "metrics": {
+              "backend_entries": 3,
+              "checkpoint_events": 75,
+              "cumulative_released_bytes": 168902679,
+              "cumulative_reserved_bytes": 168902679,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 1,
+              "stack_carved_bytes": 49152,
+              "transient_high_water_bytes": 101793815,
+              "transient_residue_bytes": 0
+            },
+            "prior_solved_correction_preserved": true,
+            "result": "Err(Cancelled)"
+          },
+          "plan_id": "RapidRBF/FactorQualificationPlan/v1/2d0f0ca77df0460babdcea3d945e6c487e84c3a658d704bde2915e406ad6a8f0",
+          "status": "PASS"
+        },
+        "exact_n_minus_one_observations": 216,
+        "negative_reload": {
+          "backend_entries": 0,
+          "corrupt_pack": true,
+          "metadata_mismatch": true,
+          "status": "PASS",
+          "truncated_pack": true,
+          "wrong_profile": true,
+          "wrong_source": true
+        }
+      },
+      "candidate_counts": {
+        "failed_factor_sources": 170,
+        "observed_factor_sources": 216,
+        "passed_factor_sources": 46,
+        "planned_factor_sources": 216,
+        "qualified_factor_access_publications": 46,
+        "run_recompute_budget_consumed": 0,
+        "run_recompute_budget_initial": 216,
+        "run_scoped_recompute_recipes": 0,
+        "solved_correction_publications": 46
+      },
+      "candidate_disposition": "NOT_ADMITTED_DIAGNOSTIC_ONLY",
+      "candidate_file": "candidate-1-workers.json",
+      "candidate_file_sha256": "9dab083437c6c5fbbef79157ed282e9adcb044924af898cc07f78df96547f467",
+      "candidate_scratch": {
+        "cleanup_pass": true,
+        "cumulative_writes": 1338557896,
+        "live_occupancy_high_water": 33571552,
+        "live_residue_bytes": 0,
+        "residue_files": []
+      },
+      "controller_threads": {
+        "maximum_live_threads": 2,
+        "maximum_live_threads_grant": 12,
+        "method": "native external process-thread sampling at 2ms cadence",
+        "pass": true,
+        "samples": 11812,
+        "sampling_errors": []
+      },
+      "maximum_live_threads": 12,
+      "stderr": "",
+      "stdout": "linux-x86_64-glibc workers=1 disposition=NOT_ADMITTED_DIAGNOSTIC_ONLY sources=46/216",
+      "workers": 1
+    },
+    {
+      "candidate_controls": {
+        "cancellation": {
+          "factor_source_id": "factor:M4-GEOMETRY-NONUNIFORM-10K-level-0-coarse-000:qtaq",
+          "mid_factor": {
+            "acknowledgment_latency_ns": 100637,
+            "backend_entered": true,
+            "cancelled": true,
+            "failed_publications": 0,
+            "metrics": {
+              "backend_entries": 2,
+              "checkpoint_events": 24280,
+              "cumulative_released_bytes": 101793815,
+              "cumulative_reserved_bytes": 101793815,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 2,
+              "stack_carved_bytes": 1064952,
+              "transient_high_water_bytes": 101793815,
+              "transient_residue_bytes": 0
+            },
+            "prior_factor_preserved": true,
+            "result": "Err(Cancelled)"
+          },
+          "mid_solve": {
+            "acknowledgment_latency_ns": 31788,
+            "backend_entered": true,
+            "cancelled": true,
+            "failed_publications": 0,
+            "metrics": {
+              "backend_entries": 3,
+              "checkpoint_events": 86,
+              "cumulative_released_bytes": 168902679,
+              "cumulative_reserved_bytes": 168902679,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 1,
+              "stack_carved_bytes": 49152,
+              "transient_high_water_bytes": 101793815,
+              "transient_residue_bytes": 0
+            },
+            "prior_solved_correction_preserved": true,
+            "result": "Err(Cancelled)"
+          },
+          "plan_id": "RapidRBF/FactorQualificationPlan/v1/2d0f0ca77df0460babdcea3d945e6c487e84c3a658d704bde2915e406ad6a8f0",
+          "status": "PASS"
+        },
+        "exact_n_minus_one_observations": 216,
+        "negative_reload": {
+          "backend_entries": 0,
+          "corrupt_pack": true,
+          "metadata_mismatch": true,
+          "status": "PASS",
+          "truncated_pack": true,
+          "wrong_profile": true,
+          "wrong_source": true
+        }
+      },
+      "candidate_counts": {
+        "failed_factor_sources": 170,
+        "observed_factor_sources": 216,
+        "passed_factor_sources": 46,
+        "planned_factor_sources": 216,
+        "qualified_factor_access_publications": 46,
+        "run_recompute_budget_consumed": 0,
+        "run_recompute_budget_initial": 216,
+        "run_scoped_recompute_recipes": 0,
+        "solved_correction_publications": 46
+      },
+      "candidate_disposition": "NOT_ADMITTED_DIAGNOSTIC_ONLY",
+      "candidate_file": "candidate-2-workers.json",
+      "candidate_file_sha256": "ba3629340e8002d978bf1eaf01719eefaa01a94a6c06b2f8bb3e4f9d5f2d677d",
+      "candidate_scratch": {
+        "cleanup_pass": true,
+        "cumulative_writes": 1338557896,
+        "live_occupancy_high_water": 41029766,
+        "live_residue_bytes": 0,
+        "residue_files": []
+      },
+      "controller_threads": {
+        "maximum_live_threads": 3,
+        "maximum_live_threads_grant": 12,
+        "method": "native external process-thread sampling at 2ms cadence",
+        "pass": true,
+        "samples": 6426,
+        "sampling_errors": []
+      },
+      "maximum_live_threads": 12,
+      "stderr": "",
+      "stdout": "linux-x86_64-glibc workers=2 disposition=NOT_ADMITTED_DIAGNOSTIC_ONLY sources=46/216",
+      "workers": 2
+    },
+    {
+      "candidate_controls": {
+        "cancellation": {
+          "factor_source_id": "factor:M4-GEOMETRY-NONUNIFORM-10K-level-0-coarse-000:qtaq",
+          "mid_factor": {
+            "acknowledgment_latency_ns": 102354,
+            "backend_entered": true,
+            "cancelled": true,
+            "failed_publications": 0,
+            "metrics": {
+              "backend_entries": 2,
+              "checkpoint_events": 22814,
+              "cumulative_released_bytes": 101793815,
+              "cumulative_reserved_bytes": 101793815,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 2,
+              "stack_carved_bytes": 1064952,
+              "transient_high_water_bytes": 101793815,
+              "transient_residue_bytes": 0
+            },
+            "prior_factor_preserved": true,
+            "result": "Err(Cancelled)"
+          },
+          "mid_solve": {
+            "acknowledgment_latency_ns": 55084,
+            "backend_entered": true,
+            "cancelled": true,
+            "failed_publications": 0,
+            "metrics": {
+              "backend_entries": 3,
+              "checkpoint_events": 75,
+              "cumulative_released_bytes": 168902679,
+              "cumulative_reserved_bytes": 168902679,
+              "outer_compute_permits_live": 0,
+              "stack_carve_events": 1,
+              "stack_carved_bytes": 49152,
+              "transient_high_water_bytes": 101793815,
+              "transient_residue_bytes": 0
+            },
+            "prior_solved_correction_preserved": true,
+            "result": "Err(Cancelled)"
+          },
+          "plan_id": "RapidRBF/FactorQualificationPlan/v1/2d0f0ca77df0460babdcea3d945e6c487e84c3a658d704bde2915e406ad6a8f0",
+          "status": "PASS"
+        },
+        "exact_n_minus_one_observations": 216,
+        "negative_reload": {
+          "backend_entries": 0,
+          "corrupt_pack": true,
+          "metadata_mismatch": true,
+          "status": "PASS",
+          "truncated_pack": true,
+          "wrong_profile": true,
+          "wrong_source": true
+        }
+      },
+      "candidate_counts": {
+        "failed_factor_sources": 170,
+        "observed_factor_sources": 216,
+        "passed_factor_sources": 46,
+        "planned_factor_sources": 216,
+        "qualified_factor_access_publications": 46,
+        "run_recompute_budget_consumed": 0,
+        "run_recompute_budget_initial": 216,
+        "run_scoped_recompute_recipes": 0,
+        "solved_correction_publications": 46
+      },
+      "candidate_disposition": "NOT_ADMITTED_DIAGNOSTIC_ONLY",
+      "candidate_file": "candidate-8-workers.json",
+      "candidate_file_sha256": "a1bfbf6ae73e00c804f234a22b906c98f9805f99a55ecb1eaae8b3a7679fd468",
+      "candidate_scratch": {
+        "cleanup_pass": true,
+        "cumulative_writes": 1338557896,
+        "live_occupancy_high_water": 59838605,
+        "live_residue_bytes": 0,
+        "residue_files": []
+      },
+      "controller_threads": {
+        "maximum_live_threads": 9,
+        "maximum_live_threads_grant": 16,
+        "method": "native external process-thread sampling at 2ms cadence",
+        "pass": true,
+        "samples": 4464,
+        "sampling_errors": []
+      },
+      "maximum_live_threads": 16,
+      "stderr": "",
+      "stdout": "linux-x86_64-glibc workers=8 disposition=NOT_ADMITTED_DIAGNOSTIC_ONLY sources=46/216",
+      "workers": 8
+    }
+  ],
+  "lane_witness": {
+    "candidate": {
+      "backend_calls": 0,
+      "binding_loaded": false,
+      "disposition": "NOT_IN_SCOPE_FOR_LANE_PREFLIGHT",
+      "factor_publications": 0
+    },
+    "captured_at_utc": "2026-07-29T08:08:33.013378+00:00",
+    "checks": [
+      {
+        "detail": "GITHUB_ACTIONS='true'",
+        "name": "github_actions",
+        "status": "PASS"
+      },
+      {
+        "detail": "RUNNER_ENVIRONMENT='github-hosted'",
+        "name": "github_hosted_runner",
+        "status": "PASS"
+      },
+      {
+        "detail": "RUNNER_OS='Linux'; expected='Linux'",
+        "name": "runner_os",
+        "status": "PASS"
+      },
+      {
+        "detail": "RUNNER_ARCH='X64'; expected='X64'",
+        "name": "runner_arch",
+        "status": "PASS"
+      },
+      {
+        "detail": "platform.machine()='x86_64'; accepted=['AMD64', 'x86_64']",
+        "name": "native_machine",
+        "status": "PASS"
+      },
+      {
+        "detail": "rustc host='x86_64-unknown-linux-gnu'; required target='x86_64-unknown-linux-gnu'",
+        "name": "native_rust_host",
+        "status": "PASS"
+      },
+      {
+        "detail": "required=['avx2', 'fma']; missing=[]",
+        "name": "required_cpu_features",
+        "status": "PASS"
+      },
+      {
+        "detail": "ImageOS='ubuntu24'; ImageVersion='20260720.247.2'",
+        "name": "runner_image_identity",
+        "status": "PASS"
+      },
+      {
+        "detail": "RUNNER_TEMP is present and resolves to a directory",
+        "name": "runner_temp",
+        "status": "PASS"
+      },
+      {
+        "detail": "getconf GNU_LIBC_VERSION='glibc 2.39'",
+        "name": "glibc",
+        "status": "PASS"
+      },
+      {
+        "detail": "native executable returned 'linux:x86_64'; expected 'linux:x86_64'; header={'format': 'elf', 'machine': 62}",
+        "name": "native_rust_compile_and_execute",
+        "status": "PASS"
+      },
+      {
+        "detail": "write/read/delete completed below RUNNER_TEMP",
+        "name": "isolated_scratch_roundtrip",
+        "status": "PASS"
+      }
+    ],
+    "contract": {
+      "contract_id": "RapidRBF/InstrumentedFaerQualifiedHostLanes/v1",
+      "sha256": "d6edbf73cc9788dfb56eedc58010ce3b091d94014111a6a4b1f1171cc8f7c5a3"
+    },
+    "github": {
+      "event_name": "push",
+      "image_os": "ubuntu24",
+      "image_version": "20260720.247.2",
+      "job": "target",
+      "ref": "refs/heads/codex/qualify-instrumented-faer-corpus",
+      "repository": "qingsonger/RapidRBF",
+      "run_attempt": "1",
+      "run_id": "30434309514",
+      "run_number": "6",
+      "run_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30434309514",
+      "runner_arch": "X64",
+      "runner_environment": "github-hosted",
+      "runner_name": "GitHub Actions 1000005084",
+      "runner_os": "Linux",
+      "sha": "6c17cd0a60b031a8a908f59b36ca501c4346960f",
+      "workflow": "Instrumented faer 216-factor corpus qualification",
+      "workflow_ref": "qingsonger/RapidRBF/.github/workflows/instrumented-faer-corpus-qualification.yml@refs/heads/codex/qualify-instrumented-faer-corpus"
+    },
+    "host": {
+      "cpu": {
+        "logical_cpu_count": 4,
+        "platform_detail": {
+          "command": [
+            "lscpu",
+            "--json"
+          ],
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "{\n   \"lscpu\": [\n      {\n         \"field\": \"Architecture:\",\n         \"data\": \"x86_64\"\n      },{\n         \"field\": \"CPU op-mode(s):\",\n         \"data\": \"32-bit, 64-bit\"\n      },{\n         \"field\": \"Address sizes:\",\n         \"data\": \"48 bits physical, 48 bits virtual\"\n      },{\n         \"field\": \"Byte Order:\",\n         \"data\": \"Little Endian\"\n      },{\n         \"field\": \"CPU(s):\",\n         \"data\": \"4\"\n      },{\n         \"field\": \"On-line CPU(s) list:\",\n         \"data\": \"0-3\"\n      },{\n         \"field\": \"Vendor ID:\",\n         \"data\": \"AuthenticAMD\"\n      },{\n         \"field\": \"Model name:\",\n         \"data\": \"AMD EPYC 7763 64-Core Processor\"\n      },{\n         \"field\": \"CPU family:\",\n         \"data\": \"25\"\n      },{\n         \"field\": \"Model:\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"Thread(s) per core:\",\n         \"data\": \"2\"\n      },{\n         \"field\": \"Core(s) per socket:\",\n         \"data\": \"2\"\n      },{\n         \"field\": \"Socket(s):\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"Stepping:\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"BogoMIPS:\",\n         \"data\": \"4890.84\"\n      },{\n         \"field\": \"Flags:\",\n         \"data\": \"fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm\"\n      },{\n         \"field\": \"Virtualization:\",\n         \"data\": \"AMD-V\"\n      },{\n         \"field\": \"Hypervisor vendor:\",\n         \"data\": \"Microsoft\"\n      },{\n         \"field\": \"Virtualization type:\",\n         \"data\": \"full\"\n      },{\n         \"field\": \"L1d cache:\",\n         \"data\": \"64 KiB (2 instances)\"\n      },{\n         \"field\": \"L1i cache:\",\n         \"data\": \"64 KiB (2 instances)\"\n      },{\n         \"field\": \"L2 cache:\",\n         \"data\": \"1 MiB (2 instances)\"\n      },{\n         \"field\": \"L3 cache:\",\n         \"data\": \"32 MiB (1 instance)\"\n      },{\n         \"field\": \"NUMA node(s):\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"NUMA node0 CPU(s):\",\n         \"data\": \"0-3\"\n      },{\n         \"field\": \"Vulnerability Gather data sampling:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Ghostwrite:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Indirect target selection:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Itlb multihit:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability L1tf:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Mds:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Meltdown:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Mmio stale data:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Old microcode:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Reg file data sampling:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Retbleed:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Spec rstack overflow:\",\n         \"data\": \"Vulnerable: Safe RET, no microcode\"\n      },{\n         \"field\": \"Vulnerability Spec store bypass:\",\n         \"data\": \"Vulnerable\"\n      },{\n         \"field\": \"Vulnerability Spectre v1:\",\n         \"data\": \"Mitigation; usercopy/swapgs barriers and __user pointer sanitization\"\n      },{\n         \"field\": \"Vulnerability Spectre v2:\",\n         \"data\": \"Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\"\n      },{\n         \"field\": \"Vulnerability Srbds:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Tsa:\",\n         \"data\": \"Vulnerable: No microcode\"\n      },{\n         \"field\": \"Vulnerability Tsx async abort:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Vmscape:\",\n         \"data\": \"Not affected\"\n      }\n   ]\n}"
+        },
+        "python_processor": "x86_64"
+      },
+      "glibc": "glibc 2.39",
+      "native_rust_features": [
+        "adx",
+        "aes",
+        "avx",
+        "avx2",
+        "bmi1",
+        "bmi2",
+        "cmpxchg16b",
+        "f16c",
+        "fma",
+        "fxsr",
+        "lzcnt",
+        "movbe",
+        "pclmulqdq",
+        "popcnt",
+        "rdrand",
+        "rdseed",
+        "sha",
+        "sse",
+        "sse2",
+        "sse3",
+        "sse4.1",
+        "sse4.2",
+        "ssse3",
+        "xsave",
+        "xsavec",
+        "xsaveopt",
+        "xsaves"
+      ],
+      "os": {
+        "glibc": {
+          "command": [
+            "getconf",
+            "GNU_LIBC_VERSION"
+          ],
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "glibc 2.39"
+        },
+        "os_release": {
+          "BUG_REPORT_URL": "https://bugs.launchpad.net/ubuntu/",
+          "HOME_URL": "https://www.ubuntu.com/",
+          "ID": "ubuntu",
+          "ID_LIKE": "debian",
+          "LOGO": "ubuntu-logo",
+          "NAME": "Ubuntu",
+          "PRETTY_NAME": "Ubuntu 24.04.4 LTS",
+          "PRIVACY_POLICY_URL": "https://www.ubuntu.com/legal/terms-and-policies/privacy-policy",
+          "SUPPORT_URL": "https://help.ubuntu.com/",
+          "UBUNTU_CODENAME": "noble",
+          "VERSION": "24.04.4 LTS (Noble Numbat)",
+          "VERSION_CODENAME": "noble",
+          "VERSION_ID": "24.04"
+        },
+        "platform_detail": {
+          "command": [
+            "uname",
+            "-a"
+          ],
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "Linux runnervmvrwv9 6.17.0-1020-azure #20~24.04.1-Ubuntu SMP Fri Jun 19 20:09:14 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux"
+        },
+        "platform_machine": "x86_64",
+        "platform_release": "6.17.0-1020-azure",
+        "platform_system": "Linux",
+        "platform_version": "#20~24.04.1-Ubuntu SMP Fri Jun 19 20:09:14 UTC 2026",
+        "uname": [
+          "Linux",
+          "runnervmvrwv9",
+          "6.17.0-1020-azure",
+          "#20~24.04.1-Ubuntu SMP Fri Jun 19 20:09:14 UTC 2026",
+          "x86_64",
+          "x86_64"
+        ]
+      },
+      "resources": {
+        "memory": {
+          "MemAvailable": "15285456 kB",
+          "MemTotal": "16373460 kB",
+          "SwapFree": "3145724 kB",
+          "SwapTotal": "3145724 kB"
+        },
+        "runner_temp_disk": {
+          "free_bytes": 93082320896,
+          "total_bytes": 154894188544,
+          "used_bytes": 61795090432
+        }
+      }
+    },
+    "lane": {
+      "executable_format": "elf",
+      "executable_machine": 62,
+      "lane_id": "linux-x86_64-glibc",
+      "libc": "glibc",
+      "native_machine": [
+        "AMD64",
+        "x86_64"
+      ],
+      "required_cpu_features": [
+        "avx2",
+        "fma"
+      ],
+      "runner_arch": "X64",
+      "runner_label": "ubuntu-24.04",
+      "runner_os": "Linux",
+      "rust_std_arch": "x86_64",
+      "rust_std_os": "linux",
+      "target": "x86_64-unknown-linux-gnu",
+      "tier_one": "Linux x86_64 glibc"
+    },
+    "native_smoke": {
+      "compile_returncode": 0,
+      "compile_stderr": "",
+      "executable_header": {
+        "format": "elf",
+        "machine": 62
+      },
+      "execute_returncode": 0,
+      "execute_stderr": "",
+      "execute_stdout": "linux:x86_64"
+    },
+    "qualification": "PASS",
+    "schema": "rapidrbf-instrumented-faer-lane-witness-v1",
+    "toolchain": {
+      "cargo_version": {
+        "command": [
+          "cargo",
+          "-V"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "cargo 1.85.0 (d73d2caf9 2024-12-31)"
+      },
+      "clang_version": {
+        "command": [
+          "clang",
+          "--version"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Ubuntu clang version 18.1.3 (1ubuntu1)\nTarget: x86_64-pc-linux-gnu\nThread model: posix\nInstalledDir: /usr/bin"
+      },
+      "cmake_version": {
+        "command": [
+          "cmake",
+          "--version"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "cmake version 3.31.6\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake)."
+      },
+      "git_version": {
+        "command": [
+          "git",
+          "--version"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "git version 2.54.0"
+      },
+      "native_feature_command": {
+        "command": [
+          "rustc",
+          "--print",
+          "cfg",
+          "-C",
+          "target-cpu=native"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "debug_assertions\npanic=\"unwind\"\ntarget_abi=\"\"\ntarget_arch=\"x86_64\"\ntarget_endian=\"little\"\ntarget_env=\"gnu\"\ntarget_family=\"unix\"\ntarget_feature=\"adx\"\ntarget_feature=\"aes\"\ntarget_feature=\"avx\"\ntarget_feature=\"avx2\"\ntarget_feature=\"bmi1\"\ntarget_feature=\"bmi2\"\ntarget_feature=\"cmpxchg16b\"\ntarget_feature=\"f16c\"\ntarget_feature=\"fma\"\ntarget_feature=\"fxsr\"\ntarget_feature=\"lzcnt\"\ntarget_feature=\"movbe\"\ntarget_feature=\"pclmulqdq\"\ntarget_feature=\"popcnt\"\ntarget_feature=\"rdrand\"\ntarget_feature=\"rdseed\"\ntarget_feature=\"sha\"\ntarget_feature=\"sse\"\ntarget_feature=\"sse2\"\ntarget_feature=\"sse3\"\ntarget_feature=\"sse4.1\"\ntarget_feature=\"sse4.2\"\ntarget_feature=\"ssse3\"\ntarget_feature=\"xsave\"\ntarget_feature=\"xsavec\"\ntarget_feature=\"xsaveopt\"\ntarget_feature=\"xsaves\"\ntarget_has_atomic=\"16\"\ntarget_has_atomic=\"32\"\ntarget_has_atomic=\"64\"\ntarget_has_atomic=\"8\"\ntarget_has_atomic=\"ptr\"\ntarget_os=\"linux\"\ntarget_pointer_width=\"64\"\ntarget_vendor=\"unknown\"\nunix"
+      },
+      "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+      "rustc_verbose": {
+        "command": [
+          "rustc",
+          "-vV"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.0\nLLVM version: 19.1.7"
+      },
+      "rustup_active_toolchain": {
+        "command": [
+          "rustup",
+          "show",
+          "active-toolchain"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "1.85.0-x86_64-unknown-linux-gnu (overridden by environment variable RUSTUP_TOOLCHAIN)"
+      }
+    }
+  },
+  "native_executable": {
+    "bytes": 3994048,
+    "sha256": "909e6bfdbbce287a77e8b35312402b185030bdf3729642266289f72da8080625"
+  },
+  "schema": "RapidRBF/InstrumentedFaerTargetQualificationEvidence/v1",
+  "source_identity": {
+    "Cargo.lock": {
+      "bytes": 19553,
+      "sha256": "73be5b2349b26dbbff67c2bfac3eca3526a150fcb6ab68bb71bb5867e46af7fa"
+    },
+    "Cargo.toml": {
+      "bytes": 1203,
+      "sha256": "5e0b826d33290b25b38dc8f710d9b5dc3caf3c95b1c42990a25c7663fecbedcc"
+    },
+    "execution-contract.v1.json": {
+      "bytes": 3969,
+      "sha256": "72a753b838410fc804da886c2583f4daebce2a407b5993dd914720d57baa6020"
+    },
+    "factor-qualification-plan.v1.json": {
+      "bytes": 170978,
+      "sha256": "fef5f0b3e4d84e8af95505f3b822aded357631191a1e13226474adc985b964ce"
+    },
+    "run.py": {
+      "bytes": 19955,
+      "sha256": "71c758f907fe5d05bb214aa7a40e0948104387da51611572e9539b04cfd1f2a4"
+    },
+    "src/main.rs": {
+      "bytes": 61450,
+      "sha256": "a5047c9dfec6d98dda5a3effefbef45c335c45ed792d5eda329df0e4544fc805"
+    },
+    "transport-manifest.v1.json": {
+      "bytes": 1437,
+      "sha256": "42b1e236975da60b3204c2656d73ed25cef32ef7615f9481e02ff2519eddb4c5"
+    }
+  },
+  "target": "x86_64-unknown-linux-gnu",
+  "transport": {
+    "asset": {
+      "bytes": 452947159,
+      "logical_factor_sources": 216,
+      "name": "rapidrbf-issue41-factor-qualification-input-v1.zip",
+      "release_tag": "issue-41-factor-qualification-input-v1",
+      "sha256": "a3b6417e61a604ee568d7bb5fed0416ce5c726f0e529ca1f998a7bdb272e207a",
+      "unique_matrix_bytes": 563213480,
+      "unique_matrix_payloads": 179,
+      "url": "https://github.com/qingsonger/RapidRBF/releases/download/issue-41-factor-qualification-input-v1/rapidrbf-issue41-factor-qualification-input-v1.zip"
+    },
+    "factor_qualification_plan": {
+      "bytes": 170978,
+      "plan_id": "RapidRBF/FactorQualificationPlan/v1/2d0f0ca77df0460babdcea3d945e6c487e84c3a658d704bde2915e406ad6a8f0",
+      "sha256": "fef5f0b3e4d84e8af95505f3b822aded357631191a1e13226474adc985b964ce"
+    },
+    "schema": "RapidRBF/FactorQualificationTransportManifest/v1",
+    "scope": "Throwaway issue-41 qualification input only; this is not a RapidRBF product release.",
+    "source_corpus": {
+      "admission_report_sha256": "bc907929fdf82976f83212ec514a0ccf43c59499a5dda45f9c4d4ef34aa37e90",
+      "corpus_sha256": "38f39fee8b4059cd2619df4bbfabb6f7159b41df1511907e0346c32642737f79",
+      "lock_sha256": "7abd17eabba0cd578fa8989075f9d09d5113a696df48c9643785822dadde5a75",
+      "physical_report_sha256": "da75d43c66e7405676639c61e11c99686d291ea690b85ed0828233d957b6a769",
+      "raw_manifest_sha256": "cf5aaa1e3fe6bf51c3f24f13455ac1036e7ec591668c18ec4c86f3243aa07f54"
+    }
+  }
+}
