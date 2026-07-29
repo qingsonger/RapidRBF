@@ -61,12 +61,17 @@ Production `ValidatedFactor` and `Solved` publication counts remain zero.
 
 ## One command
 
-The normal execution surface is the workflow:
+The branch-local workflow is intentionally triggered by the push that
+publishes the frozen preregistration commit:
 
 ```powershell
-gh workflow run instrumented-faer-feasibility-gate.yml `
-  --ref codex/execute-instrumented-faer-gate
+git push origin codex/execute-instrumented-faer-gate
 ```
+
+GitHub does not expose a newly introduced branch-local workflow to
+`workflow_dispatch` until the file also exists on the default branch. The
+pre-observation attempt ledger records the rejected manual dispatch; it
+created no job and entered no candidate backend.
 
 For a qualified lane job, the underlying single command is:
 

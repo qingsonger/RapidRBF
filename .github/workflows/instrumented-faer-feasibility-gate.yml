@@ -1,6 +1,15 @@
 name: Instrumented faer frozen feasibility gate
 
 on:
+  push:
+    branches:
+      - codex/execute-instrumented-faer-gate
+    paths:
+      - .github/workflows/instrumented-faer-feasibility-gate.yml
+      - tools/prototypes/instrumented_faer_candidate_binding_throwaway/**
+      - tools/prototypes/instrumented_faer_feasibility_gate_throwaway/**
+      - tools/prototypes/instrumented_faer_lane_provisioning_throwaway/collect_lane_identity.py
+      - tools/prototypes/instrumented_faer_lane_provisioning_throwaway/lane-contract.v1.json
   workflow_dispatch:
 
 permissions:

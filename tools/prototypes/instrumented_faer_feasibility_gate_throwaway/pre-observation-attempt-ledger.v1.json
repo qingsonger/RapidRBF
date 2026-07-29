@@ -1,0 +1,21 @@
+{
+  "schema": "rapidrbf-instrumented-faer-pre-observation-attempt-ledger-v1",
+  "execution_ticket": "https://github.com/qingsonger/RapidRBF/issues/44",
+  "attempts": [
+    {
+      "attempt": 1,
+      "requested_at_utc": "2026-07-29T05:34:00.2172801Z",
+      "mechanism": "workflow_dispatch",
+      "outcome": "REJECTED_PRE_CANDIDATE_ENTRY",
+      "http_status": 404,
+      "reason": "GitHub requires a manually dispatched workflow file to exist on the default branch; this new throwaway workflow exists only on codex/execute-instrumented-faer-gate.",
+      "github_run_created": false,
+      "lane_jobs_created": 0,
+      "candidate_binding_loaded": false,
+      "backend_calls": 0,
+      "factor_publications": 0,
+      "retry_authorized": true,
+      "next_mechanism": "the same branch-local workflow triggered by the push that adds its branch-scoped push event"
+    }
+  ]
+}
