@@ -1,9 +1,10 @@
 {
-  "schema": "RapidRBF/InstrumentedFaerCorpusQualificationExecutionContract/v1",
-  "contract_id": "RapidRBF/InstrumentedFaerCorpusQualification/v1",
+  "schema": "RapidRBF/RepairedProjectedFactorRequalificationExecutionContract/v1",
+  "contract_id": "RapidRBF/RepairedProjectedFactorRequalification/v1",
   "authority": {
     "wayfinder_map": "https://github.com/qingsonger/RapidRBF/issues/1",
-    "qualification_ticket": "https://github.com/qingsonger/RapidRBF/issues/41",
+    "qualification_ticket": "https://github.com/qingsonger/RapidRBF/issues/47",
+    "repaired_authority_ticket": "https://github.com/qingsonger/RapidRBF/issues/46",
     "canonical_corpus_ticket": "https://github.com/qingsonger/RapidRBF/issues/37",
     "candidate_binding_ticket": "https://github.com/qingsonger/RapidRBF/issues/42",
     "lane_provisioning_ticket": "https://github.com/qingsonger/RapidRBF/issues/43",
@@ -12,6 +13,8 @@
     "candidate_manifest_file_sha256": "da90b4642e3670e458c5aa5cf3aa61e370a2a944f120f2f07e897ad00a25c822",
     "factor_health_profile_sha256": "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3",
     "factor_health_profile_file_sha256": "7ed996b6b2bce7e59398385fd152d41b56a7b47b7ddb5126ebff3b5f10152465",
+    "repaired_solution_health_authority_sha256": "c671a0a5cf4b48cd580a5c6e67a920bb24288e964036d5f3d216b3ad850168d6",
+    "requalification_plan_sha256": "3d948e6a3c5e824d84ac8abae8135bafbb9a052480361fe4589982bc8bfba829",
     "lane_contract_file_sha256": "d6edbf73cc9788dfb56eedc58010ce3b091d94014111a6a4b1f1171cc8f7c5a3",
     "factor_qualification_plan_file_sha256": "fef5f0b3e4d84e8af95505f3b822aded357631191a1e13226474adc985b964ce",
     "factor_qualification_plan_id": "RapidRBF/FactorQualificationPlan/v1/2d0f0ca77df0460babdcea3d945e6c487e84c3a658d704bde2915e406ad6a8f0",
@@ -43,6 +46,7 @@
     "cross_run_cache": false,
     "eviction_rebuild": false,
     "recompute_budget": 216,
+    "reference_phase": "one target-independent MPFR-directed manifest completes and is hash-bound before candidate entry, then is reused unchanged by all target/profile observations",
     "publication_boundary": "factor pack, recompute recipe, and solved correction are separate prototype-private publications"
   },
   "judgment": {
@@ -56,7 +60,7 @@
     "admitted": "ADMITTED_FOR_MECHANISM_PANEL",
     "not_admitted": "NOT_ADMITTED_DIAGNOSTIC_ONLY",
     "admitted_requires": [
-      "exact binding, profile, qualification plan, transport, lane, and target identities",
+      "exact binding, repaired authority, requalification plan, certified reference manifest, qualification plan, transport, lane, and target identities",
       "all 216 logical factor sources pass factor, three independent manufactured solves, independent reconstruction, durable private pack, and positive reload",
       "exact N-1 transient denial passes before operation or backend entry for every source",
       "truncated, corrupt, wrong-source, wrong-profile, and metadata-mismatch pack controls all reject before backend entry",
@@ -69,7 +73,7 @@
       "ranking solver mechanisms",
       "selecting the persistent factor store",
       "entering the 100k rung",
-      "changing the frozen factor health profile"
+      "changing the frozen authority, threshold, reference rule, or requalification plan"
     ]
   },
   "retry": {
@@ -77,10 +81,13 @@
       "GITHUB_RUN_ID",
       "GITHUB_RUN_ATTEMPT",
       "GITHUB_SHA",
-      "execution_contract_sha256"
+      "requalification_plan_sha256",
+      "reference_manifest_sha256"
     ],
     "mix_attempts": false,
     "partial_rerun_valid": false,
-    "after_candidate_entry": "retain the attempt as an observation; do not silently retry or change the contract"
+    "before_candidate_entry": "identity, transport, reference, or controller failure is INVALID_PRE_ENTRY_UNJUDGED and requires a complete unchanged retry",
+    "after_candidate_entry_candidate_owned": "numeric, pack, cancellation, resource, publication, thread, cleanup, crash, or timeout failure is NOT_ADMITTED_DIAGNOSTIC_ONLY and is never retried",
+    "after_candidate_entry_external": "a proven external controller or evidence failure is INVALID_POST_ENTRY_UNJUDGED and permits at most one human-approved complete unchanged replacement attempt"
   }
 }

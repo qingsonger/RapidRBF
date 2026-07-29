@@ -1,0 +1,19 @@
+[package]
+name = "rapidrbf-repaired-factor-reference-throwaway"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.85"
+publish = false
+
+[dependencies]
+dyn-stack = { version = "=0.13.2", default-features = false, features = ["alloc", "core-error", "std"] }
+faer = { version = "=0.24.4", default-features = false, features = ["std", "linalg"] }
+gmp-mpfr-sys = { version = "=1.7.1", default-features = false, features = ["mpfr"] }
+qd = "=0.8.0"
+rug = { version = "=1.30.0", default-features = false, features = ["float", "std"] }
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.145"
+sha2 = "=0.10.9"
+
+[profile.release]
+panic = "unwind"

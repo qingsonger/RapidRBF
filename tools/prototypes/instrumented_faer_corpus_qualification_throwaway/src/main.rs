@@ -1,7 +1,10 @@
-//! THROWAWAY PROTOTYPE: qualify the issue-42 binding over issue 37's corpus.
+//! THROWAWAY PROTOTYPE: requalify the issue-42 binding under issue 46's
+//! repaired frozen-system solution authority.
 //!
 //! The binary is deliberately outside the immutable candidate directory. It
 //! consumes the exact binding unchanged and emits compact decision evidence.
+//! The target-independent reference manifest must already exist before this
+//! executable is entered.
 
 use dyn_stack::{MemBuffer, MemStack, StackReq};
 use faer::diag::{DiagMut, DiagRef};
@@ -10,6 +13,8 @@ use faer::linalg::lu::full_pivoting;
 use faer::perm::PermRef;
 use faer::prelude::ReborrowMut;
 use faer::{MatMut, MatRef, Par};
+use num_bigint::BigInt;
+use num_traits::{Signed, Zero};
 use rapidrbf_faer_control::backend_entry;
 use rapidrbf_instrumented_factor::{
     CancellationToken, CandidateExecutionBinding, ExecutionError, ExecutionLease, ExecutionMetrics,
@@ -18,7 +23,7 @@ use rapidrbf_instrumented_factor::{
 use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 use sha2::{Digest, Sha256};
-use std::collections::VecDeque;
+use std::collections::{BTreeMap, VecDeque};
 use std::fs::{self, File};
 use std::io::Write;
 use std::mem::size_of;
@@ -28,8 +33,15 @@ use std::sync::{Arc, Barrier, Mutex};
 use std::thread;
 use std::time::{Duration, Instant};
 
-const OBSERVATION_SCHEMA: &str = "RapidRBF/InstrumentedFaerCorpusQualificationLaneObservation/v1";
+const OBSERVATION_SCHEMA: &str =
+    "RapidRBF/RepairedProjectedFactorRequalificationLaneObservation/v1";
 const PLAN_SCHEMA: &str = "RapidRBF/FactorQualificationPlan/v1";
+const REFERENCE_SCHEMA: &str = "RapidRBF/ProjectedFactorReferenceManifest/v1";
+const AUTHORITY_SHA256: &str = "c671a0a5cf4b48cd580a5c6e67a920bb24288e964036d5f3d216b3ad850168d6";
+const REQUALIFICATION_PLAN_SHA256: &str =
+    "3d948e6a3c5e824d84ac8abae8135bafbb9a052480361fe4589982bc8bfba829";
+const ISSUE41_PLAN_SHA256: &str =
+    "fef5f0b3e4d84e8af95505f3b822aded357631191a1e13226474adc985b964ce";
 const PROFILE_SHA256: &str = "00e5fb051af7bdf11af337890fc7cea9e3b5e85a6e35b47f7e9bff89f805a2c3";
 const BINDING_SHA256: &str = "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6";
 const PACK_SCHEMA: &str = "RapidRBF/PrototypeQualifiedFactorPack/v1";
@@ -37,16 +49,19 @@ const PACK_MAGIC: &[u8; 8] = b"RBFQPK01";
 const ADMITTED: &str = "ADMITTED_FOR_MECHANISM_PANEL";
 const NOT_ADMITTED: &str = "NOT_ADMITTED_DIAGNOSTIC_ONLY";
 const RHS_COLUMNS: usize = 3;
+const FAMILY_NAMES: [&str; RHS_COLUMNS] = ["operational", "constraint", "dynamic-range"];
 const CANCELLATION_DELAY_MS: u64 = 10;
 
 #[derive(Debug)]
 struct Args {
     plan: PathBuf,
+    reference_manifest: PathBuf,
     bundle_root: PathBuf,
     lane_id: String,
     target: String,
     workers: usize,
     maximum_live_threads: usize,
+    entry_marker: PathBuf,
     scratch: PathBuf,
     output: PathBuf,
     source_limit: Option<usize>,
@@ -72,6 +87,44 @@ struct Source {
     sha256: String,
     encoding: String,
     dimension: usize,
+}
+
+#[derive(Clone, Debug, Deserialize)]
+struct ReferenceManifest {
+    schema: String,
+    disposition: String,
+    authority: ReferenceAuthority,
+    candidate_inputs_observed: bool,
+    unique_matrix_payloads: usize,
+    certified_references: usize,
+    indeterminate_references: usize,
+    entries: Vec<ReferenceEntry>,
+}
+
+#[derive(Clone, Debug, Deserialize)]
+struct ReferenceAuthority {
+    authority_profile_sha256: String,
+    requalification_plan_sha256: String,
+    issue_41_plan_sha256: String,
+}
+
+#[derive(Clone, Debug, Deserialize)]
+struct ReferenceEntry {
+    dimension: usize,
+    source_sha256: String,
+    rhs: Vec<ReferenceRhs>,
+}
+
+#[derive(Clone, Debug, Deserialize)]
+struct ReferenceRhs {
+    family: String,
+    rhs_sha256: String,
+    status: String,
+    scale_lower_hex: String,
+    scale_upper_hex: String,
+    solution_threshold_hex: String,
+    enclosure_lower_mpfr_hex: Vec<String>,
+    enclosure_upper_mpfr_hex: Vec<String>,
 }
 
 #[derive(Debug)]
@@ -249,11 +302,13 @@ impl ScratchTracker {
 
 fn parse_args() -> Result<Args, String> {
     let mut plan = None;
+    let mut reference_manifest = None;
     let mut bundle_root = None;
     let mut lane_id = None;
     let mut target = None;
     let mut workers = None;
     let mut maximum_live_threads = None;
+    let mut entry_marker = None;
     let mut scratch = None;
     let mut output = None;
     let mut source_limit = None;
@@ -264,6 +319,7 @@ fn parse_args() -> Result<Args, String> {
             .ok_or_else(|| format!("{argument} requires a value"))?;
         match argument.as_str() {
             "--plan" => plan = Some(PathBuf::from(value)),
+            "--reference-manifest" => reference_manifest = Some(PathBuf::from(value)),
             "--bundle-root" => bundle_root = Some(PathBuf::from(value)),
             "--lane-id" => lane_id = Some(value),
             "--target" => target = Some(value),
@@ -281,6 +337,7 @@ fn parse_args() -> Result<Args, String> {
                         .map_err(|_| "--maximum-live-threads must be an integer".to_owned())?,
                 )
             }
+            "--entry-marker" => entry_marker = Some(PathBuf::from(value)),
             "--scratch" => scratch = Some(PathBuf::from(value)),
             "--output" => output = Some(PathBuf::from(value)),
             "--source-limit" => {
@@ -295,11 +352,13 @@ fn parse_args() -> Result<Args, String> {
     }
     Ok(Args {
         plan: plan.ok_or("--plan is required")?,
+        reference_manifest: reference_manifest.ok_or("--reference-manifest is required")?,
         bundle_root: bundle_root.ok_or("--bundle-root is required")?,
         lane_id: lane_id.ok_or("--lane-id is required")?,
         target: target.ok_or("--target is required")?,
         workers: workers.ok_or("--workers is required")?,
         maximum_live_threads: maximum_live_threads.ok_or("--maximum-live-threads is required")?,
+        entry_marker: entry_marker.ok_or("--entry-marker is required")?,
         scratch: scratch.ok_or("--scratch is required")?,
         output: output.ok_or("--output is required")?,
         source_limit,
@@ -310,10 +369,227 @@ fn sha256(bytes: &[u8]) -> String {
     format!("{:x}", Sha256::digest(bytes))
 }
 
+fn sha256_f64_slice(values: &[f64]) -> String {
+    let mut digest = Sha256::new();
+    update_f64s(&mut digest, values);
+    format!("{:x}", digest.finalize())
+}
+
 fn update_f64s(digest: &mut Sha256, values: &[f64]) {
     for value in values {
         digest.update(value.to_bits().to_le_bytes());
     }
+}
+
+#[derive(Clone, Debug)]
+struct Dyadic {
+    mantissa: BigInt,
+    exponent: i64,
+}
+
+impl Dyadic {
+    fn zero() -> Self {
+        Self {
+            mantissa: BigInt::zero(),
+            exponent: 0,
+        }
+    }
+
+    fn from_f64(value: f64) -> Result<Self, String> {
+        if !value.is_finite() {
+            return Err("candidate value is non-finite".to_owned());
+        }
+        let bits = value.to_bits();
+        let negative = bits >> 63 != 0;
+        let exponent_bits = ((bits >> 52) & 0x7ff) as i64;
+        let fraction = bits & ((1_u64 << 52) - 1);
+        if exponent_bits == 0 && fraction == 0 {
+            return Ok(Self::zero());
+        }
+        let (significand, exponent) = if exponent_bits == 0 {
+            (fraction, -1074)
+        } else {
+            ((1_u64 << 52) | fraction, exponent_bits - 1023 - 52)
+        };
+        let mut mantissa = BigInt::from(significand);
+        if negative {
+            mantissa = -mantissa;
+        }
+        Ok(Self { mantissa, exponent })
+    }
+
+    fn from_mpfr_hex(value: &str) -> Result<Self, String> {
+        let (negative, unsigned) = match value.strip_prefix('-') {
+            Some(rest) => (true, rest),
+            None => (false, value),
+        };
+        let (significand, radix_exponent) = match unsigned.split_once('@') {
+            Some((significand, exponent)) => (
+                significand,
+                exponent
+                    .parse::<i64>()
+                    .map_err(|_| format!("invalid MPFR exponent {value:?}"))?,
+            ),
+            None => (unsigned, 0),
+        };
+        let (integer, fractional) = match significand.split_once('.') {
+            Some(parts) => parts,
+            None => (significand, ""),
+        };
+        let digits = format!("{integer}{fractional}");
+        let mut mantissa = BigInt::parse_bytes(digits.as_bytes(), 16)
+            .ok_or_else(|| format!("invalid MPFR hexadecimal value {value:?}"))?;
+        if negative {
+            mantissa = -mantissa;
+        }
+        Ok(Self {
+            mantissa,
+            exponent: 4 * (radix_exponent - fractional.len() as i64),
+        })
+    }
+
+    fn scaled_mantissa(&self, exponent: i64) -> BigInt {
+        debug_assert!(self.exponent >= exponent);
+        &self.mantissa << (self.exponent - exponent) as usize
+    }
+
+    fn compare(&self, other: &Self) -> std::cmp::Ordering {
+        let exponent = self.exponent.min(other.exponent);
+        self.scaled_mantissa(exponent)
+            .cmp(&other.scaled_mantissa(exponent))
+    }
+
+    fn subtract(&self, other: &Self) -> Self {
+        let exponent = self.exponent.min(other.exponent);
+        Self {
+            mantissa: self.scaled_mantissa(exponent) - other.scaled_mantissa(exponent),
+            exponent,
+        }
+    }
+
+    fn absolute(&self) -> Self {
+        Self {
+            mantissa: self.mantissa.abs(),
+            exponent: self.exponent,
+        }
+    }
+
+    fn multiply(&self, other: &Self) -> Self {
+        Self {
+            mantissa: &self.mantissa * &other.mantissa,
+            exponent: self.exponent + other.exponent,
+        }
+    }
+
+    fn exact_hex(&self) -> String {
+        format!("{}p{}", self.mantissa.to_str_radix(16), self.exponent)
+    }
+}
+
+fn reference_solution_judgments(
+    reference: &ReferenceEntry,
+    rhs: &[f64],
+    observed: &[f64],
+) -> Result<Vec<Value>, String> {
+    let n = reference.dimension;
+    if rhs.len() != n * RHS_COLUMNS
+        || observed.len() != n * RHS_COLUMNS
+        || reference.rhs.len() != RHS_COLUMNS
+    {
+        return Err("reference or candidate solution shape differs".to_owned());
+    }
+    let mut judgments = Vec::with_capacity(RHS_COLUMNS);
+    for family in 0..RHS_COLUMNS {
+        let authority = &reference.rhs[family];
+        if authority.family != FAMILY_NAMES[family]
+            || authority.status != "CERTIFIED_REFERENCE"
+            || authority.enclosure_lower_mpfr_hex.len() != n
+            || authority.enclosure_upper_mpfr_hex.len() != n
+        {
+            return Err(format!(
+                "reference family {} is missing, reordered, or uncertified",
+                FAMILY_NAMES[family]
+            ));
+        }
+        let start = family * n;
+        let rhs_sha256 = sha256_f64_slice(&rhs[start..start + n]);
+        if rhs_sha256 != authority.rhs_sha256 {
+            return Err(format!(
+                "reference RHS identity differs for {}",
+                FAMILY_NAMES[family]
+            ));
+        }
+        let mut distance_lower = Dyadic::zero();
+        let mut distance_upper = Dyadic::zero();
+        let mut non_finite = false;
+        for row in 0..n {
+            let lower = Dyadic::from_mpfr_hex(&authority.enclosure_lower_mpfr_hex[row])?;
+            let upper = Dyadic::from_mpfr_hex(&authority.enclosure_upper_mpfr_hex[row])?;
+            if lower.compare(&upper).is_gt() {
+                return Err("reference enclosure lower endpoint exceeds upper".to_owned());
+            }
+            let Ok(candidate) = Dyadic::from_f64(observed[start + row]) else {
+                non_finite = true;
+                continue;
+            };
+            let component_lower = if candidate.compare(&lower).is_lt() {
+                lower.subtract(&candidate)
+            } else if candidate.compare(&upper).is_gt() {
+                candidate.subtract(&upper)
+            } else {
+                Dyadic::zero()
+            };
+            let lower_distance = candidate.subtract(&lower).absolute();
+            let upper_distance = candidate.subtract(&upper).absolute();
+            let component_upper = if lower_distance.compare(&upper_distance).is_gt() {
+                lower_distance
+            } else {
+                upper_distance
+            };
+            if component_lower.compare(&distance_lower).is_gt() {
+                distance_lower = component_lower;
+            }
+            if component_upper.compare(&distance_upper).is_gt() {
+                distance_upper = component_upper;
+            }
+        }
+        let scale_lower = Dyadic::from_mpfr_hex(&authority.scale_lower_hex)?;
+        let scale_upper = Dyadic::from_mpfr_hex(&authority.scale_upper_hex)?;
+        let threshold = Dyadic::from_mpfr_hex(&authority.solution_threshold_hex)?;
+        let pass_limit = threshold.multiply(&scale_lower);
+        let fail_limit = threshold.multiply(&scale_upper);
+        let status = if non_finite {
+            "FAIL"
+        } else if !distance_upper.compare(&pass_limit).is_gt() {
+            "PASS"
+        } else if distance_lower.compare(&fail_limit).is_gt() {
+            "FAIL"
+        } else {
+            "INDETERMINATE"
+        };
+        judgments.push(json!({
+            "family": FAMILY_NAMES[family],
+            "rhs_sha256": rhs_sha256,
+            "status": status,
+            "comparison_arithmetic": "exact dyadic integer arithmetic over MPFR hexadecimal endpoints and exact candidate binary64 values",
+            "distance_lower_exact_hex": distance_lower.exact_hex(),
+            "distance_upper_exact_hex": distance_upper.exact_hex(),
+            "scale_lower_mpfr_hex": authority.scale_lower_hex,
+            "scale_upper_mpfr_hex": authority.scale_upper_hex,
+            "solution_threshold_mpfr_hex": authority.solution_threshold_hex,
+            "pass_limit_exact_hex": pass_limit.exact_hex(),
+            "fail_limit_exact_hex": fail_limit.exact_hex(),
+            "non_finite_candidate": non_finite,
+        }));
+    }
+    Ok(judgments)
+}
+
+fn all_solution_judgments_pass(judgments: &[Value]) -> bool {
+    judgments.len() == RHS_COLUMNS
+        && judgments
+            .iter()
+            .all(|judgment| judgment["status"] == "PASS")
 }
 
 fn update_usizes(digest: &mut Sha256, values: &[usize]) {
@@ -1135,11 +1411,15 @@ fn process_source(
     binding: &CandidateExecutionBinding,
     plan_id: &str,
     bundle_root: &Path,
+    reference: &ReferenceEntry,
     scratch: &Path,
     tracker: &ScratchTracker,
     source: &Source,
     controls_source: usize,
 ) -> Result<Value, String> {
+    if reference.source_sha256 != source.sha256 || reference.dimension != source.dimension {
+        return Err("reference source identity differs".to_owned());
+    }
     let input = read_source(bundle_root, source)?;
     let shape = FactorShape {
         role: input.role,
@@ -1178,6 +1458,7 @@ fn process_source(
     }
     let (backward_error, solution_error) =
         error_metrics(&input, &rhs, &expected, &product.solutions);
+    let solution_judgments = reference_solution_judgments(reference, &rhs, &product.solutions)?;
     let reconstruction_error = reconstruction_error(&input, &product.factor)?;
     let reconstruction_threshold = 64.0 * input.dimension as f64 * (f64::EPSILON / 2.0);
     let backward_threshold = reconstruction_threshold;
@@ -1213,20 +1494,37 @@ fn process_source(
     }
     let (reload_backward, reload_solution_error) =
         error_metrics(&input, &rhs, &expected, &reloaded_solutions);
+    let reload_solution_judgments =
+        reference_solution_judgments(reference, &rhs, &reloaded_solutions)?;
+    let pre_post_solutions_bit_exact = product
+        .solutions
+        .iter()
+        .zip(&reloaded_solutions)
+        .all(|(before, after)| before.to_bits() == after.to_bits());
     fs::remove_file(&pack_path).map_err(|error| format!("remove pack: {error}"))?;
     tracker.remove(pack_bytes)?;
     let maximum_backward_error = backward_error.max(reload_backward);
     let maximum_solution_relative_inf = solution_error.max(reload_solution_error);
     let health_pass = reconstruction_error <= reconstruction_threshold
         && maximum_backward_error <= backward_threshold
-        && maximum_solution_relative_inf <= reload_solution_threshold;
+        && all_solution_judgments_pass(&solution_judgments)
+        && all_solution_judgments_pass(&reload_solution_judgments)
+        && pre_post_solutions_bit_exact;
     let health_error = if health_pass {
         Value::Null
     } else {
         json!(format!(
             "factor health failed: reconstruction={reconstruction_error:e}, \
              backward={maximum_backward_error:e}, \
-             pack_reload_solution={maximum_solution_relative_inf:e}"
+             repaired_solution={:?}/{:?}, bit_exact={pre_post_solutions_bit_exact}",
+            solution_judgments
+                .iter()
+                .map(|value| value["status"].as_str().unwrap_or("INVALID"))
+                .collect::<Vec<_>>(),
+            reload_solution_judgments
+                .iter()
+                .map(|value| value["status"].as_str().unwrap_or("INVALID"))
+                .collect::<Vec<_>>(),
         ))
     };
 
@@ -1248,8 +1546,11 @@ fn process_source(
         "reconstruction_threshold": reconstruction_threshold,
         "maximum_backward_error": maximum_backward_error,
         "backward_threshold": backward_threshold,
-        "maximum_solution_relative_inf": maximum_solution_relative_inf,
-        "reload_solution_threshold": reload_solution_threshold,
+        "maximum_declared_solution_relative_inf_diagnostic": maximum_solution_relative_inf,
+        "unchanged_solution_threshold": reload_solution_threshold,
+        "solution_judgments": solution_judgments,
+        "reload_solution_judgments": reload_solution_judgments,
+        "pre_post_solutions_bit_exact": pre_post_solutions_bit_exact,
         "pack": {
             "schema": PACK_SCHEMA,
             "bytes": pack_bytes,
@@ -1277,6 +1578,7 @@ fn execute_sources(
     binding: CandidateExecutionBinding,
     plan_id: &str,
     bundle_root: &Path,
+    references: Arc<BTreeMap<String, ReferenceEntry>>,
     scratch: &Path,
     sources: Vec<Source>,
     workers: usize,
@@ -1298,6 +1600,7 @@ fn execute_sources(
             let tracker = Arc::clone(&tracker);
             let plan_id = plan_id.to_owned();
             let bundle_root = bundle_root.to_owned();
+            let references = Arc::clone(&references);
             let scratch = scratch.to_owned();
             scope.spawn(move || {
                 let now_active = active.fetch_add(1, Ordering::AcqRel) + 1;
@@ -1308,15 +1611,20 @@ fn execute_sources(
                     let Some(source) = source else {
                         break;
                     };
-                    let observation = match process_source(
-                        &binding,
-                        &plan_id,
-                        &bundle_root,
-                        &scratch,
-                        &tracker,
-                        &source,
-                        controls_source,
-                    ) {
+                    let result = match references.get(&source.sha256) {
+                        Some(reference) => process_source(
+                            &binding,
+                            &plan_id,
+                            &bundle_root,
+                            reference,
+                            &scratch,
+                            &tracker,
+                            &source,
+                            controls_source,
+                        ),
+                        None => Err(format!("missing certified reference for {}", source.sha256)),
+                    };
+                    let observation = match result {
                         Ok(value) => value,
                         Err(error) => json!({
                             "ordinal": source.ordinal,
@@ -1508,6 +1816,42 @@ fn validate_plan(plan: &Plan, args: &Args) -> Result<(), String> {
     Ok(())
 }
 
+fn validate_reference(reference: &ReferenceManifest, args: &Args) -> Result<(), String> {
+    let diagnostic_subset = args.source_limit.is_some();
+    let disposition_ok = reference.disposition == "CERTIFIED_REFERENCE"
+        || (diagnostic_subset && reference.disposition == "CERTIFIED_REFERENCE_DIAGNOSTIC_SUBSET");
+    if reference.schema != REFERENCE_SCHEMA
+        || !disposition_ok
+        || reference.candidate_inputs_observed
+        || reference.authority.authority_profile_sha256 != AUTHORITY_SHA256
+        || reference.authority.requalification_plan_sha256 != REQUALIFICATION_PLAN_SHA256
+        || reference.authority.issue_41_plan_sha256 != ISSUE41_PLAN_SHA256
+        || reference.indeterminate_references != 0
+        || reference.certified_references != reference.entries.len() * RHS_COLUMNS
+        || (!diagnostic_subset && reference.unique_matrix_payloads != 179)
+    {
+        return Err(
+            "reference manifest identity, completeness, or independence differs".to_owned(),
+        );
+    }
+    for entry in &reference.entries {
+        if entry.rhs.len() != RHS_COLUMNS
+            || entry.rhs.iter().enumerate().any(|(index, rhs)| {
+                rhs.family != FAMILY_NAMES[index]
+                    || rhs.status != "CERTIFIED_REFERENCE"
+                    || rhs.enclosure_lower_mpfr_hex.len() != entry.dimension
+                    || rhs.enclosure_upper_mpfr_hex.len() != entry.dimension
+            })
+        {
+            return Err(format!(
+                "reference entry {} is reordered or incomplete",
+                entry.source_sha256
+            ));
+        }
+    }
+    Ok(())
+}
+
 fn scratch_files(root: &Path) -> Result<Vec<String>, String> {
     let mut files = Vec::new();
     let entries = fs::read_dir(root).map_err(|error| format!("read scratch: {error}"))?;
@@ -1527,11 +1871,47 @@ fn main() {
     if args.scratch.exists() {
         panic!("scratch must be absent: {}", args.scratch.display());
     }
+    if args.entry_marker.exists() {
+        panic!(
+            "candidate entry marker must be absent: {}",
+            args.entry_marker.display()
+        );
+    }
     fs::create_dir_all(&args.scratch).unwrap();
     let plan_bytes = fs::read(&args.plan).unwrap();
     let plan: Plan = serde_json::from_slice(&plan_bytes).unwrap();
     validate_plan(&plan, &args).unwrap();
     let plan_file_sha256 = sha256(&plan_bytes);
+    if plan_file_sha256 != ISSUE41_PLAN_SHA256 {
+        panic!("issue-41 plan file SHA-256 differs");
+    }
+    let reference_bytes = fs::read(&args.reference_manifest).unwrap();
+    let reference: ReferenceManifest = serde_json::from_slice(&reference_bytes).unwrap();
+    validate_reference(&reference, &args).unwrap();
+    let reference_manifest_sha256 = sha256(&reference_bytes);
+    let references: BTreeMap<String, ReferenceEntry> = reference
+        .entries
+        .into_iter()
+        .map(|entry| (entry.source_sha256.clone(), entry))
+        .collect();
+    let marker_bytes = serde_json::to_vec_pretty(&json!({
+        "schema": "RapidRBF/RepairedProjectedFactorCandidateEntry/v1",
+        "lane_id": args.lane_id.as_str(),
+        "target": args.target.as_str(),
+        "workers": args.workers,
+        "maximum_live_threads": args.maximum_live_threads,
+        "candidate_binding_sha256": BINDING_SHA256,
+        "authority_profile_sha256": AUTHORITY_SHA256,
+        "requalification_plan_sha256": REQUALIFICATION_PLAN_SHA256,
+        "issue_41_plan_sha256": ISSUE41_PLAN_SHA256,
+        "reference_manifest_sha256": reference_manifest_sha256,
+    }))
+    .unwrap();
+    let mut marker = File::create_new(&args.entry_marker).unwrap();
+    marker.write_all(&marker_bytes).unwrap();
+    marker.write_all(b"\n").unwrap();
+    marker.sync_all().unwrap();
+    drop(marker);
     let binding = CandidateExecutionBinding::exact();
     let mut sources = plan.factor_sources.clone();
     if let Some(limit) = args.source_limit {
@@ -1556,6 +1936,7 @@ fn main() {
         binding,
         &plan.plan_id,
         &args.bundle_root,
+        Arc::new(references),
         &args.scratch,
         sources,
         args.workers,
@@ -1607,6 +1988,13 @@ fn main() {
             "schema": plan.schema,
             "plan_id": plan.plan_id,
             "file_sha256": plan_file_sha256,
+        },
+        "reference_manifest": {
+            "schema": REFERENCE_SCHEMA,
+            "sha256": reference_manifest_sha256,
+            "authority_profile_sha256": AUTHORITY_SHA256,
+            "requalification_plan_sha256": REQUALIFICATION_PLAN_SHA256,
+            "candidate_inputs_observed": false,
         },
         "candidate_binding": {
             "schema": binding.schema,

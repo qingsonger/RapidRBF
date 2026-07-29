@@ -1,4 +1,4 @@
-name: Instrumented faer 216-factor corpus qualification
+name: Repaired projected-factor full-corpus requalification
 
 on:
   workflow_dispatch:
@@ -7,12 +7,59 @@ permissions:
   contents: read
 
 concurrency:
-  group: instrumented-faer-corpus-qualification
+  group: repaired-projected-factor-requalification
   cancel-in-progress: false
 
 jobs:
+  reference:
+    name: Materialize the candidate-independent certified reference
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    env:
+      CARGO_INCREMENTAL: "0"
+      RUSTUP_TOOLCHAIN: "1.85.0"
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out the exact dispatched commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          clean: true
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Install the exact Rust toolchain
+        run: rustup toolchain install 1.85.0 --profile minimal
+
+      - name: Download the frozen issue-41 qualification input
+        run: >-
+          gh release download
+          issue-41-factor-qualification-input-v1
+          --repo "${{ github.repository }}"
+          --pattern rapidrbf-issue41-factor-qualification-input-v1.zip
+          --dir qualification-input
+
+      - name: Materialize the complete certified reference before candidate entry
+        run: |
+          mkdir reference-evidence
+          python3 \
+            tools/prototypes/repaired_factor_requalification_throwaway/generate_references.py \
+            --bundle \
+            qualification-input/rapidrbf-issue41-factor-qualification-input-v1.zip \
+            --output \
+            reference-evidence/reference-manifest.v1.json
+
+      - name: Upload the exact certified reference
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: rapidrbf-repaired-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: reference-evidence
+          if-no-files-found: error
+          retention-days: 90
+
   target:
     name: ${{ matrix.lane_id }}
+    needs: reference
     strategy:
       fail-fast: false
       max-parallel: 4
@@ -53,6 +100,12 @@ jobs:
       - name: Install the exact Rust toolchain
         run: rustup toolchain install 1.85.0 --profile minimal
 
+      - name: Download this attempt's frozen certified reference
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-repaired-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: reference-evidence
+
       - name: Capture and qualify the native host
         run: >-
           ${{ matrix.python_command }}
@@ -64,7 +117,7 @@ jobs:
           --output
           "target-evidence/${{ matrix.lane_id }}/lane"
 
-      - name: Download the frozen qualification input
+      - name: Download the frozen issue-41 qualification input
         run: >-
           gh release download
           issue-41-factor-qualification-input-v1
@@ -72,7 +125,7 @@ jobs:
           --pattern rapidrbf-issue41-factor-qualification-input-v1.zip
           --dir qualification-input
 
-      - name: Execute all registered profiles across all 216 sources
+      - name: Execute all profiles against the unchanged reference
         run: >-
           ${{ matrix.python_command }}
           tools/prototypes/instrumented_faer_corpus_qualification_throwaway/run.py
@@ -84,6 +137,8 @@ jobs:
           "${{ matrix.target }}"
           --lane-witness
           "target-evidence/${{ matrix.lane_id }}/lane/lane-identity.json"
+          --reference-manifest
+          reference-evidence/reference-manifest.v1.json
           --output
           "target-evidence/${{ matrix.lane_id }}/qualification"
 
@@ -91,15 +146,15 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-faer-corpus-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-repaired-factor-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: target-evidence
           if-no-files-found: error
           retention-days: 90
 
   cohort:
-    name: Judge the four-target cohort
+    name: Judge the frozen non-compensating cohort
     if: always()
-    needs: target
+    needs: [reference, target]
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
@@ -115,7 +170,7 @@ jobs:
         continue-on-error: true
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          pattern: rapidrbf-faer-corpus-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          pattern: rapidrbf-repaired-factor-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-evidence
           merge-multiple: true
 
@@ -132,11 +187,11 @@ jobs:
           --output
           cohort-summary
 
-      - name: Upload the cohort summary
+      - name: Upload the cohort judgment
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-faer-corpus-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-repaired-factor-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-summary
           if-no-files-found: error
           retention-days: 90
@@ -147,7 +202,7 @@ jobs:
           if [ -f cohort-summary/cohort-summary.md ]; then
             cat cohort-summary/cohort-summary.md >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "No cohort summary was produced." >> "$GITHUB_STEP_SUMMARY"
+            echo "No cohort judgment was produced." >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Fail only when no judgment was produced

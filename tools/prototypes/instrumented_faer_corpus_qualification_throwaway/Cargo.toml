@@ -10,6 +10,8 @@ dyn-stack = { path = "../instrumented_faer_candidate_binding_throwaway/vendor/dy
 faer = { path = "../instrumented_faer_candidate_binding_throwaway/vendor/faer-0.24.4", default-features = false, features = ["std", "linalg"] }
 rapidrbf-faer-control = { path = "../instrumented_faer_candidate_binding_throwaway/crates/rapidrbf-faer-control" }
 rapidrbf-instrumented-factor = { path = "../instrumented_faer_candidate_binding_throwaway/crates/rapidrbf-instrumented-factor" }
+num-bigint = "=0.4.6"
+num-traits = "=0.2.19"
 serde = { version = "=1.0.228", features = ["derive"] }
 serde_json = "=1.0.145"
 sha2 = "=0.10.9"

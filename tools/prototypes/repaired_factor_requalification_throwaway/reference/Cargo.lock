@@ -9,6 +9,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f2032f911046de80f0a198e0901378627c33f59ea0ac00e363d481118bd70a53"
 
 [[package]]
+name = "az"
+version = "1.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "be5eb007b7cacc6c660343e96f650fedf4b5a77512399eb952ca6642cf8d13f7"
+
+[[package]]
 name = "bitflags"
 version = "2.13.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -99,10 +105,11 @@ dependencies = [
 [[package]]
 name = "dyn-stack"
 version = "0.13.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1c4713e43e2886ba72b8271aa66c93d722116acf7a75555cce11dcde84388fe8"
 dependencies = [
  "bytemuck",
  "dyn-stack-macros",
- "rapidrbf-faer-control",
 ]
 
 [[package]]
@@ -161,6 +168,8 @@ checksum = "2b14b339eb76d07f052cdbad76ca7c1310e56173a138095d3bf42a23c06ef5d8"
 [[package]]
 name = "faer"
 version = "0.24.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5ab6df3dd147fe8d702a288b95bcd8fcc499ab572fc80da6828f60cd4d524d67"
 dependencies = [
  "bytemuck",
  "dyn-stack",
@@ -174,7 +183,6 @@ dependencies = [
  "num-traits",
  "private-gemm-x86",
  "pulp",
- "rapidrbf-faer-control",
  "reborrow",
 ]
 
@@ -329,6 +337,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "gmp-mpfr-sys"
+version = "1.7.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7db155b537cb791b133341f99f68371d86ee7fa4c79aacfbc376d72d23c70531"
+dependencies = [
+ "libc",
+ "windows-sys",
+]
+
+[[package]]
 name = "half"
 version = "2.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -459,31 +477,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "num-bigint"
-version = "0.4.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a5e44f723f1133c9deac646763579fdb3ac745e418f2a7af9cd0c431da1f20b9"
-dependencies = [
- "num-integer",
- "num-traits",
-]
-
-[[package]]
 name = "num-complex"
 version = "0.4.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "73f88a1307638156682bada9d7604135552957b7818057dcef22705b4d509495"
 dependencies = [
  "bytemuck",
- "num-traits",
-]
-
-[[package]]
-name = "num-integer"
-version = "0.1.46"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7969661fd2958a5cb096e56c8e1ad0444ac2bbcd0061bd28660485a44879858f"
-dependencies = [
  "num-traits",
 ]
 
@@ -522,13 +521,13 @@ checksum = "57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a"
 [[package]]
 name = "private-gemm-x86"
 version = "0.1.20"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0af8c3e5087969c323f667ccb4b789fa0954f5aa650550e38e81cf9108be21b5"
 dependencies = [
  "defer",
  "interpol",
  "num_cpus",
- "rapidrbf-faer-control",
  "raw-cpuid",
- "sysctl",
 ]
 
 [[package]]
@@ -585,29 +584,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "rapidrbf-faer-control"
-version = "0.0.0"
-
-[[package]]
-name = "rapidrbf-instrumented-factor"
+name = "rapidrbf-repaired-factor-reference-throwaway"
 version = "0.0.0"
 dependencies = [
  "dyn-stack",
  "faer",
- "private-gemm-x86",
- "rapidrbf-faer-control",
-]
-
-[[package]]
-name = "rapidrbf-instrumented-faer-corpus-qualification-throwaway"
-version = "0.0.0"
-dependencies = [
- "dyn-stack",
- "faer",
- "num-bigint",
- "num-traits",
- "rapidrbf-faer-control",
- "rapidrbf-instrumented-factor",
+ "gmp-mpfr-sys",
+ "qd",
+ "rug",
  "serde",
  "serde_json",
  "sha2",
@@ -627,6 +611,18 @@ name = "reborrow"
 version = "0.5.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "03251193000f4bd3b042892be858ee50e8b3719f2b08e5833ac4353724632430"
+
+[[package]]
+name = "rug"
+version = "1.30.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "07a8857882aec59d27254b02481c709327c13de6fad1da60bfc4f9783eaaa61e"
+dependencies = [
+ "az",
+ "gmp-mpfr-sys",
+ "libc",
+ "libm",
+]
 
 [[package]]
 name = "ryu"
