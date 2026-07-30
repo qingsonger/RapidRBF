@@ -46,11 +46,15 @@ class AdapterFailure(RuntimeError):
         adapter: str,
         error_number: int | None = None,
         root_taskinfo: bool = False,
+        subject_pid: int | None = None,
+        phase: str | None = None,
     ) -> None:
         super().__init__(message)
         self.adapter = adapter
         self.error_number = error_number
         self.root_taskinfo = root_taskinfo
+        self.subject_pid = subject_pid
+        self.phase = phase
 
     def evidence(self) -> dict[str, Any]:
         return {
@@ -63,6 +67,8 @@ class AdapterFailure(RuntimeError):
             ),
             "message": str(self),
             "root_taskinfo": self.root_taskinfo,
+            "subject_pid": self.subject_pid,
+            "phase": self.phase,
         }
 
 
@@ -98,18 +104,24 @@ def _linux_stat(pid: int) -> tuple[int, int]:
             f"cannot read {path}: {error}",
             adapter="linux-proc-process-tree",
             error_number=error.errno,
+            subject_pid=pid,
+            phase="stat",
         ) from error
     close = text.rfind(")")
     if close < 0:
         raise AdapterFailure(
             f"malformed {path}",
             adapter="linux-proc-process-tree",
+            subject_pid=pid,
+            phase="stat",
         )
     fields = text[close + 2 :].split()
     if len(fields) <= 19:
         raise AdapterFailure(
             f"short {path}",
             adapter="linux-proc-process-tree",
+            subject_pid=pid,
+            phase="stat",
         )
     return int(fields[2]), int(fields[19])
 
@@ -131,13 +143,25 @@ def _linux_group_pids(group_id: int) -> list[int]:
     return sorted(result)
 
 
-def _linux_inventory(group_id: int, root_pid: int) -> list[dict[str, Any]]:
+def _linux_inventory(
+    group_id: int,
+    root_pid: int,
+    *,
+    before_group_snapshot: Callable[[], None] | None = None,
+    after_group_snapshot: Callable[[list[int]], None] | None = None,
+) -> list[dict[str, Any]]:
+    if before_group_snapshot is not None:
+        before_group_snapshot()
     before = _linux_group_pids(group_id)
+    if after_group_snapshot is not None:
+        after_group_snapshot(before)
     if root_pid not in before:
         raise AdapterFailure(
             "root is absent from the Linux process group",
             adapter="linux-proc-process-tree",
             error_number=errno.ESRCH,
+            subject_pid=root_pid,
+            phase="group-membership",
         )
     inventory: list[dict[str, Any]] = []
     for pid in before:
@@ -146,6 +170,8 @@ def _linux_inventory(group_id: int, root_pid: int) -> list[dict[str, Any]]:
             raise AdapterFailure(
                 "Linux process-group membership changed during sampling",
                 adapter="linux-proc-process-tree",
+                subject_pid=pid,
+                phase="stat",
             )
         task_dir = Path(f"/proc/{pid}/task")
         try:
@@ -155,11 +181,15 @@ def _linux_inventory(group_id: int, root_pid: int) -> list[dict[str, Any]]:
                 f"cannot enumerate {task_dir}: {error}",
                 adapter="linux-proc-process-tree",
                 error_number=error.errno,
+                subject_pid=pid,
+                phase="task-inventory",
             ) from error
         if threads < 1:
             raise AdapterFailure(
                 "Linux task inventory is empty",
                 adapter="linux-proc-process-tree",
+                subject_pid=pid,
+                phase="task-inventory",
             )
         inventory.append(
             {
@@ -290,17 +320,31 @@ def _mac_pidinfo(
             ),
             error_number=number,
             root_taskinfo=root_taskinfo,
+            subject_pid=pid,
+            phase="task-info" if flavor == 4 else "bsd-identity",
         )
 
 
-def _mac_inventory(group_id: int, root_pid: int) -> list[dict[str, Any]]:
+def _mac_inventory(
+    group_id: int,
+    root_pid: int,
+    *,
+    before_group_snapshot: Callable[[], None] | None = None,
+    after_group_snapshot: Callable[[list[int]], None] | None = None,
+) -> list[dict[str, Any]]:
     library = _mac_libproc()
+    if before_group_snapshot is not None:
+        before_group_snapshot()
     before = _mac_group_pids(library, group_id)
+    if after_group_snapshot is not None:
+        after_group_snapshot(before)
     if root_pid not in before:
         raise AdapterFailure(
             "root is absent from the macOS process group",
             adapter="macos-proc-process-tree",
             error_number=errno.ESRCH,
+            subject_pid=root_pid,
+            phase="group-membership",
         )
     inventory: list[dict[str, Any]] = []
     for pid in before:
@@ -310,6 +354,8 @@ def _mac_inventory(group_id: int, root_pid: int) -> list[dict[str, Any]]:
             raise AdapterFailure(
                 "macOS process-group membership changed during sampling",
                 adapter="macos-proc-process-tree",
+                subject_pid=pid,
+                phase="bsd-identity",
             )
         task = MacProcTaskInfo()
         _mac_pidinfo(
@@ -324,6 +370,8 @@ def _mac_inventory(group_id: int, root_pid: int) -> list[dict[str, Any]]:
             raise AdapterFailure(
                 "macOS task inventory reported no threads",
                 adapter="macos-proc-process-tree",
+                subject_pid=pid,
+                phase="task-info",
             )
         inventory.append(
             {
@@ -579,9 +627,18 @@ class SubjectGroup:
             kernel32.CloseHandle(snapshot)
         return counts
 
-    def inventory(self) -> list[dict[str, Any]]:
+    def inventory(
+        self,
+        *,
+        before_group_snapshot: Callable[[], None] | None = None,
+        after_group_snapshot: Callable[[list[int]], None] | None = None,
+    ) -> list[dict[str, Any]]:
         if sys.platform == "win32":
+            if before_group_snapshot is not None:
+                before_group_snapshot()
             before = self._windows_pids()
+            if after_group_snapshot is not None:
+                after_group_snapshot(before)
             if self.root_pid not in before:
                 raise AdapterFailure(
                     "root is absent from the Windows Job Object",
@@ -607,8 +664,18 @@ class SubjectGroup:
                 for pid in before
             ]
         if sys.platform == "darwin":
-            return _mac_inventory(self.group_id, self.root_pid)
-        return _linux_inventory(self.group_id, self.root_pid)
+            return _mac_inventory(
+                self.group_id,
+                self.root_pid,
+                before_group_snapshot=before_group_snapshot,
+                after_group_snapshot=after_group_snapshot,
+            )
+        return _linux_inventory(
+            self.group_id,
+            self.root_pid,
+            before_group_snapshot=before_group_snapshot,
+            after_group_snapshot=after_group_snapshot,
+        )
 
     def terminate(self) -> None:
         if sys.platform == "win32":
@@ -660,6 +727,9 @@ def observe_process(
     after_first_sample: Callable[[], None] | None = None,
     stop_sampling_after_first_callback: bool = False,
     sample_readiness: Callable[[], bool] | None = None,
+    terminal_policy: str = "legacy",
+    before_group_snapshot: Callable[[], None] | None = None,
+    after_group_snapshot: Callable[[list[int]], None] | None = None,
 ) -> tuple[subprocess.CompletedProcess[bytes], dict[str, Any]]:
     """Run one subject with a sole waiter and a non-reaping sampler."""
 
@@ -797,7 +867,19 @@ def observe_process(
                     terminal_event.wait(SAMPLE_PERIOD_SECONDS)
                     continue
                 try:
-                    if fault_mode and not injected:
+                    immediate_fault = fault_mode in {
+                        "unpaired-esrch",
+                        "non-esrch",
+                    }
+                    after_sample_fault = (
+                        callback_invoked
+                        and fault_mode
+                        in {
+                            "root-bound-esrch-after-sample",
+                            "nonroot-esrch-after-sample",
+                        }
+                    )
+                    if (immediate_fault or after_sample_fault) and not injected:
                         injected = True
                         if fault_mode == "unpaired-esrch":
                             raise AdapterFailure(
@@ -805,6 +887,8 @@ def observe_process(
                                 adapter="macos-proc_pidinfo",
                                 error_number=errno.ESRCH,
                                 root_taskinfo=True,
+                                subject_pid=group.root_pid,
+                                phase="task-info",
                             )
                         if fault_mode == "non-esrch":
                             raise AdapterFailure(
@@ -812,8 +896,29 @@ def observe_process(
                                 adapter="macos-proc_pidinfo",
                                 error_number=errno.EPERM,
                                 root_taskinfo=True,
+                                subject_pid=group.root_pid,
+                                phase="task-info",
                             )
-                    inventory = group.inventory()
+                        if fault_mode == "root-bound-esrch-after-sample":
+                            raise AdapterFailure(
+                                "[Errno 3] injected root inventory loss",
+                                adapter="diagnostic-process-tree",
+                                error_number=errno.ESRCH,
+                                subject_pid=group.root_pid,
+                                phase="bsd-identity",
+                            )
+                        if fault_mode == "nonroot-esrch-after-sample":
+                            raise AdapterFailure(
+                                "[Errno 3] injected non-root inventory loss",
+                                adapter="diagnostic-process-tree",
+                                error_number=errno.ESRCH,
+                                subject_pid=group.root_pid + 1,
+                                phase="bsd-identity",
+                            )
+                    inventory = group.inventory(
+                        before_group_snapshot=before_group_snapshot,
+                        after_group_snapshot=after_group_snapshot,
+                    )
                     total = sum(item["threads"] for item in inventory)
                     if total < 1 or not any(item["is_root"] for item in inventory):
                         raise AdapterFailure(
@@ -872,16 +977,31 @@ def observe_process(
                         sample_finished_ns=finished,
                         raw_adapter_result=raw,
                     )
-                    eligible = (
-                        raw["adapter"] == "macos-proc_pidinfo"
-                        and raw["errno"] == errno.ESRCH
-                        and raw["error_name"] == "ESRCH"
-                        and raw["root_taskinfo"]
-                        and (
-                            sys.platform == "darwin"
-                            or fault_mode == "unpaired-esrch"
+                    if terminal_policy == "root-bound":
+                        eligible = (
+                            raw["errno"] == errno.ESRCH
+                            and raw["error_name"] == "ESRCH"
+                            and raw["subject_pid"] == group.root_pid
+                            and raw["phase"]
+                            in {
+                                "group-membership",
+                                "stat",
+                                "task-inventory",
+                                "bsd-identity",
+                                "task-info",
+                            }
                         )
-                    )
+                    else:
+                        eligible = (
+                            raw["adapter"] == "macos-proc_pidinfo"
+                            and raw["errno"] == errno.ESRCH
+                            and raw["error_name"] == "ESRCH"
+                            and raw["root_taskinfo"]
+                            and (
+                                sys.platform == "darwin"
+                                or fault_mode == "unpaired-esrch"
+                            )
+                        )
                     if not eligible:
                         with state_lock:
                             invalidity.append(

@@ -1,0 +1,42 @@
+name: Diagnose terminal process-tree sampling
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - codex/diagnose-terminal-sampling-race
+
+permissions:
+  contents: read
+
+jobs:
+  controller-only:
+    name: Controller only (${{ matrix.lane_id }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - lane_id: windows-x86_64
+            runner: windows-2025
+          - lane_id: linux-x86_64-glibc
+            runner: ubuntu-24.04
+          - lane_id: macos-arm64
+            runner: macos-15
+          - lane_id: macos-x86_64
+            runner: macos-15-intel
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replay captured Issue 53 traces
+        shell: pwsh
+        run: |
+          python tools/prototypes/terminal_sampling_diagnosis_throwaway/diagnose.py
+      - name: Exercise root-bound policy controls
+        shell: pwsh
+        run: |
+          python tools/prototypes/terminal_sampling_diagnosis_throwaway/native_probe.py
+      - name: Reproduce exact native inventory phase
+        shell: pwsh
+        run: |
+          python tools/prototypes/terminal_sampling_diagnosis_throwaway/native_inventory_probe.py

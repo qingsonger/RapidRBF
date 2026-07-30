@@ -1,0 +1,147 @@
+{
+  "schema": "RapidRBF/TerminalSamplingDiagnosisTraceSet/v1",
+  "source": {
+    "git_sha": "5fcfbd79ab0d3870a919da0cfecd1ddf2b0ab51f",
+    "run_id": "30499912966",
+    "run_attempt": "1",
+    "cohort_artifact_id": "8743300549",
+    "cohort_archive_sha256": "067dc11a1dc43e62be17ae6b0698a6f1c2edc5ebbaffcee3351e5164185336f4",
+    "cohort_summary_sha256": "1677aedf4a7d2cdc195dbfc87a35ba691dc9b3273c4148ecaf08993bc1ea0124"
+  },
+  "note": "Compact replay only. It does not count as successor evidence and deliberately retains the missing failing-PID field.",
+  "traces": [
+    {
+      "coordinate": "linux-x86_64-glibc/1",
+      "root_pid": 3754,
+      "successful_samples": 1145,
+      "sample_id": 1145,
+      "sample_started_ns": 7854043709,
+      "error_finished_ns": 7858995264,
+      "terminal_ns": 7858142283,
+      "same_handle_terminal": true,
+      "error": {
+        "adapter": "linux-proc-process-tree",
+        "errno": 3,
+        "error_name": "ESRCH",
+        "message": "root is absent from the Linux process group",
+        "phase": "group-membership",
+        "subject_pid": null,
+        "root_taskinfo": false
+      }
+    },
+    {
+      "coordinate": "linux-x86_64-glibc/8",
+      "root_pid": 3773,
+      "successful_samples": 593,
+      "sample_id": 593,
+      "sample_started_ns": 4874828917,
+      "error_finished_ns": 4879704649,
+      "terminal_ns": 4879038400,
+      "same_handle_terminal": true,
+      "error": {
+        "adapter": "linux-proc-process-tree",
+        "errno": 3,
+        "error_name": "ESRCH",
+        "message": "root is absent from the Linux process group",
+        "phase": "group-membership",
+        "subject_pid": null,
+        "root_taskinfo": false
+      }
+    },
+    {
+      "coordinate": "macos-arm64/1",
+      "root_pid": 4440,
+      "successful_samples": 970,
+      "sample_id": 970,
+      "sample_started_ns": 9388173375,
+      "error_finished_ns": 9388394334,
+      "terminal_ns": 9389665167,
+      "same_handle_terminal": true,
+      "error": {
+        "adapter": "macos-proc-process-tree",
+        "errno": 3,
+        "error_name": "ESRCH",
+        "message": "proc_pidinfo flavor 3 returned 0/136",
+        "phase": "bsd-identity",
+        "subject_pid": null,
+        "root_taskinfo": false
+      }
+    },
+    {
+      "coordinate": "macos-arm64/2",
+      "root_pid": 4579,
+      "successful_samples": 651,
+      "sample_id": 651,
+      "sample_started_ns": 7832321000,
+      "error_finished_ns": 7832598542,
+      "terminal_ns": 7836670167,
+      "same_handle_terminal": true,
+      "error": {
+        "adapter": "macos-proc-process-tree",
+        "errno": 3,
+        "error_name": "ESRCH",
+        "message": "proc_pidinfo flavor 3 returned 0/136",
+        "phase": "bsd-identity",
+        "subject_pid": null,
+        "root_taskinfo": false
+      }
+    },
+    {
+      "coordinate": "macos-x86_64/1",
+      "root_pid": 13206,
+      "successful_samples": 1676,
+      "sample_id": 1676,
+      "sample_started_ns": 17070231818,
+      "error_finished_ns": 17070563135,
+      "terminal_ns": 17084246102,
+      "same_handle_terminal": true,
+      "error": {
+        "adapter": "macos-proc-process-tree",
+        "errno": 3,
+        "error_name": "ESRCH",
+        "message": "proc_pidinfo flavor 3 returned 0/136",
+        "phase": "bsd-identity",
+        "subject_pid": null,
+        "root_taskinfo": false
+      }
+    },
+    {
+      "coordinate": "macos-x86_64/2",
+      "root_pid": 13654,
+      "successful_samples": 1372,
+      "sample_id": 1372,
+      "sample_started_ns": 11495762489,
+      "error_finished_ns": 11496094930,
+      "terminal_ns": 11508538549,
+      "same_handle_terminal": true,
+      "error": {
+        "adapter": "macos-proc-process-tree",
+        "errno": 3,
+        "error_name": "ESRCH",
+        "message": "proc_pidinfo flavor 3 returned 0/136",
+        "phase": "bsd-identity",
+        "subject_pid": null,
+        "root_taskinfo": false
+      }
+    },
+    {
+      "coordinate": "macos-x86_64/8",
+      "root_pid": 13982,
+      "successful_samples": 883,
+      "sample_id": 883,
+      "sample_started_ns": 9690945661,
+      "error_finished_ns": 9691192120,
+      "terminal_ns": 9706524283,
+      "same_handle_terminal": true,
+      "error": {
+        "adapter": "macos-proc-process-tree",
+        "errno": 3,
+        "error_name": "ESRCH",
+        "message": "proc_pidinfo flavor 3 returned 0/136",
+        "phase": "bsd-identity",
+        "subject_pid": null,
+        "root_taskinfo": false
+      }
+    }
+  ]
+}
