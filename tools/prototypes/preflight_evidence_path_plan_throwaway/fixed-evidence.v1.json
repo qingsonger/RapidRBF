@@ -1,0 +1,154 @@
+{
+  "schema": "RapidRBF/PreflightEvidencePathFixedEvidence/v1",
+  "issue": 57,
+  "predecessor": {
+    "issue": 56,
+    "commit": "a5312ac1d2c7fed0ba52920f398e6ebea2d80827",
+    "execution_source_binding_sha256": "b929352de0cc77ff63e677570794d62cae6e9c55ce99409eece3066a0107ac5f",
+    "execution_controller_binding_sha256": "702abfbfb7b78ca3ce5d36c08bd19bc2cf099541f0c563231abfe604e7ef6892",
+    "accepted_root_bound_controller_binding_sha256": "1370ecd1ee86ca569d53b5f474dc861879ae252c34544599d5fb2c2e84ca0409",
+    "run_id": 30506771401,
+    "run_attempt": 1,
+    "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30506771401",
+    "disposition": "INVALID_UNJUDGED"
+  },
+  "source_files": {
+    ".github/workflows/ready-gated-double-double-refinement-witness.yml": "2ddeb356689d33f47dde79e9a8cae2cffb953edaeafb795344ba4d5a030ff0cf",
+    "tools/prototypes/double_double_refinement_witness_throwaway/execution-contract.v1.json": "2f22861fe8d883d840786330069f26ffaebf0fabea3659d130e5dbb4a764b082",
+    "tools/prototypes/double_double_refinement_witness_throwaway/preflight_journal.py": "24c9d2acde79efab11190c7fa35d51c4133c69ffc41060f86dd82fb941d7bb5c",
+    "tools/prototypes/double_double_refinement_witness_throwaway/run.py": "b01f8fb4a1844089623fe72a1b5a60a86321af0809f0b3f4aa02894ea83f0a0d",
+    "tools/prototypes/double_double_refinement_witness_throwaway/verify_cohort.py": "b725bda4159fd059d1d44e4afa04611bb201ff2073c2b870b3bd9ef7cc4de35a"
+  },
+  "producer_verifier_identity": {
+    "producer_name": "issue56-authority-and-controller-binding",
+    "verifier_name": "issue53-authority-and-controller-binding",
+    "producer_source": "run.py",
+    "verifier_source": "preflight_journal.py",
+    "first_failure_stage": "preflight-cohort candidate-entry unlock",
+    "first_failure": "windows-x86_64 journal identity names differ"
+  },
+  "lanes": {
+    "linux-x86_64-glibc": {
+      "target": "x86_64-unknown-linux-gnu",
+      "journal_status": "PASS",
+      "completed_check_count": 277,
+      "identity_name": "issue56-authority-and-controller-binding",
+      "journal_sha256": "905752fcd3f2d995497e6270b230a6964cc063df9c47427b71531295fa29f672",
+      "preflight_observation_sha256": "db55afc7aa62da1cd7da63a37075ea09697a908072f20596df09bfb51ada7ac0",
+      "root_bound_summary_sha256": "e5cfbd0017bdf39f667182444f340f153b734411d41e59109e8278658950bce5",
+      "root_bound_journal_sha256": "05d0b5be2030070b056bde6b8b752d823980a9e41058f5b204cb8d9c0c6796d3"
+    },
+    "macos-arm64": {
+      "target": "aarch64-apple-darwin",
+      "journal_status": "PASS",
+      "completed_check_count": 277,
+      "identity_name": "issue56-authority-and-controller-binding",
+      "journal_sha256": "54b722c0b5b840abd12866d43abae38e0b3221eb6952a860d8533faed02303db",
+      "preflight_observation_sha256": "36d0dc3ec93915ffa5a90b317048482b866c9018c13762a7843b91ea693c09f5",
+      "root_bound_summary_sha256": "9ea15b37beb067095805f617c41d28ba27026b7f75a0811c696e930ed067e5f9",
+      "root_bound_journal_sha256": "25ea32095491a79d712a39198f1dbc773453aac2661d6089b9f72ecaf18622c0"
+    },
+    "macos-x86_64": {
+      "target": "x86_64-apple-darwin",
+      "journal_status": "PASS",
+      "completed_check_count": 277,
+      "identity_name": "issue56-authority-and-controller-binding",
+      "journal_sha256": "f485323cc739efb0415463cdb20d35fafbda7273940c18bf4a3a3c5f3d68da98",
+      "preflight_observation_sha256": "e2dee5523bd7e4dd5551ed5122bb29d818ba584d4fae1fbac6f1fd666118e20b",
+      "root_bound_summary_sha256": "e929eee52f31d5c99a4367053fd390b00c06212ee8d487d1598ac0ed8e6c459d",
+      "root_bound_journal_sha256": "3a366988c2c93e125a359e525c5e27dd4c2ecfa23113e9c18868172bf46612aa"
+    },
+    "windows-x86_64": {
+      "target": "x86_64-pc-windows-msvc",
+      "journal_status": "PASS",
+      "completed_check_count": 277,
+      "identity_name": "issue56-authority-and-controller-binding",
+      "journal_sha256": "cb6056cece63437e5dec434008d3fc6abb54660efaf65465aac2b3dd19a846c8",
+      "preflight_observation_sha256": "17de87e378693a73930001b5880650eb90595fe98420aa607743535f7156fa78",
+      "root_bound_summary_sha256": "6c6c832eccedeb9fe4c2a47f6e2c46a5bc091777c26168786803b091eca314c1",
+      "root_bound_journal_sha256": "02bd469af8c991df486f192f1f495490fe37c4490d41f5a50d95b7a2feeca3d8"
+    }
+  },
+  "accepted_root_bound_aggregate": {
+    "status": "ROOT_BOUND_FOUR_LANE_ZERO_ENTRY_PREFLIGHT_PASS",
+    "inherited_ready_gated_check_count": 1108,
+    "root_bound_check_count": 100,
+    "json_sha256": "b6f03598b836de91e157dddfce08915e80c1ef25d7fa53ac36959832296c3d81"
+  },
+  "artifacts": [
+    {
+      "id": 8745657155,
+      "kind": "lane-preflight",
+      "lane_id": "linux-x86_64-glibc",
+      "name": "rapidrbf-root-bound-refinement-preflight-linux-x86_64-glibc-a5312ac1d2c7fed0ba52920f398e6ebea2d80827-run-30506771401-attempt-1",
+      "archive_sha256": "4930f488b6eeb66f7cd16b363128600edac1ea8c0fe6fdb625b73e0f7d4e0eea"
+    },
+    {
+      "id": 8745673698,
+      "kind": "lane-preflight",
+      "lane_id": "macos-arm64",
+      "name": "rapidrbf-root-bound-refinement-preflight-macos-arm64-a5312ac1d2c7fed0ba52920f398e6ebea2d80827-run-30506771401-attempt-1",
+      "archive_sha256": "2ce22f64bda34b89a34a3647b78115cc518d098737b55ef39f8650c0ed2cab1a"
+    },
+    {
+      "id": 8745735681,
+      "kind": "lane-preflight",
+      "lane_id": "macos-x86_64",
+      "name": "rapidrbf-root-bound-refinement-preflight-macos-x86_64-a5312ac1d2c7fed0ba52920f398e6ebea2d80827-run-30506771401-attempt-1",
+      "archive_sha256": "77d71d872cad98c12f35d1aae823c868c1004671476a1cd62f21ef8501513fe5"
+    },
+    {
+      "id": 8745683390,
+      "kind": "lane-preflight",
+      "lane_id": "windows-x86_64",
+      "name": "rapidrbf-root-bound-refinement-preflight-windows-x86_64-a5312ac1d2c7fed0ba52920f398e6ebea2d80827-run-30506771401-attempt-1",
+      "archive_sha256": "12652e53860106b51a8bb065f0edd3380c76e50821ee87e74ddcbe354d64e28f"
+    },
+    {
+      "id": 8745738764,
+      "kind": "preflight-release",
+      "name": "rapidrbf-root-bound-refinement-preflight-release-a5312ac1d2c7fed0ba52920f398e6ebea2d80827-run-30506771401-attempt-1",
+      "archive_sha256": "4edbdc3df53150c1399ec691643edf2d2d57504731d4d0b1d3d0e89755288820"
+    },
+    {
+      "id": 8745715148,
+      "kind": "reference",
+      "name": "rapidrbf-root-bound-refinement-reference-a5312ac1d2c7fed0ba52920f398e6ebea2d80827-run-30506771401-attempt-1",
+      "archive_sha256": "1111291bf24a9ec16772f36375f635c920d8640a8ccc6befff7981c3f489723c"
+    },
+    {
+      "id": 8745742526,
+      "kind": "cohort",
+      "name": "rapidrbf-root-bound-refinement-cohort-a5312ac1d2c7fed0ba52920f398e6ebea2d80827-run-30506771401-attempt-1",
+      "archive_sha256": "a3d7d37051e8fba7ec6b06722c0a446838c50a30c477715fafb2ec783cf3f193"
+    }
+  ],
+  "artifact_selector": {
+    "faulty_pattern": "rapidrbf-root-bound-refinement-preflight-*-a5312ac1d2c7fed0ba52920f398e6ebea2d80827-run-30506771401-attempt-1",
+    "matched_kinds_after_release_exists": [
+      "lane-preflight",
+      "lane-preflight",
+      "lane-preflight",
+      "lane-preflight",
+      "preflight-release"
+    ],
+    "final_release_downloaded_again_by_exact_name": true,
+    "resulting_root_bound_preflight_cohort_count": 2
+  },
+  "final_cohort": {
+    "summary_sha256": "2330d8d8348bafa0ac91c5c0b8b2257d5951eba42a0c33c8a8872229f297e2d2",
+    "invalidity_reason_count": 14,
+    "primary_reasons": [
+      "four lane journals: identity names differ",
+      "complete four-lane preflight set is absent",
+      "expected one root-bound preflight cohort, found 2",
+      "expected one candidate-entry unlock, found 0",
+      "expected four target observations, found 0"
+    ],
+    "preflight_count": 0,
+    "target_count": 0,
+    "target_profile_count": 0,
+    "candidate_entry_count": 0,
+    "candidate_observation_count": 0
+  }
+}

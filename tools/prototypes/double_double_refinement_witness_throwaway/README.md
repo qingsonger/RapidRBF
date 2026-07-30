@@ -3,13 +3,15 @@
 ## Question
 
 Does one fresh exact materialization and sole complete attempt of the accepted
-`ROOT_BOUND_FRESH_COHORT_PLAN_FROZEN` plan support or reject the unchanged
+Issue 57 replacement execution plan support or reject the unchanged
 double-double refinement route on all four required targets and the frozen
 `1/12`, `2/12`, and `8/16` profiles?
 
-This is Issue 56 decision evidence, not production solver code. It starts from
-captured commit `d7f398f` and binds fresh-cohort-plan SHA-256
-`720723f0ebef2b7a7d6b19878d1547cf28ed5029fb37dad4f69a1e1b0130a68a`
+This is the Issue 58 materialization frozen by Issue 57, not production solver
+code. It starts from Issue 56 commit
+`a5312ac1d2c7fed0ba52920f398e6ebea2d80827` and binds replacement-plan
+SHA-256
+`a0132ab26af2e4e99fb8edeeecc2b51a8e0090b6e0dccf6f804573bad0ff97b1`
 and accepted root-bound controller binding
 `1370ecd1ee86ca569d53b5f474dc861879ae252c34544599d5fb2c2e84ca0409`.
 The candidate, dependencies, feature set, six witness sources, 18 RHS
@@ -39,11 +41,12 @@ or unblock downstream solver comparison.
 
 ## Run
 
-The one command that starts the sole four-target attempt is the first push of
-the exact materialization commit:
+The Issue 57 diagnostic branch cannot dispatch this workflow. After human
+acceptance, the one command that starts Issue 58's sole four-target attempt is
+the first push of the exact accepted materialization commit:
 
 ```text
-git push -u origin codex/execute-root-bound-refinement-witness
+git push -u origin codex/execute-evidence-path-bound-refinement-witness
 ```
 
 Do not rerun or push a repair commit under this plan identity.

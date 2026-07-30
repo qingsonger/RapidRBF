@@ -1,4 +1,4 @@
-"""Controller for the frozen Issue 56 root-bound refinement witness cohort."""
+"""Controller for the frozen Issue 58 evidence-path-bound witness cohort."""
 
 from __future__ import annotations
 
@@ -20,6 +20,7 @@ from typing import Any, Sequence
 
 from controller_observer import observe_process
 from preflight_journal import (
+    AUTHORITY_CHECK_NAME,
     PreflightJournal,
     stream_record,
     verify_preflight_journal,
@@ -37,6 +38,11 @@ ROOT_BOUND_FRESH_PLAN = (
     ROOT.parent
     / "root_bound_terminal_plan_throwaway"
     / "fresh-cohort-plan.v1.json"
+)
+EVIDENCE_PATH_PLAN = (
+    ROOT.parent
+    / "preflight_evidence_path_plan_throwaway"
+    / "replacement-execution-plan.v1.json"
 )
 ROOT_BOUND_MODEL = ROOT.parent / "root_bound_terminal_plan_throwaway" / "model.py"
 ROOT_BOUND_PREFLIGHT = (
@@ -96,6 +102,9 @@ ISSUE49_SOURCE_BINDING_SHA256 = (
 )
 ROOT_BOUND_FRESH_PLAN_SHA256 = (
     "720723f0ebef2b7a7d6b19878d1547cf28ed5029fb37dad4f69a1e1b0130a68a"
+)
+EVIDENCE_PATH_PLAN_SHA256 = (
+    "a0132ab26af2e4e99fb8edeeecc2b51a8e0090b6e0dccf6f804573bad0ff97b1"
 )
 ACCEPTED_ROOT_BOUND_CONTROLLER_BINDING_SHA256 = (
     "1370ecd1ee86ca569d53b5f474dc861879ae252c34544599d5fb2c2e84ca0409"
@@ -195,6 +204,9 @@ CONTROLLER_BINDING_PATHS = {
     ),
     "tools/prototypes/root_bound_terminal_plan_throwaway/fresh-cohort-plan.v1.json": (
         ROOT_BOUND_FRESH_PLAN
+    ),
+    "tools/prototypes/preflight_evidence_path_plan_throwaway/replacement-execution-plan.v1.json": (
+        EVIDENCE_PATH_PLAN
     ),
     "tools/prototypes/root_bound_terminal_plan_throwaway/model.py": (
         ROOT_BOUND_MODEL
@@ -298,6 +310,10 @@ def verify_static_authority() -> dict[str, Any]:
         "root-bound fresh-cohort plan differs",
     )
     require(
+        sha256_file(EVIDENCE_PATH_PLAN) == EVIDENCE_PATH_PLAN_SHA256,
+        "preflight evidence-path plan differs",
+    )
+    require(
         sha256_file(CONTROLLER_PLAN) == CONTROLLER_PLAN_SHA256,
         "controller-valid plan differs",
     )
@@ -320,8 +336,13 @@ def verify_static_authority() -> dict[str, Any]:
         )
     contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
     require(
-        contract["root_bound_fresh_cohort_plan_sha256"]
+        contract["schema"]
+        == "RapidRBF/EvidencePathBoundDoubleDoubleRefinementWitnessExecutionContract/v1"
+        and contract["issue"] == 58
+        and contract["root_bound_fresh_cohort_plan_sha256"]
         == ROOT_BOUND_FRESH_PLAN_SHA256
+        and contract["preflight_evidence_path_plan_sha256"]
+        == EVIDENCE_PATH_PLAN_SHA256
         and contract["accepted_root_bound_controller_binding_sha256"]
         == ACCEPTED_ROOT_BOUND_CONTROLLER_BINDING_SHA256
         and contract["candidate_binding_sha256"] == BINDING_SHA256
@@ -329,7 +350,7 @@ def verify_static_authority() -> dict[str, Any]:
         and contract["reference_manifest_sha256"] == REFERENCE_SHA256
         and contract["maximum_attempts"] == 1
         and contract["required_run_attempt"] == 1,
-        "Issue 56 execution contract differs",
+        "Issue 58 execution contract differs",
     )
     workflow = CONTROLLER_BINDING_PATHS[
         ".github/workflows/ready-gated-double-double-refinement-witness.yml"
@@ -353,6 +374,7 @@ def verify_static_authority() -> dict[str, Any]:
     )
     return {
         "root_bound_fresh_cohort_plan_sha256": ROOT_BOUND_FRESH_PLAN_SHA256,
+        "preflight_evidence_path_plan_sha256": EVIDENCE_PATH_PLAN_SHA256,
         "accepted_root_bound_controller_binding_sha256": (
             ACCEPTED_ROOT_BOUND_CONTROLLER_BINDING_SHA256
         ),
@@ -437,6 +459,7 @@ def source_binding() -> dict[str, Any]:
         ),
         "controller_plan_sha256": CONTROLLER_PLAN_SHA256,
         "root_bound_fresh_cohort_plan_sha256": ROOT_BOUND_FRESH_PLAN_SHA256,
+        "preflight_evidence_path_plan_sha256": EVIDENCE_PATH_PLAN_SHA256,
         "accepted_root_bound_controller_binding_sha256": (
             ACCEPTED_ROOT_BOUND_CONTROLLER_BINDING_SHA256
         ),
@@ -802,7 +825,7 @@ def run_controller_preflight(
         == source_binding()["controller_binding_sha256"]
     )
     journal.record(
-        name="issue56-authority-and-controller-binding",
+        name=AUTHORITY_CHECK_NAME,
         group="identity",
         passed=identity_pass,
         detail={
@@ -841,7 +864,7 @@ def run_controller_preflight(
         detail={"scenario_count": len(traces)},
     )
 
-    scratch = Path(tempfile.mkdtemp(prefix="rapidrbf-issue56-controller-preflight-"))
+    scratch = Path(tempfile.mkdtemp(prefix="rapidrbf-issue58-controller-preflight-"))
     observations: dict[str, Any | None] = {}
     fast_exits: list[Any | None] = []
     try:
@@ -1128,7 +1151,11 @@ def run_preflight(
 
 
 def verify_preflight_cohort(root: Path) -> dict[str, Any]:
-    paths = sorted(root.rglob("preflight-observation.json"))
+    paths = [
+        root / lane / "ready" / "preflight-observation.json"
+        for lane in TARGETS
+        if (root / lane / "ready" / "preflight-observation.json").is_file()
+    ]
     require(len(paths) == 4, f"expected four preflights, found {len(paths)}")
     observations = [json.loads(path.read_text(encoding="utf-8")) for path in paths]
     by_lane = {item["lane_id"]: item for item in observations}
@@ -1363,11 +1390,12 @@ def aggregate_execution_preflight(
     )
     value = {
         "schema": "RapidRBF/RootBoundRefinementWitnessExecutionUnlock/v1",
-        "issue": 56,
+        "issue": 58,
         "status": "PASS",
         "git_sha": ready["git_sha"],
         "workflow_coordinate": coordinate,
         "root_bound_fresh_cohort_plan_sha256": ROOT_BOUND_FRESH_PLAN_SHA256,
+        "preflight_evidence_path_plan_sha256": EVIDENCE_PATH_PLAN_SHA256,
         "accepted_root_bound_controller_binding_sha256": (
             ACCEPTED_ROOT_BOUND_CONTROLLER_BINDING_SHA256
         ),
@@ -1390,6 +1418,8 @@ def aggregate_execution_preflight(
             "issue_53_observations_used": 0,
             "issue_54_diagnostic_observations_used": 0,
             "issue_55_observations_used_as_candidate_counts": 0,
+            "issue_56_observations_used": 0,
+            "issue_57_diagnostic_observations_used": 0,
         },
         "aggregation_sha256": aggregation_sha256,
     }
@@ -1404,8 +1434,14 @@ def aggregate_execution_preflight(
 
 def verify_execution_preflight(root: Path) -> dict[str, Any]:
     ready = verify_preflight_cohort(root)
-    root_paths = sorted(root.rglob("root-bound-preflight-cohort.json"))
-    unlock_paths = sorted(root.rglob("execution-preflight-unlock.json"))
+    root_path = (
+        root / "release" / "root-bound" / "root-bound-preflight-cohort.json"
+    )
+    unlock_path = (
+        root / "release" / "unlock" / "execution-preflight-unlock.json"
+    )
+    root_paths = [root_path] if root_path.is_file() else []
+    unlock_paths = [unlock_path] if unlock_path.is_file() else []
     require(
         len(root_paths) == 1 and len(unlock_paths) == 1,
         "execution preflight release artifacts are incomplete",
@@ -1437,12 +1473,14 @@ def verify_execution_preflight(root: Path) -> dict[str, Any]:
     require(
         unlock["schema"]
         == "RapidRBF/RootBoundRefinementWitnessExecutionUnlock/v1"
-        and unlock["issue"] == 56
+        and unlock["issue"] == 58
         and unlock["status"] == "PASS"
         and unlock["git_sha"] == ready["git_sha"]
         and unlock["workflow_coordinate"] == ready["workflow_coordinate"]
         and unlock["root_bound_fresh_cohort_plan_sha256"]
         == ROOT_BOUND_FRESH_PLAN_SHA256
+        and unlock["preflight_evidence_path_plan_sha256"]
+        == EVIDENCE_PATH_PLAN_SHA256
         and unlock["accepted_root_bound_controller_binding_sha256"]
         == ACCEPTED_ROOT_BOUND_CONTROLLER_BINDING_SHA256
         and unlock["execution_source_binding_sha256"]
@@ -1466,6 +1504,8 @@ def verify_execution_preflight(root: Path) -> dict[str, Any]:
             "issue_53_observations_used": 0,
             "issue_54_diagnostic_observations_used": 0,
             "issue_55_observations_used_as_candidate_counts": 0,
+            "issue_56_observations_used": 0,
+            "issue_57_diagnostic_observations_used": 0,
         }
         and unlock["aggregation_sha256"] == expected_aggregation,
         "execution preflight unlock differs",
@@ -1715,7 +1755,7 @@ def execute_target(args: argparse.Namespace) -> None:
             baseline = entry.with_suffix(".baseline.json")
             scratch = Path(
                 tempfile.gettempdir(),
-                f"rapidrbf-issue56-{args.lane_id}-{workers}-{os.getpid()}",
+                f"rapidrbf-issue58-{args.lane_id}-{workers}-{os.getpid()}",
             )
             require(
                 not output.exists()

@@ -1,9 +1,10 @@
 {
-  "schema": "RapidRBF/RootBoundDoubleDoubleRefinementWitnessExecutionContract/v1",
-  "contract_id": "RapidRBF/RootBoundDoubleDoubleRefinementWitnessExecutionContract/v1/720723f0ebef2b7a7d6b19878d1547cf28ed5029fb37dad4f69a1e1b0130a68a",
-  "issue": 56,
-  "base_commit": "d7f398fc6d6e45b063dd35682471e4cb6c1cd4b2",
+  "schema": "RapidRBF/EvidencePathBoundDoubleDoubleRefinementWitnessExecutionContract/v1",
+  "contract_id": "RapidRBF/EvidencePathBoundDoubleDoubleRefinementWitnessExecutionContract/v1/a0132ab26af2e4e99fb8edeeecc2b51a8e0090b6e0dccf6f804573bad0ff97b1",
+  "issue": 58,
+  "base_commit": "a5312ac1d2c7fed0ba52920f398e6ebea2d80827",
   "root_bound_fresh_cohort_plan_sha256": "720723f0ebef2b7a7d6b19878d1547cf28ed5029fb37dad4f69a1e1b0130a68a",
+  "preflight_evidence_path_plan_sha256": "a0132ab26af2e4e99fb8edeeecc2b51a8e0090b6e0dccf6f804573bad0ff97b1",
   "accepted_root_bound_controller_binding_sha256": "1370ecd1ee86ca569d53b5f474dc861879ae252c34544599d5fb2c2e84ca0409",
   "root_bound_preflight_source_binding_sha256": "3d85a473bcf6efffd309c22cb6682369741814eb504e3a497fac46e0eba4d391",
   "root_bound_preflight_workflow_sha256": "e164d49f6821d07c1c1d43392ace093b0ada82a61c6b1405b96f6cfbe84d628f",
@@ -89,6 +90,8 @@
   "issue53_observations_may_satisfy_cohort_counts": false,
   "issue54_observations_may_satisfy_cohort_counts": false,
   "issue55_observations_may_satisfy_candidate_counts": false,
+  "issue56_observations_may_satisfy_cohort_counts": false,
+  "issue57_diagnostic_observations_may_satisfy_cohort_counts": false,
   "preflight_aggregation_required_before_candidate_entry": true,
   "invalidity_returns_to_fresh_wayfinder_ticket": true
 }

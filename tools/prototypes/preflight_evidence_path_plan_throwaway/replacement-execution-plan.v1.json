@@ -1,0 +1,155 @@
+{
+  "schema": "RapidRBF/PreflightEvidencePathReplacementExecutionPlan/v1",
+  "issue": 57,
+  "review_state": "PROVISIONAL_HITL_REQUIRED",
+  "proposed_disposition": "PREFLIGHT_EVIDENCE_PATH_DEFECT_PROVEN_AND_REPLACEMENT_PLAN_FROZEN",
+  "question": "Why did the sole Issue 56 attempt become INVALID_UNJUDGED before candidate entry, and what one fresh replacement plan closes the evidence-path defect without weakening the accepted root-bound gates?",
+  "diagnosis": {
+    "first_invalidity": "The Issue 56 producer recorded issue56-authority-and-controller-binding as the identity check in every complete 277-check lane journal, while the shared verifier still required issue53-authority-and-controller-binding. The candidate-entry unlock therefore failed before it evaluated the accepted root-bound aggregate.",
+    "additional_final_judge_invalidity": "The final judge's lane-artifact glob also matched the separately uploaded preflight-release artifact, after which the workflow downloaded that release again by exact name. Recursive discovery therefore found two root-bound-preflight-cohort.json files.",
+    "production_seam": "run.py identity-check production",
+    "verification_seam": "preflight_journal.py shared expected-name inventory",
+    "selection_seam": "workflow artifact kind naming and download selection",
+    "merge_layout_seam": "The lane artifacts retained distinct lane directories and valid hashes; merge layout did not create the first invalidity.",
+    "identity_canonicalization_seam": "Targets, run coordinates, journal envelopes, sidecars, ordinals, group counts, and all non-identity check names remained valid; path or platform canonicalization did not create the first invalidity.",
+    "controller_gate_failed": false,
+    "candidate_owned_failure": false,
+    "candidate_observation_exists": false,
+    "issue_56_attempt_reusable": false
+  },
+  "fixed_authority": {
+    "predecessor_commit": "a5312ac1d2c7fed0ba52920f398e6ebea2d80827",
+    "predecessor_run_id": 30506771401,
+    "predecessor_run_attempt": 1,
+    "predecessor_execution_source_binding_sha256": "b929352de0cc77ff63e677570794d62cae6e9c55ce99409eece3066a0107ac5f",
+    "predecessor_execution_controller_binding_sha256": "702abfbfb7b78ca3ce5d36c08bd19bc2cf099541f0c563231abfe604e7ef6892",
+    "accepted_root_bound_controller_binding_sha256": "1370ecd1ee86ca569d53b5f474dc861879ae252c34544599d5fb2c2e84ca0409",
+    "root_bound_fresh_cohort_plan_sha256": "720723f0ebef2b7a7d6b19878d1547cf28ed5029fb37dad4f69a1e1b0130a68a",
+    "candidate_binding_sha256": "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6",
+    "witness_plan_sha256": "7018a1a33d601076ff17b6824068ada146039fa57aab5b1cf71793cbe6d13d60",
+    "accepted_reference_sha256": "6ed634a288145dfb3688e6e480f9519c1dbbe5c528aa9bb4b825eb57bc1b584a",
+    "accepted_root_bound_aggregate_sha256": "b6f03598b836de91e157dddfce08915e80c1ef25d7fa53ac36959832296c3d81",
+    "issue_56_cohort_summary_sha256": "2330d8d8348bafa0ac91c5c0b8b2257d5951eba42a0c33c8a8872229f297e2d2"
+  },
+  "replacement_contract": {
+    "execution_issue": 58,
+    "successor_ticket": "Execute the evidence-path-bound fresh double-double refinement witness cohort",
+    "future_branch": "codex/execute-evidence-path-bound-refinement-witness",
+    "authority_check": {
+      "group": "identity",
+      "name": "issue58-authority-and-controller-binding",
+      "single_definition": "preflight_journal.AUTHORITY_CHECK_NAME",
+      "producer_rule": "run.py imports and records the single definition; it may not spell a second literal.",
+      "verifier_rule": "preflight_journal.py verifies the same definition; it may not spell a predecessor issue literal.",
+      "journal_issue": 58,
+      "expected_checks_per_lane": 277,
+      "expected_group_counts": {
+        "fast-exit-observation": 256,
+        "global-check": 7,
+        "helper-build": 1,
+        "identity": 1,
+        "native-helper-observation": 4,
+        "pure-state-trace": 8
+      }
+    },
+    "artifact_identity": {
+      "coordinate_suffix": "{git_sha}-run-{run_id}-attempt-1",
+      "lane_preflight_names": {
+        "linux-x86_64-glibc": "rapidrbf-issue58-refinement-lane-preflight-linux-x86_64-glibc-{coordinate_suffix}",
+        "macos-arm64": "rapidrbf-issue58-refinement-lane-preflight-macos-arm64-{coordinate_suffix}",
+        "macos-x86_64": "rapidrbf-issue58-refinement-lane-preflight-macos-x86_64-{coordinate_suffix}",
+        "windows-x86_64": "rapidrbf-issue58-refinement-lane-preflight-windows-x86_64-{coordinate_suffix}"
+      },
+      "preflight_release_name": "rapidrbf-issue58-refinement-preflight-release-{coordinate_suffix}",
+      "reference_name": "rapidrbf-issue58-refinement-reference-{coordinate_suffix}",
+      "target_names": {
+        "linux-x86_64-glibc": "rapidrbf-issue58-refinement-target-linux-x86_64-glibc-{coordinate_suffix}",
+        "macos-arm64": "rapidrbf-issue58-refinement-target-macos-arm64-{coordinate_suffix}",
+        "macos-x86_64": "rapidrbf-issue58-refinement-target-macos-x86_64-{coordinate_suffix}",
+        "windows-x86_64": "rapidrbf-issue58-refinement-target-windows-x86_64-{coordinate_suffix}"
+      },
+      "cohort_name": "rapidrbf-issue58-refinement-cohort-{coordinate_suffix}",
+      "download_rule": "Every expected artifact is downloaded by exact name into its declared kind/lane directory. Patterns and merge-multiple are forbidden.",
+      "kind_prefixes_are_disjoint": true
+    },
+    "filesystem_topology": {
+      "lanes": "evidence/lanes/{lane_id}/{ready,inherited,root-bound}",
+      "preflight_release": "evidence/release/{root-bound,unlock}",
+      "reference": "evidence/reference",
+      "targets": "evidence/targets/{lane_id}",
+      "judge_output": "cohort-summary",
+      "discovery_rule": "Verifier resolves declared inventory paths; recursive basename discovery is forbidden for authoritative singleton selection.",
+      "unexpected_file_rule": "Any undeclared file, duplicate identity, missing artifact, or path collision is external evidence invalidity."
+    },
+    "output_inventory": {
+      "before_candidate_entry": {
+        "lane_artifacts": 4,
+        "lane_preflight_observations": 4,
+        "ready_gated_journals": 4,
+        "ready_gated_checks": 1108,
+        "root_bound_journals": 4,
+        "root_bound_checks": 100,
+        "root_bound_preflight_cohorts": 1,
+        "candidate_entry_unlocks": 1,
+        "candidate_entries": 0,
+        "candidate_observations": 0
+      },
+      "after_complete_valid_execution": {
+        "reference_artifacts": 1,
+        "target_artifacts": 4,
+        "target_profile_observations": 12,
+        "witness_source_observations": 72,
+        "rhs_identity_observations": 216,
+        "pre_pack_solution_judgments": 216,
+        "post_reload_solution_judgments": 216,
+        "cohort_artifacts": 1
+      }
+    }
+  },
+  "unchanged_gates": {
+    "native_lanes": {
+      "windows-x86_64": "x86_64-pc-windows-msvc",
+      "linux-x86_64-glibc": "x86_64-unknown-linux-gnu",
+      "macos-arm64": "aarch64-apple-darwin",
+      "macos-x86_64": "x86_64-apple-darwin"
+    },
+    "ready_gated_checks_per_lane": 277,
+    "root_bound_checks_per_lane": 25,
+    "same_handle_terminal_closure": "unchanged",
+    "candidate_binding": "unchanged",
+    "accepted_reference": "unchanged",
+    "precision_stop_rule_168n_and_thresholds": "unchanged",
+    "six_sources_and_eighteen_rhs_identities": "unchanged",
+    "reload_cancellation_prior_state_publication_resource_and_cleanup": "unchanged",
+    "targets_and_profiles": "four targets by workers 1, 2, and 8 with live-thread ceilings 12, 12, and 16"
+  },
+  "fresh_execution": {
+    "ticket": 58,
+    "plan_count": 1,
+    "attempt_count": 1,
+    "human_ratification_required_before_dispatch": true,
+    "materialization": "Issue 58 must start from the exact pushed Issue 57 prototype commit and record that commit's execution source and controller bindings before dispatch. No source-changing repair is permitted after dispatch.",
+    "zero_entry": "All four same-commit, same-run, attempt-1 lane artifacts must close the unchanged 277 plus 25 checks, exact identity, exact artifact inventory, zero candidate entry, and zero candidate observation before the aggregation job emits one unlock.",
+    "candidate_release": "Only the successful aggregation job may release the unchanged candidate matrix. A missing or invalid unlock skips all targets.",
+    "automatic_retry_permitted": false,
+    "workflow_rerun_permitted": false,
+    "partial_retry_permitted": false,
+    "replacement_retry_permitted": false,
+    "attempt_mixing_permitted": false,
+    "favorable_attempt_selection_permitted": false,
+    "after_invalid_attempt": "Return to Wayfinder under a new diagnosis and plan identity; do not repair, rerun, or reinterpret the attempt.",
+    "dispositions": {
+      "all_gates_pass": "REFINEMENT_ROUTE_SUPPORTED_FOR_FULL_CORPUS_PLAN",
+      "valid_candidate_owned_nonpass": "REFINEMENT_ROUTE_REJECTED_DIAGNOSTIC_ONLY",
+      "any_external_or_evidence_invalidity": "INVALID_UNJUDGED"
+    }
+  },
+  "forbidden_here": [
+    "Repair, amend, rerun, replace, or reuse the Issue 56 attempt",
+    "Enter or execute the candidate in Issue 57",
+    "Change or weaken the accepted ready-gated or root-bound controller policies",
+    "Change the candidate, reference, precision, stop rule, 168*n accounting, sources, RHS identities, thresholds, resources, targets, or profiles",
+    "Admit faer, qd, a factor route, or the factor corpus",
+    "Run the mechanism panel or unblock downstream solver comparison before Issue 58 resolves"
+  ]
+}

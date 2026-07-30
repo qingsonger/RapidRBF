@@ -1,4 +1,4 @@
-"""Verify the sole immutable non-compensating Issue 56 root-bound cohort."""
+"""Verify the sole immutable non-compensating Issue 58 root-bound cohort."""
 
 from __future__ import annotations
 
@@ -328,18 +328,20 @@ def main() -> int:
     referenced: set[Path] = set()
     if (
         contract.get("schema")
-        != "RapidRBF/RootBoundDoubleDoubleRefinementWitnessExecutionContract/v1"
+        != "RapidRBF/EvidencePathBoundDoubleDoubleRefinementWitnessExecutionContract/v1"
+        or contract.get("issue") != 58
+        or contract.get("preflight_evidence_path_plan_sha256")
+        != "a0132ab26af2e4e99fb8edeeecc2b51a8e0090b6e0dccf6f804573bad0ff97b1"
         or contract.get("maximum_attempts") != 1
         or contract.get("required_run_attempt") != 1
         or contract.get("replacement_retry_permitted")
         or contract.get("partial_rerun_permitted")
         or contract.get("attempt_mixing_permitted")
     ):
-        invalidity.append("Issue 56 execution contract differs")
+        invalidity.append("Issue 58 execution contract differs")
 
-    reference_paths = sorted(
-        args.evidence_root.rglob("reference-manifest.v1.json")
-    )
+    declared_reference = args.evidence_root / "reference" / "reference-manifest.v1.json"
+    reference_paths = [declared_reference] if declared_reference.is_file() else []
     reference_evidence: dict[str, Any] | None = None
     if len(reference_paths) != 1:
         invalidity.append(
@@ -393,9 +395,21 @@ def main() -> int:
             },
         }
 
-    preflight_paths = sorted(
-        args.evidence_root.rglob("preflight-observation.json")
-    )
+    preflight_paths = [
+        args.evidence_root
+        / "lanes"
+        / lane
+        / "ready"
+        / "preflight-observation.json"
+        for lane in TARGETS
+        if (
+            args.evidence_root
+            / "lanes"
+            / lane
+            / "ready"
+            / "preflight-observation.json"
+        ).is_file()
+    ]
     if len(preflight_paths) != 4:
         invalidity.append(
             f"expected four preflight observations, found {len(preflight_paths)}"
@@ -466,12 +480,22 @@ def main() -> int:
 
     root_bound_release: dict[str, Any] | None = None
     unlock_release: dict[str, Any] | None = None
-    root_bound_paths = sorted(
-        args.evidence_root.rglob("root-bound-preflight-cohort.json")
+    declared_root_bound = (
+        args.evidence_root
+        / "release"
+        / "root-bound"
+        / "root-bound-preflight-cohort.json"
     )
-    unlock_paths = sorted(
-        args.evidence_root.rglob("execution-preflight-unlock.json")
+    root_bound_paths = (
+        [declared_root_bound] if declared_root_bound.is_file() else []
     )
+    declared_unlock = (
+        args.evidence_root
+        / "release"
+        / "unlock"
+        / "execution-preflight-unlock.json"
+    )
+    unlock_paths = [declared_unlock] if declared_unlock.is_file() else []
     if len(root_bound_paths) != 1:
         invalidity.append(
             f"expected one root-bound preflight cohort, found {len(root_bound_paths)}"
@@ -520,14 +544,16 @@ def main() -> int:
             if markdown.is_file():
                 referenced.add(markdown)
             for lane, lane_record in root_value["lanes"].items():
-                summaries = [
-                    path
-                    for path in args.evidence_root.rglob(
-                        "root-bound-preflight-summary.json"
-                    )
-                    if json.loads(path.read_text(encoding="utf-8"))["lane_id"]
-                    == lane
-                ]
+                declared_summary = (
+                    args.evidence_root
+                    / "lanes"
+                    / lane
+                    / "root-bound"
+                    / "root-bound-preflight-summary.json"
+                )
+                summaries = (
+                    [declared_summary] if declared_summary.is_file() else []
+                )
                 if len(summaries) != 1:
                     invalidity.append(
                         f"root-bound preflight summary count differs for {lane}"
@@ -669,7 +695,7 @@ def main() -> int:
                 not verify_sidecar(unlock_path)
                 or unlock["schema"]
                 != "RapidRBF/RootBoundRefinementWitnessExecutionUnlock/v1"
-                or unlock["issue"] != 56
+                or unlock["issue"] != 58
                 or unlock["status"] != "PASS"
                 or unlock["root_bound_fresh_cohort_plan_sha256"]
                 != contract["root_bound_fresh_cohort_plan_sha256"]
@@ -700,6 +726,8 @@ def main() -> int:
                     "issue_53_observations_used": 0,
                     "issue_54_diagnostic_observations_used": 0,
                     "issue_55_observations_used_as_candidate_counts": 0,
+                    "issue_56_observations_used": 0,
+                    "issue_57_diagnostic_observations_used": 0,
                 }
             ):
                 invalidity.append("candidate-entry unlock differs")
@@ -715,7 +743,21 @@ def main() -> int:
         except (KeyError, OSError, TypeError, ValueError, json.JSONDecodeError) as error:
             invalidity.append(f"malformed candidate-entry unlock: {error}")
 
-    target_paths = sorted(args.evidence_root.rglob("target-observation.json"))
+    target_paths = [
+        args.evidence_root
+        / "targets"
+        / lane
+        / "qualification"
+        / "target-observation.json"
+        for lane in TARGETS
+        if (
+            args.evidence_root
+            / "targets"
+            / lane
+            / "qualification"
+            / "target-observation.json"
+        ).is_file()
+    ]
     if len(target_paths) != 4:
         invalidity.append(
             f"expected four target observations, found {len(target_paths)}"

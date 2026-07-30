@@ -1,4 +1,4 @@
-"""Atomic Issue 53 controller-preflight journal and verifier."""
+"""Atomic Issue 58 controller-preflight journal and verifier."""
 
 from __future__ import annotations
 
@@ -15,6 +15,8 @@ from typing import Any, Callable
 JOURNAL_NAME = "controller-preflight-journal.json"
 CHECKS_DIRECTORY = "controller-preflight-checks"
 EXPECTED_CHECKS = 277
+EXECUTION_ISSUE = 58
+AUTHORITY_CHECK_NAME = "issue58-authority-and-controller-binding"
 EXPECTED_GROUP_COUNTS = {
     "identity": 1,
     "pure-state-trace": 8,
@@ -24,7 +26,7 @@ EXPECTED_GROUP_COUNTS = {
     "fast-exit-observation": 256,
 }
 EXPECTED_NAMES_BY_GROUP = {
-    "identity": {"issue53-authority-and-controller-binding"},
+    "identity": {AUTHORITY_CHECK_NAME},
     "pure-state-trace": {
         "pure-state-exit_before_entry",
         "pure-state-issue49_esrch_exit",
@@ -111,7 +113,7 @@ class PreflightJournal:
         self.entries: list[dict[str, Any]] = []
         self.state: dict[str, Any] = {
             "schema": "RapidRBF/ReadyGatedControllerPreflightJournal/v1",
-            "issue": 53,
+            "issue": EXECUTION_ISSUE,
             "boundary": "Controller preflight readiness",
             "lane_id": lane_id,
             "target": target,
@@ -302,7 +304,7 @@ def verify_preflight_journal(
     _require(
         journal["schema"]
         == "RapidRBF/ReadyGatedControllerPreflightJournal/v1"
-        and journal["issue"] == 53
+        and journal["issue"] == EXECUTION_ISSUE
         and journal["boundary"] == "Controller preflight readiness"
         and journal["lane_id"] == lane_id
         and journal["target"] == target

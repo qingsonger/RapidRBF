@@ -1,13 +1,14 @@
-name: Root-bound fresh double-double refinement witness cohort
+name: Evidence-path-bound fresh double-double refinement witness cohort
 
 on:
   push:
     branches:
-      - codex/execute-root-bound-refinement-witness
+      - codex/execute-evidence-path-bound-refinement-witness
     paths:
       - .github/workflows/ready-gated-double-double-refinement-witness.yml
       - tools/prototypes/double_double_refinement_witness_throwaway/**
       - tools/prototypes/root_bound_terminal_plan_throwaway/**
+      - tools/prototypes/preflight_evidence_path_plan_throwaway/**
 
 permissions:
   contents: read
@@ -124,8 +125,8 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-root-bound-refinement-preflight-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
-          path: preflight-evidence
+          name: rapidrbf-issue58-refinement-lane-preflight-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: preflight-evidence/${{ matrix.lane_id }}
           if-no-files-found: error
           retention-days: 90
 
@@ -143,12 +144,29 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Download this attempt's zero-entry lane evidence
+      - name: Download the Windows zero-entry lane by exact identity
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          pattern: rapidrbf-root-bound-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
-          path: preflight-evidence
-          merge-multiple: true
+          name: rapidrbf-issue58-refinement-lane-preflight-windows-x86_64-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: preflight-evidence/windows-x86_64
+
+      - name: Download the Linux zero-entry lane by exact identity
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-issue58-refinement-lane-preflight-linux-x86_64-glibc-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: preflight-evidence/linux-x86_64-glibc
+
+      - name: Download the macOS arm64 zero-entry lane by exact identity
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-issue58-refinement-lane-preflight-macos-arm64-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: preflight-evidence/macos-arm64
+
+      - name: Download the macOS x86_64 zero-entry lane by exact identity
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-issue58-refinement-lane-preflight-macos-x86_64-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: preflight-evidence/macos-x86_64
 
       - name: Aggregate the accepted root-bound preflight
         run: >-
@@ -175,7 +193,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-root-bound-refinement-preflight-release-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-issue58-refinement-preflight-release-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: preflight-release
           if-no-files-found: error
           retention-days: 90
@@ -225,7 +243,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-root-bound-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-issue58-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: reference-evidence
           if-no-files-found: error
           retention-days: 90
@@ -280,23 +298,40 @@ jobs:
       - name: Install the exact Rust toolchain
         run: rustup toolchain install 1.85.0 --profile minimal
 
-      - name: Download all four zero-entry lanes
+      - name: Download the Windows zero-entry lane by exact identity
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          pattern: rapidrbf-root-bound-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
-          path: preflight-cohort
-          merge-multiple: true
+          name: rapidrbf-issue58-refinement-lane-preflight-windows-x86_64-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: preflight-cohort/windows-x86_64
+
+      - name: Download the Linux zero-entry lane by exact identity
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-issue58-refinement-lane-preflight-linux-x86_64-glibc-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: preflight-cohort/linux-x86_64-glibc
+
+      - name: Download the macOS arm64 zero-entry lane by exact identity
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-issue58-refinement-lane-preflight-macos-arm64-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: preflight-cohort/macos-arm64
+
+      - name: Download the macOS x86_64 zero-entry lane by exact identity
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-issue58-refinement-lane-preflight-macos-x86_64-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: preflight-cohort/macos-x86_64
 
       - name: Download the preflight aggregation and candidate-entry unlock
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          name: rapidrbf-root-bound-refinement-preflight-release-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-issue58-refinement-preflight-release-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: preflight-cohort/release
 
       - name: Download the accepted reference
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          name: rapidrbf-root-bound-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-issue58-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: reference-evidence
 
       - name: Capture and qualify the native host
@@ -341,8 +376,8 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-root-bound-refinement-target-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
-          path: target-evidence
+          name: rapidrbf-issue58-refinement-target-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: target-evidence/${{ matrix.lane_id }}
           if-no-files-found: error
           retention-days: 90
 
@@ -360,35 +395,75 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Download this attempt's target evidence
+      - name: Download the Windows target by exact identity
         continue-on-error: true
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          pattern: rapidrbf-root-bound-refinement-target-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
-          path: cohort-evidence
-          merge-multiple: true
+          name: rapidrbf-issue58-refinement-target-windows-x86_64-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence/targets/windows-x86_64
 
-      - name: Download this attempt's zero-entry evidence
+      - name: Download the Linux target by exact identity
         continue-on-error: true
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          pattern: rapidrbf-root-bound-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
-          path: cohort-evidence
-          merge-multiple: true
+          name: rapidrbf-issue58-refinement-target-linux-x86_64-glibc-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence/targets/linux-x86_64-glibc
+
+      - name: Download the macOS arm64 target by exact identity
+        continue-on-error: true
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-issue58-refinement-target-macos-arm64-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence/targets/macos-arm64
+
+      - name: Download the macOS x86_64 target by exact identity
+        continue-on-error: true
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-issue58-refinement-target-macos-x86_64-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence/targets/macos-x86_64
+
+      - name: Download the Windows zero-entry lane by exact identity
+        continue-on-error: true
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-issue58-refinement-lane-preflight-windows-x86_64-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence/lanes/windows-x86_64
+
+      - name: Download the Linux zero-entry lane by exact identity
+        continue-on-error: true
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-issue58-refinement-lane-preflight-linux-x86_64-glibc-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence/lanes/linux-x86_64-glibc
+
+      - name: Download the macOS arm64 zero-entry lane by exact identity
+        continue-on-error: true
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-issue58-refinement-lane-preflight-macos-arm64-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence/lanes/macos-arm64
+
+      - name: Download the macOS x86_64 zero-entry lane by exact identity
+        continue-on-error: true
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-issue58-refinement-lane-preflight-macos-x86_64-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence/lanes/macos-x86_64
 
       - name: Download this attempt's preflight release
         continue-on-error: true
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          name: rapidrbf-root-bound-refinement-preflight-release-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
-          path: cohort-evidence/preflight-release
+          name: rapidrbf-issue58-refinement-preflight-release-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence/release
 
       - name: Download this attempt's accepted reference
         continue-on-error: true
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          name: rapidrbf-root-bound-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
-          path: cohort-evidence/reference-evidence
+          name: rapidrbf-issue58-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence/reference
 
       - name: Verify and judge the immutable cohort
         run: >-
@@ -405,7 +480,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-root-bound-refinement-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-issue58-refinement-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-summary
           if-no-files-found: error
           retention-days: 90
