@@ -2,25 +2,72 @@
   "schema": "rapidrbf.issue59.zero-run-fixed-evidence.v1",
   "issue58": {
     "materialization_commit": "29b022d89af923720146a9e1d56cf6a25b719bac",
+    "materialization_parent": "a5312ac1d2c7fed0ba52920f398e6ebea2d80827",
     "execution_branch": "codex/execute-evidence-path-bound-refinement-witness",
     "remote_branch_sha": "29b022d89af923720146a9e1d56cf6a25b719bac",
     "matching_actions_run_count": 0,
     "workflow_id": 323339010,
+    "workflow_path": ".github/workflows/ready-gated-double-double-refinement-witness.yml",
     "workflow_state": "active",
     "actions_enabled": true,
     "allowed_actions": "all",
+    "replacement_plan_sha256": "a0132ab26af2e4e99fb8edeeecc2b51a8e0090b6e0dccf6f804573bad0ff97b1",
+    "execution_contract_sha256": "b7b8b2629f902aaea0295178a4c690db1ae11f0582f1cdded135d21671519c83",
+    "execution_source_binding_sha256": "102e9b8260736897a407f79d33c28320fee5127a9c36a2723cdb7f6cb8fb2fe1",
+    "execution_controller_binding_sha256": "705ea8561c96de9863a624faf52e95007ed7044151dffc9c5821db2e076d0ca5",
     "candidate_entries": 0,
     "candidate_observations": 0
   },
   "probe": {
-    "commit": null,
+    "commit": "283b30eb264024b9a63cc0361bbc277cf5a159e5",
+    "pre_dispatch": {
+      "remote_refs_containing_commit": 0,
+      "new_object_branch_exists": false,
+      "ref_only_branch_exists": false,
+      "new_object_run_count": 0,
+      "ref_only_run_count": 0
+    },
     "new_object_branch": {
-      "branch_only_run_count": null,
-      "path_gated_run_count": null
+      "name": "codex/issue59-dispatch-probe-new-object",
+      "branch_only_run_count": 1,
+      "branch_only_run_id": 30511523100,
+      "branch_only_run_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30511523100",
+      "path_gated_run_count": 1,
+      "path_gated_run_id": 30511523102,
+      "path_gated_run_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30511523102",
+      "event": {
+        "name": "push",
+        "created": true,
+        "before": "0000000000000000000000000000000000000000",
+        "after": "283b30eb264024b9a63cc0361bbc277cf5a159e5",
+        "commits": [
+          "283b30eb264024b9a63cc0361bbc277cf5a159e5"
+        ],
+        "run_attempt": 1
+      }
     },
     "ref_only_branch": {
-      "branch_only_run_count": null,
-      "path_gated_run_count": null
-    }
-  }
+      "name": "codex/issue59-dispatch-probe-ref-only",
+      "branch_only_run_count": 1,
+      "branch_only_run_id": 30511548177,
+      "branch_only_run_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30511548177",
+      "path_gated_run_count": 0,
+      "event": {
+        "name": "push",
+        "created": true,
+        "before": "0000000000000000000000000000000000000000",
+        "after": "283b30eb264024b9a63cc0361bbc277cf5a159e5",
+        "commits": [],
+        "run_attempt": 1
+      }
+    },
+    "verdict": "EMPTY_PATH_DIFF_PROVEN",
+    "candidate_calls": 0
+  },
+  "primary_sources": [
+    "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows#workflow-triggers",
+    "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#push",
+    "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#git-diff-comparisons",
+    "https://docs.github.com/en/rest/actions/workflow-runs#list-workflow-runs-for-a-workflow"
+  ]
 }

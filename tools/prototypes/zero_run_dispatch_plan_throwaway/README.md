@@ -37,5 +37,27 @@ The discriminating matrix is:
 | anything else | anything else | evidence is invalid or a different mechanism is active |
 
 `fixed-evidence.v1.json` captures observations after both refs are created.
-`replacement-execution-plan.v1.json` is added only after the probe supports a
-sound fail-closed plan.
+The observed matrix was `(1, 1)` for the new-object branch and `(1, 0)` for
+the ref-only branch. The ref-only branch's branch-only run carried
+`event_name=push`, `created=true`, the exact head SHA, an all-zero `before`,
+and an empty `commits` array. This proves that the `push` event existed while
+the path-diff gate suppressed the second workflow.
+
+The resulting `replacement-execution-plan.v1.json` keeps `paths`, requires one
+fresh local-only child commit with a matching dispatch marker, and adds an
+exact-run cardinality check to the zero-entry aggregation before it may emit
+the candidate unlock.
+
+Frozen artifact digests:
+
+- `fixed-evidence.v1.json`:
+  `935e25ce28e05b542eab47e570ba00681f1129c11ef295cd9c9a7b08dc97f4e6`
+- `replacement-execution-plan.v1.json`:
+  `3d5415e6ca3bc0ba0b1c350c90246f0a20b83a0b5f0e931a705b2fab6b800daa`
+
+Primary GitHub behavior:
+
+- [Workflow trigger lookup and event-associated workflow version](https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows#workflow-triggers)
+- [`push` branch and path filters](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#push)
+- [Changed-file and new-branch diff construction](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#git-diff-comparisons)
+- [Exact workflow-run filtering](https://docs.github.com/en/rest/actions/workflow-runs#list-workflow-runs-for-a-workflow)

@@ -1,0 +1,161 @@
+{
+  "schema": "RapidRBF/ZeroRunDispatchReplacementExecutionPlan/v1",
+  "issue": 59,
+  "review_state": "PROVISIONAL_HITL_REQUIRED",
+  "proposed_disposition": "ZERO_RUN_DISPATCH_DEFECT_PROVEN_AND_REPLACEMENT_PLAN_FROZEN",
+  "question": "Why did the exact Issue 58 branch-ref push produce zero GitHub Actions runs, and what one fresh immutable dispatch plan can create exactly one observable candidate-bearing cohort attempt without weakening any accepted gate?",
+  "diagnosis": {
+    "first_invalidity": "Issue 58 created a fresh execution branch at a materialization commit that was already reachable from the remote diagnostic branch. GitHub emitted a push event for the ref creation, but the event carried no commits. The workflow's paths filter therefore evaluated no changed files and suppressed run creation.",
+    "workflow_registration_failed": false,
+    "workflow_state": "active",
+    "repository_actions_policy_blocked": false,
+    "branch_filter_failed": false,
+    "push_event_absent": false,
+    "path_filter_failed": true,
+    "candidate_owned_failure": false,
+    "candidate_observation_exists": false,
+    "issue58_attempt_reusable": false,
+    "empirical_probe": {
+      "commit": "283b30eb264024b9a63cc0361bbc277cf5a159e5",
+      "new_object_branch_runs": {
+        "branch_only": 1,
+        "path_gated": 1
+      },
+      "ref_only_branch_runs": {
+        "branch_only": 1,
+        "path_gated": 0
+      },
+      "ref_only_push_commits": [],
+      "candidate_calls": 0
+    }
+  },
+  "fixed_issue58_authority": {
+    "materialization_commit": "29b022d89af923720146a9e1d56cf6a25b719bac",
+    "materialization_parent": "a5312ac1d2c7fed0ba52920f398e6ebea2d80827",
+    "execution_branch": "codex/execute-evidence-path-bound-refinement-witness",
+    "workflow_id": 323339010,
+    "workflow_path": ".github/workflows/ready-gated-double-double-refinement-witness.yml",
+    "replacement_plan_sha256": "a0132ab26af2e4e99fb8edeeecc2b51a8e0090b6e0dccf6f804573bad0ff97b1",
+    "execution_contract_sha256": "b7b8b2629f902aaea0295178a4c690db1ae11f0582f1cdded135d21671519c83",
+    "execution_source_binding_sha256": "102e9b8260736897a407f79d33c28320fee5127a9c36a2723cdb7f6cb8fb2fe1",
+    "execution_controller_binding_sha256": "705ea8561c96de9863a624faf52e95007ed7044151dffc9c5821db2e076d0ca5",
+    "matching_run_count": 0,
+    "candidate_entries": 0,
+    "candidate_observations": 0,
+    "human_disposition": "INVALID_UNJUDGED"
+  },
+  "replacement_contract": {
+    "successor_ticket": "Execute the unique-commit-path-bound fresh double-double refinement witness cohort",
+    "future_branch": "codex/execute-unique-commit-path-bound-refinement-witness",
+    "plan_count": 1,
+    "attempt_count": 1,
+    "human_ratification_required_before_dispatch": true,
+    "materialization": {
+      "base_commit": "29b022d89af923720146a9e1d56cf6a25b719bac",
+      "shape": "Exactly one fresh child commit, created and reviewed locally and never published under any ref before the sole execution push.",
+      "permitted_changes": [
+        "Bind the successor ticket and future branch in the workflow and execution contract.",
+        "Add one content-addressed dispatch marker under a path matched by the workflow.",
+        "Add the exact run-cardinality guard to the zero-entry aggregation before candidate unlock.",
+        "Grant actions:read only for the run-cardinality query.",
+        "Update issue-scoped artifact names without changing their topology or semantic contents."
+      ],
+      "forbidden_changes": "No numerical, candidate, reference, controller, source, precision, threshold, resource, lane, target, profile, artifact-topology, or cleanup behavior may change.",
+      "remote_novelty_witness": [
+        "The execution branch does not exist.",
+        "No remote-tracking ref contains the fresh child commit.",
+        "git ls-remote contains neither the future branch nor the fresh child commit.",
+        "The materializer records that no network write occurred between local commit creation and human ratification.",
+        "The child count from base to tip is exactly one and its changed paths equal the declared materialization inventory."
+      ]
+    },
+    "trigger": {
+      "event": "push",
+      "branch_filter": "codex/execute-unique-commit-path-bound-refinement-witness",
+      "paths_filter_retained": true,
+      "required_matching_path": "tools/prototypes/unique_commit_path_bound_refinement_witness_throwaway/dispatch-marker.v1.json",
+      "pre_dispatch_zero_run_query": "List runs for workflow 323339010 filtered by the exact future branch, fresh head SHA, and event=push; total_count must be zero.",
+      "sole_dispatch_action": "git push origin <fresh-child-sha>:refs/heads/codex/execute-unique-commit-path-bound-refinement-witness",
+      "expected_event_identity": {
+        "event": "push",
+        "ref": "refs/heads/codex/execute-unique-commit-path-bound-refinement-witness",
+        "before": "0000000000000000000000000000000000000000",
+        "after": "<fresh-child-sha>",
+        "created": true,
+        "commits": [
+          "<fresh-child-sha>"
+        ]
+      },
+      "expected_run_identity": {
+        "workflow_id": 323339010,
+        "workflow_path": ".github/workflows/ready-gated-double-double-refinement-witness.yml",
+        "event": "push",
+        "head_branch": "codex/execute-unique-commit-path-bound-refinement-witness",
+        "head_sha": "<fresh-child-sha>",
+        "run_attempt": 1,
+        "matching_run_count": 1,
+        "current_run_id_must_equal_the_only_match": true
+      }
+    },
+    "candidate_entry_cardinality_gate": {
+      "zero_run": "The external dispatcher records INVALID_UNJUDGED; there is no run and therefore no candidate entry. No second push or alternate dispatch is allowed.",
+      "one_run": "The preflight aggregation queries the exact workflow/branch/head/event tuple after all four zero-entry lanes close. It emits the existing candidate unlock only when this run is the sole match, run_attempt is 1, the branch still resolves to the exact head, and every inherited gate passes.",
+      "more_than_one_run": "Every matching run withholds the candidate unlock and the external dispatcher records INVALID_UNJUDGED. Runs, attempts, artifacts, or observations may not be selected or mixed.",
+      "rerun": "run_attempt other than 1 withholds the candidate unlock and yields INVALID_UNJUDGED.",
+      "query_stability": "The exact run-cardinality query occurs after the four native zero-entry lanes and immediately before unlock, not at workflow start; targets continue to require the aggregation unlock.",
+      "automatic_retry_permitted": false,
+      "workflow_rerun_permitted": false,
+      "partial_retry_permitted": false,
+      "replacement_retry_permitted": false,
+      "attempt_mixing_permitted": false,
+      "favorable_attempt_selection_permitted": false
+    }
+  },
+  "unchanged_gates": {
+    "native_lanes": {
+      "windows-x86_64": "x86_64-pc-windows-msvc",
+      "linux-x86_64-glibc": "x86_64-unknown-linux-gnu",
+      "macos-arm64": "aarch64-apple-darwin",
+      "macos-x86_64": "x86_64-apple-darwin"
+    },
+    "ready_gated_checks_per_lane": 277,
+    "root_bound_checks_per_lane": 25,
+    "same_handle_terminal_closure": "unchanged",
+    "artifact_topology": "unchanged exact-name and fixed kind/lane directories",
+    "candidate_binding": "unchanged",
+    "accepted_reference": "unchanged",
+    "six_sources": "unchanged",
+    "rhs_identities": 18,
+    "owned_refinement_bytes_per_matrix_row": 168,
+    "maximum_refinement_steps": 12,
+    "precision_stop_rule_thresholds_and_168n_accounting": "unchanged",
+    "reload_cancellation_prior_state_publication_resource_and_cleanup": "unchanged",
+    "targets_and_profiles": "four targets by workers 1, 2, and 8 with live-thread ceilings 12, 12, and 16",
+    "one_attempt_non_compensation": "unchanged",
+    "zero_reuse": "No candidate observation from Issues 49, 51, 53, 56, or any invalid predecessor may satisfy this cohort."
+  },
+  "dispositions": {
+    "all_gates_pass": "REFINEMENT_ROUTE_SUPPORTED_FOR_FULL_CORPUS_PLAN",
+    "valid_candidate_owned_nonpass": "REFINEMENT_ROUTE_REJECTED_DIAGNOSTIC_ONLY",
+    "zero_duplicate_rerun_or_external_invalidity": "INVALID_UNJUDGED"
+  },
+  "alternatives_rejected": {
+    "remove_paths_filter": "It would allow a ref-only branch to run, but would not prove a fresh materialization change and unnecessarily removes an accepted trigger guard.",
+    "workflow_dispatch": "It requires a workflow_dispatch declaration on the default-branch workflow and creates a separately repeatable dispatch surface; neither is needed when a fresh path-matching child commit closes the proven defect.",
+    "create_event": "It uses the default-branch workflow context rather than the exact candidate-bearing event commit and does not preserve the existing push contract.",
+    "reuse_issue58_branch": "Issue 58 is human-ratified INVALID_UNJUDGED and immutable; repair, rerun, or reinterpretation is forbidden."
+  },
+  "primary_sources": [
+    "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows#workflow-triggers",
+    "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#push",
+    "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#git-diff-comparisons",
+    "https://docs.github.com/en/rest/actions/workflow-runs#list-workflow-runs-for-a-workflow"
+  ],
+  "forbidden_here": [
+    "Repair, amend, rerun, replace, or reuse the Issue 58 branch or zero-run plan.",
+    "Enter or execute the numerical candidate in Issue 59.",
+    "Weaken any accepted numerical, controller, evidence, resource, artifact, or non-reuse gate.",
+    "Admit faer, qd, a factor route, or the factor corpus.",
+    "Run the mechanism panel or unblock downstream solver comparison."
+  ]
+}
