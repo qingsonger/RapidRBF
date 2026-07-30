@@ -1,0 +1,57 @@
+{
+  "schema": "RapidRBF/Coarse4096MechanismPanelReproduction/v1",
+  "captured_at_utc": "2026-07-30T14:46:11.8821026Z",
+  "command": ".\\run-issue62.ps1 -Output D:\\CODE\\interp\\RapidRBF\\.prototype-cache\\results\\issue62-coarse4096-frozen.json",
+  "attempt_count": 1,
+  "retry_count": 0,
+  "runner_exit_code": 0,
+  "disposition": "COARSE4096_REJECTED_DIAGNOSTIC_ONLY",
+  "result": {
+    "bytes": 35314,
+    "sha256": "4879f1da043af898a0a0f2830529a241fb0a64da5ece6df81c467ee3b74e76c3"
+  },
+  "source_closure": {
+    "main_cpp": {
+      "bytes": 134940,
+      "sha256": "67125644b47b8fe2a1bfc36042fc636f09ee0a4ccef5e8af9db9ae91f7deaf1e"
+    },
+    "run_ps1": {
+      "bytes": 4344,
+      "sha256": "9d7d5c786509daff3c549eee7c17d7bbca15fcdd82acb10a224ca99480560cfa"
+    },
+    "run_issue62_ps1": {
+      "bytes": 1475,
+      "sha256": "497764c25476fcd88ff993479d8e31ee6dd16f6800b4266dbc449e526c7c2c5d"
+    },
+    "cmake_lists": {
+      "bytes": 2285,
+      "sha256": "ec0df5f320fe5ad6e1a5dafed73cac40c30813a0f0a04885df21b0808813cdc0"
+    },
+    "executable": {
+      "bytes": 5724672,
+      "sha256": "20e32dce2bf97e80d05e28b5e9b784c357b01a69ac6dc7b221b92cbd5489c752"
+    }
+  },
+  "frozen_inputs": {
+    "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+    "corpus_digest": "38f39fee8b4059cd2619df4bbfabb6f7159b41df1511907e0346c32642737f79",
+    "corpus_raw_manifest_sha256": "cf5aaa1e3fe6bf51c3f24f13455ac1036e7ec591668c18ec4c86f3243aa07f54",
+    "corpus_lock_manifest_sha256": "7abd17eabba0cd578fa8989075f9d09d5113a696df48c9643785822dadde5a75",
+    "existing_factor_reference_manifest_sha256": "6ed634a288145dfb3688e6e480f9519c1dbbe5c528aa9bb4b825eb57bc1b584a"
+  },
+  "execution_profile": {
+    "openmp_threads": 8,
+    "mkl_threads": 1,
+    "maximum_iterations": 100,
+    "restart_window": 64,
+    "maximum_preconditioner_operator_actions": 240,
+    "process_peak_working_set_limit_bytes": 8589934592
+  },
+  "cleanup": {
+    "subject_process_absent_after_exit": true,
+    "result_temporary_file_absent": true,
+    "captured_temporary_file_absent": true,
+    "generated_factor_artifacts_written": 0,
+    "result_published_atomically": true
+  }
+}

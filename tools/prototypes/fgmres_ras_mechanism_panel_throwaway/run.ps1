@@ -10,6 +10,7 @@ param(
   [switch] $Quick,
   [switch] $AuditOnly,
   [switch] $MechanismAuditOnly,
+  [switch] $Issue62Cohort,
   [switch] $BalanceGradientBlockMax,
   [switch] $FineCoarseFine,
   [string] $PolatorySource = "D:\CODE\polatory",
@@ -104,6 +105,9 @@ if ($BalanceGradientBlockMax) {
 }
 if ($FineCoarseFine) {
   $arguments += "--fine-coarse-fine"
+}
+if ($Issue62Cohort) {
+  $arguments += "--issue62-cohort"
 }
 & (Join-Path $build "Release\rapidrbf-fgmres-ras-panel.exe") @arguments
 if ($LASTEXITCODE -ne 0) {

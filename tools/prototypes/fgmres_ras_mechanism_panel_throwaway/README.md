@@ -1,4 +1,31 @@
-# Issue 61 throwaway M3 mechanism diagnosis
+# Issue 62 throwaway coarse4096 mechanism-panel gate
+
+This branch answers one frozen question: does the canonical 4,096-target
+enriched coarse candidate survive the complete mechanism panel, or must it
+remain diagnostic-only?
+
+The Issue 62 path runs exactly 18 complete-direct controls/candidates. Every
+new QTAQ/P_top factor receives a candidate-independent Banach enclosure and
+run-scoped qualification before candidate entry. It does not sweep a target,
+topology, overlap, scale, restart, or orthogonalization choice, and it makes no
+production solver, coarse-setting, or factor-backend admission.
+
+Run the exact cohort once:
+
+```powershell
+.\run-issue62.ps1
+```
+
+Review the captured result:
+
+```powershell
+.\review-issue62.ps1
+```
+
+The primary result and proposed disposition are captured in
+[`evidence/ISSUE62.md`](evidence/ISSUE62.md).
+
+## Issue 61 lineage
 
 This branch extends the accepted Issue 32 mechanism-panel primary source to
 answer one new question: why does the complete direct certificate fail only on

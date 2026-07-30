@@ -1,13 +1,16 @@
-// THROWAWAY PROTOTYPE: Issue 61 M3-HERMITE-10K mechanism diagnosis.
+// THROWAWAY PROTOTYPE: Issue 62 canonical coarse4096 mechanism-panel gate.
 //
-// Question: why does the accepted Issue 32 family fail only the mixed-gradient
-// M3-HERMITE-10K complete certificate, and which one bounded mechanism change
-// is strong enough to freeze as the next experiment?
+// Question: does the one frozen canonical 4096-target enriched coarse candidate
+// survive the complete 1k/10k mechanism panel under the accepted
+// FGMRES/residual-correction RAS topology and strict factor, action, resource,
+// certificate, identity, and cleanup controls?
 //
-// This extends the Issue 32 primary source on a throwaway branch.  It is
-// evidence code, not a production solver.  Existing local factors retain their
-// run-scoped repaired-reference checks.  The synthetic 4096-target coarse
-// factor is diagnostic-only and is not a release-admitted factor backend.
+// This extends the accepted Issue 61 primary source on a throwaway branch.  It
+// is evidence code, not a production solver.  Existing local factors retain
+// their run-scoped repaired-reference checks.  Every generated coarse4096
+// factor receives a candidate-independent reference enclosure and run-scoped
+// qualification before it can enter a solver run.  No result admits a
+// production solver, coarse setting, or factor backend.
 
 #include <windows.h>
 
@@ -22,6 +25,7 @@
 #include <omp.h>
 
 #include <boost/multiprecision/cpp_int.hpp>
+#include <boost/multiprecision/cpp_dec_float.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ptree.hpp>
 
@@ -84,6 +88,8 @@ constexpr double kOperatorAccuracy = 0.0;
 constexpr double kCpdTolerance = 0x1p-32;
 constexpr int kMaximumIterations = 100;
 constexpr int kMaximumPreconditionerOperatorActions = 240;
+constexpr std::uint64_t kIssue62PeakWorkingSetLimit =
+    std::uint64_t{8} * 1024 * 1024 * 1024;
 constexpr std::array<int, 3> kWindows{5, 32, 64};
 constexpr std::string_view kCorpusDigest =
     "38f39fee8b4059cd2619df4bbfabb6f7159b41df1511907e0346c32642737f79";
@@ -728,6 +734,345 @@ std::string sha256_vector(const VectorXd& vector) {
                       static_cast<std::size_t>(vector.size()) * sizeof(double));
 }
 
+std::string sha256_matrix(const MatrixXd& matrix) {
+  return sha256_bytes(reinterpret_cast<const std::byte*>(matrix.data()),
+                      static_cast<std::size_t>(matrix.size()) * sizeof(double));
+}
+
+std::string sha256_text(std::string_view text) {
+  return sha256_bytes(reinterpret_cast<const std::byte*>(text.data()),
+                      text.size());
+}
+
+using HighPrecision =
+    boost::multiprecision::number<boost::multiprecision::cpp_dec_float<100>>;
+
+HighPrecision hp_abs(double value) {
+  const HighPrecision converted(value);
+  return converted < 0 ? -converted : converted;
+}
+
+HighPrecision gamma_bound(std::size_t operations, double unit_roundoff) {
+  const HighPrecision product =
+      HighPrecision(operations) * HighPrecision(unit_roundoff);
+  if (product >= 1) {
+    fail("reference rounding bound is undefined");
+  }
+  return product / (HighPrecision(1) - product);
+}
+
+double nonnegative_upper_double(const HighPrecision& value) {
+  if (value < 0) {
+    fail("cannot outward-round a negative nonnegative bound");
+  }
+  double result = value.convert_to<double>();
+  if (!std::isfinite(result)) {
+    fail("reference bound does not fit binary64");
+  }
+  if (HighPrecision(result) < value) {
+    result = std::nextafter(result, std::numeric_limits<double>::infinity());
+  }
+  return result;
+}
+
+double upper_double(const HighPrecision& value) {
+  double result = value.convert_to<double>();
+  if (!std::isfinite(result)) {
+    fail("reference endpoint does not fit binary64");
+  }
+  if (HighPrecision(result) < value) {
+    result = std::nextafter(result, std::numeric_limits<double>::infinity());
+  }
+  return result;
+}
+
+double lower_double(const HighPrecision& value) {
+  double result = value.convert_to<double>();
+  if (!std::isfinite(result)) {
+    fail("reference endpoint does not fit binary64");
+  }
+  if (HighPrecision(result) > value) {
+    result =
+        std::nextafter(result, -std::numeric_limits<double>::infinity());
+  }
+  return result;
+}
+
+template <typename Decomposition>
+std::pair<VectorXd, int> refined_solve(const MatrixXd& matrix,
+                                       const Decomposition& decomposition,
+                                       const VectorXd& rhs,
+                                       const ReferenceRhs* authority);
+
+struct ReferenceCenter {
+  std::vector<DoubleDouble> values;
+  int refinements{};
+};
+
+VectorXd double_double_reference_residual(
+    const MatrixXd& matrix, const std::vector<DoubleDouble>& center,
+    const VectorXd& rhs) {
+  if (matrix.cols() != static_cast<Index>(center.size()) ||
+      matrix.rows() != rhs.size()) {
+    fail("double-double reference residual shape differs");
+  }
+  VectorXd residual(rhs.size());
+  for (Index row = 0; row < matrix.rows(); ++row) {
+    DoubleDouble sum{rhs(row), 0.0};
+    for (Index column = 0; column < matrix.cols(); ++column) {
+      auto high = product(matrix(row, column),
+                          center[static_cast<std::size_t>(column)].hi);
+      auto low = product(matrix(row, column),
+                         center[static_cast<std::size_t>(column)].lo);
+      high.hi = -high.hi;
+      high.lo = -high.lo;
+      low.hi = -low.hi;
+      low.lo = -low.lo;
+      sum = add(sum, high);
+      sum = add(sum, low);
+    }
+    residual(row) = sum.hi + sum.lo;
+  }
+  return residual;
+}
+
+template <typename Decomposition>
+ReferenceCenter refine_reference_center(
+    const MatrixXd& matrix, const Decomposition& decomposition,
+    const VectorXd& rhs) {
+  const VectorXd initial = decomposition.solve(rhs);
+  if (!initial.allFinite()) {
+    fail("candidate-independent reference center is non-finite");
+  }
+  ReferenceCenter result;
+  result.values.reserve(static_cast<std::size_t>(initial.size()));
+  for (const double value : initial) {
+    result.values.push_back({value, 0.0});
+  }
+  for (int step = 0; step < 12; ++step) {
+    const VectorXd residual =
+        double_double_reference_residual(matrix, result.values, rhs);
+    const VectorXd correction = decomposition.solve(residual);
+    if (!correction.allFinite()) {
+      fail("candidate-independent reference refinement is non-finite");
+    }
+    double correction_norm = 0.0;
+    double center_norm = 1.0;
+    for (Index i = 0; i < correction.size(); ++i) {
+      correction_norm =
+          std::max(correction_norm, std::abs(correction(i)));
+      auto& value = result.values[static_cast<std::size_t>(i)];
+      value = add(value, {correction(i), 0.0});
+      center_norm =
+          std::max(center_norm, std::abs(value.hi) + std::abs(value.lo));
+    }
+    ++result.refinements;
+    if (correction_norm / center_norm <= 8.0 * std::ldexp(1.0, -104)) {
+      break;
+    }
+  }
+  return result;
+}
+
+struct CandidateIndependentReference {
+  ReferenceEntry authority;
+  std::string manifest_sha256;
+  double q_upper{};
+  double inverse_norm_upper{};
+  double maximum_relative_radius{};
+  int total_refinements{};
+};
+
+CandidateIndependentReference generate_candidate_independent_reference(
+    const MatrixXd& matrix, bool symmetric) {
+  if (matrix.rows() == 0 || matrix.rows() != matrix.cols() ||
+      !matrix.allFinite()) {
+    fail("generated factor reference requires a finite square matrix");
+  }
+  const Index n = matrix.rows();
+  const std::string source_sha256 = sha256_matrix(matrix);
+  const MatrixXd rhs = manufactured_rhs(matrix, symmetric);
+
+  // This reference route observes only frozen binary64 (A,b).  It is completed
+  // and reduced to enclosures before the candidate Eigen LDLT/FullPivLU factor
+  // is constructed.  Partial-pivot LU is intentionally distinct from both
+  // candidate routes.
+  Eigen::PartialPivLU<MatrixXd> reference_factor(matrix);
+  const MatrixXd& lu = reference_factor.matrixLU();
+  for (Index i = 0; i < n; ++i) {
+    if (!std::isfinite(lu(i, i)) || lu(i, i) == 0.0) {
+      fail("candidate-independent reference factor is singular");
+    }
+  }
+
+  // Construct an approximate inverse R from the reference-only factor and
+  // directly certify q=||I-RA||_inf.  The observed binary64 product is
+  // inflated by a Higham gamma bound over |R||A|; all positive reductions use
+  // 100-decimal arithmetic.  This is the same Banach proof shape accepted for
+  // the frozen factor-health authority, without importing a candidate factor.
+  MatrixXd inverse = reference_factor.inverse();
+  if (!inverse.allFinite()) {
+    fail("candidate-independent reference inverse is non-finite");
+  }
+  std::vector<HighPrecision> matrix_row_sums(
+      static_cast<std::size_t>(n));
+  for (Index row = 0; row < n; ++row) {
+    HighPrecision sum = 0;
+    for (Index column = 0; column < n; ++column) {
+      sum += hp_abs(matrix(row, column));
+    }
+    matrix_row_sums[static_cast<std::size_t>(row)] = sum;
+  }
+  HighPrecision inverse_norm = 0;
+  for (Index row = 0; row < n; ++row) {
+    HighPrecision sum = 0;
+    for (Index column = 0; column < n; ++column) {
+      sum += hp_abs(inverse(row, column));
+    }
+    inverse_norm = std::max(inverse_norm, sum);
+  }
+  const MatrixXd inverse_product = inverse * matrix;
+  const auto product_gamma = gamma_bound(
+      static_cast<std::size_t>(4 * n + 64), kUnitRoundoff);
+  HighPrecision q = 0;
+  for (Index row = 0; row < n; ++row) {
+    HighPrecision observed = 0;
+    HighPrecision absolute_product = 0;
+    for (Index column = 0; column < n; ++column) {
+      const HighPrecision expected = row == column ? 1 : 0;
+      const HighPrecision product_value(inverse_product(row, column));
+      observed += expected > product_value
+                      ? expected - product_value
+                      : product_value - expected;
+    }
+    for (Index inner = 0; inner < n; ++inner) {
+      absolute_product +=
+          hp_abs(inverse(row, inner)) *
+          matrix_row_sums[static_cast<std::size_t>(inner)];
+    }
+    const HighPrecision row_upper =
+        observed + product_gamma * absolute_product;
+    q = std::max(q, row_upper);
+  }
+  if (!(q < 1)) {
+    fail("candidate-independent generated-factor reference is indeterminate: "
+         "inverse certificate did not prove q < 1");
+  }
+  const HighPrecision inverse_bound =
+      inverse_norm / (HighPrecision(1) - q);
+
+  CandidateIndependentReference result;
+  result.authority.dimension = static_cast<std::size_t>(n);
+  result.authority.source_sha256 = source_sha256;
+  result.q_upper = nonnegative_upper_double(q);
+  result.inverse_norm_upper = nonnegative_upper_double(inverse_bound);
+  static constexpr std::array<std::string_view, 3> families{
+      "operational", "constraint", "dynamic-range"};
+  std::ostringstream manifest;
+  manifest << "RapidRBF/Issue62GeneratedFactorReference/v1\n"
+           << source_sha256 << '\n' << n << '\n';
+
+  for (Index family = 0; family < 3; ++family) {
+    const VectorXd rhs_column = rhs.col(family);
+    const auto center =
+        refine_reference_center(matrix, reference_factor, rhs_column);
+    result.total_refinements += center.refinements;
+    const VectorXd residual =
+        double_double_reference_residual(
+            matrix, center.values, rhs_column);
+    const auto residual_gamma = gamma_bound(
+        static_cast<std::size_t>(16 * n + 64), std::ldexp(1.0, -104));
+    HighPrecision residual_upper = 0;
+    for (Index row = 0; row < n; ++row) {
+      HighPrecision absolute_sum = hp_abs(rhs(row, family));
+      for (Index column = 0; column < n; ++column) {
+        const auto& center_value =
+            center.values[static_cast<std::size_t>(column)];
+        const HighPrecision center_exact =
+            HighPrecision(center_value.hi) + HighPrecision(center_value.lo);
+        absolute_sum +=
+            hp_abs(matrix(row, column)) *
+            (center_exact < 0 ? -center_exact : center_exact);
+      }
+      const HighPrecision bound =
+          hp_abs(residual(row)) + residual_gamma * absolute_sum;
+      residual_upper = std::max(residual_upper, bound);
+    }
+    const HighPrecision radius = inverse_bound * residual_upper;
+    HighPrecision center_norm = 0;
+    for (Index i = 0; i < n; ++i) {
+      const auto& center_value =
+          center.values[static_cast<std::size_t>(i)];
+      const HighPrecision center_exact =
+          HighPrecision(center_value.hi) + HighPrecision(center_value.lo);
+      const HighPrecision absolute =
+          center_exact < 0 ? -center_exact : center_exact;
+      center_norm = std::max(center_norm, absolute);
+    }
+    HighPrecision scale_lower = center_norm - radius;
+    if (scale_lower < 1) {
+      scale_lower = 1;
+    }
+    HighPrecision scale_upper = center_norm + radius;
+    if (scale_upper < 1) {
+      scale_upper = 1;
+    }
+    const HighPrecision threshold =
+        HighPrecision(n) * HighPrecision(std::ldexp(1.0, -45));
+    const HighPrecision relative_radius = radius / scale_lower;
+    if (relative_radius > threshold / 64) {
+      std::ostringstream message;
+      message << std::setprecision(17)
+              << "candidate-independent generated-factor reference is "
+                 "indeterminate: enclosure relative radius "
+              << nonnegative_upper_double(relative_radius)
+              << " exceeds frozen quality limit "
+              << nonnegative_upper_double(threshold / 64);
+      fail(message.str());
+    }
+    result.maximum_relative_radius =
+        std::max(result.maximum_relative_radius,
+                 nonnegative_upper_double(relative_radius));
+
+    const double radius_upper = nonnegative_upper_double(radius);
+    double scale_lower_double = nonnegative_upper_double(scale_lower);
+    if (HighPrecision(scale_lower_double) > scale_lower) {
+      scale_lower_double =
+          std::nextafter(scale_lower_double,
+                         -std::numeric_limits<double>::infinity());
+    }
+    const double scale_upper_double =
+        nonnegative_upper_double(scale_upper);
+    ReferenceRhs authority;
+    authority.family = std::string(families[static_cast<std::size_t>(family)]);
+    authority.rhs_sha256 = sha256_vector(rhs_column);
+    authority.scale_lower = Dyadic::from_f64(scale_lower_double);
+    authority.scale_upper = Dyadic::from_f64(scale_upper_double);
+    authority.threshold =
+        Dyadic::from_f64(std::ldexp(static_cast<double>(n), -45));
+    authority.lower.reserve(static_cast<std::size_t>(n));
+    authority.upper.reserve(static_cast<std::size_t>(n));
+    manifest << authority.family << '\n' << authority.rhs_sha256 << '\n';
+    for (Index i = 0; i < n; ++i) {
+      const auto& center_value =
+          center.values[static_cast<std::size_t>(i)];
+      const HighPrecision center_exact =
+          HighPrecision(center_value.hi) + HighPrecision(center_value.lo);
+      const double lower =
+          lower_double(center_exact - HighPrecision(radius_upper));
+      const double upper =
+          upper_double(center_exact + HighPrecision(radius_upper));
+      authority.lower.push_back(Dyadic::from_f64(lower));
+      authority.upper.push_back(Dyadic::from_f64(upper));
+      manifest << std::hex << std::bit_cast<std::uint64_t>(lower) << ':'
+               << std::bit_cast<std::uint64_t>(upper) << std::dec << '\n';
+    }
+    result.authority.rhs.push_back(std::move(authority));
+  }
+  result.manifest_sha256 = sha256_text(manifest.str());
+  return result;
+}
+
 struct FactorQualification {
   bool pass{};
   double reconstruction_relative_inf{};
@@ -829,6 +1174,15 @@ struct BlockFactor {
   Eigen::FullPivLU<MatrixXd> p_top_factor;
   FactorQualification qtaq_qualification;
   FactorQualification p_top_qualification;
+  bool generated_enriched{};
+  std::string qtaq_source_sha256;
+  std::string p_top_source_sha256;
+  std::string qtaq_reference_manifest_sha256;
+  std::string p_top_reference_manifest_sha256;
+  double maximum_reference_q_upper{};
+  double maximum_reference_inverse_norm_upper{};
+  double maximum_reference_relative_radius{};
+  int reference_refinements{};
   double maximum_dynamic_backward{};
 
   std::vector<Index> flat_indices() const {
@@ -1041,6 +1395,9 @@ std::vector<BlockFactor> load_blocks(const Corpus& corpus,
     }
     const auto qtaq_id = node.get<std::string>("artifacts.qtaq_lower");
     const auto& qtaq_artifact = corpus.artifact(qtaq_id);
+    block.qtaq_source_sha256 = qtaq_artifact.sha256;
+    block.qtaq_reference_manifest_sha256 =
+        std::string(kReferenceManifestSha);
     block.qtaq = corpus.read_lower_matrix(qtaq_id);
     block.qtaq_factor.compute(block.qtaq);
     if (block.qtaq_factor.info() != Eigen::Success) {
@@ -1062,6 +1419,9 @@ std::vector<BlockFactor> load_blocks(const Corpus& corpus,
       const auto p_top_id =
           node.get<std::string>("artifacts.p_top_row_major");
       const auto& p_top_artifact = corpus.artifact(p_top_id);
+      block.p_top_source_sha256 = p_top_artifact.sha256;
+      block.p_top_reference_manifest_sha256 =
+          std::string(kReferenceManifestSha);
       block.p_top = corpus.read_row_matrix(p_top_id);
       block.p_top_factor.compute(block.p_top);
       if (!block.p_top_factor.isInvertible()) {
@@ -1120,7 +1480,8 @@ class WorkloadContext {
  public:
   WorkloadContext(const Corpus& corpus, const pt::ptree& descriptor,
                   const ReferenceMap& references,
-                  bool mechanism_audit = false)
+                  bool mechanism_audit = false,
+                  bool force_complete_direct = false)
       : workload_id_(descriptor.get<std::string>("workload_id")),
         scale_id_(descriptor.get<std::string>("scale_id")),
         value_rows_(descriptor.get<Index>("value_rows")),
@@ -1150,9 +1511,13 @@ class WorkloadContext {
     }
     rhs_ = VectorXd::Zero(size());
     rhs_.head(scalar_order_) = observations_;
-    if (scale_id_ == "1k" || workload_id_ == "M3-HERMITE-10K") {
+    if (force_complete_direct || scale_id_ == "1k" ||
+        workload_id_ == "M3-HERMITE-10K") {
       direct_a_ =
           polatory::preconditioner::mat_a(model_, points_, gradient_points_matrix_);
+      direct_action_sha256_ = sha256_text(
+          workload_id_ + "\n" + sha256_matrix(*direct_a_) + "\n" +
+          sha256_matrix(polynomial_));
     }
     orthonormal_polynomial_ = polynomial_;
     if (polynomial_order_ > 0) {
@@ -1177,6 +1542,9 @@ class WorkloadContext {
   bool screening_action_is_authoritative() const {
     return direct_a_.has_value();
   }
+  const std::string& direct_action_sha256() const {
+    return direct_action_sha256_;
+  }
   const VectorXd& rhs() const { return rhs_; }
   std::vector<BlockFactor>& blocks() { return blocks_; }
   const std::vector<BlockFactor>& blocks() const { return blocks_; }
@@ -1187,6 +1555,21 @@ class WorkloadContext {
   const MatrixXd& ap() const { return ap_; }
   const ActionCounts& counts() const { return counts_; }
   void reset_counts() { counts_ = {}; }
+  void prepare_enriched_coarse(Index scalar_target) {
+    if (!prepared_enriched_coarse_.has_value()) {
+      prepared_enriched_coarse_.emplace(
+          make_enriched_coarse(scalar_target));
+    } else if (scalar_target != 4096) {
+      fail("prepared enriched coarse target differs");
+    }
+  }
+  BlockFactor& prepared_enriched_coarse(Index scalar_target) {
+    prepare_enriched_coarse(scalar_target);
+    return *prepared_enriched_coarse_;
+  }
+  const std::optional<BlockFactor>& enriched_coarse_evidence() const {
+    return prepared_enriched_coarse_;
+  }
 
   double block_max_balanced_gradient_scale() const {
     if (!direct_a_.has_value() || value_rows_ == 0 ||
@@ -1210,9 +1593,10 @@ class WorkloadContext {
   }
 
   BlockFactor make_enriched_coarse(Index scalar_target) const {
-    if (!direct_a_.has_value() || workload_id_ != "M3-HERMITE-10K" ||
+    if (!direct_a_.has_value() || scale_id_ != "10k" ||
         scalar_target != 4096) {
-      fail("the bounded enriched-coarse probe is defined only for M3 at 4096");
+      fail("the bounded enriched-coarse candidate is defined only for 10k "
+           "workloads at 4096");
     }
     const auto existing_coarse = std::find_if(
         blocks_.begin(), blocks_.end(),
@@ -1247,9 +1631,10 @@ class WorkloadContext {
         divider.choose_coarse_points(scalar_target);
 
     BlockFactor block;
-    block.block_id = "M3-HERMITE-10K-enriched-coarse-4096-probe";
+    block.block_id = workload_id_ + "-enriched-coarse-4096-candidate";
     block.workload_id = workload_id_;
     block.role = "coarse";
+    block.generated_enriched = true;
     block.level = 0;
     block.ordinal = 0;
     block.source_value_rows = value_rows_;
@@ -1292,16 +1677,58 @@ class WorkloadContext {
             local_a.topRightCorner(polynomial_order_, reduced) +
         local_a.bottomLeftCorner(reduced, polynomial_order_) * block.q_top +
         local_a.bottomRightCorner(reduced, reduced);
+    block.a_top = local_a.topRows(polynomial_order_);
+    block.p_top = polynomial_(selected_values, polatory::kAll)
+                      .topRows(polynomial_order_);
+
+    // Freeze and certify both generated binary64 systems before constructing
+    // either candidate factor.  The reference route consumes only (A,b) and
+    // is discarded before candidate entry.
+    const auto qtaq_reference =
+        generate_candidate_independent_reference(block.qtaq, true);
+    const auto p_top_reference =
+        generate_candidate_independent_reference(block.p_top, false);
+    block.qtaq_source_sha256 = qtaq_reference.authority.source_sha256;
+    block.p_top_source_sha256 = p_top_reference.authority.source_sha256;
+    block.qtaq_reference_manifest_sha256 =
+        qtaq_reference.manifest_sha256;
+    block.p_top_reference_manifest_sha256 =
+        p_top_reference.manifest_sha256;
+    block.maximum_reference_q_upper =
+        std::max(qtaq_reference.q_upper, p_top_reference.q_upper);
+    block.maximum_reference_inverse_norm_upper =
+        std::max(qtaq_reference.inverse_norm_upper,
+                 p_top_reference.inverse_norm_upper);
+    block.maximum_reference_relative_radius =
+        std::max(qtaq_reference.maximum_relative_radius,
+                 p_top_reference.maximum_relative_radius);
+    block.reference_refinements =
+        qtaq_reference.total_refinements +
+        p_top_reference.total_refinements;
+
     block.qtaq_factor.compute(block.qtaq);
     if (block.qtaq_factor.info() != Eigen::Success) {
       fail("enriched-coarse projected factorization failed");
     }
-    block.a_top = local_a.topRows(polynomial_order_);
-    block.p_top = polynomial_(selected_values, polatory::kAll)
-                      .topRows(polynomial_order_);
+    block.qtaq_qualification = qualify_factor(
+        block.qtaq, block.qtaq_factor,
+        MatrixXd(block.qtaq_factor.reconstructedMatrix()),
+        qtaq_reference.authority, true);
+    if (!block.qtaq_qualification.pass) {
+      fail("enriched-coarse projected factor did not qualify: " +
+           block.qtaq_qualification.reason);
+    }
     block.p_top_factor.compute(block.p_top);
     if (!block.p_top_factor.isInvertible()) {
       fail("enriched-coarse polynomial factorization failed");
+    }
+    block.p_top_qualification = qualify_factor(
+        block.p_top, block.p_top_factor,
+        MatrixXd(block.p_top_factor.reconstructedMatrix()),
+        p_top_reference.authority, false);
+    if (!block.p_top_qualification.pass) {
+      fail("enriched-coarse polynomial factor did not qualify: " +
+           block.p_top_qualification.reason);
     }
     return block;
   }
@@ -1635,6 +2062,8 @@ class WorkloadContext {
   MatrixXd orthonormal_polynomial_;
   MatrixXd ap_;
   std::optional<MatrixXd> direct_a_;
+  std::string direct_action_sha256_;
+  std::optional<BlockFactor> prepared_enriched_coarse_;
   polatory::interpolation::Operator<3> operator_;
   ActionCounts counts_;
 };
@@ -1690,14 +2119,14 @@ class RasPreconditioner {
       fail("workload has no coarse block");
     }
     if (enriched_coarse_target != 0) {
-      enriched_coarse_.emplace(
-          workload_.make_enriched_coarse(enriched_coarse_target));
-      coarse_ = &*enriched_coarse_;
+      coarse_ =
+          &workload_.prepared_enriched_coarse(enriched_coarse_target);
     }
   }
 
   void reset_counts() { counts_ = {}; }
   const PreconditionerCounts& counts() const { return counts_; }
+  const BlockFactor& coarse() const { return *coarse_; }
 
   VectorXd apply(const VectorXd& input, Topology topology) {
     ++counts_.applications;
@@ -1803,7 +2232,6 @@ class RasPreconditioner {
   }
 
   WorkloadContext& workload_;
-  std::optional<BlockFactor> enriched_coarse_;
   BlockFactor* coarse_{};
   std::vector<BlockFactor*> fine_;
   PreconditionerCounts counts_;
@@ -1824,6 +2252,13 @@ struct RunResult {
   Orthogonalization orthogonalization{};
   double gradient_scale{1.0};
   Index enriched_coarse_target{};
+  std::string action_identity_sha256;
+  std::string coarse_qtaq_source_sha256;
+  std::string coarse_p_top_source_sha256;
+  std::string coarse_qtaq_reference_manifest_sha256;
+  std::string coarse_p_top_reference_manifest_sha256;
+  std::string solution_sha256;
+  std::string run_identity_sha256;
   int window{};
   std::string status;
   int iterations{};
@@ -1890,6 +2325,7 @@ RunResult run_fgmres(WorkloadContext& workload, Topology topology, int window,
   result.orthogonalization = orthogonalization;
   result.gradient_scale = gradient_scale;
   result.enriched_coarse_target = enriched_coarse_target;
+  result.action_identity_sha256 = workload.direct_action_sha256();
   result.window = window;
   const auto apply_scale = [&](VectorXd vector) {
     vector.segment(workload.value_rows(), 3 * workload.gradient_points()) *=
@@ -2059,6 +2495,16 @@ RunResult run_fgmres(WorkloadContext& workload, Topology topology, int window,
         workload.certify_bound(physical_solution(x));
   }
   result.solution = physical_solution(x);
+  const auto& selected_coarse = preconditioner.coarse();
+  result.coarse_qtaq_source_sha256 =
+      selected_coarse.qtaq_source_sha256;
+  result.coarse_p_top_source_sha256 =
+      selected_coarse.p_top_source_sha256;
+  result.coarse_qtaq_reference_manifest_sha256 =
+      selected_coarse.qtaq_reference_manifest_sha256;
+  result.coarse_p_top_reference_manifest_sha256 =
+      selected_coarse.p_top_reference_manifest_sha256;
+  result.solution_sha256 = sha256_vector(result.solution);
   result.actions = workload.counts();
   result.preconditioner = preconditioner.counts();
   result.basis_bytes =
@@ -2069,6 +2515,19 @@ RunResult run_fgmres(WorkloadContext& workload, Topology topology, int window,
   result.elapsed_seconds =
       std::chrono::duration<double>(std::chrono::steady_clock::now() - started)
           .count();
+  std::ostringstream identity;
+  identity << "RapidRBF/Issue62Run/v1\n"
+           << result.workload_id << '\n' << result.scale_id << '\n'
+           << topology_name(result.topology) << '\n'
+           << orthogonalization_name(result.orthogonalization) << '\n'
+           << result.window << '\n' << result.enriched_coarse_target << '\n'
+           << result.action_identity_sha256 << '\n'
+           << result.coarse_qtaq_source_sha256 << '\n'
+           << result.coarse_p_top_source_sha256 << '\n'
+           << result.solution_sha256 << '\n'
+           << result.actions.solver << ':' << result.actions.preconditioner
+           << ':' << result.actions.certificate << '\n';
+  result.run_identity_sha256 = sha256_text(identity.str());
   return result;
 }
 
@@ -2085,9 +2544,15 @@ struct FactorEvidence {
   int qualified_factor_sources{};
   int repaired_reference_rhs_passes{};
   int qualification_refinements{};
+  int generated_enriched_factor_sources{};
+  int generated_enriched_reference_rhs_passes{};
+  int generated_enriched_reference_refinements{};
   double maximum_reconstruction_relative_inf{};
   double maximum_qualification_backward_error{};
   double maximum_dynamic_backward_error{};
+  double maximum_generated_reference_q_upper{};
+  double maximum_generated_reference_inverse_norm_upper{};
+  double maximum_generated_reference_relative_radius{};
 
   void add(const FactorQualification& qualification) {
     if (!qualification.pass) {
@@ -2104,15 +2569,40 @@ struct FactorEvidence {
                  qualification.maximum_backward_error);
   }
 
+  void add(const BlockFactor& block) {
+    add(block.qtaq_qualification);
+    if (block.p_top.size() != 0) {
+      add(block.p_top_qualification);
+    }
+    maximum_dynamic_backward_error =
+        std::max(maximum_dynamic_backward_error,
+                 block.maximum_dynamic_backward);
+    if (block.generated_enriched) {
+      generated_enriched_factor_sources +=
+          block.p_top.size() == 0 ? 1 : 2;
+      generated_enriched_reference_rhs_passes +=
+          block.qtaq_qualification.reference_passes +
+          block.p_top_qualification.reference_passes;
+      generated_enriched_reference_refinements +=
+          block.reference_refinements;
+      maximum_generated_reference_q_upper =
+          std::max(maximum_generated_reference_q_upper,
+                   block.maximum_reference_q_upper);
+      maximum_generated_reference_inverse_norm_upper =
+          std::max(maximum_generated_reference_inverse_norm_upper,
+                   block.maximum_reference_inverse_norm_upper);
+      maximum_generated_reference_relative_radius =
+          std::max(maximum_generated_reference_relative_radius,
+                   block.maximum_reference_relative_radius);
+    }
+  }
+
   void add(const WorkloadContext& workload) {
     for (const auto& block : workload.blocks()) {
-      add(block.qtaq_qualification);
-      if (block.p_top.size() != 0) {
-        add(block.p_top_qualification);
-      }
-      maximum_dynamic_backward_error =
-          std::max(maximum_dynamic_backward_error,
-                   block.maximum_dynamic_backward);
+      add(block);
+    }
+    if (workload.enriched_coarse_evidence().has_value()) {
+      add(*workload.enriched_coarse_evidence());
     }
   }
 };
@@ -2171,7 +2661,8 @@ void write_results(const fs::path& path, const std::vector<RunResult>& results,
                    const FactorEvidence& factor_evidence,
                    std::size_t unique_factor_payloads,
                    std::string_view disposition,
-                   int executed_maximum_iterations = kMaximumIterations) {
+                   int executed_maximum_iterations = kMaximumIterations,
+                   bool issue62_cohort = false) {
   fs::create_directories(path.parent_path());
   const auto temporary = path.string() + ".tmp";
   std::ofstream out(temporary, std::ios::binary | std::ios::trunc);
@@ -2180,7 +2671,11 @@ void write_results(const fs::path& path, const std::vector<RunResult>& results,
   }
   out << std::setprecision(17);
   out << "{\n";
-  out << "  \"schema\": \"RapidRBF/FgmresRasMechanismPanel/v1\",\n";
+  out << "  \"schema\": \""
+      << (issue62_cohort
+              ? "RapidRBF/Coarse4096MechanismPanel/v1"
+              : "RapidRBF/FgmresRasMechanismPanel/v1")
+      << "\",\n";
   out << "  \"prototype_disposition\": \"" << disposition << "\",\n";
   out << "  \"authority\": {\n";
   out << "    \"canonical_corpus_sha256\": \"" << kCorpusDigest << "\",\n";
@@ -2190,8 +2685,11 @@ void write_results(const fs::path& path, const std::vector<RunResult>& results,
   out << "    \"operator_routes\": {\n";
   out << "      \"1k\": \"complete-direct-matrix-action\",\n";
   out << "      \"M3-HERMITE-10K\": \"complete-direct-matrix-action\",\n";
-  out << "      \"other_10k\": "
-         "\"frozen-polatory-zero-request-screening-action\"\n";
+  out << "      \"other_10k\": \""
+      << (issue62_cohort
+              ? "complete-direct-matrix-action"
+              : "frozen-polatory-zero-request-screening-action")
+      << "\"\n";
   out << "    },\n";
   out << "    \"formal_fit_acceptance_claimed\": false\n";
   out << "  },\n";
@@ -2209,7 +2707,20 @@ void write_results(const fs::path& path, const std::vector<RunResult>& results,
   out << "    \"maximum_qualification_backward_error\": "
       << factor_evidence.maximum_qualification_backward_error << ",\n";
   out << "    \"maximum_dynamic_backward_error\": "
-      << factor_evidence.maximum_dynamic_backward_error << "\n";
+      << factor_evidence.maximum_dynamic_backward_error << ",\n";
+  out << "    \"generated_enriched_factor_sources\": "
+      << factor_evidence.generated_enriched_factor_sources << ",\n";
+  out << "    \"generated_enriched_reference_rhs_passes\": "
+      << factor_evidence.generated_enriched_reference_rhs_passes << ",\n";
+  out << "    \"generated_enriched_reference_refinements\": "
+      << factor_evidence.generated_enriched_reference_refinements << ",\n";
+  out << "    \"maximum_generated_reference_q_upper\": "
+      << factor_evidence.maximum_generated_reference_q_upper << ",\n";
+  out << "    \"maximum_generated_reference_inverse_norm_upper\": "
+      << factor_evidence.maximum_generated_reference_inverse_norm_upper
+      << ",\n";
+  out << "    \"maximum_generated_reference_relative_radius\": "
+      << factor_evidence.maximum_generated_reference_relative_radius << "\n";
   out << "  },\n";
   out << "  \"frozen_profile\": {\n";
   out << "    \"fit_tolerance_hex\": \"0x1p-24\",\n";
@@ -2221,6 +2732,8 @@ void write_results(const fs::path& path, const std::vector<RunResult>& results,
       << kMaximumPreconditionerOperatorActions << ",\n";
   out << "    \"openmp_threads\": 8,\n";
   out << "    \"mkl_threads\": 1,\n";
+  out << "    \"process_peak_working_set_limit_bytes\": "
+      << kIssue62PeakWorkingSetLimit << ",\n";
   out << "    \"windows\": [5, 32, 64]\n";
   out << "  },\n";
   out << "  \"diagnostic_execution\": {\n";
@@ -2238,6 +2751,20 @@ void write_results(const fs::path& path, const std::vector<RunResult>& results,
     out << "      \"gradient_scale\": " << run.gradient_scale << ",\n";
     out << "      \"enriched_coarse_target\": "
         << run.enriched_coarse_target << ",\n";
+    out << "      \"action_identity_sha256\": \""
+        << run.action_identity_sha256 << "\",\n";
+    out << "      \"coarse_qtaq_source_sha256\": \""
+        << run.coarse_qtaq_source_sha256 << "\",\n";
+    out << "      \"coarse_p_top_source_sha256\": \""
+        << run.coarse_p_top_source_sha256 << "\",\n";
+    out << "      \"coarse_qtaq_reference_manifest_sha256\": \""
+        << run.coarse_qtaq_reference_manifest_sha256 << "\",\n";
+    out << "      \"coarse_p_top_reference_manifest_sha256\": \""
+        << run.coarse_p_top_reference_manifest_sha256 << "\",\n";
+    out << "      \"solution_sha256\": \"" << run.solution_sha256
+        << "\",\n";
+    out << "      \"run_identity_sha256\": \""
+        << run.run_identity_sha256 << "\",\n";
     out << "      \"window\": " << run.window << ",\n";
     out << "      \"status\": \"" << run.status << "\",\n";
     out << "      \"iterations\": " << run.iterations << ",\n";
@@ -2319,6 +2846,7 @@ struct Arguments {
   bool quick{};
   bool audit_only{};
   bool mechanism_audit_only{};
+  bool issue62_cohort{};
 };
 
 Arguments parse_arguments(int argc, char** argv) {
@@ -2354,6 +2882,8 @@ Arguments parse_arguments(int argc, char** argv) {
       result.audit_only = true;
     } else if (argument == "--mechanism-audit-only") {
       result.mechanism_audit_only = true;
+    } else if (argument == "--issue62-cohort") {
+      result.issue62_cohort = true;
     } else {
       fail("unknown argument: " + argument);
     }
@@ -2368,6 +2898,13 @@ Arguments parse_arguments(int argc, char** argv) {
   if (result.enriched_coarse_target != 0 &&
       result.enriched_coarse_target != 4096) {
     fail("--enriched-coarse-target permits only the bounded 4096 probe");
+  }
+  if (result.issue62_cohort &&
+      (result.workload.has_value() || result.quick || result.audit_only ||
+       result.mechanism_audit_only || result.balance_gradient_block_max ||
+       result.fine_coarse_fine || result.enriched_coarse_target != 0 ||
+       result.maximum_iterations != kMaximumIterations)) {
+    fail("--issue62-cohort requires the exact frozen full-cohort profile");
   }
   return result;
 }
@@ -2417,6 +2954,140 @@ int main(int argc, char** argv) {
     }
     const auto references =
         load_references(arguments.reference, all_factor_hashes);
+
+    if (arguments.issue62_cohort) {
+      const auto one_k_count = std::count_if(
+          descriptors.begin(), descriptors.end(), [](const auto& descriptor) {
+            return descriptor.template get<std::string>("scale_id") == "1k";
+          });
+      const auto ten_k_count = std::count_if(
+          descriptors.begin(), descriptors.end(), [](const auto& descriptor) {
+            return descriptor.template get<std::string>("scale_id") == "10k";
+          });
+      if (descriptors.size() != 12 || one_k_count != 6 ||
+          ten_k_count != 6) {
+        fail("Issue 62 cohort must contain exactly six 1k and six 10k "
+             "workloads");
+      }
+
+      std::cout << "\nRapidRBF Issue 62 frozen coarse4096 cohort\n";
+      std::cout << "  runs: 6 unchanged 1k identities + "
+                   "6 current-coarse 10k + 6 coarse4096 10k\n";
+      std::cout << "  solver: complete-direct robust MGS/DGKS "
+                   "coarse-fine-coarse residual correction, m=64, max=100\n";
+      bool controls_valid = true;
+      bool one_k_identity_pass = true;
+      bool candidate_pass = true;
+      bool evidence_complete = true;
+      std::set<std::string> cohort_factor_hashes = all_factor_hashes;
+      std::size_t observed_one_k = 0;
+      std::size_t observed_current_ten_k = 0;
+      std::size_t observed_candidate_ten_k = 0;
+
+      const auto finish_run = [&](WorkloadContext& workload,
+                                  RunResult run,
+                                  std::string_view variant) {
+        run.direct_certificate = workload.certify_direct(run.solution);
+        run.status = run.direct_certificate->pass
+                         ? "MECHANISM_CERTIFIED"
+                         : "DIRECT_CERTIFICATE_FAILED";
+        const bool contract =
+            run.topology == Topology::FrozenResidualCorrection &&
+            run.window == 64 &&
+            run.orthogonalization == Orthogonalization::RobustMgsDgks &&
+            run.gradient_scale == 1.0 &&
+            run.actions.preconditioner <=
+                kMaximumPreconditionerOperatorActions &&
+            run.memory.peak_working_set_bytes <=
+                kIssue62PeakWorkingSetLimit &&
+            !run.action_identity_sha256.empty() &&
+            !run.coarse_qtaq_source_sha256.empty() &&
+            !run.coarse_qtaq_reference_manifest_sha256.empty() &&
+            !run.solution_sha256.empty() &&
+            !run.run_identity_sha256.empty() &&
+            run.direct_certificate.has_value();
+        evidence_complete = evidence_complete && contract;
+        cohort_factor_hashes.insert(run.coarse_qtaq_source_sha256);
+        if (!run.coarse_p_top_source_sha256.empty()) {
+          cohort_factor_hashes.insert(run.coarse_p_top_source_sha256);
+        }
+        std::cout << "  " << variant << " " << run.status
+                  << " iter=" << run.iterations << " value="
+                  << std::scientific
+                  << run.direct_certificate->value_residual << " grad="
+                  << run.direct_certificate->gradient_residual << " cpd="
+                  << run.direct_certificate->cpd_eta << std::defaultfloat
+                  << " preconditioner-actions="
+                  << run.actions.preconditioner << " peak="
+                  << run.memory.peak_working_set_bytes << "\n";
+        results.push_back(std::move(run));
+      };
+
+      for (const auto& descriptor : descriptors) {
+        const auto workload_id =
+            descriptor.get<std::string>("workload_id");
+        const auto scale_id = descriptor.get<std::string>("scale_id");
+        std::cout << "\n[" << workload_id
+                  << "] complete-direct frozen controls...\n";
+        WorkloadContext workload(corpus, descriptor, references, false, true);
+
+        auto current =
+            run_fgmres(workload, Topology::FrozenResidualCorrection, 64,
+                       Orthogonalization::RobustMgsDgks,
+                       kMaximumIterations, 1.0, 0);
+        const bool current_pass =
+            workload.certify_direct(current.solution).pass;
+        if (scale_id == "1k") {
+          ++observed_one_k;
+          one_k_identity_pass = one_k_identity_pass && current_pass;
+          finish_run(workload, std::move(current),
+                     "unchanged-1k-identity");
+        } else if (scale_id == "10k") {
+          ++observed_current_ten_k;
+          const bool expected_current_pass =
+              workload_id != "M3-HERMITE-10K";
+          controls_valid =
+              controls_valid &&
+              current_pass == expected_current_pass;
+          finish_run(workload, std::move(current), "current-coarse");
+
+          std::cout << "  coarse4096 reference and factor "
+                       "qualification before candidate entry...\n";
+          workload.prepare_enriched_coarse(4096);
+          auto candidate =
+              run_fgmres(workload, Topology::FrozenResidualCorrection, 64,
+                         Orthogonalization::RobustMgsDgks,
+                         kMaximumIterations, 1.0, 4096);
+          const bool this_candidate_pass =
+              workload.certify_direct(candidate.solution).pass;
+          candidate_pass = candidate_pass && this_candidate_pass;
+          ++observed_candidate_ten_k;
+          finish_run(workload, std::move(candidate), "coarse4096");
+        } else {
+          fail("Issue 62 cohort found an unexpected scale");
+        }
+        factor_evidence.add(workload);
+      }
+
+      evidence_complete =
+          evidence_complete && observed_one_k == 6 &&
+          observed_current_ten_k == 6 &&
+          observed_candidate_ten_k == 6 && results.size() == 18 &&
+          factor_evidence.generated_enriched_factor_sources == 12 &&
+          factor_evidence.generated_enriched_reference_rhs_passes == 36;
+      const std::string disposition =
+          !evidence_complete || !controls_valid
+              ? "INVALID_UNJUDGED"
+              : (candidate_pass && one_k_identity_pass
+                     ? "COARSE4096_GLOBAL_SURVIVOR"
+                     : "COARSE4096_REJECTED_DIAGNOSTIC_ONLY");
+      write_results(arguments.output, results, {}, {}, factor_evidence,
+                    cohort_factor_hashes.size(), disposition,
+                    kMaximumIterations, true);
+      std::cout << "\nresult: " << arguments.output << "\n";
+      std::cout << "disposition: " << disposition << "\n";
+      return 0;
+    }
 
     if (arguments.mechanism_audit_only) {
       if (descriptors.size() != 1 ||
