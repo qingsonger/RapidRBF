@@ -49,7 +49,10 @@ def run(policy: str) -> dict[str, Any]:
                 return
             fired = True
             release.write_text("release\n", encoding="utf-8")
-            time.sleep(0.050)
+            # Rosetta startup on the x86_64 macOS runner can exceed 50 ms.
+            # The hook is diagnostic-only, so wait long enough to cross the
+            # root terminal on every native lane before resuming inventory.
+            time.sleep(0.250 if sys.platform == "darwin" else 0.050)
 
         before = release_and_cross_terminal if sys.platform.startswith("linux") else None
         after = (

@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - codex/diagnose-terminal-sampling-race
+    paths:
+      - .github/workflows/diagnose-terminal-sampling.yml
+      - tools/prototypes/double_double_refinement_witness_throwaway/controller_observer.py
+      - tools/prototypes/terminal_sampling_diagnosis_throwaway/**
 
 permissions:
   contents: read
@@ -27,7 +31,21 @@ jobs:
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - name: Configure canonical Git bytes on Windows before checkout
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          git config --global core.longpaths true
+          git config --global core.autocrlf false
+      - name: Check out only the diagnostic surface
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          clean: true
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            tools/prototypes/double_double_refinement_witness_throwaway
+            tools/prototypes/terminal_sampling_diagnosis_throwaway
       - name: Replay captured Issue 53 traces
         shell: pwsh
         run: |
