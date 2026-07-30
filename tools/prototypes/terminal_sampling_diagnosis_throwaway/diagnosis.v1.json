@@ -1,0 +1,84 @@
+{
+  "schema": "RapidRBF/TerminalSamplingDiagnosis/v1",
+  "disposition": "ROOT_TERMINAL_SAMPLING_POLICY_DEFECT_PROVEN",
+  "source": {
+    "issue_53_git_sha": "5fcfbd79ab0d3870a919da0cfecd1ddf2b0ab51f",
+    "issue_53_run_id": "30499912966",
+    "issue_53_cohort_artifact_id": "8743300549",
+    "issue_53_cohort_summary_sha256": "1677aedf4a7d2cdc195dbfc87a35ba691dc9b3273c4148ecaf08993bc1ea0124",
+    "diagnostic_git_sha": "bacda87742e0f0519fb33e1ff69cacad0108508d",
+    "diagnostic_run_id": "30501964813",
+    "diagnostic_run_url": "https://github.com/qingsonger/RapidRBF/actions/runs/30501964813"
+  },
+  "cause": {
+    "primary": "The non-reaping sampler started a process-tree inventory while the root was live, the root exited normally, and the sole waiter recorded or was about to record terminal/reap. The Issue 53 eligibility rule admitted only macOS root task-info ESRCH, so Linux group-membership ESRCH and macOS BSD-identity ESRCH were classified as controller invalidity even when the same root handle closed normally within 1-16 ms.",
+    "secondary": "The macOS controller-abort kill raced the already completed process and returned EPERM after the primary invalidity. It did not cause the first sampling error or the cohort disposition.",
+    "not_candidate_owned": "All 12 candidate payloads supported the route, all 216 RHS observations completed, and the defect was reproduced with synthetic helpers at zero candidate, backend, factor, and solve calls."
+  },
+  "captured_evidence": {
+    "invalid_coordinates": 7,
+    "legacy_policy_invalid": 7,
+    "candidate_nonpass_coordinates": 0,
+    "terminal_from_sample_start_ms": {
+      "minimum": 1.492,
+      "maximum": 15.579
+    },
+    "old_observations_reusable": false,
+    "reuse_blocker": "The captured adapter failures did not record subject_pid, so they cannot prove that the disappearing process was the root owned by the sole waiter."
+  },
+  "diagnostic_boundary": {
+    "name": "root-bound same-handle terminal closure",
+    "required_error_fields": [
+      "adapter",
+      "errno",
+      "error_name",
+      "phase",
+      "subject_pid",
+      "root_pid",
+      "invocation_nonce",
+      "sample_started_ns",
+      "sample_finished_ns"
+    ],
+    "benign_only_when": [
+      "errno is ESRCH",
+      "subject_pid exactly equals the launched root_pid",
+      "the adapter phase is an enumerated native process-tree inventory phase",
+      "the sole waiter records terminal for the same invocation handle",
+      "terminal is no earlier than sample start and no later than 1000 ms after adapter failure",
+      "the incomplete sample contributes no sample, error, or maximum-thread value"
+    ],
+    "must_remain_nonpassing": [
+      "missing subject_pid or phase",
+      "non-root process disappearance",
+      "non-ESRCH adapter failure",
+      "wrong invocation handle",
+      "terminal before sample start",
+      "terminal later than the 1000 ms reconciliation window",
+      "more than one terminal reconciliation",
+      "incomplete process-tree cleanup",
+      "candidate non-zero exit, timeout, or thread-grant excess after otherwise valid evidence"
+    ]
+  },
+  "native_probe": {
+    "targets": 4,
+    "all_jobs_passed": true,
+    "linux_exact_phase": "linux-proc-process-tree/group-membership",
+    "macos_arm64_exact_phase": "macos-proc-process-tree/bsd-identity",
+    "macos_x86_64_exact_phase": "macos-proc-process-tree/bsd-identity",
+    "windows_policy_controls_passed": true,
+    "candidate_entry_count": 0,
+    "backend_call_count": 0,
+    "factor_call_count": 0,
+    "solve_call_count": 0
+  },
+  "wayfinder": {
+    "fresh_successor_plan_decision_permitted": true,
+    "issue_53_rerun_or_repair_permitted": false,
+    "issue_53_observation_reuse_permitted": false,
+    "candidate_execution_permitted_by_this_diagnosis": false,
+    "factor_route_admitted": false,
+    "factor_corpus_admitted": false,
+    "mechanism_panel_unblocked": false,
+    "recommended_successor_title": "Freeze a root-bound terminal-closure plan for a fresh refinement witness cohort"
+  }
+}

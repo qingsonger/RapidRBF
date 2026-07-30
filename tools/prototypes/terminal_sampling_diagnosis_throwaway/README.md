@@ -35,3 +35,19 @@ The workflow `.github/workflows/diagnose-terminal-sampling.yml` additionally
 forces the helper to cross the native inventory boundary at the two captured
 failure phases: Linux process-group membership and macOS BSD identity. It is
 diagnostic-only and has no candidate build or execution step.
+
+The complete four-lane run passed at
+https://github.com/qingsonger/RapidRBF/actions/runs/30501964813 for exact
+diagnostic commit `bacda87742e0f0519fb33e1ff69cacad0108508d`.
+
+Review the full state interactively:
+
+```text
+python tools/prototypes/terminal_sampling_diagnosis_throwaway/tui.py
+```
+
+The provisional disposition is
+`ROOT_TERMINAL_SAMPLING_POLICY_DEFECT_PROVEN`. The root-bound same-handle
+boundary may justify a fresh successor *plan decision*, but does not make any
+Issue 53 observation reusable, authorize candidate execution, or admit the
+factor route.
