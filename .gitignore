@@ -4,3 +4,4 @@
 /baseline/staging/
 **/__pycache__/
 *.pyc
+/.prototype-cache/
