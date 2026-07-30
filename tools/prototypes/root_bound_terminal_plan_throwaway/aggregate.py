@@ -189,7 +189,7 @@ def main(root: Path, output: Path) -> None:
         "non_reuse": {
             "issue_53_observations_used": 0,
             "issue_54_diagnostic_observations_used_as_candidate_counts": 0,
-            "issue_55_observations_are_candidate_counts": false,
+            "issue_55_observations_are_candidate_counts": False,
         },
     }
     output.mkdir(parents=True)
