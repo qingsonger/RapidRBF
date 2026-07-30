@@ -120,13 +120,23 @@
     ]
   },
   "identity_and_non_reuse": {
-    "plan_identity": "TO_BE_FROZEN_AFTER_HITL_REVIEW",
-    "controller_identity": "TO_BE_FROZEN_AFTER_FOUR_LANE_PREFLIGHT",
-    "workflow_identity": "TO_BE_FROZEN_AFTER_FOUR_LANE_PREFLIGHT",
-    "prototype_commit": "TO_BE_FROZEN_AFTER_FOUR_LANE_PREFLIGHT",
-    "controller_only_run": "TO_BE_FROZEN_AFTER_FOUR_LANE_PREFLIGHT",
-    "controller_only_artifact": "TO_BE_FROZEN_AFTER_FOUR_LANE_PREFLIGHT",
-    "aggregation_identity": "TO_BE_FROZEN_AFTER_FOUR_LANE_PREFLIGHT",
+    "plan_identity": "external SHA-256 of this exact file, recorded with the provisional HITL decision",
+    "controller_identity": "1370ecd1ee86ca569d53b5f474dc861879ae252c34544599d5fb2c2e84ca0409",
+    "source_binding_identity": "1e299830bb614f986ab70e3d12b33376caea12125234004a9ed70fa3c3e9f205",
+    "workflow_identity": "e164d49f6821d07c1c1d43392ace093b0ada82a61c6b1405b96f6cfbe84d628f",
+    "prototype_commit": "3bc7dc23b7f64cb0fc4ee4e5a6599c4d12bb8b7b",
+    "controller_only_run": {
+      "id": 30504314061,
+      "attempt": 1,
+      "url": "https://github.com/qingsonger/RapidRBF/actions/runs/30504314061"
+    },
+    "controller_only_artifact": {
+      "id": 8744719768,
+      "name": "rapidrbf-issue55-root-bound-cohort-3bc7dc23b7f64cb0fc4ee4e5a6599c4d12bb8b7b-run-30504314061-attempt-1",
+      "archive_sha256": "cf2d1c57814bb79bf26139b8c9dd0b0a2d71438db9bfd0f74cfa778439b30064",
+      "cohort_json_sha256": "27b18ff64bf3bc5cfe0c6cade6de889a4677608473204c51b3521e6283a4673e"
+    },
+    "aggregation_identity": "2b4271b1aabc473d8897e398022d532458292cecd4ba368ca90b80946019ef83",
     "future_execution_commit": "must be a fresh exact pushed commit materialized by a separate execution ticket",
     "future_execution_run": "must be attempt 1 of one human-ratified workflow run",
     "issue_53_observations_may_satisfy_any_count": false,
@@ -134,8 +144,11 @@
     "issue_55_preflight_observations_may_satisfy_any_candidate_count": false
   },
   "validation": {
-    "status": "PENDING_FOUR_LANE_ZERO_ENTRY_PREFLIGHT",
+    "status": "ROOT_BOUND_FOUR_LANE_ZERO_ENTRY_PREFLIGHT_PASS",
     "inherited_ready_gated_checks_per_lane": 277,
+    "inherited_ready_gated_checks_total": 1108,
+    "root_bound_checks_per_lane": 25,
+    "root_bound_checks_total": 100,
     "candidate_built": false,
     "candidate_executed": false,
     "candidate_entries": 0,
@@ -147,7 +160,13 @@
       "linux-proc-process-tree/group-membership",
       "macos-proc-process-tree/bsd-identity on arm64",
       "macos-proc-process-tree/bsd-identity on x86_64"
-    ]
+    ],
+    "discarded_prototype_validation": {
+      "run_id": 30504167820,
+      "commit": "43eed50897b2f9c02f8396e45fa4dda61e392954",
+      "status": "INVALID_NO_COHORT_ARTIFACT",
+      "cause": "The four lanes passed, but the prototype aggregator raised a Python NameError before producing a cohort. No result from this run satisfies the accepted validation count."
+    }
   },
   "fresh_execution_plan": {
     "ticket_count": 1,

@@ -40,6 +40,19 @@ aggregation job rejects mixed commits, runs, controller bindings, workflow
 identities, incomplete evidence, reruns, or any nonzero candidate/backend/
 factor/solve/observation count.
 
+The complete four-lane zero-entry validation passed in
+https://github.com/qingsonger/RapidRBF/actions/runs/30504314061 at exact
+prototype commit `3bc7dc23b7f64cb0fc4ee4e5a6599c4d12bb8b7b`. It closed 1,108
+inherited checks and 100 root-bound checks. The cohort artifact is
+`8744719768`, archive SHA-256
+`cf2d1c57814bb79bf26139b8c9dd0b0a2d71438db9bfd0f74cfa778439b30064`;
+its cohort JSON SHA-256 is
+`27b18ff64bf3bc5cfe0c6cade6de889a4677608473204c51b3521e6283a4673e`.
+
+An earlier prototype run, `30504167820`, is retained as invalid and satisfies
+no validation count: all four lanes passed, but a Python boolean typo stopped
+aggregation before any cohort artifact was produced.
+
 This prototype does not build or execute the refinement candidate, run the
 witness cohort, admit a factor route or corpus, run the mechanism panel, repair
 Issue 53, or turn Issue 53/54/55 controller-only observations into candidate
