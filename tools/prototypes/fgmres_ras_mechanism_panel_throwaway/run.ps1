@@ -5,6 +5,8 @@ param(
   [string] $Workload = "",
   [ValidateRange(1, 100)]
   [int] $MaximumIterations = 100,
+  [ValidateRange(1, 100)]
+  [int] $Window = 32,
   [ValidateSet(0, 4096)]
   [int] $EnrichedCoarseTarget = 0,
   [switch] $Quick,
@@ -83,7 +85,8 @@ $arguments = @(
   "--corpus", $Corpus,
   "--reference", $Reference,
   "--output", $Output,
-  "--maximum-iterations", $MaximumIterations
+  "--maximum-iterations", $MaximumIterations,
+  "--window", $Window
 )
 if ($EnrichedCoarseTarget -ne 0) {
   $arguments += @("--enriched-coarse-target", $EnrichedCoarseTarget)

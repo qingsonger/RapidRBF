@@ -1,0 +1,55 @@
+{
+  "schema": "RapidRBF/ResidualStagnationDiagnosisReproduction/v1",
+  "captured_at_utc": "2026-07-30T15:48:02.1892234Z",
+  "command": ".\\run.ps1 -Quick -Workload M3-HERMITE-10K -MaximumIterations 100 -Window 100 -EnrichedCoarseTarget 4096 -Output D:\\CODE\\interp\\RapidRBF-issue63-prototype\\.prototype-cache\\results\\issue63-m100.json",
+  "candidate_attempt_count": 1,
+  "pre_candidate_wrapper_timeout_count": 1,
+  "pre_candidate_wrapper_timeout_note": "The first one-second tool wrapper ended during setup before candidate entry and published no result; the recorded fresh-path run is the sole completed candidate execution.",
+  "runner_exit_code": 0,
+  "diagnostic_disposition": "FULL_WINDOW_STILL_EXHAUSTS_WORK_GRANT",
+  "result": {
+    "bytes": 3844,
+    "sha256": "696bc9b0b63f11cd1b44b4f198ff4ed5866d6999f4eaaccbb0ffc625b1d56e42"
+  },
+  "source_closure": {
+    "main_cpp": {
+      "bytes": 135275,
+      "sha256": "9bd4faa961b7d3ade88e01de19d46c733082ee41e36d448e861061fda1ccf602"
+    },
+    "run_ps1": {
+      "bytes": 4420,
+      "sha256": "cef01d061ca6d81366fe67cc4b30c9987842df84bd51e211106ed7cfa5c4ac33"
+    },
+    "cmake_lists": {
+      "bytes": 2285,
+      "sha256": "ec0df5f320fe5ad6e1a5dafed73cac40c30813a0f0a04885df21b0808813cdc0"
+    },
+    "executable": {
+      "bytes": 5724672,
+      "sha256": "f9b10cb342fb638f867461cc2248a5ef72f582c284581cc1a7a9b374d578ab5e"
+    }
+  },
+  "frozen_inputs": {
+    "polatory_commit": "4a30beb08053fb339ce899e255be4b6d3f74aa0c",
+    "corpus_digest": "38f39fee8b4059cd2619df4bbfabb6f7159b41df1511907e0346c32642737f79",
+    "existing_factor_reference_manifest_sha256": "6ed634a288145dfb3688e6e480f9519c1dbbe5c528aa9bb4b825eb57bc1b584a"
+  },
+  "execution_profile": {
+    "workload": "M3-HERMITE-10K",
+    "topology": "frozen-residual-correction-ras",
+    "coarse_scalar_target": 4096,
+    "openmp_threads": 8,
+    "mkl_threads": 1,
+    "maximum_iterations": 100,
+    "restart_window": 100,
+    "maximum_preconditioner_operator_actions": 240,
+    "process_peak_working_set_limit_bytes": 8589934592
+  },
+  "authority_note": "M3-HERMITE-10K uses the complete-direct matrix action, so the recorded bound_certificate is the complete external certificate. direct_certificate is null only because this diagnostic path does not repeat that same complete action after the endpoint.",
+  "cleanup": {
+    "subject_process_absent_after_exit": true,
+    "result_temporary_file_absent": true,
+    "generated_factor_artifacts_written": 0,
+    "result_published_atomically": true
+  }
+}

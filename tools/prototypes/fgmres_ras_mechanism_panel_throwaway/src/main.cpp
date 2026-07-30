@@ -2840,6 +2840,7 @@ struct Arguments {
   fs::path output;
   std::optional<std::string> workload;
   int maximum_iterations{kMaximumIterations};
+  int diagnostic_window{32};
   Index enriched_coarse_target{};
   bool balance_gradient_block_max{};
   bool fine_coarse_fine{};
@@ -2869,6 +2870,8 @@ Arguments parse_arguments(int argc, char** argv) {
       result.workload = take(argument);
     } else if (argument == "--maximum-iterations") {
       result.maximum_iterations = std::stoi(take(argument));
+    } else if (argument == "--window") {
+      result.diagnostic_window = std::stoi(take(argument));
     } else if (argument == "--balance-gradient-block-max") {
       result.balance_gradient_block_max = true;
     } else if (argument == "--enriched-coarse-target") {
@@ -2895,6 +2898,10 @@ Arguments parse_arguments(int argc, char** argv) {
       result.maximum_iterations > kMaximumIterations) {
     fail("--maximum-iterations must be in [1, 100]");
   }
+  if (result.diagnostic_window < 1 ||
+      result.diagnostic_window > kMaximumIterations) {
+    fail("--window must be in [1, 100]");
+  }
   if (result.enriched_coarse_target != 0 &&
       result.enriched_coarse_target != 4096) {
     fail("--enriched-coarse-target permits only the bounded 4096 probe");
@@ -2903,7 +2910,8 @@ Arguments parse_arguments(int argc, char** argv) {
       (result.workload.has_value() || result.quick || result.audit_only ||
        result.mechanism_audit_only || result.balance_gradient_block_max ||
        result.fine_coarse_fine || result.enriched_coarse_target != 0 ||
-       result.maximum_iterations != kMaximumIterations)) {
+       result.maximum_iterations != kMaximumIterations ||
+       result.diagnostic_window != 32)) {
     fail("--issue62-cohort requires the exact frozen full-cohort profile");
   }
   return result;
@@ -3206,7 +3214,7 @@ int main(int argc, char** argv) {
         run_and_report(arguments.fine_coarse_fine
                            ? Topology::FineCoarseFineResidualCorrection
                            : Topology::FrozenResidualCorrection,
-                       32,
+                       arguments.diagnostic_window,
                        Orthogonalization::RobustMgsDgks);
       } else if (workload.scale_id() == "1k") {
         for (const auto topology : topologies) {

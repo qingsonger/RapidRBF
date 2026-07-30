@@ -1,3 +1,28 @@
+# Issue 63 throwaway residual-stagnation diagnosis
+
+This branch answers one bounded question: does the residual M3 failure come
+from `m=64` restart truncation, or is restarted right-FGMRES with the
+same-hierarchy RAS family exhausted for v1?
+
+Replay the accepted Issue 62 red state:
+
+```powershell
+.\repro-issue63.ps1
+```
+
+Review the single-variable full-window result and proposed disposition:
+
+```powershell
+.\review-issue63.ps1
+```
+
+The diagnosis is captured in [`evidence/ISSUE63.md`](evidence/ISSUE63.md).
+The sole new run changes only the Krylov window from 64 to 100 while retaining
+the 100-iteration and 200-internal-action endpoint. It is a diagnostic, not a
+new solver, factor-backend admission, or production configuration.
+
+## Issue 62 lineage
+
 # Issue 62 throwaway coarse4096 mechanism-panel gate
 
 This branch answers one frozen question: does the canonical 4,096-target
