@@ -3,8 +3,15 @@ param(
   [string] $Reference = "D:\CODE\interp\RapidRBF-issue32\.prototype-cache\issue47\expanded\official-run-30450649081\rapidrbf-repaired-reference-46716da137e6b4a9eaf062cafa8ac3674a411f44-run-30450649081-attempt-1\reference-manifest.v1.json",
   [string] $Output = "",
   [string] $Workload = "",
+  [ValidateRange(1, 100)]
+  [int] $MaximumIterations = 100,
+  [ValidateSet(0, 4096)]
+  [int] $EnrichedCoarseTarget = 0,
   [switch] $Quick,
   [switch] $AuditOnly,
+  [switch] $MechanismAuditOnly,
+  [switch] $BalanceGradientBlockMax,
+  [switch] $FineCoarseFine,
   [string] $PolatorySource = "D:\CODE\polatory",
   [string] $PolatoryBuild = "D:\CODE\polatory\build",
   [string] $OpenMpLibrary = "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\lib\x64\libomp.lib"
@@ -74,8 +81,12 @@ if ([string]::IsNullOrWhiteSpace($Output)) {
 $arguments = @(
   "--corpus", $Corpus,
   "--reference", $Reference,
-  "--output", $Output
+  "--output", $Output,
+  "--maximum-iterations", $MaximumIterations
 )
+if ($EnrichedCoarseTarget -ne 0) {
+  $arguments += @("--enriched-coarse-target", $EnrichedCoarseTarget)
+}
 if (-not [string]::IsNullOrWhiteSpace($Workload)) {
   $arguments += @("--workload", $Workload)
 }
@@ -84,6 +95,15 @@ if ($Quick) {
 }
 if ($AuditOnly) {
   $arguments += "--audit-only"
+}
+if ($MechanismAuditOnly) {
+  $arguments += "--mechanism-audit-only"
+}
+if ($BalanceGradientBlockMax) {
+  $arguments += "--balance-gradient-block-max"
+}
+if ($FineCoarseFine) {
+  $arguments += "--fine-coarse-fine"
 }
 & (Join-Path $build "Release\rapidrbf-fgmres-ras-panel.exe") @arguments
 if ($LASTEXITCODE -ne 0) {

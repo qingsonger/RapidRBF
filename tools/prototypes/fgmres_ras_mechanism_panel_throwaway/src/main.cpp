@@ -1,14 +1,13 @@
-// THROWAWAY PROTOTYPE: Issue 32 FGMRES/RAS mechanism panel.
+// THROWAWAY PROTOTYPE: Issue 61 M3-HERMITE-10K mechanism diagnosis.
 //
-// Question: under one hash-bound canonical M1-M4 hierarchy/factor corpus and
-// one fixed matrix action, which restarted right-FGMRES window,
-// orthogonalization policy, and same-hierarchy RAS topology are robust enough
-// to carry into the 100k resource/storage experiment?
+// Question: why does the accepted Issue 32 family fail only the mixed-gradient
+// M3-HERMITE-10K complete certificate, and which one bounded mechanism change
+// is strong enough to freeze as the next experiment?
 //
-// This is evidence code, not a production solver.  The Polatory action is a
-// frozen observation route.  Local factors are run-scoped and independently
-// checked against the repaired frozen-system reference; they are not a
-// release-admitted factor backend.
+// This extends the Issue 32 primary source on a throwaway branch.  It is
+// evidence code, not a production solver.  Existing local factors retain their
+// run-scoped repaired-reference checks.  The synthetic 4096-target coarse
+// factor is diagnostic-only and is not a release-admitted factor backend.
 
 #include <windows.h>
 
@@ -41,6 +40,7 @@
 #include <limits>
 #include <map>
 #include <memory>
+#include <numeric>
 #include <optional>
 #include <set>
 #include <sstream>
@@ -56,6 +56,8 @@
 #include <polatory/interpolation/operator.hpp>
 #include <polatory/model.hpp>
 #include <polatory/polynomial/monomial_basis.hpp>
+#include <polatory/polynomial/lagrange_basis.hpp>
+#include <polatory/preconditioner/domain_divider.hpp>
 #include <polatory/preconditioner/mat_a.hpp>
 #include <polatory/rbf/make_rbf.hpp>
 #include <polatory/types.hpp>
@@ -819,6 +821,7 @@ struct BlockFactor {
   std::vector<std::uint8_t> inner_value;
   std::vector<std::uint8_t> inner_gradient;
   MatrixXd q_top;
+  std::optional<MatrixXd> local_a;
   MatrixXd qtaq;
   Eigen::LDLT<MatrixXd> qtaq_factor;
   MatrixXd a_top;
@@ -827,6 +830,21 @@ struct BlockFactor {
   FactorQualification qtaq_qualification;
   FactorQualification p_top_qualification;
   double maximum_dynamic_backward{};
+
+  std::vector<Index> flat_indices() const {
+    std::vector<Index> result;
+    result.reserve(static_cast<std::size_t>(value_rows + 3 * gradient_points));
+    for (const auto index : value_indices) {
+      result.push_back(static_cast<Index>(index));
+    }
+    for (const auto index : gradient_indices) {
+      const auto base = source_value_rows + 3 * static_cast<Index>(index);
+      result.push_back(base);
+      result.push_back(base + 1);
+      result.push_back(base + 2);
+    }
+    return result;
+  }
 
   VectorXd gather(const VectorXd& residual) const {
     VectorXd local(value_rows + 3 * gradient_points);
@@ -979,7 +997,8 @@ std::set<std::string> wanted_factor_hashes(const Corpus& corpus,
 
 std::vector<BlockFactor> load_blocks(const Corpus& corpus,
                                      const std::string& workload_id,
-                                     const ReferenceMap& references) {
+                                     const ReferenceMap& references,
+                                     bool load_local_matrices) {
   std::vector<BlockFactor> result;
   for (const auto& [unused, node] : corpus.raw().get_child("blocks")) {
     static_cast<void>(unused);
@@ -1015,6 +1034,10 @@ std::vector<BlockFactor> load_blocks(const Corpus& corpus,
     if (block.polynomial_order > 0) {
       block.q_top = corpus.read_row_matrix(
           node.get<std::string>("artifacts.q_top_row_major"));
+    }
+    const auto a_lower_id = node.get<std::string>("artifacts.a_lower");
+    if (load_local_matrices) {
+      block.local_a = corpus.read_lower_matrix(a_lower_id);
     }
     const auto qtaq_id = node.get<std::string>("artifacts.qtaq_lower");
     const auto& qtaq_artifact = corpus.artifact(qtaq_id);
@@ -1056,7 +1079,6 @@ std::vector<BlockFactor> load_blocks(const Corpus& corpus,
         fail("run-scoped P_top input did not qualify: " + block.block_id + ": " +
              block.p_top_qualification.reason);
       }
-      const auto a_lower_id = node.get<std::string>("artifacts.a_lower");
       const auto& a_item = corpus.artifact(a_lower_id);
       const auto packed = corpus.read_vector<double>(a_lower_id, "f64");
       const Index local_order =
@@ -1097,7 +1119,8 @@ struct ActionCounts {
 class WorkloadContext {
  public:
   WorkloadContext(const Corpus& corpus, const pt::ptree& descriptor,
-                  const ReferenceMap& references)
+                  const ReferenceMap& references,
+                  bool mechanism_audit = false)
       : workload_id_(descriptor.get<std::string>("workload_id")),
         scale_id_(descriptor.get<std::string>("scale_id")),
         value_rows_(descriptor.get<Index>("value_rows")),
@@ -1111,7 +1134,7 @@ class WorkloadContext {
             descriptor.get<std::string>("artifacts.gradient_points"))),
         observations_(corpus.read_eigen_vector(
             descriptor.get<std::string>("artifacts.observations"))),
-        blocks_(load_blocks(corpus, workload_id_, references)),
+        blocks_(load_blocks(corpus, workload_id_, references, mechanism_audit)),
         polynomial_(
             polatory::polynomial::MonomialBasis<3>(model_.poly_degree())
                 .evaluate(points_, gradient_points_matrix_)),
@@ -1164,6 +1187,330 @@ class WorkloadContext {
   const MatrixXd& ap() const { return ap_; }
   const ActionCounts& counts() const { return counts_; }
   void reset_counts() { counts_ = {}; }
+
+  double block_max_balanced_gradient_scale() const {
+    if (!direct_a_.has_value() || value_rows_ == 0 ||
+        value_rows_ == scalar_order_) {
+      fail("block-max gradient scaling requires a mixed complete direct matrix");
+    }
+    const double value_value =
+        direct_a_->block(0, 0, value_rows_, value_rows_)
+            .cwiseAbs()
+            .maxCoeff();
+    const double gradient_gradient =
+        direct_a_
+            ->block(value_rows_, value_rows_, scalar_order_ - value_rows_,
+                    scalar_order_ - value_rows_)
+            .cwiseAbs()
+            .maxCoeff();
+    if (!(value_value > 0.0) || !(gradient_gradient > 0.0)) {
+      fail("block-max gradient scaling found a non-positive channel maximum");
+    }
+    return std::sqrt(value_value / gradient_gradient);
+  }
+
+  BlockFactor make_enriched_coarse(Index scalar_target) const {
+    if (!direct_a_.has_value() || workload_id_ != "M3-HERMITE-10K" ||
+        scalar_target != 4096) {
+      fail("the bounded enriched-coarse probe is defined only for M3 at 4096");
+    }
+    const auto existing_coarse = std::find_if(
+        blocks_.begin(), blocks_.end(),
+        [](const auto& block) { return block.role == "coarse"; });
+    if (existing_coarse == blocks_.end() ||
+        existing_coarse->value_rows < polynomial_order_) {
+      fail("enriched-coarse probe cannot recover polynomial anchor indices");
+    }
+
+    std::vector<Index> polynomial_indices;
+    polynomial_indices.reserve(static_cast<std::size_t>(polynomial_order_));
+    for (Index i = 0; i < polynomial_order_; ++i) {
+      polynomial_indices.push_back(static_cast<Index>(
+          existing_coarse->value_indices[static_cast<std::size_t>(i)]));
+    }
+    std::vector<Index> value_indices(polynomial_indices);
+    value_indices.reserve(static_cast<std::size_t>(value_rows_));
+    for (Index i = 0; i < value_rows_; ++i) {
+      if (std::find(polynomial_indices.begin(), polynomial_indices.end(), i) ==
+          polynomial_indices.end()) {
+        value_indices.push_back(i);
+      }
+    }
+    std::vector<Index> gradient_indices(
+        static_cast<std::size_t>(gradient_points_));
+    std::iota(gradient_indices.begin(), gradient_indices.end(), 0);
+
+    polatory::preconditioner::DomainDivider<3> divider(
+        points_, gradient_points_matrix_, value_indices, gradient_indices,
+        polynomial_indices);
+    auto [selected_values, selected_gradients] =
+        divider.choose_coarse_points(scalar_target);
+
+    BlockFactor block;
+    block.block_id = "M3-HERMITE-10K-enriched-coarse-4096-probe";
+    block.workload_id = workload_id_;
+    block.role = "coarse";
+    block.level = 0;
+    block.ordinal = 0;
+    block.source_value_rows = value_rows_;
+    block.value_rows = static_cast<Index>(selected_values.size());
+    block.gradient_points = static_cast<Index>(selected_gradients.size());
+    block.polynomial_order = polynomial_order_;
+    block.value_indices.assign(selected_values.begin(), selected_values.end());
+    block.gradient_indices.assign(selected_gradients.begin(),
+                                  selected_gradients.end());
+    block.inner_value.assign(selected_values.size(), 1);
+    block.inner_gradient.assign(selected_gradients.size(), 1);
+
+    const auto flat = block.flat_indices();
+    const Index local_order = static_cast<Index>(flat.size());
+    if (local_order < scalar_target || local_order >= scalar_order_) {
+      fail("enriched-coarse probe selected an unexpected scalar order");
+    }
+    MatrixXd local_a(local_order, local_order);
+    for (Index row = 0; row < local_order; ++row) {
+      for (Index column = 0; column < local_order; ++column) {
+        local_a(row, column) =
+            (*direct_a_)(flat[static_cast<std::size_t>(row)],
+                         flat[static_cast<std::size_t>(column)]);
+      }
+    }
+
+    polatory::polynomial::LagrangeBasis<3> lagrange(
+        model_.poly_degree(), points_(polynomial_indices, polatory::kAll));
+    const MatrixXd full_lagrange =
+        lagrange.evaluate(points_, gradient_points_matrix_);
+    const MatrixXd local_lagrange =
+        full_lagrange(flat, polatory::kAll);
+    const Index reduced = local_order - polynomial_order_;
+    block.q_top = -local_lagrange.bottomRows(reduced).transpose();
+    block.qtaq =
+        block.q_top.transpose() *
+            local_a.topLeftCorner(polynomial_order_, polynomial_order_) *
+            block.q_top +
+        block.q_top.transpose() *
+            local_a.topRightCorner(polynomial_order_, reduced) +
+        local_a.bottomLeftCorner(reduced, polynomial_order_) * block.q_top +
+        local_a.bottomRightCorner(reduced, reduced);
+    block.qtaq_factor.compute(block.qtaq);
+    if (block.qtaq_factor.info() != Eigen::Success) {
+      fail("enriched-coarse projected factorization failed");
+    }
+    block.a_top = local_a.topRows(polynomial_order_);
+    block.p_top = polynomial_(selected_values, polatory::kAll)
+                      .topRows(polynomial_order_);
+    block.p_top_factor.compute(block.p_top);
+    if (!block.p_top_factor.isInvertible()) {
+      fail("enriched-coarse polynomial factorization failed");
+    }
+    return block;
+  }
+
+  void write_mechanism_audit(const fs::path& path) const {
+    if (!direct_a_.has_value() || workload_id_ != "M3-HERMITE-10K") {
+      fail("mechanism audit requires the complete M3-HERMITE-10K direct matrix");
+    }
+
+    struct Distribution {
+      std::size_t count{};
+      double mean{};
+      double p50{};
+      double p90{};
+      double p99{};
+      double maximum{};
+    };
+    const auto summarize = [](std::vector<double> values) {
+      Distribution result;
+      result.count = values.size();
+      if (values.empty()) {
+        return result;
+      }
+      std::sort(values.begin(), values.end());
+      result.mean =
+          std::accumulate(values.begin(), values.end(), 0.0) /
+          static_cast<double>(values.size());
+      const auto quantile = [&](double q) {
+        const auto index = static_cast<std::size_t>(
+            std::floor(q * static_cast<double>(values.size() - 1)));
+        return values[index];
+      };
+      result.p50 = quantile(0.50);
+      result.p90 = quantile(0.90);
+      result.p99 = quantile(0.99);
+      result.maximum = values.back();
+      return result;
+    };
+    const auto block_max_abs = [&](Index row, Index rows, Index column,
+                                   Index columns) {
+      return direct_a_->block(row, column, rows, columns)
+          .cwiseAbs()
+          .maxCoeff();
+    };
+    const VectorXd absolute_row_sums =
+        direct_a_->cwiseAbs().rowwise().sum();
+
+    std::vector<int> value_ownership(static_cast<std::size_t>(value_rows_), 0);
+    std::vector<int> gradient_ownership(
+        static_cast<std::size_t>(gradient_points_), 0);
+    std::vector<double> fine_value_escape;
+    std::vector<double> fine_gradient_escape;
+    std::vector<double> coarse_value_escape;
+    std::vector<double> coarse_gradient_escape;
+    double maximum_local_matrix_difference = 0.0;
+    const BlockFactor* coarse = nullptr;
+
+    const auto escape_ratio = [&](Index global,
+                                  const std::vector<Index>& domain) {
+      double inside = 0.0;
+      for (const auto column : domain) {
+        inside += std::abs((*direct_a_)(global, column));
+      }
+      const double total = absolute_row_sums(global);
+      return total == 0.0 ? 0.0 : std::max(0.0, total - inside) / total;
+    };
+
+    for (const auto& block : blocks_) {
+      const auto domain = block.flat_indices();
+      if (!block.local_a.has_value() ||
+          block.local_a->rows() != static_cast<Index>(domain.size())) {
+        fail("mechanism audit local matrix is missing or malformed");
+      }
+      for (Index row = 0; row < static_cast<Index>(domain.size()); ++row) {
+        for (Index column = 0; column < static_cast<Index>(domain.size());
+             ++column) {
+          maximum_local_matrix_difference = std::max(
+              maximum_local_matrix_difference,
+              std::abs((*direct_a_)(domain[static_cast<std::size_t>(row)],
+                                    domain[static_cast<std::size_t>(column)]) -
+                       (*block.local_a)(row, column)));
+        }
+      }
+
+      if (block.role == "coarse") {
+        coarse = &block;
+        for (Index local = 0; local < block.value_rows; ++local) {
+          coarse_value_escape.push_back(escape_ratio(
+              static_cast<Index>(
+                  block.value_indices[static_cast<std::size_t>(local)]),
+              domain));
+        }
+        for (Index local = 0; local < block.gradient_points; ++local) {
+          const auto global_point = static_cast<Index>(
+              block.gradient_indices[static_cast<std::size_t>(local)]);
+          for (Index component = 0; component < 3; ++component) {
+            coarse_gradient_escape.push_back(
+                escape_ratio(value_rows_ + 3 * global_point + component,
+                             domain));
+          }
+        }
+        continue;
+      }
+
+      for (Index local = 0; local < block.value_rows; ++local) {
+        if (block.inner_value[static_cast<std::size_t>(local)] == 0) {
+          continue;
+        }
+        const auto global = static_cast<Index>(
+            block.value_indices[static_cast<std::size_t>(local)]);
+        ++value_ownership[static_cast<std::size_t>(global)];
+        fine_value_escape.push_back(escape_ratio(global, domain));
+      }
+      for (Index local = 0; local < block.gradient_points; ++local) {
+        if (block.inner_gradient[static_cast<std::size_t>(local)] == 0) {
+          continue;
+        }
+        const auto global_point = static_cast<Index>(
+            block.gradient_indices[static_cast<std::size_t>(local)]);
+        ++gradient_ownership[static_cast<std::size_t>(global_point)];
+        for (Index component = 0; component < 3; ++component) {
+          fine_gradient_escape.push_back(
+              escape_ratio(value_rows_ + 3 * global_point + component,
+                           domain));
+        }
+      }
+    }
+    if (coarse == nullptr) {
+      fail("mechanism audit found no coarse block");
+    }
+
+    const auto ownership_range = [](const std::vector<int>& ownership) {
+      return std::minmax_element(ownership.begin(), ownership.end());
+    };
+    const auto [value_min, value_max] = ownership_range(value_ownership);
+    const auto [gradient_min, gradient_max] =
+        ownership_range(gradient_ownership);
+    const auto fine_value = summarize(std::move(fine_value_escape));
+    const auto fine_gradient = summarize(std::move(fine_gradient_escape));
+    const auto coarse_value = summarize(std::move(coarse_value_escape));
+    const auto coarse_gradient = summarize(std::move(coarse_gradient_escape));
+
+    fs::create_directories(path.parent_path());
+    const auto temporary = path.string() + ".tmp";
+    std::ofstream out(temporary, std::ios::binary | std::ios::trunc);
+    if (!out) {
+      fail("cannot create mechanism audit result");
+    }
+    out << std::setprecision(17);
+    const auto write_distribution = [&](std::string_view name,
+                                        const Distribution& distribution,
+                                        bool comma) {
+      out << "    \"" << name << "\": {\"count\": " << distribution.count
+          << ", \"mean\": " << distribution.mean
+          << ", \"p50\": " << distribution.p50
+          << ", \"p90\": " << distribution.p90
+          << ", \"p99\": " << distribution.p99
+          << ", \"maximum\": " << distribution.maximum << "}"
+          << (comma ? ",\n" : "\n");
+    };
+    out << "{\n";
+    out << "  \"schema\": \"RapidRBF/M3MechanismAudit/v1\",\n";
+    out << "  \"workload_id\": \"" << workload_id_ << "\",\n";
+    out << "  \"authority\": {\"canonical_corpus_sha256\": \""
+        << kCorpusDigest << "\", \"operator\": \"complete-direct-matrix\"},\n";
+    out << "  \"canonical_mapping\": {\n";
+    out << "    \"maximum_local_matrix_absolute_difference\": "
+        << maximum_local_matrix_difference << ",\n";
+    out << "    \"fine_value_inner_ownership_min\": " << *value_min << ",\n";
+    out << "    \"fine_value_inner_ownership_max\": " << *value_max << ",\n";
+    out << "    \"fine_gradient_point_inner_ownership_min\": "
+        << *gradient_min << ",\n";
+    out << "    \"fine_gradient_point_inner_ownership_max\": "
+        << *gradient_max << "\n";
+    out << "  },\n";
+    out << "  \"operator_max_abs\": {\n";
+    out << "    \"value_value\": "
+        << block_max_abs(0, value_rows_, 0, value_rows_) << ",\n";
+    out << "    \"value_gradient\": "
+        << block_max_abs(0, value_rows_, value_rows_,
+                         scalar_order_ - value_rows_) << ",\n";
+    out << "    \"gradient_value\": "
+        << block_max_abs(value_rows_, scalar_order_ - value_rows_, 0,
+                         value_rows_) << ",\n";
+    out << "    \"gradient_gradient\": "
+        << block_max_abs(value_rows_, scalar_order_ - value_rows_, value_rows_,
+                         scalar_order_ - value_rows_) << "\n";
+    out << "  },\n";
+    out << "  \"coarse_content\": {\"value_rows\": " << coarse->value_rows
+        << ", \"gradient_points\": " << coarse->gradient_points
+        << ", \"gradient_scalar_rows\": " << 3 * coarse->gradient_points
+        << ", \"polynomial_order\": " << coarse->polynomial_order << "},\n";
+    out << "  \"absolute_coupling_escape_ratio\": {\n";
+    write_distribution("fine_inner_value_rows", fine_value, true);
+    write_distribution("fine_inner_gradient_rows", fine_gradient, true);
+    write_distribution("coarse_selected_value_rows", coarse_value, true);
+    write_distribution("coarse_selected_gradient_rows", coarse_gradient,
+                       false);
+    out << "  }\n";
+    out << "}\n";
+    out.close();
+    if (!out) {
+      fail("cannot finish mechanism audit result");
+    }
+    if (fs::exists(path)) {
+      fail("mechanism audit result path must be fresh");
+    }
+    fs::rename(temporary, path);
+  }
 
   VectorXd apply(const VectorXd& weights, ActionKind kind) {
     if (weights.size() != size()) {
@@ -1292,7 +1639,13 @@ class WorkloadContext {
   ActionCounts counts_;
 };
 
-enum class Topology { OneLevel, Additive, Projected, FrozenResidualCorrection };
+enum class Topology {
+  OneLevel,
+  Additive,
+  Projected,
+  FrozenResidualCorrection,
+  FineCoarseFineResidualCorrection
+};
 
 std::string topology_name(Topology topology) {
   switch (topology) {
@@ -1304,6 +1657,8 @@ std::string topology_name(Topology topology) {
       return "projected-deflated-ras";
     case Topology::FrozenResidualCorrection:
       return "frozen-residual-correction-ras";
+    case Topology::FineCoarseFineResidualCorrection:
+      return "fine-coarse-fine-residual-correction-ras";
   }
   fail("unknown topology");
 }
@@ -1316,7 +1671,9 @@ struct PreconditionerCounts {
 
 class RasPreconditioner {
  public:
-  explicit RasPreconditioner(WorkloadContext& workload) : workload_(workload) {
+  explicit RasPreconditioner(WorkloadContext& workload,
+                             Index enriched_coarse_target = 0)
+      : workload_(workload) {
     for (auto& block : workload_.blocks()) {
       if (block.role == "coarse") {
         if (coarse_ != nullptr) {
@@ -1331,6 +1688,11 @@ class RasPreconditioner {
     }
     if (coarse_ == nullptr) {
       fail("workload has no coarse block");
+    }
+    if (enriched_coarse_target != 0) {
+      enriched_coarse_.emplace(
+          workload_.make_enriched_coarse(enriched_coarse_target));
+      coarse_ = &*enriched_coarse_;
     }
   }
 
@@ -1375,6 +1737,21 @@ class RasPreconditioner {
         orthogonalize_with_residual(total, residual);
         total += coarse_solve(residual);
         return total;
+      }
+      case Topology::FineCoarseFineResidualCorrection: {
+        VectorXd total = fine_solve(residual);
+        project_output(total);
+        residual -=
+            workload_.apply(total, ActionKind::Preconditioner)
+                .head(workload_.scalar_order());
+        VectorXd coarse = coarse_solve(residual);
+        total += coarse;
+        residual -=
+            workload_.apply(coarse, ActionKind::Preconditioner)
+                .head(workload_.scalar_order());
+        VectorXd fine = fine_solve(residual);
+        project_output(fine);
+        return total + fine;
       }
     }
     fail("unknown topology");
@@ -1426,6 +1803,7 @@ class RasPreconditioner {
   }
 
   WorkloadContext& workload_;
+  std::optional<BlockFactor> enriched_coarse_;
   BlockFactor* coarse_{};
   std::vector<BlockFactor*> fine_;
   PreconditionerCounts counts_;
@@ -1444,6 +1822,8 @@ struct RunResult {
   std::string scale_id;
   Topology topology{};
   Orthogonalization orthogonalization{};
+  double gradient_scale{1.0};
+  Index enriched_coarse_target{};
   int window{};
   std::string status;
   int iterations{};
@@ -1495,20 +1875,43 @@ double orthogonality_defect(const std::vector<VectorXd>& basis) {
 }
 
 RunResult run_fgmres(WorkloadContext& workload, Topology topology, int window,
-                     Orthogonalization orthogonalization) {
+                     Orthogonalization orthogonalization,
+                     int maximum_iterations = kMaximumIterations,
+                     double gradient_scale = 1.0,
+                     Index enriched_coarse_target = 0) {
   const auto started = std::chrono::steady_clock::now();
   workload.reset_counts();
-  RasPreconditioner preconditioner(workload);
+  RasPreconditioner preconditioner(workload, enriched_coarse_target);
   preconditioner.reset_counts();
   RunResult result;
   result.workload_id = workload.workload_id();
   result.scale_id = workload.scale_id();
   result.topology = topology;
   result.orthogonalization = orthogonalization;
+  result.gradient_scale = gradient_scale;
+  result.enriched_coarse_target = enriched_coarse_target;
   result.window = window;
+  const auto apply_scale = [&](VectorXd vector) {
+    vector.segment(workload.value_rows(), 3 * workload.gradient_points()) *=
+        gradient_scale;
+    return vector;
+  };
+  const auto apply_inverse_scale = [&](VectorXd vector) {
+    vector.segment(workload.value_rows(), 3 * workload.gradient_points()) /=
+        gradient_scale;
+    return vector;
+  };
+  const auto scaled_operator = [&](const VectorXd& vector, ActionKind kind) {
+    return apply_scale(workload.apply(apply_scale(vector), kind));
+  };
+  const auto physical_solution = [&](const VectorXd& vector) {
+    return apply_scale(vector);
+  };
   VectorXd x = VectorXd::Zero(workload.size());
-  VectorXd residual = workload.rhs();
-  result.bound_certificate = workload.certify_bound(x);
+  const VectorXd scaled_rhs = apply_scale(workload.rhs());
+  VectorXd residual = scaled_rhs;
+  result.bound_certificate =
+      workload.certify_bound(physical_solution(x));
   const double trigger =
       std::sqrt(static_cast<double>(workload.size())) * kFitTolerance;
   const auto passing_status = [&] {
@@ -1517,20 +1920,21 @@ RunResult run_fgmres(WorkloadContext& workload, Topology topology, int window,
                : "SCREEN_PASSED";
   };
 
-  while (result.iterations < kMaximumIterations) {
+  while (result.iterations < maximum_iterations) {
     const double beta = residual.norm();
     if (!std::isfinite(beta)) {
       result.status = "NUMERICAL_BREAKDOWN";
       break;
     }
     if (beta == 0.0) {
-      result.bound_certificate = workload.certify_bound(x);
+      result.bound_certificate =
+          workload.certify_bound(physical_solution(x));
       result.status = result.bound_certificate.pass ? passing_status()
                                                     : "FALSE_RECURRENCE_SUCCESS";
       break;
     }
     const int cycle_limit =
-        std::min(window, kMaximumIterations - result.iterations);
+        std::min(window, maximum_iterations - result.iterations);
     std::vector<VectorXd> v;
     std::vector<VectorXd> z;
     v.reserve(static_cast<std::size_t>(cycle_limit + 1));
@@ -1544,10 +1948,10 @@ RunResult run_fgmres(WorkloadContext& workload, Topology topology, int window,
     bool left_cycle = false;
 
     for (int column = 0; column < cycle_limit; ++column) {
-      VectorXd preconditioned =
-          preconditioner.apply(v[static_cast<std::size_t>(column)], topology);
+      VectorXd preconditioned = apply_inverse_scale(preconditioner.apply(
+          apply_inverse_scale(v[static_cast<std::size_t>(column)]), topology));
       z.push_back(preconditioned);
-      VectorXd w = workload.apply(preconditioned, ActionKind::Solver);
+      VectorXd w = scaled_operator(preconditioned, ActionKind::Solver);
       const double before = w.norm();
       if (orthogonalization == Orthogonalization::ParityCgs) {
         VectorXd coefficients(column + 1);
@@ -1612,7 +2016,8 @@ RunResult run_fgmres(WorkloadContext& workload, Topology topology, int window,
       if (every_iteration || boundary || triggered) {
         VectorXd candidate =
             triangular_candidate(x, z, h, g, column + 1);
-        const auto certificate = workload.certify_bound(candidate);
+        const auto certificate =
+            workload.certify_bound(physical_solution(candidate));
         if (certificate.pass) {
           x = std::move(candidate);
           result.bound_certificate = certificate;
@@ -1638,9 +2043,9 @@ RunResult run_fgmres(WorkloadContext& workload, Topology topology, int window,
     }
     const int completed = static_cast<int>(z.size());
     x = triangular_candidate(x, z, h, g, completed);
-    residual =
-        workload.rhs() - workload.apply(x, ActionKind::Certificate);
-    result.bound_certificate = workload.certify_bound(x);
+    residual = scaled_rhs - scaled_operator(x, ActionKind::Certificate);
+    result.bound_certificate =
+        workload.certify_bound(physical_solution(x));
     ++result.restarts;
     if (result.bound_certificate.pass) {
       result.status = passing_status();
@@ -1650,9 +2055,10 @@ RunResult run_fgmres(WorkloadContext& workload, Topology topology, int window,
 
   if (result.status.empty()) {
     result.status = "WORK_BUDGET_EXHAUSTED";
-    result.bound_certificate = workload.certify_bound(x);
+    result.bound_certificate =
+        workload.certify_bound(physical_solution(x));
   }
-  result.solution = x;
+  result.solution = physical_solution(x);
   result.actions = workload.counts();
   result.preconditioner = preconditioner.counts();
   result.basis_bytes =
@@ -1764,7 +2170,8 @@ void write_results(const fs::path& path, const std::vector<RunResult>& results,
                    const std::vector<ConfigurationScore>& finalists,
                    const FactorEvidence& factor_evidence,
                    std::size_t unique_factor_payloads,
-                   std::string_view disposition) {
+                   std::string_view disposition,
+                   int executed_maximum_iterations = kMaximumIterations) {
   fs::create_directories(path.parent_path());
   const auto temporary = path.string() + ".tmp";
   std::ofstream out(temporary, std::ios::binary | std::ios::trunc);
@@ -1816,6 +2223,9 @@ void write_results(const fs::path& path, const std::vector<RunResult>& results,
   out << "    \"mkl_threads\": 1,\n";
   out << "    \"windows\": [5, 32, 64]\n";
   out << "  },\n";
+  out << "  \"diagnostic_execution\": {\n";
+  out << "    \"maximum_iterations\": " << executed_maximum_iterations << "\n";
+  out << "  },\n";
   out << "  \"runs\": [\n";
   for (std::size_t i = 0; i < results.size(); ++i) {
     const auto& run = results[i];
@@ -1825,6 +2235,9 @@ void write_results(const fs::path& path, const std::vector<RunResult>& results,
     out << "      \"topology\": \"" << topology_name(run.topology) << "\",\n";
     out << "      \"orthogonalization\": \""
         << orthogonalization_name(run.orthogonalization) << "\",\n";
+    out << "      \"gradient_scale\": " << run.gradient_scale << ",\n";
+    out << "      \"enriched_coarse_target\": "
+        << run.enriched_coarse_target << ",\n";
     out << "      \"window\": " << run.window << ",\n";
     out << "      \"status\": \"" << run.status << "\",\n";
     out << "      \"iterations\": " << run.iterations << ",\n";
@@ -1899,8 +2312,13 @@ struct Arguments {
   fs::path reference;
   fs::path output;
   std::optional<std::string> workload;
+  int maximum_iterations{kMaximumIterations};
+  Index enriched_coarse_target{};
+  bool balance_gradient_block_max{};
+  bool fine_coarse_fine{};
   bool quick{};
   bool audit_only{};
+  bool mechanism_audit_only{};
 };
 
 Arguments parse_arguments(int argc, char** argv) {
@@ -1921,16 +2339,35 @@ Arguments parse_arguments(int argc, char** argv) {
       result.output = take(argument);
     } else if (argument == "--workload") {
       result.workload = take(argument);
+    } else if (argument == "--maximum-iterations") {
+      result.maximum_iterations = std::stoi(take(argument));
+    } else if (argument == "--balance-gradient-block-max") {
+      result.balance_gradient_block_max = true;
+    } else if (argument == "--enriched-coarse-target") {
+      result.enriched_coarse_target =
+          static_cast<Index>(std::stoll(take(argument)));
+    } else if (argument == "--fine-coarse-fine") {
+      result.fine_coarse_fine = true;
     } else if (argument == "--quick") {
       result.quick = true;
     } else if (argument == "--audit-only") {
       result.audit_only = true;
+    } else if (argument == "--mechanism-audit-only") {
+      result.mechanism_audit_only = true;
     } else {
       fail("unknown argument: " + argument);
     }
   }
   if (result.corpus.empty() || result.reference.empty() || result.output.empty()) {
     fail("--corpus, --reference, and --output are required");
+  }
+  if (result.maximum_iterations < 1 ||
+      result.maximum_iterations > kMaximumIterations) {
+    fail("--maximum-iterations must be in [1, 100]");
+  }
+  if (result.enriched_coarse_target != 0 &&
+      result.enriched_coarse_target != 4096) {
+    fail("--enriched-coarse-target permits only the bounded 4096 probe");
   }
   return result;
 }
@@ -1981,6 +2418,18 @@ int main(int argc, char** argv) {
     const auto references =
         load_references(arguments.reference, all_factor_hashes);
 
+    if (arguments.mechanism_audit_only) {
+      if (descriptors.size() != 1 ||
+          descriptors.front().get<std::string>("workload_id") !=
+              "M3-HERMITE-10K") {
+        fail("--mechanism-audit-only requires --workload M3-HERMITE-10K");
+      }
+      WorkloadContext workload(corpus, descriptors.front(), references, true);
+      workload.write_mechanism_audit(arguments.output);
+      std::cout << "\nmechanism audit: " << arguments.output << "\n";
+      return 0;
+    }
+
     if (arguments.audit_only) {
       static constexpr std::array<std::pair<Topology, int>, 2>
           diagnostic_candidates{{
@@ -1995,6 +2444,10 @@ int main(int argc, char** argv) {
         std::cout << "\n[" << workload_id
                   << "] diagnostic robust/parity direct audit...\n";
         WorkloadContext workload(corpus, descriptor, references);
+        const double gradient_scale =
+            arguments.balance_gradient_block_max
+                ? workload.block_max_balanced_gradient_scale()
+                : 1.0;
         ten_k_workloads.insert(workload_id);
         for (const auto& [topology, window] : diagnostic_candidates) {
           for (const auto orthogonalization :
@@ -2005,7 +2458,9 @@ int main(int argc, char** argv) {
                       << orthogonalization_name(orthogonalization) << " ... "
                       << std::flush;
             auto run =
-                run_fgmres(workload, topology, window, orthogonalization);
+                run_fgmres(workload, topology, window, orthogonalization,
+                            arguments.maximum_iterations, gradient_scale,
+                            arguments.enriched_coarse_target);
             run.direct_certificate = workload.certify_direct(run.solution);
             if (run.direct_certificate->pass) {
               run.status = "MECHANISM_CERTIFIED";
@@ -2035,8 +2490,9 @@ int main(int argc, char** argv) {
         diagnostic.push_back(score);
       }
       write_results(arguments.output, results, {}, diagnostic,
-                    factor_evidence, all_factor_hashes.size(),
-                    "DIAGNOSTIC_ORTHOGONALIZATION_DIRECT_AUDIT");
+                     factor_evidence, all_factor_hashes.size(),
+                     "DIAGNOSTIC_ORTHOGONALIZATION_DIRECT_AUDIT",
+                     arguments.maximum_iterations);
       std::cout << "\nresult: " << arguments.output << "\n";
       std::cout
           << "disposition: DIAGNOSTIC_ORTHOGONALIZATION_DIRECT_AUDIT\n";
@@ -2049,6 +2505,10 @@ int main(int argc, char** argv) {
       std::cout << "\n[" << workload_id << "] loading and qualifying "
                 << factor_hashes.size() << " run-scoped factor inputs...\n";
       WorkloadContext workload(corpus, descriptor, references);
+      const double gradient_scale =
+          arguments.balance_gradient_block_max
+              ? workload.block_max_balanced_gradient_scale()
+              : 1.0;
       if (workload.scale_id() == "10k") {
         ten_k_workloads.insert(workload_id);
       }
@@ -2059,7 +2519,9 @@ int main(int argc, char** argv) {
                   << orthogonalization_name(orthogonalization) << " ... "
                   << std::flush;
         auto result =
-            run_fgmres(workload, topology, window, orthogonalization);
+            run_fgmres(workload, topology, window, orthogonalization,
+                       arguments.maximum_iterations, gradient_scale,
+                       arguments.enriched_coarse_target);
         std::cout << result.status << " iter=" << result.iterations
                   << " value=" << std::scientific
                   << result.bound_certificate.value_residual << " grad="
@@ -2070,7 +2532,10 @@ int main(int argc, char** argv) {
       };
 
       if (arguments.quick) {
-        run_and_report(Topology::FrozenResidualCorrection, 32,
+        run_and_report(arguments.fine_coarse_fine
+                           ? Topology::FineCoarseFineResidualCorrection
+                           : Topology::FrozenResidualCorrection,
+                       32,
                        Orthogonalization::RobustMgsDgks);
       } else if (workload.scale_id() == "1k") {
         for (const auto topology : topologies) {
@@ -2148,6 +2613,10 @@ int main(int argc, char** argv) {
         std::cout << "\n[" << workload_id
                   << "] finalist parity trigger/direct audits...\n";
         WorkloadContext audit_workload(corpus, descriptor, references);
+        const double audit_gradient_scale =
+            arguments.balance_gradient_block_max
+                ? audit_workload.block_max_balanced_gradient_scale()
+                : 1.0;
         for (const auto& finalist : finalists) {
           const auto robust = std::find_if(
               results.begin(), results.end(), [&](const auto& candidate) {
@@ -2169,7 +2638,10 @@ int main(int argc, char** argv) {
                       << finalist.window << " ... " << std::flush;
             auto parity =
                 run_fgmres(audit_workload, finalist.topology,
-                           finalist.window, Orthogonalization::ParityCgs);
+                           finalist.window, Orthogonalization::ParityCgs,
+                           arguments.maximum_iterations,
+                           audit_gradient_scale,
+                           arguments.enriched_coarse_target);
             std::cout << parity.status << " iter=" << parity.iterations
                       << " value=" << std::scientific
                       << parity.bound_certificate.value_residual << " grad="
@@ -2228,7 +2700,8 @@ int main(int argc, char** argv) {
                    ? "READY_FOR_LIVE_REVIEW"
                    : "NO_DIRECTLY_CERTIFIED_GLOBAL_FINALIST");
     write_results(arguments.output, results, scores, finalists,
-                  factor_evidence, all_factor_hashes.size(), disposition);
+                  factor_evidence, all_factor_hashes.size(), disposition,
+                  arguments.maximum_iterations);
     std::cout << "\nresult: " << arguments.output << "\n";
     std::cout << "disposition: " << disposition << "\n";
     return 0;
