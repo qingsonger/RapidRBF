@@ -1,0 +1,26 @@
+{
+  "schema": "rapidrbf.issue59.zero-run-fixed-evidence.v1",
+  "issue58": {
+    "materialization_commit": "29b022d89af923720146a9e1d56cf6a25b719bac",
+    "execution_branch": "codex/execute-evidence-path-bound-refinement-witness",
+    "remote_branch_sha": "29b022d89af923720146a9e1d56cf6a25b719bac",
+    "matching_actions_run_count": 0,
+    "workflow_id": 323339010,
+    "workflow_state": "active",
+    "actions_enabled": true,
+    "allowed_actions": "all",
+    "candidate_entries": 0,
+    "candidate_observations": 0
+  },
+  "probe": {
+    "commit": null,
+    "new_object_branch": {
+      "branch_only_run_count": null,
+      "path_gated_run_count": null
+    },
+    "ref_only_branch": {
+      "branch_only_run_count": null,
+      "path_gated_run_count": null
+    }
+  }
+}

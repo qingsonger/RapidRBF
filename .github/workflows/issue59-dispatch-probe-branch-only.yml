@@ -1,0 +1,40 @@
+name: Issue 59 dispatch probe - branch only
+
+on:
+  push:
+    branches:
+      - codex/issue59-dispatch-probe-new-object
+      - codex/issue59-dispatch-probe-ref-only
+
+permissions: {}
+
+jobs:
+  observe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Record the server event identity
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+
+          with open(os.environ["GITHUB_EVENT_PATH"], encoding="utf-8") as stream:
+              event = json.load(stream)
+
+          print(json.dumps({
+              "probe": "branch-only",
+              "event_name": os.environ["GITHUB_EVENT_NAME"],
+              "ref": os.environ["GITHUB_REF"],
+              "sha": os.environ["GITHUB_SHA"],
+              "run_id": os.environ["GITHUB_RUN_ID"],
+              "run_attempt": os.environ["GITHUB_RUN_ATTEMPT"],
+              "created": event.get("created"),
+              "before": event.get("before"),
+              "after": event.get("after"),
+              "size": event.get("size"),
+              "distinct_size": event.get("distinct_size"),
+              "commits": [commit.get("id") for commit in event.get("commits", [])],
+          }, indent=2, sort_keys=True))
+          PY

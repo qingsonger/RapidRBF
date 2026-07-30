@@ -1,0 +1,8 @@
+{
+  "schema": "rapidrbf.issue59.dispatch-probe-marker.v1",
+  "issue": 59,
+  "question": "Distinguish push-event suppression from empty changed-file path filtering for an already-remote commit used to create a fresh branch ref.",
+  "new_object_branch": "codex/issue59-dispatch-probe-new-object",
+  "ref_only_branch": "codex/issue59-dispatch-probe-ref-only",
+  "candidate_calls": 0
+}
