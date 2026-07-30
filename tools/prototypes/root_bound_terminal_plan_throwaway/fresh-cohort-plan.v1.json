@@ -1,0 +1,180 @@
+{
+  "schema": "RapidRBF/RootBoundFreshRefinementWitnessPlan/v1",
+  "issue": 55,
+  "review_state": "PROVISIONAL_HITL_REQUIRED",
+  "disposition": "ROOT_BOUND_FRESH_COHORT_PLAN_FROZEN",
+  "question": "What exact immutable, candidate-independent controller and execution plan may govern one fresh double-double refinement witness cohort without reinterpreting, repairing, rerunning, or reusing any Issue 53 observation?",
+  "predecessors": {
+    "invalid_cohort": {
+      "issue": 53,
+      "commit": "5fcfbd79ab0d3870a919da0cfecd1ddf2b0ab51f",
+      "run_id": 30499912966,
+      "disposition": "INVALID_UNJUDGED",
+      "observations_reusable": false
+    },
+    "accepted_diagnosis": {
+      "issue": 54,
+      "commit": "bfd698143cce49f8d1072f99ad413a9ce103f99e",
+      "controller_only_run_id": 30502098336,
+      "disposition": "ROOT_TERMINAL_SAMPLING_POLICY_DEFECT_PROVEN",
+      "diagnosis_sha256": "further-bound-by-source-identity"
+    }
+  },
+  "controller_boundary": {
+    "name": "root-bound same-handle terminal closure",
+    "record_schema": "RapidRBF/RootBoundAdapterFailure/v1",
+    "record_required_fields": [
+      "adapter",
+      "errno",
+      "error_name",
+      "phase",
+      "subject_pid",
+      "root_pid",
+      "invocation_nonce",
+      "sample_started_ns",
+      "sample_finished_ns",
+      "terminal.owner",
+      "terminal.invocation_nonce",
+      "terminal.observed_ns",
+      "terminal.returncode",
+      "reap.owner",
+      "reap.invocation_nonce",
+      "reap.observed_ns",
+      "process_tree_cleanup.invocation_nonce",
+      "process_tree_cleanup.observed_ns",
+      "process_tree_cleanup.complete",
+      "prior_reconciliations",
+      "incomplete_sample_effect"
+    ],
+    "enumerated_native_inventory_phases": {
+      "linux-proc-process-tree": [
+        "group-membership",
+        "stat",
+        "task-inventory"
+      ],
+      "macos-proc-process-tree": [
+        "group-membership",
+        "bsd-identity",
+        "task-info"
+      ],
+      "windows-job-toolhelp-process-tree": [
+        "job-membership",
+        "process-identity",
+        "thread-inventory"
+      ]
+    },
+    "benign_only_when": [
+      "errno is ESRCH",
+      "adapter and phase form an enumerated native inventory coordinate",
+      "subject_pid exactly equals the launched root_pid",
+      "the sole waiter observes terminal and reap for the same invocation nonce",
+      "terminal is no earlier than sample start and no later than 1000 ms after adapter failure",
+      "reap follows terminal and complete process-tree cleanup follows reap",
+      "no earlier terminal reconciliation exists for the invocation",
+      "the incomplete inventory contributes zero successful samples, zero sample errors, and zero maximum-live-thread delta"
+    ],
+    "benign_effect": "Record BENIGN_ROOT_BOUND_TERMINAL_CLOSURE and stop sampling without adding a sample, an error, or a maximum-thread value.",
+    "nonpassing": [
+      "missing subject_pid or phase",
+      "non-root disappearance",
+      "non-ESRCH failure",
+      "adapter/phase outside the enumerated native inventory coordinates",
+      "wrong invocation handle or event order",
+      "terminal before sample start, later than 1000 ms after failure, or absent",
+      "missing or non-sole-waiter reap",
+      "more than one reconciliation",
+      "incomplete process-tree cleanup",
+      "any sample, error, or maximum-thread contribution from the incomplete inventory",
+      "candidate-owned non-zero exit, timeout, or thread-grant excess after otherwise valid controller evidence"
+    ],
+    "candidate_result_rule": "After controller validity, non-zero exit, timeout, and thread-grant excess remain VALID_CANDIDATE_OWNED_NONPASS; reconciliation never converts them to PASS."
+  },
+  "inherited_immutable_scope": {
+    "candidate_binding_sha256": "1cd16d8c0ef14f01849af440df53a64b06dbaf0adcd46ac6926b0625634785e6",
+    "witness_plan_sha256": "7018a1a33d601076ff17b6824068ada146039fa57aab5b1cf71793cbe6d13d60",
+    "accepted_reference_sha256": "6ed634a288145dfb3688e6e480f9519c1dbbe5c528aa9bb4b825eb57bc1b584a",
+    "transport_precision_stop_rule_and_thresholds": "unchanged",
+    "owned_refinement_bytes_per_matrix_row": 168,
+    "witness_source_count": 6,
+    "rhs_count": 18,
+    "reload_cancellation_prior_state_publication_resource_and_cleanup": "unchanged",
+    "targets": {
+      "windows-x86_64": "x86_64-pc-windows-msvc",
+      "linux-x86_64-glibc": "x86_64-unknown-linux-gnu",
+      "macos-arm64": "aarch64-apple-darwin",
+      "macos-x86_64": "x86_64-apple-darwin"
+    },
+    "profiles": [
+      {
+        "workers": 1,
+        "maximum_live_threads": 12
+      },
+      {
+        "workers": 2,
+        "maximum_live_threads": 12
+      },
+      {
+        "workers": 8,
+        "maximum_live_threads": 16
+      }
+    ]
+  },
+  "identity_and_non_reuse": {
+    "plan_identity": "TO_BE_FROZEN_AFTER_HITL_REVIEW",
+    "controller_identity": "TO_BE_FROZEN_AFTER_FOUR_LANE_PREFLIGHT",
+    "workflow_identity": "TO_BE_FROZEN_AFTER_FOUR_LANE_PREFLIGHT",
+    "prototype_commit": "TO_BE_FROZEN_AFTER_FOUR_LANE_PREFLIGHT",
+    "controller_only_run": "TO_BE_FROZEN_AFTER_FOUR_LANE_PREFLIGHT",
+    "controller_only_artifact": "TO_BE_FROZEN_AFTER_FOUR_LANE_PREFLIGHT",
+    "aggregation_identity": "TO_BE_FROZEN_AFTER_FOUR_LANE_PREFLIGHT",
+    "future_execution_commit": "must be a fresh exact pushed commit materialized by a separate execution ticket",
+    "future_execution_run": "must be attempt 1 of one human-ratified workflow run",
+    "issue_53_observations_may_satisfy_any_count": false,
+    "issue_54_diagnostic_observations_may_satisfy_any_count": false,
+    "issue_55_preflight_observations_may_satisfy_any_candidate_count": false
+  },
+  "validation": {
+    "status": "PENDING_FOUR_LANE_ZERO_ENTRY_PREFLIGHT",
+    "inherited_ready_gated_checks_per_lane": 277,
+    "candidate_built": false,
+    "candidate_executed": false,
+    "candidate_entries": 0,
+    "backend_entries": 0,
+    "factor_calls": 0,
+    "solve_calls": 0,
+    "candidate_observations": 0,
+    "required_native_reproductions": [
+      "linux-proc-process-tree/group-membership",
+      "macos-proc-process-tree/bsd-identity on arm64",
+      "macos-proc-process-tree/bsd-identity on x86_64"
+    ]
+  },
+  "fresh_execution_plan": {
+    "ticket_count": 1,
+    "attempt_count": 1,
+    "human_ratification_required_before_dispatch": true,
+    "materialization": "A separate execution ticket must materialize one exact pushed commit binding this accepted plan, the unchanged candidate and inherited numerical/evidence scope, the controller record schema and pure policy, the ready-gated 277-check seam, the root-bound controls, native lane witnesses, verifier, workflow, pinned actions, toolchain, targets, and profiles.",
+    "zero_entry_preflight": "Before any candidate entry, all four lanes in the same commit and run attempt must close the inherited 277 checks plus the root-bound deterministic controls and required native reproductions. The candidate may be built only for byte identity; candidate entry, execution, observation, backend entry, factor call, and solve call counts remain zero.",
+    "execution_unlock": "Only the aggregation job may unlock the unchanged four-target by three-profile by six-source by eighteen-RHS candidate cohort, and only after all four zero-entry lane artifacts pass identity, completeness, zero-entry, and non-reuse verification.",
+    "automatic_retry_permitted": false,
+    "partial_retry_permitted": false,
+    "replacement_retry_permitted": false,
+    "attempt_mixing_permitted": false,
+    "favorable_attempt_selection_permitted": false,
+    "after_invalid_attempt": "Return to Wayfinder for a fresh diagnosis and plan identity; do not repair, rerun, or reinterpret the attempt.",
+    "dispositions": {
+      "all_gates_pass": "REFINEMENT_ROUTE_SUPPORTED_FOR_FULL_CORPUS_PLAN",
+      "valid_candidate_owned_nonpass": "REFINEMENT_ROUTE_REJECTED_DIAGNOSTIC_ONLY",
+      "any_external_or_evidence_invalidity": "INVALID_UNJUDGED"
+    }
+  },
+  "forbidden_here": [
+    "Build the candidate except where a future zero-entry preflight needs byte identity",
+    "Enter, execute, or observe the candidate in Issue 55",
+    "Run a refinement witness cohort or the mechanism panel",
+    "Reuse, repair, rerun, reinterpret, or mix any Issue 53 observation",
+    "Use Issue 54 or Issue 55 controller-only evidence as a candidate count",
+    "Change the candidate, witness plan, accepted reference, transport, precision, stop rule, 168*n accounting, sources, RHS identities, thresholds, reload, cancellation, prior-state, publication, resources, cleanup, targets, or profiles",
+    "Admit a factor route, faer, qd, the factor corpus, or unblock downstream solver comparison"
+  ]
+}

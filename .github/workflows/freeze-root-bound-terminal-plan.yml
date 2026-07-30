@@ -1,0 +1,163 @@
+name: Freeze root-bound terminal-closure plan
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - codex/freeze-root-bound-terminal-plan
+    paths:
+      - .github/workflows/freeze-root-bound-terminal-plan.yml
+      - tools/prototypes/controller_preflight_diagnosis_throwaway/**
+      - tools/prototypes/double_double_refinement_witness_throwaway/controller_helper.rs
+      - tools/prototypes/double_double_refinement_witness_throwaway/controller_observer.py
+      - tools/prototypes/instrumented_faer_lane_provisioning_throwaway/**
+      - tools/prototypes/root_bound_terminal_plan_throwaway/**
+
+permissions:
+  contents: read
+
+concurrency:
+  group: freeze-root-bound-terminal-plan
+  cancel-in-progress: false
+
+jobs:
+  zero-entry:
+    name: Zero entry (${{ matrix.lane_id }})
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include:
+          - lane_id: windows-x86_64
+            runner: windows-2025
+            target: x86_64-pc-windows-msvc
+            python_command: python
+          - lane_id: linux-x86_64-glibc
+            runner: ubuntu-24.04
+            target: x86_64-unknown-linux-gnu
+            python_command: python3
+          - lane_id: macos-arm64
+            runner: macos-15
+            target: aarch64-apple-darwin
+            python_command: python3
+          - lane_id: macos-x86_64
+            runner: macos-15-intel
+            target: x86_64-apple-darwin
+            python_command: python3
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    env:
+      CARGO_INCREMENTAL: "0"
+      RUSTUP_TOOLCHAIN: "1.85.0"
+      RAPIDRBF_LANE_ID: ${{ matrix.lane_id }}
+      RAPIDRBF_TARGET: ${{ matrix.target }}
+    steps:
+      - name: Configure canonical Git bytes on Windows before checkout
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          git config --global core.longpaths true
+          git config --global core.autocrlf false
+
+      - name: Check out the exact prototype commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          clean: true
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Install the exact Rust toolchain
+        run: rustup toolchain install 1.85.0 --profile minimal
+
+      - name: Capture and qualify the controller-only lane
+        run: >-
+          ${{ matrix.python_command }}
+          tools/prototypes/instrumented_faer_lane_provisioning_throwaway/collect_lane_identity.py
+          --contract
+          tools/prototypes/instrumented_faer_lane_provisioning_throwaway/lane-contract.v1.json
+          --lane
+          "${{ matrix.lane_id }}"
+          --output
+          "lane/${{ matrix.lane_id }}"
+
+      - name: Close the inherited ready-gated controller checks
+        run: >-
+          ${{ matrix.python_command }}
+          tools/prototypes/controller_preflight_diagnosis_throwaway/diagnose.py
+          --lane-id
+          "${{ matrix.lane_id }}"
+          --target
+          "${{ matrix.target }}"
+          --lane-witness
+          "lane/${{ matrix.lane_id }}/lane-identity.json"
+          --output
+          "evidence/${{ matrix.lane_id }}/inherited"
+          --boundary
+          ready-gated
+
+      - name: Close the root-bound policy and native checks
+        run: >-
+          ${{ matrix.python_command }}
+          tools/prototypes/root_bound_terminal_plan_throwaway/preflight.py
+          --lane-id
+          "${{ matrix.lane_id }}"
+          --target
+          "${{ matrix.target }}"
+          --lane-witness
+          "lane/${{ matrix.lane_id }}/lane-identity.json"
+          --inherited
+          "evidence/${{ matrix.lane_id }}/inherited"
+          --output
+          "evidence/${{ matrix.lane_id }}/root-bound"
+
+      - name: Upload the immutable zero-entry lane evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: rapidrbf-issue55-root-bound-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: evidence
+          if-no-files-found: error
+          retention-days: 90
+
+  cohort:
+    name: Aggregate the four zero-entry lanes
+    if: always()
+    needs: [zero-entry]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the exact prototype commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          clean: true
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Download this attempt's lane artifacts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          pattern: rapidrbf-issue55-root-bound-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: evidence
+          merge-multiple: true
+
+      - name: Verify and aggregate the four-lane cohort
+        run: >-
+          python3
+          tools/prototypes/root_bound_terminal_plan_throwaway/aggregate.py
+          --evidence-root
+          evidence
+          --output
+          cohort
+
+      - name: Upload the immutable cohort
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: rapidrbf-issue55-root-bound-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish the readable cohort
+        if: always()
+        run: cat cohort/root-bound-preflight-cohort.md >> "$GITHUB_STEP_SUMMARY"
