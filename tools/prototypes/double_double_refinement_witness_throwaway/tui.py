@@ -1,4 +1,4 @@
-"""Tiny terminal reviewer for the immutable Issue 58 cohort summary."""
+"""Tiny terminal reviewer for the immutable Issue 60 cohort summary."""
 
 from __future__ import annotations
 

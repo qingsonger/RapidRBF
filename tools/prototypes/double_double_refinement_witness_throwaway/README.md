@@ -1,19 +1,21 @@
-# THROWAWAY PROTOTYPE — root-bound refinement witness cohort
+# THROWAWAY PROTOTYPE — unique-commit-path-bound refinement witness cohort
 
 ## Question
 
-Does one fresh exact materialization and sole complete attempt of the accepted
-Issue 57 replacement execution plan support or reject the unchanged
-double-double refinement route on all four required targets and the frozen
-`1/12`, `2/12`, and `8/16` profiles?
+Does one fresh exact child materialization and sole candidate-bearing cohort
+attempt under the accepted Issue 59 unique-commit path-bound dispatch plan
+support or reject the unchanged double-double refinement route on all four
+required targets and the frozen `1/12`, `2/12`, and `8/16` profiles?
 
-This is the Issue 58 materialization frozen by Issue 57, not production solver
-code. It starts from Issue 56 commit
-`a5312ac1d2c7fed0ba52920f398e6ebea2d80827` and binds replacement-plan
+This is the Issue 60 materialization frozen by Issue 59, not production solver
+code. It is exactly one child of Issue 58 materialization commit
+`29b022d89af923720146a9e1d56cf6a25b719bac` and binds replacement-plan
 SHA-256
-`a0132ab26af2e4e99fb8edeeecc2b51a8e0090b6e0dccf6f804573bad0ff97b1`
-and accepted root-bound controller binding
-`1370ecd1ee86ca569d53b5f474dc861879ae252c34544599d5fb2c2e84ca0409`.
+`3d5415e6ca3bc0ba0b1c350c90246f0a20b83a0b5f0e931a705b2fab6b800daa`,
+prior execution source binding
+`102e9b8260736897a407f79d33c28320fee5127a9c36a2723cdb7f6cb8fb2fe1`,
+and prior execution controller binding
+`705ea8561c96de9863a624faf52e95007ed7044151dffc9c5821db2e076d0ca5`.
 The candidate, dependencies, feature set, six witness sources, 18 RHS
 identities, double-double boundary, thresholds, resource controls, and accepted
 reference remain unchanged.
@@ -26,7 +28,11 @@ result, and global check is atomically persisted before global PASS; all 277
 checks and the exact helper stdout/stderr bytes must close on every lane. Each
 lane also closes the 25 root-bound controls and the required native Linux/macOS
 root-loss reproduction. A dedicated aggregation job must verify all 1,208
-checks and emit the execution unlock before any candidate entry.
+checks. Immediately before it may emit the execution unlock, it must also prove
+that the new-branch event carries only the exact materialization child, that the
+branch still resolves to that child, and that the current attempt-1 run is the
+only run matching workflow `323339010`, the execution branch, head SHA, and
+`push` event.
 
 Candidate observations run with the frozen root-bound same-handle terminal
 policy. Any reconciled native root loss is retained as a structured
@@ -41,15 +47,17 @@ or unblock downstream solver comparison.
 
 ## Run
 
-The Issue 57 diagnostic branch cannot dispatch this workflow. After human
-acceptance, the one command that starts Issue 58's sole four-target attempt is
-the first push of the exact accepted materialization commit:
+The local materialization must remain unreachable from every remote ref until
+human acceptance. After that acceptance, the only command that may start Issue
+60's sole four-target attempt is:
 
 ```text
-git push -u origin codex/execute-evidence-path-bound-refinement-witness
+git push origin <fresh-child-sha>:refs/heads/codex/execute-unique-commit-path-bound-refinement-witness
 ```
 
-Do not rerun or push a repair commit under this plan identity.
+Do not make a second push, rerun, or repair under this plan identity. Zero runs,
+more than one run, any rerun, branch/head drift, or any external/evidence
+invalidity is `INVALID_UNJUDGED` without candidate release.
 
 Review a captured cohort in one command:
 

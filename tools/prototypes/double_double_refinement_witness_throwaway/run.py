@@ -1,4 +1,4 @@
-"""Controller for the frozen Issue 58 evidence-path-bound witness cohort."""
+"""Controller for the frozen Issue 60 unique-commit-path-bound witness cohort."""
 
 from __future__ import annotations
 
@@ -13,6 +13,9 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib.error
+import urllib.parse
+import urllib.request
 import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -34,6 +37,12 @@ LANES = ROOT.parent / "instrumented_faer_lane_provisioning_throwaway"
 PLAN = ROOT / "factor-qualification-plan.v1.json"
 TRANSPORT = ROOT / "transport-manifest.v1.json"
 CONTRACT = ROOT / "execution-contract.v1.json"
+DISPATCH_MARKER_RELATIVE = (
+    "tools/prototypes/"
+    "unique_commit_path_bound_refinement_witness_throwaway/"
+    "dispatch-marker.v1.json"
+)
+DISPATCH_MARKER = REPOSITORY / DISPATCH_MARKER_RELATIVE
 ROOT_BOUND_FRESH_PLAN = (
     ROOT.parent
     / "root_bound_terminal_plan_throwaway"
@@ -106,6 +115,24 @@ ROOT_BOUND_FRESH_PLAN_SHA256 = (
 EVIDENCE_PATH_PLAN_SHA256 = (
     "a0132ab26af2e4e99fb8edeeecc2b51a8e0090b6e0dccf6f804573bad0ff97b1"
 )
+UNIQUE_COMMIT_PATH_BOUND_DISPATCH_PLAN_SHA256 = (
+    "3d5415e6ca3bc0ba0b1c350c90246f0a20b83a0b5f0e931a705b2fab6b800daa"
+)
+BASE_MATERIALIZATION_COMMIT = "29b022d89af923720146a9e1d56cf6a25b719bac"
+PRIOR_EXECUTION_CONTRACT_SHA256 = (
+    "b7b8b2629f902aaea0295178a4c690db1ae11f0582f1cdded135d21671519c83"
+)
+PRIOR_EXECUTION_SOURCE_BINDING_SHA256 = (
+    "102e9b8260736897a407f79d33c28320fee5127a9c36a2723cdb7f6cb8fb2fe1"
+)
+PRIOR_EXECUTION_CONTROLLER_BINDING_SHA256 = (
+    "705ea8561c96de9863a624faf52e95007ed7044151dffc9c5821db2e076d0ca5"
+)
+WORKFLOW_ID = 323339010
+WORKFLOW_PATH = ".github/workflows/ready-gated-double-double-refinement-witness.yml"
+EXECUTION_BRANCH = "codex/execute-unique-commit-path-bound-refinement-witness"
+EXECUTION_REF = f"refs/heads/{EXECUTION_BRANCH}"
+ZERO_SHA = "0" * 40
 ACCEPTED_ROOT_BOUND_CONTROLLER_BINDING_SHA256 = (
     "1370ecd1ee86ca569d53b5f474dc861879ae252c34544599d5fb2c2e84ca0409"
 )
@@ -304,6 +331,151 @@ def git_blob(relative: str) -> bytes:
     return completed.stdout
 
 
+def github_api_json(path: str, query: dict[str, str] | None = None) -> Any:
+    token = os.environ.get("GH_TOKEN")
+    require(bool(token), "GH_TOKEN is required for the exact run-cardinality gate")
+    url = f"https://api.github.com{path}"
+    if query:
+        url = f"{url}?{urllib.parse.urlencode(query)}"
+    request = urllib.request.Request(
+        url,
+        headers={
+            "Accept": "application/vnd.github+json",
+            "Authorization": f"Bearer {token}",
+            "User-Agent": "RapidRBF-Issue60-Cardinality-Gate",
+            "X-GitHub-Api-Version": "2022-11-28",
+        },
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=60) as response:
+            require(response.status == 200, f"GitHub API status differs: {response.status}")
+            return json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as error:
+        raise RuntimeError(f"GitHub API request failed with HTTP {error.code}") from error
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:
+        raise RuntimeError("GitHub API run-cardinality query failed") from error
+
+
+def verify_unique_dispatch_cardinality() -> dict[str, Any]:
+    require(
+        os.environ.get("GITHUB_ACTIONS") == "true",
+        "exact run-cardinality gate requires GitHub Actions",
+    )
+    repository = str(os.environ.get("GITHUB_REPOSITORY"))
+    run_id = str(os.environ.get("GITHUB_RUN_ID"))
+    run_attempt = str(os.environ.get("GITHUB_RUN_ATTEMPT"))
+    head_sha = str(os.environ.get("GITHUB_SHA"))
+    event_name = str(os.environ.get("GITHUB_EVENT_NAME"))
+    event_path = Path(str(os.environ.get("GITHUB_EVENT_PATH")))
+    require(
+        repository == "qingsonger/RapidRBF"
+        and run_id.isdigit()
+        and run_attempt == "1"
+        and len(head_sha) == 40
+        and event_name == "push"
+        and event_path.is_file(),
+        "current workflow coordinate is not the frozen Issue 60 coordinate",
+    )
+
+    event = json.loads(event_path.read_text(encoding="utf-8"))
+    commits = event.get("commits")
+    require(
+        event.get("ref") == EXECUTION_REF
+        and event.get("before") == ZERO_SHA
+        and event.get("after") == head_sha
+        and event.get("created") is True
+        and event.get("repository", {}).get("full_name") == repository
+        and isinstance(commits, list)
+        and len(commits) == 1
+        and commits[0].get("id") == head_sha,
+        "new-branch push event identity differs",
+    )
+
+    runs = github_api_json(
+        f"/repos/{repository}/actions/workflows/{WORKFLOW_ID}/runs",
+        {
+            "branch": EXECUTION_BRANCH,
+            "event": "push",
+            "per_page": "100",
+        },
+    )
+    workflow_runs = runs.get("workflow_runs")
+    require(
+        runs.get("total_count") == 1
+        and isinstance(workflow_runs, list)
+        and len(workflow_runs) == 1,
+        "exact workflow/branch/event run cardinality is not one",
+    )
+    only = workflow_runs[0]
+    require(
+        str(only.get("id")) == run_id
+        and only.get("workflow_id") == WORKFLOW_ID
+        and only.get("path") == WORKFLOW_PATH
+        and only.get("event") == "push"
+        and only.get("head_branch") == EXECUTION_BRANCH
+        and only.get("head_sha") == head_sha
+        and str(only.get("run_attempt")) == "1"
+        and only.get("head_repository", {}).get("full_name") == repository,
+        "sole matching workflow run is not the current attempt-1 run",
+    )
+
+    encoded_ref = urllib.parse.quote(f"heads/{EXECUTION_BRANCH}", safe="/")
+    branch_ref = github_api_json(f"/repos/{repository}/git/ref/{encoded_ref}")
+    require(
+        branch_ref.get("ref") == EXECUTION_REF
+        and branch_ref.get("object", {}).get("type") == "commit"
+        and branch_ref.get("object", {}).get("sha") == head_sha,
+        "execution branch no longer resolves to the exact materialization head",
+    )
+    return {
+        "schema": "RapidRBF/UniqueCommitPathBoundRunCardinality/v1",
+        "issue": 60,
+        "workflow_id": WORKFLOW_ID,
+        "workflow_path": WORKFLOW_PATH,
+        "event": "push",
+        "ref": EXECUTION_REF,
+        "before": ZERO_SHA,
+        "head_branch": EXECUTION_BRANCH,
+        "head_sha": head_sha,
+        "event_commits": [head_sha],
+        "matching_run_count": 1,
+        "run_id": run_id,
+        "run_attempt": 1,
+        "branch_ref_sha": head_sha,
+        "current_run_is_sole_match": True,
+    }
+
+
+def validate_dispatch_cardinality(
+    value: dict[str, Any],
+    coordinate: dict[str, str],
+    git_sha: str,
+) -> None:
+    require(
+        value
+        == {
+            "schema": "RapidRBF/UniqueCommitPathBoundRunCardinality/v1",
+            "issue": 60,
+            "workflow_id": WORKFLOW_ID,
+            "workflow_path": WORKFLOW_PATH,
+            "event": "push",
+            "ref": EXECUTION_REF,
+            "before": ZERO_SHA,
+            "head_branch": EXECUTION_BRANCH,
+            "head_sha": git_sha,
+            "event_commits": [git_sha],
+            "matching_run_count": 1,
+            "run_id": coordinate["run_id"],
+            "run_attempt": 1,
+            "branch_ref_sha": git_sha,
+            "current_run_is_sole_match": True,
+        }
+        and coordinate["run_attempt"] == "1"
+        and coordinate["sha"] == git_sha,
+        "Issue 60 dispatch cardinality record differs",
+    )
+
+
 def verify_static_authority() -> dict[str, Any]:
     require(
         sha256_file(ROOT_BOUND_FRESH_PLAN) == ROOT_BOUND_FRESH_PLAN_SHA256,
@@ -312,6 +484,51 @@ def verify_static_authority() -> dict[str, Any]:
     require(
         sha256_file(EVIDENCE_PATH_PLAN) == EVIDENCE_PATH_PLAN_SHA256,
         "preflight evidence-path plan differs",
+    )
+    marker = json.loads(DISPATCH_MARKER.read_text(encoding="utf-8"))
+    require(
+        git_blob(DISPATCH_MARKER_RELATIVE) == DISPATCH_MARKER.read_bytes(),
+        "dispatch marker differs from the exact HEAD blob",
+    )
+    require(
+        marker
+        == {
+            "schema": "RapidRBF/UniqueCommitPathBoundDispatchMarker/v1",
+            "issue": 60,
+            "question": (
+                "Does one fresh exact child materialization and sole "
+                "candidate-bearing cohort attempt support or reject the unchanged "
+                "double-double refinement route across all four required targets "
+                "and the frozen 1/12, 2/12, and 8/16 profiles?"
+            ),
+            "base_commit": BASE_MATERIALIZATION_COMMIT,
+            "future_branch": EXECUTION_BRANCH,
+            "workflow": {
+                "id": WORKFLOW_ID,
+                "path": WORKFLOW_PATH,
+                "event": "push",
+            },
+            "replacement_plan_sha256": (
+                UNIQUE_COMMIT_PATH_BOUND_DISPATCH_PLAN_SHA256
+            ),
+            "prior_execution_contract_sha256": (
+                PRIOR_EXECUTION_CONTRACT_SHA256
+            ),
+            "prior_execution_source_binding_sha256": (
+                PRIOR_EXECUTION_SOURCE_BINDING_SHA256
+            ),
+            "prior_execution_controller_binding_sha256": (
+                PRIOR_EXECUTION_CONTROLLER_BINDING_SHA256
+            ),
+            "dispatch_count": 1,
+            "maximum_attempts": 1,
+            "candidate_calls_before_dispatch": 0,
+            "path_matching_role": (
+                "A content-addressed witness that makes the sole new-branch push "
+                "carry one changed path matched by the frozen workflow."
+            ),
+        },
+        "Issue 60 dispatch marker differs",
     )
     require(
         sha256_file(CONTROLLER_PLAN) == CONTROLLER_PLAN_SHA256,
@@ -337,8 +554,27 @@ def verify_static_authority() -> dict[str, Any]:
     contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
     require(
         contract["schema"]
-        == "RapidRBF/EvidencePathBoundDoubleDoubleRefinementWitnessExecutionContract/v1"
-        and contract["issue"] == 58
+        == "RapidRBF/UniqueCommitPathBoundDoubleDoubleRefinementWitnessExecutionContract/v1"
+        and contract["contract_id"]
+        == (
+            "RapidRBF/"
+            "UniqueCommitPathBoundDoubleDoubleRefinementWitnessExecutionContract/"
+            f"v1/{UNIQUE_COMMIT_PATH_BOUND_DISPATCH_PLAN_SHA256}"
+        )
+        and contract["issue"] == 60
+        and contract["base_commit"] == BASE_MATERIALIZATION_COMMIT
+        and contract["unique_commit_path_bound_dispatch_plan_sha256"]
+        == UNIQUE_COMMIT_PATH_BOUND_DISPATCH_PLAN_SHA256
+        and contract["prior_execution_contract_sha256"]
+        == PRIOR_EXECUTION_CONTRACT_SHA256
+        and contract["prior_execution_source_binding_sha256"]
+        == PRIOR_EXECUTION_SOURCE_BINDING_SHA256
+        and contract["prior_execution_controller_binding_sha256"]
+        == PRIOR_EXECUTION_CONTROLLER_BINDING_SHA256
+        and contract["workflow_id"] == WORKFLOW_ID
+        and contract["execution_branch"] == EXECUTION_BRANCH
+        and contract["required_event"] == "push"
+        and contract["required_new_branch_before"] == ZERO_SHA
         and contract["root_bound_fresh_cohort_plan_sha256"]
         == ROOT_BOUND_FRESH_PLAN_SHA256
         and contract["preflight_evidence_path_plan_sha256"]
@@ -349,8 +585,11 @@ def verify_static_authority() -> dict[str, Any]:
         and contract["witness_plan_sha256"] == WITNESS_PLAN_SHA256
         and contract["reference_manifest_sha256"] == REFERENCE_SHA256
         and contract["maximum_attempts"] == 1
-        and contract["required_run_attempt"] == 1,
-        "Issue 58 execution contract differs",
+        and contract["required_run_attempt"] == 1
+        and not contract["issue58_observations_may_satisfy_cohort_counts"]
+        and not contract["issue59_diagnostic_observations_may_satisfy_cohort_counts"]
+        and contract["exact_run_cardinality_required_before_candidate_entry"],
+        "Issue 60 execution contract differs",
     )
     workflow = CONTROLLER_BINDING_PATHS[
         ".github/workflows/ready-gated-double-double-refinement-witness.yml"
@@ -373,6 +612,17 @@ def verify_static_authority() -> dict[str, Any]:
         "witness inventory differs",
     )
     return {
+        "unique_commit_path_bound_dispatch_plan_sha256": (
+            UNIQUE_COMMIT_PATH_BOUND_DISPATCH_PLAN_SHA256
+        ),
+        "dispatch_marker_sha256": sha256_file(DISPATCH_MARKER),
+        "prior_execution_contract_sha256": PRIOR_EXECUTION_CONTRACT_SHA256,
+        "prior_execution_source_binding_sha256": (
+            PRIOR_EXECUTION_SOURCE_BINDING_SHA256
+        ),
+        "prior_execution_controller_binding_sha256": (
+            PRIOR_EXECUTION_CONTROLLER_BINDING_SHA256
+        ),
         "root_bound_fresh_cohort_plan_sha256": ROOT_BOUND_FRESH_PLAN_SHA256,
         "preflight_evidence_path_plan_sha256": EVIDENCE_PATH_PLAN_SHA256,
         "accepted_root_bound_controller_binding_sha256": (
@@ -439,7 +689,10 @@ def source_binding() -> dict[str, Any]:
         (CANDIDATE / "binding-manifest.v1.json").read_text(encoding="utf-8")
     )
     value = {
-        "schema": "RapidRBF/RootBoundRefinementWitnessExecutionSourceBinding/v1",
+        "schema": (
+            "RapidRBF/"
+            "UniqueCommitPathBoundRefinementWitnessExecutionSourceBinding/v1"
+        ),
         "git_commit": git_value("rev-parse", "HEAD"),
         "rust_toolchain": "1.85.0",
         "cargo_lock_sha256": unchanged[
@@ -460,6 +713,17 @@ def source_binding() -> dict[str, Any]:
         "controller_plan_sha256": CONTROLLER_PLAN_SHA256,
         "root_bound_fresh_cohort_plan_sha256": ROOT_BOUND_FRESH_PLAN_SHA256,
         "preflight_evidence_path_plan_sha256": EVIDENCE_PATH_PLAN_SHA256,
+        "unique_commit_path_bound_dispatch_plan_sha256": (
+            UNIQUE_COMMIT_PATH_BOUND_DISPATCH_PLAN_SHA256
+        ),
+        "dispatch_marker_sha256": sha256_file(DISPATCH_MARKER),
+        "prior_execution_contract_sha256": PRIOR_EXECUTION_CONTRACT_SHA256,
+        "prior_execution_source_binding_sha256": (
+            PRIOR_EXECUTION_SOURCE_BINDING_SHA256
+        ),
+        "prior_execution_controller_binding_sha256": (
+            PRIOR_EXECUTION_CONTROLLER_BINDING_SHA256
+        ),
         "accepted_root_bound_controller_binding_sha256": (
             ACCEPTED_ROOT_BOUND_CONTROLLER_BINDING_SHA256
         ),
@@ -864,7 +1128,7 @@ def run_controller_preflight(
         detail={"scenario_count": len(traces)},
     )
 
-    scratch = Path(tempfile.mkdtemp(prefix="rapidrbf-issue58-controller-preflight-"))
+    scratch = Path(tempfile.mkdtemp(prefix="rapidrbf-issue60-controller-preflight-"))
     observations: dict[str, Any | None] = {}
     fast_exits: list[Any | None] = []
     try:
@@ -1375,6 +1639,8 @@ def aggregate_execution_preflight(
         },
         "preflight aggregation workflow coordinate differs",
     )
+    dispatch_cardinality = verify_unique_dispatch_cardinality()
+    validate_dispatch_cardinality(dispatch_cardinality, coordinate, ready["git_sha"])
     aggregation_sha256 = canonical_sha256(
         {
             "source_binding_sha256": local["source_binding_sha256"],
@@ -1386,14 +1652,19 @@ def aggregate_execution_preflight(
             "root_bound_aggregation_sha256": root_bound["identity"][
                 "aggregation_sha256"
             ],
+            "dispatch_cardinality": dispatch_cardinality,
         }
     )
     value = {
         "schema": "RapidRBF/RootBoundRefinementWitnessExecutionUnlock/v1",
-        "issue": 58,
+        "issue": 60,
         "status": "PASS",
         "git_sha": ready["git_sha"],
         "workflow_coordinate": coordinate,
+        "dispatch_cardinality": dispatch_cardinality,
+        "unique_commit_path_bound_dispatch_plan_sha256": (
+            UNIQUE_COMMIT_PATH_BOUND_DISPATCH_PLAN_SHA256
+        ),
         "root_bound_fresh_cohort_plan_sha256": ROOT_BOUND_FRESH_PLAN_SHA256,
         "preflight_evidence_path_plan_sha256": EVIDENCE_PATH_PLAN_SHA256,
         "accepted_root_bound_controller_binding_sha256": (
@@ -1420,6 +1691,8 @@ def aggregate_execution_preflight(
             "issue_55_observations_used_as_candidate_counts": 0,
             "issue_56_observations_used": 0,
             "issue_57_diagnostic_observations_used": 0,
+            "issue_58_observations_used": 0,
+            "issue_59_diagnostic_observations_used": 0,
         },
         "aggregation_sha256": aggregation_sha256,
     }
@@ -1457,6 +1730,11 @@ def verify_execution_preflight(root: Path) -> dict[str, Any]:
     )
     unlock = json.loads(unlock_path.read_text(encoding="utf-8"))
     local = source_binding()
+    validate_dispatch_cardinality(
+        unlock["dispatch_cardinality"],
+        ready["workflow_coordinate"],
+        ready["git_sha"],
+    )
     expected_aggregation = canonical_sha256(
         {
             "source_binding_sha256": local["source_binding_sha256"],
@@ -1468,15 +1746,18 @@ def verify_execution_preflight(root: Path) -> dict[str, Any]:
             "root_bound_aggregation_sha256": root_bound["identity"][
                 "aggregation_sha256"
             ],
+            "dispatch_cardinality": unlock["dispatch_cardinality"],
         }
     )
     require(
         unlock["schema"]
         == "RapidRBF/RootBoundRefinementWitnessExecutionUnlock/v1"
-        and unlock["issue"] == 58
+        and unlock["issue"] == 60
         and unlock["status"] == "PASS"
         and unlock["git_sha"] == ready["git_sha"]
         and unlock["workflow_coordinate"] == ready["workflow_coordinate"]
+        and unlock["unique_commit_path_bound_dispatch_plan_sha256"]
+        == UNIQUE_COMMIT_PATH_BOUND_DISPATCH_PLAN_SHA256
         and unlock["root_bound_fresh_cohort_plan_sha256"]
         == ROOT_BOUND_FRESH_PLAN_SHA256
         and unlock["preflight_evidence_path_plan_sha256"]
@@ -1506,6 +1787,8 @@ def verify_execution_preflight(root: Path) -> dict[str, Any]:
             "issue_55_observations_used_as_candidate_counts": 0,
             "issue_56_observations_used": 0,
             "issue_57_diagnostic_observations_used": 0,
+            "issue_58_observations_used": 0,
+            "issue_59_diagnostic_observations_used": 0,
         }
         and unlock["aggregation_sha256"] == expected_aggregation,
         "execution preflight unlock differs",
@@ -1755,7 +2038,7 @@ def execute_target(args: argparse.Namespace) -> None:
             baseline = entry.with_suffix(".baseline.json")
             scratch = Path(
                 tempfile.gettempdir(),
-                f"rapidrbf-issue58-{args.lane_id}-{workers}-{os.getpid()}",
+                f"rapidrbf-issue60-{args.lane_id}-{workers}-{os.getpid()}",
             )
             require(
                 not output.exists()

@@ -1,0 +1,20 @@
+{
+  "schema": "RapidRBF/UniqueCommitPathBoundDispatchMarker/v1",
+  "issue": 60,
+  "question": "Does one fresh exact child materialization and sole candidate-bearing cohort attempt support or reject the unchanged double-double refinement route across all four required targets and the frozen 1/12, 2/12, and 8/16 profiles?",
+  "base_commit": "29b022d89af923720146a9e1d56cf6a25b719bac",
+  "future_branch": "codex/execute-unique-commit-path-bound-refinement-witness",
+  "workflow": {
+    "id": 323339010,
+    "path": ".github/workflows/ready-gated-double-double-refinement-witness.yml",
+    "event": "push"
+  },
+  "replacement_plan_sha256": "3d5415e6ca3bc0ba0b1c350c90246f0a20b83a0b5f0e931a705b2fab6b800daa",
+  "prior_execution_contract_sha256": "b7b8b2629f902aaea0295178a4c690db1ae11f0582f1cdded135d21671519c83",
+  "prior_execution_source_binding_sha256": "102e9b8260736897a407f79d33c28320fee5127a9c36a2723cdb7f6cb8fb2fe1",
+  "prior_execution_controller_binding_sha256": "705ea8561c96de9863a624faf52e95007ed7044151dffc9c5821db2e076d0ca5",
+  "dispatch_count": 1,
+  "maximum_attempts": 1,
+  "candidate_calls_before_dispatch": 0,
+  "path_matching_role": "A content-addressed witness that makes the sole new-branch push carry one changed path matched by the frozen workflow."
+}

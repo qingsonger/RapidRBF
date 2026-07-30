@@ -1,4 +1,4 @@
-"""Verify the sole immutable non-compensating Issue 58 root-bound cohort."""
+"""Verify the sole immutable non-compensating Issue 60 root-bound cohort."""
 
 from __future__ import annotations
 
@@ -23,6 +23,14 @@ ORDINALS = (0, 36, 69, 72, 106, 150)
 SUPPORTED = "REFINEMENT_ROUTE_SUPPORTED_FOR_FULL_CORPUS_PLAN"
 REJECTED = "REFINEMENT_ROUTE_REJECTED_DIAGNOSTIC_ONLY"
 INVALID = "INVALID_UNJUDGED"
+DISPATCH_PLAN_SHA256 = (
+    "3d5415e6ca3bc0ba0b1c350c90246f0a20b83a0b5f0e931a705b2fab6b800daa"
+)
+WORKFLOW_ID = 323339010
+WORKFLOW_PATH = ".github/workflows/ready-gated-double-double-refinement-witness.yml"
+EXECUTION_BRANCH = "codex/execute-unique-commit-path-bound-refinement-witness"
+EXECUTION_REF = f"refs/heads/{EXECUTION_BRANCH}"
+ZERO_SHA = "0" * 40
 
 
 def sha256_file(path: Path) -> str:
@@ -328,8 +336,20 @@ def main() -> int:
     referenced: set[Path] = set()
     if (
         contract.get("schema")
-        != "RapidRBF/EvidencePathBoundDoubleDoubleRefinementWitnessExecutionContract/v1"
-        or contract.get("issue") != 58
+        != "RapidRBF/UniqueCommitPathBoundDoubleDoubleRefinementWitnessExecutionContract/v1"
+        or contract.get("contract_id")
+        != (
+            "RapidRBF/"
+            "UniqueCommitPathBoundDoubleDoubleRefinementWitnessExecutionContract/"
+            f"v1/{DISPATCH_PLAN_SHA256}"
+        )
+        or contract.get("issue") != 60
+        or contract.get("unique_commit_path_bound_dispatch_plan_sha256")
+        != DISPATCH_PLAN_SHA256
+        or contract.get("workflow_id") != WORKFLOW_ID
+        or contract.get("execution_branch") != EXECUTION_BRANCH
+        or contract.get("required_event") != "push"
+        or contract.get("required_new_branch_before") != ZERO_SHA
         or contract.get("preflight_evidence_path_plan_sha256")
         != "a0132ab26af2e4e99fb8edeeecc2b51a8e0090b6e0dccf6f804573bad0ff97b1"
         or contract.get("maximum_attempts") != 1
@@ -337,8 +357,11 @@ def main() -> int:
         or contract.get("replacement_retry_permitted")
         or contract.get("partial_rerun_permitted")
         or contract.get("attempt_mixing_permitted")
+        or contract.get("issue58_observations_may_satisfy_cohort_counts")
+        or contract.get("issue59_diagnostic_observations_may_satisfy_cohort_counts")
+        or not contract.get("exact_run_cardinality_required_before_candidate_entry")
     ):
-        invalidity.append("Issue 58 execution contract differs")
+        invalidity.append("Issue 60 execution contract differs")
 
     declared_reference = args.evidence_root / "reference" / "reference-manifest.v1.json"
     reference_paths = [declared_reference] if declared_reference.is_file() else []
@@ -668,6 +691,38 @@ def main() -> int:
                 for lane in TARGETS
                 if lane in preflight_files
             )
+            preflight_coordinate = (
+                next(iter(preflight_coordinates))
+                if len(preflight_coordinates) == 1
+                else None
+            )
+            preflight_head = (
+                next(iter(preflight_commits)) if len(preflight_commits) == 1 else None
+            )
+            expected_dispatch_cardinality = (
+                {
+                    "schema": "RapidRBF/UniqueCommitPathBoundRunCardinality/v1",
+                    "issue": 60,
+                    "workflow_id": WORKFLOW_ID,
+                    "workflow_path": WORKFLOW_PATH,
+                    "event": "push",
+                    "ref": EXECUTION_REF,
+                    "before": ZERO_SHA,
+                    "head_branch": EXECUTION_BRANCH,
+                    "head_sha": preflight_head,
+                    "event_commits": [preflight_head],
+                    "matching_run_count": 1,
+                    "run_id": preflight_coordinate[0],
+                    "run_attempt": 1,
+                    "branch_ref_sha": preflight_head,
+                    "current_run_is_sole_match": True,
+                }
+                if preflight_coordinate is not None
+                and preflight_coordinate[1] == "1"
+                and preflight_coordinate[2] == preflight_head
+                and preflight_head is not None
+                else None
+            )
             expected_unlock_aggregation = (
                 canonical_sha256(
                     {
@@ -684,6 +739,7 @@ def main() -> int:
                         "root_bound_aggregation_sha256": root_bound_release[
                             "identity"
                         ]["aggregation_sha256"],
+                        "dispatch_cardinality": expected_dispatch_cardinality,
                     }
                 )
                 if len(preflight_binding_ids) == 1
@@ -695,8 +751,12 @@ def main() -> int:
                 not verify_sidecar(unlock_path)
                 or unlock["schema"]
                 != "RapidRBF/RootBoundRefinementWitnessExecutionUnlock/v1"
-                or unlock["issue"] != 58
+                or unlock["issue"] != 60
                 or unlock["status"] != "PASS"
+                or unlock["unique_commit_path_bound_dispatch_plan_sha256"]
+                != DISPATCH_PLAN_SHA256
+                or unlock["dispatch_cardinality"]
+                != expected_dispatch_cardinality
                 or unlock["root_bound_fresh_cohort_plan_sha256"]
                 != contract["root_bound_fresh_cohort_plan_sha256"]
                 or unlock["accepted_root_bound_controller_binding_sha256"]
@@ -728,6 +788,8 @@ def main() -> int:
                     "issue_55_observations_used_as_candidate_counts": 0,
                     "issue_56_observations_used": 0,
                     "issue_57_diagnostic_observations_used": 0,
+                    "issue_58_observations_used": 0,
+                    "issue_59_diagnostic_observations_used": 0,
                 }
             ):
                 invalidity.append("candidate-entry unlock differs")
@@ -986,10 +1048,36 @@ def main() -> int:
             if len(run_coordinates) == 1
             else None
         )
+        expected_head = next(iter(commits)) if len(commits) == 1 else None
+        expected_dispatch = (
+            {
+                "schema": "RapidRBF/UniqueCommitPathBoundRunCardinality/v1",
+                "issue": 60,
+                "workflow_id": WORKFLOW_ID,
+                "workflow_path": WORKFLOW_PATH,
+                "event": "push",
+                "ref": EXECUTION_REF,
+                "before": ZERO_SHA,
+                "head_branch": EXECUTION_BRANCH,
+                "head_sha": expected_head,
+                "event_commits": [expected_head],
+                "matching_run_count": 1,
+                "run_id": expected_coordinate["run_id"],
+                "run_attempt": 1,
+                "branch_ref_sha": expected_head,
+                "current_run_is_sole_match": True,
+            }
+            if expected_coordinate is not None
+            and expected_coordinate["run_attempt"] == "1"
+            and expected_coordinate["sha"] == expected_head
+            and expected_head is not None
+            else None
+        )
         if (
             unlock["git_sha"]
             != (next(iter(commits)) if len(commits) == 1 else None)
             or unlock["workflow_coordinate"] != expected_coordinate
+            or unlock["dispatch_cardinality"] != expected_dispatch
             or unlock["execution_source_binding_sha256"]
             != (next(iter(binding_ids)) if len(binding_ids) == 1 else None)
             or unlock["execution_controller_binding_sha256"]

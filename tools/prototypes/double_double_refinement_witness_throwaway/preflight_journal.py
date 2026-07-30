@@ -1,4 +1,4 @@
-"""Atomic Issue 58 controller-preflight journal and verifier."""
+"""Atomic Issue 60 controller-preflight journal and verifier."""
 
 from __future__ import annotations
 
@@ -15,8 +15,8 @@ from typing import Any, Callable
 JOURNAL_NAME = "controller-preflight-journal.json"
 CHECKS_DIRECTORY = "controller-preflight-checks"
 EXPECTED_CHECKS = 277
-EXECUTION_ISSUE = 58
-AUTHORITY_CHECK_NAME = "issue58-authority-and-controller-binding"
+EXECUTION_ISSUE = 60
+AUTHORITY_CHECK_NAME = "issue60-authority-and-controller-binding"
 EXPECTED_GROUP_COUNTS = {
     "identity": 1,
     "pure-state-trace": 8,
