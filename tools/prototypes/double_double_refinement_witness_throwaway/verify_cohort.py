@@ -1,4 +1,4 @@
-"""Verify the sole immutable non-compensating Issue 53 replacement cohort."""
+"""Verify the sole immutable non-compensating Issue 56 root-bound cohort."""
 
 from __future__ import annotations
 
@@ -31,6 +31,13 @@ def sha256_file(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def canonical_sha256(value: Any) -> str:
+    data = json.dumps(
+        value, sort_keys=True, separators=(",", ":"), ensure_ascii=True
+    ).encode("utf-8")
+    return hashlib.sha256(data).hexdigest()
 
 
 def matches(path: Path, expected_bytes: int, expected_sha256: str) -> bool:
@@ -157,6 +164,8 @@ def verify_controller(
     failures: list[dict[str, Any]] = []
     if observation.get("schema") != "RapidRBF/ControllerValidProcessObservation/v1":
         return [f"{lane}/{workers} controller schema differs"], failures
+    if observation.get("terminal_policy") != "root-bound":
+        invalidity.append(f"{lane}/{workers} root-bound policy is absent")
     events = observation.get("event_log", [])
     nonce = observation.get("invocation_nonce")
     if (
@@ -198,28 +207,65 @@ def verify_controller(
     ]
     if len(benign) != observation.get("benign_terminal_races") or len(benign) > 1:
         invalidity.append(f"{lane}/{workers} benign ESRCH count differs")
-    if benign:
-        sample_errors = [
-            item
-            for item in events
-            if item.get("kind") == "sample_error"
-            and item.get("sample_id") == benign[0].get("sample_id")
-        ]
-        terminal = next(
-            (item for item in events if item.get("kind") == "terminal_observed"),
-            None,
-        )
+    records = observation.get("root_bound_adapter_failures", [])
+    if len(records) != len(benign):
+        invalidity.append(f"{lane}/{workers} root-bound record count differs")
+    native_phases = {
+        "linux-proc-process-tree": {
+            "group-membership",
+            "stat",
+            "task-inventory",
+        },
+        "macos-proc-process-tree": {
+            "group-membership",
+            "bsd-identity",
+            "task-info",
+        },
+        "windows-job-toolhelp-process-tree": {
+            "job-membership",
+            "process-identity",
+            "thread-inventory",
+        },
+    }
+    for envelope in records:
+        record = envelope.get("record", {})
+        terminal = record.get("terminal") or {}
+        reap = record.get("reap") or {}
+        cleanup = record.get("process_tree_cleanup") or {}
         if (
-            len(sample_errors) != 1
-            or terminal is None
-            or benign[0].get("terminal_sequence") != terminal.get("sequence")
-            or sample_errors[0].get("raw_adapter_result", {}).get("adapter")
-            != "macos-proc_pidinfo"
-            or sample_errors[0].get("raw_adapter_result", {}).get("errno") != 3
-            or sample_errors[0].get("raw_adapter_result", {}).get("error_name")
-            != "ESRCH"
+            envelope.get("classification")
+            != "BENIGN_ROOT_BOUND_TERMINAL_CLOSURE"
+            or record.get("schema") != "RapidRBF/RootBoundAdapterFailure/v1"
+            or record.get("errno") != 3
+            or record.get("error_name") != "ESRCH"
+            or record.get("adapter") not in native_phases
+            or record.get("phase") not in native_phases.get(record.get("adapter"), set())
+            or record.get("subject_pid") != record.get("root_pid")
+            or record.get("root_pid") != observation.get("diagnostic_pid")
+            or record.get("invocation_nonce") != nonce
+            or record.get("sample_finished_ns", -1)
+            < record.get("sample_started_ns", 0)
+            or terminal.get("owner") != "sole-waiter"
+            or terminal.get("invocation_nonce") != nonce
+            or terminal.get("observed_ns", -1)
+            < record.get("sample_started_ns", 0)
+            or terminal.get("observed_ns", 0)
+            > record.get("sample_finished_ns", 0) + 1_000_000_000
+            or reap.get("owner") != "sole-waiter"
+            or reap.get("invocation_nonce") != nonce
+            or reap.get("observed_ns", -1) < terminal.get("observed_ns", 0)
+            or cleanup.get("invocation_nonce") != nonce
+            or cleanup.get("complete") is not True
+            or cleanup.get("observed_ns", -1) < reap.get("observed_ns", 0)
+            or record.get("prior_reconciliations") != 0
+            or record.get("incomplete_sample_effect")
+            != {
+                "successful_sample_delta": 0,
+                "sample_error_delta": 0,
+                "maximum_live_threads_delta": 0,
+            }
         ):
-            invalidity.append(f"{lane}/{workers} benign ESRCH evidence differs")
+            invalidity.append(f"{lane}/{workers} root-bound record differs")
     result = observation.get("process_result", {})
     if not result.get("process_tree_empty_after_reap"):
         invalidity.append(f"{lane}/{workers} process tree survived root reap")
@@ -282,14 +328,14 @@ def main() -> int:
     referenced: set[Path] = set()
     if (
         contract.get("schema")
-        != "RapidRBF/ReadyGatedDoubleDoubleRefinementWitnessExecutionContract/v1"
+        != "RapidRBF/RootBoundDoubleDoubleRefinementWitnessExecutionContract/v1"
         or contract.get("maximum_attempts") != 1
         or contract.get("required_run_attempt") != 1
         or contract.get("replacement_retry_permitted")
         or contract.get("partial_rerun_permitted")
         or contract.get("attempt_mixing_permitted")
     ):
-        invalidity.append("Issue 53 execution contract differs")
+        invalidity.append("Issue 56 execution contract differs")
 
     reference_paths = sorted(
         args.evidence_root.rglob("reference-manifest.v1.json")
@@ -365,7 +411,7 @@ def main() -> int:
                 continue
             if (
                 item["schema"]
-                != "RapidRBF/ReadyGatedRefinementWitnessTargetPreflight/v1"
+                != "RapidRBF/RootBoundRefinementWitnessTargetPreflight/v1"
                 or item["status"] != "PASS"
                 or item["target"] != TARGETS[lane]
                 or item["binary_preflight"]["candidate_executed"]
@@ -386,7 +432,7 @@ def main() -> int:
                 lane_id=lane,
                 target=TARGETS[lane],
                 replacement_plan_sha256=contract[
-                    "replacement_execution_plan_sha256"
+                    "root_bound_fresh_cohort_plan_sha256"
                 ],
             )
             if {
@@ -418,6 +464,257 @@ def main() -> int:
     if set(preflights) != set(TARGETS):
         invalidity.append("complete four-lane preflight set is absent")
 
+    root_bound_release: dict[str, Any] | None = None
+    unlock_release: dict[str, Any] | None = None
+    root_bound_paths = sorted(
+        args.evidence_root.rglob("root-bound-preflight-cohort.json")
+    )
+    unlock_paths = sorted(
+        args.evidence_root.rglob("execution-preflight-unlock.json")
+    )
+    if len(root_bound_paths) != 1:
+        invalidity.append(
+            f"expected one root-bound preflight cohort, found {len(root_bound_paths)}"
+        )
+    else:
+        root_path = root_bound_paths[0]
+        try:
+            root_value = json.loads(root_path.read_text(encoding="utf-8"))
+            identity = root_value["identity"]
+            if (
+                not verify_sidecar(root_path)
+                or root_value["schema"]
+                != "RapidRBF/RootBoundZeroEntryPreflightCohort/v1"
+                or root_value["issue"] != 55
+                or root_value["status"]
+                != "ROOT_BOUND_FOUR_LANE_ZERO_ENTRY_PREFLIGHT_PASS"
+                or root_value["inherited_ready_gated_check_count"] != 1108
+                or root_value["root_bound_check_count"] != 100
+                or identity["controller_binding_sha256"]
+                != contract["accepted_root_bound_controller_binding_sha256"]
+                or identity["source_binding_sha256"]
+                != contract["root_bound_preflight_source_binding_sha256"]
+                or identity["workflow_sha256"]
+                != contract["root_bound_preflight_workflow_sha256"]
+                or identity["candidate_binding_sha256"]
+                != contract["candidate_binding_sha256"]
+                or identity["witness_plan_sha256"]
+                != contract["witness_plan_sha256"]
+                or identity["accepted_reference_sha256"]
+                != contract["reference_manifest_sha256"]
+                or root_value["non_reuse"]["issue_53_observations_used"] != 0
+                or root_value["non_reuse"][
+                    "issue_54_diagnostic_observations_used_as_candidate_counts"
+                ]
+                != 0
+                or root_value["non_reuse"][
+                    "issue_55_observations_are_candidate_counts"
+                ]
+                is not False
+            ):
+                invalidity.append("root-bound preflight release differs")
+            referenced.update(
+                {root_path, root_path.with_name(root_path.name + ".sha256")}
+            )
+            markdown = root_path.with_name("root-bound-preflight-cohort.md")
+            if markdown.is_file():
+                referenced.add(markdown)
+            for lane, lane_record in root_value["lanes"].items():
+                summaries = [
+                    path
+                    for path in args.evidence_root.rglob(
+                        "root-bound-preflight-summary.json"
+                    )
+                    if json.loads(path.read_text(encoding="utf-8"))["lane_id"]
+                    == lane
+                ]
+                if len(summaries) != 1:
+                    invalidity.append(
+                        f"root-bound preflight summary count differs for {lane}"
+                    )
+                    continue
+                summary_path = summaries[0]
+                summary = json.loads(summary_path.read_text(encoding="utf-8"))
+                journal_path = summary_path.parent / summary["journal"]["file"]
+                journal_sidecar = (
+                    summary_path.parent / summary["journal"]["sidecar"]
+                )
+                inherited_dir = summary_path.parent.parent / "inherited"
+                inherited_summary = (
+                    inherited_dir / summary["inherited"]["summary"]["file"]
+                )
+                inherited_journal = (
+                    inherited_dir / summary["inherited"]["journal"]["file"]
+                )
+                if (
+                    lane not in TARGETS
+                    or summary["target"] != TARGETS[lane]
+                    or not verify_sidecar(summary_path)
+                    or summary_path.stat().st_size
+                    != lane_record["summary"]["bytes"]
+                    or sha256_file(summary_path)
+                    != lane_record["summary"]["sha256"]
+                    or not matches(
+                        journal_path,
+                        lane_record["journal"]["bytes"],
+                        lane_record["journal"]["sha256"],
+                    )
+                    or not journal_sidecar.is_file()
+                    or journal_sidecar.read_text(encoding="ascii").split()[0]
+                    != lane_record["journal"]["sha256"]
+                    or not matches(
+                        inherited_summary,
+                        summary["inherited"]["summary"]["bytes"],
+                        summary["inherited"]["summary"]["sha256"],
+                    )
+                    or not verify_sidecar(inherited_summary)
+                    or not matches(
+                        inherited_journal,
+                        summary["inherited"]["journal"]["bytes"],
+                        summary["inherited"]["journal"]["sha256"],
+                    )
+                    or not verify_sidecar(inherited_journal)
+                ):
+                    invalidity.append(
+                        f"root-bound lane evidence differs for {lane}"
+                    )
+                referenced.update(
+                    {
+                        summary_path,
+                        summary_path.with_name(summary_path.name + ".sha256"),
+                        journal_path,
+                        journal_sidecar,
+                        inherited_summary,
+                        inherited_summary.with_name(
+                            inherited_summary.name + ".sha256"
+                        ),
+                        inherited_journal,
+                        inherited_journal.with_name(
+                            inherited_journal.name + ".sha256"
+                        ),
+                    }
+                )
+            root_bound_release = {
+                "file": root_path.name,
+                "bytes": root_path.stat().st_size,
+                "sha256": sha256_file(root_path),
+                "identity": identity,
+                "lanes": root_value["lanes"],
+                "scope": root_value["scope"],
+            }
+        except (KeyError, OSError, TypeError, ValueError, json.JSONDecodeError) as error:
+            invalidity.append(f"malformed root-bound preflight release: {error}")
+
+    if len(unlock_paths) != 1:
+        invalidity.append(
+            f"expected one candidate-entry unlock, found {len(unlock_paths)}"
+        )
+    else:
+        unlock_path = unlock_paths[0]
+        try:
+            unlock = json.loads(unlock_path.read_text(encoding="utf-8"))
+            ready_unlock = unlock["ready_gated_preflight"]
+            preflight_binding_ids = {
+                item["source_binding"]["source_binding_sha256"]
+                for item in preflights.values()
+            }
+            preflight_controller_ids = {
+                item["source_binding"]["controller_binding_sha256"]
+                for item in preflights.values()
+            }
+            preflight_commits = {
+                item["git_sha"] for item in preflights.values()
+            }
+            preflight_coordinates = {
+                (
+                    str(item["lane_witness"]["github"]["run_id"]),
+                    str(item["lane_witness"]["github"]["run_attempt"]),
+                    str(item["lane_witness"]["github"]["sha"]),
+                )
+                for item in preflights.values()
+            }
+            ready_lanes_match = all(
+                lane in ready_unlock["lanes"]
+                and ready_unlock["lanes"][lane]["preflight_bytes"]
+                == preflight_files[lane].stat().st_size
+                and ready_unlock["lanes"][lane]["preflight_sha256"]
+                == sha256_file(preflight_files[lane])
+                for lane in TARGETS
+                if lane in preflight_files
+            )
+            expected_unlock_aggregation = (
+                canonical_sha256(
+                    {
+                        "source_binding_sha256": next(
+                            iter(preflight_binding_ids)
+                        ),
+                        "ready_lanes": {
+                            lane: ready_unlock["lanes"][lane][
+                                "preflight_sha256"
+                            ]
+                            for lane in sorted(TARGETS)
+                        },
+                        "root_bound_cohort_sha256": root_bound_release["sha256"],
+                        "root_bound_aggregation_sha256": root_bound_release[
+                            "identity"
+                        ]["aggregation_sha256"],
+                    }
+                )
+                if len(preflight_binding_ids) == 1
+                and root_bound_release is not None
+                and all(lane in ready_unlock["lanes"] for lane in TARGETS)
+                else None
+            )
+            if (
+                not verify_sidecar(unlock_path)
+                or unlock["schema"]
+                != "RapidRBF/RootBoundRefinementWitnessExecutionUnlock/v1"
+                or unlock["issue"] != 56
+                or unlock["status"] != "PASS"
+                or unlock["root_bound_fresh_cohort_plan_sha256"]
+                != contract["root_bound_fresh_cohort_plan_sha256"]
+                or unlock["accepted_root_bound_controller_binding_sha256"]
+                != contract["accepted_root_bound_controller_binding_sha256"]
+                or root_bound_release is None
+                or unlock["root_bound_preflight"] != root_bound_release
+                or len(preflight_binding_ids) != 1
+                or unlock["execution_source_binding_sha256"]
+                != next(iter(preflight_binding_ids))
+                or len(preflight_controller_ids) != 1
+                or unlock["execution_controller_binding_sha256"]
+                != next(iter(preflight_controller_ids))
+                or len(preflight_commits) != 1
+                or unlock["git_sha"] != next(iter(preflight_commits))
+                or len(preflight_coordinates) != 1
+                or unlock["workflow_coordinate"]
+                != {
+                    "run_id": next(iter(preflight_coordinates))[0],
+                    "run_attempt": next(iter(preflight_coordinates))[1],
+                    "sha": next(iter(preflight_coordinates))[2],
+                }
+                or not ready_lanes_match
+                or unlock["aggregation_sha256"]
+                != expected_unlock_aggregation
+                or unlock["non_reuse"]
+                != {
+                    "issue_53_observations_used": 0,
+                    "issue_54_diagnostic_observations_used": 0,
+                    "issue_55_observations_used_as_candidate_counts": 0,
+                }
+            ):
+                invalidity.append("candidate-entry unlock differs")
+            referenced.update(
+                {unlock_path, unlock_path.with_name(unlock_path.name + ".sha256")}
+            )
+            unlock_release = {
+                "bytes": unlock_path.stat().st_size,
+                "sha256": sha256_file(unlock_path),
+                "aggregation_sha256": unlock["aggregation_sha256"],
+                "value": unlock,
+            }
+        except (KeyError, OSError, TypeError, ValueError, json.JSONDecodeError) as error:
+            invalidity.append(f"malformed candidate-entry unlock: {error}")
+
     target_paths = sorted(args.evidence_root.rglob("target-observation.json"))
     if len(target_paths) != 4:
         invalidity.append(
@@ -439,7 +736,7 @@ def main() -> int:
                 lane not in TARGETS
                 or target["target"] != TARGETS[lane]
                 or target["schema"]
-                != "RapidRBF/ReadyGatedRefinementWitnessTargetEvidence/v1"
+                != "RapidRBF/RootBoundRefinementWitnessTargetEvidence/v1"
             ):
                 invalidity.append(f"unexpected target identity in {path}")
                 continue
@@ -467,6 +764,26 @@ def main() -> int:
                             f"target {lane} preflight cohort hash differs"
                         )
                         break
+                if (
+                    root_bound_release is None
+                    or target["preflight_cohort"].get("root_bound")
+                    != root_bound_release
+                ):
+                    invalidity.append(
+                        f"target {lane} root-bound preflight release differs"
+                    )
+                expected_unlock = (
+                    {
+                        key: unlock_release[key]
+                        for key in ("bytes", "sha256", "aggregation_sha256")
+                    }
+                    if unlock_release is not None
+                    else None
+                )
+                if target["preflight_cohort"].get("unlock") != expected_unlock:
+                    invalidity.append(
+                        f"target {lane} candidate-entry unlock differs"
+                    )
             raw_lane = path.parent.parent / "lane" / "lane-identity.json"
             lane_file = target["lane_witness_file"]
             if not matches(
@@ -611,11 +928,34 @@ def main() -> int:
     if len(run_coordinates) != 1:
         invalidity.append("target workflow attempts are mixed")
     elif next(iter(run_coordinates))[1] != "1":
-        invalidity.append("replacement workflow attempt is not the sole attempt")
+        invalidity.append("root-bound workflow attempt is not the sole attempt")
     if commits and run_coordinates:
         coordinate_sha = next(iter(run_coordinates))[2]
         if coordinate_sha != next(iter(commits)):
             invalidity.append("workflow SHA differs from materialized commit")
+    if unlock_release is not None:
+        unlock = unlock_release["value"]
+        expected_coordinate = (
+            {
+                "run_id": next(iter(run_coordinates))[0],
+                "run_attempt": next(iter(run_coordinates))[1],
+                "sha": next(iter(run_coordinates))[2],
+            }
+            if len(run_coordinates) == 1
+            else None
+        )
+        if (
+            unlock["git_sha"]
+            != (next(iter(commits)) if len(commits) == 1 else None)
+            or unlock["workflow_coordinate"] != expected_coordinate
+            or unlock["execution_source_binding_sha256"]
+            != (next(iter(binding_ids)) if len(binding_ids) == 1 else None)
+            or unlock["execution_controller_binding_sha256"]
+            != (next(iter(controller_ids)) if len(controller_ids) == 1 else None)
+            or root_bound_release is None
+            or unlock["root_bound_preflight"] != root_bound_release
+        ):
+            invalidity.append("candidate-entry unlock and target cohort differ")
     if preflights:
         preflight_bindings = {
             item["source_binding"]["source_binding_sha256"]
@@ -662,13 +1002,16 @@ def main() -> int:
         failures.append({"gate": "target-disposition-without-coordinate"})
 
     summary = {
-        "schema": "RapidRBF/ReadyGatedRefinementWitnessCohortSummary/v1",
+        "schema": "RapidRBF/RootBoundRefinementWitnessCohortSummary/v1",
         "disposition": disposition,
         "contract_sha256": sha256_file(args.contract),
         "contract_id": contract["contract_id"],
         "controller_plan_sha256": contract["controller_plan_sha256"],
-        "replacement_execution_plan_sha256": contract[
-            "replacement_execution_plan_sha256"
+        "root_bound_fresh_cohort_plan_sha256": contract[
+            "root_bound_fresh_cohort_plan_sha256"
+        ],
+        "accepted_root_bound_controller_binding_sha256": contract[
+            "accepted_root_bound_controller_binding_sha256"
         ],
         "candidate_binding_sha256": contract["candidate_binding_sha256"],
         "source_binding_sha256": (
@@ -689,6 +1032,15 @@ def main() -> int:
         ),
         "reference_evidence": reference_evidence,
         "preflight_count": len(preflights),
+        "root_bound_preflight_release": root_bound_release,
+        "candidate_entry_unlock": (
+            {
+                key: unlock_release[key]
+                for key in ("bytes", "sha256", "aggregation_sha256")
+            }
+            if unlock_release is not None
+            else None
+        ),
         "target_count": len(targets),
         "target_profile_count": len(targets) * 3,
         "witness_source_observations": len(targets) * 3 * 6,
@@ -729,7 +1081,7 @@ def main() -> int:
         f"{sha256_file(output)}  cohort-summary.json\n"
     )
     lines = [
-        "# Ready-gated double-double refinement witness replacement cohort",
+        "# Root-bound fresh double-double refinement witness cohort",
         "",
         f"Disposition: `{disposition}`",
         "",

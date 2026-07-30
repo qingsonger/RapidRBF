@@ -1,24 +1,24 @@
-name: Ready-gated double-double refinement witness replacement
+name: Root-bound fresh double-double refinement witness cohort
 
 on:
   push:
     branches:
-      - codex/execute-ready-gated-refinement-witness
+      - codex/execute-root-bound-refinement-witness
     paths:
       - .github/workflows/ready-gated-double-double-refinement-witness.yml
       - tools/prototypes/double_double_refinement_witness_throwaway/**
-      - tools/prototypes/controller_preflight_replacement_plan_throwaway/replacement-execution-plan.v1.json
+      - tools/prototypes/root_bound_terminal_plan_throwaway/**
 
 permissions:
   contents: read
 
 concurrency:
-  group: ready-gated-double-double-refinement-witness
+  group: root-bound-fresh-double-double-refinement-witness
   cancel-in-progress: false
 
 jobs:
   preflight:
-    name: Preflight ${{ matrix.lane_id }}
+    name: Zero entry (${{ matrix.lane_id }})
     strategy:
       fail-fast: false
       max-parallel: 4
@@ -50,11 +50,12 @@ jobs:
     steps:
       - name: Configure canonical Git bytes on Windows before checkout
         if: runner.os == 'Windows'
+        shell: pwsh
         run: |
           git config --global core.longpaths true
           git config --global core.autocrlf false
 
-      - name: Check out the exact dispatched commit
+      - name: Check out the exact materialization commit
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           clean: true
@@ -75,7 +76,7 @@ jobs:
           --output
           "preflight-lane/${{ matrix.lane_id }}"
 
-      - name: Build and execute the zero-factor-call binding preflight
+      - name: Build only for byte identity and close the inherited 277-check seam
         run: >-
           ${{ matrix.python_command }}
           tools/prototypes/double_double_refinement_witness_throwaway/run.py
@@ -87,16 +88,101 @@ jobs:
           --lane-witness
           "preflight-lane/${{ matrix.lane_id }}/lane-identity.json"
           --output
-          "preflight-evidence/${{ matrix.lane_id }}"
+          "preflight-evidence/${{ matrix.lane_id }}/ready"
 
-      - name: Upload the immutable preflight
+      - name: Reproduce the accepted inherited controller boundary
+        run: >-
+          ${{ matrix.python_command }}
+          tools/prototypes/controller_preflight_diagnosis_throwaway/diagnose.py
+          --lane-id
+          "${{ matrix.lane_id }}"
+          --target
+          "${{ matrix.target }}"
+          --lane-witness
+          "preflight-lane/${{ matrix.lane_id }}/lane-identity.json"
+          --output
+          "preflight-evidence/${{ matrix.lane_id }}/inherited"
+          --boundary
+          ready-gated
+
+      - name: Close the 25 root-bound controls and native reproduction
+        run: >-
+          ${{ matrix.python_command }}
+          tools/prototypes/root_bound_terminal_plan_throwaway/preflight.py
+          --lane-id
+          "${{ matrix.lane_id }}"
+          --target
+          "${{ matrix.target }}"
+          --lane-witness
+          "preflight-lane/${{ matrix.lane_id }}/lane-identity.json"
+          --inherited
+          "preflight-evidence/${{ matrix.lane_id }}/inherited"
+          --output
+          "preflight-evidence/${{ matrix.lane_id }}/root-bound"
+
+      - name: Upload the immutable zero-entry lane evidence
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-ready-gated-refinement-preflight-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-root-bound-refinement-preflight-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: preflight-evidence
           if-no-files-found: error
           retention-days: 90
+
+  preflight-cohort:
+    name: Aggregate and unlock the four zero-entry lanes
+    if: always()
+    needs: [preflight]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out the exact materialization commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          clean: true
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Download this attempt's zero-entry lane evidence
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          pattern: rapidrbf-root-bound-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: preflight-evidence
+          merge-multiple: true
+
+      - name: Aggregate the accepted root-bound preflight
+        run: >-
+          python3
+          tools/prototypes/root_bound_terminal_plan_throwaway/aggregate.py
+          --evidence-root
+          preflight-evidence
+          --output
+          preflight-release/root-bound
+
+      - name: Verify all gates and emit the candidate-entry unlock
+        run: >-
+          python3
+          tools/prototypes/double_double_refinement_witness_throwaway/run.py
+          --aggregate-preflight
+          --preflight-root
+          preflight-evidence
+          --root-bound-cohort
+          preflight-release/root-bound/root-bound-preflight-cohort.json
+          --output
+          preflight-release/unlock
+
+      - name: Upload the immutable preflight release
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: rapidrbf-root-bound-refinement-preflight-release-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: preflight-release
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish the readable zero-entry result
+        if: always()
+        run: cat preflight-release/root-bound/root-bound-preflight-cohort.md >> "$GITHUB_STEP_SUMMARY"
 
   reference:
     name: Reuse the accepted candidate-independent reference
@@ -107,7 +193,7 @@ jobs:
       RUSTUP_TOOLCHAIN: "1.85.0"
       GH_TOKEN: ${{ github.token }}
     steps:
-      - name: Check out the exact dispatched commit
+      - name: Check out the exact materialization commit
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           clean: true
@@ -139,14 +225,14 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-ready-gated-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-root-bound-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: reference-evidence
           if-no-files-found: error
           retention-days: 90
 
   target:
     name: Execute ${{ matrix.lane_id }}
-    needs: [preflight, reference]
+    needs: [preflight-cohort, reference]
     strategy:
       fail-fast: false
       max-parallel: 4
@@ -179,11 +265,12 @@ jobs:
     steps:
       - name: Configure canonical Git bytes on Windows before checkout
         if: runner.os == 'Windows'
+        shell: pwsh
         run: |
           git config --global core.longpaths true
           git config --global core.autocrlf false
 
-      - name: Check out the exact dispatched commit
+      - name: Check out the exact materialization commit
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           clean: true
@@ -193,17 +280,23 @@ jobs:
       - name: Install the exact Rust toolchain
         run: rustup toolchain install 1.85.0 --profile minimal
 
-      - name: Download all four completed preflights
+      - name: Download all four zero-entry lanes
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          pattern: rapidrbf-ready-gated-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          pattern: rapidrbf-root-bound-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: preflight-cohort
           merge-multiple: true
+
+      - name: Download the preflight aggregation and candidate-entry unlock
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-root-bound-refinement-preflight-release-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: preflight-cohort/release
 
       - name: Download the accepted reference
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          name: rapidrbf-ready-gated-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-root-bound-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: reference-evidence
 
       - name: Capture and qualify the native host
@@ -225,7 +318,7 @@ jobs:
           --pattern rapidrbf-issue41-factor-qualification-input-v1.zip
           --dir qualification-input
 
-      - name: Execute all frozen profiles
+      - name: Execute all frozen profiles under the root-bound policy
         run: >-
           ${{ matrix.python_command }}
           tools/prototypes/double_double_refinement_witness_throwaway/run.py
@@ -248,19 +341,19 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-ready-gated-refinement-target-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-root-bound-refinement-target-${{ matrix.lane_id }}-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: target-evidence
           if-no-files-found: error
           retention-days: 90
 
   cohort:
-    name: Judge the non-compensating witness cohort
+    name: Judge the non-compensating root-bound cohort
     if: always()
-    needs: [preflight, reference, target]
+    needs: [preflight, preflight-cohort, reference, target]
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
-      - name: Check out the exact dispatched commit
+      - name: Check out the exact materialization commit
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           clean: true
@@ -271,23 +364,30 @@ jobs:
         continue-on-error: true
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          pattern: rapidrbf-ready-gated-refinement-target-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          pattern: rapidrbf-root-bound-refinement-target-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-evidence
           merge-multiple: true
 
-      - name: Download this attempt's preflight evidence
+      - name: Download this attempt's zero-entry evidence
         continue-on-error: true
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          pattern: rapidrbf-ready-gated-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          pattern: rapidrbf-root-bound-refinement-preflight-*-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-evidence
           merge-multiple: true
+
+      - name: Download this attempt's preflight release
+        continue-on-error: true
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: rapidrbf-root-bound-refinement-preflight-release-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: cohort-evidence/preflight-release
 
       - name: Download this attempt's accepted reference
         continue-on-error: true
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          name: rapidrbf-ready-gated-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-root-bound-refinement-reference-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-evidence/reference-evidence
 
       - name: Verify and judge the immutable cohort
@@ -305,7 +405,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: rapidrbf-ready-gated-refinement-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          name: rapidrbf-root-bound-refinement-cohort-${{ github.sha }}-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}
           path: cohort-summary
           if-no-files-found: error
           retention-days: 90
