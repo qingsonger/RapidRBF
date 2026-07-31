@@ -37,7 +37,7 @@ The cumulative scheduled corpus for medium-to-large solver stress, conditioning 
 _Avoid_: Deterministic integration matrix, million-scale hard gate, uncalibrated release judgment
 
 **Release-blocking evidence**:
-The immutable, content-addressed, pre-registered evidence closure required for publication, including every lower acceptance workload tier, tier-one clean-host journeys, the complete million-scale fit and evaluation gate, paired performance evidence, and identity, dataset, numerical, convergence, resource, packaging, and supply-chain records. Missing required evidence is a failed gate even before calibrated thresholds are applied.
+The immutable, content-addressed, pre-registered evidence closure required for publication, including every lower acceptance workload tier, the clean-host journeys and large-scale gates assigned to each platform support tier, paired performance evidence on designated hosts, and identity, dataset, numerical, convergence, resource, packaging, and supply-chain records. Missing evidence required for that platform or route is a failed gate even before calibrated thresholds are applied.
 _Avoid_: Best-effort release run, post-release evidence, unregistered benchmark
 
 **Acceptance boundary triplet**:
@@ -61,7 +61,7 @@ An immutable binding of one acceptance scenario and content-addressed fixture to
 _Avoid_: Acceptance scenario, mutable benchmark configuration, post-hoc run selection
 
 **Measurement lifecycle profile**:
-The declared reuse condition of a paired measurement plan: `Fresh process` means a new subject process and isolated scratch without claiming a cold operating-system page cache; `Declared warm-up` adds a recorded untimed precondition for each subject; and `Prepared reuse` separates preparation from the same content-addressed ordered 64-application sequence while retaining resource evidence through cleanup. Prepared reuse records cumulative logical application time at applications 1, 8, and 64, defines steady-application time as the total for applications 9 through 64 divided by 56, and gives the complete session plus symmetric preparation, first-application, and steady-application times separate non-compensating primary gates; implementation-specific internal timers remain diagnostic.
+The declared reuse condition of a paired measurement plan: `Fresh process` means a new subject process and isolated scratch without claiming a cold operating-system page cache; `Declared warm-up` adds a recorded untimed precondition for each subject; and `Prepared reuse` separates preparation from the same content-addressed ordered 64-application sequence while retaining resource evidence through cleanup. Prepared reuse records cumulative logical application time at applications 1, 8, and 64 and steady-application time for applications 9 through 64; the complete user journey retains primary judgment authority, while phase times are diagnostic or separately preregistered absolute budgets.
 _Avoid_: Cold-cache run, implicit warm state, backend-state guess
 
 **Declared warm page-cache profile**:
@@ -81,8 +81,20 @@ The immutable, versioned set of acceptance scenarios and their materialized cont
 _Avoid_: Mutable golden data, seed-only fixture, in-place benchmark rewrite
 
 **Numerical acceptance profile**:
-The named, versioned set of operation-, channel-, metric-, and scenario-specific correctness thresholds, escalation rules, and evidence requirements applied unchanged across cumulative acceptance workload tiers. A tier changes coverage, scale, execution lanes, and evidence closure, never the semantic pass/fail rule of the same scenario.
+The named, versioned set of operation-, channel-, metric-, scale-, and scenario-specific correctness thresholds, escalation rules, and evidence requirements. RapidRBF v1 governance defines the distinct `oracle-strict`, `solver-standard`, and `large-scale` profiles; changing workload coverage or execution lanes never permits candidate-driven threshold changes.
 _Avoid_: Global epsilon, tier-specific correctness, release-only tolerance
+
+**Oracle-strict acceptance profile**:
+The profile for kernels, derivatives, Hessians, small direct solves, and high-precision references. It retains the strict direct-reference ceilings frozen by `NumericalAcceptanceProfile/v1` and treats direct and high-precision authority independently of any iterative candidate.
+_Avoid_: Iterative-solver tolerance, relaxed oracle, candidate-calibrated direct reference
+
+**Solver-standard acceptance profile**:
+The profile for 1k–10k iterative-solver mechanism qualification. `2^-24` is a value-channel baseline target rather than a universal channel/platform gate; gradients use independent candidate-free calibration with an initial `2^-20` hard ceiling, while complete external value/gradient residuals, CPD, KKT, and transactional failure rules remain mandatory.
+_Avoid_: One epsilon for every channel, candidate-tuned gradient gate, recurrence-residual success
+
+**Large-scale acceptance profile**:
+The profile for 100k–1M workloads whose complete evaluator, backend, solver, and composition error ledger must fit the public fit tolerance and requested evaluation accuracy. It adds no independent global `2^-24` gate unrelated to the user's tolerance.
+_Avoid_: Scale-only correctness waiver, sampled success, tolerance-independent global epsilon
 
 **Acceptance metric role**:
 The non-substitutable purpose of a numerical acceptance metric: exact comparison owns discrete semantics, absolute infinity norm owns public accuracy and fit residuals, componentwise absolute-plus-relative comparison owns floating reference agreement, and scale-normalized metrics own dimensionless certificates. ULP, RMS, and L2 measurements are diagnostic and cannot mask a failed primary metric.
@@ -108,17 +120,25 @@ _Avoid_: Candidate-as-oracle, tolerance waiver, expected failure, blanket except
 An official RapidRBF package that requires no separately installed compiler toolchain or native numerical dependency from its user, even when its internals include a native backend.
 _Avoid_: Source-only release, system dependency
 
+**Platform support tier**:
+The release qualification role assigned to an operating-system and architecture pair. Linux x86_64 is the numerical, 100k/1M, performance, and resource authority; Windows x86_64 is Tier 1 for build, complete functionality, primary numerical coverage, and fixed-host large-scale release-candidate runs; macOS arm64 receives official artifacts and representative public-workflow numerical coverage; macOS x86_64 is optional or unsupported.
+_Avoid_: Identical workload on every platform, build-only support, cross-platform performance ratio
+
 **Tier-one platform**:
-A supported operating-system and architecture pair whose canonical release build must pass the million-scale correctness, convergence, and absolute-resource journey once through the core release harness, while each library, CLI, and Python artifact passes its own clean-host installation and public-workflow gates without repeating the core numerical corpus. The tier-one set is Windows x86_64, Linux x86_64 with glibc, macOS arm64, and macOS x86_64; performance parity is measured only on separately designated same-host Polatory/RapidRBF pairs, never by cross-platform ratios.
-_Avoid_: Best-effort platform, build-only target
+Linux x86_64 with glibc and Windows x86_64, with the distinct qualification roles defined by the platform support tier rather than an identical four-platform scale matrix.
+_Avoid_: Four-platform million gate, macOS x86_64 release blocker, identical platform role
+
+**Runner provenance**:
+The recorded hosted-runner image identity used to audit an execution without making exact image-build equality across separate jobs a qualification requirement. Reproducible jobs fix the toolchain, dependencies, target, and operating-system major version; experiments requiring an identical host run in one job or on a fixed self-hosted runner.
+_Avoid_: Cross-job runner-image equality, unrecorded hosted image, normalized host score
 
 **Million-scale workload**:
-The release-blocking set contains two 3D model/data journeys with at least one million supplied fit-point rows and one million independent evaluation targets: the frozen-ladder value-only `exp(psill=1, range=0.02)` model with identity anisotropy, degree zero, and zero nugget, and a Hermite-safe `th3(c>0) + gau` composite with distinct valid full anisotropy including shear, `AUTO` degree, non-zero nugget, 75% value rows, and 25% full-gradient rows. The first journey runs separate ordinary and incremental fits with full-data certification and million-target value evaluation, while the second runs ordinary fit and million-target value-plus-gradient evaluation; all variants advance through content-addressed lower rungs and retain scalar-equation count, accuracy, convergence, peak-memory, scratch, and thread evidence on every tier-one platform, with paired Polatory performance required only on designated same-host lanes.
+The release-blocking set contains two 3D model/data journeys with at least one million supplied fit-point rows and one million independent evaluation targets: the frozen-ladder value-only `exp(psill=1, range=0.02)` model with identity anisotropy, degree zero, and zero nugget, and a Hermite-safe `th3(c>0) + gau` composite with distinct valid full anisotropy including shear, `AUTO` degree, non-zero nugget, 75% value rows, and 25% full-gradient rows. The complete authoritative journeys run on Linux x86_64 and the fixed qualified Windows release-candidate host; macOS arm64 uses representative numerical and artifact journeys rather than repeating the million-scale gate, and macOS x86_64 does not block release.
 _Avoid_: Scalability demo, aspirational benchmark, prediction-only million case
 
 **Million-scale execution envelope**:
-The single cross-tier-one release envelope that exposes exactly eight physical performance-class cores, a fixed grant of eight computational workers, no more than sixteen live threads in the subject process tree, `64 GiB` of usable memory, and a dedicated `512 GiB` writable temporary-storage quota, together with fixed absolute wall-time, memory, and scratch limits for every million-scale workload. A larger host must be partitioned down to this envelope rather than receiving a wider allowance. Platform-native raw resource semantics remain visible; failure on any tier-one platform blocks v1.0.0, while paired Polatory ratios remain confined to designated same-host lanes.
-_Avoid_: Platform-adjusted hard gate, hardware-scaled allowance, cross-host performance ratio
+The designated large-scale release envelope exposes exactly eight physical performance-class cores, a fixed grant of eight computational workers, no more than sixteen live threads in the subject process tree, `64 GiB` of usable memory, and a dedicated `512 GiB` writable temporary-storage quota, together with fixed absolute wall-time, memory, and scratch limits. Larger Linux-authority and qualified Windows hosts are partitioned down to this envelope; other platform tiers do not inherit a million-scale obligation.
+_Avoid_: Every-platform million envelope, hardware-scaled allowance, cross-host performance ratio
 
 **Numerical compatibility**:
 Agreement with Polatory's mathematical conventions and observable numerical outcomes under explicitly defined error, residual, and convergence tolerances. It does not require bitwise-identical results, identical coefficients, or identical solver and optimizer trajectories.
@@ -161,16 +181,24 @@ One canonical RBF contribution mapping value or full-gradient source weights to 
 _Avoid_: Backend kernel, arbitrary channel map, complete interpolation operator
 
 **Projected hierarchical approximate-factor preconditioner**:
-A global right-preconditioner formed by a symmetric strong-admissibility `H^2`/IFMM-style approximate `LDL^T` of the canonical projected operator `B = Q^T A Q`, with indivisible full-gradient triplets, exact dense near fields, nested far-field bases, and recompressed fill-ins; polynomial coefficients are recovered separately through `P_top`. Restarted right-FGMRES and the complete external convergence certificate remain the solve authority.
+A global right-preconditioner formed by a symmetric strong-admissibility `H^2`/IFMM-style approximate `LDL^T` of the canonical projected operator `B = Q^T A Q`, with indivisible full-gradient triplets, exact dense near fields, nested far-field bases, and recompressed fill-ins; polynomial coefficients are recovered separately through `P_top`. It is the provisional implementation target for mixed-Hermite and strongly globally coupled workloads, not a released or qualified implementation; the specification freezes its contract and qualification gates while exact source materialization and execution occur during implementation and release qualification.
 _Avoid_: Hierarchical direct solver, spectral RAS coarse space, Krylov-only acceleration
 
 **Large-smooth adapter**:
-A private matrix-kernel adapter that may evaluate infinite-support smooth contributions and spheroidal smooth tails at accepted large scales only after semantic coverage, sound call-scoped certification, prepared-lifetime, operational-control, scale, and tier-one distribution gates all pass. Before then it is a qualification target rather than an `Auto` route.
+A private matrix-kernel adapter that may evaluate infinite-support smooth contributions and spheroidal smooth tails at accepted large scales only after semantic coverage, sound call-scoped certification, prepared-lifetime, operational-control, scale, and every gate assigned to its platform support tier pass. Before then it is a qualification target rather than an `Auto` route.
 _Avoid_: Prototype-selected backend, sampling-certified backend, quadratic direct fallback
 
 **Acceleration routing profile**:
 A named, versioned, build-specific internal decision table that deterministically selects among canonical direct, exact compact-neighbor, and eligible large-smooth routes from the kernel form, matrix-kernel action, geometry, work size, neighborhood occupancy, preparation shape, requested accuracy, and resource grant. Its calibrated crossover values are diagnostic rather than public compatibility semantics.
 _Avoid_: Global pair-count cutoff, public backend selector, unversioned routing heuristic
+
+**Solver routing profile**:
+A named, versioned, auditable internal decision table that selects a route before execution: dense direct for small systems, exact-neighbor or sparse solving for compact support, FGMRES with RAS for qualified ordinary or value-dominated workloads, and the provisional projected hierarchical approximate-factor route for mixed-Hermite or strongly globally coupled large workloads. A route may explicitly refine or return stable `AccuracyUnattainable` or `NotConverged`; observed failure never triggers a silent route change, and concrete backends or preconditioners are not stable public API.
+_Avoid_: Global solver winner, retry-driven fallback, public backend identity, post-failure route selection
+
+**Route qualification**:
+The release admission of one internal solver route only for its declared workload class under the applicable numerical, resource, operational, and platform gates. A route need not outperform or duplicate another already-qualified route outside that class, and failure blocks the affected v1 workload until an independently approved and qualified alternative exists.
+_Avoid_: Global bake-off winner, cross-class qualification, automatic threshold relaxation
 
 **Finite problem data**:
 Public problem data and concrete numerical controls reaching the RapidRBF core contain only finite values; absence and unconstrained choices are represented structurally. Legacy NaN sentinels may be translated only at migration adapters before core validation.
@@ -569,7 +597,7 @@ Stable Rust, Python, and CLI inputs and metadata that expose build identity, ran
 _Avoid_: Bitwise deterministic execution, hidden execution defaults
 
 **Performance acceptance profile**:
-The versioned, scenario-, execution-lane-, and metric-specific judgment set that requires both a same-host paired material-regression gate where paired comparison is declared and an absolute resource gate for every declared lane, with hard limits for million-scale workloads. Primary metrics are conjunctive: an improvement in one cannot offset a regression or limit breach in another, while numerical correctness and evidence closure are prerequisites rather than performance credits.
+The versioned, scenario-, execution-lane-, and metric-specific judgment set whose v1 primary hard gates are complete end-to-end user journey, peak memory, absolute time/resource ceilings, and zero cleanup residue. Same-host `1.10x` Polatory parity is an optimization target; the initial v1 end-to-end hard ceiling is `1.25x`, while phase timings, scratch writes, and internal traces are diagnostic or separately bounded by absolute budgets.
 _Avoid_: Composite benchmark score, cross-host performance ratio, compensating metric trade
 
 **Scale-tier resource gate**:
@@ -589,7 +617,7 @@ Every complete `100k` session independently finishes within `2 h`, keeps residen
 _Avoid_: Relative-only nightly case, million-sized allowance, swap-backed pass
 
 **Material regression ceiling**:
-The candidate-independent product limit for one scenario, lane, lifecycle, and primary performance metric, frozen in a performance acceptance profile before candidate evidence is observed. Null-pair noise selects repetition count or removes a host's judgment authority but never widens the ceiling, and any ceiling change creates a new profile version and requires rejudgment.
+The candidate-independent hard product limit for one scenario, lane, lifecycle, and primary performance metric, frozen in a performance acceptance profile before candidate evidence is observed. For the initial v1 end-to-end journey it is `1.25x`; `1.10x` remains the optimization target, and candidate or null-pair observations never widen either value.
 _Avoid_: Noise-sized tolerance, candidate-calibrated band, retroactive threshold
 
 **Paired performance loss**:
@@ -613,11 +641,11 @@ A preregistered collection partition that begins after a clean host restart, ide
 _Avoid_: Single-batch benchmark, one warm host state, post-hoc session split
 
 **Null-calibration guard**:
-One fresh Polatory/Polatory pair collected before candidate observations in each of three qualified epochs to revalidate an otherwise unchanged frozen null-noise calibration. The frozen calibration preregisters a simultaneous `95%` prediction envelope for all three future guard losses, every guard must fall inside it, and an envelope that would be wider than `±ln(1.10)` gives the host no judgment authority. Any guard breach invalidates the old calibration and requires a complete replacement before candidate judgment; guard results never tune the candidate or the material regression ceiling.
+One fresh Polatory/Polatory pair collected before candidate observations in each of three qualified epochs to revalidate an otherwise unchanged frozen null-noise calibration. The frozen calibration preregisters a simultaneous `95%` prediction envelope for all three future guard losses, every guard must fall inside it, and an envelope wider than the registered hard performance ceiling gives the host no judgment authority. Any guard breach invalidates the old calibration and requires a complete replacement before candidate judgment; guard results never tune the candidate or the material regression ceiling.
 _Avoid_: Candidate-assisted calibration, stale null reuse, post-result revalidation
 
 **Performance host identity**:
-The content-addressed hardware, firmware, operating-system, toolchain, runtime, power-policy, topology, storage, and measurement-controller configuration that owns one same-host performance history. A constrained-field change creates a new identity and requires new calibration rather than score normalization; dynamic temperature, frequency, and background-load evidence only qualifies individual sessions.
+The content-addressed hardware, firmware, operating-system, toolchain, runtime, power-policy, topology, storage, and measurement-controller configuration that owns one same-host performance history. A constrained field change creates a new identity and requires new calibration rather than score normalization; hosted runner-image build IDs are provenance unless the experiment explicitly binds one same-job host, and dynamic temperature, frequency, and background-load evidence qualify individual sessions.
 _Avoid_: Normalized runner score, cross-host correction factor, silently upgraded host
 
 **Dynamic host qualification**:
@@ -625,7 +653,7 @@ The external audit gate that requires no more than `2%` non-controller CPU busy 
 _Avoid_: Temperature normalization, busy shared runner, post-hoc host excuse
 
 **Audit-invalid measurement attempt**:
-A planned performance attempt invalidated only by preregistered external evidence-closure failure, such as host qualification, controller or instrumentation, identity, fixture, affinity, or paired-order failure, irrespective of the observed performance value. At most two preregistered replacement pairs are allowed; a third invalid pair makes the plan `INVALID, UNJUDGED` and requires a newly identified plan after host requalification, while a slow observation or subject-owned timeout, resource breach, crash, cleanup failure, numerical failure, or terminal-state failure remains a valid failed result.
+A planned performance attempt invalidated only by preregistered external evidence-closure failure, such as runner, network, workflow, artifact transport, host qualification, controller, verifier, instrumentation, identity, affinity, or paired-order failure, irrespective of the observed performance value. At most two controlled replacements are allowed only with the candidate, fixture, thresholds, and plan unchanged; every attempt remains append-only, while a slow observation or subject-owned timeout, resource breach, crash, cleanup failure, numerical failure, cancellation, or terminal-state failure remains a valid failed result.
 _Avoid_: Performance outlier, retriable subject failure, discarded bad run
 
 **Canonical performance completion**:
@@ -633,31 +661,31 @@ Every planned RapidRBF subject slot in a canonical performance plan completes wi
 _Avoid_: Majority pass, tolerated benchmark failure, candidate wins by baseline crash
 
 **Operational reliability gate**:
-Every tier-one platform completes `3,000` preregistered, content-addressed, independent reliability-stress trials with an exact one-sided `95%` binomial upper confidence bound on the unexpected-failure probability no greater than `0.1%`. This requires zero observed unexpected failures at that trial count; crashes, timeouts, numerical failures, resource breaches, and cleanup failures all count, while the gate never supplies an allowance to canonical performance slots.
-_Avoid_: Relative Polatory failure rate, best-effort stress, canonical failure allowance
+Reliability is layered: PR runs a bounded canary set, Nightly runs 100–300 preregistered repetitions, and release qualification runs the registered workload on fixed qualified hosts. Valid candidate numerical, resource, cancellation, product, or cleanup failures are never retried into success; infrastructure failures may receive at most two unchanged replacement executions, with every attempt retained.
+_Avoid_: Uniform 3,000-run platform gate, run-until-pass, discarded infrastructure attempt
 
 **Canonical subject wall time**:
 The monotonic end-to-end elapsed time across the common controller-contained subject-adapter boundary, from invocation or process-tree creation through complete result materialization and normal process-tree exit. It includes startup, parsing, adaptation, computation, and subject-owned cleanup but excludes fixture creation, host preflight, evidence hashing, and controller-owned cleanup; fixed-work throughput is only its reciprocal presentation and cannot produce a separate judgment.
 _Avoid_: Kernel-only timing, asymmetric core timer, throughput double gate
 
 **Wall-time parity**:
-Every canonical complete-session and symmetric logical-phase wall-time metric requires the exact one-sided 95% upper confidence bound on median paired loss to be at most `ln(1.10)`; a scenario may tighten but never widen this ceiling. Short operations use a preregistered fixed batch inside one subject slot when needed for measurement power, while million-scale workloads also pass their absolute time gate.
-_Avoid_: Best-time ratio, noise-widened runtime band, unbatched timer noise
+Every canonical complete user journey subject to same-host comparison requires its exact one-sided 95% upper confidence bound on median paired loss to be at most `ln(1.25)` for the initial v1 gate, with `ln(1.10)` retained as the optimization target. Logical-phase timings remain diagnostic unless a separately preregistered absolute budget applies; million-scale workloads also pass their absolute time gates.
+_Avoid_: Best-time ratio, phase-by-phase 10% veto, unbatched timer noise
 
 **Million-scale wall-time gate**:
 Every million-scale workload variant independently passes noncompensating absolute wall-time limits for fitting, full-data certification, million-target evaluation, and the complete end-to-end journey. A fast phase cannot offset a slow phase, and the complete-journey limit remains an additional bound rather than the sum being accepted implicitly.
 _Avoid_: Total-time-only gate, phase compensation, throughput extrapolation
 
 **Ordinary value-only million time gate**:
-Under the common eight-worker million-scale execution envelope, the ordinary value-only `exp` journey independently completes fitting within `4 h`, full-data certification within `30 min`, million-target value evaluation within `1 h`, and the complete end-to-end journey within `6 h` on every tier-one platform.
+Under the common eight-worker million-scale execution envelope, the ordinary value-only `exp` journey independently completes fitting within `4 h`, full-data certification within `30 min`, million-target value evaluation within `1 h`, and the complete end-to-end journey within `6 h` on every designated large-scale qualification host.
 _Avoid_: Platform-specific timeout, extrapolated million timing, phase-averaged pass
 
 **Incremental value-only million time gate**:
-Under the common eight-worker million-scale execution envelope, the incremental value-only `exp` journey independently completes incremental fitting within `8 h`, full-data certification within `30 min`, million-target value evaluation within `1 h`, and the complete end-to-end journey within `10 h` on every tier-one platform.
+Under the common eight-worker million-scale execution envelope, the incremental value-only `exp` journey independently completes incremental fitting within `8 h`, full-data certification within `30 min`, million-target value evaluation within `1 h`, and the complete end-to-end journey within `10 h` on every designated large-scale qualification host.
 _Avoid_: Unbounded incremental build, platform-specific timeout, ordinary-fit waiver
 
 **Mixed-Hermite million time gate**:
-Under the common eight-worker million-scale execution envelope, the ordinary mixed-Hermite `th3 + gau` journey independently completes fitting within `8 h`, full-data certification within `1 h`, million-target value-plus-gradient evaluation within `2 h`, and the complete end-to-end journey within `12 h` on every tier-one platform.
+Under the common eight-worker million-scale execution envelope, the ordinary mixed-Hermite `th3 + gau` journey independently completes fitting within `8 h`, full-data certification within `1 h`, million-target value-plus-gradient evaluation within `2 h`, and the complete end-to-end journey within `12 h` on every designated large-scale qualification host.
 _Avoid_: Value-only timing proxy, platform-specific timeout, omitted gradient output
 
 **Observable reuse performance**:
@@ -673,20 +701,20 @@ The non-substitutable process-tree memory evidence consists of a platform-native
 _Avoid_: Generic peak RSS, cross-platform memory ratio, resident-only capacity claim
 
 **Memory parity**:
-Every valid measurement session independently keeps both its resident high-water and private or committed-capacity high-water at or below `1.10` times the paired Polatory value; a scenario may tighten but never widen either ceiling. Every million-scale lane also passes the common cross-tier-one absolute memory limits in the million-scale execution envelope.
-_Avoid_: Median memory pass, compensating memory channel, relative-only million gate
+Peak memory is a primary hard gate: every valid measurement session independently keeps both its resident high-water and private or committed-capacity high-water within their versioned absolute ceilings and any separately preregistered route-specific paired ceiling. Same-host `1.10x` is an optimization target rather than a universal memory veto; memory channels and lanes do not compensate for one another.
+_Avoid_: Median memory pass, compensating memory channel, relative-only large-scale gate
 
 **Million-scale memory gate**:
-Every million-scale workload variant on every tier-one platform independently keeps the subject process tree's platform-native resident high-water at or below `48 GiB`, its private or committed-capacity high-water at or below `56 GiB`, and session-attributable swap growth at exactly zero. The channels do not average or compensate for one another.
-_Avoid_: Host-sized memory limit, averaged platform pass, swap-tolerant completion
+Every million-scale workload variant on each designated large-scale qualification host independently keeps the subject process tree's platform-native resident high-water at or below `48 GiB`, its private or committed-capacity high-water at or below `56 GiB`, and session-attributable swap growth at exactly zero. The channels do not average or compensate for one another.
+_Avoid_: Host-sized memory limit, averaged host pass, swap-tolerant completion
 
 **Capacity resource gate**:
-Every valid measurement session independently satisfies both its same-host paired regression ceiling and absolute ceiling for each applicable memory and temporary-storage high-water channel; results are never aggregated into a typical-resource pass. A zero baseline uses a preregistered absolute byte increment rather than an undefined or inflated ratio.
+Every valid measurement session independently satisfies the same-host paired peak-memory ceiling where declared and the absolute ceiling for each applicable memory and temporary-storage high-water channel; results are never aggregated into a typical-resource pass. Scratch writes are diagnostic unless a preregistered absolute budget applies, and cleanup residue remains a zero-tolerance hard gate.
 _Avoid_: Median capacity pass, averaged peak memory, zero-denominator ratio
 
 **Temporary storage acceptance**:
-The primary scratch evidence for each subject is the dedicated volume's live occupancy high-water, cumulative bytes written, and complete post-session cleanup, including delete-on-close or unlinked-open files measured while the process tree is alive. Every valid session keeps each primary byte channel at or below `1.10` times a nonzero paired baseline, or at most `min(64 MiB, 1% of the scenario's absolute scratch ceiling)` when that baseline is zero; read bytes, operation counts, wait time, and file layout remain diagnostic unless a separately declared resource grant bounds them.
-_Avoid_: Post-exit directory size, undeclared temporary file, I/O-layout compatibility
+The primary scratch evidence for each subject is the dedicated volume's live occupancy high-water, cumulative bytes written, and complete post-session cleanup, including delete-on-close or unlinked-open files measured while the process tree is alive. Live occupancy and writes obey preregistered absolute budgets, writes and phase traces are otherwise diagnostic, and normal-exit residue is exactly zero; read bytes, operation counts, wait time, and file layout remain diagnostic unless a separate resource grant bounds them.
+_Avoid_: Post-exit directory size, universal 10% scratch ratio, undeclared temporary file
 
 **Million-scale scratch gate**:
 Every million-scale workload variant independently keeps live subject scratch occupancy at or below `256 GiB`, cumulative subject scratch writes at or below `1 TiB`, and normal-exit residue at exactly zero files, zero bytes, and zero open handles. These limits bind inside the dedicated `512 GiB` quota and cannot compensate for one another.
@@ -721,11 +749,11 @@ The v1.0.0 published `.crate` is at most `8 MiB` and its clean expanded source f
 _Avoid_: Binary-vendored crate, benchmark corpus in crate, target-specific source package
 
 **CLI artifact size budget**:
-Each v1.0.0 tier-one target's stripped compressed CLI package is at most `64 MiB`, its clean installed footprint at most `192 MiB`, and its bundled runtime closure at most `128 MiB`, including required licenses, SBOM, and configuration. Optional debug symbols are separate and cannot carry required runtime content.
+Each v1.0.0 official binary target's stripped compressed CLI package is at most `64 MiB`, its clean installed footprint at most `192 MiB`, and its bundled runtime closure at most `128 MiB`, including required licenses, SBOM, and configuration. Optional debug symbols are separate and cannot carry required runtime content.
 _Avoid_: Shared cross-target budget, MKL-sized closure, runtime hidden in symbols
 
 **Wheel artifact size budget**:
-Each v1.0.0 CPython and tier-one target wheel is at most `80 MiB`, its clean RapidRBF-owned installed footprint at most `240 MiB`, and its bundled runtime closure at most `160 MiB`; separately declared shared Python dependencies are excluded, while any native file extracted or copied from the wheel remains included. Optional debug symbols are separate and cannot carry required runtime content.
+Each v1.0.0 CPython and official wheel target is at most `80 MiB`, its clean RapidRBF-owned installed footprint at most `240 MiB`, and its bundled runtime closure at most `160 MiB`; separately declared shared Python dependencies are excluded, while any native file extracted or copied from the wheel remains included. Optional debug symbols are separate and cannot carry required runtime content.
 _Avoid_: Aggregate wheel budget, extracted-library omission, dependency double count
 
 **Source-distribution size budget**:
@@ -745,5 +773,5 @@ Preservation of Polatory command names, option meanings, exit behavior, and tabu
 _Avoid_: `polatory` executable replacement, unrelated CLI
 
 **Official release set**:
-The v1.0.0 artifacts whose successful publication is release-blocking: the stable Rust library, tier-one prebuilt CLI binaries, tier-one CPython wheels, and a source distribution with license inventory, SBOM, and checksums.
+The v1.0.0 artifacts whose successful publication is release-blocking: the stable Rust library, prebuilt CLI binaries and CPython wheels for every official release target, and a source distribution with license inventory, SBOM, and checksums.
 _Avoid_: Source-only release, package-manager availability
