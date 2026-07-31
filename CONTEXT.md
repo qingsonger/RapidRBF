@@ -89,8 +89,8 @@ The profile for kernels, derivatives, Hessians, small direct solves, and high-pr
 _Avoid_: Iterative-solver tolerance, relaxed oracle, candidate-calibrated direct reference
 
 **Solver-standard acceptance profile**:
-The profile for 1k–10k iterative-solver mechanism qualification. `2^-24` is a value-channel baseline target rather than a universal channel/platform gate; gradients use independent candidate-free calibration with an initial `2^-20` hard ceiling, while complete external value/gradient residuals, CPD, KKT, and transactional failure rules remain mandatory.
-_Avoid_: One epsilon for every channel, candidate-tuned gradient gate, recurrence-residual success
+The profile for registered 1k–10k iterative-route qualification scenarios whose candidate-independent thresholds are frozen before execution, with value no wider than `2^-24` and gradient no wider than `2^-20`; a scenario may be stricter, but a route that cannot produce its complete external certificate within those ceilings is unqualified for that workload class. These internal qualification gates never replace a real user call's declared fit tolerance or evaluation accuracy, and complete external residuals, CPD, KKT, and transactional failure remain mandatory.
+_Avoid_: User-tolerance replacement, candidate-tuned gate, recurrence-residual success
 
 **Large-scale acceptance profile**:
 The profile for 100k–1M workloads whose complete evaluator, backend, solver, and composition error ledger must fit the public fit tolerance and requested evaluation accuracy. It adds no independent global `2^-24` gate unrelated to the user's tolerance.
@@ -661,8 +661,8 @@ Every planned RapidRBF subject slot in a canonical performance plan completes wi
 _Avoid_: Majority pass, tolerated benchmark failure, candidate wins by baseline crash
 
 **Operational reliability gate**:
-Reliability is layered: PR runs a bounded canary set, Nightly runs 100–300 preregistered repetitions, and release qualification runs the registered workload on fixed qualified hosts. Valid candidate numerical, resource, cancellation, product, or cleanup failures are never retried into success; infrastructure failures may receive at most two unchanged replacement executions, with every attempt retained.
-_Avoid_: Uniform 3,000-run platform gate, run-until-pass, discarded infrastructure attempt
+Reliability coverage is layered through bounded PR canaries, Nightly 100–300 preregistered repetitions, and registered fixed-host release qualification; those counts do not themselves establish statistical passage. The versioned reliability adjudication defines unexpected product failure, expected negative outcomes, and release qualification, while only infrastructure-invalid attempts may receive at most two fully unchanged replacements and every attempt remains retained without favorable selection or observation mixing.
+_Avoid_: Uniform 3,000-run platform gate, count-equals-pass, run-until-pass
 
 **Canonical subject wall time**:
 The monotonic end-to-end elapsed time across the common controller-contained subject-adapter boundary, from invocation or process-tree creation through complete result materialization and normal process-tree exit. It includes startup, parsing, adaptation, computation, and subject-owned cleanup but excludes fixture creation, host preflight, evidence hashing, and controller-owned cleanup; fixed-work throughput is only its reciprocal presentation and cannot produce a separate judgment.
@@ -741,8 +741,8 @@ Process-tree user and system CPU time plus non-scratch input bytes, I/O operatio
 _Avoid_: Missing CPU evidence, cross-platform I/O parity, duplicate efficiency gate
 
 **Artifact size acceptance**:
-Each stripped Rust crate, target-specific CLI archive, CPython wheel, and source distribution independently passes absolute budgets for its published-file bytes, clean installed footprint, and bundled runtime-closure bytes and, after v1.0.0, an exact `1.10` relative ceiling against the previous accepted RapidRBF artifact of the same kind, target, and channel. Polatory's unlike dependency closure is not a size baseline, the first v1.0.0 artifacts use only preregistered absolute budgets, separate debug-symbol packages cannot hide required runtime content, and one artifact or channel cannot compensate for another.
-_Avoid_: Polatory package ratio, aggregate release size pass, cross-target compensation
+Each v1.0.0 Rust crate, official CLI archive, official CPython wheel, and source distribution independently passes its absolute published-file, installed-footprint, and runtime-closure budgets as hard release gates. After v1.0.0, growth above `1.10x` the previous accepted artifact of the same kind, target, and channel triggers explicit review rather than automatic failure; exceeding an absolute budget or lacking approval for triggered growth blocks release, and required runtime content cannot hide in debug packages, deferred downloads, or uncounted runtime closure.
+_Avoid_: Relative-growth auto-failure, unreviewed growth, hidden runtime content
 
 **Rust crate size budget**:
 The v1.0.0 published `.crate` is at most `8 MiB` and its clean expanded source footprint at most `32 MiB`; target-specific prebuilt runtime libraries are structurally inapplicable rather than chargeable to this portable source artifact.

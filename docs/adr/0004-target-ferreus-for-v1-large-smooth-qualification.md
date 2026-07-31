@@ -1,3 +1,5 @@
 # Target Ferreus for v1 large-smooth qualification
 
+> Superseded in part by [ADR 0006](./0006-adopt-wayfinder-scope-and-acceptance-governance-v2.md): identical four-platform qualification, macOS x86_64 release blocking, and million-scale gates on every platform no longer apply. The mathematical, functional, route-set, and historical experimental basis below remains authoritative.
+
 RapidRBF will qualify a scalar-radial, Ferreus-derived private adapter as the sole v1 large-smooth qualification target alongside the required canonical direct and exact compact-neighbor routes. This designation is not production approval: the adapter may enter `Auto` only after complete semantic, sound-certification, prepared-lifetime, operational-control, scale, and tier-one distribution gates pass, with deterministic crossover chosen by a versioned build-specific acceleration routing profile. KiFMM and pinned ScalFMM3 remain outside the v1 candidate set, and failure to qualify the Ferreus-derived route on any tier-one platform blocks v1 rather than permitting an uncertified, platform-specific, or quadratic-direct substitute.
