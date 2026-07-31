@@ -120,6 +120,10 @@ _Avoid_: Candidate-as-oracle, tolerance waiver, expected failure, blanket except
 An official RapidRBF package that requires no separately installed compiler toolchain or native numerical dependency from its user, even when its internals include a native backend.
 _Avoid_: Source-only release, system dependency
 
+**Dependency admission boundary**:
+The v1 rule that RapidRBF owns its public and semantic boundaries and uses pure-Rust dependencies by default; a native dependency is admitted only as a private, replaceable, pinned, self-contained exception when no Rust route can pass the unchanged capability and release gates. Strong-copyleft runtime dependencies and runtime-downloaded components are excluded from official artifacts, while every admitted dependency remains inside the locked SBOM, notice, security, portability, reproducibility, and artifact-size closure.
+_Avoid_: Library-name fidelity, public backend type, undeclared native fallback, runtime dependency download
+
 **Platform support tier**:
 The release qualification role assigned to an operating-system and architecture pair. Linux x86_64 is the numerical, 100k/1M, performance, and resource authority; Windows x86_64 is Tier 1 for build, complete functionality, primary numerical coverage, and fixed-host large-scale release-candidate runs; macOS arm64 receives official artifacts and representative public-workflow numerical coverage; macOS x86_64 is optional or unsupported.
 _Avoid_: Identical workload on every platform, build-only support, cross-platform performance ratio
