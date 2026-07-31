@@ -1,0 +1,11 @@
+[package]
+name = "rapidrbf-rust-public-api-prototype"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[lib]
+name = "rapidrbf_rust_public_api_prototype"
+path = "src/lib.rs"
+
+[dependencies]
