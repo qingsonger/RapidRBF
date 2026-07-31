@@ -160,6 +160,10 @@ _Avoid_: Fuzzy branch boundary, bitwise boundary replay
 One canonical RBF contribution mapping value or full-gradient source weights to value or full-gradient targets as value `A`, source-gradient `F`, target-gradient `F^T`, or Hessian `H`, with derivative signs, component order, and self-interaction semantics fixed by the numerical contract. It excludes nugget, polynomial blocks, and solver behavior.
 _Avoid_: Backend kernel, arbitrary channel map, complete interpolation operator
 
+**Projected hierarchical approximate-factor preconditioner**:
+A global right-preconditioner formed by a symmetric strong-admissibility `H^2`/IFMM-style approximate `LDL^T` of the canonical projected operator `B = Q^T A Q`, with indivisible full-gradient triplets, exact dense near fields, nested far-field bases, and recompressed fill-ins; polynomial coefficients are recovered separately through `P_top`. Restarted right-FGMRES and the complete external convergence certificate remain the solve authority.
+_Avoid_: Hierarchical direct solver, spectral RAS coarse space, Krylov-only acceleration
+
 **Large-smooth adapter**:
 A private matrix-kernel adapter that may evaluate infinite-support smooth contributions and spheroidal smooth tails at accepted large scales only after semantic coverage, sound call-scoped certification, prepared-lifetime, operational-control, scale, and tier-one distribution gates all pass. Before then it is a qualification target rather than an `Auto` route.
 _Avoid_: Prototype-selected backend, sampling-certified backend, quadratic direct fallback
